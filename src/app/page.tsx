@@ -5,7 +5,7 @@ import Process from '@/components/sections/Process';
 import WhyUs from '@/components/sections/WhyUs';
 import Impact from '@/components/sections/Impact';
 import CTABanner from '@/components/sections/CTABanner';
-import ContactForm from '@/components/sections/ContactForm';
+import ContactIntake from '@/components/sections/ContactIntake';
 
 export default function HomePage() {
   return (
@@ -17,7 +17,7 @@ export default function HomePage() {
       <WhyUs />
       <Impact />
       <CTABanner />
-      <ContactForm />
+      <ContactIntake />
     </>
   );
 }
