@@ -30,7 +30,11 @@ export default function TeamLeadEmail({ profile, transcript }: Props) {
         <Container style={{ background: '#ffffff', borderRadius: '12px', padding: '32px', maxWidth: '640px' }}>
           <Heading style={heading}>New qualified lead</Heading>
           <Text style={value}>
-            <strong>{profile.firstName} {profile.lastName}</strong> — {profile.role} at <strong>{profile.company}</strong> ({profile.industry})
+            <strong>
+              {profile.firstName} {profile.lastName}
+            </strong>
+            {profile.role ? <> — {profile.role}</> : null} at{' '}
+            <strong>{profile.company}</strong> ({profile.industry})
           </Text>
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
@@ -38,20 +42,22 @@ export default function TeamLeadEmail({ profile, transcript }: Props) {
             <Text style={label}>Email</Text>
             <Text style={value}>{profile.email}</Text>
 
-            <Text style={label}>Problem</Text>
+            <Text style={label}>Core problem</Text>
             <Text style={value}>{profile.problem}</Text>
 
-            <Text style={label}>Pain points</Text>
-            <Text style={value}>
-              {profile.painPoints.length === 0
-                ? '—'
-                : profile.painPoints.map((p, i) => (
+            {profile.painPoints && profile.painPoints.length > 0 ? (
+              <>
+                <Text style={label}>Pain points</Text>
+                <Text style={value}>
+                  {profile.painPoints.map((p, i) => (
                     <span key={i}>
                       • {p}
                       <br />
                     </span>
                   ))}
-            </Text>
+                </Text>
+              </>
+            ) : null}
 
             <Text style={label}>Desired outcome</Text>
             <Text style={value}>{profile.desiredOutcome}</Text>

@@ -38,7 +38,7 @@ const OPENING_MESSAGE: DisplayMessage = {
   id: 'opening',
   role: 'assistant',
   content:
-    "Hi — I'm the Traq intake. Mind if I ask a few quick questions so the team shows up to our first call already up to speed?\n\nLet's start with the basics: what's your name?",
+    "Hi — I'm the Traq intake. Mind if I ask a few quick questions so the team shows up to our first call already up to speed?\n\nLet's start with the basics: what's your full name?",
 };
 
 type ChoiceSet = { options: string[]; allowMultiple: boolean };
@@ -50,7 +50,7 @@ const FIELD_LABELS: Record<keyof LeadProfile, string> = {
   role: 'Role',
   company: 'Company',
   industry: 'Industry',
-  problem: 'Problem',
+  problem: 'Core problem',
   painPoints: 'Pain points',
   desiredOutcome: 'Desired outcome',
   servicesOfInterest: 'Services of interest',
@@ -695,28 +695,21 @@ type ReviewPanelProps = {
 
 function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps) {
   const [draft, setDraft] = useState<PartialLeadProfile>(profile);
-  const [bulletsText, setBulletsText] = useState<string>(
-    (profile.painPoints ?? []).join('\n'),
-  );
 
   useEffect(() => {
     setDraft(profile);
-    setBulletsText((profile.painPoints ?? []).join('\n'));
   }, [profile]);
 
   const missing = useMemo(
     () =>
       REQUIRED_FIELDS.filter((f) => {
-        if (f === 'painPoints') {
-          return bulletsText.split('\n').map((l) => l.trim()).filter(Boolean).length === 0;
-        }
         const v = draft[f];
         if (v === undefined || v === null) return true;
         if (typeof v === 'string') return v.trim() === '';
         if (Array.isArray(v)) return v.length === 0;
         return false;
       }),
-    [draft, bulletsText],
+    [draft],
   );
 
   const updateField = <K extends keyof LeadProfile>(key: K, value: LeadProfile[K]) => {
@@ -737,8 +730,7 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const bullets = bulletsText.split('\n').map((l) => l.trim()).filter(Boolean);
-    onSubmit({ ...draft, painPoints: bullets });
+    onSubmit(draft);
   };
 
   return (
@@ -783,11 +775,6 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
           onChange={(v) => updateField('email', v)}
         />
         <TextField
-          label="Role"
-          value={draft.role ?? ''}
-          onChange={(v) => updateField('role', v)}
-        />
-        <TextField
           label="Company"
           value={draft.company ?? ''}
           onChange={(v) => updateField('company', v)}
@@ -800,21 +787,11 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
       </div>
 
       <div className="mt-5">
-        <label className={LABEL_BASE}>Problem</label>
-        <textarea
-          rows={3}
-          value={draft.problem ?? ''}
-          onChange={(e) => updateField('problem', e.target.value)}
-          className={cn(INPUT_BASE, 'mt-2 resize-none')}
-        />
-      </div>
-
-      <div className="mt-5">
-        <label className={LABEL_BASE}>Pain points (one per line)</label>
+        <label className={LABEL_BASE}>Core problem</label>
         <textarea
           rows={4}
-          value={bulletsText}
-          onChange={(e) => setBulletsText(e.target.value)}
+          value={draft.problem ?? ''}
+          onChange={(e) => updateField('problem', e.target.value)}
           className={cn(INPUT_BASE, 'mt-2 resize-none')}
         />
       </div>

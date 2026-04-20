@@ -38,7 +38,8 @@ export default function LeadConfirmationEmail({ profile, callbackWindow = 'withi
           <Section>
             <Text style={label}>Who</Text>
             <Text style={value}>
-              {profile.firstName} {profile.lastName}, {profile.role} at {profile.company}
+              {profile.firstName} {profile.lastName}
+              {profile.role ? `, ${profile.role}` : ''} at {profile.company}
             </Text>
 
             <Text style={label}>Problem</Text>

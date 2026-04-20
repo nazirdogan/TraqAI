@@ -270,8 +270,8 @@ export const SERVICE_DROPDOWN_OPTIONS = [
 export const COMPANY = {
   name: 'Traq Collective',
   email: 'hello@traqcollective.com',
-  phone: '+1 (555) 018-4412',
-  whatsapp: '+1 (555) 018-4412',
+  phone: '+971 50 868 7196',
+  whatsapp: '+971 50 868 7196',
   location: 'Remote-first · Global delivery',
   tagline: 'We wire AI into how your business actually works.',
 };
