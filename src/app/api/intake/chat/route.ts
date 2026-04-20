@@ -61,39 +61,36 @@ export async function POST(request: Request) {
 
       try {
         const anthropic = anthropicClient();
-        const response = anthropic.messages.stream({
+        const conversation = parsed.messages.map((m) => ({ role: m.role, content: m.content }));
+
+        const firstPass = anthropic.messages.stream({
           model: INTAKE_MODEL,
           max_tokens: 1024,
           system: [
-            {
-              type: 'text',
-              text: SYSTEM_PROMPT,
-              cache_control: { type: 'ephemeral' },
-            },
+            { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
           ],
           tools: [UPDATE_LEAD_PROFILE_TOOL],
-          messages: parsed.messages.map((m) => ({ role: m.role, content: m.content })),
+          messages: conversation,
         });
 
-        for await (const event of response) {
-          if (event.type === 'content_block_delta') {
-            const delta = event.delta;
-            if (delta.type === 'text_delta') {
-              send('text', { delta: delta.text });
-            }
+        for await (const event of firstPass) {
+          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+            send('text', { delta: event.delta.text });
           }
         }
 
-        const final = await response.finalMessage();
+        const firstFinal = await firstPass.finalMessage();
 
         let assistantText = '';
         let fields: Record<string, unknown> | null = null;
         let readyToSubmit = false;
+        let toolUseId: string | null = null;
 
-        for (const block of final.content) {
+        for (const block of firstFinal.content) {
           if (block.type === 'text') {
             assistantText += block.text;
           } else if (block.type === 'tool_use' && block.name === 'update_lead_profile') {
+            toolUseId = block.id;
             const input = (block.input ?? {}) as Record<string, unknown>;
             const { readyToSubmit: rts, ...rest } = input;
             if (rts === true) readyToSubmit = true;
@@ -105,11 +102,63 @@ export async function POST(request: Request) {
           send('fields', fields);
         }
 
+        // If the model stopped on a tool_use, the visible reply was truncated.
+        // Do a second streaming pass with the tool_result acknowledged so Claude
+        // can finish with the follow-up question.
+        if (firstFinal.stop_reason === 'tool_use' && toolUseId) {
+          const secondPass = anthropic.messages.stream({
+            model: INTAKE_MODEL,
+            max_tokens: 1024,
+            system: [
+              { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
+            ],
+            tools: [UPDATE_LEAD_PROFILE_TOOL],
+            messages: [
+              ...conversation,
+              { role: 'assistant', content: firstFinal.content },
+              {
+                role: 'user',
+                content: [
+                  {
+                    type: 'tool_result',
+                    tool_use_id: toolUseId,
+                    content: 'recorded',
+                  },
+                ],
+              },
+            ],
+          });
+
+          for await (const event of secondPass) {
+            if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+              send('text', { delta: event.delta.text });
+            }
+          }
+
+          const secondFinal = await secondPass.finalMessage();
+          for (const block of secondFinal.content) {
+            if (block.type === 'text') {
+              assistantText += block.text;
+            } else if (
+              block.type === 'tool_use' &&
+              block.name === 'update_lead_profile'
+            ) {
+              const input = (block.input ?? {}) as Record<string, unknown>;
+              const { readyToSubmit: rts, ...rest } = input;
+              if (rts === true) readyToSubmit = true;
+              if (Object.keys(rest).length > 0) {
+                send('fields', rest);
+                fields = { ...(fields ?? {}), ...rest };
+              }
+            }
+          }
+        }
+
         send('final', {
           assistantText,
           fields: fields ?? {},
           readyToSubmit,
-          usage: final.usage,
+          usage: firstFinal.usage,
         });
         send('done', {});
         controller.close();
