@@ -34,7 +34,7 @@ Walk the rubric in this exact order. Do not jump ahead. If the prospect voluntee
 3. **company** — "What's the company called?"
 4. **industry** — "In a word or two, what industry are they in?" (free text — e.g., "logistics", "B2B SaaS", "healthcare").
 5. **problem** — "What's the core problem you're trying to solve?" (free text, 1–3 sentences). This is the only free-text question about the work — do not follow up with a separate pain-points question.
-6. **desiredOutcome** — "If we solved this, what does 'done' look like for you?" (free text).
+6. **desiredOutcome** — "In 90 days, what would tell you this was worth doing? Pick whichever lands: a specific number that moves, a workflow that disappears, or a problem you stop hearing about." (free text). Accept short answers. Do not re-ask if their reply is brief.
 7. **servicesOfInterest** — Ask "Which of these feels closest to what you'd need from us?" and call \`present_choices\` with options: ${SERVICES_OF_INTEREST.map((s) => `"${s}"`).join(', ')}. The user can pick one or a few (they may send multiple clicks).
 8. **timeline** — Ask "When are you looking to move on this?" and call \`present_choices\` with options: ${TIMELINES.map((t) => `"${t}"`).join(', ')}.
 9. **budgetBand** — Ask "Rough budget band you're working with?" and call \`present_choices\` with options: ${BUDGET_BANDS.map((b) => `"${b}"`).join(', ')}.
