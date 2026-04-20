@@ -9,8 +9,10 @@ import {
   Globe,
   Loader2,
   Mail,
+  MessageSquare,
   Phone,
   Sparkles,
+  SquarePen,
 } from 'lucide-react';
 import FadeUp from '@/components/ui/FadeUp';
 import Tag from '@/components/ui/Tag';
@@ -24,8 +26,10 @@ import {
   type ChatMessage,
   type LeadProfile,
   type PartialLeadProfile,
+  type QuickIntake,
 } from '@/lib/intake/types';
 
+type Mode = 'quick' | 'chat';
 type Phase = 'chat' | 'review' | 'submitting' | 'success' | 'error';
 
 type DisplayMessage = ChatMessage & { id: string; streaming?: boolean };
@@ -79,6 +83,7 @@ export default function ContactIntake() {
   const [turnstileToken, setTurnstileToken] = useState<string>('');
   const turnstileRequired = Boolean(turnstileSiteKey);
 
+  const [mode, setMode] = useState<Mode>('quick');
   const [phase, setPhase] = useState<Phase>('chat');
   const [messages, setMessages] = useState<DisplayMessage[]>([OPENING_MESSAGE]);
   const [profile, setProfile] = useState<PartialLeadProfile>({});
@@ -304,8 +309,8 @@ export default function ContactIntake() {
             <span className="text-gradient">We&rsquo;ll tell you what&rsquo;s actually possible.</span>
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
-            Chat with our AI intake for two minutes. By the time you&rsquo;re done, a Traq
-            specialist has the full brief and calls you back within the hour.
+            Send us the basics in 30 seconds — or chat it through with our AI intake for a
+            richer brief. Either way, a Traq specialist calls you back within the hour.
           </p>
 
           <ul className="mt-10 space-y-5">
@@ -348,38 +353,44 @@ export default function ContactIntake() {
             </li>
           </ul>
 
-          <div className="mt-10 rounded-2xl border border-border-subtle bg-bg-card/60 p-5">
-            <p className={LABEL_BASE}>What we&rsquo;ll capture</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {REQUIRED_FIELDS.map((f) => {
-                const v = profile[f];
-                const filled =
-                  v !== undefined &&
-                  v !== null &&
-                  (typeof v === 'string' ? v.trim().length > 0 : Array.isArray(v) ? v.length > 0 : true);
-                return (
-                  <span
-                    key={f}
-                    className={cn(
-                      'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px]',
-                      filled
-                        ? 'border-traq-purple/40 bg-traq-purple/15 text-white'
-                        : 'border-white/10 bg-white/[0.03] text-white/50',
-                    )}
-                  >
-                    {filled ? <CheckCircle2 className="h-3 w-3 text-traq-light" /> : null}
-                    {FIELD_LABELS[f]}
-                  </span>
-                );
-              })}
+          {mode === 'chat' ? (
+            <div className="mt-10 rounded-2xl border border-border-subtle bg-bg-card/60 p-5">
+              <p className={LABEL_BASE}>What we&rsquo;ll capture</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {REQUIRED_FIELDS.map((f) => {
+                  const v = profile[f];
+                  const filled =
+                    v !== undefined &&
+                    v !== null &&
+                    (typeof v === 'string'
+                      ? v.trim().length > 0
+                      : Array.isArray(v)
+                        ? v.length > 0
+                        : true);
+                  return (
+                    <span
+                      key={f}
+                      className={cn(
+                        'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px]',
+                        filled
+                          ? 'border-traq-purple/40 bg-traq-purple/15 text-white'
+                          : 'border-white/10 bg-white/[0.03] text-white/50',
+                      )}
+                    >
+                      {filled ? <CheckCircle2 className="h-3 w-3 text-traq-light" /> : null}
+                      {FIELD_LABELS[f]}
+                    </span>
+                  );
+                })}
+              </div>
+              <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-white/5">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-traq-purple to-traq-light transition-all"
+                  style={{ width: `${progressPct(profile)}%` }}
+                />
+              </div>
             </div>
-            <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-white/5">
-              <div
-                className="h-full rounded-full bg-gradient-to-r from-traq-purple to-traq-light transition-all"
-                style={{ width: `${progressPct(profile)}%` }}
-              />
-            </div>
-          </div>
+          ) : null}
         </FadeUp>
 
         <FadeUp delay={0.1}>
@@ -391,6 +402,38 @@ export default function ContactIntake() {
 
             {phase === 'success' ? (
               <SuccessPanel firstName={profile.firstName} />
+            ) : (
+              <>
+                <div className="mb-4 flex gap-1.5 rounded-full border border-border-subtle bg-bg-card/50 p-1">
+                  <ModeTab
+                    active={mode === 'quick'}
+                    onClick={() => setMode('quick')}
+                    icon={<SquarePen className="h-3.5 w-3.5" />}
+                    label="Quick form"
+                    sub="30 seconds"
+                  />
+                  <ModeTab
+                    active={mode === 'chat'}
+                    onClick={() => setMode('chat')}
+                    icon={<MessageSquare className="h-3.5 w-3.5" />}
+                    label="Chat with AI"
+                    sub="2 min · richer brief"
+                  />
+                </div>
+              </>
+            )}
+
+            {phase === 'success' ? null : mode === 'quick' ? (
+              <QuickFormPanel
+                turnstileSiteKey={turnstileSiteKey}
+                turnstileRequired={turnstileRequired}
+                turnstileToken={turnstileToken}
+                onTurnstileToken={setTurnstileToken}
+                onSuccess={(firstName) => {
+                  setProfile((prev) => ({ ...prev, firstName }));
+                  setPhase('success');
+                }}
+              />
             ) : phase === 'review' || phase === 'submitting' ? (
               <ReviewPanel
                 profile={profile}
@@ -802,5 +845,271 @@ function TextField({ label, value, onChange, type = 'text' }: TextFieldProps) {
         className={cn(INPUT_BASE, 'mt-2')}
       />
     </div>
+  );
+}
+
+type ModeTabProps = {
+  active: boolean;
+  onClick: () => void;
+  icon: React.ReactNode;
+  label: string;
+  sub: string;
+};
+
+function ModeTab({ active, onClick, icon, label, sub }: ModeTabProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={cn(
+        'flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-xs font-medium transition-all',
+        active
+          ? 'bg-traq-purple text-white shadow-glow'
+          : 'text-white/60 hover:text-white',
+      )}
+    >
+      <span className={active ? 'text-white' : 'text-traq-light'}>{icon}</span>
+      <span className="flex flex-col items-start leading-tight sm:flex-row sm:items-baseline sm:gap-1.5">
+        <span>{label}</span>
+        <span
+          className={cn(
+            'text-[10px] font-normal uppercase tracking-wider',
+            active ? 'text-white/70' : 'text-white/40',
+          )}
+        >
+          {sub}
+        </span>
+      </span>
+    </button>
+  );
+}
+
+type QuickFormPanelProps = {
+  turnstileSiteKey: string;
+  turnstileRequired: boolean;
+  turnstileToken: string;
+  onTurnstileToken: (t: string) => void;
+  onSuccess: (firstName: string) => void;
+};
+
+function QuickFormPanel({
+  turnstileSiteKey,
+  turnstileRequired,
+  turnstileToken,
+  onTurnstileToken,
+  onSuccess,
+}: QuickFormPanelProps) {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+  const [problem, setProblem] = useState('');
+  const [services, setServices] = useState<QuickIntake['servicesOfInterest']>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const toggleService = (svc: (typeof SERVICES_OF_INTEREST)[number]) => {
+    setServices((prev) =>
+      prev.includes(svc) ? prev.filter((s) => s !== svc) : [...prev, svc],
+    );
+  };
+
+  const canSubmit =
+    !submitting &&
+    firstName.trim() &&
+    lastName.trim() &&
+    email.trim() &&
+    company.trim() &&
+    problem.trim().length >= 10 &&
+    services.length >= 1 &&
+    (!turnstileRequired || turnstileToken.length > 0);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!canSubmit) return;
+    setSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/intake/quick', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          intake: {
+            firstName: firstName.trim(),
+            lastName: lastName.trim(),
+            email: email.trim(),
+            company: company.trim(),
+            problem: problem.trim(),
+            servicesOfInterest: services,
+          },
+          turnstileToken: turnstileRequired ? turnstileToken : undefined,
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(
+          body?.error === 'validation_failed'
+            ? 'Double-check the fields and try again.'
+            : body?.error === 'rate_limited'
+              ? 'Too many submissions from this network. Try again in a bit.'
+              : body?.error === 'turnstile_failed'
+                ? 'We couldn\u2019t verify the browser. Refresh and try again.'
+                : body?.error === 'email_send_failed'
+                  ? 'Your note didn\u2019t send. Email us directly at hello@traqcollective.com.'
+                  : 'Something went wrong. Try again.',
+        );
+      }
+      onSuccess(firstName.trim());
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="relative glass-strong rounded-3xl p-7 shadow-card sm:p-9"
+      noValidate
+    >
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label className={LABEL_BASE} htmlFor="qf-first">
+            First name
+          </label>
+          <input
+            id="qf-first"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            autoComplete="given-name"
+            className={cn(INPUT_BASE, 'mt-2')}
+            placeholder="Jane"
+          />
+        </div>
+        <div>
+          <label className={LABEL_BASE} htmlFor="qf-last">
+            Last name
+          </label>
+          <input
+            id="qf-last"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            autoComplete="family-name"
+            className={cn(INPUT_BASE, 'mt-2')}
+            placeholder="Doe"
+          />
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <label className={LABEL_BASE} htmlFor="qf-email">
+          Work email
+        </label>
+        <input
+          id="qf-email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoComplete="email"
+          className={cn(INPUT_BASE, 'mt-2')}
+          placeholder="jane@company.com"
+        />
+      </div>
+
+      <div className="mt-5">
+        <label className={LABEL_BASE} htmlFor="qf-company">
+          Company
+        </label>
+        <input
+          id="qf-company"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          autoComplete="organization"
+          className={cn(INPUT_BASE, 'mt-2')}
+          placeholder="Company name"
+        />
+      </div>
+
+      <div className="mt-5">
+        <label className={LABEL_BASE} htmlFor="qf-problem">
+          What are you trying to solve?
+        </label>
+        <textarea
+          id="qf-problem"
+          rows={4}
+          value={problem}
+          onChange={(e) => setProblem(e.target.value)}
+          className={cn(INPUT_BASE, 'mt-2 resize-none')}
+          placeholder="A sentence or two on the workflow, system or outcome you&rsquo;re chasing."
+        />
+      </div>
+
+      <div className="mt-5">
+        <label className={LABEL_BASE}>Services of interest</label>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {SERVICES_OF_INTEREST.map((svc) => {
+            const active = services.includes(svc);
+            return (
+              <button
+                key={svc}
+                type="button"
+                onClick={() => toggleService(svc)}
+                className={cn(
+                  'rounded-full border px-3 py-1.5 text-xs transition-colors',
+                  active
+                    ? 'border-traq-purple/50 bg-traq-purple/20 text-white'
+                    : 'border-white/10 bg-white/[0.04] text-white/70 hover:border-traq-purple/40',
+                )}
+              >
+                {svc}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {turnstileRequired ? (
+        <div className="mt-6 flex justify-center">
+          <Turnstile
+            siteKey={turnstileSiteKey}
+            onSuccess={(t) => onTurnstileToken(t)}
+            options={{ theme: 'dark', size: 'flexible' }}
+          />
+        </div>
+      ) : null}
+
+      <button
+        type="submit"
+        disabled={!canSubmit}
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-traq-purple px-6 py-3.5 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {submitting ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Sending…
+          </>
+        ) : (
+          <>
+            Send message
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </>
+        )}
+      </button>
+
+      {errorMessage ? (
+        <div className="mt-5 flex items-start gap-3 rounded-xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-200">
+          <AlertCircle className="mt-0.5 h-4 w-4 flex-none" />
+          <p>{errorMessage}</p>
+        </div>
+      ) : null}
+
+      <p className="mt-5 text-xs text-white/45">
+        We&rsquo;ll never share your details. Prefer to talk it through?{' '}
+        <span className="text-traq-light">Switch to chat above.</span>
+      </p>
+    </form>
   );
 }

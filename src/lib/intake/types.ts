@@ -71,3 +71,17 @@ export function isProfileComplete(profile: PartialLeadProfile): boolean {
   }
   return true;
 }
+
+export const quickIntakeSchema = z.object({
+  firstName: z.string().trim().min(1, 'First name is required').max(80),
+  lastName: z.string().trim().min(1, 'Last name is required').max(80),
+  email: z.string().trim().email('Enter a valid email').max(200),
+  company: z.string().trim().min(1, 'Company is required').max(160),
+  problem: z.string().trim().min(10, 'Share at least a sentence').max(2000),
+  servicesOfInterest: z
+    .array(z.enum(SERVICES_OF_INTEREST))
+    .min(1, 'Pick at least one service')
+    .max(SERVICES_OF_INTEREST.length),
+});
+
+export type QuickIntake = z.infer<typeof quickIntakeSchema>;
