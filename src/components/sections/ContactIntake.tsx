@@ -38,8 +38,10 @@ const OPENING_MESSAGE: DisplayMessage = {
   id: 'opening',
   role: 'assistant',
   content:
-    "Hi — I'm the Traq intake. Mind if I ask a few questions so the team shows up to our first call already up to speed?\n\nTo start: what's the process or system that brought you here today?",
+    "Hi — I'm the Traq intake. Mind if I ask a few quick questions so the team shows up to our first call already up to speed?\n\nLet's start with the basics: what's your name?",
 };
+
+type ChoiceSet = { options: string[]; allowMultiple: boolean };
 
 const FIELD_LABELS: Record<keyof LeadProfile, string> = {
   firstName: 'First name',
@@ -92,6 +94,8 @@ export default function ContactIntake() {
   const [errorMessage, setErrorMessage] = useState('');
   const [firstSend, setFirstSend] = useState(true);
   const [readyToSubmit, setReadyToSubmit] = useState(false);
+  const [choices, setChoices] = useState<ChoiceSet | null>(null);
+  const [multiSelected, setMultiSelected] = useState<string[]>([]);
 
   const scrollerRef = useRef<HTMLDivElement>(null);
 
@@ -117,6 +121,8 @@ export default function ContactIntake() {
     async (text: string) => {
       setSending(true);
       setErrorMessage('');
+      setChoices(null);
+      setMultiSelected([]);
 
       const userMsg: DisplayMessage = { id: randId(), role: 'user', content: text };
       const assistantId = randId();
@@ -198,6 +204,12 @@ export default function ContactIntake() {
             } else if (event === 'fields') {
               const fields = parsed as PartialLeadProfile;
               setProfile((prev) => ({ ...prev, ...fields }));
+            } else if (event === 'choices') {
+              const c = parsed as ChoiceSet;
+              if (c && Array.isArray(c.options) && c.options.length > 0) {
+                setChoices(c);
+                setMultiSelected([]);
+              }
             } else if (event === 'final') {
               const { assistantText, fields, readyToSubmit: rts } = parsed as {
                 assistantText: string;
@@ -496,6 +508,30 @@ export default function ContactIntake() {
                     </div>
                   ) : null}
 
+                  {choices && !sending ? (
+                    <ChoiceChips
+                      choices={choices}
+                      selected={multiSelected}
+                      onSelectSingle={(opt) => {
+                        setInput('');
+                        void sendMessage(opt);
+                      }}
+                      onToggleMulti={(opt) =>
+                        setMultiSelected((prev) =>
+                          prev.includes(opt)
+                            ? prev.filter((s) => s !== opt)
+                            : [...prev, opt],
+                        )
+                      }
+                      onSendMulti={() => {
+                        if (multiSelected.length === 0) return;
+                        const text = multiSelected.join(', ');
+                        setInput('');
+                        void sendMessage(text);
+                      }}
+                    />
+                  ) : null}
+
                   <form onSubmit={handleSend} className="flex items-end gap-2">
                     <textarea
                       rows={2}
@@ -544,6 +580,70 @@ export default function ContactIntake() {
         </FadeUp>
       </div>
     </section>
+  );
+}
+
+type ChoiceChipsProps = {
+  choices: ChoiceSet;
+  selected: string[];
+  onSelectSingle: (option: string) => void;
+  onToggleMulti: (option: string) => void;
+  onSendMulti: () => void;
+};
+
+function ChoiceChips({
+  choices,
+  selected,
+  onSelectSingle,
+  onToggleMulti,
+  onSendMulti,
+}: ChoiceChipsProps) {
+  const { options, allowMultiple } = choices;
+  return (
+    <div className="mb-3">
+      <p className="mb-2 text-[11px] uppercase tracking-widest text-white/45">
+        {allowMultiple ? 'Pick one or more' : 'Pick one'}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {options.map((opt) => {
+          const active = selected.includes(opt);
+          return (
+            <button
+              key={opt}
+              type="button"
+              onClick={() =>
+                allowMultiple ? onToggleMulti(opt) : onSelectSingle(opt)
+              }
+              className={cn(
+                'rounded-full border px-3.5 py-1.5 text-xs transition-colors',
+                active
+                  ? 'border-traq-purple/60 bg-traq-purple/25 text-white'
+                  : 'border-border-subtle bg-bg-card/60 text-white/80 hover:border-traq-purple/40 hover:text-white',
+              )}
+            >
+              {opt}
+            </button>
+          );
+        })}
+      </div>
+      {allowMultiple ? (
+        <button
+          type="button"
+          disabled={selected.length === 0}
+          onClick={onSendMulti}
+          className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-traq-purple px-4 py-2 text-xs font-medium text-white shadow-glow transition-all hover:bg-traq-light disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {selected.length === 0
+            ? 'Select at least one'
+            : `Send ${selected.length} selected`}
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
+      ) : (
+        <p className="mt-2 text-[11px] text-white/40">
+          Or type something else below.
+        </p>
+      )}
+    </div>
   );
 }
 

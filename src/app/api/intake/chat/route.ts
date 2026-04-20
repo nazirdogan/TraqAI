@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { anthropicClient } from '@/lib/intake/claude';
-import { INTAKE_MODEL, SYSTEM_PROMPT, UPDATE_LEAD_PROFILE_TOOL } from '@/lib/intake/prompt';
+import {
+  INTAKE_MODEL,
+  PRESENT_CHOICES_TOOL,
+  SYSTEM_PROMPT,
+  UPDATE_LEAD_PROFILE_TOOL,
+} from '@/lib/intake/prompt';
 import { chatMessageSchema } from '@/lib/intake/types';
 import { checkRate } from '@/lib/intake/ratelimit';
 import { clientIp, verifyTurnstile } from '@/lib/intake/turnstile';
@@ -15,8 +20,43 @@ const requestSchema = z.object({
   isFirstTurn: z.boolean().default(false),
 });
 
+const TOOLS = [UPDATE_LEAD_PROFILE_TOOL, PRESENT_CHOICES_TOOL];
+
 function sseEvent(event: string, data: unknown): string {
   return `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`;
+}
+
+type ToolUseBlock = {
+  id: string;
+  name: string;
+  input: Record<string, unknown>;
+};
+
+type ChoiceState = {
+  options: string[];
+  allowMultiple: boolean;
+};
+
+function extractBlocks(
+  content: Array<{ type: string; text?: string; id?: string; name?: string; input?: unknown }>,
+): {
+  text: string;
+  toolUses: ToolUseBlock[];
+} {
+  let text = '';
+  const toolUses: ToolUseBlock[] = [];
+  for (const block of content) {
+    if (block.type === 'text' && typeof block.text === 'string') {
+      text += block.text;
+    } else if (block.type === 'tool_use' && block.id && block.name) {
+      toolUses.push({
+        id: block.id,
+        name: block.name,
+        input: (block.input ?? {}) as Record<string, unknown>,
+      });
+    }
+  }
+  return { text, toolUses };
 }
 
 export async function POST(request: Request) {
@@ -63,13 +103,43 @@ export async function POST(request: Request) {
         const anthropic = anthropicClient();
         const conversation = parsed.messages.map((m) => ({ role: m.role, content: m.content }));
 
+        let fields: Record<string, unknown> = {};
+        let readyToSubmit = false;
+        let choices: ChoiceState | null = null;
+        let assistantText = '';
+
+        const processFinal = (final: Awaited<ReturnType<ReturnType<typeof anthropic.messages.stream>['finalMessage']>>) => {
+          const { text, toolUses } = extractBlocks(final.content);
+          assistantText += text;
+          for (const tu of toolUses) {
+            if (tu.name === 'update_lead_profile') {
+              const { readyToSubmit: rts, ...rest } = tu.input;
+              if (rts === true) readyToSubmit = true;
+              if (Object.keys(rest).length > 0) {
+                fields = { ...fields, ...rest };
+                send('fields', rest);
+              }
+            } else if (tu.name === 'present_choices') {
+              const options = Array.isArray(tu.input.options)
+                ? (tu.input.options as unknown[]).filter((o) => typeof o === 'string') as string[]
+                : [];
+              const allowMultiple = tu.input.allowMultiple === true;
+              if (options.length > 0) {
+                choices = { options, allowMultiple };
+                send('choices', choices);
+              }
+            }
+          }
+          return toolUses;
+        };
+
         const firstPass = anthropic.messages.stream({
           model: INTAKE_MODEL,
           max_tokens: 1024,
           system: [
             { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
           ],
-          tools: [UPDATE_LEAD_PROFILE_TOOL],
+          tools: TOOLS,
           messages: conversation,
         });
 
@@ -80,51 +150,35 @@ export async function POST(request: Request) {
         }
 
         const firstFinal = await firstPass.finalMessage();
+        const firstToolUses = processFinal(firstFinal);
+        const firstTextLength = assistantText.trim().length;
 
-        let assistantText = '';
-        let fields: Record<string, unknown> | null = null;
-        let readyToSubmit = false;
-        let toolUseId: string | null = null;
-
-        for (const block of firstFinal.content) {
-          if (block.type === 'text') {
-            assistantText += block.text;
-          } else if (block.type === 'tool_use' && block.name === 'update_lead_profile') {
-            toolUseId = block.id;
-            const input = (block.input ?? {}) as Record<string, unknown>;
-            const { readyToSubmit: rts, ...rest } = input;
-            if (rts === true) readyToSubmit = true;
-            fields = rest;
-          }
-        }
-
-        if (fields && Object.keys(fields).length > 0) {
-          send('fields', fields);
-        }
-
-        // If the model stopped on a tool_use, the visible reply was truncated.
-        // Do a second streaming pass with the tool_result acknowledged so Claude
-        // can finish with the follow-up question.
-        if (firstFinal.stop_reason === 'tool_use' && toolUseId) {
+        // If the model ONLY called tools (no visible text) and stopped on
+        // tool_use, the question was never produced. Feed tool_results back
+        // and run a second pass to get it. If text WAS produced in pass one,
+        // skip the second pass — otherwise we'd stream the question twice.
+        if (
+          firstFinal.stop_reason === 'tool_use' &&
+          firstToolUses.length > 0 &&
+          firstTextLength === 0
+        ) {
           const secondPass = anthropic.messages.stream({
             model: INTAKE_MODEL,
             max_tokens: 1024,
             system: [
               { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } },
             ],
-            tools: [UPDATE_LEAD_PROFILE_TOOL],
+            tools: TOOLS,
             messages: [
               ...conversation,
               { role: 'assistant', content: firstFinal.content },
               {
                 role: 'user',
-                content: [
-                  {
-                    type: 'tool_result',
-                    tool_use_id: toolUseId,
-                    content: 'recorded',
-                  },
-                ],
+                content: firstToolUses.map((tu) => ({
+                  type: 'tool_result' as const,
+                  tool_use_id: tu.id,
+                  content: tu.name === 'present_choices' ? 'chips shown' : 'recorded',
+                })),
               },
             ],
           });
@@ -136,28 +190,14 @@ export async function POST(request: Request) {
           }
 
           const secondFinal = await secondPass.finalMessage();
-          for (const block of secondFinal.content) {
-            if (block.type === 'text') {
-              assistantText += block.text;
-            } else if (
-              block.type === 'tool_use' &&
-              block.name === 'update_lead_profile'
-            ) {
-              const input = (block.input ?? {}) as Record<string, unknown>;
-              const { readyToSubmit: rts, ...rest } = input;
-              if (rts === true) readyToSubmit = true;
-              if (Object.keys(rest).length > 0) {
-                send('fields', rest);
-                fields = { ...(fields ?? {}), ...rest };
-              }
-            }
-          }
+          processFinal(secondFinal);
         }
 
         send('final', {
           assistantText,
-          fields: fields ?? {},
+          fields,
           readyToSubmit,
+          choices,
           usage: firstFinal.usage,
         });
         send('done', {});
