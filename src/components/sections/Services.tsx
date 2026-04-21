@@ -38,7 +38,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div ref={rootRef} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={rootRef} className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s) => (
             <div key={s.slug} id={s.slug} className="service-card">
               <div className="service-icon">{s.icon}</div>
@@ -48,7 +48,7 @@ export default function Services() {
               <p className="mt-2.5 text-[13px] leading-relaxed text-white/60 [text-wrap:pretty]">
                 {s.tagline}
               </p>
-              <ul className="mt-auto flex list-none flex-col gap-2 p-0 pt-5">
+              <ul className="mt-5 flex list-none flex-col gap-2 p-0">
                 {s.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2.5 text-[13px] leading-snug text-white/75">
                     <span className="mt-[7px] block h-[5px] w-[5px] flex-none rounded-full bg-traq-light" />

@@ -2,306 +2,435 @@
 
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import { TRUSTED_PLATFORMS } from '@/lib/constants';
 
-const LEFT_NODES = [
-  { y: 60, label: 'OpenAI', color: '#10A37F' },
-  { y: 130, label: 'Anthropic', color: '#D97757' },
-  { y: 200, label: 'Azure', color: '#0078D4' },
-  { y: 270, label: 'Google AI', color: '#F59E0B' },
-];
+type AvatarTone = 'v' | 'g' | 'a' | 'r' | 'b';
+const AVATAR_BG: Record<AvatarTone, string> = {
+  v: 'linear-gradient(135deg,#7c63f0,#b7a7ff)',
+  g: 'linear-gradient(135deg,#34d399,#10b981)',
+  a: 'linear-gradient(135deg,#f5c542,#f59e0b)',
+  r: 'linear-gradient(135deg,#f76e72,#ef4444)',
+  b: 'linear-gradient(135deg,#60a5fa,#2563eb)',
+};
 
-const RIGHT_NODES = [
-  { y: 80, label: 'CRM' },
-  { y: 160, label: 'ERP' },
-  { y: 240, label: 'Data' },
-];
-
-// Balanced symmetric margins of ~60px on a 1100-wide viewBox
-const CX1 = 90;
-const CX2 = 920;
-const HUB_X = 565;
-const HUB_Y = 180;
-
-function HeroWire() {
-  const wireRef = useRef<SVGSVGElement>(null);
-
-  useEffect(() => {
-    const svg = wireRef.current;
-    if (!svg) return;
-    const paths = svg.querySelectorAll<SVGPathElement>('.wire-path');
-    const pulses = svg.querySelectorAll<SVGCircleElement>('.wire-pulse');
-    let raf = 0;
-    const trackers: Array<{ t: number; speed: number; total: number; path: SVGPathElement; pulse: SVGCircleElement }> = [];
-
-    pulses.forEach((p, i) => {
-      const path = paths[i];
-      if (!path) return;
-      trackers.push({
-        t: Math.random(),
-        speed: 0.0025 + Math.random() * 0.0015,
-        total: path.getTotalLength(),
-        path,
-        pulse: p,
-      });
-    });
-
-    const tick = () => {
-      trackers.forEach((tr) => {
-        tr.t += tr.speed;
-        if (tr.t > 1) tr.t = 0;
-        const pt = tr.path.getPointAtLength(tr.total * tr.t);
-        tr.pulse.setAttribute('cx', String(pt.x));
-        tr.pulse.setAttribute('cy', String(pt.y));
-        tr.pulse.setAttribute('opacity', tr.t < 0.05 || tr.t > 0.95 ? '0.1' : '0.95');
-      });
-      raf = requestAnimationFrame(tick);
-    };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  const paths: string[] = [];
-  LEFT_NODES.forEach((l) => {
-    paths.push(
-      `M ${CX1 + 90} ${l.y + 20} C ${HUB_X - 120} ${l.y + 20}, ${HUB_X - 120} ${HUB_Y}, ${HUB_X - 20} ${HUB_Y}`,
-    );
-  });
-  RIGHT_NODES.forEach((r) => {
-    paths.push(
-      `M ${HUB_X + 20} ${HUB_Y} C ${HUB_X + 120} ${HUB_Y}, ${CX2 - 80} ${r.y + 20}, ${CX2 - 20} ${r.y + 20}`,
-    );
-  });
-
+function Avatar({ initials, tone = 'v' }: { initials: string; tone?: AvatarTone }) {
   return (
-    <div className="hero-wire" aria-hidden="true">
-      <svg ref={wireRef} viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#7c63f0" />
-            <stop offset="100%" stopColor="#2a1d7a" />
-          </linearGradient>
-          <filter id="hubGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="6" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+    <span className="sr-avatar" style={{ background: AVATAR_BG[tone] }}>
+      {initials}
+    </span>
+  );
+}
 
-        {paths.map((d, i) => (
-          <path key={i} d={d} className="wire-path" />
-        ))}
-        {paths.map((_, i) => (
-          <circle key={`p${i}`} r="3" className="wire-pulse" />
-        ))}
+type Stage = { key: 'new' | 'qual' | 'prop' | 'close'; label: string; count: number; value: string; hue: string };
+type Deal = { co: string; amt: string; score: number; tag: string; tone: AvatarTone; i: string; note: string; flag?: boolean };
 
-        {LEFT_NODES.map((l, i) => (
-          <g key={`l${i}`}>
-            <rect x={CX1 - 30} y={l.y} width="180" height="40" rx="12" className="wire-node" />
-            <circle cx={CX1 - 10} cy={l.y + 20} r="4" fill={l.color} opacity="0.9" />
-            <text x={CX1} y={l.y + 25} className="wire-node-lab">
-              {l.label}
-            </text>
-          </g>
-        ))}
+const STAGES: Stage[] = [
+  { key: 'new', label: 'New · AI-scored', count: 24, value: '$318k', hue: '#60a5fa' },
+  { key: 'qual', label: 'Qualified', count: 12, value: '$486k', hue: '#7c63f0' },
+  { key: 'prop', label: 'Proposal', count: 7, value: '$612k', hue: '#f5c542' },
+  { key: 'close', label: 'Closing', count: 4, value: '$940k', hue: '#34d399' },
+];
 
-        <circle cx={HUB_X} cy={HUB_Y} r="38" fill="url(#hubGrad)" filter="url(#hubGlow)" opacity="0.95" />
-        <circle cx={HUB_X} cy={HUB_Y} r="38" fill="none" stroke="rgba(255,255,255,0.3)" />
-        <circle cx={HUB_X} cy={HUB_Y} r="50" fill="none" stroke="rgba(124,99,240,0.3)" strokeDasharray="3 6" />
-        <text
-          x={HUB_X}
-          y={HUB_Y + 5}
-          textAnchor="middle"
-          fill="#fff"
-          fontSize="13"
-          fontWeight="700"
-          letterSpacing="0.06em"
-        >
-          TRAQ
-        </text>
+const DEALS: Record<Stage['key'], Deal[]> = {
+  new: [
+    { co: 'Meridian Freight', amt: '$42,500', score: 92, tag: 'Logistics', tone: 'v', i: 'MF', note: 'Inbound via contact form · auto-routed' },
+    { co: 'Halcyon Studios', amt: '$18,200', score: 74, tag: 'Agency', tone: 'b', i: 'HS', note: 'WhatsApp · qualifying thread' },
+  ],
+  qual: [
+    { co: 'Northwind ERP', amt: '$128,000', score: 88, tag: 'Manufacturing', tone: 'g', i: 'NW', note: 'Demo booked · Fri 14:00' },
+    { co: 'Verity Legal', amt: '$64,800', score: 81, tag: 'Professional', tone: 'a', i: 'VL', note: 'Discovery call completed' },
+  ],
+  prop: [
+    { co: 'Crestline Bank', amt: '$210,000', score: 95, tag: 'Financial', tone: 'r', i: 'CB', note: 'Proposal v3 · awaiting legal', flag: true },
+  ],
+  close: [
+    { co: 'Apex Dynamics', amt: '$340,000', score: 98, tag: 'Enterprise', tone: 'v', i: 'AD', note: 'Verbal — contract out for e-sign' },
+  ],
+};
 
-        {RIGHT_NODES.map((r, i) => (
-          <g key={`r${i}`}>
-            <rect x={CX2 - 30} y={r.y} width="150" height="40" rx="12" className="wire-node" />
-            <text x={CX2 - 10} y={r.y + 25} className="wire-node-lab">
-              {r.label}
-            </text>
-            <circle cx={CX2 + 110} cy={r.y + 20} r="4" fill="#7c63f0" opacity="0.9" />
-          </g>
-        ))}
+function DashboardMock() {
+  return (
+    <div className="sr-dash">
+      <div className="sr-dash__bar">
+        <div className="sr-dash__lights">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="sr-dash__addr">
+          crm.traqcollective.com / <span className="accent">pipeline · Q2</span>
+        </div>
+        <div className="sr-dash__right">
+          <span className="live">Live · 12 agents</span>
+        </div>
+      </div>
+      <div className="sr-dash__body">
+        <aside className="sr-side">
+          <div className="sr-side__user">
+            <Avatar initials="EM" tone="v" />
+            <div>
+              <div className="sr-side__user-n">Elena Moreno</div>
+              <div className="sr-side__user-r">Head of Revenue</div>
+            </div>
+          </div>
+          <h5>Workspace</h5>
+          <div className="sr-side__item">
+            <span className="ic ic-home" />
+            Dashboard
+          </div>
+          <div className="sr-side__item active">
+            <span className="ic ic-pipe" />
+            Pipeline<span className="count">47</span>
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-contacts" />
+            Contacts<span className="count">2,418</span>
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-inbox" />
+            Inbox<span className="count">9</span>
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-tasks" />
+            Tasks<span className="count">14</span>
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-reports" />
+            Reports
+          </div>
+          <h5>AI Assistants</h5>
+          <div className="sr-side__item">
+            <span className="ic ic-ai" />
+            Lead scorer<span className="dotlive" />
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-ai" />
+            Reply drafter<span className="dotlive" />
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-ai" />
+            Meeting notes<span className="dotlive a" />
+          </div>
+          <h5>Teams</h5>
+          <div className="sr-side__item">
+            <span className="ic ic-team" />
+            Sales EMEA
+          </div>
+          <div className="sr-side__item">
+            <span className="ic ic-team" />
+            Partnerships
+          </div>
+        </aside>
 
-        <text
-          x={CX1 + 60}
-          y={30}
-          textAnchor="middle"
-          fill="rgba(255,255,255,0.35)"
-          fontSize="10"
-          fontWeight="600"
-          letterSpacing="0.2em"
-        >
-          AI LAYER
-        </text>
-        <text
-          x={HUB_X}
-          y={30}
-          textAnchor="middle"
-          fill="rgba(255,255,255,0.35)"
-          fontSize="10"
-          fontWeight="600"
-          letterSpacing="0.2em"
-        >
-          TRAQ
-        </text>
-        <text
-          x={CX2 + 45}
-          y={30}
-          textAnchor="middle"
-          fill="rgba(255,255,255,0.35)"
-          fontSize="10"
-          fontWeight="600"
-          letterSpacing="0.2em"
-        >
-          YOUR STACK
-        </text>
-      </svg>
+        <section className="sr-main">
+          <div className="sr-main__head">
+            <div className="sr-main__h">
+              Pipeline <small>47 open deals · $2.36M weighted</small>
+            </div>
+            <div className="sr-main__toolbar">
+              <div className="sr-searchbox">
+                <span className="sr-search-ic">⌕</span>
+                Search deals, contacts… <kbd>⌘K</kbd>
+              </div>
+              <div className="sr-main__tabs">
+                <span>Board</span>
+                <span className="active">Table</span>
+                <span>Forecast</span>
+              </div>
+              <button type="button" className="sr-main__new">
+                + New deal
+              </button>
+            </div>
+          </div>
+          <div className="sr-kpis">
+            <div className="sr-kpi">
+              <div className="sr-kpi__lbl">Pipeline value</div>
+              <div className="sr-kpi__val">$2.36M</div>
+              <div className="sr-kpi__delta up">▲ 12.4% WoW</div>
+            </div>
+            <div className="sr-kpi">
+              <div className="sr-kpi__lbl">Won · MTD</div>
+              <div className="sr-kpi__val">$584k</div>
+              <div className="sr-kpi__delta up">▲ 8 deals</div>
+            </div>
+            <div className="sr-kpi">
+              <div className="sr-kpi__lbl">Avg cycle</div>
+              <div className="sr-kpi__val">18 d</div>
+              <div className="sr-kpi__delta down">▼ 3.2 d</div>
+            </div>
+            <div className="sr-kpi">
+              <div className="sr-kpi__lbl">Win rate</div>
+              <div className="sr-kpi__val">34%</div>
+              <div className="sr-kpi__delta up">▲ 4 pts</div>
+            </div>
+          </div>
+
+          <div className="sr-board">
+            {STAGES.map((s) => (
+              <div className="sr-board__col" key={s.key}>
+                <div className="sr-board__head">
+                  <span className="sr-board__dot" style={{ background: s.hue }} />
+                  <span className="sr-board__lbl">{s.label}</span>
+                  <span className="sr-board__ct">{s.count}</span>
+                </div>
+                <div className="sr-board__val">{s.value}</div>
+                <div className="sr-board__stack">
+                  {DEALS[s.key].map((d, i) => (
+                    <div className="sr-deal" key={i}>
+                      <div className="sr-deal__top">
+                        <Avatar initials={d.i} tone={d.tone} />
+                        <div className="sr-deal__who">
+                          <div className="sr-deal__co">
+                            {d.co}
+                            {d.flag && <span className="sr-flag">●</span>}
+                          </div>
+                          <div className="sr-deal__tag">{d.tag}</div>
+                        </div>
+                        <div className="sr-deal__score" title="AI fit score">
+                          <svg width="26" height="26" viewBox="0 0 26 26">
+                            <circle cx="13" cy="13" r="10" stroke="rgba(255,255,255,0.08)" strokeWidth="2.5" fill="none" />
+                            <circle
+                              cx="13"
+                              cy="13"
+                              r="10"
+                              stroke={s.hue}
+                              strokeWidth="2.5"
+                              fill="none"
+                              strokeDasharray={`${(d.score / 100) * 62.8} 62.8`}
+                              strokeLinecap="round"
+                              transform="rotate(-90 13 13)"
+                            />
+                          </svg>
+                          <span>{d.score}</span>
+                        </div>
+                      </div>
+                      <div className="sr-deal__amt">{d.amt}</div>
+                      <div className="sr-deal__note">{d.note}</div>
+                    </div>
+                  ))}
+                  {s.count > DEALS[s.key].length && (
+                    <div className="sr-board__more">+ {s.count - DEALS[s.key].length} more</div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <aside className="sr-act">
+          <div className="sr-act__tabs">
+            <span className="active">Activity</span>
+            <span>
+              AI <span className="sr-ai-badge">3</span>
+            </span>
+            <span>Tasks</span>
+          </div>
+
+          <div className="sr-ai-card">
+            <div className="sr-ai-card__h">
+              <span className="sr-ai-dot" />
+              <strong>Traq AI · Suggestion</strong>
+            </div>
+            <p>Crestline Bank hasn&apos;t responded in 4 days. Draft a follow-up referencing their Q2 compliance deadline?</p>
+            <div className="sr-ai-card__btns">
+              <button type="button" className="sr-ai-btn p">
+                Draft reply
+              </button>
+              <button type="button" className="sr-ai-btn g">
+                Dismiss
+              </button>
+            </div>
+          </div>
+
+          <div className="sr-act__h">Live activity</div>
+          <div className="sr-act__item">
+            <Avatar initials="MF" tone="v" />
+            <div className="sr-act__txt">
+              <strong>Meridian Freight</strong>
+              <span>
+                Auto-scored <b>92</b> · routed to Elena
+              </span>
+            </div>
+            <div className="sr-act__time">00:02</div>
+          </div>
+          <div className="sr-act__item">
+            <Avatar initials="CB" tone="r" />
+            <div className="sr-act__txt">
+              <strong>Crestline Bank</strong>
+              <span>Proposal v3 opened · 4 min</span>
+            </div>
+            <div className="sr-act__time">00:12</div>
+          </div>
+          <div className="sr-act__item">
+            <Avatar initials="NW" tone="g" />
+            <div className="sr-act__txt">
+              <strong>Northwind ERP</strong>
+              <span>Call booked — Fri 14:00</span>
+            </div>
+            <div className="sr-act__time">00:24</div>
+          </div>
+          <div className="sr-act__item">
+            <Avatar initials="HS" tone="b" />
+            <div className="sr-act__txt">
+              <strong>Halcyon Studios</strong>
+              <span>WhatsApp · AI-drafted reply</span>
+            </div>
+            <div className="sr-act__time">00:41</div>
+          </div>
+          <div className="sr-act__item">
+            <Avatar initials="AD" tone="v" />
+            <div className="sr-act__txt">
+              <strong>Apex Dynamics</strong>
+              <span>Contract e-signed ✓</span>
+            </div>
+            <div className="sr-act__time">01:04</div>
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }
 
 export default function Hero() {
-  const trustedLoop = [...TRUSTED_PLATFORMS, ...TRUSTED_PLATFORMS, ...TRUSTED_PLATFORMS];
+  const stageRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    const title = titleRef.current;
+    const card = cardRef.current;
+    const bg = bgRef.current;
+    if (!stage || !title || !card || !bg) return;
+
+    let scheduled = false;
+    const apply = () => {
+      scheduled = false;
+      const r = stage.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const denom = Math.max(1, r.height - vh);
+      const p = Math.max(0, Math.min(1, -r.top / denom));
+      const isMobile = window.innerWidth <= 768;
+
+      const rotate = 20 + (0 - 20) * p;
+      const scale = isMobile ? 0.7 + (0.9 - 0.7) * p : 1.05 + (1 - 1.05) * p;
+      const ty = 0 + (-100 - 0) * p;
+      // Fade backgrounds from p=0.7 → p=1 so they don't snap when sticky releases.
+      const bgOpacity = p < 0.7 ? 1 : Math.max(0, 1 - (p - 0.7) / 0.3);
+
+      title.style.transform = `translateY(${ty}px)`;
+      card.style.transform = `rotateX(${rotate}deg) scale(${scale})`;
+      bg.style.opacity = String(bgOpacity);
+    };
+
+    const onScroll = () => {
+      if (!scheduled) {
+        scheduled = true;
+        requestAnimationFrame(apply);
+      }
+    };
+
+    apply();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
 
   return (
-    <section
-      id="top"
-      className="relative isolate min-h-screen overflow-hidden px-5 pb-24 pt-36 sm:px-8 sm:pt-40"
-    >
-      <div className="mesh-bg" aria-hidden="true" />
-      <div className="grid-overlay" aria-hidden="true" />
-      <div className="hero-bg-orbits" aria-hidden="true">
-        <div className="hero-orb o4">
-          <span className="orbit-dot" style={{ background: '#7c63f0', boxShadow: '0 0 12px #7c63f0' }} />
-        </div>
-        <div className="hero-orb o3">
-          <span className="orbit-dot" />
-        </div>
-        <div className="hero-orb o2">
-          <span className="orbit-dot" style={{ background: '#fff', boxShadow: '0 0 16px #fff' }} />
-        </div>
-        <div className="hero-orb o1">
-          <span className="orbit-dot" style={{ background: '#34d399', boxShadow: '0 0 12px #34d399' }} />
-        </div>
-      </div>
-      <div className="hero-glow" aria-hidden="true" />
-
-      {/* Floating metric cards */}
-      <div className="hero-float tl">
-        <div className="float-card">
-          <div className="float-label">Pilot delivery</div>
-          <div className="float-value">1–3 weeks</div>
-        </div>
-      </div>
-      <div className="hero-float tr">
-        <div className="float-card">
-          <div className="float-row">
-            <span className="float-icon">⚙️</span>
-            <div>
-              <div className="float-label" style={{ margin: 0 }}>
-                Automations
-              </div>
-              <div className="float-value">+340 active</div>
+    <div ref={stageRef} id="top" className="sr-stage">
+      <div className="sr-stage__sticky">
+        {/* Original Orbital backgrounds — fade out as stage releases */}
+        <div
+          ref={bgRef}
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, opacity: 1, pointerEvents: 'none', zIndex: 0 }}
+        >
+          <div className="mesh-bg" aria-hidden="true" />
+          <div className="grid-overlay" aria-hidden="true" />
+          <div className="hero-bg-orbits" aria-hidden="true">
+            <div className="hero-orb o4">
+              <span className="orbit-dot" style={{ background: '#7c63f0', boxShadow: '0 0 12px #7c63f0' }} />
+            </div>
+            <div className="hero-orb o3">
+              <span className="orbit-dot" />
+            </div>
+            <div className="hero-orb o2">
+              <span className="orbit-dot" style={{ background: '#fff', boxShadow: '0 0 16px #fff' }} />
+            </div>
+            <div className="hero-orb o1">
+              <span className="orbit-dot" style={{ background: '#34d399', boxShadow: '0 0 12px #34d399' }} />
             </div>
           </div>
+          <div className="hero-glow" aria-hidden="true" />
         </div>
-      </div>
-      <div className="hero-float bl">
-        <div className="float-card">
-          <div className="float-row">
-            <span className="relative inline-flex h-2.5 w-2.5">
-              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-50" />
-              <span className="relative h-2.5 w-2.5 rounded-full bg-emerald-400" />
+
+        <div
+          ref={titleRef}
+          style={{
+            transform: 'translateY(0px)',
+            willChange: 'transform',
+            position: 'relative',
+            zIndex: 3,
+          }}
+        >
+          <div style={{ textAlign: 'center', marginBottom: 14 }}>
+            <div className="sr-kicker">
+              <span className="dot" />
+              Delivery, not advisory · Pilots in 1–3 weeks
+            </div>
+          </div>
+          <h1 className="sr-title">
+            Wire AI into how your business
+            <span className="accent">actually works.</span>
+          </h1>
+          <p className="sr-sub">
+            Traq Collective designs, builds, and ships the AI systems, automations, and data pipelines
+            that mid-market operators can actually run on.
+          </p>
+
+          <div className="mb-9 flex flex-wrap items-center justify-center gap-3.5">
+            <Link
+              href="/#contact"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-bg-base shadow-glow transition-all hover:-translate-y-px hover:bg-[#f0edff] hover:shadow-glow-strong active:scale-[0.98]"
+            >
+              Book a Free Call
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                →
+              </span>
+            </Link>
+            <Link
+              href="/#services"
+              className="inline-flex items-center gap-2.5 rounded-full border border-border-strong bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-traq-light hover:bg-white/[0.08]"
+            >
+              Explore Services
+            </Link>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <span className="sr-cue">
+              Scroll <span className="sr-cue__arrow">↓</span>
             </span>
-            <div>
-              <div className="float-label" style={{ margin: 0 }}>
-                Live pipeline
-              </div>
-              <div className="float-value" style={{ fontSize: 15 }}>
-                99.98% uptime
-              </div>
+          </div>
+        </div>
+        <div
+          ref={cardRef}
+          className="sr-card-wrap"
+          style={{
+            transform: 'rotateX(20deg) scale(1.05)',
+            position: 'relative',
+            zIndex: 3,
+          }}
+        >
+          <div className="sr-card">
+            <div className="sr-card__screen">
+              <DashboardMock />
             </div>
           </div>
         </div>
       </div>
-      <div className="hero-float br">
-        <div className="float-card">
-          <div className="float-label">Avg time saved</div>
-          <div className="float-value" style={{ color: '#b7a7ff' }}>
-            40%+
-          </div>
-        </div>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl text-center">
-        <div className="hero-kicker">
-          <span className="hero-kicker-badge">NEW</span>
-          <span>AI · Automation · Data · Digital presence</span>
-        </div>
-
-        <h1 className="hero-title mt-10">
-          <span className="line">We wire AI into</span>
-          <span className="line">how your business</span>
-          <span className="line accent">actually works.</span>
-        </h1>
-
-        <p className="hero-sub">
-          A delivery team — not a consultancy. We design, build and ship the AI systems,
-          automations and sites that make your operation run on rails.
-        </p>
-
-        <div className="hero-actions mt-10 flex flex-wrap justify-center gap-3.5">
-          <Link
-            href="/#contact"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-5 py-3.5 text-sm font-semibold text-bg-base shadow-glow transition-all hover:-translate-y-px hover:bg-[#f0edff] hover:shadow-glow-strong active:scale-[0.98]"
-          >
-            Book a Free Call
-            <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
-              →
-            </span>
-          </Link>
-          <Link
-            href="/#services"
-            className="inline-flex items-center gap-2.5 rounded-full border border-border-strong bg-white/[0.04] px-5 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-traq-light hover:bg-white/[0.08]"
-          >
-            Explore Services
-          </Link>
-        </div>
-
-        <HeroWire />
-
-        <div className="hero-trusted">
-          <div className="hero-trusted-label">Powered by leading AI</div>
-          <div className="trusted-row">
-            <div className="trusted-track-orbital">
-              {trustedLoop.map((t, i) => (
-                <div key={`${t.name}-${i}`} className="trusted-item">
-                  <span
-                    className="trusted-dot"
-                    style={{ background: t.dot, boxShadow: `0 0 10px ${t.dot}` }}
-                  />
-                  {t.name}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-cue">
-          <div className="hero-cue-mouse" />
-        </div>
-      </div>
-    </section>
+    </div>
   );
 }
