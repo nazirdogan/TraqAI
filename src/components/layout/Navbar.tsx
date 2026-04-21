@@ -9,9 +9,8 @@ import { cn } from '@/lib/cn';
 const LINKS = [
   { label: 'Services', href: '/#services' },
   { label: 'Process', href: '/#process' },
+  { label: 'Why Traq', href: '/#about' },
   { label: 'Impact', href: '/#impact' },
-  { label: 'About', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Navbar() {
@@ -19,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -36,19 +35,28 @@ export default function Navbar() {
     };
   }, [open]);
 
+  const scrollToHash = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return;
+    const id = href.slice(hashIndex + 1);
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.history.replaceState) {
+      window.history.replaceState(null, '', `#${id}`);
+    }
+    setOpen(false);
+  };
+
   return (
-    <header
-      className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled ? 'backdrop-blur-xl' : '',
-      )}
-    >
+    <header className="fixed left-1/2 top-5 z-50 w-[calc(100%-40px)] max-w-7xl -translate-x-1/2 transition-all duration-300">
       <div
         className={cn(
-          'mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-300 sm:px-8',
+          'flex items-center justify-between rounded-full border px-6 py-3 transition-all duration-300',
           scrolled
-            ? 'my-3 h-16 rounded-full border border-border-subtle bg-bg-card/70 shadow-card'
-            : 'my-4 h-20',
+            ? 'border-border-strong bg-bg-card/75 shadow-card backdrop-blur-2xl'
+            : 'border-transparent bg-transparent',
         )}
       >
         <Link
@@ -63,7 +71,7 @@ export default function Navbar() {
             width={1888}
             height={696}
             priority
-            className="h-[35px] w-auto"
+            className="h-[26px] w-auto"
           />
         </Link>
 
@@ -72,7 +80,8 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm text-white/75 transition-colors hover:bg-white/[0.04] hover:text-white"
+              onClick={scrollToHash(link.href)}
+              className="rounded-full px-4 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
               {link.label}
             </Link>
@@ -82,16 +91,16 @@ export default function Navbar() {
         <div className="hidden md:flex">
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-traq-purple px-5 py-2.5 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong"
+            onClick={scrollToHash('/#contact')}
+            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold text-bg-base transition-all hover:bg-[#f0edff] hover:shadow-glow"
           >
-            Book a Free Call
-            <span aria-hidden="true">→</span>
+            Book a call <span aria-hidden="true">→</span>
           </Link>
         </div>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-subtle bg-white/[0.03] text-white md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-subtle bg-white/[0.04] text-white md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -103,7 +112,7 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          'md:hidden fixed inset-x-0 top-[72px] z-40 origin-top transition-all duration-300',
+          'md:hidden fixed inset-x-0 top-[80px] origin-top transition-all duration-300',
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
         )}
       >
@@ -113,19 +122,18 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={scrollToHash(link.href)}
                 className="rounded-xl px-4 py-3 text-base text-white/85 transition-colors hover:bg-white/[0.06]"
-                onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/#contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-traq-purple px-5 py-3 text-sm font-medium text-white shadow-glow"
+              onClick={scrollToHash('/#contact')}
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-bg-base"
             >
-              Book a Free Call
-              <span aria-hidden="true">→</span>
+              Book a call <span aria-hidden="true">→</span>
             </Link>
           </nav>
         </div>
