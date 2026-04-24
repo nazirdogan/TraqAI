@@ -11,6 +11,7 @@ const LINKS = [
   { label: 'Process', href: '/#process' },
   { label: 'Why Traq', href: '/#about' },
   { label: 'Impact', href: '/#impact' },
+  { label: 'ROI Calculator', href: '/automation-roi-calculator' },
 ];
 
 export default function Navbar() {
@@ -37,7 +38,10 @@ export default function Navbar() {
 
   const scrollToHash = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     const hashIndex = href.indexOf('#');
-    if (hashIndex === -1) return;
+    if (hashIndex === -1) {
+      setOpen(false);
+      return;
+    }
     const id = href.slice(hashIndex + 1);
     const el = document.getElementById(id);
     if (!el) return;
@@ -50,10 +54,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed left-1/2 top-5 z-50 w-[calc(100%-40px)] max-w-7xl -translate-x-1/2 transition-all duration-300">
+    <header className="fixed left-1/2 top-3 z-50 w-[calc(100%-20px)] max-w-7xl -translate-x-1/2 transition-all duration-300 sm:top-5 sm:w-[calc(100%-40px)]">
       <div
         className={cn(
-          'flex items-center justify-between rounded-full border px-6 py-3 transition-all duration-300',
+          'flex items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-6',
           scrolled
             ? 'border-border-strong bg-bg-card/75 shadow-card backdrop-blur-2xl'
             : 'border-transparent bg-transparent',
@@ -100,7 +104,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-subtle bg-white/[0.04] text-white md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle bg-white/[0.04] text-white md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -112,11 +116,11 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          'md:hidden fixed inset-x-0 top-[80px] origin-top transition-all duration-300',
+          'md:hidden fixed inset-x-0 top-[72px] origin-top transition-all duration-300',
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
         )}
       >
-        <div className="mx-4 glass-strong rounded-2xl p-4 shadow-card">
+        <div className="mx-3 glass-strong rounded-2xl p-4 shadow-card sm:mx-4">
           <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
             {LINKS.map((link) => (
               <Link
