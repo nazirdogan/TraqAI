@@ -214,6 +214,112 @@ function DashboardMock() {
               </div>
             ))}
           </div>
+
+          {/* Mobile-only pipeline view */}
+          <div className="sr-mboard" aria-hidden="true">
+            <div className="sr-mhead">
+              <div className="sr-mhead__l">
+                <div className="sr-mhead__title">Pipeline</div>
+                <div className="sr-mhead__meta">
+                  47 open · <b>$2.36M</b> weighted
+                </div>
+              </div>
+              <div className="sr-mhead__r">
+                <span className="sr-mic" aria-hidden="true">
+                  ⌕
+                </span>
+                <Avatar initials="EM" tone="v" />
+              </div>
+            </div>
+
+            <div className="sr-mchips">
+              {STAGES.map((s, i) => (
+                <span className={`sr-mchip${i === 3 ? ' active' : ''}`} key={s.key}>
+                  <span className="sr-mchip__dot" style={{ background: s.hue }} />
+                  {s.label.split(' ')[0]}
+                  <span className="sr-mchip__ct">{s.count}</span>
+                </span>
+              ))}
+            </div>
+
+            <div className="sr-mkpis">
+              <div className="sr-mkpi">
+                <div className="sr-mkpi__lbl">Pipeline</div>
+                <div className="sr-mkpi__val">$2.36M</div>
+                <div className="sr-mkpi__delta up">▲ 12.4%</div>
+              </div>
+              <div className="sr-mkpi">
+                <div className="sr-mkpi__lbl">Won · MTD</div>
+                <div className="sr-mkpi__val">$584k</div>
+                <div className="sr-mkpi__delta up">▲ 8 deals</div>
+              </div>
+              <div className="sr-mkpi">
+                <div className="sr-mkpi__lbl">Avg cycle</div>
+                <div className="sr-mkpi__val">18 d</div>
+                <div className="sr-mkpi__delta down">▼ 3.2 d</div>
+              </div>
+              <div className="sr-mkpi">
+                <div className="sr-mkpi__lbl">Win rate</div>
+                <div className="sr-mkpi__val">34%</div>
+                <div className="sr-mkpi__delta up">▲ 4 pts</div>
+              </div>
+            </div>
+
+            <div className="sr-mai">
+              <div className="sr-mai__h">
+                <span className="sr-mai__dot" />
+                <strong>Traq AI</strong>
+                <span className="sr-mai__tag">Suggestion</span>
+              </div>
+              <p>
+                Crestline Bank hasn&apos;t replied in 4d. Draft a follow-up referencing their Q2
+                compliance deadline?
+              </p>
+              <div className="sr-mai__btns">
+                <button type="button" className="sr-mai__btn p">
+                  Draft reply
+                </button>
+                <button type="button" className="sr-mai__btn g">
+                  Dismiss
+                </button>
+              </div>
+            </div>
+
+            <div className="sr-mlist__h">
+              <span>Top deals</span>
+              <span className="sr-mlist__filter">All stages ▾</span>
+            </div>
+            <div className="sr-mlist">
+              {[
+                { stage: STAGES[3], deal: DEALS.close[0] },
+                { stage: STAGES[2], deal: DEALS.prop[0] },
+                { stage: STAGES[1], deal: DEALS.qual[0] },
+              ].map(({ stage: s, deal: d }) => (
+                <div className="sr-mdeal" key={s.key}>
+                  <span className="sr-mdeal__bar" style={{ background: s.hue }} />
+                  <Avatar initials={d.i} tone={d.tone} />
+                  <div className="sr-mdeal__main">
+                    <div className="sr-mdeal__co">
+                      {d.co}
+                      {d.flag && <span className="sr-flag">●</span>}
+                    </div>
+                    <div className="sr-mdeal__sub">
+                      <span className="sr-mdeal__stage" style={{ color: s.hue }}>
+                        {s.label.split(' ')[0]}
+                      </span>
+                      <span className="sr-mdeal__sep">·</span>
+                      <span>Score {d.score}</span>
+                    </div>
+                  </div>
+                  <div className="sr-mdeal__amt">{d.amt}</div>
+                </div>
+              ))}
+            </div>
+
+            <button type="button" className="sr-mnew">
+              + New deal
+            </button>
+          </div>
         </section>
 
         <aside className="sr-act">
@@ -306,14 +412,21 @@ export default function Hero() {
     let scheduled = false;
     const apply = () => {
       scheduled = false;
+      // On mobile the sticky scroll-reveal is disabled in CSS — keep the
+      // dashboard static and clear any previously-applied inline transforms.
+      if (window.matchMedia('(max-width: 820px)').matches) {
+        title.style.transform = '';
+        card.style.transform = '';
+        bg.style.opacity = '1';
+        return;
+      }
       const r = stage.getBoundingClientRect();
       const vh = window.innerHeight || 1;
       const denom = Math.max(1, r.height - vh);
       const p = Math.max(0, Math.min(1, -r.top / denom));
-      const isMobile = window.innerWidth <= 768;
 
       const rotate = 20 + (0 - 20) * p;
-      const scale = isMobile ? 0.7 + (0.9 - 0.7) * p : 1.05 + (1 - 1.05) * p;
+      const scale = 1.05 + (1 - 1.05) * p;
       const ty = 0 + (-100 - 0) * p;
       // Fade backgrounds from p=0.7 → p=1 so they don't snap when sticky releases.
       const bgOpacity = p < 0.7 ? 1 : Math.max(0, 1 - (p - 0.7) / 0.3);
@@ -377,10 +490,19 @@ export default function Hero() {
           }}
         >
           <div style={{ textAlign: 'center', marginBottom: 14 }}>
-            <div className="sr-kicker">
-              <span className="dot" />
-              Delivery, not advisory · Pilots in 1–3 weeks
-            </div>
+            <Link
+              href="/automation-roi-calculator"
+              className="sr-kicker group transition-colors hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+            >
+              <span className="hero-kicker-badge">New</span>
+              Automation ROI calculator
+              <span
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-0.5"
+              >
+                →
+              </span>
+            </Link>
           </div>
           <h1 className="sr-title">
             Wire AI into how your business
@@ -391,10 +513,10 @@ export default function Hero() {
             that mid-market operators can actually run on.
           </p>
 
-          <div className="mb-9 flex flex-wrap items-center justify-center gap-3.5">
+          <div className="mb-6 flex flex-col items-stretch justify-center gap-3 px-2 sm:mb-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5 sm:px-0">
             <Link
               href="/#contact"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-bg-base shadow-glow transition-all hover:-translate-y-px hover:bg-[#f0edff] hover:shadow-glow-strong active:scale-[0.98]"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-bg-base shadow-glow transition-all hover:-translate-y-px hover:bg-[#f0edff] hover:shadow-glow-strong active:scale-[0.98]"
             >
               Book a Free Call
               <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
@@ -403,7 +525,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/#services"
-              className="inline-flex items-center gap-2.5 rounded-full border border-border-strong bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-traq-light hover:bg-white/[0.08]"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-border-strong bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:border-traq-light hover:bg-white/[0.08]"
             >
               Explore Services
             </Link>
@@ -417,9 +539,8 @@ export default function Hero() {
         </div>
         <div
           ref={cardRef}
-          className="sr-card-wrap"
+          className="sr-card-wrap sr-card-wrap--init"
           style={{
-            transform: 'rotateX(20deg) scale(1.05)',
             position: 'relative',
             zIndex: 3,
           }}
