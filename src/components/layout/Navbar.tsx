@@ -8,6 +8,7 @@ import { cn } from '@/lib/cn';
 
 const LINKS = [
   { label: 'Services', href: '/#services' },
+  { label: 'Revenue', href: '/revenue-management' },
   { label: 'Process', href: '/#process' },
   { label: 'Why Traq', href: '/#about' },
   { label: 'Impact', href: '/#impact' },
