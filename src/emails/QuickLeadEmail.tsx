@@ -67,7 +67,7 @@ export default function QuickLeadEmail({ intake }: Props) {
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
           <Text style={{ ...value, color: '#6b7280', fontSize: '12px' }}>
-            Submitted via the quick form. Ping the lead within the hour — they were told to
+            Submitted via the quick form. Ping the lead within the hour. They were told to
             expect it.
           </Text>
         </Container>

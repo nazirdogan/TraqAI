@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     const leadSend = resend.emails.send({
       from: fromEmail,
       to: intake.email,
-      subject: `Thanks ${intake.firstName} — a Traq specialist will be in touch shortly`,
+      subject: `Thanks ${intake.firstName}, a Traq specialist will be in touch shortly`,
       react: QuickConfirmationEmail({ intake }),
     });
     const [teamRes, leadRes] = await Promise.all([teamSend, leadSend]);

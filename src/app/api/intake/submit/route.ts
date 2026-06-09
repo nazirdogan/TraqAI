@@ -122,14 +122,14 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: teamEmail,
       replyTo: profile.email,
-      subject: `New qualified lead: ${profile.firstName} ${profile.lastName} @ ${profile.company} — ${profile.problemTag}`,
+      subject: `New qualified lead: ${profile.firstName} ${profile.lastName} @ ${profile.company} · ${profile.problemTag}`,
       react: TeamLeadEmail({ profile, transcript: parsed.messages }),
     });
 
     const leadSend = resend.emails.send({
       from: fromEmail,
       to: profile.email,
-      subject: `Thanks ${profile.firstName} — a Traq specialist will be in touch shortly`,
+      subject: `Thanks ${profile.firstName}, a Traq specialist will be in touch shortly`,
       react: LeadConfirmationEmail({ profile }),
     });
 

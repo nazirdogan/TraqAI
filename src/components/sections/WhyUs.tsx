@@ -1,43 +1,58 @@
+'use client';
+
+import { motion, useReducedMotion } from 'framer-motion';
 import { BENEFITS } from '@/lib/constants';
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function WhyUs() {
+  const reduce = useReducedMotion();
+  const card = {
+    hidden: { opacity: 0, y: reduce ? 0 : 16 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section id="about" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="about" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto grid max-w-7xl items-start gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="text-left">
           <div className="eyebrow">Why Traq</div>
           <h2 className="section-title mt-4">
-            Built by builders. <span className="text-gradient">Not consultants.</span>
+            We don&rsquo;t hand you a deck. We get your team doing the work.
           </h2>
-          <p className="section-sub max-w-xl">
-            We&rsquo;re senior operators who got tired of delivery theatre. Every engagement ends with
-            production code, real metrics, and a team that knows how to run it.
-          </p>
           <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
             <div className="chip">
               <span className="chip-dot" />
-              Live pipeline
+              Done with you
             </div>
-            <div className="chip">Ship · Measure · Iterate</div>
+            <div className="chip">Capability that stays</div>
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ staggerChildren: 0.1 }}
+          className="grid gap-3 sm:grid-cols-2 sm:gap-4"
+        >
           {BENEFITS.map((b, i) => (
-            <div
+            <motion.div
               key={b.title}
-              className="rounded-[18px] border border-border-subtle bg-white/[0.02] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-traq-light/40 hover:bg-traq-purple/[0.06] sm:rounded-[20px] sm:p-6"
+              variants={card}
+              transition={{ duration: 0.5, ease }}
+              className="rounded-[18px] border border-border-subtle bg-white p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-cardHover sm:rounded-[20px] sm:p-6"
             >
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-traq-light sm:mb-3.5">
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-traq-purple sm:mb-3.5">
                 {`0${i + 1} / Principle`}
               </div>
-              <h3 className="m-0 mb-2 text-base font-semibold leading-tight tracking-tight text-white sm:mb-2.5 sm:text-[17px]">
+              <h3 className="m-0 mb-2 text-base font-semibold leading-tight tracking-tight text-ink sm:mb-2.5 sm:text-[17px]">
                 {b.title}
               </h3>
-              <p className="m-0 text-[13px] leading-relaxed text-white/60">{b.description}</p>
-            </div>
+              <p className="m-0 text-[13px] leading-relaxed text-ink-soft">{b.description}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
