@@ -8,6 +8,7 @@ import Founder from '@/components/sections/Founder';
 import Proof from '@/components/sections/Proof';
 import WhyUs from '@/components/sections/WhyUs';
 import Impact from '@/components/sections/Impact';
+import FAQ from '@/components/sections/FAQ';
 import CTABanner from '@/components/sections/CTABanner';
 import ContactIntake from '@/components/sections/ContactIntake';
 
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Proof />
       <WhyUs />
       <Impact />
+      <FAQ />
       <CTABanner />
       <ContactIntake />
     </>

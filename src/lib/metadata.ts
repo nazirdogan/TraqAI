@@ -37,7 +37,7 @@ export const baseMetadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/logos/wordmark-white.png',
+        url: '/logos/wordmark-purple.png',
         width: 1200,
         height: 630,
         alt: 'Traq Collective',
@@ -48,7 +48,7 @@ export const baseMetadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_NAME,
     description: DESCRIPTION,
-    images: ['/logos/wordmark-white.png'],
+    images: ['/logos/wordmark-purple.png'],
   },
   alternates: {
     canonical: SITE_URL,

@@ -166,3 +166,40 @@ export const COMPANY = {
   location: 'Remote-first · Global delivery',
   tagline: 'We help your team actually use the AI you already pay for.',
 };
+
+export type FaqItem = { question: string; answer: string };
+
+// Single source of truth for the home FAQ. The visible block and the FAQPage
+// JSON-LD both read from this array, so the schema always mirrors on-page copy.
+export const FAQS: FaqItem[] = [
+  {
+    question: 'What does an AI enablement partner do?',
+    answer:
+      'We help your team actually use the AI tools you already pay for. We run hands-on training, set up the right tools and guardrails, build the workflows that save real hours, and stay with you while the habits stick. The goal is capability your team keeps, not a deck they forget.',
+  },
+  {
+    question: 'What is a fractional Head of AI?',
+    answer:
+      'A fractional Head of AI is a senior AI leader who works with you part-time. You get the strategy, vendor decisions, rollout plan, and guardrails of a full-time hire for a fraction of the cost. We set the AI direction, prioritise the work that pays off first, and lead the rollout across your team.',
+  },
+  {
+    question: 'Do you serve companies in the UAE?',
+    answer:
+      'Yes. We are based in the UAE and work with teams across Dubai, Abu Dhabi and the wider region. We also deliver remotely for clients worldwide. You can reach us on +971 50 868 7196 or at hello@traqcollective.com.',
+  },
+  {
+    question: 'How is AI training different from a one-off workshop?',
+    answer:
+      'A single workshop rarely changes how people work. Research shows comfort with AI nearly doubles after structured training, and people who get more than five hours of practice become regular users at far higher rates. We train on your real tasks, then stay with you so the new habits hold.',
+  },
+  {
+    question: 'How quickly can we see results?',
+    answer:
+      'Most teams feel a difference within the first few weeks. We start with the workflows that waste the most time, train on those first, and measure the hours saved. A typical engagement follows a 30, 60, 90 day path from quick wins to lasting capability.',
+  },
+  {
+    question: 'How do we get started?',
+    answer:
+      'Book a free call and we will find where AI can save your team the most time. There is no deck and no obligation. After the call we send a short plan with the first workflows to tackle and what training your team needs.',
+  },
+];

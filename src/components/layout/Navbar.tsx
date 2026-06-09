@@ -12,6 +12,7 @@ const LINKS = [
   { label: 'How we work', href: '/#how-we-work' },
   { label: 'Ways to work', href: '/#ways-to-work' },
   { label: 'Proof', href: '/#proof' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Contact', href: '/#contact' },
 ];
 
