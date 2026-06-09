@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Turnstile } from '@marsidev/react-turnstile';
 import {
@@ -15,7 +16,6 @@ import {
   SquarePen,
 } from 'lucide-react';
 import FadeUp from '@/components/ui/FadeUp';
-import Tag from '@/components/ui/Tag';
 import { COMPANY } from '@/lib/constants';
 import { cn } from '@/lib/cn';
 import {
@@ -38,7 +38,7 @@ const OPENING_MESSAGE: DisplayMessage = {
   id: 'opening',
   role: 'assistant',
   content:
-    "Hi — I'm the Traq intake. Mind if I ask a few quick questions so the team shows up to our first call already up to speed?\n\nLet's start with the basics: what's your full name?",
+    "Hi, I'm the Traq intake. Mind if I ask a few quick questions about your team and your tools, so we show up to our first call already up to speed?\n\nLet's start with the basics: what's your full name?",
 };
 
 type ChoiceSet = { options: string[]; allowMultiple: boolean };
@@ -60,10 +60,10 @@ const FIELD_LABELS: Record<keyof LeadProfile, string> = {
 };
 
 const INPUT_BASE =
-  'w-full min-h-[44px] rounded-xl border border-border-subtle bg-bg-base/60 px-4 py-3 text-base text-white placeholder:text-white/30 transition-colors focus:border-traq-light focus:outline-none focus:ring-0 sm:text-sm';
+  'w-full min-h-[44px] rounded-xl border border-border-subtle bg-white px-4 py-3 text-base text-ink placeholder:text-ink-faint transition-colors focus:border-traq-purple focus:outline-none focus:ring-0 sm:text-sm';
 
 const LABEL_BASE =
-  'text-[11px] font-semibold uppercase tracking-widest text-white/55';
+  'text-[11px] font-semibold uppercase tracking-widest text-ink-faint';
 
 function randId(): string {
   return Math.random().toString(36).slice(2, 10);
@@ -315,58 +315,59 @@ export default function ContactIntake() {
     <section id="contact" className="relative pt-8 pb-16 sm:pt-14 sm:pb-28">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:gap-14 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-16">
         <FadeUp>
-          <Tag>Let&rsquo;s talk</Tag>
-          <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-white sm:mt-5 sm:text-3xl md:text-4xl lg:text-5xl">
-            Tell us where you&rsquo;re stuck.{' '}
-            <span className="text-gradient">We&rsquo;ll tell you what&rsquo;s actually possible.</span>
+          <div className="eyebrow eyebrow-accent">Get in touch</div>
+          <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-ink sm:mt-5 sm:text-3xl md:text-4xl lg:text-5xl">
+            Tell us about your team.{' '}
+            <span className="text-traq-purple">We&rsquo;ll show you where AI fits.</span>
           </h2>
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-base lg:text-lg">
-            Send us the basics in 30 seconds — or chat it through with our AI intake for a
-            richer brief. Either way, a Traq specialist calls you back within the hour.
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:mt-5 sm:text-base lg:text-lg">
+            Want a time in the diary now? <Link href="/book" className="font-semibold text-traq-purple underline-offset-2 hover:underline">Book a free call</Link>.
+            Prefer to message first? Send us the basics in 30 seconds, or chat it through with our
+            AI intake for a richer brief. Either way, we&rsquo;ll get back to you fast.
           </p>
 
           <ul className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
             <li className="flex items-start gap-4">
-              <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-traq-purple/15 text-traq-light ring-1 ring-traq-purple/30">
+              <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl border border-border-subtle bg-traq-tint text-traq-purple">
                 <Mail className="h-4 w-4" />
               </span>
               <div>
                 <p className={LABEL_BASE}>Email</p>
                 <a
                   href={`mailto:${COMPANY.email}`}
-                  className="mt-1 block text-sm text-white hover:text-traq-light"
+                  className="mt-1 block text-sm text-ink hover:text-traq-purple"
                 >
                   {COMPANY.email}
                 </a>
               </div>
             </li>
             <li className="flex items-start gap-4">
-              <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-traq-purple/15 text-traq-light ring-1 ring-traq-purple/30">
+              <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl border border-border-subtle bg-traq-tint text-traq-purple">
                 <Phone className="h-4 w-4" />
               </span>
               <div>
                 <p className={LABEL_BASE}>Phone &middot; WhatsApp</p>
                 <a
                   href={`tel:${COMPANY.phone.replace(/\s|\(|\)|-/g, '')}`}
-                  className="mt-1 block text-sm text-white hover:text-traq-light"
+                  className="mt-1 block text-sm text-ink hover:text-traq-purple"
                 >
                   {COMPANY.phone}
                 </a>
               </div>
             </li>
             <li className="flex items-start gap-4">
-              <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-traq-purple/15 text-traq-light ring-1 ring-traq-purple/30">
+              <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl border border-border-subtle bg-traq-tint text-traq-purple">
                 <Globe className="h-4 w-4" />
               </span>
               <div>
                 <p className={LABEL_BASE}>Where we work</p>
-                <p className="mt-1 text-sm text-white">{COMPANY.location}</p>
+                <p className="mt-1 text-sm text-ink">{COMPANY.location}</p>
               </div>
             </li>
           </ul>
 
           {mode === 'chat' ? (
-            <div className="mt-10 rounded-2xl border border-border-subtle bg-bg-card/60 p-5">
+            <div className="mt-10 rounded-2xl border border-border-subtle bg-white p-5 shadow-card">
               <p className={LABEL_BASE}>What we&rsquo;ll capture</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {REQUIRED_FIELDS.map((f) => {
@@ -385,19 +386,19 @@ export default function ContactIntake() {
                       className={cn(
                         'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px]',
                         filled
-                          ? 'border-traq-purple/40 bg-traq-purple/15 text-white'
-                          : 'border-white/10 bg-white/[0.03] text-white/50',
+                          ? 'border-traq-purple/40 bg-traq-tint text-traq-purple-ink'
+                          : 'border-border-subtle bg-bg-subtle text-ink-faint',
                       )}
                     >
-                      {filled ? <CheckCircle2 className="h-3 w-3 text-traq-light" /> : null}
+                      {filled ? <CheckCircle2 className="h-3 w-3 text-traq-purple" /> : null}
                       {FIELD_LABELS[f]}
                     </span>
                   );
                 })}
               </div>
-              <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-white/5">
+              <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-border-subtle">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-traq-purple to-traq-light transition-all"
+                  className="h-full rounded-full bg-traq-purple transition-all"
                   style={{ width: `${progressPct(profile)}%` }}
                 />
               </div>
@@ -407,16 +408,11 @@ export default function ContactIntake() {
 
         <FadeUp delay={0.1}>
           <div className="relative">
-            <div
-              className="pointer-events-none absolute -inset-4 rounded-[28px] bg-traq-purple/10 blur-3xl"
-              aria-hidden="true"
-            />
-
             {phase === 'success' ? (
               <SuccessPanel firstName={profile.firstName} />
             ) : (
               <>
-                <div className="mb-4 flex gap-1.5 rounded-full border border-border-subtle bg-bg-card/50 p-1">
+                <div className="mb-4 flex gap-1.5 rounded-full border border-border-subtle bg-white p-1 shadow-card">
                   <ModeTab
                     active={mode === 'quick'}
                     onClick={() => setMode('quick')}
@@ -457,12 +453,12 @@ export default function ContactIntake() {
               <div className="relative glass-strong flex h-[540px] flex-col overflow-hidden rounded-3xl shadow-card sm:h-[620px]">
                 <div className="flex items-center justify-between gap-3 border-b border-border-subtle px-4 py-3 sm:px-6 sm:py-4">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-traq-purple/20 text-traq-light ring-1 ring-traq-purple/30">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-xl border border-border-subtle bg-traq-tint text-traq-purple">
                       <Sparkles className="h-4 w-4" />
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-white">Traq AI intake</p>
-                      <p className="text-[11px] text-white/50">
+                      <p className="text-sm font-medium text-ink">Traq AI intake</p>
+                      <p className="text-[11px] text-ink-faint">
                         ~2 minutes &middot; {progressPct(profile)}% captured
                       </p>
                     </div>
@@ -470,7 +466,7 @@ export default function ContactIntake() {
                   {readyToSubmit ? (
                     <button
                       onClick={goReview}
-                      className="group inline-flex items-center gap-1.5 rounded-full bg-traq-purple px-4 py-2 text-xs font-medium text-white shadow-glow transition-all hover:bg-traq-light"
+                      className="group inline-flex items-center gap-1.5 rounded-full bg-traq-purple px-4 py-2 text-xs font-medium text-white shadow-card transition-all hover:bg-traq-purple-ink"
                     >
                       Review &amp; submit
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -490,7 +486,7 @@ export default function ContactIntake() {
                   messages.length > 0 &&
                   messages[messages.length - 1]?.role === 'assistant' &&
                   messages[messages.length - 1]?.content === '' ? (
-                    <div className="mt-1 flex items-center gap-2 text-xs text-white/50">
+                    <div className="mt-1 flex items-center gap-2 text-xs text-ink-faint">
                       <Loader2 className="h-3 w-3 animate-spin" />
                       Thinking&hellip;
                     </div>
@@ -503,7 +499,7 @@ export default function ContactIntake() {
                       <Turnstile
                         siteKey={turnstileSiteKey}
                         onSuccess={(t) => setTurnstileToken(t)}
-                        options={{ theme: 'dark', size: 'flexible' }}
+                        options={{ theme: 'light', size: 'flexible' }}
                       />
                     </div>
                   ) : null}
@@ -549,7 +545,7 @@ export default function ContactIntake() {
                     <button
                       type="submit"
                       disabled={!canSend}
-                      className="group inline-flex h-11 min-w-[52px] shrink-0 items-center justify-center gap-1.5 rounded-full bg-traq-purple px-4 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong disabled:cursor-not-allowed disabled:opacity-50 sm:h-[46px] sm:px-5"
+                      className="group inline-flex h-11 min-w-[52px] shrink-0 items-center justify-center gap-1.5 rounded-full bg-traq-purple px-4 text-sm font-medium text-white shadow-card transition-all hover:bg-traq-purple-ink hover:shadow-cardHover disabled:cursor-not-allowed disabled:opacity-50 sm:h-[46px] sm:px-5"
                       aria-label="Send message"
                     >
                       {sending ? (
@@ -564,13 +560,13 @@ export default function ContactIntake() {
                   </form>
 
                   {errorMessage ? (
-                    <div className="mt-3 flex items-start gap-2 rounded-xl border border-red-400/30 bg-red-400/10 px-3 py-2 text-xs text-red-200">
+                    <div className="mt-3 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700">
                       <AlertCircle className="mt-0.5 h-3.5 w-3.5 flex-none" />
                       <p>{errorMessage}</p>
                     </div>
                   ) : null}
 
-                  <p className="mt-3 text-[11px] text-white/40">
+                  <p className="mt-3 text-[11px] text-ink-faint">
                     Powered by Claude. We don&rsquo;t store your chat beyond the email we send
                     to our team and to you.
                   </p>
@@ -602,7 +598,7 @@ function ChoiceChips({
   const { options, allowMultiple } = choices;
   return (
     <div className="mb-3">
-      <p className="mb-2 text-[11px] uppercase tracking-widest text-white/45">
+      <p className="mb-2 text-[11px] uppercase tracking-widest text-ink-faint">
         {allowMultiple ? 'Pick one or more' : 'Pick one'}
       </p>
       <div className="flex flex-wrap gap-2">
@@ -618,8 +614,8 @@ function ChoiceChips({
               className={cn(
                 'rounded-full border px-3.5 py-1.5 text-xs transition-colors',
                 active
-                  ? 'border-traq-purple/60 bg-traq-purple/25 text-white'
-                  : 'border-border-subtle bg-bg-card/60 text-white/80 hover:border-traq-purple/40 hover:text-white',
+                  ? 'border-traq-purple bg-traq-purple text-white'
+                  : 'border-border-subtle bg-white text-ink-soft hover:border-traq-purple/40 hover:text-ink',
               )}
             >
               {opt}
@@ -632,7 +628,7 @@ function ChoiceChips({
           type="button"
           disabled={selected.length === 0}
           onClick={onSendMulti}
-          className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-traq-purple px-4 py-2 text-xs font-medium text-white shadow-glow transition-all hover:bg-traq-light disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-traq-purple px-4 py-2 text-xs font-medium text-white shadow-card transition-all hover:bg-traq-purple-ink disabled:cursor-not-allowed disabled:opacity-50"
         >
           {selected.length === 0
             ? 'Select at least one'
@@ -640,7 +636,7 @@ function ChoiceChips({
           <ArrowRight className="h-3.5 w-3.5" />
         </button>
       ) : (
-        <p className="mt-2 text-[11px] text-white/40">
+        <p className="mt-2 text-[11px] text-ink-faint">
           Or type something else below.
         </p>
       )}
@@ -656,13 +652,13 @@ function MessageBubble({ message }: { message: DisplayMessage }) {
         className={cn(
           'max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap',
           isAssistant
-            ? 'bg-white/[0.04] text-white/90 ring-1 ring-border-subtle'
-            : 'bg-traq-purple/80 text-white shadow-glow',
+            ? 'bg-bg-subtle text-ink ring-1 ring-border-subtle'
+            : 'bg-traq-purple text-white shadow-card',
         )}
       >
         {message.content}
         {message.streaming && message.content.length > 0 ? (
-          <span className="ml-0.5 inline-block h-4 w-[2px] animate-pulse bg-traq-light align-middle" />
+          <span className="ml-0.5 inline-block h-4 w-[2px] animate-pulse bg-white align-middle" />
         ) : null}
       </div>
     </div>
@@ -672,13 +668,13 @@ function MessageBubble({ message }: { message: DisplayMessage }) {
 function SuccessPanel({ firstName }: { firstName?: string }) {
   return (
     <div className="glass-strong flex flex-col items-center rounded-3xl px-8 py-14 text-center shadow-card">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-traq-purple/15 text-traq-light ring-1 ring-traq-purple/30">
+      <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-traq-tint text-traq-purple">
         <CheckCircle2 className="h-7 w-7" />
       </span>
-      <h3 className="mt-6 text-2xl font-semibold text-white">
+      <h3 className="mt-6 text-2xl font-semibold text-ink">
         Thanks{firstName ? `, ${firstName}` : ''}.
       </h3>
-      <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">
+      <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
         A Traq specialist has the full brief and will reach out within the next hour. A copy
         of the summary is in your inbox too — reply to that email if any detail needs
         correcting.
@@ -742,17 +738,17 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
       <div className="flex items-center justify-between">
         <div>
           <p className={LABEL_BASE}>Review</p>
-          <h3 className="mt-2 text-xl font-semibold text-white">
+          <h3 className="mt-2 text-xl font-semibold text-ink">
             Here&rsquo;s what we heard.
           </h3>
-          <p className="mt-1 text-sm text-white/60">
+          <p className="mt-1 text-sm text-ink-soft">
             Fix anything that looks off, then send it over.
           </p>
         </div>
         <button
           type="button"
           onClick={onBack}
-          className="text-xs font-medium text-white/60 hover:text-traq-light"
+          className="text-xs font-medium text-ink-soft hover:text-traq-purple"
         >
           Back to chat
         </button>
@@ -820,8 +816,8 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
                 className={cn(
                   'rounded-full border px-3 py-1.5 text-xs transition-colors',
                   active
-                    ? 'border-traq-purple/50 bg-traq-purple/20 text-white'
-                    : 'border-white/10 bg-white/[0.04] text-white/70 hover:border-traq-purple/40',
+                    ? 'border-traq-purple bg-traq-purple text-white'
+                    : 'border-border-subtle bg-white text-ink-soft hover:border-traq-purple/40 hover:text-ink',
                 )}
               >
                 {svc}
@@ -873,7 +869,7 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
       </div>
 
       {missing.length > 0 ? (
-        <div className="mt-5 rounded-xl border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-xs text-amber-200">
+        <div className="mt-5 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-xs text-amber-700">
           Still missing:{' '}
           {missing.map((f, i) => (
             <Fragment key={f}>
@@ -887,7 +883,7 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
       <button
         type="submit"
         disabled={submitting || missing.length > 0}
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-traq-purple px-6 py-3.5 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong disabled:cursor-not-allowed disabled:opacity-60"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-traq-purple px-6 py-3.5 text-sm font-medium text-white shadow-card transition-all hover:bg-traq-purple-ink hover:shadow-cardHover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? (
           <>
@@ -943,17 +939,17 @@ function ModeTab({ active, onClick, icon, label, sub }: ModeTabProps) {
       className={cn(
         'flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-xs font-medium transition-all',
         active
-          ? 'bg-traq-purple text-white shadow-glow'
-          : 'text-white/60 hover:text-white',
+          ? 'bg-traq-purple text-white shadow-card'
+          : 'text-ink-soft hover:text-ink',
       )}
     >
-      <span className={active ? 'text-white' : 'text-traq-light'}>{icon}</span>
+      <span className={active ? 'text-white' : 'text-traq-purple'}>{icon}</span>
       <span className="flex flex-col items-start leading-tight sm:flex-row sm:items-baseline sm:gap-1.5">
         <span>{label}</span>
         <span
           className={cn(
             'text-[10px] font-normal uppercase tracking-wider',
-            active ? 'text-white/70' : 'text-white/40',
+            active ? 'text-white/75' : 'text-ink-faint',
           )}
         >
           {sub}
@@ -1113,7 +1109,7 @@ function QuickFormPanel({
 
       <div className="mt-5">
         <label className={LABEL_BASE} htmlFor="qf-problem">
-          What are you trying to solve?
+          Where do you want AI to help?
         </label>
         <textarea
           id="qf-problem"
@@ -1121,7 +1117,7 @@ function QuickFormPanel({
           value={problem}
           onChange={(e) => setProblem(e.target.value)}
           className={cn(INPUT_BASE, 'mt-2 resize-none')}
-          placeholder="A sentence or two on the workflow, system or outcome you&rsquo;re chasing."
+          placeholder="A sentence or two on your team, the tools you use, and where you'd like AI to save time."
         />
       </div>
 
@@ -1138,8 +1134,8 @@ function QuickFormPanel({
                 className={cn(
                   'rounded-full border px-3 py-1.5 text-xs transition-colors',
                   active
-                    ? 'border-traq-purple/50 bg-traq-purple/20 text-white'
-                    : 'border-white/10 bg-white/[0.04] text-white/70 hover:border-traq-purple/40',
+                    ? 'border-traq-purple bg-traq-purple text-white'
+                    : 'border-border-subtle bg-white text-ink-soft hover:border-traq-purple/40 hover:text-ink',
                 )}
               >
                 {svc}
@@ -1154,7 +1150,7 @@ function QuickFormPanel({
           <Turnstile
             siteKey={turnstileSiteKey}
             onSuccess={(t) => onTurnstileToken(t)}
-            options={{ theme: 'dark', size: 'flexible' }}
+            options={{ theme: 'light', size: 'flexible' }}
           />
         </div>
       ) : null}
@@ -1162,7 +1158,7 @@ function QuickFormPanel({
       <button
         type="submit"
         disabled={!canSubmit}
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-traq-purple px-6 py-3.5 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong disabled:cursor-not-allowed disabled:opacity-60"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-traq-purple px-6 py-3.5 text-sm font-medium text-white shadow-card transition-all hover:bg-traq-purple-ink hover:shadow-cardHover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? (
           <>
@@ -1178,15 +1174,15 @@ function QuickFormPanel({
       </button>
 
       {errorMessage ? (
-        <div className="mt-5 flex items-start gap-3 rounded-xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-200">
+        <div className="mt-5 flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           <AlertCircle className="mt-0.5 h-4 w-4 flex-none" />
           <p>{errorMessage}</p>
         </div>
       ) : null}
 
-      <p className="mt-5 text-xs text-white/45">
+      <p className="mt-5 text-xs text-ink-faint">
         We&rsquo;ll never share your details. Prefer to talk it through?{' '}
-        <span className="text-traq-light">Switch to chat above.</span>
+        <span className="font-semibold text-traq-purple">Switch to chat above.</span>
       </p>
     </form>
   );
