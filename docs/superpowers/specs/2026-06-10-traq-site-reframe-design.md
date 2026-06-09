@@ -2,7 +2,8 @@
 
 **Date:** 2026-06-10
 **Owner:** Nazir
-**Repo:** `~/Downloads/TraqAI/site` (the Netlify-linked, deployed copy)
+**Repo:** `~/Downloads/TraqAI/site` (the deployed copy)
+**Hosting:** **Vercel** — project `nazirdogans-projects/traqcollective`, custom domain `traqcollective.com` (DNS at GoDaddy → Vercel). Auto-deploys from GitHub `nazirdogan/TraqAI` on push. The `netlify.toml` and `@netlify/plugin-nextjs` in the repo are vestigial from a prior Netlify setup and should be removed. (This overrides the global "deploy to Netlify" default for this project.)
 **Status:** Draft for review
 
 ---
@@ -238,7 +239,7 @@ The code path is sound: `/api/intake/quick` and `/api/intake/submit` send a team
 
 **Work to do:**
 1. **Reframe intake content** — update `SERVICES_OF_INTEREST` (in `src/lib/intake/types.ts`), `SERVICE_DROPDOWN_OPTIONS` (in `src/lib/constants.ts`), and the AI intake system prompt (`src/lib/intake/prompt.ts`) to the new offering: AI Training, Consultation & Strategy, Implementation, Agentic AI, plus "Just exploring." Re-theme the confirmation/team email templates' wording.
-2. **Verify production env** — confirm `RESEND_API_KEY`, `ANTHROPIC_API_KEY`, `TEAM_INTAKE_EMAIL=nazir@traqcollective.com`, `FROM_EMAIL`, Turnstile, and Upstash keys are set in the Netlify dashboard (not just `.env.local`, which is git-ignored and local-only).
+2. **Set production env on Vercel — KNOWN BROKEN, fix first.** Verified 2026-06-10: the Vercel `traqcollective` project has **zero** environment variables in production, so the live contact form fails on every path (Resend/Anthropic/Turnstile all unset) and leads are being lost. Set `RESEND_API_KEY`, `ANTHROPIC_API_KEY`, `TEAM_INTAKE_EMAIL=nazir@traqcollective.com`, `FROM_EMAIL`, the two Turnstile keys, and the two Upstash keys on Vercel (production scope), sourcing the verified-correct values from local `.env.local`. The `NEXT_PUBLIC_` Turnstile key is build-time/inlined, so a **redeploy is required** after setting env. (Resend domain `traqcollective.com` is already verified + sending-enabled, so delivery will work once keys are set.)
 3. **Verify Resend sending domain** — confirm `traqcollective.com` is a verified domain in Resend so `FROM_EMAIL` sends don't bounce.
 4. **Live end-to-end test** — submit a real test lead on the deployed site and confirm the email lands in nazir@traqcollective.com. Report the result. (User approved a live test.)
 5. **Embed the scheduler** — add a Cal.com/Calendly embed as the primary "Book a call" target (a dedicated `/book` route or modal, linked from every CTA). Needs Nazir's scheduler link, or set up a Cal.com account. Track the booking as a conversion event (see §8b).
@@ -282,7 +283,7 @@ Build `/services` hub + 4 service pages, `/fractional-head-of-ai`, `/ai-consulti
 **Phase 3 — Citation engine + magnet.**
 `/insights` with 4–5 cornerstone guides and 2–3 comparison pages (Article/FAQ schema, bylines, dates); build the `/ai-readiness` interactive assessment; deliver the off-page presence checklist.
 
-Each phase ends with `npm run typecheck && npm run lint` clean (per global build rules) and a Netlify deploy returning the shareable URL.
+Each phase ends with `npm run typecheck && npm run lint` clean (per global build rules) and a Vercel deploy returning the shareable URL.
 
 ---
 
@@ -305,4 +306,4 @@ These unblock specific pieces; the build proceeds with sensible placeholders whe
 - A live test submission reliably reaches nazir@traqcollective.com.
 - Technical AEO in place: robots allowing AI bots, sitemap, schema on key pages, extractable content patterns.
 - Dedicated pages exist for each priority query cluster (UAE + global), positioned to rank and be cited.
-- typecheck + lint pass; deployed to Netlify.
+- typecheck + lint pass; deployed to Vercel.
