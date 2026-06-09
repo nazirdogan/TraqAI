@@ -19,7 +19,7 @@ export default function Impact() {
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
               <div className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 sm:mb-5">
-                {m.industry}
+                {m.source}
               </div>
               <div className="impact-value mb-3 sm:mb-4">{m.value}</div>
               <div className="m-0 mb-2 text-base font-semibold tracking-tight text-white sm:mb-2.5 sm:text-[17px]">

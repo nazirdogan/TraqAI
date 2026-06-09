@@ -12,7 +12,7 @@ export default function ImpactCard({ metric }: Props) {
         aria-hidden="true"
       />
       <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-white/65">
-        {metric.industry}
+        {metric.source}
       </span>
       <div className="mt-8 text-6xl font-semibold tracking-tight text-gradient">{metric.value}</div>
       <h3 className="mt-4 text-lg font-semibold text-white">{metric.label}</h3>

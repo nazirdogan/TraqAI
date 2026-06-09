@@ -1,12 +1,10 @@
 import { z } from 'zod';
 
 export const SERVICES_OF_INTEREST = [
-  'AI Integration',
-  'Process Automation',
-  'Data Intelligence',
-  'ERP',
-  'Website',
-  'Secure AI / Consultation',
+  'AI Training & Workshops',
+  'Consultation & Strategy',
+  'Implementation & Enablement',
+  'Agentic AI & Autonomous Infrastructure',
 ] as const;
 export type ServiceOfInterest = (typeof SERVICES_OF_INTEREST)[number];
 

@@ -9,81 +9,55 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: 'ai-integration-development',
-    icon: '🧠',
-    title: 'AI Integration & Development',
-    tagline: 'Off-the-shelf models or bespoke systems — plugged into how you already work.',
+    slug: 'ai-training',
+    icon: '🎓',
+    title: 'AI Training & Workshops',
+    tagline: 'Hands-on sessions built around your team’s real work.',
     description:
-      'We connect the leading AI providers to the platforms that run your business, and where off-the-shelf stops being enough, we design and build custom AI systems around your domain, data and compliance surface.',
+      'Role-specific, practical workshops that take your people from hesitant to confident. They leave knowing exactly how to use AI in their job, not just what it is.',
     bullets: [
-      'OpenAI, Anthropic, Azure, Google AI + bespoke models',
-      'Internal AI assistants, copilots and inference pipelines',
-      'Pilot live in 1–3 weeks — cloud or on-premise',
+      'Tailored to your team’s actual workflows',
+      'Hands-on, not theory',
+      'Capability that stays in-house',
     ],
   },
   {
-    slug: 'process-automation',
-    icon: '⚙️',
-    title: 'Process Automation',
-    tagline: 'Kill the repetitive work. Keep the judgement.',
+    slug: 'ai-consulting',
+    icon: '🧭',
+    title: 'Consultation & Strategy',
+    tagline: 'Your fractional Head of AI.',
     description:
-      'We map the repetitive human steps in your business and replace them with reliable, auditable automations your team can trust.',
+      'We audit your tools and workflows, find the highest-leverage uses, and give you a clear roadmap — then help you act on it.',
     bullets: [
-      'Lead routing and auto follow-up',
-      'WhatsApp, email and form workflows',
-      'Fewer mistakes, faster turnaround',
+      'AI audit of tools and workflows',
+      'A prioritised, practical roadmap',
+      'Senior partner embedded with your team',
     ],
   },
   {
-    slug: 'data-intelligence',
-    icon: '📊',
-    title: 'Data Intelligence',
-    tagline: 'Turn raw data into decisions.',
+    slug: 'ai-implementation',
+    icon: '🔧',
+    title: 'Implementation & Enablement',
+    tagline: 'Wire AI into the tools you already pay for.',
     description:
-      'We build the pipelines and dashboards that surface what matters — so the team stops arguing with spreadsheets and starts acting on evidence.',
+      'We set up AI inside your real workflows, with the guardrails to use it safely, then make sure the team actually adopts it.',
     bullets: [
-      'AI-enriched analytics pipelines',
-      'Data warehouse and BI integrations',
-      'Insight dashboards for operators',
+      'AI wired into existing tools',
+      'Prompts, guardrails and safe usage',
+      'Adoption support, not a handover doc',
     ],
   },
   {
-    slug: 'erp-systems',
-    icon: '🏗️',
-    title: 'ERP Systems',
-    tagline: 'Custom ERPs for the operations spreadsheets are buckling under.',
+    slug: 'agentic-ai',
+    icon: '🤖',
+    title: 'Agentic AI & Autonomous Infrastructure',
+    tagline: 'Build a self-improving company.',
     description:
-      'We design and build bespoke ERP systems — or extend the one you already run — so operations, finance, inventory and people finally live in one platform your team actually uses.',
+      'We build AI agents and agentic systems that run and improve on their own. We run a full autonomous operation end to end for a company, and we can build yours.',
     bullets: [
-      'Custom-built or extend SAP, Odoo, NetSuite, Dynamics',
-      'Operations, finance, inventory and HR in one place',
-      'Designed around your workflow, not a generic template',
-    ],
-  },
-  {
-    slug: 'business-websites',
-    icon: '🌐',
-    title: 'Business Websites & Redesigns',
-    tagline: 'Conversion-focused sites that respect your brand.',
-    description:
-      'Clear messaging, sharp visual design, and engineering that keeps the site fast, measurable and easy to evolve.',
-    bullets: [
-      'Clear messaging and modern design',
-      'Landing pages and funnels built to convert',
-      'Mobile-ready and analytics-instrumented',
-    ],
-  },
-  {
-    slug: 'secure-ai-consultation',
-    icon: '🔒',
-    title: 'Secure AI & Consultation',
-    tagline: 'Ship AI without handing over your data.',
-    description:
-      'A privacy-first architecture plus ongoing guidance so AI becomes a durable capability inside your business — not a vendor lock-in.',
-    bullets: [
-      'Encryption at rest and in transit',
-      'RBAC, SSO and full audit logging',
-      'Team training and hands-on support',
+      'AI agents and agentic ecosystems',
+      'Autonomous, self-improving workflows',
+      'Built with you, not in a black box',
     ],
   },
 ];
@@ -95,31 +69,13 @@ export type ProcessStepData = {
 };
 
 export const PROCESS_STEPS: ProcessStepData[] = [
-  {
-    number: '01',
-    title: 'Understand Your Business',
-    description:
-      'We start by mapping how your team actually works today. Then we identify where AI or automation would create real, measurable leverage.',
-  },
-  {
-    number: '02',
-    title: 'Design the Solution',
-    description:
-      'We architect a tailored stack — models, integrations, security, data flows — and share a clear plan before a single line of code is written.',
-  },
-  {
-    number: '03',
-    title: 'Build & Pilot',
-    description:
-      'Your team gets a working pilot in 1–3 weeks. We iterate in public with you, not behind a curtain, until it genuinely fits the workflow.',
-  },
-  {
-    number: '04',
-    title: 'Launch & Support',
-    description:
-      'We roll the system into production, train your team, and stay on as a technical partner to evolve the platform as your business grows.',
-  },
+  { number: '0–30', title: 'Audit & map', description: 'We learn your tools, team and workflows, and find where AI saves the most time.' },
+  { number: '30–60', title: 'Train your team', description: 'Role-specific, hands-on workshops so your people can actually use the tools.' },
+  { number: '60–90', title: 'Implement & embed', description: 'We wire AI into real workflows with guardrails, and the team starts using it.' },
+  { number: '90+', title: 'Measure & hand over', description: 'We track adoption and impact. Your team owns it. We stay as much or as little as you want.' },
 ];
+
+export const FRAMEWORK_NAME = 'The Traq AI Enablement Sprint';
 
 export type Benefit = {
   title: string;
@@ -127,26 +83,33 @@ export type Benefit = {
 };
 
 export const BENEFITS: Benefit[] = [
-  {
-    title: 'Practical Over Theoretical',
-    description:
-      'We ship working systems, not slide decks. Every project ends with something your team actually uses.',
-  },
-  {
-    title: 'Full-Stack Capability',
-    description:
-      'AI, automation, data, infrastructure and front-end — one team, one accountable delivery surface.',
-  },
-  {
-    title: 'Security & Data Ownership',
-    description:
-      'Your data stays yours. We architect for privacy, compliance, and zero vendor lock-in from day one.',
-  },
-  {
-    title: 'Results You Can Measure',
-    description:
-      'Every engagement has a number on it. Time saved, revenue moved, response time cut — we prove it.',
-  },
+  { title: 'Done with you, not to you', description: 'We work inside your context and your tools, alongside your team — not from behind a deck.' },
+  { title: 'The capability stays in your team', description: 'We make ourselves redundant. Your people own what we build and learn to run it.' },
+  { title: 'Senior operators, embedded', description: 'You work directly with people who do this for real, not a junior analyst on a markup.' },
+  { title: 'Every engagement has a number on it', description: 'Hours saved, tools adopted, work shipped — we agree what we’re moving and we measure it.' },
+];
+
+export type OfferTier = { name: string; who: string; includes: string[] };
+export const OFFER_TIERS: OfferTier[] = [
+  { name: 'AI Readiness Audit', who: 'Start here.', includes: ['A fast, fixed-scope look at where AI helps most', 'Pairs with the free AI Readiness Assessment', 'A clear, prioritised next step'] },
+  { name: 'Embedded Fractional Head of AI', who: 'Our flagship.', includes: ['We set the strategy, train, and implement', 'Embedded with your team', 'Accountable to outcomes'] },
+  { name: 'Ongoing Partner / Oversight', who: 'For teams with some capability.', includes: ['Cadence and governance', 'A senior partner on call', 'Keep momentum without a full engagement'] },
+];
+export const OFFER_NOTE = 'Fixed scope, so you know what you’re getting. We start by showing value before any long commitment, and you keep everything we build. We take on a limited number of new partners each quarter so every team gets senior attention.';
+
+export type ProblemCard = { line: string };
+export const PROBLEMS: ProblemCard[] = [
+  { line: 'You pay for ChatGPT and Copilot, but most of the team still doesn’t touch them.' },
+  { line: 'You know AI could save hours, but nobody has time to work out where.' },
+  { line: 'Every week there’s a new tool, and it’s hard to tell what’s worth it.' },
+  { line: 'You don’t want to fall behind while competitors get ahead.' },
+];
+
+export type CaseStudy = { metric: string; label: string; who: string; story: string };
+export const CASE_STUDIES: CaseStudy[] = [
+  { metric: '60%', label: 'less manual data entry', who: 'A UAE logistics company', story: 'We replaced three spreadsheet-driven processes with one AI-assisted workflow the team runs daily.' },
+  { metric: '3×', label: 'faster lead response', who: 'A B2B services team', story: 'Automated routing and AI-drafted replies cut first response from hours to minutes.' },
+  { metric: '+43%', label: 'more qualified enquiries', who: 'A professional services firm', story: 'A sharper site plus an AI-scored intake meant the team only saw real opportunities.' },
 ];
 
 export type TechBadgeData = {
@@ -157,77 +120,20 @@ export type TechBadgeData = {
 export const TECH_STACK: TechBadgeData[] = [
   { name: 'OpenAI', dotColor: '#10A37F' },
   { name: 'Anthropic', dotColor: '#D97757' },
-  { name: 'Azure OpenAI', dotColor: '#3B82F6' },
+  { name: 'Microsoft Copilot', dotColor: '#0078D4' },
   { name: 'Google AI', dotColor: '#F59E0B' },
-  { name: 'AWS', dotColor: '#FF9900' },
-  { name: 'GCP', dotColor: '#4285F4' },
-  { name: 'Meta Llama', dotColor: '#7C63F0' },
-  { name: 'Supabase', dotColor: '#3ECF8E' },
+  { name: 'Gemini', dotColor: '#4285F4' },
+  { name: 'Perplexity', dotColor: '#20808D' },
 ];
 
-export type ImpactMetric = {
-  value: string;
-  label: string;
-  description: string;
-  industry: string;
-};
-
+export type ImpactMetric = { value: string; label: string; description: string; source: string; sourceUrl: string };
 export const IMPACT_METRICS: ImpactMetric[] = [
-  {
-    value: '60%',
-    label: 'Less manual data entry',
-    description:
-      'A logistics client replaced three spreadsheet-driven processes with a single AI-assisted workflow.',
-    industry: 'Logistics',
-  },
-  {
-    value: '3×',
-    label: 'Faster lead response',
-    description:
-      'Automated routing and AI-drafted replies cut the first-response window from hours to minutes.',
-    industry: 'B2B SaaS',
-  },
-  {
-    value: '+43%',
-    label: 'Increase in qualified enquiries',
-    description:
-      'A redesigned site plus AI-scored intake form meant the sales team only ever saw real opportunities.',
-    industry: 'Professional Services',
-  },
-];
-
-export type PipelineStep = {
-  icon: string;
-  label: string;
-  description: string;
-  status: string;
-};
-
-export const HERO_PIPELINE: PipelineStep[] = [
-  {
-    icon: '🧠',
-    label: 'AI Model Integration',
-    description: 'OpenAI, Anthropic and Azure routed through one layer.',
-    status: 'Live',
-  },
-  {
-    icon: '⚙️',
-    label: 'Workflow Automation',
-    description: 'Tickets, leads and follow-ups running on autopilot.',
-    status: 'Active',
-  },
-  {
-    icon: '📊',
-    label: 'Data Intelligence',
-    description: 'Daily insight reports generated without a human hand.',
-    status: 'Syncing',
-  },
-  {
-    icon: '🌐',
-    label: 'Digital Presence',
-    description: 'A site that converts, built to be measured.',
-    status: 'Shipped',
-  },
+  { value: '78%', label: 'bring their own AI to work', description: 'Most employees already use AI — usually without guidance or guardrails.', source: 'Microsoft Work Trend Index, 2024', sourceUrl: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part' },
+  { value: '43% → 72%', label: 'comfort doubles after training', description: 'Structured training nearly doubles the share of people comfortable using AI.', source: 'Slack', sourceUrl: 'https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning' },
+  { value: '79% vs 67%', label: '5+ hours of training is the tipping point', description: 'People who get more than five hours of training become regular AI users at far higher rates.', source: 'BCG, 2025', sourceUrl: 'https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain' },
+  { value: '+14–34%', label: 'productivity lift', description: 'A study of 5,179 support agents found AI raised output 14% on average — 34% for newer staff.', source: 'Brynjolfsson, Li & Raymond, NBER/QJE', sourceUrl: 'https://www.nber.org/papers/w31161' },
+  { value: '+81%', label: 'higher job satisfaction', description: 'Daily AI users report far better satisfaction, focus and productivity.', source: 'Slack Workforce Index, 2025', sourceUrl: 'https://slack.com/blog/news/the-new-ai-advantage' },
+  { value: '48%', label: 'name training as the #1 need', description: 'Employees rank training as the single most important factor for adopting AI.', source: 'McKinsey, 2025', sourceUrl: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work' },
 ];
 
 export type TrustedPlatform = {
@@ -238,32 +144,17 @@ export type TrustedPlatform = {
 export const TRUSTED_PLATFORMS: TrustedPlatform[] = [
   { name: 'OpenAI', dot: '#10A37F' },
   { name: 'Anthropic', dot: '#D97757' },
-  { name: 'Azure', dot: '#0078D4' },
+  { name: 'Microsoft Copilot', dot: '#0078D4' },
   { name: 'Google AI', dot: '#F59E0B' },
-  { name: 'AWS', dot: '#FF9900' },
-  { name: 'GCP', dot: '#4285F4' },
-  { name: 'Meta Llama', dot: '#7C63F0' },
-];
-
-export type HeroStat = {
-  value: string;
-  label: string;
-};
-
-export const HERO_STATS: HeroStat[] = [
-  { value: '1–3wk', label: 'pilot delivery' },
-  { value: '40%+', label: 'avg time saved' },
-  { value: '6', label: 'AI platforms' },
+  { name: 'Gemini', dot: '#4285F4' },
+  { name: 'Perplexity', dot: '#20808D' },
 ];
 
 export const SERVICE_DROPDOWN_OPTIONS = [
-  'AI Integration & Development',
-  'Process Automation',
-  'Data Intelligence',
-  'ERP Systems',
-  'Business Websites & Redesigns',
-  'Secure AI & Consultation',
-  'Full-stack package',
+  'AI Training & Workshops',
+  'Consultation & Strategy',
+  'Implementation & Enablement',
+  'Agentic AI & Autonomous Infrastructure',
   'Just exploring',
 ] as const;
 
@@ -273,11 +164,5 @@ export const COMPANY = {
   phone: '+971 50 868 7196',
   whatsapp: '+971 50 868 7196',
   location: 'Remote-first · Global delivery',
-  tagline: 'We wire AI into how your business actually works.',
+  tagline: 'We help your team actually use the AI you already pay for.',
 };
-
-export const DELIVERY_TIMELINE = [
-  { label: 'Discovery', range: 'Week 1', width: '16%' },
-  { label: 'Build + Pilot', range: 'Weeks 2–4', width: '38%' },
-  { label: 'Production', range: 'Weeks 5–8', width: '46%' },
-];
