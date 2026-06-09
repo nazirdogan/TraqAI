@@ -1,34 +1,62 @@
+'use client';
+
+import { motion, useReducedMotion } from 'framer-motion';
 import { IMPACT_METRICS } from '@/lib/constants';
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function Impact() {
+  const reduce = useReducedMotion();
+  const card = {
+    hidden: { opacity: 0, y: reduce ? 0 : 16 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <section id="impact" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center sm:mb-16">
           <div className="eyebrow">Measured impact</div>
-          <h2 className="section-title mt-4">
-            Every engagement has a <span className="text-gradient">number on it.</span>
-          </h2>
+          <h2 className="section-title mt-4">Why this matters.</h2>
+          <p className="section-sub mx-auto">
+            Industry research on what training and adoption actually do. Our own numbers are in the
+            results above.
+          </p>
         </div>
 
-        <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ staggerChildren: 0.08 }}
+          className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3"
+        >
           {IMPACT_METRICS.map((m) => (
-            <div
+            <motion.div
               key={m.label}
-              className="relative overflow-hidden rounded-2xl border border-border-subtle bg-gradient-to-b from-[rgba(20,24,48,0.6)] to-[rgba(14,17,32,0.85)] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:border-traq-light/40 sm:rounded-3xl sm:px-8 sm:py-9"
+              variants={card}
+              transition={{ duration: 0.5, ease }}
+              className="flex flex-col rounded-[20px] border border-border-subtle bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-cardHover sm:rounded-[24px] sm:p-8"
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-              <div className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 sm:mb-5">
-                {m.source}
-              </div>
-              <div className="impact-value mb-3 sm:mb-4">{m.value}</div>
-              <div className="m-0 mb-2 text-base font-semibold tracking-tight text-white sm:mb-2.5 sm:text-[17px]">
+              <div className="impact-value">{m.value}</div>
+              <div className="mt-3 text-base font-semibold tracking-tight text-ink sm:mt-4 sm:text-[17px]">
                 {m.label}
               </div>
-              <p className="m-0 text-[13px] leading-relaxed text-white/60">{m.description}</p>
-            </div>
+              <p className="mt-2.5 flex-1 text-[13px] leading-relaxed text-ink-soft">
+                {m.description}
+              </p>
+              <a
+                href={m.sourceUrl}
+                rel="noopener"
+                target="_blank"
+                className="mt-5 inline-flex w-fit items-center gap-1 text-[12px] font-medium text-ink-faint underline decoration-border-strong underline-offset-2 transition-colors hover:text-traq-purple"
+              >
+                {m.source}
+                <span aria-hidden="true">&nearr;</span>
+              </a>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

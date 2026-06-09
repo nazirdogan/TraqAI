@@ -4,6 +4,8 @@ import Problem from '@/components/sections/Problem';
 import Services from '@/components/sections/Services';
 import Process from '@/components/sections/Process';
 import Offers from '@/components/sections/Offers';
+import Founder from '@/components/sections/Founder';
+import Proof from '@/components/sections/Proof';
 import WhyUs from '@/components/sections/WhyUs';
 import Impact from '@/components/sections/Impact';
 import ContactIntake from '@/components/sections/ContactIntake';
@@ -17,6 +19,8 @@ export default function HomePage() {
       <Services />
       <Process />
       <Offers />
+      <Founder />
+      <Proof />
       <WhyUs />
       <Impact />
       <ContactIntake />
