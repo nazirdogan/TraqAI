@@ -27,7 +27,7 @@ export const SERVICES: Service[] = [
     title: 'Consultation & Strategy',
     tagline: 'Your fractional Head of AI.',
     description:
-      'We audit your tools and workflows, find the highest-leverage uses, and give you a clear roadmap — then help you act on it.',
+      'We audit your tools and workflows, find the highest-leverage uses, and give you a clear roadmap. Then we help you act on it.',
     bullets: [
       'AI audit of tools and workflows',
       'A prioritised, practical roadmap',
@@ -83,10 +83,10 @@ export type Benefit = {
 };
 
 export const BENEFITS: Benefit[] = [
-  { title: 'Done with you, not to you', description: 'We work inside your context and your tools, alongside your team — not from behind a deck.' },
+  { title: 'Done with you, not to you', description: 'We work inside your context and your tools, alongside your team, not from behind a deck.' },
   { title: 'The capability stays in your team', description: 'We make ourselves redundant. Your people own what we build and learn to run it.' },
   { title: 'Senior operators, embedded', description: 'You work directly with people who do this for real, not a junior analyst on a markup.' },
-  { title: 'Every engagement has a number on it', description: 'Hours saved, tools adopted, work shipped — we agree what we’re moving and we measure it.' },
+  { title: 'Every engagement has a number on it', description: 'Hours saved, tools adopted, work shipped. We agree what we’re moving and we measure it.' },
 ];
 
 export type OfferTier = { name: string; who: string; includes: string[] };
@@ -128,10 +128,10 @@ export const TECH_STACK: TechBadgeData[] = [
 
 export type ImpactMetric = { value: string; label: string; description: string; source: string; sourceUrl: string };
 export const IMPACT_METRICS: ImpactMetric[] = [
-  { value: '78%', label: 'bring their own AI to work', description: 'Most employees already use AI — usually without guidance or guardrails.', source: 'Microsoft Work Trend Index, 2024', sourceUrl: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part' },
+  { value: '78%', label: 'bring their own AI to work', description: 'Most employees already use AI, usually without guidance or guardrails.', source: 'Microsoft Work Trend Index, 2024', sourceUrl: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part' },
   { value: '43% → 72%', label: 'comfort doubles after training', description: 'Structured training nearly doubles the share of people comfortable using AI.', source: 'Slack', sourceUrl: 'https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning' },
   { value: '79% vs 67%', label: '5+ hours of training is the tipping point', description: 'People who get more than five hours of training become regular AI users at far higher rates.', source: 'BCG, 2025', sourceUrl: 'https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain' },
-  { value: '+14–34%', label: 'productivity lift', description: 'A study of 5,179 support agents found AI raised output 14% on average — 34% for newer staff.', source: 'Brynjolfsson, Li & Raymond, NBER/QJE', sourceUrl: 'https://www.nber.org/papers/w31161' },
+  { value: '+14–34%', label: 'productivity lift', description: 'A study of 5,179 support agents found AI raised output 14% on average, and 34% for newer staff.', source: 'Brynjolfsson, Li & Raymond, NBER/QJE', sourceUrl: 'https://www.nber.org/papers/w31161' },
   { value: '+81%', label: 'higher job satisfaction', description: 'Daily AI users report far better satisfaction, focus and productivity.', source: 'Slack Workforce Index, 2025', sourceUrl: 'https://slack.com/blog/news/the-new-ai-advantage' },
   { value: '48%', label: 'name training as the #1 need', description: 'Employees rank training as the single most important factor for adopting AI.', source: 'McKinsey, 2025', sourceUrl: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work' },
 ];
