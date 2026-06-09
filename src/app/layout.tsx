@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = baseMetadata;
 
 export const viewport: Viewport = {
-  themeColor: '#080A12',
+  themeColor: '#FFFFFF',
   width: 'device-width',
   initialScale: 1,
 };
@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-bg-base font-sans text-white antialiased">
+      <body className="bg-bg-base font-sans text-ink antialiased">
         <a href="#main" className="skip-link">
           Skip to content
         </a>
