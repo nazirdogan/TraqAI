@@ -538,7 +538,7 @@ export default function ContactIntake() {
                       onKeyDown={handleKeyDown}
                       placeholder={
                         firstSend && turnstileRequired && turnstileToken.length === 0
-                          ? 'One sec — verifying your browser…'
+                          ? 'One sec, verifying your browser…'
                           : 'Type your answer. Enter to send, Shift+Enter for a newline.'
                       }
                       className={cn(INPUT_BASE, 'resize-none py-3')}
@@ -678,7 +678,7 @@ function SuccessPanel({ firstName }: { firstName?: string }) {
       </h3>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
         A Traq specialist has the full brief and will reach out within the next hour. A copy
-        of the summary is in your inbox too — reply to that email if any detail needs
+        of the summary is in your inbox too. Reply to that email if any detail needs
         correcting.
       </p>
     </div>

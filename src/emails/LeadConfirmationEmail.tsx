@@ -23,14 +23,14 @@ export default function LeadConfirmationEmail({ profile, callbackWindow = 'withi
   return (
     <Html>
       <Head />
-      <Preview>Thanks for reaching out to Traq Collective — here&rsquo;s what we heard.</Preview>
+      <Preview>Thanks for reaching out to Traq Collective. Here&rsquo;s what we heard.</Preview>
       <Body style={{ background: '#f5f5f7', fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: '24px' }}>
         <Container style={{ background: '#ffffff', borderRadius: '12px', padding: '32px', maxWidth: '560px' }}>
           <Heading style={{ color: '#0f172a', fontSize: '22px', fontWeight: 600, margin: '0 0 14px 0' }}>
             Thanks, {profile.firstName}.
           </Heading>
           <Text style={{ ...value, margin: '0 0 18px 0' }}>
-            A Traq Collective specialist will call or email you {callbackWindow}. Here&rsquo;s a quick recap of what we captured — reply to this email if any of it looks off.
+            A Traq Collective specialist will call or email you {callbackWindow}. Here&rsquo;s a quick recap of what we captured. Reply to this email if any of it looks off.
           </Text>
 
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
@@ -57,7 +57,7 @@ export default function LeadConfirmationEmail({ profile, callbackWindow = 'withi
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
           <Text style={{ ...value, color: '#6b7280' }}>
-            — Traq Collective<br />
+            Traq Collective<br />
             hello@traqcollective.com
           </Text>
         </Container>

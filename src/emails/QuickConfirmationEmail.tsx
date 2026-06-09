@@ -51,7 +51,7 @@ export default function QuickConfirmationEmail({
           </Heading>
           <Text style={{ ...value, margin: '0 0 18px 0' }}>
             A Traq Collective specialist will be in touch {callbackWindow}. Here&rsquo;s a
-            copy of what you sent — reply to this email if any detail needs correcting.
+            copy of what you sent. Reply to this email if any detail needs correcting.
           </Text>
 
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
@@ -67,7 +67,7 @@ export default function QuickConfirmationEmail({
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
           <Text style={{ ...value, color: '#6b7280' }}>
-            &mdash; Traq Collective
+            Traq Collective
             <br />
             hello@traqcollective.com
           </Text>

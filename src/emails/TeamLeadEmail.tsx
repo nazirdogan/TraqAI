@@ -25,7 +25,7 @@ export default function TeamLeadEmail({ profile, transcript }: Props) {
   return (
     <Html>
       <Head />
-      <Preview>{`New lead: ${profile.firstName} ${profile.lastName} @ ${profile.company} — ${profile.problemTag}`}</Preview>
+      <Preview>{`New lead: ${profile.firstName} ${profile.lastName} @ ${profile.company} · ${profile.problemTag}`}</Preview>
       <Body style={{ background: '#f5f5f7', fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: '24px' }}>
         <Container style={{ background: '#ffffff', borderRadius: '12px', padding: '32px', maxWidth: '640px' }}>
           <Heading style={heading}>New qualified lead</Heading>
@@ -33,7 +33,7 @@ export default function TeamLeadEmail({ profile, transcript }: Props) {
             <strong>
               {profile.firstName} {profile.lastName}
             </strong>
-            {profile.role ? <> — {profile.role}</> : null} at{' '}
+            {profile.role ? <>, {profile.role}</> : null} at{' '}
             <strong>{profile.company}</strong> ({profile.industry})
           </Text>
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
