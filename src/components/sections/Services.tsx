@@ -1,64 +1,68 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { SERVICES } from '@/lib/constants';
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function Services() {
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const cards = rootRef.current?.querySelectorAll<HTMLDivElement>('.service-card') ?? [];
-    const handlers: Array<{ el: HTMLDivElement; fn: (e: MouseEvent) => void }> = [];
-
-    cards.forEach((card) => {
-      const fn = (e: MouseEvent) => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-        card.style.setProperty('--my', `${e.clientY - r.top}px`);
-      };
-      card.addEventListener('mousemove', fn);
-      handlers.push({ el: card, fn });
-    });
-
-    return () => {
-      handlers.forEach(({ el, fn }) => el.removeEventListener('mousemove', fn));
-    };
-  }, []);
+  const reduce = useReducedMotion();
+  const card = {
+    hidden: { opacity: 0, y: reduce ? 0 : 16 },
+    show: { opacity: 1, y: 0 },
+  };
 
   return (
     <section id="services" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center sm:mb-16">
           <div className="eyebrow">What we do</div>
-          <h2 className="section-title mt-4">
-            Six capabilities. <span className="text-gradient">One accountable team.</span>
-          </h2>
+          <h2 className="section-title mt-4">What we do</h2>
           <p className="section-sub mx-auto">
-            We cover the full path from AI strategy to the production systems your team uses every day.
+            Training, consulting, and implementation, built around how your business actually works.
           </p>
         </div>
 
-        <div ref={rootRef} className="grid auto-rows-fr gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ staggerChildren: 0.1 }}
+          className="grid auto-rows-fr gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
+        >
           {SERVICES.map((s) => (
-            <div key={s.slug} id={s.slug} className="service-card">
+            <motion.div
+              key={s.slug}
+              id={s.slug}
+              variants={card}
+              transition={{ duration: 0.5, ease }}
+              className="service-card"
+            >
               <div className="service-icon">{s.icon}</div>
-              <h3 className="m-0 text-[22px] font-semibold leading-tight tracking-tight text-white">
+              <h3 className="m-0 text-[20px] font-semibold leading-tight tracking-tight text-ink sm:text-[22px]">
                 {s.title}
               </h3>
-              <p className="mt-2.5 text-[13px] leading-relaxed text-white/60 [text-wrap:pretty]">
+              <p className="mt-2.5 text-[13px] leading-relaxed text-ink-soft [text-wrap:pretty]">
                 {s.tagline}
               </p>
               <ul className="mt-5 flex list-none flex-col gap-2 p-0">
                 {s.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2.5 text-[13px] leading-snug text-white/75">
-                    <span className="mt-[7px] block h-[5px] w-[5px] flex-none rounded-full bg-traq-light" />
+                  <li
+                    key={b}
+                    className="flex items-start gap-2.5 text-[13px] leading-snug text-ink-soft"
+                  >
+                    <span className="mt-[7px] block h-[5px] w-[5px] flex-none rounded-full bg-traq-purple" />
                     {b}
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        <p className="mx-auto mt-10 max-w-2xl text-center text-[15px] leading-relaxed text-ink-soft sm:mt-12 sm:text-base">
+          And when something needs building, we build it with you, not in a black box.
+        </p>
       </div>
     </section>
   );
