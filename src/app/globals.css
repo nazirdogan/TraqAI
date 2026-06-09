@@ -108,18 +108,11 @@ body {
   background: #b8b8b8;
 }
 
-/* Flat white surface (formerly a dark gradient glass panel). Kept as a
-   light, hairline-bordered fallback for markup rebuilt in later tasks. */
-.glass,
+/* Flat white surface (formerly a dark glass panel). Light, hairline-bordered.
+   Used by the contact intake panels. */
 .glass-strong {
   background: #fff;
   border: 1px solid var(--border-subtle);
-}
-
-/* No-op: renders solid brand purple so existing markup keeps working until
-   each section is rebuilt. No gradient fill. */
-.text-gradient {
-  color: var(--traq-purple);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -290,7 +283,7 @@ body {
   color: var(--traq-purple);
 }
 
-/* ----- CTA panel (solid pale-purple surface, no gradient) ----- */
+/* ----- CTA panel (solid pale-purple surface, flat fill) ----- */
 .cta-panel {
   position: relative;
   padding: 48px 24px;
@@ -337,7 +330,7 @@ body {
 /* =========================================================
    Hero "AI adoption" snapshot panel (flat, light, solid)
    Replaces the old dark .sr-* scroll-reveal dashboard.
-   Hairline border, soft shadow, solid colours, no gradients.
+   Hairline border, soft shadow, solid flat colours.
    ========================================================= */
 .snap-card {
   background: #fff;
