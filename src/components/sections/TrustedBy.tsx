@@ -12,11 +12,11 @@ export default function TrustedBy() {
 
         <div className="relative mt-7 overflow-hidden">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg-base to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-bg-base to-transparent sm:w-24"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg-base to-transparent"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-bg-base to-transparent sm:w-24"
             aria-hidden="true"
           />
           <div className="marquee-track gap-3">

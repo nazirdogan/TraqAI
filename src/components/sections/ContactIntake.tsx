@@ -60,7 +60,7 @@ const FIELD_LABELS: Record<keyof LeadProfile, string> = {
 };
 
 const INPUT_BASE =
-  'w-full rounded-xl border border-border-subtle bg-bg-base/60 px-4 py-3 text-sm text-white placeholder:text-white/30 transition-colors focus:border-traq-light focus:outline-none focus:ring-0';
+  'w-full min-h-[44px] rounded-xl border border-border-subtle bg-bg-base/60 px-4 py-3 text-base text-white placeholder:text-white/30 transition-colors focus:border-traq-light focus:outline-none focus:ring-0 sm:text-sm';
 
 const LABEL_BASE =
   'text-[11px] font-semibold uppercase tracking-widest text-white/55';
@@ -312,20 +312,20 @@ export default function ContactIntake() {
   );
 
   return (
-    <section id="contact" className="relative pt-10 pb-24 sm:pt-14 sm:pb-28">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-16">
+    <section id="contact" className="relative pt-8 pb-16 sm:pt-14 sm:pb-28">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:gap-14 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-16">
         <FadeUp>
           <Tag>Let&rsquo;s talk</Tag>
-          <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-white sm:mt-5 sm:text-3xl md:text-4xl lg:text-5xl">
             Tell us where you&rsquo;re stuck.{' '}
             <span className="text-gradient">We&rsquo;ll tell you what&rsquo;s actually possible.</span>
           </h2>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-base lg:text-lg">
             Send us the basics in 30 seconds — or chat it through with our AI intake for a
             richer brief. Either way, a Traq specialist calls you back within the hour.
           </p>
 
-          <ul className="mt-10 space-y-5">
+          <ul className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
             <li className="flex items-start gap-4">
               <span className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-traq-purple/15 text-traq-light ring-1 ring-traq-purple/30">
                 <Mail className="h-4 w-4" />
@@ -454,8 +454,8 @@ export default function ContactIntake() {
                 onSubmit={submitFinal}
               />
             ) : (
-              <div className="relative glass-strong flex h-[620px] flex-col overflow-hidden rounded-3xl shadow-card">
-                <div className="flex items-center justify-between border-b border-border-subtle px-6 py-4">
+              <div className="relative glass-strong flex h-[540px] flex-col overflow-hidden rounded-3xl shadow-card sm:h-[620px]">
+                <div className="flex items-center justify-between gap-3 border-b border-border-subtle px-4 py-3 sm:px-6 sm:py-4">
                   <div className="flex items-center gap-3">
                     <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-traq-purple/20 text-traq-light ring-1 ring-traq-purple/30">
                       <Sparkles className="h-4 w-4" />
@@ -480,7 +480,7 @@ export default function ContactIntake() {
 
                 <div
                   ref={scrollerRef}
-                  className="flex-1 overflow-y-auto px-6 py-5"
+                  className="flex-1 overflow-y-auto px-4 py-4 sm:px-6 sm:py-5"
                   aria-live="polite"
                 >
                   {messages.map((m) => (
@@ -497,7 +497,7 @@ export default function ContactIntake() {
                   ) : null}
                 </div>
 
-                <div className="border-t border-border-subtle px-6 pt-4 pb-5">
+                <div className="border-t border-border-subtle px-4 pt-3 pb-4 sm:px-6 sm:pt-4 sm:pb-5">
                   {turnstileRequired && firstSend ? (
                     <div className="mb-3 flex justify-center">
                       <Turnstile
@@ -549,13 +549,14 @@ export default function ContactIntake() {
                     <button
                       type="submit"
                       disabled={!canSend}
-                      className="group inline-flex h-[46px] items-center justify-center gap-1.5 rounded-full bg-traq-purple px-5 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong disabled:cursor-not-allowed disabled:opacity-50"
+                      className="group inline-flex h-11 min-w-[52px] shrink-0 items-center justify-center gap-1.5 rounded-full bg-traq-purple px-4 text-sm font-medium text-white shadow-glow transition-all hover:bg-traq-light hover:shadow-glow-strong disabled:cursor-not-allowed disabled:opacity-50 sm:h-[46px] sm:px-5"
+                      aria-label="Send message"
                     >
                       {sending ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
                       ) : (
                         <>
-                          Send
+                          <span className="hidden sm:inline">Send</span>
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                         </>
                       )}
@@ -736,7 +737,7 @@ function ReviewPanel({ profile, submitting, onBack, onSubmit }: ReviewPanelProps
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative glass-strong rounded-3xl p-7 shadow-card sm:p-9"
+      className="relative glass-strong rounded-3xl p-5 shadow-card sm:p-7 md:p-9"
     >
       <div className="flex items-center justify-between">
         <div>
@@ -1049,7 +1050,7 @@ function QuickFormPanel({
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative glass-strong rounded-3xl p-7 shadow-card sm:p-9"
+      className="relative glass-strong rounded-3xl p-5 shadow-card sm:p-7 md:p-9"
       noValidate
     >
       <div className="grid gap-5 sm:grid-cols-2">

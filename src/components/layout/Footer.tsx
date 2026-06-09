@@ -23,11 +23,11 @@ const FOOTER_NAV = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-24 border-t border-border-subtle bg-bg-base">
+    <footer className="relative mt-16 border-t border-border-subtle bg-bg-base sm:mt-24">
       <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-traq-purple/60 to-transparent" />
 
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
-        <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:gap-14">
           <div>
             <Link href="/" className="inline-block" aria-label="Traq Collective home">
               <Image
@@ -89,9 +89,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-border-subtle pt-8">
+        <div className="mt-10 border-t border-border-subtle pt-8 sm:mt-14">
           <p className="text-xs uppercase tracking-widest text-white/40">Services</p>
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-6">
             {SERVICES.map((s) => (
               <Link
                 key={s.slug}
@@ -104,7 +104,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border-subtle pt-8 text-xs text-white/45 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-border-subtle pt-8 text-xs text-white/45 sm:mt-10 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Traq Collective. All rights reserved.</p>
           <p>Built for operators. Deployed worldwide.</p>
         </div>

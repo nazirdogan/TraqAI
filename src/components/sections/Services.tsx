@@ -26,9 +26,9 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="relative px-5 py-28 sm:px-8 sm:py-32">
+    <section id="services" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
+        <div className="mb-10 text-center sm:mb-16">
           <div className="eyebrow">What we do</div>
           <h2 className="section-title mt-4">
             Six capabilities. <span className="text-gradient">One accountable team.</span>
@@ -38,7 +38,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div ref={rootRef} className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={rootRef} className="grid auto-rows-fr gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s) => (
             <div key={s.slug} id={s.slug} className="service-card">
               <div className="service-icon">{s.icon}</div>
