@@ -43,7 +43,18 @@ export async function checkRate(bucket: Bucket, identifier: string): Promise<Rat
     // No Upstash configured — allow traffic. Production should set env vars.
     return { ok: true, retryAfterSec: 0 };
   }
-  const { success, reset } = await limiter.limit(identifier);
-  const retryAfterSec = Math.max(0, Math.ceil((reset - Date.now()) / 1000));
-  return { ok: success, retryAfterSec };
+  try {
+    const { success, reset } = await limiter.limit(identifier);
+    const retryAfterSec = Math.max(0, Math.ceil((reset - Date.now()) / 1000));
+    return { ok: success, retryAfterSec };
+  } catch (err) {
+    // Upstash unreachable or erroring (e.g. deleted DB) — fail open so a
+    // rate-limiter outage never blocks the lead pipeline. Turnstile still
+    // gates abuse on the forms.
+    console.warn(
+      '[ratelimit] limiter error, failing open:',
+      err instanceof Error ? err.message : err,
+    );
+    return { ok: true, retryAfterSec: 0 };
+  }
 }
