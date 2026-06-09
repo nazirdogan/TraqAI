@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { track } from '@/components/analytics/Analytics';
 
 export default function CTABanner() {
   return (
@@ -17,6 +20,7 @@ export default function CTABanner() {
           <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5">
             <Link
               href="/book"
+              onClick={() => track('cta_book_click', { location: 'cta_banner' })}
               className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-traq-purple px-5 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
             >
               Book a free call

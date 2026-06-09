@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import BookViewTracker from '@/components/analytics/BookViewTracker';
 import { COMPANY } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
 export default function BookPage() {
   return (
     <section className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
+      <BookViewTracker />
       <div className="mx-auto max-w-3xl text-center">
         <div className="eyebrow eyebrow-accent">Book a call</div>
         <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl md:text-5xl">

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { track } from '@/components/analytics/Analytics';
 
 /* ---------- Count-up hook (respects reduced motion) ---------- */
 function useCountUp(target: number, run: boolean, durationMs = 900) {
@@ -172,6 +173,7 @@ export default function Hero() {
           >
             <Link
               href="/book"
+              onClick={() => track('cta_book_click', { location: 'hero' })}
               className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink active:scale-[0.98]"
             >
               Book a free call

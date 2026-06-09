@@ -16,6 +16,7 @@ import {
   SquarePen,
 } from 'lucide-react';
 import FadeUp from '@/components/ui/FadeUp';
+import { track } from '@/components/analytics/Analytics';
 import { COMPANY } from '@/lib/constants';
 import { cn } from '@/lib/cn';
 import {
@@ -300,6 +301,7 @@ export default function ContactIntake() {
                   : 'Something went wrong. Try again.',
           );
         }
+        track('chat_lead_submit');
         setPhase('success');
       } catch (err) {
         setPhase('error');
@@ -1035,6 +1037,7 @@ function QuickFormPanel({
                   : 'Something went wrong. Try again.',
         );
       }
+      track('quick_form_submit');
       onSuccess(firstName.trim());
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : 'Something went wrong.');

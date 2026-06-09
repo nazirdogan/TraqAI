@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
+import { track } from '@/components/analytics/Analytics';
 import { OFFER_NOTE, OFFER_TIERS } from '@/lib/constants';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -58,6 +59,7 @@ export default function Offers() {
               </ul>
               <Link
                 href="/book"
+                onClick={() => track('cta_book_click', { location: 'offers', tier: tier.name })}
                 className="mt-7 inline-flex w-fit items-center gap-1.5 text-[14px] font-semibold text-traq-purple transition-colors hover:text-traq-purple-ink"
               >
                 Book a call for pricing

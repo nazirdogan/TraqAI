@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import JsonLd from '@/components/seo/JsonLd';
+import Analytics from '@/components/analytics/Analytics';
 import { baseMetadata } from '@/lib/metadata';
 
 const inter = Inter({
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body className="bg-bg-base font-sans text-ink antialiased">
+        <Analytics />
         <JsonLd data={organizationSchema} />
         <a href="#main" className="skip-link">
           Skip to content

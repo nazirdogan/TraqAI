@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { track } from '@/components/analytics/Analytics';
 import { cn } from '@/lib/cn';
 
 const LINKS = [
@@ -102,7 +103,10 @@ export default function Navbar() {
         <div className="hidden lg:flex">
           <Link
             href="/book"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              track('cta_book_click', { location: 'navbar_desktop' });
+            }}
             className="inline-flex items-center gap-2 rounded-full bg-traq-purple px-4 py-2.5 text-[13px] font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover"
           >
             Book a call <span aria-hidden="true">→</span>
@@ -141,7 +145,10 @@ export default function Navbar() {
             ))}
             <Link
               href="/book"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                track('cta_book_click', { location: 'navbar_mobile' });
+              }}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-traq-purple px-5 py-3 text-sm font-semibold text-white"
             >
               Book a call <span aria-hidden="true">→</span>
