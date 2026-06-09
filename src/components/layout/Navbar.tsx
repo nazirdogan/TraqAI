@@ -11,7 +11,6 @@ const LINKS = [
   { label: 'Process', href: '/#process' },
   { label: 'Why Traq', href: '/#about' },
   { label: 'Impact', href: '/#impact' },
-  { label: 'ROI Calculator', href: '/automation-roi-calculator' },
 ];
 
 export default function Navbar() {

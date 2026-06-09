@@ -489,21 +489,6 @@ export default function Hero() {
             zIndex: 3,
           }}
         >
-          <div style={{ textAlign: 'center', marginBottom: 14 }}>
-            <Link
-              href="/automation-roi-calculator"
-              className="sr-kicker group transition-colors hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
-            >
-              <span className="hero-kicker-badge">New</span>
-              Automation ROI calculator
-              <span
-                aria-hidden="true"
-                className="transition-transform group-hover:translate-x-0.5"
-              >
-                →
-              </span>
-            </Link>
-          </div>
           <h1 className="sr-title">
             Wire AI into how your business
             <span className="accent">actually works.</span>
