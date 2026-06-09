@@ -63,14 +63,11 @@ A clean, modern B2B look. Think a trustworthy professional services firm, not an
 
 **Removed entirely:** `text-gradient`, `mesh-bg`, `grid-overlay`, `hero-bg-orbits`, `hero-glow`, gradient avatars, gradient impact-card backgrounds, the dark `bg-base` theme, the scroll-reveal 3D-tilt dashboard animation. The whole "AI vibe" decorative layer goes.
 
-### Hero visual — one open call
+### Hero visual (decided)
 
-The current hero is a dark, animated, gradient CRM dashboard mock sitting on orbital/mesh/glow backgrounds. That is exactly the AI-cliché look we're removing. Two clean options:
+A **restrained, light, gradient-free snapshot** panel showing an "AI adoption" view (tools activated, team confidence, workshops delivered, a simple 90-day roadmap). Solid colors, hairline borders.
 
-- **(Recommended) Restrained light snapshot.** A flat, light, gradient-free panel showing an "AI adoption" snapshot (tools activated, team confidence, workshops delivered, a simple 90-day roadmap). Solid colors, hairline borders, no animation. Keeps a product feel without the slop.
-- **(Safe fallback) Clean typographic hero.** Headline, subhead, CTAs, and a simple proof strip (tool logos + a stat). No mock at all. This is what many credible firms do.
-
-Default to the restrained light snapshot; drop to typographic if it still reads "AI template" once built. **Confirm at review.**
+**Animation is welcome** — tasteful motion (subtle entrance, a counting number, a gentle reveal) is fine and encouraged. The hard rule is **no gradients**, anywhere. The old dark/mesh/glow/orbital decorative layer and the 3D-tilt scroll effect are removed; clean motion on a light surface replaces them.
 
 ---
 
@@ -94,7 +91,9 @@ The site is currently one page at `/`. A single page cannot rank for many query 
 | `/insights` + `/insights/[slug]` | Definitive guides (citation engine) | informational "how to / what is" queries |
 | `/about` | Entity + E-E-A-T (founder, credentials, story) | brand + author authority |
 | `/faq` | Site-wide FAQ + inline FAQ blocks | long-tail question queries |
+| `/book` | Embedded scheduler (Cal.com/Calendly) — primary CTA target | "book a call" |
 | `/contact` | Already exists on `/`; keep anchor + standalone | "contact / book a call" |
+| `/privacy`, `/terms` | Legal + legitimacy; linked in footer | — |
 
 ### Comparison / "alternatives" pages (high-citation; ~33% of AI citations)
 
@@ -116,7 +115,7 @@ Each is a definitive, sourced, extractable guide (definition-first, 40–60 word
 
 ## 6. Home page — section-by-section
 
-Order: **Hero → Trusted tools → What we do (4 capabilities) → Ways to work (3 tiers) → How we work (30/60/90) → Why Traq → Measured impact → CTA → Contact.**
+Order: **Hero → Trusted tools → Sound familiar? (problem) → What we do (4 capabilities) → How we work (30/60/90) → Ways to work (offer ladder + risk reversal) → Meet Nazir (founder) → Proof (anonymized case studies + testimonials) → Why Traq → Measured impact (industry stats) → CTA / Book a call → Contact.**
 
 ### 6.1 Hero
 - **Eyebrow:** `AI training · consulting · implementation`
@@ -129,6 +128,14 @@ Order: **Hero → Trusted tools → What we do (4 capabilities) → Ways to work
 ### 6.2 Trusted tools strip
 - Label: "We train your team on the tools you already use."
 - Solid, flat logos: OpenAI, Anthropic, Microsoft Copilot, Google, plus others Traq genuinely works with. No marquee gradient fades.
+
+### 6.2b Sound familiar? (problem section)
+A short, empathetic grid that names the buyer's real frustrations before we pitch (ChiefAIOfficer uses this to strong effect; it also matches "why isn't my team using AI" search queries). Friendly, not preachy. Four cards:
+- "You pay for ChatGPT and Copilot, but most of the team still doesn't touch them."
+- "You know AI could save hours, but nobody has time to figure out where."
+- "Every week there's a new tool, and it's hard to tell what's worth it."
+- "You don't want to fall behind while competitors get ahead."
+Closing line: "If any of these sound like you, you're in the right place. Here's how we help."
 
 ### 6.3 What we do — Training, Consultation & Implementation (4 capabilities)
 Four equal cards, flat with hairline borders:
@@ -145,6 +152,8 @@ Three tiers, flat cards, "Book a call for pricing":
 2. **Embedded Fractional Head of AI** — flagship. We embed with your team, set the strategy, train, implement, and stay accountable to outcomes.
 3. **Ongoing Partner / Oversight** — for teams with some capability who want cadence, governance, and a senior partner on call.
 
+**Risk reversal + scarcity** (a band under the tiers, friendly tone): fixed-scope so you know what you're getting; we start by showing value before any long commitment; you keep everything we build and your team learns to run it. Light scarcity to protect positioning: "We take on a limited number of new partners each quarter so every team gets senior attention."
+
 ### 6.5 How we work — the named framework
 **The Traq AI Enablement Sprint** (name reviewable). A 90-day, time-boxed process with concrete deliverables:
 - **Days 0–30 · Audit & map** — your tools, team, and workflows; where AI saves the most time.
@@ -156,8 +165,17 @@ Three tiers, flat cards, "Book a call for pricing":
 - **Headline:** "We don't hand you a deck. We get your team doing the work." (retires "built by builders, not consultants")
 - Principles (flat cards): *Done with you, not to you* · *The capability stays in your team* · *Senior operators, embedded as partners* · *Every engagement has a number on it.*
 
-### 6.7 Measured impact (research-backed, two clearly separate blocks)
-**Block A — "Why this matters" (industry stats, each cited inline):**
+### 6.6b Meet Nazir (founder-led credibility)
+A warm, personal block on the home page: photo, name, and a short credibility story in the first person. The angle: "You work directly with a senior operator who has built this in the real world, not a junior analyst on a markup." Reinforces the boutique advantage and feeds E-E-A-T (links to `/about`, backed by `Person` schema). Friendly and direct, e.g. "Hi, I'm Nazir. I build AI systems and train teams to use them every day, including a full autonomous operation I run end to end. I'll be the one you work with."
+
+### 6.7 Proof — anonymized case studies + testimonials
+The strongest conversion device in this market. Built from **real outcomes, anonymized** (no client names; the agentic client stays unnamed). Format:
+- **2–3 before/after case studies**, each: industry + size descriptor ("a UAE logistics company, ~80 staff"), the problem, what we did, and the number. Seed from existing results: 60% less manual data entry; 3× faster lead response; +43% qualified enquiries.
+- **Short testimonials** rendered role-level where names can't be used ("Operations Director, logistics"), designed so real named quotes + photos drop in later without a redesign.
+- Designed to upgrade to named testimonials + logos the moment they're available.
+
+### 6.9 Measured impact — why this matters (industry stats, each cited inline)
+Industry research only here (first-party results live in §6.7, kept separate so industry stats are never passed off as ours):
 - **78%** — workers already bring their own AI to work, usually without guidance *(Microsoft Work Trend Index, 2024)*
 - **43% → 72%** — comfort with AI nearly doubles after structured training *(Slack)*
 - **79% vs 67%** — 5+ hours of training is the tipping point to regular use *(BCG, 2025)*
@@ -165,13 +183,12 @@ Three tiers, flat cards, "Book a call for pricing":
 - **+81%** — daily AI users report far higher job satisfaction *(Slack Workforce Index, 2025)*
 - **48%** — employees name training as the #1 thing they need to adopt AI *(McKinsey, 2025)*
 
-Sources are cited with links and dates (this itself boosts AI citation ~40%, per Princeton GEO research).
+Sources cited with links and dates (this alone boosts AI citation ~40%, per Princeton GEO research).
 
-**Block B — "Our results" (first-party, visually distinct):** Nazir's own client outcomes, clearly labelled as Traq results, kept separate so industry stats are never passed off as ours. Seed with the existing three (60% less manual data entry; 3× faster lead response; +43% qualified enquiries), labelled as client outcomes. Replace/add audited numbers as they come.
-
-### 6.8 CTA + Contact
-- CTA: "In one call, we'll find where AI can save your team the most time. No deck, no obligation."
-- Contact keeps the existing **quick form** and **AI chat intake**, reframed to the new offering (see §8).
+### 6.10 CTA + Book a call + Contact
+- CTA copy: "In one call, we'll find where AI can save your team the most time. No deck, no obligation."
+- **Primary action: an embedded scheduler** (Cal.com or Calendly) so visitors pick a time and book in one step. This is the main "Book a call" target sitewide.
+- **Fallbacks kept:** the existing **quick form** and **AI chat intake**, reframed to the new offering (see §8), for people who'd rather message first.
 
 ---
 
@@ -224,6 +241,15 @@ The code path is sound: `/api/intake/quick` and `/api/intake/submit` send a team
 2. **Verify production env** — confirm `RESEND_API_KEY`, `ANTHROPIC_API_KEY`, `TEAM_INTAKE_EMAIL=nazir@traqcollective.com`, `FROM_EMAIL`, Turnstile, and Upstash keys are set in the Netlify dashboard (not just `.env.local`, which is git-ignored and local-only).
 3. **Verify Resend sending domain** — confirm `traqcollective.com` is a verified domain in Resend so `FROM_EMAIL` sends don't bounce.
 4. **Live end-to-end test** — submit a real test lead on the deployed site and confirm the email lands in nazir@traqcollective.com. Report the result. (User approved a live test.)
+5. **Embed the scheduler** — add a Cal.com/Calendly embed as the primary "Book a call" target (a dedicated `/book` route or modal, linked from every CTA). Needs Nazir's scheduler link, or set up a Cal.com account. Track the booking as a conversion event (see §8b).
+
+## 8b. Analytics, conversion tracking & legal
+
+The site's job is inbound, so we measure it and meet basic business/legal expectations.
+
+- **Analytics:** add GA4 (or Plausible if Nazir prefers privacy-first). Fire conversion events on: scheduler booking completed, quick-form submit, AI-chat lead submitted, and primary-CTA clicks. This is what tells us which pages and queries actually drive calls.
+- **Search Console:** verify the domain, submit the sitemap, monitor query performance.
+- **Legal pages:** add `/privacy` and `/terms` (and a short cookie note if GA4 is used). A proper business collecting data through forms and analytics needs these; they also add quiet legitimacy and are linked in the footer.
 
 ---
 
@@ -248,7 +274,7 @@ The code path is sound: `/api/intake/quick` and `/api/intake/submit` send a team
 ## 11. Phasing (so it ships in deployable milestones)
 
 **Phase 1 — Reframe + light redesign + lead pipeline (deployable).**
-Light/gradient-free design system; rebuild home sections with new copy and 4 capabilities, offer ladder, framework, measured impact, why; reframe contact intake; archive ROI calculator; technical AEO foundations (robots, sitemap, base metadata, Organization + FAQ schema on home); verify production email + live test. Outcome: a credible, friendly, on-message site that captures leads.
+Light/gradient-free design system; rebuild all home sections with new copy: hero, trusted tools, problem ("sound familiar?"), 4 capabilities, 30/60/90 framework, offer ladder + risk reversal, founder block, proof (anonymized case studies), why, measured impact (industry stats); reframe contact intake; embed the scheduler; add GA4 + conversion events; add `/privacy` + `/terms`; archive ROI calculator; technical AEO foundations (robots, sitemap, base metadata, Organization + FAQ schema on home); verify production email + live test. Outcome: a credible, friendly, on-message site that captures and books leads.
 
 **Phase 2 — SEO surface (ranking).**
 Build `/services` hub + 4 service pages, `/fractional-head-of-ai`, `/ai-consulting-uae`, `/about`, `/faq`. Per-page metadata, Service/LocalBusiness/Person/Breadcrumb schema, internal linking. Submit to Search Console.
@@ -260,7 +286,18 @@ Each phase ends with `npm run typecheck && npm run lint` clean (per global build
 
 ---
 
-## 12. Success criteria
+## 12. Assets / inputs needed from Nazir
+
+These unblock specific pieces; the build proceeds with sensible placeholders where they're missing, to be swapped in later.
+
+- **Scheduler link** — a Cal.com or Calendly URL for the booking embed (or a go-ahead for me to set up a Cal.com account).
+- **Founder block** — a photo of Nazir and a couple of credibility facts (background, what you've built) for the "Meet Nazir" block and `/about`.
+- **Case studies** — the real (anonymizable) details behind the three results: rough industry, company size, the problem, and what was done. Plus any other client outcomes you want to feature.
+- **Analytics preference** — GA4 (default) or Plausible.
+- **Framework name** — confirm "The Traq AI Enablement Sprint" or propose an alternative.
+- **Exact brand purple** — confirm the token from `~/Downloads/TraqAI/brand-kit` to use as the solid accent.
+
+## 13. Success criteria
 
 - Site reads as a credible business: light, gradient-free, no AI-cliché copy or UI.
 - Copy is friendly and ICP-targeted; passes a stop-slop pass (no filler, active voice, no em dashes, specifics over vagueness).
