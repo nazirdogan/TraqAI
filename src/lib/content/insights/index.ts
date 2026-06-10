@@ -860,6 +860,169 @@ const aiTrainingForTeamsUae: Article = {
 };
 
 /**
+ * "AI consultant vs AI agency: which do you need?": a neutral, table-driven
+ * comparison. Targets "AI consultant vs AI agency". Leads with a definition-first
+ * answer, compares the two models across scope, seniority, speed, cost and who
+ * owns the capability in a real <table>, then maps each to the work it suits.
+ * Cites the verified BYO-AI, training-comfort and training-need stats from
+ * IMPACT_METRICS. Internal links to AI consulting, the fractional offer and the
+ * adoption playbook.
+ */
+const aiConsultantVsAiAgency: Article = {
+  slug: 'ai-consultant-vs-ai-agency',
+  title: 'AI consultant vs AI agency: which do you need? | Traq Collective',
+  metaDescription:
+    'AI consultant vs AI agency, compared: scope, seniority, speed, cost model and who owns the capability afterwards. A neutral guide to picking the right model for your team.',
+  targetQuery: 'AI consultant vs AI agency',
+  h1: 'AI consultant vs AI agency: which do you need?',
+  datePublished: '2026-06-10',
+  dateModified: '2026-06-10',
+  author: 'Nazir Dogan',
+  intro:
+    'An AI consultant is a senior adviser who sets your AI strategy and guides decisions, usually one person working closely with you. An AI agency is a team you hire to build and deliver AI projects for you. The consultant shapes what to do and why; the agency produces the output. Which you need depends on whether your gap is direction or delivery.',
+  bodySections: [
+    {
+      h2: 'What is the difference between an AI consultant and an AI agency?',
+      body:
+        'The core difference is direction versus delivery. An AI consultant is a senior individual who diagnoses where AI helps, sets the strategy, picks the tools and advises on rollout. You typically keep the work in-house and the consultant guides your people. An AI agency is a delivery team you hire to build the thing: a chatbot, an automation, a model integration, often with a project manager and a mix of junior and senior staff. A consultant changes how you think and decide. An agency changes what gets shipped, and usually ships it for you rather than with you.',
+      points: [
+        'Consultant: senior strategy and decisions, often one embedded person',
+        'Agency: a delivery team that builds and hands over a finished project',
+        'Consultant guides your team to do the work; an agency does it for you',
+        'Consultant gap = direction and prioritisation; agency gap = build capacity',
+      ],
+    },
+    {
+      h2: 'When should you hire an AI consultant?',
+      body:
+        'Hire a consultant when your real gap is knowing what to do, not having hands to do it. If you have bought tools and adoption has stalled, if nobody senior owns AI, or if leadership wants a clear, sequenced plan rather than scattered pilots, a consultant gets you unstuck fast. They are also the right call when you want the capability to stay with your team rather than depend on an outside vendor. The risk to watch is the deck-and-leave consultant who hands you a strategy and disappears before any of it sticks.',
+      points: [
+        'You own the tools but most of the team still does not use them',
+        'No one senior owns AI, so the work keeps slipping',
+        'You want a prioritised roadmap, not one-off experiments',
+        'You want the capability to stay in-house afterwards',
+      ],
+    },
+    {
+      h2: 'When should you hire an AI agency?',
+      body:
+        'Hire an agency when the direction is clear and you need build capacity you do not have in-house. If you know exactly what you want built, have a defined spec, and your team cannot deliver it on the timeline you need, an agency is the efficient choice. They are well suited to discrete, scoped builds: a customer-facing AI feature, a data pipeline, a one-off integration. The trade-off is that the knowledge often leaves with them, so plan for handover and documentation up front, or you end up dependent on the agency for every change.',
+      points: [
+        'The strategy is already set and the spec is clear',
+        'You need a defined build shipped on a deadline',
+        'Your team lacks the spare engineering capacity to deliver it',
+        'You have a plan for handover so the knowledge does not walk out the door',
+      ],
+    },
+    {
+      h2: 'Who owns the capability afterwards?',
+      body:
+        'This is the question most teams skip and regret. With a pure consultant, the capability stays with your people if the consultant trains them as they go, but a strategy-only adviser can leave you with a plan nobody knows how to run. With a project agency, the capability usually leaves with the agency unless you negotiate documentation, training and handover into the contract. Before you sign either, ask one question: when this engagement ends, can my team run and improve what was built without you? If the honest answer is no, you have bought a dependency, not a capability.',
+    },
+    {
+      h2: 'Is there an option that combines both?',
+      body:
+        'Yes, and it is where Traq sits. We work as an embedded AI partner: we do the strategy work of a consultant and the building work of an agency, but with your team rather than for it. We set the direction, train your people, wire AI into your real workflows, and stay accountable to outcomes you can measure. The point is that the capability stays in-house. We make ourselves redundant on purpose, so when we step back your team owns and runs everything we built. You get direction and delivery without buying a long-term dependency.',
+    },
+  ],
+  tables: [
+    {
+      heading: 'AI consultant vs AI agency vs an embedded partner',
+      intro:
+        'A neutral, side-by-side look at the two common models and the embedded-partner alternative, across the five things that actually decide the right fit.',
+      caption:
+        'AI consultant compared with an AI agency and an embedded AI partner across scope, seniority of who you work with, speed to value, cost model and who owns the capability afterwards',
+      columns: ['Consideration', 'AI consultant', 'AI agency', 'Embedded AI partner (Traq)'],
+      rows: [
+        [
+          'Scope',
+          'Strategy, diagnosis and advice; you keep the doing',
+          'Delivery of a defined build, done for you',
+          'Strategy and delivery together, done with your team',
+        ],
+        [
+          'Seniority',
+          'A senior individual, working closely with you',
+          'A team, often a mix of junior and senior staff',
+          'Senior operators embedded alongside your people',
+        ],
+        [
+          'Speed to value',
+          'Fast on direction; the doing still sits with your team',
+          'Fast on a scoped build, once the spec is agreed',
+          'Days to direction, weeks to working changes in your tools',
+        ],
+        [
+          'Cost model',
+          'Day rate or a short advisory retainer',
+          'Per-project or per-build fees, sometimes ongoing support',
+          'A scoped engagement sized to the work, value shown first',
+        ],
+        [
+          'Who owns the capability',
+          'Stays in-house only if the consultant trains your team',
+          'Often leaves with the agency unless you plan handover',
+          'Stays in your team by design; we make ourselves redundant',
+        ],
+      ],
+    },
+  ],
+  stats: [
+    {
+      claim:
+        'Most employees already bring their own AI to work, usually without guidance, so for many teams the gap is not access. It is direction and guardrails, which is consultant work, not a new build.',
+      value: '78%',
+      source: 'Microsoft Work Trend Index',
+      url: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part',
+      year: '2024',
+    },
+    {
+      claim:
+        'Comfort using AI nearly doubles after structured training, so whichever model you pick, the capability only stays in-house when someone trains your team rather than just shipping or advising.',
+      value: '43% → 72%',
+      source: 'Slack',
+      url: 'https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning',
+      year: '2024',
+    },
+    {
+      claim:
+        'Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, which is why a build alone rarely changes how people work.',
+      value: '48%',
+      source: 'McKinsey',
+      url: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work',
+      year: '2025',
+    },
+  ],
+  faqs: [
+    {
+      q: 'What is the difference between an AI consultant and an AI agency?',
+      a: 'An AI consultant is a senior adviser, usually one person, who sets your AI strategy, picks the tools and guides your team to do the work. An AI agency is a delivery team you hire to build and ship an AI project for you. The consultant shapes direction and decisions; the agency produces the output. Your choice depends on whether your gap is knowing what to do or having the capacity to build it.',
+    },
+    {
+      q: 'Is an AI consultant cheaper than an AI agency?',
+      a: 'Not always, because they are priced for different work. A consultant typically charges a day rate or a short advisory retainer for strategy and guidance. An agency charges per project or per build, which can be higher because it includes a delivery team and ongoing support. The cheaper option is the one that closes your actual gap. Paying an agency to build the wrong thing costs more than a consultant who tells you what to build first.',
+    },
+    {
+      q: 'Which is better for a small or mid-market team?',
+      a: 'Most mid-market teams have stalled adoption rather than a missing build, so they get more from a consultant or an embedded partner than from a project agency. The fastest payoff is usually getting people confident with tools you already pay for, then wiring AI into real workflows, not commissioning a custom build. An agency makes sense once the direction is clear and you have a defined thing to ship that your team cannot deliver in time.',
+    },
+    {
+      q: 'Will the capability stay with my team afterwards?',
+      a: 'It depends on the model and the contract, not the label. A strategy-only consultant can leave you with a plan nobody can run, and a project agency often takes the knowledge with it unless you negotiate training and handover up front. Before you sign either, ask whether your team can run and improve the work without them. An embedded partner answers that by training as it builds, so the capability stays in-house by design.',
+    },
+    {
+      q: 'Can one provider do both strategy and delivery?',
+      a: 'Yes. An embedded AI partner does the strategy work of a consultant and the building work of an agency, but with your team rather than for it. Traq sets the direction, trains your people, wires AI into your real workflows and stays accountable to measurable outcomes. The difference is that we make ourselves redundant on purpose, so when we step back your team owns and runs everything we built, instead of depending on us for every change.',
+    },
+  ],
+  related: [
+    { label: 'AI Consulting & Strategy', href: '/services/ai-consulting' },
+    { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+    { label: 'How to get your team using AI', href: '/insights/how-to-get-your-team-using-ai' },
+  ],
+};
+
+/**
  * Ordered list of published articles. Cornerstone guides and comparison pages
  * are added in the following Phase 3 tasks; the index and [slug] route are
  * written to be empty-safe so this can start as an empty array.
@@ -870,6 +1033,7 @@ export const ARTICLES: Article[] = [
   fractionalHeadOfAi,
   howAgenticWorkflowsWork,
   aiTrainingForTeamsUae,
+  aiConsultantVsAiAgency,
 ];
 
 /** Look up an article by slug. Returns undefined when not found. */
