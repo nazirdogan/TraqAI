@@ -241,7 +241,7 @@ const aiReadinessChecklist: Article = {
     {
       h2: 'What does AI readiness actually mean?',
       body:
-        'AI readiness means your company can adopt AI and get real value from it, not just buy licences. It covers five dimensions: the tools in place, how confident the team feels, whether people have been trained, whether leaders back the change, and whether you have picked specific use cases. A ready company scores well across all five. A company with tools but no training or use cases is not ready, it is just paying for software.',
+        'AI readiness means your company can adopt AI and get real value from it, beyond simply buying licences. It covers five dimensions: the tools in place, how confident the team feels, whether people have been trained, whether leaders back the change, and whether you have picked specific use cases. A ready company scores well across all five. A company with tools but no training or use cases still scores low, and ends up paying for software it barely uses.',
     },
     {
       h2: 'What is an AI readiness checklist?',
@@ -827,7 +827,7 @@ const aiTrainingForTeamsUae: Article = {
     },
     {
       claim:
-        'Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, so training is the highest-leverage place to invest.',
+        'Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, so training is the first place to invest.',
       value: '48%',
       source: 'McKinsey',
       url: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work',
@@ -1258,7 +1258,7 @@ const aiTrainingVsDiy: Article = {
     {
       h2: 'When is doing it yourself the right call?',
       body:
-        'DIY is the right call when your team is small, technical, and genuinely self-motivated, when the tasks are simple, and when you have no urgent pressure to show results across the company. A two-person team of engineers who already live in these tools may not need a workshop. The honest test is whether self-teaching is actually happening and adding up. If your licences have been live for months and most people still have not started, DIY is not saving you money, it is quietly costing you the value of the tools while you wait.',
+        'DIY is the right call when your team is small, technical, and genuinely self-motivated, when the tasks are simple, and when you have no urgent pressure to show results across the company. A two-person team of engineers who already live in these tools may not need a workshop. The honest test is whether self-teaching is actually happening and adding up. If your licences have been live for months and most people still have not started, DIY costs you the full value of the tools while you wait, even though no extra money leaves the account.',
       points: [
         'The team is small, technical and already motivated to self-teach',
         'The use cases are simple and low-stakes to get wrong',
