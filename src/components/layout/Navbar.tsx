@@ -27,6 +27,7 @@ const LINKS: NavLink[] = [
   { label: 'Proof', href: '/#proof' },
   { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
+  { label: 'AI readiness', href: '/ai-readiness' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/#contact' },
 ];

@@ -188,6 +188,21 @@ export default function Hero() {
               See how we work
             </Link>
           </motion.div>
+
+          <motion.p
+            variants={fade}
+            transition={{ duration: 0.6, ease }}
+            className="mt-5 text-[14px] text-ink-soft"
+          >
+            Not sure where you stand?{' '}
+            <Link
+              href="/ai-readiness"
+              className="font-semibold text-traq-purple underline-offset-4 transition-colors hover:underline"
+            >
+              Take the free 2-minute AI readiness assessment
+            </Link>
+            <span aria-hidden="true"> &rarr;</span>
+          </motion.p>
         </motion.div>
 
         {/* Right: flat light snapshot */}
