@@ -7,6 +7,7 @@ import JourneySpine from '@/components/journey/JourneySpine';
 import Offers from '@/components/sections/Offers';
 import Founder from '@/components/sections/Founder';
 import WhyUs from '@/components/sections/WhyUs';
+import Proof from '@/components/sections/Proof';
 import Impact from '@/components/sections/Impact';
 import FAQ from '@/components/sections/FAQ';
 import CTABanner from '@/components/sections/CTABanner';
@@ -27,6 +28,7 @@ export default function HomePage() {
       <Offers />
       <Founder />
       <WhyUs />
+      <Proof />
       <Impact />
       <FAQ />
       <CTABanner />
