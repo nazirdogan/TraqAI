@@ -311,20 +311,20 @@ const aiReadinessChecklist: Article = {
     {
       h2: 'How do you score your AI readiness?',
       body:
-        'Score each of the five dimensions out of its checklist items, then read your bands. Strong in four or five dimensions means you are ready to scale adoption. Strong in two or three means you are building and should fix the weak ones first. Strong in zero or one means you are early, and the fastest win is usually training and use cases, since the tools are likely already there.',
+        'Score each of the five dimensions out of its checklist items, then read your bands. Strong in four or five dimensions means you are ready to scale adoption. Strong in two or three means you are building and should fix the weak ones first. Strong in zero or one means you are early, and the fastest win is usually training and use cases, since the tools are likely already there. If you would rather have it scored for you, our free AI readiness assessment does the same five dimensions in about two minutes and gives you a band and next steps on screen.',
       points: [
         'Ready: strong in four or five dimensions, scale what works',
         'Building: strong in two or three, fix the weakest dimension next',
         'Early: strong in zero or one, start with training and use cases',
-        'For a scored result and a tailored plan, book a free call and we will score it with you',
+        'For a scored result in two minutes, take the free AI readiness assessment linked below',
       ],
     },
     {
       h2: 'What should you do after the AI readiness checklist?',
       body:
-        'Act on your weakest dimension first, because readiness is set by your lowest score, not your average. If tools are fine but training and use cases are weak, that is where the time goes. The fastest way to turn this checklist into a score and a tailored next step is to talk it through, so book a free call and we will map it with you.',
+        'Act on your weakest dimension first, because readiness is set by your lowest score, not your average. If tools are fine but training and use cases are weak, that is where the time goes. To turn this checklist into a scored band and tailored next steps, take the free AI readiness assessment, or book a free call and we will map it with you.',
       points: [
-        'Book a free call to turn this checklist into a scored result and a plan',
+        'Take the free AI readiness assessment to turn this checklist into a scored band',
         'Fix your lowest-scoring dimension first, not your average',
         'Start narrow: a few use cases, a small group, real practice',
         'Book a free call if you want a partner to map it with you',
@@ -368,7 +368,7 @@ const aiReadinessChecklist: Article = {
   faqs: [
     {
       q: 'How do I know if my company is ready for AI?',
-      a: 'Score yourself across five dimensions: tools, team confidence, training, leadership buy-in and use cases. If you are strong in four or five, you are ready to scale. Strong in two or three means you are building, so fix the weakest first. Strong in zero or one means you are early. If you want a scored result and a tailored plan, book a free call and we will work through it with you.',
+      a: 'Score yourself across five dimensions: tools, team confidence, training, leadership buy-in and use cases. If you are strong in four or five, you are ready to scale. Strong in two or three means you are building, so fix the weakest first. Strong in zero or one means you are early. For a scored band and tailored next steps in two minutes, take our free AI readiness assessment, or book a free call and we will work through it with you.',
     },
     {
       q: 'What are the dimensions of AI readiness?',
@@ -384,7 +384,7 @@ const aiReadinessChecklist: Article = {
     },
   ],
   related: [
-    { label: 'Book a free AI readiness call', href: '/book' },
+    { label: 'Take the free AI readiness assessment', href: '/ai-readiness' },
     { label: 'Consultation & Strategy', href: '/services/ai-consulting' },
     { label: 'How to get your team using AI', href: '/insights/how-to-get-your-team-using-ai' },
   ],

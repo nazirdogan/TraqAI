@@ -66,7 +66,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: teamEmail,
       replyTo: intake.email,
-      subject: `AI Readiness lead: ${intake.firstName} @ ${intake.company} - ${intake.band}`,
+      subject: `AI Readiness lead: ${intake.firstName} @ ${intake.company} — ${intake.band}`,
       react: AssessmentLeadEmail({ intake }),
     });
     const leadSend = resend.emails.send({
