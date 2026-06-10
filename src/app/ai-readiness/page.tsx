@@ -93,6 +93,7 @@ export default function AiReadinessPage() {
         h1={HERO.h1}
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
+        motif="readiness"
         ctaLabel="Start the assessment"
         ctaHref="#assessment"
         secondary={{ label: 'Book a free call', href: '/book' }}
@@ -117,7 +118,7 @@ export default function AiReadinessPage() {
 
       {/* Why this matters - three cited industry stats. */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Why readiness matters</div>
           <h2 className="section-title mt-3">Why a readiness check is worth two minutes</h2>
           <p className="section-sub mt-4">
@@ -156,7 +157,7 @@ export default function AiReadinessPage() {
 
       {/* Related reading - internal links. */}
       <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">

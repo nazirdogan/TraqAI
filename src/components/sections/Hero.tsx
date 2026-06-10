@@ -32,16 +32,23 @@ function useCountUp(target: number, run: boolean, durationMs = 1100) {
 }
 
 /* ---------- Adoption curve (flat, solid line + flat fill, no gradient) ----------
-   Illustrative: share of the team using AI every week across the 90-day sprint. */
+   Illustrative: share of the team confident using AI across the 90-day sprint.
+   The VERTICAL axis is a % scale (0 → 100%), made explicit with gridlines and
+   left-hand % labels so the curve can't be misread as a day axis. The endpoint
+   sits at 89% / Day 90 and is labelled. Plot box: x 40→306, y 18(=100%)→150(=0%). */
+const yOf = (pct: number) => 150 - (pct / 100) * 132; // 0%→150, 100%→18
 const CURVE_D =
-  'M 10 131 C 45 120, 72 104, 100 95 C 140 82, 162 70, 195 58 C 235 45, 260 38, 290 30';
-const AREA_D = `${CURVE_D} L 290 150 L 10 150 Z`;
+  'M 40 128.9 C 78 118, 100 104, 127 92 C 165 76, 188 68, 217 57.7 C 255 45, 282 39, 306 32.5';
+const AREA_D = `${CURVE_D} L 306 150 L 40 150 Z`;
+// [x, y, dayLabel] data points along the curve.
 const POINTS: ReadonlyArray<readonly [number, number, string]> = [
-  [10, 131, 'Day 0'],
-  [100, 95, '30'],
-  [195, 58, '60'],
-  [290, 30, '90'],
+  [40, 128.9, 'Day 0'],
+  [127, 92, '30'],
+  [217, 57.7, '60'],
+  [306, 32.5, '90'],
 ];
+// Horizontal % gridlines (the giveaway that the y-axis is a percentage).
+const Y_TICKS = [0, 50, 89] as const;
 
 function AdoptionCurve() {
   const reduce = useReducedMotion();
@@ -53,15 +60,15 @@ function AdoptionCurve() {
     <div
       ref={ref}
       className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-7"
-      aria-label="Share of the team using AI weekly across the first 90 days, rising to 89%"
+      aria-label="Share of the team confident using AI rises to 89% by day 90"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-[13px] font-semibold text-ink">
           <span className="h-2 w-2 rounded-full bg-traq-purple" aria-hidden="true" />
-          Team using AI weekly
+          Team confident using AI
         </div>
         <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-faint">
-          First 90 days
+          % of team · first 90 days
         </span>
       </div>
 
@@ -70,21 +77,44 @@ function AdoptionCurve() {
           {pct}%
         </span>
         <span className="mb-1 text-[13px] leading-snug text-ink-soft">
-          of the team using AI
+          of the team confident
           <br />
-          every week by day 90
+          using AI, by day 90
         </span>
       </div>
 
       <svg
-        viewBox="0 0 300 160"
+        viewBox="0 0 320 172"
         className="mt-5 w-full"
         fill="none"
         role="presentation"
         aria-hidden="true"
       >
-        {/* hairline baseline */}
-        <line x1="10" y1="150" x2="290" y2="150" stroke="#ECECEC" strokeWidth="1" />
+        {/* % gridlines + left-hand axis labels — makes the vertical scale unmistakable */}
+        {Y_TICKS.map((t) => (
+          <g key={t}>
+            <line
+              x1="40"
+              y1={yOf(t)}
+              x2="306"
+              y2={yOf(t)}
+              stroke={t === 0 ? '#E3E3E3' : '#F0F0F0'}
+              strokeWidth="1"
+              strokeDasharray={t === 0 ? '0' : '3 4'}
+            />
+            <text
+              x="32"
+              y={yOf(t) + 3.5}
+              textAnchor="end"
+              fill="#8A8A8A"
+              fontSize="10"
+              fontWeight="600"
+            >
+              {t}%
+            </text>
+          </g>
+        ))}
+
         {/* flat (non-gradient) area fill */}
         <motion.path
           d={AREA_D}
@@ -121,13 +151,26 @@ function AdoptionCurve() {
             transition={{ duration: 0.3, delay: reduce ? 0 : 0.5 + i * 0.28 }}
           />
         ))}
+        {/* endpoint callout: "89%" pinned to the final Day-90 point */}
+        <motion.g
+          initial={{ opacity: reduce ? 1 : 0 }}
+          animate={inView ? { opacity: 1 } : undefined}
+          transition={{ duration: 0.4, delay: reduce ? 0 : 1.5 }}
+        >
+          <rect x="246" y="14" width="56" height="20" rx="10" fill="#5B3FE4" />
+          <text x="274" y="27.5" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="700">
+            89% · Day 90
+          </text>
+        </motion.g>
       </svg>
 
-      <div className="mt-2 flex justify-between px-[2px] text-[11px] font-medium text-ink-faint">
+      {/* x-axis: day labels, aligned under the plot box (x 40→306 of 320) */}
+      <div className="mt-1 flex justify-between pl-[10%] pr-[1%] text-[11px] font-medium text-ink-faint">
         {POINTS.map(([, , label]) => (
           <span key={label}>{label}</span>
         ))}
       </div>
+      <p className="mt-2 text-center text-[11px] text-ink-faint">Days into the 90-day sprint →</p>
     </div>
   );
 }

@@ -132,6 +132,7 @@ export default function ServicesHubPage() {
         h1={HERO.h1}
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
+        motif="services"
         secondary={{ label: 'See how we work', href: '/#how-we-work' }}
       />
 
@@ -174,7 +175,7 @@ export default function ServicesHubPage() {
 
       {/* Which service fits - comparison table */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Choosing</div>
           <h2 className="section-title mt-3">Which AI service fits my team?</h2>
           <p className="section-sub mt-4">

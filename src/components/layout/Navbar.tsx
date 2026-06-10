@@ -20,15 +20,11 @@ const SERVICE_LINKS: NavLink[] = [
   { label: 'AI consulting in the UAE', href: '/ai-consulting-uae' },
 ];
 
-// Top-level links shown after the Services dropdown. These are real routes
-// where possible; the remaining home anchors still scroll smoothly on /.
+// Top-level links shown after the Services dropdown. Kept lean: About,
+// Insights, AI readiness and FAQ live in the footer, not the navbar.
 const LINKS: NavLink[] = [
   { label: 'How we work', href: '/#how-we-work' },
   { label: 'Proof', href: '/#proof' },
-  { label: 'About', href: '/about' },
-  { label: 'Insights', href: '/insights' },
-  { label: 'AI readiness', href: '/ai-readiness' },
-  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/#contact' },
 ];
 

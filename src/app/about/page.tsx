@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
+import ContentSections from '@/components/page/ContentSections';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, PersonJsonLd } from '@/components/seo/JsonLd';
@@ -136,83 +137,51 @@ export default function AboutPage() {
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
         secondary={{ label: 'See how we work', href: '/#how-we-work' }}
-      />
-
-      {/* Founder block. Photo + extended bio are pending assets (spec section 12);
-          the Person JSON-LD references /nazir.jpg (same asset Founder.tsx uses).
-          The placeholder below is marked visibly so the page reads complete and is
-          swapped when confirmed. */}
-      <section className="bg-bg-base px-5 pb-4 pt-4 sm:px-8 sm:pb-6 sm:pt-6">
-        <div className="mx-auto max-w-3xl">
-          <div className="flex flex-col gap-5 rounded-[20px] border border-border-subtle bg-white p-6 shadow-card sm:flex-row sm:items-center sm:gap-7 sm:p-7">
-            <div
-              className="flex h-20 w-20 flex-none items-center justify-center rounded-full border border-dashed border-border-strong bg-bg-subtle text-[13px] font-semibold text-ink-faint sm:h-24 sm:w-24"
+        visual={
+          <div className="relative mx-auto w-full max-w-sm">
+            <div className="overflow-hidden rounded-[26px] border border-border-subtle bg-white shadow-card">
+              <div className="relative aspect-[4/5] w-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/nazir.jpg"
+                  alt="Nazir, founder of Traq Collective"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <span
+              className="absolute -bottom-3 left-6 font-hand text-[18px] text-traq-purple"
               aria-hidden="true"
             >
-              Photo
-            </div>
-            <div>
-              <p className="text-base font-semibold text-ink sm:text-lg">Nazir</p>
-              <p className="mt-1 text-[14px] leading-relaxed text-ink-soft sm:text-[15px]">
-                Founder, AI enablement partner. Builds AI systems, runs an autonomous operation end
-                to end, and trains teams to use AI every day.
-              </p>
-              <p className="mt-2 text-[12px] font-medium uppercase tracking-wide text-ink-faint">
-                Founder photo and full bio coming soon
-              </p>
-            </div>
+              &mdash; Nazir, founder
+            </span>
+          </div>
+        }
+      />
+
+      {/* Founder bio. The portrait lives in the page hero (visual prop); this is
+          the supporting "meet the founder" note. */}
+      <section className="bg-bg-base px-5 pb-4 pt-2 sm:px-8 sm:pb-8 sm:pt-4">
+        <div className="mx-auto max-w-5xl">
+          <div className="note-card">
+            <span className="font-hand text-[20px] font-semibold text-traq-purple">
+              meet the founder
+            </span>
+            <p className="mt-2 text-lg font-semibold text-ink sm:text-xl">Nazir</p>
+            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-ink-soft sm:text-[16px]">
+              Founder and AI enablement partner. Builds AI systems, runs an autonomous operation end
+              to end, and trains teams to use AI every day. When you work with Traq, you work with
+              him directly, not a junior analyst on a markup.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-bg-base px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl space-y-14 sm:space-y-16">
-          {SECTIONS.map((section) => (
-            <div key={section.h2}>
-              <h2 className="section-title max-w-2xl">{section.h2}</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-[17px]">
-                {section.body}
-              </p>
-              {section.points ? (
-                <ul className="mt-6 space-y-3">
-                  {section.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-traq-purple"
-                        aria-hidden="true"
-                      />
-                      <span className="text-[15px] leading-relaxed text-ink-soft">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-              {section.h2 === 'Why practitioners, not consultants?' ? (
-                <p className="mt-6 text-[15px] leading-relaxed text-ink-soft sm:text-[17px]">
-                  See the work itself across{' '}
-                  <Link
-                    href="/services"
-                    className="font-semibold text-traq-purple underline-offset-4 hover:underline"
-                  >
-                    our AI services
-                  </Link>{' '}
-                  and the{' '}
-                  <Link
-                    href="/fractional-head-of-ai"
-                    className="font-semibold text-traq-purple underline-offset-4 hover:underline"
-                  >
-                    embedded AI partner
-                  </Link>{' '}
-                  engagement.
-                </p>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      </section>
+      <ContentSections sections={SECTIONS} />
 
       {/* Practitioners vs traditional consultants - comparison table */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Compare</div>
           <h2 className="section-title mt-3">
             How is Traq different from a traditional AI consultant?
@@ -261,7 +230,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">

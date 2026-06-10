@@ -3,6 +3,8 @@
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { PROCESS_STEPS } from '@/lib/constants';
+import NotebookDoodle from '@/components/ui/NotebookDoodle';
+import HandUnderline from '@/components/ui/HandUnderline';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -66,12 +68,24 @@ export default function Process() {
       className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32"
     >
       <div className="mx-auto max-w-5xl">
-        <div className="mb-10 text-center sm:mb-16">
-          <h2 className="section-title">Your team, AI-ready in 90 days</h2>
-          <p className="section-sub mx-auto">
-            Our AI Enablement Sprint is a 90-day, time-boxed engagement with concrete
-            deliverables. You see real progress in weeks, and your team owns the result.
-          </p>
+        <div className="mb-12 grid items-center gap-10 sm:mb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <div className="text-center lg:text-left">
+            <div className="eyebrow eyebrow-accent">How we work</div>
+            <div className="relative inline-block">
+              <h2 className="section-title mt-3">Your team, AI-ready in 90 days</h2>
+              <span
+                className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 text-traq-purple lg:left-0 lg:translate-x-0"
+                aria-hidden="true"
+              >
+                <HandUnderline className="h-2.5 w-48" />
+              </span>
+            </div>
+            <p className="section-sub mx-auto mt-5 lg:mx-0">
+              Our AI Enablement Sprint is a 90-day, time-boxed engagement with concrete
+              deliverables. You see real progress in weeks, and your team owns the result.
+            </p>
+          </div>
+          <NotebookDoodle />
         </div>
 
         {/* The weaving roadmap. The SVG path is the spine continuing down; the

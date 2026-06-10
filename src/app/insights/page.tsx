@@ -63,7 +63,7 @@ export default function InsightsIndexPage() {
       />
 
       <section className="bg-bg-base px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-4xl">
           {ARTICLES.length === 0 ? (
             <div className="rounded-[20px] border border-border-subtle bg-white p-8 text-center shadow-card sm:p-12">
               <h2 className="text-xl font-semibold text-ink sm:text-2xl">Guides are on the way</h2>

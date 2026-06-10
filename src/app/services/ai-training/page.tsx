@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
+import ContentSections from '@/components/page/ContentSections';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
@@ -127,38 +128,15 @@ export default function AiTrainingPage() {
         h1={HERO.h1}
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
+        motif="training"
         secondary={{ label: 'See all services', href: '/services' }}
       />
 
-      <section className="bg-bg-base px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl space-y-14 sm:space-y-16">
-          {SECTIONS.map((section) => (
-            <div key={section.h2}>
-              <h2 className="section-title max-w-2xl">{section.h2}</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-[17px]">
-                {section.body}
-              </p>
-              {section.points ? (
-                <ul className="mt-6 space-y-3">
-                  {section.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-traq-purple"
-                        aria-hidden="true"
-                      />
-                      <span className="text-[15px] leading-relaxed text-ink-soft">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      </section>
+      <ContentSections sections={SECTIONS} />
 
       {/* Guided training vs doing it yourself - comparison table */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Compare</div>
           <h2 className="section-title mt-3">AI training vs leaving your team to figure it out</h2>
           <p className="section-sub mt-4">
@@ -208,7 +186,7 @@ export default function AiTrainingPage() {
       </section>
 
       <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
