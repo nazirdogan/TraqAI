@@ -62,6 +62,40 @@ const SECTIONS: Section[] = [
   },
 ];
 
+// Traq vs the two alternatives UAE buyers usually weigh. Real table, high citation value.
+const COMPARISON: { dimension: string; traq: string; certificate: string; enterprise: string }[] = [
+  {
+    dimension: 'Format',
+    traq: 'In-person UAE workshops plus embedded follow-through',
+    certificate: 'Generic online modules, same for everyone',
+    enterprise: 'Slide decks and steering committees',
+  },
+  {
+    dimension: 'Who delivers it',
+    traq: 'A senior operator who builds with AI daily',
+    certificate: 'A pre-recorded instructor you never meet',
+    enterprise: 'A junior team on a partner markup',
+  },
+  {
+    dimension: 'Outcome',
+    traq: 'Your team using AI on real work by the end',
+    certificate: 'A certificate that changes nothing day to day',
+    enterprise: 'A strategy you still have to execute yourself',
+  },
+  {
+    dimension: 'Speed to value',
+    traq: 'A fixed-scope audit first, value in weeks',
+    certificate: 'Self-paced, so most people never finish',
+    enterprise: 'Months of discovery before anything ships',
+  },
+  {
+    dimension: 'Cost',
+    traq: 'Scoped to the work, priced after a free call',
+    certificate: 'Cheap per seat, low return if unused',
+    enterprise: 'Large fixed fees and long retainers',
+  },
+];
+
 const RELATED: { label: string; href: string }[] = [
   { label: 'AI training for teams', href: '/services/ai-training' },
   { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
@@ -124,7 +158,64 @@ export default function AiConsultingUaePage() {
         </div>
       </section>
 
-      <section className="bg-bg-base px-5 pb-16 sm:px-8 sm:pb-20">
+      {/* Traq vs certificate courses vs enterprise consultancies - comparison table */}
+      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-3xl">
+          <div className="eyebrow eyebrow-accent">Compare</div>
+          <h2 className="section-title mt-3">
+            How does Traq compare with certificate courses and big consultancies?
+          </h2>
+          <p className="section-sub mt-4">
+            UAE teams usually weigh three options. Here is how an embedded partner differs from a
+            generic certificate course and a slow enterprise consultancy.
+          </p>
+
+          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
+            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
+              <caption className="sr-only">
+                Traq Collective compared with generic certificate courses and enterprise
+                consultancies across format, delivery, outcome, speed and cost
+              </caption>
+              <thead>
+                <tr className="border-b border-border-subtle bg-bg-subtle">
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Consideration
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Traq Collective
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Certificate course
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Enterprise consultancy
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON.map((row) => (
+                  <tr
+                    key={row.dimension}
+                    className="border-b border-border-subtle last:border-b-0 align-top"
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
+                    >
+                      {row.dimension}
+                    </th>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.traq}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.certificate}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.enterprise}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-3xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
