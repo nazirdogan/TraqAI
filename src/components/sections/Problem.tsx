@@ -28,12 +28,32 @@ export default function Problem() {
         >
           {PROBLEMS.map((p) => (
             <motion.div
-              key={p.line}
+              key={p.problem}
               variants={card}
               transition={{ duration: 0.5, ease }}
-              className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card sm:p-7"
+              className="flex flex-col rounded-[20px] border border-border-subtle bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-cardHover sm:p-7"
             >
-              <p className="m-0 text-[15px] leading-relaxed text-ink sm:text-base">{p.line}</p>
+              <p className="m-0 text-[15px] font-medium leading-relaxed text-ink sm:text-base">
+                {p.problem}
+              </p>
+              <p className="m-0 mt-2 text-[13px] leading-relaxed text-ink-faint sm:text-sm">
+                {p.cost}
+              </p>
+
+              <div className="mt-5 border-t border-border-subtle pt-4">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="block h-1.5 w-1.5 flex-none rounded-full bg-traq-purple"
+                    aria-hidden="true"
+                  />
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-traq-purple">
+                    How we help
+                  </span>
+                </div>
+                <p className="m-0 mt-2 text-[13px] leading-relaxed text-ink-soft [text-wrap:pretty] sm:text-sm">
+                  {p.help}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

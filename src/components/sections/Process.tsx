@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { FRAMEWORK_NAME, PROCESS_STEPS } from '@/lib/constants';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -23,8 +24,6 @@ const ROAD_D =
   'C 34 360, 34 420, 50 455 ' +
   'C 60 480, 56 490, 50 510';
 
-const ROAD_LEN = 517;
-
 // Per-milestone label side + the pale "future" treatment for 90+. The dot sits
 // on the weave centre of each row; the card offsets to the alternating side.
 type RoadNode = {
@@ -41,6 +40,16 @@ const ROAD_NODES: RoadNode[] = [
 
 export default function Process() {
   const reduce = useReducedMotion();
+
+  // Scroll-link the weave fill to the roadmap's own scroll progress so it draws
+  // on as you move through it (consistent with the main spine), and completes
+  // fully (pathLength={1} makes the dash scale-independent of the stretched SVG).
+  const roadRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: roadRef,
+    offset: ['start 0.85', 'end 0.55'],
+  });
+  const roadDashoffset = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const heading = {
     hidden: { opacity: 0, y: reduce ? 0 : 16 },
@@ -69,6 +78,7 @@ export default function Process() {
         {/* The weaving roadmap. The SVG path is the spine continuing down; the
             milestone cards are offset from each dot with a clear gap. */}
         <motion.div
+          ref={roadRef}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
@@ -112,11 +122,9 @@ export default function Process() {
                 strokeWidth={2}
                 strokeLinecap="round"
                 vectorEffect="non-scaling-stroke"
-                strokeDasharray={ROAD_LEN}
-                initial={{ strokeDashoffset: ROAD_LEN }}
-                whileInView={{ strokeDashoffset: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 1.4, ease }}
+                pathLength={1}
+                strokeDasharray={1}
+                style={{ strokeDashoffset: roadDashoffset }}
               />
             )}
           </svg>

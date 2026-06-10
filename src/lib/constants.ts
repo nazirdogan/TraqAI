@@ -97,12 +97,28 @@ export const OFFER_TIERS: OfferTier[] = [
 ];
 export const OFFER_NOTE = 'Fixed scope, so you know what you’re getting. We start by showing value before any long commitment, and you keep everything we build. We take on a limited number of new partners each quarter so every team gets senior attention.';
 
-export type ProblemCard = { line: string };
+export type ProblemCard = { problem: string; cost: string; help: string };
 export const PROBLEMS: ProblemCard[] = [
-  { line: 'You pay for ChatGPT and Copilot, but most of the team still doesn’t touch them.' },
-  { line: 'You know AI could save hours, but nobody has time to work out where.' },
-  { line: 'Every week there’s a new tool, and it’s hard to tell what’s worth it.' },
-  { line: 'You don’t want to fall behind while competitors get ahead.' },
+  {
+    problem: 'You pay for ChatGPT and Copilot, but most of the team still doesn’t touch them.',
+    cost: 'So you’re carrying the cost of tools that aren’t earning it back.',
+    help: 'We run hands-on training around your team’s real work, so the tools you already pay for start saving real time.',
+  },
+  {
+    problem: 'You know AI could save hours, but nobody has time to work out where.',
+    cost: 'The biggest time-savers stay buried under the day-to-day.',
+    help: 'We audit your workflows and hand you a short, prioritised list of where AI pays off first.',
+  },
+  {
+    problem: 'Every week there’s a new tool, and it’s hard to tell what’s worth it.',
+    cost: 'It’s easy to pour money and attention into the wrong ones.',
+    help: 'We cut through the noise and back only the tools that fit how you actually work.',
+  },
+  {
+    problem: 'You don’t want to fall behind while competitors get ahead.',
+    cost: 'The gap only compounds the longer it’s left.',
+    help: 'We get your team confident and shipping with AI now, and the capability stays in-house.',
+  },
 ];
 
 export type CaseStudy = { metric: string; label: string; who: string; story: string };
