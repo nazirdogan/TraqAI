@@ -59,10 +59,40 @@ const SECTIONS: Section[] = [
   },
 ];
 
+// Implementation that sticks vs a one-off setup the team never adopts.
+// Real table, high citation value for "AI implementation vs DIY / handover".
+const COMPARISON: { dimension: string; embedded: string; handover: string }[] = [
+  {
+    dimension: 'Where AI lives',
+    embedded: 'Inside the tools and workflows your team already uses',
+    handover: 'In a separate tab people forget to open',
+  },
+  {
+    dimension: 'Adoption',
+    embedded: 'Most of the team uses it on real work within weeks',
+    handover: 'A keen few try it; the rest never start',
+  },
+  {
+    dimension: 'Safety',
+    embedded: 'Guardrails, access and review steps built in',
+    handover: 'Ad-hoc use with no rules, so trust drops fast',
+  },
+  {
+    dimension: 'Ownership',
+    embedded: 'Your team runs and extends it after we step back',
+    handover: 'A doc nobody maintains and a vendor you depend on',
+  },
+  {
+    dimension: 'Proof it worked',
+    embedded: 'Adoption and hours saved are measured and reported',
+    handover: 'No baseline, so nobody knows if it helped',
+  },
+];
+
 const RELATED: { label: string; href: string }[] = [
-  { label: 'Consultation & strategy', href: '/services/ai-consulting' },
+  { label: 'AI training', href: '/services/ai-training' },
   { label: 'Agentic AI', href: '/services/agentic-ai' },
-  { label: 'All AI services', href: '/services' },
+  { label: 'Consultation & strategy', href: '/services/ai-consulting' },
 ];
 
 const FAQS: Qa[] = [
@@ -126,7 +156,58 @@ export default function AiImplementationPage() {
         </div>
       </section>
 
-      <section className="bg-bg-base px-5 pb-16 sm:px-8 sm:pb-20">
+      {/* AI that gets embedded vs a one-off setup - comparison table */}
+      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-3xl">
+          <div className="eyebrow eyebrow-accent">Compare</div>
+          <h2 className="section-title mt-3">Embedded AI vs a one-off setup nobody adopts</h2>
+          <p className="section-sub mt-4">
+            What changes when AI is wired into your real workflows and owned by your team, versus a
+            one-time setup handed over in a doc.
+          </p>
+
+          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
+            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
+              <caption className="sr-only">
+                Embedded AI implementation compared with a one-off handover, across where AI lives,
+                adoption, safety, ownership and proof it worked
+              </caption>
+              <thead>
+                <tr className="border-b border-border-subtle bg-bg-subtle">
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Consideration
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Embedded with adoption
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    One-off setup and handover
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON.map((row) => (
+                  <tr
+                    key={row.dimension}
+                    className="border-b border-border-subtle last:border-b-0 align-top"
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
+                    >
+                      {row.dimension}
+                    </th>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.embedded}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.handover}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-3xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
