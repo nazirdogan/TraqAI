@@ -42,11 +42,14 @@ As the user scrolls from the **Problem** section downward, a connecting "spine" 
 ### Decision
 Retire **"fractional Head of AI"** as our *identity*. We are an **Embedded AI Partner** — partner, consultants, strategists who **work *with* you, not *for* you**. Not a new hire, not a role, not an employee. Borrow the embedded/hands-on energy of the "forward-deployed" model (a 2025-trending, 800%+ growth term) **without the label** (it implies an employee/engineer).
 
-### Search strategy (decided: "capture + reframe")
-"Fractional Head of AI / fractional Chief AI Officer" is a real, high-intent, growing **search** term (mid-market buyers searching for part-time strategic AI leadership at ~20–40% of a full-time exec). We **keep ranking for it** but **reframe it to our partner offer**:
-- Keep the **`/fractional-head-of-ai` slug**, plus the term in a **heading + FAQ + schema (`Service`/`FAQPage`) + meta** on that page (discovery, not identity).
-- The page **leads with "Embedded AI Partner"** and explicitly reframes: *"Looking for a fractional Head of AI? Here's a better fit — an embedded AI partner who works with your team, not for it."*
-- Add **"AI transformation partner"** / **"AI consulting partner"** as secondary target terms (partner-framed and searched).
+### Search strategy (decided: "capture + intercept")
+Research finding (2026-06-10): the AI-leadership terms differ more by **intent** than volume. "AI consultant / AI consulting (+ UAE)" is the highest *buyer*-intent demand and is the **site's SEO spine** (already built in Phase 2). "Chief AI Officer / Head of AI" are higher-volume but dominated by **hiring/job-seeker** intent (exec-search firms, JD templates, recruiters) — so we **intercept the consideration query, we do not present ourselves as the role.** "Fractional Head of AI / Chief AI Officer" is **low-but-fast-growing, very high intent, low competition** ("fractional CFO/CMO" searches hit all-time highs in 2025; CAIO is the newest on that curve) — worth capturing, not worth anchoring identity to.
+
+The flagship page therefore does **double duty**, both reframed to the **Embedded AI Partner** offer (identity never becomes a role):
+- **Capture:** keep the **`/fractional-head-of-ai` slug** and the term in a **heading + FAQ + `Service`/`FAQPage` schema + meta** (discovery, not identity). Lead line: *"Looking for a fractional Head of AI? Here's a better fit — an embedded AI partner who works with your team, not for it."*
+- **Intercept:** add a section + FAQ answering **"Do I need to hire a Chief AI Officer / Head of AI?"** and a short comparison (**hiring a Head of AI vs an embedded AI partner**: cost, speed, risk, capability-stays-in-team) that converts the hiring-consideration crowd to the partner alternative.
+- **Secondary targets:** **"AI transformation partner" / "AI consulting partner"** (partner-framed and searched).
+- **Not targeted as identity:** bare "AI partner" (Microsoft/Google partner-program noise) and "forward-deployed engineer" (employee/job intent) — we borrow the embedded/hands-on *model*, never the label.
 
 ### Positioning language rules
 - "With you, not for you." "Your partner and consultants, not a new hire." "We build the strategy with you." "Embedded with your team, accountable to outcomes." Avoid any phrasing that implies Traq becomes an employee or fills a headcount/role.
