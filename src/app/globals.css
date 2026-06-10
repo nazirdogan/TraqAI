@@ -130,6 +130,16 @@ body {
   animation: marquee 40s linear infinite;
 }
 
+/* Each group is one full, identical copy of the list. An internal gap plus a
+   matching trailing gap make the -50% loop seamless: copy 2 lands exactly where
+   copy 1 started, with no gap or jump at the wrap. */
+.marquee-group {
+  display: flex;
+  flex: none;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -276,11 +286,12 @@ body {
 
 /* ----- Impact stat (solid ink with purple accent) ----- */
 .impact-value {
-  font-size: clamp(42px, 7vw, 76px);
+  font-size: clamp(28px, 3.4vw, 40px);
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   color: var(--traq-purple);
+  white-space: nowrap;
 }
 
 /* ----- CTA panel (solid pale-purple surface, flat fill) ----- */

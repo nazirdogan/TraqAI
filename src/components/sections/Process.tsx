@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { FRAMEWORK_NAME, PROCESS_STEPS } from '@/lib/constants';
+import { PROCESS_STEPS } from '@/lib/constants';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -67,11 +67,10 @@ export default function Process() {
     >
       <div className="mx-auto max-w-5xl">
         <div className="mb-10 text-center sm:mb-16">
-          <div className="eyebrow">How we work</div>
-          <h2 className="section-title mt-4">{FRAMEWORK_NAME}</h2>
+          <h2 className="section-title">Your team, AI-ready in 90 days</h2>
           <p className="section-sub mx-auto">
-            A 90-day, time-boxed engagement with concrete deliverables. You see real progress in
-            weeks, and your team owns the result.
+            Our AI Enablement Sprint is a 90-day, time-boxed engagement with concrete
+            deliverables. You see real progress in weeks, and your team owns the result.
           </p>
         </div>
 

@@ -6,7 +6,6 @@ import Process from '@/components/sections/Process';
 import JourneySpine from '@/components/journey/JourneySpine';
 import Offers from '@/components/sections/Offers';
 import Founder from '@/components/sections/Founder';
-import Proof from '@/components/sections/Proof';
 import WhyUs from '@/components/sections/WhyUs';
 import Impact from '@/components/sections/Impact';
 import FAQ from '@/components/sections/FAQ';
@@ -27,7 +26,6 @@ export default function HomePage() {
       <Process />
       <Offers />
       <Founder />
-      <Proof />
       <WhyUs />
       <Impact />
       <FAQ />

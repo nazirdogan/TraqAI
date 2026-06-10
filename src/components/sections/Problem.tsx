@@ -16,7 +16,7 @@ export default function Problem() {
     <section id="problem" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <div className="eyebrow">Sound familiar?</div>
+          <h2 className="section-title">Does this sound like you?</h2>
         </div>
 
         <motion.div

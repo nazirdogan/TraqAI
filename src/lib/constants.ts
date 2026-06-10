@@ -1,6 +1,5 @@
 export type Service = {
   slug: string;
-  icon: string;
   title: string;
   tagline: string;
   description: string;
@@ -10,7 +9,6 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     slug: 'ai-training',
-    icon: '🎓',
     title: 'AI Training & Workshops',
     tagline: 'Hands-on sessions built around your team’s real work.',
     description:
@@ -23,11 +21,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'ai-consulting',
-    icon: '🧭',
     title: 'Consultation & Strategy',
     tagline: 'Your embedded AI partner.',
     description:
-      'We audit your tools and workflows, find the highest-leverage uses, and give you a clear roadmap. Then we help you act on it.',
+      'We audit your tools and workflows, find the uses that save the most time, and give you a clear roadmap, then help you act on it.',
     bullets: [
       'AI audit of tools and workflows',
       'A prioritised, practical roadmap',
@@ -36,7 +33,6 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'ai-implementation',
-    icon: '🔧',
     title: 'Implementation & Enablement',
     tagline: 'Wire AI into the tools you already pay for.',
     description:
@@ -49,7 +45,6 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'agentic-ai',
-    icon: '🤖',
     title: 'Agentic AI & Autonomous Infrastructure',
     tagline: 'Build a self-improving company.',
     description:
@@ -91,9 +86,9 @@ export const BENEFITS: Benefit[] = [
 
 export type OfferTier = { name: string; who: string; includes: string[] };
 export const OFFER_TIERS: OfferTier[] = [
-  { name: 'AI Readiness Audit', who: 'Start here.', includes: ['A fast, fixed-scope look at where AI helps most', 'Pairs with the free AI Readiness Assessment', 'A clear, prioritised next step'] },
-  { name: 'Embedded AI Partner', who: 'Our flagship. Your partner and consultants, not a new hire.', includes: ['We set the strategy, train, and implement with you', 'Embedded with your team, working with you, not for you', 'Accountable to outcomes you can measure'] },
-  { name: 'Ongoing Partner / Oversight', who: 'For teams with some capability.', includes: ['Cadence and governance', 'A senior partner on call', 'Keep momentum without a full engagement'] },
+  { name: 'AI Training & Workshops', who: 'Start here.', includes: ['Hands-on, role-specific workshops', 'Built around your team’s real work', 'People leave using AI the same week'] },
+  { name: 'AI Readiness Audit', who: 'See where AI pays off.', includes: ['A fast, fixed-scope look at where AI helps most', 'Pairs with the free AI Readiness Assessment', 'A clear, prioritised roadmap'] },
+  { name: 'Embedded AI Partner', who: 'Our flagship. Your partner, not a new hire.', includes: ['We set the strategy, train, and implement with you', 'Embedded with your team, with you not for you', 'An ongoing senior partner, accountable to outcomes'] },
 ];
 export const OFFER_NOTE = 'Fixed scope, so you know what you’re getting. We start by showing value before any long commitment, and you keep everything we build. We take on a limited number of new partners each quarter so every team gets senior attention.';
 
@@ -161,9 +156,8 @@ export const TRUSTED_PLATFORMS: TrustedPlatform[] = [
   { name: 'OpenAI', dot: '#10A37F' },
   { name: 'Anthropic', dot: '#D97757' },
   { name: 'Microsoft Copilot', dot: '#0078D4' },
-  { name: 'Google AI', dot: '#F59E0B' },
-  { name: 'Gemini', dot: '#4285F4' },
   { name: 'Perplexity', dot: '#20808D' },
+  { name: 'Gemini', dot: '#4285F4' },
 ];
 
 export const SERVICE_DROPDOWN_OPTIONS = [

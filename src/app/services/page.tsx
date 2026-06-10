@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
+import ServiceIcon from '@/components/ui/ServiceIcon';
 import { BreadcrumbsJsonLd, FaqPageJsonLd } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 
@@ -39,7 +40,6 @@ const HERO = {
 type ServiceCard = {
   title: string;
   href: string;
-  icon: string;
   query: string;
   body: string;
 };
@@ -48,28 +48,24 @@ const SERVICES: ServiceCard[] = [
   {
     title: 'AI Training',
     href: '/services/ai-training',
-    icon: '🎓',
     query: 'AI training for teams',
     body: 'Hands-on workshops built around your team’s real work. People leave knowing exactly how to use AI in their role, not just what it is. Role-specific, practical, and measured.',
   },
   {
     title: 'Consultation & Strategy',
     href: '/services/ai-consulting',
-    icon: '🧭',
     query: 'AI consultant and strategy',
     body: 'We act as your embedded AI partner. We audit your tools and workflows, find the uses that save the most time, and give you a clear roadmap your team can act on.',
   },
   {
     title: 'Implementation & Enablement',
     href: '/services/ai-implementation',
-    icon: '🔧',
     query: 'AI implementation and adoption',
     body: 'We wire AI into the tools and workflows you already pay for, with guardrails to use it safely. Then we make sure the team actually adopts it.',
   },
   {
     title: 'Agentic AI',
     href: '/services/agentic-ai',
-    icon: '⚙️',
     query: 'AI agents and agentic workflows',
     body: 'We build AI agents and agentic systems that run and improve on their own. We have built a full autonomous operation for a company we run end to end, and we can build yours.',
   },
@@ -153,7 +149,7 @@ export default function ServicesHubPage() {
             {SERVICES.map((s) => (
               <Link key={s.href} href={s.href} className="service-card group">
                 <div className="service-icon" aria-hidden="true">
-                  {s.icon}
+                  <ServiceIcon slug={s.href.split('/').pop() ?? ''} />
                 </div>
                 <h3 className="text-lg font-semibold tracking-tight text-ink sm:text-xl">
                   {s.title}
