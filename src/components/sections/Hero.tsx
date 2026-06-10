@@ -35,17 +35,18 @@ function useCountUp(target: number, run: boolean, durationMs = 1100) {
    Illustrative: share of the team confident using AI across the 90-day sprint.
    The VERTICAL axis is a % scale (0 → 100%), made explicit with gridlines and
    left-hand % labels so the curve can't be misread as a day axis. The endpoint
-   sits at 89% / Day 90 and is labelled. Plot box: x 40→306, y 18(=100%)→150(=0%). */
+   sits at 89% / Day 90. Plot box: x 38→314, y 18(=100%)→150(=0%) — the line runs
+   nearly edge-to-edge of the card. */
 const yOf = (pct: number) => 150 - (pct / 100) * 132; // 0%→150, 100%→18
 const CURVE_D =
-  'M 40 128.9 C 78 118, 100 104, 127 92 C 165 76, 188 68, 217 57.7 C 255 45, 282 39, 306 32.5';
-const AREA_D = `${CURVE_D} L 306 150 L 40 150 Z`;
+  'M 38 128.9 C 76 118, 100 104, 130 92 C 168 78, 192 68, 222 57.7 C 262 45, 290 39, 314 32.5';
+const AREA_D = `${CURVE_D} L 314 150 L 38 150 Z`;
 // [x, y, dayLabel] data points along the curve.
 const POINTS: ReadonlyArray<readonly [number, number, string]> = [
-  [40, 128.9, 'Day 0'],
-  [127, 92, '30'],
-  [217, 57.7, '60'],
-  [306, 32.5, '90'],
+  [38, 128.9, 'Day 0'],
+  [130, 92, '30'],
+  [222, 57.7, '60'],
+  [314, 32.5, '90'],
 ];
 // Horizontal % gridlines (the giveaway that the y-axis is a percentage).
 const Y_TICKS = [0, 50, 89] as const;
@@ -94,9 +95,9 @@ function AdoptionCurve() {
         {Y_TICKS.map((t) => (
           <g key={t}>
             <line
-              x1="40"
+              x1="38"
               y1={yOf(t)}
-              x2="306"
+              x2="314"
               y2={yOf(t)}
               stroke={t === 0 ? '#E3E3E3' : '#F0F0F0'}
               strokeWidth="1"
@@ -151,21 +152,10 @@ function AdoptionCurve() {
             transition={{ duration: 0.3, delay: reduce ? 0 : 0.5 + i * 0.28 }}
           />
         ))}
-        {/* endpoint callout: "89%" pinned to the final Day-90 point */}
-        <motion.g
-          initial={{ opacity: reduce ? 1 : 0 }}
-          animate={inView ? { opacity: 1 } : undefined}
-          transition={{ duration: 0.4, delay: reduce ? 0 : 1.5 }}
-        >
-          <rect x="246" y="14" width="56" height="20" rx="10" fill="#5B3FE4" />
-          <text x="274" y="27.5" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="700">
-            89% · Day 90
-          </text>
-        </motion.g>
       </svg>
 
-      {/* x-axis: day labels, aligned under the plot box (x 40→306 of 320) */}
-      <div className="mt-1 flex justify-between pl-[10%] pr-[1%] text-[11px] font-medium text-ink-faint">
+      {/* x-axis: day labels, aligned under the plot box (x 38→314 of 320) */}
+      <div className="mt-1 flex justify-between pl-[11%] pr-[1%] text-[11px] font-medium text-ink-faint">
         {POINTS.map(([, , label]) => (
           <span key={label}>{label}</span>
         ))}
