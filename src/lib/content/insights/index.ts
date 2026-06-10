@@ -93,8 +93,8 @@ export type Article = {
  * "How to actually get your team using AI": a practical adoption playbook.
  * Targets "how to get employees to use AI / AI adoption playbook". Cites the
  * verified BYO-AI, training-comfort and training-need stats from IMPACT_METRICS
- * (same sources, urls and years). Internal links to AI training and the free
- * AI Readiness Assessment.
+ * (same sources, urls and years). Internal links to AI training, AI consulting
+ * and the about page.
  */
 const getTeamUsingAi: Article = {
   slug: 'how-to-get-your-team-using-ai',
@@ -222,14 +222,14 @@ const getTeamUsingAi: Article = {
  * checklist across tools, team, training, leadership and use cases. Targets
  * "AI readiness assessment / checklist". Cites the verified BYO-AI, training
  * tipping-point and training-need stats from IMPACT_METRICS (same sources, urls
- * and years). CTA into the free /ai-readiness assessment tool; internal links
- * to AI consulting and the team-adoption guide.
+ * and years). CTA into a free strategy call (/book); internal links to AI
+ * consulting and the team-adoption guide.
  */
 const aiReadinessChecklist: Article = {
   slug: 'ai-readiness-checklist',
   title: 'AI readiness checklist: is your company ready for AI? | Traq Collective',
   metaDescription:
-    'A practical AI readiness checklist across tools, team, training, leadership and use cases. Score where you stand, see what to fix first, and run the free assessment for a tailored plan.',
+    'A practical AI readiness checklist across tools, team, training, leadership and use cases. Score where you stand, see what to fix first, and book a free call for a tailored plan.',
   targetQuery: 'AI readiness assessment / checklist',
   h1: 'AI readiness: is your company ready? (a checklist)',
   datePublished: '2026-06-10',
@@ -316,15 +316,15 @@ const aiReadinessChecklist: Article = {
         'Ready: strong in four or five dimensions, scale what works',
         'Building: strong in two or three, fix the weakest dimension next',
         'Early: strong in zero or one, start with training and use cases',
-        'For a scored result and a tailored plan, run the free AI Readiness Assessment at /ai-readiness',
+        'For a scored result and a tailored plan, book a free call and we will score it with you',
       ],
     },
     {
       h2: 'What should you do after the AI readiness checklist?',
       body:
-        'Act on your weakest dimension first, because readiness is set by your lowest score, not your average. If tools are fine but training and use cases are weak, that is where the time goes. The free AI Readiness Assessment turns this checklist into a score and a tailored next step in a few minutes. If you would rather talk it through, book a free call and we will map it with you.',
+        'Act on your weakest dimension first, because readiness is set by your lowest score, not your average. If tools are fine but training and use cases are weak, that is where the time goes. The fastest way to turn this checklist into a score and a tailored next step is to talk it through, so book a free call and we will map it with you.',
       points: [
-        'Run the free assessment at /ai-readiness for a scored result',
+        'Book a free call to turn this checklist into a scored result and a plan',
         'Fix your lowest-scoring dimension first, not your average',
         'Start narrow: a few use cases, a small group, real practice',
         'Book a free call if you want a partner to map it with you',
@@ -368,7 +368,7 @@ const aiReadinessChecklist: Article = {
   faqs: [
     {
       q: 'How do I know if my company is ready for AI?',
-      a: 'Score yourself across five dimensions: tools, team confidence, training, leadership buy-in and use cases. If you are strong in four or five, you are ready to scale. Strong in two or three means you are building, so fix the weakest first. Strong in zero or one means you are early. Run the free AI Readiness Assessment at /ai-readiness for a scored result.',
+      a: 'Score yourself across five dimensions: tools, team confidence, training, leadership buy-in and use cases. If you are strong in four or five, you are ready to scale. Strong in two or three means you are building, so fix the weakest first. Strong in zero or one means you are early. If you want a scored result and a tailored plan, book a free call and we will work through it with you.',
     },
     {
       q: 'What are the dimensions of AI readiness?',
@@ -384,7 +384,7 @@ const aiReadinessChecklist: Article = {
     },
   ],
   related: [
-    { label: 'Run the free AI Readiness Assessment', href: '/ai-readiness' },
+    { label: 'Book a free AI readiness call', href: '/book' },
     { label: 'Consultation & Strategy', href: '/services/ai-consulting' },
     { label: 'How to get your team using AI', href: '/insights/how-to-get-your-team-using-ai' },
   ],
