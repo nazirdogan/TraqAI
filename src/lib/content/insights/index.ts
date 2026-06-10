@@ -717,6 +717,149 @@ const howAgenticWorkflowsWork: Article = {
 };
 
 /**
+ * "AI training for teams in the UAE: what good looks like": a buyer's guide to
+ * choosing and running AI training for a team in the UAE or Dubai. Targets
+ * "AI training UAE / Dubai". Leads with the local angle (in-person workshops,
+ * local context, globally fluent and locally embedded) and cites the verified
+ * BYO-AI, training-comfort, training tipping-point and training-need stats from
+ * IMPACT_METRICS (same sources, urls and years). Internal links to the UAE
+ * landing page, the AI training service and the team-adoption guide.
+ */
+const aiTrainingForTeamsUae: Article = {
+  slug: 'ai-training-for-teams-uae',
+  title: 'AI training for teams in the UAE: what good looks like | Traq Collective',
+  metaDescription:
+    'A practical guide to AI training for teams in the UAE and Dubai: what good training looks like, why in-person workshops work, how to pick a provider, and what results to expect.',
+  targetQuery: 'AI training UAE / Dubai',
+  h1: 'AI training for teams in the UAE: what good looks like',
+  datePublished: '2026-06-10',
+  dateModified: '2026-06-10',
+  author: 'Nazir Dogan',
+  intro:
+    'AI training for teams in the UAE is hands-on coaching that gets your people using tools like ChatGPT and Copilot on their real work. Good training runs in person where it helps, fits the local context, and is delivered by practitioners who are globally fluent and locally embedded. The aim is daily habits your team keeps, not a certificate.',
+  bodySections: [
+    {
+      h2: 'What does good AI training for a UAE team look like?',
+      body:
+        'Good AI training in the UAE is role-specific, hands-on, and built around the work your team does every week. It is run by practitioners who understand both the global tools and the local context, in person where that lifts engagement and remotely where it suits a distributed team. People practise on their own files until they trust the result, and they leave with a short prompt library tied to their actual job. A generic certificate course is the opposite of this. It teaches what AI is and skips the part where your team learns to use it on Monday.',
+      points: [
+        'Role-specific sessions, not one generic all-hands talk',
+        'Practice on your real files and workflows, not toy examples',
+        'In-person workshops in Dubai or Abu Dhabi where it lifts engagement',
+        'Practitioners who know the global tools and the local context',
+        'A prompt library and follow-up so the habit sticks after the session',
+      ],
+    },
+    {
+      h2: 'Why do in-person workshops work well in the UAE?',
+      body:
+        'In-person workshops work because people learn AI faster when they practise live, ask questions in the moment, and see a colleague get a result. The UAE has a dense, in-office business culture across Dubai and Abu Dhabi, so getting a team in one room is practical and it builds momentum that a recorded course never does. We run sessions on site, on your real work, then stay on for follow-up. For distributed teams we deliver the same hands-on format remotely, so nobody is left out.',
+    },
+    {
+      h2: 'How long does AI training take to work?',
+      body:
+        'Most teams feel a difference within the first few weeks, and the evidence is clear on the dose. Comfort using AI nearly doubles after structured training, and more than five hours of practice is the tipping point where people become regular users rather than one-time triers. That is why a single workshop rarely changes how anyone works. We build training into a 30, 60, 90 day path so the early wins turn into lasting habits across the team.',
+      points: [
+        'A first group is using AI on real tasks the same week',
+        'Aim for more than five hours of hands-on practice in the first month',
+        'A 30, 60, 90 day path takes quick wins through to lasting habits',
+        'Follow-up sessions keep new starters and sceptics up to speed',
+      ],
+    },
+    {
+      h2: 'How do you choose an AI training provider in the UAE?',
+      body:
+        'Choose a provider who trains on your real work, can deliver in person in the UAE, and stays with you after the session rather than handing over a slide deck. Ask whether the trainers actually build and run AI themselves, because practitioners teach what holds up in production and certificate mills teach theory. Check that the training is role-specific, that there is measurement of who actually adopts it, and that your team keeps the capability instead of depending on the provider.',
+      points: [
+        'They train on your real tasks, by role, not a generic syllabus',
+        'They can run in-person workshops in Dubai or Abu Dhabi',
+        'The trainers build and run AI themselves, not just teach it',
+        'They measure adoption, not attendance, and stay for follow-up',
+        'Your team owns the capability afterwards, with no lock-in',
+      ],
+    },
+    {
+      h2: 'What should AI training for your team cover?',
+      body:
+        'It should cover the tools you already pay for, the use cases that matter in each role, the prompts that get reliable results, and the guardrails for safe use. Skip the history of large language models. Spend the time on real tasks: drafting first replies, summarising long threads, cleaning up notes, prepping research, and building the handful of prompts each person will reuse. A one-page set of rules on approved tools and what data never goes in removes the fear that stops people starting.',
+      points: [
+        'The tools your team already has, used on their own work',
+        'Two or three high-value use cases per role',
+        'A reusable prompt library tied to real jobs',
+        'Light guardrails on approved tools and safe data handling',
+      ],
+    },
+    {
+      h2: 'Should you train your team in person or online?',
+      body:
+        'Train in person when your team is in one place and you want momentum, and remotely when people are distributed or in different emirates. The format that matters more than the location is hands-on practice on real work. We run on-site workshops across the UAE and deliver the same live, practice-led format remotely for hybrid and global teams, so you pick what fits your people rather than settling for a recorded course nobody finishes.',
+    },
+    {
+      h2: 'Why does a local AI training partner matter?',
+      body:
+        'A local partner matters because they understand your context, can be in the room when it counts, and knows the tools and constraints your UAE business actually works with. Traq is globally fluent and locally embedded: we use the same frontier tools and methods as anywhere in the world, and we deliver them on the ground in the UAE. You get senior practitioners who train your team in person, stay accountable to adoption, and leave the capability with your people rather than running it from a distance.',
+    },
+  ],
+  stats: [
+    {
+      claim:
+        'Most employees already bring their own AI to work, usually without guidance, so UAE teams have the appetite before any training starts. The gap is structured practice, not interest.',
+      value: '78%',
+      source: 'Microsoft Work Trend Index',
+      url: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part',
+      year: '2024',
+    },
+    {
+      claim:
+        'Comfort using AI nearly doubles after structured training, which is why hands-on workshops, not access to tools, are what change how a team works.',
+      value: '43% → 72%',
+      source: 'Slack',
+      url: 'https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning',
+      year: '2024',
+    },
+    {
+      claim:
+        'More than five hours of training is the tipping point to regular AI use, which is why a single workshop rarely sticks and a proper programme does.',
+      value: '79% vs 67%',
+      source: 'BCG',
+      url: 'https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain',
+      year: '2025',
+    },
+    {
+      claim:
+        'Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, so training is the highest-leverage place to invest.',
+      value: '48%',
+      source: 'McKinsey',
+      url: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work',
+      year: '2025',
+    },
+  ],
+  faqs: [
+    {
+      q: 'How much does AI training for a team cost in the UAE?',
+      a: 'It depends on team size, how many roles you train, and whether it runs in person or remotely. We scope it to the work rather than selling a fixed course, and we start with a fast look at where AI saves your team the most time so you see value first. Book a call and we will scope a programme to your team and budget.',
+    },
+    {
+      q: 'Do you deliver AI training in person in Dubai and Abu Dhabi?',
+      a: 'Yes. We run hands-on workshops on site across the UAE, including Dubai and Abu Dhabi, on your team\'s real work. In-person sessions build momentum and let people practise and ask questions live. For distributed or hybrid teams we deliver the same practice-led format remotely, so everyone gets the same quality of training.',
+    },
+    {
+      q: 'How is this different from an online AI certificate course?',
+      a: 'A certificate course teaches what AI is and gives people a badge. It rarely changes how anyone works the next day. We train on your team\'s real tasks, by role, until people get results they trust, then stay with you so the habits hold. The outcome is daily use and hours saved, measured by adoption, not a completion certificate.',
+    },
+    {
+      q: 'How long before our UAE team is actually using AI?',
+      a: 'Most teams feel a difference within the first few weeks. A first group is using AI on real tasks the same week, and a 30, 60, 90 day path turns those quick wins into lasting habits across the wider team. More than five hours of hands-on practice is the tipping point to regular use, so the programme is built to clear that bar.',
+    },
+  ],
+  related: [
+    { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
+    { label: 'AI Training & Workshops', href: '/services/ai-training' },
+    { label: 'How to get your team using AI', href: '/insights/how-to-get-your-team-using-ai' },
+  ],
+};
+
+/**
  * Ordered list of published articles. Cornerstone guides and comparison pages
  * are added in the following Phase 3 tasks; the index and [slug] route are
  * written to be empty-safe so this can start as an empty array.
@@ -726,6 +869,7 @@ export const ARTICLES: Article[] = [
   aiReadinessChecklist,
   fractionalHeadOfAi,
   howAgenticWorkflowsWork,
+  aiTrainingForTeamsUae,
 ];
 
 /** Look up an article by slug. Returns undefined when not found. */
