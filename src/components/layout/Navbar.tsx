@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { track } from '@/components/analytics/Analytics';
 import { cn } from '@/lib/cn';
@@ -62,6 +62,7 @@ export default function Navbar() {
   // Which nav item the tubelight lamp is currently lit on (hover-driven).
   const [hovered, setHovered] = useState<string | null>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // The route-active item: Services when on any services route, otherwise none.
   const onServices =
@@ -90,24 +91,29 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Close the desktop Services dropdown on outside click or Escape.
+  // Hover/focus open for the desktop Services dropdown.
+  const openServices = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+    setHovered('Services');
+  };
+  // Small delay so moving the cursor from the trigger to the menu doesn't close it.
+  const closeServicesSoon = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 120);
+  };
+
+  // Close the Services dropdown on Escape; clear any pending timer on unmount.
   useEffect(() => {
-    if (!servicesOpen) return;
-    const onClick = (e: MouseEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setServicesOpen(false);
     };
-    document.addEventListener('mousedown', onClick);
     document.addEventListener('keydown', onKey);
     return () => {
-      document.removeEventListener('mousedown', onClick);
       document.removeEventListener('keydown', onKey);
+      if (closeTimer.current) clearTimeout(closeTimer.current);
     };
-  }, [servicesOpen]);
+  }, []);
 
   const closeAll = () => {
     setOpen(false);
@@ -169,14 +175,24 @@ export default function Navbar() {
           className="hidden items-center gap-1 lg:flex"
           onMouseLeave={() => setHovered(null)}
         >
-          {/* Services dropdown (the trigger is a tubelight item too) */}
-          <div ref={servicesRef} className="relative">
-            <button
-              type="button"
+          {/* Services dropdown — opens on hover (and keyboard focus), animated in/out. */}
+          <div
+            ref={servicesRef}
+            className="relative"
+            onMouseEnter={openServices}
+            onMouseLeave={closeServicesSoon}
+            onFocus={openServices}
+            onBlur={(e) => {
+              if (!servicesRef.current?.contains(e.relatedTarget as Node)) {
+                setServicesOpen(false);
+              }
+            }}
+          >
+            <Link
+              href="/services"
+              onClick={closeAll}
               aria-haspopup="true"
               aria-expanded={servicesOpen}
-              onClick={() => setServicesOpen((v) => !v)}
-              onMouseEnter={() => setHovered('Services')}
               className={cn(
                 'relative inline-flex cursor-pointer items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold transition-colors',
                 lit === 'Services' ? 'text-traq-purple' : 'text-ink/80 hover:text-traq-purple',
@@ -188,40 +204,50 @@ export default function Navbar() {
                 aria-hidden="true"
               />
               {lit === 'Services' ? <Lamp /> : null}
-            </button>
+            </Link>
 
-            {servicesOpen ? (
-              <div
-                role="menu"
-                aria-label="Services"
-                className="absolute left-1/2 top-[calc(100%+14px)] w-72 -translate-x-1/2 overflow-hidden rounded-2xl border border-border-subtle bg-white/95 p-2 shadow-card backdrop-blur-xl"
-              >
-                {/* tubelight accent line at the top of the menu */}
-                <span
-                  className="pointer-events-none absolute left-1/2 top-0 h-1 w-10 -translate-x-1/2 rounded-b-full bg-traq-purple"
-                  aria-hidden="true"
-                />
-                {SERVICE_LINKS.map((link) => {
-                  const active = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      role="menuitem"
-                      onClick={closeAll}
-                      className={cn(
-                        'block rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors',
-                        active
-                          ? 'bg-traq-tint text-traq-purple'
-                          : 'text-ink-soft hover:bg-traq-tint hover:text-traq-purple',
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
-              </div>
-            ) : null}
+            <AnimatePresence>
+              {servicesOpen ? (
+                <motion.div
+                  role="menu"
+                  aria-label="Services"
+                  initial={{ opacity: 0, y: -6, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.96 }}
+                  transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ x: '-50%' }}
+                  className="absolute left-1/2 top-full z-50 w-72 origin-top pt-3.5"
+                >
+                  {/* pt-3.5 bridges the gap to the trigger so hover doesn't drop */}
+                  <div className="relative overflow-hidden rounded-2xl border border-border-subtle bg-white/95 p-2 shadow-card backdrop-blur-xl">
+                    {/* tubelight accent line at the top of the menu */}
+                    <span
+                      className="pointer-events-none absolute left-1/2 top-0 h-1 w-10 -translate-x-1/2 rounded-b-full bg-traq-purple"
+                      aria-hidden="true"
+                    />
+                    {SERVICE_LINKS.map((link) => {
+                      const active = pathname === link.href;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          role="menuitem"
+                          onClick={closeAll}
+                          className={cn(
+                            'block rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors',
+                            active
+                              ? 'bg-traq-tint text-traq-purple'
+                              : 'text-ink-soft hover:bg-traq-tint hover:text-traq-purple',
+                          )}
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
           </div>
 
           {LINKS.map((link) => (
