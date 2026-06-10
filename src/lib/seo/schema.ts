@@ -145,7 +145,7 @@ export function person(): JsonLdObject {
     description:
       'Founder of Traq Collective. Nazir builds AI systems and trains teams to use them every day, including a full autonomous operation he runs end to end.',
     url: absoluteUrl('/about'),
-    image: `${SITE_URL}/founder/nazir.jpg`,
+    image: `${SITE_URL}/nazir.jpg`,
     worksFor: { '@id': ORG_ID },
     sameAs: PERSON_SAME_AS,
   };

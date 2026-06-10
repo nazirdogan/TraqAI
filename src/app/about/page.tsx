@@ -139,8 +139,9 @@ export default function AboutPage() {
       />
 
       {/* Founder block. Photo + extended bio are pending assets (spec section 12);
-          the Person JSON-LD references /founder/nazir.jpg. The placeholder below is
-          marked visibly so the page reads complete and is swapped when confirmed. */}
+          the Person JSON-LD references /nazir.jpg (same asset Founder.tsx uses).
+          The placeholder below is marked visibly so the page reads complete and is
+          swapped when confirmed. */}
       <section className="bg-bg-base px-5 pb-4 pt-4 sm:px-8 sm:pb-6 sm:pt-6">
         <div className="mx-auto max-w-3xl">
           <div className="flex flex-col gap-5 rounded-[20px] border border-border-subtle bg-white p-6 shadow-card sm:flex-row sm:items-center sm:gap-7 sm:p-7">
