@@ -170,6 +170,60 @@ export function breadcrumbs(items: BreadcrumbItem[]): JsonLdObject {
   };
 }
 
+export type BlogPostingInput = {
+  /** Article headline (usually the H1). */
+  headline: string;
+  /** Meta description / short summary. */
+  description: string;
+  /** Canonical path or full URL for the article, e.g. "/insights/ai-adoption". */
+  url: string;
+  /** ISO date string, e.g. "2026-06-10". */
+  datePublished: string;
+  /** ISO date string, e.g. "2026-06-10". */
+  dateModified: string;
+  /** Author display name. Defaults to the founder. */
+  authorName?: string;
+};
+
+/**
+ * BlogPosting — one per /insights guide. The author points back to the founder
+ * Person entity by @id (declared on /about), and the publisher points to the
+ * sitewide Organization. mainEntityOfPage anchors the article to its canonical
+ * URL so the schema and the page agree.
+ */
+export function blogPosting({
+  headline,
+  description,
+  url,
+  datePublished,
+  dateModified,
+  authorName = 'Nazir Dogan',
+}: BlogPostingInput): JsonLdObject {
+  const canonical = absoluteUrl(url);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline,
+    description,
+    url: canonical,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+    datePublished,
+    dateModified,
+    author: {
+      '@type': 'Person',
+      '@id': PERSON_ID,
+      name: authorName,
+      url: absoluteUrl('/about'),
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': ORG_ID,
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: LOGO_URL },
+    },
+  };
+}
+
 export type Qa = { q: string; a: string };
 
 /**

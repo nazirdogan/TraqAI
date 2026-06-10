@@ -84,3 +84,28 @@ export const quickIntakeSchema = z.object({
 });
 
 export type QuickIntake = z.infer<typeof quickIntakeSchema>;
+
+// --- AI Readiness Assessment (lead magnet) ---------------------------------
+// Mirrors the payload the client computes in AssessmentForm: a light scorecard
+// plus name/email/company capture. The band is the three-way readiness label.
+
+export const READINESS_BANDS = ['Early', 'Building', 'Ready'] as const;
+export type ReadinessBand = (typeof READINESS_BANDS)[number];
+
+export const assessmentAnswerSchema = z.object({
+  question: z.string().trim().min(1).max(400),
+  answer: z.string().trim().min(1).max(200),
+  score: z.number().int().min(0).max(3),
+});
+export type AssessmentAnswer = z.infer<typeof assessmentAnswerSchema>;
+
+export const assessmentIntakeSchema = z.object({
+  firstName: z.string().trim().min(1, 'First name is required').max(80),
+  email: z.string().trim().email('Enter a valid email').max(200),
+  company: z.string().trim().min(1, 'Company is required').max(160),
+  answers: z.array(assessmentAnswerSchema).min(1).max(20),
+  score: z.number().int().min(0).max(60),
+  band: z.enum(READINESS_BANDS),
+});
+
+export type AssessmentIntake = z.infer<typeof assessmentIntakeSchema>;

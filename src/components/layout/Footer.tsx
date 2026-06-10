@@ -29,6 +29,8 @@ const FOOTER_NAV = [
     heading: 'Company',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Insights', href: '/insights' },
+      { label: 'AI readiness assessment', href: '/ai-readiness' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Book a call', href: '/book' },
       { label: 'Contact', href: '/#contact' },
