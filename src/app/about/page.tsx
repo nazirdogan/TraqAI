@@ -3,12 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
-import {
-  BreadcrumbsJsonLd,
-  FaqPageJsonLd,
-  OrganizationJsonLd,
-  PersonJsonLd,
-} from '@/components/seo/JsonLd';
+import { BreadcrumbsJsonLd, FaqPageJsonLd, PersonJsonLd } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 
 const PATH = '/about';
@@ -129,8 +124,9 @@ const FAQS: Qa[] = [
 export default function AboutPage() {
   return (
     <>
+      {/* Organization is emitted once sitewide in the root layout (@id '#organization').
+          Person.worksFor references it by @id, so we do not re-declare it here. */}
       <BreadcrumbsJsonLd items={breadcrumbItems} />
-      <OrganizationJsonLd />
       <PersonJsonLd />
       <FaqPageJsonLd qas={FAQS} />
 
