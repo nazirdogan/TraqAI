@@ -33,23 +33,19 @@ function useCountUp(target: number, run: boolean, durationMs = 1100) {
 
 /* ---------- Adoption curve (flat, solid line + flat fill, no gradient) ----------
    Illustrative: share of the team confident using AI across the 90-day sprint.
-   The VERTICAL axis is a % scale (0 → 100%), made explicit with gridlines and
-   left-hand % labels so the curve can't be misread as a day axis. The endpoint
-   sits at 89% / Day 90. Plot box: x 38→314, y 18(=100%)→150(=0%) — the line runs
-   nearly edge-to-edge of the card. */
-const yOf = (pct: number) => 150 - (pct / 100) * 132; // 0%→150, 100%→18
+   Clean area chart, no y-axis: the % is carried by the big 89% number above, with
+   day markers along the x-axis. The endpoint sits at 89% / Day 90. Plot box spans
+   x 12→308 so the line runs nearly the full width of the card. */
 const CURVE_D =
-  'M 38 128.9 C 76 118, 100 104, 130 92 C 168 78, 192 68, 222 57.7 C 262 45, 290 39, 314 32.5';
-const AREA_D = `${CURVE_D} L 314 150 L 38 150 Z`;
+  'M 12 128.9 C 53 118, 79 104, 111 92 C 151 78, 177 68, 209 57.7 C 252 45, 282 39, 308 32.5';
+const AREA_D = `${CURVE_D} L 308 150 L 12 150 Z`;
 // [x, y, dayLabel] data points along the curve.
 const POINTS: ReadonlyArray<readonly [number, number, string]> = [
-  [38, 128.9, 'Day 0'],
-  [130, 92, '30'],
-  [222, 57.7, '60'],
-  [314, 32.5, '90'],
+  [12, 128.9, 'Day 0'],
+  [111, 92, '30'],
+  [209, 57.7, '60'],
+  [308, 32.5, '90'],
 ];
-// Horizontal % gridlines (the giveaway that the y-axis is a percentage).
-const Y_TICKS = [0, 50, 89] as const;
 
 function AdoptionCurve() {
   const reduce = useReducedMotion();
@@ -91,31 +87,6 @@ function AdoptionCurve() {
         role="presentation"
         aria-hidden="true"
       >
-        {/* % gridlines + left-hand axis labels — makes the vertical scale unmistakable */}
-        {Y_TICKS.map((t) => (
-          <g key={t}>
-            <line
-              x1="38"
-              y1={yOf(t)}
-              x2="314"
-              y2={yOf(t)}
-              stroke={t === 0 ? '#E3E3E3' : '#F0F0F0'}
-              strokeWidth="1"
-              strokeDasharray={t === 0 ? '0' : '3 4'}
-            />
-            <text
-              x="32"
-              y={yOf(t) + 3.5}
-              textAnchor="end"
-              fill="#8A8A8A"
-              fontSize="10"
-              fontWeight="600"
-            >
-              {t}%
-            </text>
-          </g>
-        ))}
-
         {/* flat (non-gradient) area fill */}
         <motion.path
           d={AREA_D}
@@ -154,8 +125,8 @@ function AdoptionCurve() {
         ))}
       </svg>
 
-      {/* x-axis: day labels, aligned under the plot box (x 38→314 of 320) */}
-      <div className="mt-1 flex justify-between pl-[11%] pr-[1%] text-[11px] font-medium text-ink-faint">
+      {/* x-axis: day labels, aligned under the plot box (x 12→308 of 320) */}
+      <div className="mt-1 flex justify-between pl-[2%] pr-[2%] text-[11px] font-medium text-ink-faint">
         {POINTS.map(([, , label]) => (
           <span key={label}>{label}</span>
         ))}
