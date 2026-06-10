@@ -1023,6 +1023,170 @@ const aiConsultantVsAiAgency: Article = {
 };
 
 /**
+ * "Fractional Head of AI vs a full-time hire": a head-to-head decision page that
+ * captures the "fractional Head of AI vs full-time hire" search and leads with
+ * the Embedded AI Partner framing (with you, not a hire). Built around a real
+ * cost / speed / risk / flexibility comparison table across a full-time hire, a
+ * fractional Head of AI, and an embedded AI partner (high AI-citation value).
+ * Cites the verified BYO-AI, training-comfort and training-need stats from
+ * IMPACT_METRICS (same sources, urls and years). Mirrors and links the
+ * standalone /fractional-head-of-ai page; the term is captured and reframed,
+ * never adopted as how Traq describes itself.
+ */
+const fractionalVsFullTimeHire: Article = {
+  slug: 'fractional-head-of-ai-vs-full-time-hire',
+  title: 'Fractional Head of AI vs a full-time hire: cost, speed and risk | Traq Collective',
+  metaDescription:
+    'Fractional Head of AI vs a full-time hire, compared across cost, speed, risk and flexibility, plus the embedded AI partner alternative. A neutral guide to picking the right way to lead your AI work.',
+  targetQuery: 'fractional Head of AI vs full-time hire',
+  h1: 'Fractional Head of AI vs a full-time hire',
+  datePublished: '2026-06-10',
+  dateModified: '2026-06-10',
+  author: 'Nazir Dogan',
+  intro:
+    'A fractional Head of AI is a senior, part-time leader for your AI work. A full-time hire is a permanent executive doing the same job all year. Fractional costs less, starts faster and carries less risk, so it fits most mid-market teams. The third option is an embedded AI partner: the same leadership, delivered with your team.',
+  bodySections: [
+    {
+      h2: 'Fractional Head of AI vs a full-time hire: which should you choose?',
+      body:
+        'Choose a fractional Head of AI when you have months of high-value AI work, not years of executive headcount, which is true for most mid-market teams. You get senior direction part-time, you start in weeks instead of months, and you avoid a permanent salary before you know the fit. Choose a full-time hire only when AI work genuinely fills a year, for example when you ship AI products or run a large data and ML function. The honest test is volume: count the work that needs senior AI leadership over the next year, and if it does not fill a permanent seat, fractional wins on cost, speed and risk.',
+      points: [
+        'Fractional fits months of enablement work; a full-time hire fits years of it',
+        'Fractional starts in weeks; a hire takes months to find and onboard',
+        'Fractional avoids a permanent salary before you know the fit',
+        'A full-time hire earns the seat once AI is central to what you build or sell',
+      ],
+    },
+    {
+      h2: 'How do cost, speed, risk and flexibility compare?',
+      body:
+        'On every one of the four axes that decide this, a fractional engagement beats a full-time hire for a team that does not yet have a year of executive AI work. Cost is a scoped part-time fee instead of a full salary, benefits and equity. Speed is weeks instead of a months-long search. Risk is lower because you are not betting permanent headcount on one person before you know the fit. Flexibility is higher because you can change the cadence as needs shift. The table below sets all three options side by side so you can see the trade-offs at a glance.',
+    },
+    {
+      h2: 'How much does a fractional Head of AI cost versus a full-time hire?',
+      body:
+        'A full-time Head of AI is a six-figure salary every year, plus benefits, bonus and often equity, whether or not the workload fills the seat. A fractional engagement is a scoped, part-time fee sized to the actual work, so you pay for the leadership you need and nothing you do not. For most mid-market teams that is a fraction of the all-in cost of a permanent executive, and it frees budget for the training and tools that actually move adoption.',
+    },
+    {
+      h2: 'Why is an embedded AI partner usually the better fit?',
+      body:
+        'We deliver every part of the role, but as a partner working with you, not as a new hire working for you. An embedded AI partner sits alongside your team in your own tools, sets the direction together, leads the rollout, and stays accountable to outcomes you can measure. You get the seniority of a Head of AI without a job title, a headcount to manage, or a year-long bet on one person. Your team keeps everything we build and learns to run it without us, so the capability stays in-house instead of walking out the door if a hire leaves. That is the difference between hiring leadership and partnering for it.',
+      points: [
+        'You get senior AI leadership without adding permanent headcount',
+        'We work with your team, in your tools, not from behind a deck',
+        'A fixed-scope audit proves value before any long commitment',
+        'Your team owns and runs everything we build; we make ourselves redundant',
+      ],
+    },
+    {
+      h2: 'What are the risks of hiring a full-time Head of AI too early?',
+      body:
+        'The main risk is a permanent, expensive bet placed before you know what the role needs to do. Hire too early and you can end up with an executive whose week is not full, a salary that outpaces the value while adoption is still stalled, and a single point of failure if they leave and take the knowledge with them. AI tools and best practice also move fast, so a job description written today can be wrong in six months. A part-time partner lets you get moving now, prove what the work actually is, and hire the permanent role later once the volume justifies the seat.',
+    },
+    {
+      h2: 'Can you start fractional and hire full-time later?',
+      body:
+        'Yes, and it is often the smartest path. Start with a fractional Head of AI or an embedded partner to get the strategy set, the team trained and the first workflows live, then hire a permanent leader once the volume of work clearly fills a seat. Done well, the early work makes the eventual hire easier: you know exactly what the role needs to own, your team already has the habits, and the new leader inherits a running capability rather than a blank page. You spend on permanent headcount when the work has earned it, not on a guess.',
+    },
+  ],
+  tables: [
+    {
+      heading: 'Fractional Head of AI vs full-time hire vs embedded partner',
+      intro:
+        'All three give you senior AI leadership. The difference is what you spend, how fast you see value, the risk you carry, how easily you can adjust, and where the capability ends up.',
+      caption:
+        'A fractional Head of AI compared with a full-time hire and an embedded AI partner across cost, speed to value, risk, flexibility, and whether the capability stays in your team',
+      columns: ['Consideration', 'Full-time hire', 'Fractional Head of AI', 'Embedded AI partner (Traq)'],
+      rows: [
+        [
+          'Cost',
+          'A full executive salary, benefits and equity, every year',
+          'A part-time fee, lower than a full salary',
+          'A scoped engagement sized to the work, value shown first',
+        ],
+        [
+          'Speed to value',
+          'Months of search, hiring and onboarding before any work starts',
+          'Weeks, once the scope and contract are set',
+          'Days. We embed and start in week one',
+        ],
+        [
+          'Risk',
+          'A permanent bet on one hire before you know the fit',
+          'Lower than a hire, but tied to one external person',
+          'A fixed-scope audit proves value before any long commitment',
+        ],
+        [
+          'Flexibility',
+          'A fixed headcount and overhead, hard to unwind',
+          'Adjustable cadence, within the engagement terms',
+          'Scale the cadence up or down as needs change',
+        ],
+        [
+          'Capability stays in your team',
+          'Capability tied to one person who may move on',
+          'Depends on the person and how they work',
+          'We build it into your people and make ourselves redundant',
+        ],
+      ],
+    },
+  ],
+  stats: [
+    {
+      claim:
+        'Most employees already bring their own AI to work, usually without guidance, so the leadership job is rarely about access. It is about direction, training and guardrails, which a part-time partner can lead from week one.',
+      value: '78%',
+      source: 'Microsoft Work Trend Index',
+      url: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part',
+      year: '2024',
+    },
+    {
+      claim:
+        'Comfort using AI nearly doubles after structured training, which is why the leader you pick is worth more for owning the rollout than for sitting in a permanent seat.',
+      value: '43% → 72%',
+      source: 'Slack',
+      url: 'https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning',
+      year: '2024',
+    },
+    {
+      claim:
+        'Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, so the spend that moves the needle is enablement, not a full-time executive salary.',
+      value: '48%',
+      source: 'McKinsey',
+      url: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work',
+      year: '2025',
+    },
+  ],
+  faqs: [
+    {
+      q: 'Fractional Head of AI or a full-time hire, which do I need?',
+      a: 'Hire full-time only when AI work genuinely fills a year, for example if you ship AI products or run a large ML function. Most mid-market teams are not there yet. They have months of high-value enablement work that a fractional Head of AI, or an embedded partner, can deliver faster and far cheaper, with the capability left in-house. You can hire the permanent role later once the volume of work justifies the seat.',
+    },
+    {
+      q: 'How much cheaper is a fractional Head of AI than a full-time hire?',
+      a: 'A full-time Head of AI is a six-figure salary every year, plus benefits, bonus and often equity, whether or not the workload fills the seat. A fractional engagement is a scoped, part-time fee sized to the actual work, so it costs a fraction of the all-in cost of a permanent executive. The exact figure depends on scope. Book a call and we will scope an embedded partnership to your situation.',
+    },
+    {
+      q: 'What are the risks of hiring a full-time Head of AI too early?',
+      a: 'You place a permanent, expensive bet before you know what the role needs to do. The risks are an executive whose week is not full, a salary that outpaces the value while adoption is still stalled, and a single point of failure if they leave with the knowledge. AI best practice also moves fast, so a job description written today can be wrong in six months. A part-time partner lets you start now and hire later once the work earns the seat.',
+    },
+    {
+      q: 'Can I start with a fractional Head of AI and hire full-time later?',
+      a: 'Yes, and it is often the smartest path. Start fractional or with an embedded partner to set the strategy, train your team and get the first workflows live, then hire a permanent leader once the volume of work clearly fills a seat. The early work makes the eventual hire easier: you know what the role must own, your team has the habits, and the new leader inherits a running capability instead of a blank page.',
+    },
+    {
+      q: 'How is an embedded AI partner different from a fractional Head of AI?',
+      a: 'Both give you senior, part-time AI leadership, so the search terms overlap. The difference is how the work is done. A fractional Head of AI is one external person you slot into a leadership gap. Traq works as an embedded AI partner: we do the same strategy, training and rollout, but with your team in your own tools, and we make ourselves redundant so the capability stays in-house rather than tied to one person.',
+    },
+  ],
+  related: [
+    { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
+    { label: 'What a fractional Head of AI does', href: '/insights/what-a-fractional-head-of-ai-does' },
+    { label: 'Consultation & Strategy', href: '/services/ai-consulting' },
+  ],
+};
+
+/**
  * Ordered list of published articles. Cornerstone guides and comparison pages
  * are added in the following Phase 3 tasks; the index and [slug] route are
  * written to be empty-safe so this can start as an empty array.
@@ -1034,6 +1198,7 @@ export const ARTICLES: Article[] = [
   howAgenticWorkflowsWork,
   aiTrainingForTeamsUae,
   aiConsultantVsAiAgency,
+  fractionalVsFullTimeHire,
 ];
 
 /** Look up an article by slug. Returns undefined when not found. */
