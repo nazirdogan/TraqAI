@@ -25,7 +25,7 @@ export const SERVICES: Service[] = [
     slug: 'ai-consulting',
     icon: '🧭',
     title: 'Consultation & Strategy',
-    tagline: 'Your fractional Head of AI.',
+    tagline: 'Your embedded AI partner.',
     description:
       'We audit your tools and workflows, find the highest-leverage uses, and give you a clear roadmap. Then we help you act on it.',
     bullets: [
@@ -92,7 +92,7 @@ export const BENEFITS: Benefit[] = [
 export type OfferTier = { name: string; who: string; includes: string[] };
 export const OFFER_TIERS: OfferTier[] = [
   { name: 'AI Readiness Audit', who: 'Start here.', includes: ['A fast, fixed-scope look at where AI helps most', 'Pairs with the free AI Readiness Assessment', 'A clear, prioritised next step'] },
-  { name: 'Embedded Fractional Head of AI', who: 'Our flagship.', includes: ['We set the strategy, train, and implement', 'Embedded with your team', 'Accountable to outcomes'] },
+  { name: 'Embedded AI Partner', who: 'Our flagship. Your partner and consultants, not a new hire.', includes: ['We set the strategy, train, and implement with you', 'Embedded with your team, working with you, not for you', 'Accountable to outcomes you can measure'] },
   { name: 'Ongoing Partner / Oversight', who: 'For teams with some capability.', includes: ['Cadence and governance', 'A senior partner on call', 'Keep momentum without a full engagement'] },
 ];
 export const OFFER_NOTE = 'Fixed scope, so you know what you’re getting. We start by showing value before any long commitment, and you keep everything we build. We take on a limited number of new partners each quarter so every team gets senior attention.';
@@ -180,7 +180,7 @@ export const FAQS: FaqItem[] = [
   {
     question: 'What is a fractional Head of AI?',
     answer:
-      'A fractional Head of AI is a senior AI leader who works with you part-time. You get the strategy, vendor decisions, rollout plan, and guardrails of a full-time hire for a fraction of the cost. We set the AI direction, prioritise the work that pays off first, and lead the rollout across your team.',
+      'It is how a lot of teams search for senior, part-time AI help: the strategy, vendor decisions, rollout plan, and guardrails of a full-time hire, without the full-time cost. Traq delivers that as an embedded AI partner. We work with your team, not for it, and we stay a partner rather than becoming a new role or headcount. We set the direction with you, prioritise the work that pays off first, and lead the rollout, accountable to outcomes you can measure.',
   },
   {
     question: 'Do you serve companies in the UAE?',

@@ -16,7 +16,7 @@ const SERVICE_LINKS: NavLink[] = [
   { label: 'Consulting & strategy', href: '/services/ai-consulting' },
   { label: 'Implementation', href: '/services/ai-implementation' },
   { label: 'Agentic AI', href: '/services/agentic-ai' },
-  { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
   { label: 'AI consulting in the UAE', href: '/ai-consulting-uae' },
 ];
 
