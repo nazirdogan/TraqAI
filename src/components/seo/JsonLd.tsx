@@ -5,7 +5,9 @@ import {
   person,
   breadcrumbs,
   faqPage,
+  blogPosting,
   type ServiceInput,
+  type BlogPostingInput,
   type BreadcrumbItem,
   type Qa,
 } from '@/lib/seo/schema';
@@ -54,4 +56,8 @@ export function BreadcrumbsJsonLd({ items }: { items: BreadcrumbItem[] }) {
 
 export function FaqPageJsonLd({ qas }: { qas: Qa[] }) {
   return <JsonLd data={faqPage(qas)} />;
+}
+
+export function BlogPostingJsonLd(props: BlogPostingInput) {
+  return <JsonLd data={blogPosting(props)} />;
 }
