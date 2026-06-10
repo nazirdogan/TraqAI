@@ -1187,6 +1187,193 @@ const fractionalVsFullTimeHire: Article = {
 };
 
 /**
+ * "AI training vs doing it yourself": an honest, table-driven comparison for the
+ * team that is weighing structured AI training against figuring it out on their
+ * own. Targets "AI training vs DIY / should we train the team or self-teach".
+ * Leads with a definition-first answer, lays the two paths side by side in a real
+ * pros/cons <table>, and is straight about when DIY is the right call. Cites the
+ * verified BCG 5+ hours tipping point (79% vs 67%), McKinsey training-is-#1 (48%)
+ * and Slack comfort-doubles stats from IMPACT_METRICS (same sources, urls and
+ * years). Internal links to AI training, the adoption playbook and the readiness
+ * checklist.
+ */
+const aiTrainingVsDiy: Article = {
+  slug: 'ai-training-vs-doing-it-yourself',
+  title: 'AI training vs doing it yourself: an honest comparison | Traq Collective',
+  metaDescription:
+    'AI training vs figuring it out yourself, compared honestly: the real pros and cons of each, what DIY actually costs in time, and when self-teaching is the right call. With the evidence on what changes adoption.',
+  targetQuery: 'AI training vs doing it yourself / DIY',
+  h1: 'AI training vs doing it yourself',
+  datePublished: '2026-06-10',
+  dateModified: '2026-06-10',
+  author: 'Nazir Dogan',
+  intro:
+    'AI training is structured, hands-on coaching that gets your team using AI on their real work. Doing it yourself means letting people self-teach from videos and trial and error. DIY is free and flexible but slow and uneven. Training costs money but lands faster and reaches everyone. Which fits depends on your time, headcount and how fast you need results.',
+  bodySections: [
+    {
+      h2: 'AI training vs doing it yourself: which should you choose?',
+      body:
+        'Choose structured AI training when you need the whole team using AI soon and you cannot spare months for self-teaching to slowly spread. Choose DIY when you have a small, technical, self-motivated team, plenty of time, and no urgent pressure to show results. The honest trade-off is money against time and certainty: DIY saves the training budget but spends far more in scattered hours, uneven skill and stalled adoption, while training spends money to compress months of fumbling into weeks of practice that actually sticks.',
+      points: [
+        'Pick training when you need the whole team moving in weeks, not eventually',
+        'Pick DIY when the team is small, technical and genuinely has the time',
+        'DIY trades a budget line for a much larger, hidden bill in lost hours',
+        'Training trades money for speed, consistency and adoption you can measure',
+      ],
+    },
+    {
+      h2: 'What does doing it yourself actually involve?',
+      body:
+        'Doing it yourself means your team learns AI on their own: watching videos, reading threads, copying prompts they find online, and experimenting between other work. There is no cost on the invoice, and people can learn at their own pace on the parts they care about. The catch is that it is unstructured and uneven. A few keen people get good, most never start, the prompts that circulate are generic rather than tied to your work, and nobody owns whether it adds up to anything. It can work for a small, technical, motivated team. For most teams it quietly stalls.',
+      points: [
+        'Self-teaching from videos, articles and trial and error, between other work',
+        'No invoice, full flexibility, learn at your own pace',
+        'Uneven: a few people get good, most never really start',
+        'Generic prompts, not tied to your team\'s real tasks',
+        'Nobody owns adoption, so it rarely adds up to a habit across the team',
+      ],
+    },
+    {
+      h2: 'What does structured AI training involve?',
+      body:
+        'Structured AI training is hands-on coaching built around your team\'s real work. People practise on their own files and workflows, by role, until they get results they trust, and they leave with a short prompt library tied to their actual jobs plus light guardrails for safe use. Good training reaches everyone at once instead of waiting for skill to trickle out from a couple of enthusiasts, and someone stays accountable to whether the team actually adopts it. It costs money, and that cost buys speed, consistency and a capability your people keep.',
+      points: [
+        'Hands-on practice on your own work, by role, not generic demos',
+        'A reusable prompt library tied to the tasks each person does',
+        'Light guardrails so people know what is safe and stop hesitating',
+        'Reaches the whole team, not just the early adopters',
+        'Someone owns adoption and measures whether it sticks',
+      ],
+    },
+    {
+      h2: 'AI training vs doing it yourself: the honest pros and cons',
+      body:
+        'Both paths can get a team using AI. They differ on cost, speed, how evenly the skill spreads, and whether anyone is accountable for the result. The table below lays the real trade-offs side by side so you can pick with your eyes open rather than defaulting to free.',
+    },
+    {
+      h2: 'What does doing it yourself really cost?',
+      body:
+        'DIY looks free because nothing hits the invoice, but the real cost shows up in time and missed results. People burn hours hunting for prompts that may not fit their work, skill spreads unevenly so most of the team never gets going, and the AI licences you already pay for keep sitting idle. The evidence is blunt on why casual self-teaching stalls: comfort with AI nearly doubles only after structured training, and more than five hours of it is the tipping point to regular use. Most DIY learners never clear that bar, so the tools stay underused and the hidden cost compounds.',
+    },
+    {
+      h2: 'When is doing it yourself the right call?',
+      body:
+        'DIY is the right call when your team is small, technical, and genuinely self-motivated, when the tasks are simple, and when you have no urgent pressure to show results across the company. A two-person team of engineers who already live in these tools may not need a workshop. The honest test is whether self-teaching is actually happening and adding up. If your licences have been live for months and most people still have not started, DIY is not saving you money, it is quietly costing you the value of the tools while you wait.',
+      points: [
+        'The team is small, technical and already motivated to self-teach',
+        'The use cases are simple and low-stakes to get wrong',
+        'There is no pressure to show results across the wider team soon',
+        'Self-teaching is genuinely happening, not just hoped for',
+      ],
+    },
+    {
+      h2: 'Can you combine doing it yourself with training?',
+      body:
+        'Yes, and it is often the smartest mix. Use training to set the foundation fast, then let your team build on it themselves. A short, role-specific programme gets everyone over the five-hour tipping point, gives each role a prompt library and clear guardrails, and creates a few confident in-house champions. After that, self-teaching actually works, because people have a base to build on and someone to ask. The point of good training is not to keep you dependent. It is to make DIY productive by giving your team a running start, then stepping back.',
+    },
+  ],
+  tables: [
+    {
+      heading: 'AI training vs doing it yourself',
+      intro:
+        'An honest, side-by-side look at the two paths across the things that actually decide which one gets your team using AI.',
+      caption:
+        'Structured AI training compared with doing it yourself across cost, speed to results, how evenly the skill spreads, whether it fits your real work, accountability for adoption, and the main risk of each',
+      columns: ['Consideration', 'Structured AI training', 'Doing it yourself (DIY)'],
+      rows: [
+        [
+          'Cost',
+          'A scoped fee, sized to the team and roles',
+          'No invoice, but a large hidden cost in lost hours',
+        ],
+        [
+          'Speed to results',
+          'Weeks. The team practises on real work from day one',
+          'Months, if it lands at all; usually slow and patchy',
+        ],
+        [
+          'How evenly skill spreads',
+          'Everyone is trained at once, by role',
+          'Uneven: a few get good, most never really start',
+        ],
+        [
+          'Fit to your real work',
+          'Built around your team\'s own tasks and files',
+          'Generic prompts and tutorials, rarely tied to your work',
+        ],
+        [
+          'Accountability for adoption',
+          'Someone owns it and measures whether it sticks',
+          'Nobody owns it, so it rarely adds up to a habit',
+        ],
+        [
+          'Main risk',
+          'The budget line, if you pick a theory-only course',
+          'Paid licences sit idle while adoption quietly stalls',
+        ],
+      ],
+    },
+  ],
+  stats: [
+    {
+      claim:
+        'More than five hours of training is the tipping point to regular AI use, and most casual self-teaching never clears that bar, which is why DIY so often stalls before it sticks.',
+      value: '79% vs 67%',
+      source: 'BCG',
+      url: 'https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain',
+      year: '2025',
+    },
+    {
+      claim:
+        'Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, so leaving people to figure it out alone removes their top requested support.',
+      value: '48%',
+      source: 'McKinsey',
+      url: 'https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work',
+      year: '2025',
+    },
+    {
+      claim:
+        'Comfort using AI nearly doubles after structured training, a jump that scattered, self-paced learning rarely delivers across a whole team.',
+      value: '43% → 72%',
+      source: 'Slack',
+      url: 'https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning',
+      year: '2024',
+    },
+    {
+      claim:
+        'Most employees already bring their own AI to work, usually without guidance, so the appetite to self-teach is there. The gap DIY leaves is structure, not interest.',
+      value: '78%',
+      source: 'Microsoft Work Trend Index',
+      url: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part',
+      year: '2024',
+    },
+  ],
+  faqs: [
+    {
+      q: 'Is AI training worth it, or can we just figure it out ourselves?',
+      a: 'You can self-teach, and a small, technical, motivated team sometimes does fine. For most teams it stalls. Comfort with AI nearly doubles only after structured training, and more than five hours of practice is the tipping point to regular use, which casual DIY rarely reaches. Training is worth it when you need the whole team using AI soon and cannot wait months for skill to slowly spread from a couple of enthusiasts.',
+    },
+    {
+      q: 'How much does doing it yourself really cost?',
+      a: 'Nothing on the invoice, which is why it looks cheap. The real cost is in time and missed results: hours spent hunting for prompts that may not fit your work, uneven skill so most of the team never starts, and AI licences you already pay for sitting idle. If your tools have been live for months and most people still have not started, DIY is quietly costing you the value of those tools, not saving you money.',
+    },
+    {
+      q: 'When does doing it yourself actually make sense?',
+      a: 'When your team is small, technical and genuinely self-motivated, the use cases are simple, and there is no pressure to show results across the company soon. A couple of engineers who already live in these tools may not need a workshop. The honest test is whether self-teaching is actually happening and adding up. If it is not, free is not really free.',
+    },
+    {
+      q: 'Can we combine training with doing it yourself?',
+      a: 'Yes, and it is often the smartest mix. Use a short, role-specific programme to get everyone over the five-hour tipping point, give each role a prompt library and clear guardrails, and create a few in-house champions. After that, self-teaching works, because people have a base to build on. Good training is meant to give your team a running start and then step back, not to keep you dependent.',
+    },
+  ],
+  related: [
+    { label: 'AI Training & Workshops', href: '/services/ai-training' },
+    { label: 'How to get your team using AI', href: '/insights/how-to-get-your-team-using-ai' },
+    { label: 'AI readiness checklist', href: '/insights/ai-readiness-checklist' },
+  ],
+};
+
+/**
  * Ordered list of published articles. Cornerstone guides and comparison pages
  * are added in the following Phase 3 tasks; the index and [slug] route are
  * written to be empty-safe so this can start as an empty array.
@@ -1199,6 +1386,7 @@ export const ARTICLES: Article[] = [
   aiTrainingForTeamsUae,
   aiConsultantVsAiAgency,
   fractionalVsFullTimeHire,
+  aiTrainingVsDiy,
 ];
 
 /** Look up an article by slug. Returns undefined when not found. */
