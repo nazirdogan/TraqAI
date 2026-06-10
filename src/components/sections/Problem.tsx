@@ -16,7 +16,7 @@ export default function Problem() {
     <section id="problem" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <div className="eyebrow">Sound familiar?</div>
+          <h2 className="section-title">Does this sound like you?</h2>
         </div>
 
         <motion.div
@@ -26,21 +26,36 @@ export default function Problem() {
           transition={{ staggerChildren: 0.1 }}
           className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5"
         >
-          {PROBLEMS.map((p) => (
+          {PROBLEMS.map((p, i) => (
             <motion.div
-              key={p.line}
+              key={p.problem}
               variants={card}
               transition={{ duration: 0.5, ease }}
-              className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card sm:p-7"
+              className="flex flex-col rounded-[20px] border border-border-subtle bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-cardHover sm:p-7"
             >
-              <p className="m-0 text-[15px] leading-relaxed text-ink sm:text-base">{p.line}</p>
+              <span className="text-[13px] font-semibold tracking-[0.1em] text-traq-purple">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <p className="m-0 mt-3 text-[16px] font-semibold leading-snug text-ink [text-wrap:pretty] sm:text-[18px]">
+                {p.problem}
+              </p>
+              <p className="m-0 mt-2 text-[13px] leading-relaxed text-ink-soft [text-wrap:pretty] sm:text-sm">
+                {p.cost}
+              </p>
             </motion.div>
           ))}
         </motion.div>
 
-        <p className="mx-auto mt-10 max-w-2xl text-center text-[15px] leading-relaxed text-ink-soft sm:mt-12 sm:text-base">
-          If any of these sound like you, you&rsquo;re in the right place. Here&rsquo;s how we help.
-        </p>
+        {/* The pivot: turn the problem list into the setup for the solution. */}
+        <div className="mx-auto mt-12 max-w-2xl text-center sm:mt-14">
+          <p className="m-0 text-lg font-medium leading-snug text-ink [text-wrap:balance] sm:text-xl">
+            You don&rsquo;t need more AI tools. You need someone to make the ones you&rsquo;ve
+            got actually work, with your team, not for them.
+          </p>
+          <p className="m-0 mt-3 text-[15px] leading-relaxed text-ink-soft">
+            Here&rsquo;s how we help.
+          </p>
+        </div>
       </div>
     </section>
   );

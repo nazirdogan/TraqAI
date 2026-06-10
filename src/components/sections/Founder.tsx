@@ -19,8 +19,8 @@ export default function Founder() {
         transition={{ duration: 0.6, ease }}
         className="mx-auto grid max-w-5xl items-center gap-8 sm:gap-10 lg:grid-cols-[280px_1fr] lg:gap-16"
       >
-        {/* Photo: placeholder /nazir.jpg, graceful initials fallback if missing.
-            ASSET DEPENDENCY (spec section 12): real headshot of Nazir to drop in at public/nazir.jpg. */}
+        {/* Founder photo at /nazir.jpg, with a graceful initials fallback if it
+            ever fails to load. */}
         <div
           data-asset="founder-photo"
           className="mx-auto w-full max-w-[280px] overflow-hidden rounded-[24px] border border-border-subtle bg-white shadow-card"

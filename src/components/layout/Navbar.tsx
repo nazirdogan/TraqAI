@@ -2,24 +2,40 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { track } from '@/components/analytics/Analytics';
 import { cn } from '@/lib/cn';
 
-const LINKS = [
-  { label: 'Sound familiar?', href: '/#problem' },
-  { label: 'What we do', href: '/#services' },
+type NavLink = { label: string; href: string };
+
+// Real routes (full pages), not in-page anchors.
+const SERVICE_LINKS: NavLink[] = [
+  { label: 'All services', href: '/services' },
+  { label: 'AI training', href: '/services/ai-training' },
+  { label: 'Consulting & strategy', href: '/services/ai-consulting' },
+  { label: 'Implementation', href: '/services/ai-implementation' },
+  { label: 'Agentic AI', href: '/services/agentic-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
+  { label: 'AI consulting in the UAE', href: '/ai-consulting-uae' },
+];
+
+// Top-level links shown after the Services dropdown. These are real routes
+// where possible; the remaining home anchors still scroll smoothly on /.
+const LINKS: NavLink[] = [
   { label: 'How we work', href: '/#how-we-work' },
-  { label: 'Ways to work', href: '/#ways-to-work' },
   { label: 'Proof', href: '/#proof' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'About', href: '/about' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -39,15 +55,40 @@ export default function Navbar() {
     };
   }, [open]);
 
+  // Close the desktop Services dropdown on outside click or Escape.
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setServicesOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [servicesOpen]);
+
+  const closeAll = () => {
+    setOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+  };
+
   const scrollToHash = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     const hashIndex = href.indexOf('#');
     if (hashIndex === -1) {
-      setOpen(false);
+      closeAll();
       return;
     }
     // Only intercept in-page anchors when we're already on the home page.
     if (window.location.pathname !== '/') {
-      setOpen(false);
+      closeAll();
       return;
     }
     const id = href.slice(hashIndex + 1);
@@ -58,7 +99,7 @@ export default function Navbar() {
     if (window.history.replaceState) {
       window.history.replaceState(null, '', `#${id}`);
     }
-    setOpen(false);
+    closeAll();
   };
 
   return (
@@ -75,7 +116,7 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-2 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-traq-purple"
           aria-label="Traq Collective home"
-          onClick={() => setOpen(false)}
+          onClick={closeAll}
         >
           <Image
             src="/logos/wordmark-purple.png"
@@ -88,6 +129,49 @@ export default function Navbar() {
         </Link>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
+          {/* Services dropdown */}
+          <div ref={servicesRef} className="relative">
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={servicesOpen}
+              onClick={() => setServicesOpen((v) => !v)}
+              className={cn(
+                'inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors hover:bg-traq-tint hover:text-ink',
+                servicesOpen ? 'bg-traq-tint text-ink' : 'text-ink-soft',
+              )}
+            >
+              Services
+              <ChevronDown
+                className={cn(
+                  'h-4 w-4 transition-transform',
+                  servicesOpen ? 'rotate-180' : '',
+                )}
+                aria-hidden="true"
+              />
+            </button>
+
+            {servicesOpen ? (
+              <div
+                role="menu"
+                aria-label="Services"
+                className="absolute left-0 top-[calc(100%+10px)] w-64 rounded-2xl border border-border-subtle bg-white p-2 shadow-card"
+              >
+                {SERVICE_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    role="menuitem"
+                    onClick={closeAll}
+                    className="block rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-traq-tint hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
           {LINKS.map((link) => (
             <Link
               key={link.href}
@@ -104,7 +188,7 @@ export default function Navbar() {
           <Link
             href="/book"
             onClick={() => {
-              setOpen(false);
+              closeAll();
               track('cta_book_click', { location: 'navbar_desktop' });
             }}
             className="inline-flex items-center gap-2 rounded-full bg-traq-purple px-4 py-2.5 text-[13px] font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover"
@@ -131,8 +215,39 @@ export default function Navbar() {
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
         )}
       >
-        <div className="mx-3 rounded-2xl border border-border-subtle bg-white p-4 shadow-card sm:mx-4">
+        <div className="mx-3 max-h-[calc(100vh-96px)] overflow-y-auto rounded-2xl border border-border-subtle bg-white p-4 shadow-card sm:mx-4">
           <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
+            {/* Mobile Services group (expandable) */}
+            <button
+              type="button"
+              aria-expanded={mobileServicesOpen}
+              onClick={() => setMobileServicesOpen((v) => !v)}
+              className="flex items-center justify-between rounded-xl px-4 py-3 text-base text-ink transition-colors hover:bg-traq-tint"
+            >
+              Services
+              <ChevronDown
+                className={cn(
+                  'h-5 w-5 transition-transform',
+                  mobileServicesOpen ? 'rotate-180' : '',
+                )}
+                aria-hidden="true"
+              />
+            </button>
+            {mobileServicesOpen ? (
+              <div className="mb-1 ml-2 flex flex-col gap-0.5 border-l border-border-subtle pl-2">
+                {SERVICE_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeAll}
+                    className="rounded-xl px-4 py-2.5 text-[15px] text-ink-soft transition-colors hover:bg-traq-tint hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+
             {LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -143,10 +258,11 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
             <Link
               href="/book"
               onClick={() => {
-                setOpen(false);
+                closeAll();
                 track('cta_book_click', { location: 'navbar_mobile' });
               }}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-traq-purple px-5 py-3 text-sm font-semibold text-white"

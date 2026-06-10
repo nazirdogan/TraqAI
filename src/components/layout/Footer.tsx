@@ -3,19 +3,33 @@ import Image from 'next/image';
 import { Mail, Phone, Globe } from 'lucide-react';
 import { COMPANY, SERVICES } from '@/lib/constants';
 
+// Map each capability to its dedicated service page so the footer feeds the
+// SEO surface instead of a single home anchor.
+const SERVICE_HREF: Record<string, string> = {
+  'ai-training': '/services/ai-training',
+  'ai-consulting': '/services/ai-consulting',
+  'ai-implementation': '/services/ai-implementation',
+  'agentic-ai': '/services/agentic-ai',
+};
+
 const FOOTER_NAV = [
   {
-    heading: 'Explore',
+    heading: 'Services',
     links: [
-      { label: 'What we do', href: '/#services' },
-      { label: 'How we work', href: '/#how-we-work' },
-      { label: 'Ways to work', href: '/#ways-to-work' },
-      { label: 'Proof', href: '/#proof' },
+      { label: 'All services', href: '/services' },
+      { label: 'AI training', href: '/services/ai-training' },
+      { label: 'Consulting & strategy', href: '/services/ai-consulting' },
+      { label: 'Implementation', href: '/services/ai-implementation' },
+      { label: 'Agentic AI', href: '/services/agentic-ai' },
+      { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
+      { label: 'AI consulting in the UAE', href: '/ai-consulting-uae' },
     ],
   },
   {
     heading: 'Company',
     links: [
+      { label: 'About', href: '/about' },
+      { label: 'FAQ', href: '/faq' },
       { label: 'Book a call', href: '/book' },
       { label: 'Contact', href: '/#contact' },
       { label: 'Privacy', href: '/privacy' },
@@ -102,7 +116,7 @@ export default function Footer() {
             {SERVICES.map((s) => (
               <Link
                 key={s.slug}
-                href="/#services"
+                href={SERVICE_HREF[s.slug] ?? '/services'}
                 className="text-xs text-ink-soft transition-colors hover:text-traq-purple"
               >
                 {s.title}

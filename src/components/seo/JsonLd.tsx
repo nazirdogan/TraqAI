@@ -1,3 +1,15 @@
+import {
+  organization,
+  service,
+  localBusiness,
+  person,
+  breadcrumbs,
+  faqPage,
+  type ServiceInput,
+  type BreadcrumbItem,
+  type Qa,
+} from '@/lib/seo/schema';
+
 type JsonLdProps = {
   data: Record<string, unknown>;
 };
@@ -13,4 +25,33 @@ export default function JsonLd({ data }: JsonLdProps) {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
+}
+
+/**
+ * Typed convenience wrappers around the pure builders in src/lib/seo/schema.ts.
+ * Drop these straight into a page; each renders one <script type=ld+json>.
+ */
+
+export function OrganizationJsonLd() {
+  return <JsonLd data={organization()} />;
+}
+
+export function ServiceJsonLd(props: ServiceInput) {
+  return <JsonLd data={service(props)} />;
+}
+
+export function LocalBusinessJsonLd() {
+  return <JsonLd data={localBusiness()} />;
+}
+
+export function PersonJsonLd() {
+  return <JsonLd data={person()} />;
+}
+
+export function BreadcrumbsJsonLd({ items }: { items: BreadcrumbItem[] }) {
+  return <JsonLd data={breadcrumbs(items)} />;
+}
+
+export function FaqPageJsonLd({ qas }: { qas: Qa[] }) {
+  return <JsonLd data={faqPage(qas)} />;
 }

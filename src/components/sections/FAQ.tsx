@@ -36,7 +36,7 @@ export default function FAQ() {
           <div className="eyebrow eyebrow-accent">FAQ</div>
           <h2 className="section-title mt-4">Questions teams ask before we start</h2>
           <p className="section-sub mx-auto mt-4 text-center">
-            Straight answers on training, the fractional Head of AI role, and working with us.
+            Straight answers on training, working with an embedded AI partner, and what we deliver.
           </p>
         </div>
 

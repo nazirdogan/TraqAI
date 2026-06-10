@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 const SITE_URL = 'https://traqcollective.com';
 const SITE_NAME = 'Traq Collective';
 const DESCRIPTION =
-  'Traq Collective helps your team actually use the AI you already pay for: hands-on training, consulting as your fractional Head of AI, implementation, and agentic infrastructure. UAE and global.';
+  'Traq Collective is your embedded AI partner: hands-on training, consulting and strategy, implementation, and agentic infrastructure. We work with your team, not for it, to make the AI you already pay for actually work. UAE and global.';
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -16,7 +16,10 @@ export const baseMetadata: Metadata = {
   keywords: [
     'AI training',
     'AI consultant',
+    'embedded AI partner',
+    'AI transformation partner',
     'fractional Head of AI',
+    'Chief AI Officer',
     'AI implementation',
     'AI training UAE',
     'AI training Dubai',

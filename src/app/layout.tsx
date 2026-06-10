@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import JsonLd from '@/components/seo/JsonLd';
 import Analytics from '@/components/analytics/Analytics';
 import { baseMetadata } from '@/lib/metadata';
+import { organization } from '@/lib/seo/schema';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,29 +16,11 @@ const inter = Inter({
 
 export const metadata: Metadata = baseMetadata;
 
-// Organization schema (sitewide). sameAs socials are a placeholder until the
-// official handles are confirmed; swap in real profile URLs when available.
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Traq Collective',
-  url: 'https://traqcollective.com',
-  logo: 'https://traqcollective.com/logos/wordmark-purple.png',
-  description:
-    'Traq Collective helps your team actually use the AI you already pay for: hands-on training, consulting as your fractional Head of AI, implementation, and agentic infrastructure.',
-  sameAs: [
-    // TODO: replace with confirmed official profiles.
-    'https://www.linkedin.com/company/traq-collective',
-  ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+971 50 868 7196',
-    email: 'hello@traqcollective.com',
-    contactType: 'customer service',
-    areaServed: ['AE', 'Worldwide'],
-    availableLanguage: ['English'],
-  },
-};
+// Organization schema (sitewide). Emitted once here via the shared builder so
+// the @id-bearing canonical node ('#organization') exists for the whole site.
+// Other pages reference it by @id (e.g. Service.provider, Person.worksFor)
+// rather than re-declaring the entity.
+const organizationSchema = organization();
 
 export const viewport: Viewport = {
   themeColor: '#FFFFFF',
