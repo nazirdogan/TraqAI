@@ -49,8 +49,12 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    h2: 'How engagements work',
-    body: 'We start with a fast, fixed-scope audit so you see value before any long commitment, then move into the embedded role at a cadence that fits. We agree what we are moving and put a number on it. You keep everything we build, and we take on a limited number of partners each quarter so every team gets senior attention. See the ways to work.',
+    h2: 'Fractional vs full-time Head of AI',
+    body: 'A full-time Head of AI is a senior salary, months of recruiting, and a year-plus commitment before you know the fit. A fractional Head of AI gives you the same seniority part-time, starting in days and scaled to what you actually need. Most mid-market teams do not have a full year of full-time AI work yet, so they would pay for leadership they cannot keep busy. The table below compares the two side by side.',
+  },
+  {
+    h2: 'What it costs and how engagements work',
+    body: 'We do not publish prices, because the right scope depends on your team and goals. We start with a fast, fixed-scope audit so you see value before any long commitment, then move into the embedded role at a cadence that fits. We agree what we are moving and put a number on it. You keep everything we build, and we take on a limited number of partners each quarter so every team gets senior attention.',
   },
   {
     h2: 'What you get in the first 90 days',
@@ -149,6 +153,18 @@ export default function FractionalHeadOfAiPage() {
                   ))}
                 </ul>
               ) : null}
+              {section.h2 === 'What it costs and how engagements work' ? (
+                <p className="mt-6 text-[15px] leading-relaxed text-ink-soft sm:text-[17px]">
+                  See the{' '}
+                  <Link
+                    href="/#ways-to-work"
+                    className="font-semibold text-traq-purple underline-offset-4 hover:underline"
+                  >
+                    three ways to work
+                  </Link>{' '}
+                  for how engagements are structured.
+                </p>
+              ) : null}
             </div>
           ))}
         </div>
@@ -158,10 +174,12 @@ export default function FractionalHeadOfAiPage() {
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
         <div className="mx-auto max-w-3xl">
           <div className="eyebrow eyebrow-accent">Compare</div>
-          <h2 className="section-title mt-3">Fractional vs full-time Head of AI</h2>
+          <h2 className="section-title mt-3">
+            Fractional vs full-time Head of AI: side-by-side
+          </h2>
           <p className="section-sub mt-4">
-            Where a fractional Head of AI fits, and where a full-time hire makes sense, across the
-            things that matter most.
+            Both give you senior AI leadership. The difference is cost, speed, and how much risk you
+            take on before you know it is working.
           </p>
 
           <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
