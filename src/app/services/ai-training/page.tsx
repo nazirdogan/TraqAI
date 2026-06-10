@@ -59,6 +59,36 @@ const SECTIONS: Section[] = [
   },
 ];
 
+// Guided AI training vs leaving teams to figure it out alone.
+// Real table, high citation value for "AI training vs doing it yourself".
+const COMPARISON: { dimension: string; trained: string; diy: string }[] = [
+  {
+    dimension: 'Adoption',
+    trained: 'Most of the team uses AI on real work within weeks',
+    diy: 'A few keen people try it; most never start',
+  },
+  {
+    dimension: 'Relevance',
+    trained: 'Built around your roles, tools and actual tasks',
+    diy: 'Generic tips from YouTube that rarely fit the job',
+  },
+  {
+    dimension: 'Safety',
+    trained: 'Clear guardrails for accuracy, privacy and review',
+    diy: 'Ad-hoc use with no rules, so people lose trust fast',
+  },
+  {
+    dimension: 'Time to value',
+    trained: 'Hours saved start showing in the first month',
+    diy: 'Months of trial and error, often abandoned',
+  },
+  {
+    dimension: 'Staying power',
+    trained: 'Habits reinforced with follow-up so they hold',
+    diy: 'Early enthusiasm fades once the novelty wears off',
+  },
+];
+
 const RELATED: { label: string; href: string }[] = [
   { label: 'All AI services', href: '/services' },
   { label: 'Consultation & strategy', href: '/services/ai-consulting' },
@@ -126,7 +156,58 @@ export default function AiTrainingPage() {
         </div>
       </section>
 
-      <section className="bg-bg-base px-5 pb-16 sm:px-8 sm:pb-20">
+      {/* Guided training vs doing it yourself - comparison table */}
+      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-3xl">
+          <div className="eyebrow eyebrow-accent">Compare</div>
+          <h2 className="section-title mt-3">AI training vs leaving your team to figure it out</h2>
+          <p className="section-sub mt-4">
+            What changes when training is guided and built around your work, versus hoping people
+            pick it up on their own.
+          </p>
+
+          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
+            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
+              <caption className="sr-only">
+                Guided AI training compared with leaving teams to figure it out alone, across
+                adoption, relevance, safety, time to value and staying power
+              </caption>
+              <thead>
+                <tr className="border-b border-border-subtle bg-bg-subtle">
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Consideration
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Guided AI training
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Figuring it out alone
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON.map((row) => (
+                  <tr
+                    key={row.dimension}
+                    className="border-b border-border-subtle last:border-b-0 align-top"
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
+                    >
+                      {row.dimension}
+                    </th>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.trained}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.diy}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-3xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
