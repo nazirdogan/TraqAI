@@ -177,7 +177,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ContentSections sections={SECTIONS} />
+      <ContentSections
+        sections={SECTIONS}
+        footnote={
+          <>
+            See the work itself across{' '}
+            <Link
+              href="/services"
+              className="font-semibold text-traq-purple underline-offset-4 hover:underline"
+            >
+              our AI services
+            </Link>{' '}
+            and the{' '}
+            <Link
+              href="/fractional-head-of-ai"
+              className="font-semibold text-traq-purple underline-offset-4 hover:underline"
+            >
+              embedded AI partner
+            </Link>{' '}
+            engagement, or read our{' '}
+            <Link
+              href="/insights"
+              className="font-semibold text-traq-purple underline-offset-4 hover:underline"
+            >
+              insights on AI adoption
+            </Link>
+            .
+          </>
+        }
+      />
 
       {/* Practitioners vs traditional consultants - comparison table */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">

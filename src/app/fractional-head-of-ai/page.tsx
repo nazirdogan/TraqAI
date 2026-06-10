@@ -151,7 +151,21 @@ export default function FractionalHeadOfAiPage() {
         secondary={{ label: 'See how we work', href: '/#how-we-work' }}
       />
 
-      <ContentSections sections={SECTIONS} />
+      <ContentSections
+        sections={SECTIONS}
+        footnote={
+          <>
+            See the{' '}
+            <Link
+              href="/#ways-to-work"
+              className="font-semibold text-traq-purple underline-offset-4 hover:underline"
+            >
+              three ways to work
+            </Link>{' '}
+            for how engagements are structured.
+          </>
+        }
+      />
 
       {/* Intercept: hiring a Head of AI vs an embedded AI partner - comparison table */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">

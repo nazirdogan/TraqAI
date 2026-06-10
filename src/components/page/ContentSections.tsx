@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import HandUnderline from '@/components/ui/HandUnderline';
 
 export type ContentSection = { h2: string; body: string; points?: string[] };
@@ -10,6 +11,8 @@ type Props = {
   heading?: string;
   /** Optional one-line intro under the heading. */
   intro?: string;
+  /** Optional contextual line (e.g. internal cross-links) rendered under the grid. */
+  footnote?: ReactNode;
 };
 
 /**
@@ -20,7 +23,7 @@ type Props = {
  * scroll-heavy layout, with a subtle ruled-card + handwritten-number motif.
  * Server component — no client JS.
  */
-export default function ContentSections({ sections, eyebrow, heading, intro }: Props) {
+export default function ContentSections({ sections, eyebrow, heading, intro, footnote }: Props) {
   if (!sections.length) return null;
 
   return (
@@ -88,6 +91,12 @@ export default function ContentSections({ sections, eyebrow, heading, intro }: P
             </article>
           ))}
         </div>
+
+        {footnote ? (
+          <p className="mt-9 max-w-3xl text-[15px] leading-relaxed text-ink-soft sm:mt-10">
+            {footnote}
+          </p>
+        ) : null}
       </div>
     </section>
   );

@@ -180,7 +180,14 @@ export default function ServicesHubPage() {
           <h2 className="section-title mt-3">Which AI service fits my team?</h2>
           <p className="section-sub mt-4">
             Match where your team is today to the service that moves you forward. If two rows fit,
-            we scope them together.
+            we scope them together. Not sure where you stand?{' '}
+            <Link
+              href="/ai-readiness"
+              className="font-semibold text-traq-purple underline-offset-4 hover:underline"
+            >
+              Take the free AI readiness assessment
+            </Link>
+            .
           </p>
 
           <div className="mt-8 overflow-hidden rounded-[20px] border border-border-subtle bg-white shadow-card">
