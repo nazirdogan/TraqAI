@@ -12,7 +12,7 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'AI consulting that ends in adoption, not a deck',
   description:
-    'AI consulting and strategy that acts as your fractional Head of AI: we audit your tools and workflows, find the highest-leverage uses, and give you a roadmap your team can act on. UAE and global.',
+    'AI consulting and strategy that acts as your fractional Head of AI: we audit your tools and workflows, find the uses that save the most time, and give you a roadmap your team can act on. UAE and global.',
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: 'AI consulting and strategy | Traq Collective',
@@ -40,8 +40,8 @@ type Section = { h2: string; body: string; points?: string[] };
 
 const SECTIONS: Section[] = [
   {
-    h2: 'What an AI consultant should actually do',
-    body: 'The job is not to recommend tools and disappear. It is to find where AI saves your team real hours, decide what to do first, and set the guardrails so people use it safely. We do that work alongside your team, in your tools, so the plan is grounded in how you actually operate.',
+    h2: 'What does an AI consultant actually do?',
+    body: 'A good AI consultant finds where AI saves your team real hours, decides what to do first, and sets the guardrails so people use it safely. The job is not to name a few tools and leave. We do this work alongside your team, in your own tools, so the plan fits how you actually operate.',
     points: [
       'An AI audit of your tools, workflows and where time is lost',
       'A prioritised roadmap, sequenced by payoff and effort',
@@ -50,12 +50,43 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    h2: 'How our AI strategy engagements work',
-    body: 'We start with a fast, fixed-scope audit so you see value before any long commitment. From there we set the strategy, agree what we are moving, and put a number on it: hours saved, tools adopted, work shipped. You keep everything we build, and your team learns to run it.',
+    h2: 'How do Traq AI strategy engagements work?',
+    body: 'We start with a fast, fixed-scope audit so you see value before any long commitment. From there we set the strategy, agree what we are moving first, and put a number on it: hours saved, tools adopted, work shipped. You keep everything we build, and your team learns to run it without us.',
   },
   {
-    h2: 'Consulting or a fractional Head of AI?',
-    body: 'A short consulting engagement is right when you need direction and a plan. If you want that senior leadership on an ongoing basis, embedded part-time to set strategy and lead the rollout, that is our fractional Head of AI offer. Many teams start with a consult and move into the embedded role.',
+    h2: 'Do I need AI consulting or a fractional Head of AI?',
+    body: 'A short consulting engagement is right when you need direction and a plan. If you want that senior leadership on an ongoing basis, embedded part-time to set strategy and lead the rollout, that is our fractional Head of AI offer. Many teams start with a consult and move into the embedded role once there is a plan.',
+  },
+];
+
+// AI consultant vs AI agency: the core "who should I hire" comparison.
+// Real table, high citation value for "AI consultant vs AI agency" queries
+// and reinforces the practitioner wedge from the spec.
+const COMPARISON: { dimension: string; consultant: string; agency: string }[] = [
+  {
+    dimension: 'What you get',
+    consultant: 'A senior operator embedded with your team, plus a plan your people can run',
+    agency: 'A project team and deliverables built largely off-site',
+  },
+  {
+    dimension: 'How it is delivered',
+    consultant: 'Done with you, in your own tools, so the work fits how you operate',
+    agency: 'Done for you, often in a black box you cannot maintain',
+  },
+  {
+    dimension: 'Where the capability lands',
+    consultant: 'In your team; we make ourselves redundant on purpose',
+    agency: 'With the agency, so you keep paying to keep it running',
+  },
+  {
+    dimension: 'Speed to value',
+    consultant: 'A fixed-scope audit shows value in the first few weeks',
+    agency: 'Longer discovery and scoping before anything ships',
+  },
+  {
+    dimension: 'Accountability',
+    consultant: 'A number on every engagement: hours saved, tools adopted',
+    agency: 'Measured by hours billed or features delivered',
   },
 ];
 
@@ -67,12 +98,16 @@ const RELATED: { label: string; href: string }[] = [
 
 const FAQS: Qa[] = [
   {
-    q: 'How is this different from a fractional Head of AI?',
+    q: 'How is AI consulting different from a fractional Head of AI?',
     a: 'A consulting engagement is scoped and time-bound: audit, strategy and a roadmap. A fractional Head of AI is the same senior leadership delivered on an ongoing, embedded basis, setting direction and leading the rollout part-time. Many teams begin with a consult and move into the embedded role once there is a plan.',
   },
   {
     q: 'What do I get at the end of an AI consulting engagement?',
-    a: 'You get a prioritised roadmap grounded in your real tools and workflows: where AI saves the most time, what to do first, which tools to use, and the guardrails to use them safely. Crucially you get a plan your team can act on, with the value already shown, not a deck that gathers dust.',
+    a: 'You get a prioritised roadmap grounded in your real tools and workflows: where AI saves the most time, what to do first, which tools to use, and the guardrails to use them safely. You get a plan your team can act on, with the value already shown, instead of a deck that gathers dust.',
+  },
+  {
+    q: 'How is an AI consultant different from an AI agency?',
+    a: 'An AI agency builds for you and keeps the capability. We embed with your team and build the capability into your people, so you are not locked into ongoing fees to keep it running. You see value in weeks from a fixed-scope audit, and you own everything we make.',
   },
   {
     q: 'Do you work with UAE companies?',
@@ -126,7 +161,55 @@ export default function AiConsultingPage() {
         </div>
       </section>
 
-      <section className="bg-bg-base px-5 pb-16 sm:px-8 sm:pb-20">
+      {/* AI consultant vs AI agency - comparison table (high citation value) */}
+      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-3xl">
+          <div className="eyebrow eyebrow-accent">Compare</div>
+          <h2 className="section-title mt-3">AI consultant vs AI agency: which do you need?</h2>
+          <p className="section-sub mt-4">
+            Both can help. The difference is who ends up owning the capability and how fast you see
+            value.
+          </p>
+
+          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
+            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
+              <caption className="sr-only">
+                An AI consultant compared with an AI agency across what you get, how it is delivered,
+                where the capability lands, speed to value and accountability
+              </caption>
+              <thead>
+                <tr className="border-b border-border-subtle bg-bg-subtle">
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    Consideration
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    AI consultant (Traq)
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
+                    AI agency
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON.map((row) => (
+                  <tr
+                    key={row.dimension}
+                    className="border-b border-border-subtle last:border-b-0 align-top"
+                  >
+                    <th scope="row" className="px-5 py-4 text-left font-semibold text-ink sm:px-6">
+                      {row.dimension}
+                    </th>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.consultant}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.agency}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-3xl">
           <div className="eyebrow eyebrow-accent">Related</div>
           <h2 className="section-title mt-3">Keep reading</h2>
@@ -155,7 +238,7 @@ export default function AiConsultingPage() {
       <FaqBlock
         qas={FAQS}
         heading="AI consulting: common questions"
-        intro="Short answers on what consulting covers and how it differs from the fractional role."
+        intro="Short answers on what consulting covers and how it compares to an agency or the fractional role."
       />
 
       <CtaStrip
