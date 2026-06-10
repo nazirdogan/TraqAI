@@ -26,6 +26,7 @@ const LINKS: NavLink[] = [
   { label: 'How we work', href: '/#how-we-work' },
   { label: 'Proof', href: '/#proof' },
   { label: 'About', href: '/about' },
+  { label: 'Insights', href: '/insights' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/#contact' },
 ];
