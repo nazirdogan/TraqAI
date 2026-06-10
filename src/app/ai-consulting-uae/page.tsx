@@ -16,12 +16,12 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'AI consulting and training in the UAE',
   description:
-    'AI consulting and training in the UAE: in-person workshops in Dubai and Abu Dhabi, a fractional Head of AI embedded with your team, and global delivery. Globally fluent, locally embedded.',
+    'AI consulting and training in the UAE: in-person workshops in Dubai and Abu Dhabi, an embedded AI partner working with your team, and global delivery. Globally fluent, locally embedded.',
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: 'AI consulting and training in the UAE | Traq Collective',
     description:
-      'In-person AI workshops in Dubai and Abu Dhabi, fractional Head of AI, and remote delivery worldwide.',
+      'In-person AI workshops in Dubai and Abu Dhabi, an embedded AI partner, and remote delivery worldwide.',
     url: CANONICAL,
   },
 };
@@ -36,7 +36,7 @@ const HERO = {
   h1: 'AI consulting and training in the UAE',
   // Standalone, definition-first answer (40-60 words).
   intro:
-    'Traq Collective is an AI consulting and training partner based in the UAE. We run in-person workshops for teams in Dubai and Abu Dhabi, embed as a fractional Head of AI, and wire AI into the tools you already pay for. Globally fluent and locally embedded, we also deliver remotely worldwide.',
+    'Traq Collective is an AI consulting and training partner based in the UAE. We run in-person workshops for teams in Dubai and Abu Dhabi, embed as your AI partner, and wire AI into the tools you already pay for. Globally fluent and locally embedded, we also deliver remotely worldwide.',
 };
 
 type Section = { h2: string; body: string; points?: string[] };
@@ -48,7 +48,7 @@ const SECTIONS: Section[] = [
     points: [
       'In-person workshops in Dubai, Abu Dhabi and across the UAE',
       'Role-specific training on the tools your team already pays for',
-      'A fractional Head of AI embedded with your leadership',
+      'An embedded AI partner working with your leadership',
       'Implementation that wires AI into your real workflows',
     ],
   },
@@ -98,7 +98,7 @@ const COMPARISON: { dimension: string; traq: string; certificate: string; enterp
 
 const RELATED: { label: string; href: string }[] = [
   { label: 'AI training for teams', href: '/services/ai-training' },
-  { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
   { label: 'All AI services', href: '/services' },
 ];
 

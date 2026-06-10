@@ -46,7 +46,7 @@ export function organization(): JsonLdObject {
     url: SITE_URL,
     logo: LOGO_URL,
     description:
-      'Traq Collective helps your team actually use the AI you already pay for: hands-on training, consulting as your fractional Head of AI, implementation, and agentic infrastructure.',
+      'Traq Collective helps your team actually use the AI you already pay for: hands-on training, consulting as your embedded AI partner, implementation, and agentic infrastructure.',
     sameAs: ORG_SAME_AS,
     contactPoint: {
       '@type': 'ContactPoint',
@@ -113,7 +113,7 @@ export function localBusiness(): JsonLdObject {
     image: LOGO_URL,
     logo: LOGO_URL,
     description:
-      'AI consulting and training in the UAE. We train teams in Dubai and Abu Dhabi to use the AI tools they already pay for, embed as a fractional Head of AI, and deliver remotely worldwide.',
+      'AI consulting and training in the UAE. We train teams in Dubai and Abu Dhabi to use the AI tools they already pay for, embed as your AI partner, and deliver remotely worldwide.',
     telephone: PHONE,
     email: EMAIL,
     priceRange: '$$$',

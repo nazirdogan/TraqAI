@@ -32,7 +32,7 @@ const HERO = {
   h1: 'AI training and consulting: your questions answered',
   // Standalone, definition-first answer (40-60 words).
   intro:
-    'Traq Collective helps your team actually use the AI you already pay for. We run hands-on training, embed as your fractional Head of AI, wire AI into your real workflows, and build agentic systems. Below are honest answers to what people ask before they book a call, from pricing to how we work in the UAE.',
+    'Traq Collective helps your team actually use the AI you already pay for. We run hands-on training, embed as your AI partner, wire AI into your real workflows, and build agentic systems. Below are honest answers to what people ask before they book a call, from pricing to how we work in the UAE.',
 };
 
 /**
@@ -68,7 +68,7 @@ const FAQ_GROUPS: FaqGroup[] = [
       },
       {
         q: 'How is a fractional Head of AI different from a consultant?',
-        a: 'A consultant usually hands you a plan and leaves. A fractional Head of AI owns the outcome. We set the strategy, make the tooling decisions, lead the rollout, train your team and stay accountable for adoption, embedded part-time. You get senior AI leadership and delivery, not just advice you have to act on alone.',
+        a: 'A consultant usually hands you a plan and leaves. What people search for as a fractional Head of AI is ongoing ownership of the outcome, which we deliver as an embedded AI partner: we set the strategy, make the tooling decisions, lead the rollout, train your team and stay accountable for adoption, working with you part-time. You get senior AI leadership and delivery, not a new hire and not just advice you act on alone.',
       },
     ],
   },
@@ -77,11 +77,11 @@ const FAQ_GROUPS: FaqGroup[] = [
     qas: [
       {
         q: 'How much does a fractional Head of AI cost?',
-        a: 'Far less than a full-time hire. You pay for a scoped, part-time engagement instead of a six-figure salary, benefits and equity. We start with a fixed-scope audit so you see value before any long commitment, then agree a cadence that fits. Book a call and we will scope it to your situation.',
+        a: 'Far less than a full-time hire. We deliver this as an embedded AI partner, so you pay for a scoped, part-time engagement instead of a six-figure salary, benefits and equity. We start with a fixed-scope audit so you see value before any long commitment, then agree a cadence that fits. Book a call and we will scope it to your situation.',
       },
       {
         q: 'When does a company need a fractional Head of AI?',
-        a: 'When you have bought AI tools but adoption has stalled, or you keep starting AI projects that never reach daily use. If you do not yet have a full year of full-time AI work, a fractional lead gives you senior direction without paying for leadership you cannot keep busy.',
+        a: 'When you have bought AI tools but adoption has stalled, or you keep starting AI projects that never reach daily use. If you do not yet have a full year of full-time AI work, an embedded AI partner gives you that senior direction part-time, working with your team, without paying for a full-time hire you cannot keep busy.',
       },
     ],
   },
@@ -166,7 +166,7 @@ const HEADLINE_FAQS: Qa[] = HEADLINE_QUESTIONS.map((question) => {
 
 const RELATED: { label: string; href: string }[] = [
   { label: 'AI training for teams', href: '/services/ai-training' },
-  { label: 'A fractional Head of AI for your business', href: '/fractional-head-of-ai' },
+  { label: 'Your embedded AI partner', href: '/fractional-head-of-ai' },
   { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
 ];
 

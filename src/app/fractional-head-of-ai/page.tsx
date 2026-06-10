@@ -9,52 +9,64 @@ import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 const PATH = '/fractional-head-of-ai';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
+// Slug and metadata keep the "fractional Head of AI / Chief AI Officer" terms so
+// the page still captures that search. The visible lead and identity are the
+// Embedded AI Partner offer; the terms appear as a definition, FAQ and schema,
+// never as how we describe ourselves.
 export const metadata: Metadata = {
-  title: 'A fractional Head of AI for your business',
+  title: 'Embedded AI partner: a better fit than a fractional Head of AI',
   description:
-    'A fractional Head of AI gives you senior AI leadership part-time: strategy, vendor decisions, rollout and guardrails, for a fraction of a full-time hire. Traq Collective embeds with your team. UAE and global.',
+    'Looking for a fractional Head of AI or Chief AI Officer? Traq Collective gives you senior AI leadership as an embedded partner: strategy, vendor decisions, rollout and guardrails, working with your team and accountable to outcomes. UAE and global.',
   alternates: { canonical: CANONICAL },
+  keywords: [
+    'fractional Head of AI',
+    'Chief AI Officer',
+    'embedded AI partner',
+    'AI transformation partner',
+    'AI consulting partner',
+  ],
   openGraph: {
-    title: 'Fractional Head of AI | Traq Collective',
+    title: 'Your embedded AI partner | Traq Collective',
     description:
-      'Senior AI leadership, part-time and embedded: strategy, rollout and guardrails for a fraction of a full-time hire.',
+      'A better fit than a fractional Head of AI or Chief AI Officer: senior AI leadership delivered as an embedded partner who works with your team, not for it.',
     url: CANONICAL,
   },
 };
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { name: 'Home', url: '/' },
-  { name: 'Fractional Head of AI', url: PATH },
+  { name: 'Embedded AI Partner', url: PATH },
 ];
 
 const HERO = {
-  eyebrow: 'Flagship offer',
-  h1: 'A fractional Head of AI for your business',
-  // Standalone, definition-first answer (40-60 words).
+  eyebrow: 'Flagship engagement',
+  h1: 'Your embedded AI partner',
+  // Capture + reframe (40-60 words). Captures the search, then reframes to the
+  // partner offer. No em dash.
   intro:
-    'A fractional Head of AI is a senior AI leader who works with you part-time. You get the strategy, vendor decisions, rollout plan and guardrails of a full-time hire for a fraction of the cost. Traq Collective embeds with your team, sets the AI direction, prioritises the work that pays off first, and leads the rollout.',
+    'Looking for a fractional Head of AI or Chief AI Officer? Here is a better fit. Traq Collective embeds as your AI partner: we set the strategy, choose the tools, lead the rollout and put guardrails in place, working alongside your team and accountable to outcomes. You get senior AI leadership without adding a full-time hire.',
 };
 
 type Section = { h2: string; body: string; points?: string[] };
 
 const SECTIONS: Section[] = [
   {
-    h2: 'What does a fractional Head of AI do?',
-    body: 'The role owns your AI direction end to end, part-time. We set strategy, decide which tools to back, lead the rollout across teams, and put the guardrails in place so people use AI safely. You get senior accountability for outcomes without carrying a full-time executive salary.',
+    h2: 'What is a fractional Head of AI, and do you need one?',
+    body: 'A fractional Head of AI is how people search for senior, part-time AI leadership: someone who sets the strategy, decides which tools to back, leads the rollout and puts guardrails in place. We deliver exactly that, but as a partner, not an employee. We work with your team to build the capability, then leave it with them. You get the seniority without a headcount, a job title or a year-long hire to manage.',
     points: [
-      'Sets the AI strategy and the order of work by payoff',
+      'Sets the AI strategy and sequences the work by payoff',
       'Makes vendor and tooling decisions for your context',
       'Leads training and rollout so adoption actually happens',
-      'Owns guardrails, safe use and measurable outcomes',
+      'Owns guardrails, safe use and outcomes you can measure',
     ],
   },
   {
-    h2: 'Fractional vs full-time Head of AI',
-    body: 'A full-time Head of AI is a senior salary, months of recruiting, and a year-plus commitment before you know the fit. A fractional Head of AI gives you the same seniority part-time, starting in days and scaled to what you actually need. Most mid-market teams do not have a full year of full-time AI work yet, so they would pay for leadership they cannot keep busy. The table below compares the two side by side.',
+    h2: 'What an embedded AI partner does',
+    body: 'We work with you, not for you. We sit alongside your team in your own tools, set the direction together, and prioritise the work that pays off first. We are your partner and consultants, accountable to outcomes, not a new role on your org chart. You keep everything we build, and your team learns to run it without us.',
   },
   {
     h2: 'What it costs and how engagements work',
-    body: 'We do not publish prices, because the right scope depends on your team and goals. We start with a fast, fixed-scope audit so you see value before any long commitment, then move into the embedded role at a cadence that fits. We agree what we are moving and put a number on it. You keep everything we build, and we take on a limited number of partners each quarter so every team gets senior attention.',
+    body: 'We do not publish prices, because the right scope depends on your team and goals. We start with a fast, fixed-scope audit so you see value before any long commitment, then move into the embedded partnership at a cadence that fits. We agree what we are moving and put a number on it. You keep everything we build, and we take on a limited number of partners each quarter so every team gets senior attention.',
   },
   {
     h2: 'What you get in the first 90 days',
@@ -62,32 +74,33 @@ const SECTIONS: Section[] = [
   },
 ];
 
-// Fractional vs full-time hire. Real table, high citation value.
-const COMPARISON: { dimension: string; fractional: string; fullTime: string }[] = [
+// Hiring a Head of AI vs an embedded AI partner. Intercepts the
+// "do I need to hire one?" crowd. Real table, high citation value.
+const COMPARISON: { dimension: string; partner: string; hire: string }[] = [
+  {
+    dimension: 'Time to value',
+    partner: 'Days. We embed and start in week one, value shown in the first weeks',
+    hire: 'Months of search, hiring and onboarding before any output',
+  },
   {
     dimension: 'Cost',
-    fractional: 'A fraction of a full-time salary, scoped to the work',
-    fullTime: 'Full executive salary, benefits and equity',
+    partner: 'A scoped engagement, sized to the work and flexible',
+    hire: 'A full executive salary, benefits and equity, every year',
   },
   {
-    dimension: 'Time to start',
-    fractional: 'Days. We embed and start in week one',
-    fullTime: 'Months of search, hiring and onboarding',
+    dimension: 'Risk',
+    partner: 'A fixed-scope audit proves value before any long commitment',
+    hire: 'A permanent bet on one hire before you know the fit',
   },
   {
-    dimension: 'Experience',
-    fractional: 'A senior operator who has done this across teams',
-    fullTime: 'One hire; depth depends on who you can attract',
+    dimension: 'Flexibility',
+    partner: 'Scale the cadence up or down as your needs change',
+    hire: 'A fixed headcount and overhead, hard to unwind',
   },
   {
-    dimension: 'Commitment',
-    fractional: 'Flexible cadence; scale up or down as needs change',
-    fullTime: 'A permanent headcount and fixed overhead',
-  },
-  {
-    dimension: 'Outcome',
-    fractional: 'Capability your team keeps; we make ourselves redundant',
-    fullTime: 'Capability tied to one person who may move on',
+    dimension: 'Capability stays in your team',
+    partner: 'We build it into your people and make ourselves redundant',
+    hire: 'Capability tied to one person who may move on',
   },
 ];
 
@@ -99,12 +112,16 @@ const RELATED: { label: string; href: string }[] = [
 
 const FAQS: Qa[] = [
   {
-    q: 'How much does a fractional Head of AI cost?',
+    q: 'Do I need to hire a Chief AI Officer or Head of AI?',
+    a: 'Usually not yet. Most mid-market teams do not have a full year of full-time AI work, so a permanent executive hire is expensive leadership you cannot keep busy. An embedded AI partner gives you the same senior direction and rollout, working with your team part-time, with the capability left in your people. Hire the role later if the volume of work justifies it.',
+  },
+  {
+    q: 'How much does an embedded AI partner cost?',
     a: 'Far less than a full-time hire. You pay for a scoped, part-time engagement rather than a six-figure salary, benefits and equity. We start with a fixed-scope audit so you see the value first, then agree a cadence that fits your needs. Book a call and we will scope it to your situation.',
   },
   {
-    q: 'How is it different from a consultant?',
-    a: 'A consultant typically hands you a plan and leaves. A fractional Head of AI owns the outcome: we set strategy, lead the rollout, train your team and stay accountable for adoption, embedded part-time. It is leadership and delivery, not just advice on a slide.',
+    q: 'How is this different from a consultant?',
+    a: 'A consultant typically hands you a plan and leaves. An embedded AI partner owns the outcome with you: we set strategy, lead the rollout, train your team and stay accountable for adoption, working alongside you part-time. It is leadership and delivery, not just advice on a slide.',
   },
   {
     q: 'Do you work with UAE companies?',
@@ -117,10 +134,10 @@ export default function FractionalHeadOfAiPage() {
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
       <ServiceJsonLd
-        name="Fractional Head of AI"
-        description="Senior AI leadership delivered part-time and embedded: strategy, vendor decisions, rollout and guardrails for a fraction of a full-time hire. UAE and global."
+        name="Embedded AI Partner"
+        description="Senior AI leadership delivered as an embedded partner: strategy, vendor decisions, rollout and guardrails, working with your team and accountable to outcomes. A better fit than a fractional Head of AI or Chief AI Officer. UAE and global."
         url={PATH}
-        serviceType="Fractional Head of AI"
+        serviceType="AI transformation partner"
       />
       <FaqPageJsonLd qas={FAQS} />
 
@@ -170,23 +187,23 @@ export default function FractionalHeadOfAiPage() {
         </div>
       </section>
 
-      {/* Fractional vs full-time - comparison table */}
+      {/* Intercept: hiring a Head of AI vs an embedded AI partner - comparison table */}
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
         <div className="mx-auto max-w-3xl">
           <div className="eyebrow eyebrow-accent">Compare</div>
           <h2 className="section-title mt-3">
-            Fractional vs full-time Head of AI: side-by-side
+            Hiring a Head of AI vs an embedded AI partner
           </h2>
           <p className="section-sub mt-4">
-            Both give you senior AI leadership. The difference is cost, speed, and how much risk you
-            take on before you know it is working.
+            Both give you senior AI leadership. The difference is how fast you see value, how much
+            you spend, the risk you take on, and where the capability ends up.
           </p>
 
           <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
             <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
               <caption className="sr-only">
-                Fractional Head of AI compared with a full-time hire across cost, time to start,
-                experience, commitment and outcome
+                Hiring a full-time Head of AI compared with an embedded AI partner across time to
+                value, cost, risk, flexibility and whether the capability stays in your team
               </caption>
               <thead>
                 <tr className="border-b border-border-subtle bg-bg-subtle">
@@ -194,10 +211,10 @@ export default function FractionalHeadOfAiPage() {
                     Consideration
                   </th>
                   <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Fractional Head of AI
+                    Embedded AI partner (Traq)
                   </th>
                   <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Full-time hire
+                    Hiring a Head of AI
                   </th>
                 </tr>
               </thead>
@@ -213,8 +230,8 @@ export default function FractionalHeadOfAiPage() {
                     >
                       {row.dimension}
                     </th>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.fractional}</td>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.fullTime}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.partner}</td>
+                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.hire}</td>
                   </tr>
                 ))}
               </tbody>
@@ -251,13 +268,13 @@ export default function FractionalHeadOfAiPage() {
 
       <FaqBlock
         qas={FAQS}
-        heading="Fractional Head of AI: common questions"
-        intro="Short answers on cost, how it differs from consulting, and working with UAE teams."
+        heading="Embedded AI partner: common questions"
+        intro="Short answers on whether to hire a Head of AI, what an embedded partner costs, and working with UAE teams."
       />
 
       <CtaStrip
         heading="Want senior AI leadership without a full-time hire?"
-        sub="Book a free call. We will scope a fractional engagement to your team. No deck, no obligation."
+        sub="Book a free call. We will scope an embedded partnership to your team. No deck, no obligation."
       />
     </>
   );

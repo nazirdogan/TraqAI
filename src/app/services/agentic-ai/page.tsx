@@ -93,7 +93,7 @@ const COMPARISON: { dimension: string; agentic: string; rpa: string }[] = [
 // Required internal links per the brief: ai-implementation and fractional-head-of-ai.
 const RELATED: { label: string; href: string }[] = [
   { label: 'Implementation & enablement', href: '/services/ai-implementation' },
-  { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
   { label: 'All AI services', href: '/services' },
 ];
 

@@ -32,7 +32,7 @@ const HERO = {
   h1: 'About Traq Collective.',
   // Standalone, definition-first answer (40-60 words).
   intro:
-    'Traq Collective is a founder-led AI enablement partner run by Nazir. We help teams actually use the AI they already pay for: hands-on training, consulting as a fractional Head of AI, implementation, and agentic systems. We are practitioners, not consultants. We build it, run it, train your people, then make ourselves redundant. Based in the UAE, working worldwide.',
+    'Traq Collective is a founder-led AI enablement partner run by Nazir. We help teams actually use the AI they already pay for: hands-on training, consulting as your embedded AI partner, implementation, and agentic systems. We are practitioners, not consultants. We build it, run it, train your people, then make ourselves redundant. Based in the UAE, working worldwide.',
 };
 
 type Section = { h2: string; body: string; points?: string[] };
@@ -94,7 +94,7 @@ const COMPARISON: { dimension: string; traq: string; typical: string }[] = [
 
 const RELATED: { label: string; href: string }[] = [
   { label: 'All AI services', href: '/services' },
-  { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
   { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
 ];
 
@@ -200,7 +200,7 @@ export default function AboutPage() {
                     href="/fractional-head-of-ai"
                     className="font-semibold text-traq-purple underline-offset-4 hover:underline"
                   >
-                    fractional Head of AI
+                    embedded AI partner
                   </Link>{' '}
                   engagement.
                 </p>

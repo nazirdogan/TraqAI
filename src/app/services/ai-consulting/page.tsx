@@ -12,7 +12,7 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'AI consulting that ends in adoption, not a deck',
   description:
-    'AI consulting and strategy that acts as your fractional Head of AI: we audit your tools and workflows, find the uses that save the most time, and give you a roadmap your team can act on. UAE and global.',
+    'AI consulting and strategy that acts as your embedded AI partner: we audit your tools and workflows, find the uses that save the most time, and give you a roadmap your team can act on. UAE and global.',
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: 'AI consulting and strategy | Traq Collective',
@@ -33,7 +33,7 @@ const HERO = {
   h1: 'AI consulting that ends in adoption, not a deck',
   // Standalone, definition-first answer (40-60 words).
   intro:
-    'An AI consultant should leave you with a working capability, not a slide deck. Traq Collective acts as your fractional Head of AI: we audit your tools and workflows, find the uses that save the most time, and give you a prioritised roadmap your team can act on. Then we help you act on it.',
+    'An AI consultant should leave you with a working capability, not a slide deck. Traq Collective acts as your embedded AI partner: we audit your tools and workflows, find the uses that save the most time, and give you a prioritised roadmap your team can act on. Then we help you act on it.',
 };
 
 type Section = { h2: string; body: string; points?: string[] };
@@ -55,7 +55,7 @@ const SECTIONS: Section[] = [
   },
   {
     h2: 'Do I need AI consulting or a fractional Head of AI?',
-    body: 'A short consulting engagement is right when you need direction and a plan. If you want that senior leadership on an ongoing basis, embedded part-time to set strategy and lead the rollout, that is our fractional Head of AI offer. Many teams start with a consult and move into the embedded role once there is a plan.',
+    body: 'A short consulting engagement is right when you need direction and a plan. If you want that senior leadership on an ongoing basis, embedded part-time to set strategy and lead the rollout, that is our embedded AI partner engagement, the partner alternative people search for as a fractional Head of AI. Many teams start with a consult and move into the embedded partnership once there is a plan.',
   },
 ];
 
@@ -91,7 +91,7 @@ const COMPARISON: { dimension: string; consultant: string; agency: string }[] = 
 ];
 
 const RELATED: { label: string; href: string }[] = [
-  { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
   { label: 'Implementation & enablement', href: '/services/ai-implementation' },
   { label: 'All AI services', href: '/services' },
 ];
@@ -99,7 +99,7 @@ const RELATED: { label: string; href: string }[] = [
 const FAQS: Qa[] = [
   {
     q: 'How is AI consulting different from a fractional Head of AI?',
-    a: 'A consulting engagement is scoped and time-bound: audit, strategy and a roadmap. A fractional Head of AI is the same senior leadership delivered on an ongoing, embedded basis, setting direction and leading the rollout part-time. Many teams begin with a consult and move into the embedded role once there is a plan.',
+    a: 'A consulting engagement is scoped and time-bound: audit, strategy and a roadmap. What people search for as a fractional Head of AI is the same senior leadership on an ongoing basis, which we deliver as an embedded AI partner, setting direction and leading the rollout part-time alongside your team. Many teams begin with a consult and move into the embedded partnership once there is a plan.',
   },
   {
     q: 'What do I get at the end of an AI consulting engagement?',
@@ -121,7 +121,7 @@ export default function AiConsultingPage() {
       <BreadcrumbsJsonLd items={breadcrumbItems} />
       <ServiceJsonLd
         name="AI consulting and strategy"
-        description="AI consulting that acts as your fractional Head of AI: audit, prioritised roadmap, and senior direction embedded with your team. UAE and global."
+        description="AI consulting that acts as your embedded AI partner: audit, prioritised roadmap, and senior direction working with your team. UAE and global."
         url={PATH}
         serviceType="AI consulting"
       />
@@ -132,7 +132,7 @@ export default function AiConsultingPage() {
         h1={HERO.h1}
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
-        secondary={{ label: 'Fractional Head of AI', href: '/fractional-head-of-ai' }}
+        secondary={{ label: 'Embedded AI Partner', href: '/fractional-head-of-ai' }}
       />
 
       <section className="bg-bg-base px-5 py-16 sm:px-8 sm:py-20">
@@ -238,7 +238,7 @@ export default function AiConsultingPage() {
       <FaqBlock
         qas={FAQS}
         heading="AI consulting: common questions"
-        intro="Short answers on what consulting covers and how it compares to an agency or the fractional role."
+        intro="Short answers on what consulting covers and how it compares to an agency or an embedded partner."
       />
 
       <CtaStrip

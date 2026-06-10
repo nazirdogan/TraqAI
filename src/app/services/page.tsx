@@ -12,7 +12,7 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'AI consulting services: training, strategy, implementation, agentic AI',
   description:
-    'The four ways Traq Collective helps your team use AI: hands-on training, consulting as your fractional Head of AI, implementation, and agentic systems. UAE and global.',
+    'The four ways Traq Collective helps your team use AI: hands-on training, consulting as your embedded AI partner, implementation, and agentic systems. UAE and global.',
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: 'AI consulting services | Traq Collective',
@@ -33,7 +33,7 @@ const HERO = {
   h1: 'AI consulting services for teams that already pay for AI',
   // Standalone, definition-first answer (40-60 words).
   intro:
-    'Traq Collective offers four services that get your team using AI well: hands-on training, consulting as your fractional Head of AI, implementation into the tools you already pay for, and agentic systems that run on their own. Pick one, or combine them across a single engagement. We work in the UAE and worldwide.',
+    'Traq Collective offers four services that get your team using AI well: hands-on training, consulting as your embedded AI partner, implementation into the tools you already pay for, and agentic systems that run on their own. Pick one, or combine them across a single engagement. We work in the UAE and worldwide.',
 };
 
 type ServiceCard = {
@@ -57,7 +57,7 @@ const SERVICES: ServiceCard[] = [
     href: '/services/ai-consulting',
     icon: '🧭',
     query: 'AI consultant and strategy',
-    body: 'We act as your fractional Head of AI. We audit your tools and workflows, find the uses that save the most time, and give you a clear roadmap your team can act on.',
+    body: 'We act as your embedded AI partner. We audit your tools and workflows, find the uses that save the most time, and give you a clear roadmap your team can act on.',
   },
   {
     title: 'Implementation & Enablement',
@@ -100,7 +100,7 @@ const COMPARISON: { situation: string; service: string; href: string }[] = [
 ];
 
 const RELATED: { label: string; href: string }[] = [
-  { label: 'Fractional Head of AI', href: '/fractional-head-of-ai' },
+  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
   { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
   { label: 'About Traq Collective', href: '/about' },
 ];
@@ -109,7 +109,7 @@ const RELATED: { label: string; href: string }[] = [
 const FAQS: Qa[] = [
   {
     q: 'What AI consulting services does Traq Collective offer?',
-    a: 'We offer four services: AI training for teams, consultation and strategy as your fractional Head of AI, implementation into the tools you already use, and agentic AI systems that run on their own. Most engagements combine two or three of these.',
+    a: 'We offer four services: AI training for teams, consultation and strategy as your embedded AI partner, implementation into the tools you already use, and agentic AI systems that run on their own. Most engagements combine two or three of these.',
   },
   {
     q: 'How do I choose the right service?',
