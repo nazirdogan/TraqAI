@@ -551,11 +551,182 @@ const fractionalHeadOfAi: Article = {
 };
 
 /**
+ * "How agentic workflows actually work": a plain-language explainer of agentic
+ * AI and autonomous workflows for business. Targets "agentic AI / autonomous
+ * workflows for business". References the anonymized autonomous operation Traq
+ * runs ("a company we operate", never named). Cites the verified BYO-AI,
+ * productivity-lift and satisfaction stats from IMPACT_METRICS (same sources,
+ * urls and years). Internal links to the agentic AI service, implementation and
+ * the team-adoption guide.
+ */
+const howAgenticWorkflowsWork: Article = {
+  slug: 'how-agentic-workflows-work',
+  title: 'How agentic workflows actually work: a plain-language guide | Traq Collective',
+  metaDescription:
+    'A plain-language explainer of agentic AI and autonomous workflows for business: what an AI agent is, how agentic workflows run multi-step work on their own, where they help, and how to roll them out safely.',
+  targetQuery: 'agentic AI / autonomous workflows for business',
+  h1: 'How agentic workflows actually work',
+  datePublished: '2026-06-10',
+  dateModified: '2026-06-10',
+  author: 'Nazir Dogan',
+  intro:
+    'An agentic workflow is software that takes a goal and carries out the steps to reach it on its own: pulling data, making decisions, using tools, and escalating to a person only when something needs judgement. Agentic AI chains these agents together so whole processes run without someone driving each step.',
+  bodySections: [
+    {
+      h2: 'What is agentic AI in plain English?',
+      body:
+        'Agentic AI is the difference between asking and doing. A chatbot answers when you prompt it. An AI agent is handed a goal and works out the steps to reach it, then carries them out. It reads the input, decides what to do next, uses the tools it needs, and only stops to ask a person when something genuinely needs judgement. The model is the engine, but the agent is the engine plus a plan, a set of tools, and the freedom to act.',
+      points: [
+        'A goal, not a single question, kicks the work off',
+        'The agent plans the steps rather than waiting for each instruction',
+        'It uses real tools: email, documents, a CRM, an API',
+        'It escalates the exceptions to a person instead of guessing',
+      ],
+    },
+    {
+      h2: 'How does an agentic workflow actually run?',
+      body:
+        'An agentic workflow runs as a loop: read the situation, decide the next step, act, check the result, repeat until the goal is met or a person is needed. Several agents can hand off to each other, so one handles intake, another does the research, another drafts the output, and a person signs off the parts that matter. The work moves through the steps on its own, the way a well-run team passes a task down the line.',
+      points: [
+        'Read: the agent takes in the goal and the current state',
+        'Decide: it picks the next step from what it can see',
+        'Act: it calls a tool or hands off to another agent',
+        'Check: it reviews the result and corrects course',
+        'Escalate: a person handles anything outside the guardrails',
+      ],
+    },
+    {
+      h2: 'What does an autonomous operation look like in practice?',
+      body:
+        'We do not just advise on this. We run a full autonomous operation end to end for a company we operate, where agents handle the day-to-day work and escalate only what needs a human call. That gives us a live system to learn from, so the workflows we build for clients are grounded in what holds up in production rather than a tidy diagram. The agents do the volume, and a small team stays on the exceptions and the judgement.',
+    },
+    {
+      h2: 'How is agentic AI different from traditional automation?',
+      body:
+        'Traditional automation follows a script you write in advance, and it breaks the moment something falls outside that script. Agentic AI takes a goal, reasons through the steps, reads messy real-world input the way a person would, and asks for help when it is unsure. It also improves as you refine the goals, where a rules-based script stays fixed until someone rewrites it. The table below sets the two side by side.',
+    },
+    {
+      h2: 'Where do agentic workflows help a business first?',
+      body:
+        'Start where the work is high volume, repeatable, and currently eats a person\'s day. Intake and triage, research and summarisation, drafting first versions, routing requests, and reconciling data across systems all suit agents well. Keep regulated decisions and anything that needs accountability with a person for now. A good first workflow is one where the agent does the legwork and a human approves the outcome, so you get the time back without losing control.',
+      points: [
+        'Triage and routing of incoming requests or leads',
+        'Research, summarising long threads, and prepping briefs',
+        'Drafting first versions a person then reviews',
+        'Reconciling and cleaning data across tools',
+      ],
+    },
+    {
+      h2: 'How do you roll out agentic workflows safely?',
+      body:
+        'Start narrow with one workflow that is well understood and high volume, prove it runs reliably, then expand. Keep visibility and control throughout, with clear guardrails and human checkpoints where they matter, so autonomy never means losing oversight. Train the team that works alongside the agents, because the value shows up when people trust the system and handle the exceptions well. Build it with your team, in your context, not in a black box.',
+      points: [
+        'Pick one high-volume, well-understood workflow to start',
+        'Set guardrails and human checkpoints before you switch it on',
+        'Measure reliability on real work before you widen the scope',
+        'Train the people who own the exceptions and the sign-off',
+      ],
+    },
+  ],
+  tables: [
+    {
+      heading: 'Agentic AI vs traditional automation',
+      intro:
+        'Both reduce manual work, but they fail and improve in very different ways. Agentic workflows reason; scripts follow rules.',
+      caption:
+        'A comparison of agentic AI and traditional rules-based automation across how work is defined, how each handles the unexpected, unstructured input, improvement over time, and the human role.',
+      columns: ['Dimension', 'Agentic AI', 'Traditional automation'],
+      rows: [
+        [
+          'How work is defined',
+          'You give it a goal and it decides the steps',
+          'You script every step in advance',
+        ],
+        [
+          'Handling the unexpected',
+          'Reasons through new cases and asks for help when unsure',
+          'Breaks the moment something falls outside the script',
+        ],
+        [
+          'Unstructured input',
+          'Reads emails, documents and chat the way a person would',
+          'Needs clean, structured data in a fixed format',
+        ],
+        [
+          'Improvement over time',
+          'Gets better as you give feedback and refine the goals',
+          'Stays fixed until someone rewrites the script',
+        ],
+        [
+          'The human role',
+          'People handle the exceptions and the judgement calls',
+          'People babysit failures and patch the rules',
+        ],
+      ],
+    },
+  ],
+  stats: [
+    {
+      claim:
+        'Most employees already bring their own AI to work, usually without guidance, so the appetite for agents that do real work is there before any rollout starts.',
+      value: '78%',
+      source: 'Microsoft Work Trend Index',
+      url: 'https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part',
+      year: '2024',
+    },
+    {
+      claim:
+        'A study of 5,179 support agents found AI raised output 14% on average and 34% for newer staff, a clear sign of what happens when AI carries the routine work.',
+      value: '+14–34%',
+      source: 'Brynjolfsson, Li & Raymond, NBER/QJE',
+      url: 'https://www.nber.org/papers/w31161',
+      year: '2023',
+    },
+    {
+      claim:
+        'Daily AI users report far higher job satisfaction, focus and productivity, which is what you want when agents take the repetitive volume off people.',
+      value: '+81%',
+      source: 'Slack Workforce Index',
+      url: 'https://slack.com/blog/news/the-new-ai-advantage',
+      year: '2025',
+    },
+  ],
+  faqs: [
+    {
+      q: 'What is the difference between an AI agent and a chatbot?',
+      a: 'A chatbot responds when you prompt it. An AI agent is given a goal and carries out the steps to reach it on its own, using tools, making decisions, and only escalating when something needs a person. Agentic workflows chain several agents so an entire process runs without someone driving each step.',
+    },
+    {
+      q: 'Are agentic workflows safe to run without a person watching?',
+      a: 'They are safe when you build them that way. You start narrow on one well-understood workflow, set clear guardrails and human checkpoints, and prove reliability on real work before you widen the scope. The agent handles the routine volume; your people stay on the exceptions and the decisions that need judgement, so you keep oversight throughout.',
+    },
+    {
+      q: 'How is agentic AI different from the automation we already have?',
+      a: 'Traditional automation follows a script you write in advance and breaks when something falls outside it. Agentic AI takes a goal, reasons through the steps, reads messy real-world input, and asks for help when it is unsure. It also improves as you refine the goals, where a rules-based script stays fixed until someone rewrites it.',
+    },
+    {
+      q: 'Have you actually run an autonomous operation, or just advised on one?',
+      a: 'We run a full autonomous operation end to end for a company we operate, where agents handle the day-to-day work and escalate only what needs judgement. That gives us a live system to learn from, so the agentic workflows we build for clients are grounded in what holds up in production, not a diagram on a slide.',
+    },
+  ],
+  related: [
+    { label: 'Agentic AI & Autonomous Infrastructure', href: '/services/agentic-ai' },
+    { label: 'Implementation & Enablement', href: '/services/ai-implementation' },
+    { label: 'How to get your team using AI', href: '/insights/how-to-get-your-team-using-ai' },
+  ],
+};
+
+/**
  * Ordered list of published articles. Cornerstone guides and comparison pages
  * are added in the following Phase 3 tasks; the index and [slug] route are
  * written to be empty-safe so this can start as an empty array.
  */
-export const ARTICLES: Article[] = [getTeamUsingAi, aiReadinessChecklist, fractionalHeadOfAi];
+export const ARTICLES: Article[] = [
+  getTeamUsingAi,
+  aiReadinessChecklist,
+  fractionalHeadOfAi,
+  howAgenticWorkflowsWork,
+];
 
 /** Look up an article by slug. Returns undefined when not found. */
 export function getBySlug(slug: string): Article | undefined {
