@@ -15,18 +15,16 @@ import ContactIntake from '@/components/sections/ContactIntake';
 
 export default function HomePage() {
   return (
-    <>
+    // The guided journey spine runs full-height down the left edge of the whole
+    // page. It overlays the left margin (pointer-events-none) so it adds no
+    // scroll and never covers content; nodes light up at each named stage.
+    <div className="relative">
+      <JourneySpine />
       <Hero />
       <TrustedBy />
-      {/* Guided journey: the spine threads Problem -> What we do -> How we work.
-          It overlays the existing whitespace (z-0, pointer-events-none) so it
-          adds no scroll and never covers section content. */}
-      <div className="relative">
-        <JourneySpine />
-        <Problem />
-        <Services />
-        <Process />
-      </div>
+      <Problem />
+      <Services />
+      <Process />
       <Offers />
       <Founder />
       <Proof />
@@ -35,6 +33,6 @@ export default function HomePage() {
       <FAQ />
       <CTABanner />
       <ContactIntake />
-    </>
+    </div>
   );
 }

@@ -16,10 +16,11 @@ export default function Services() {
     <section id="services" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center sm:mb-16">
-          <div className="eyebrow">What we do</div>
-          <h2 className="section-title mt-4">What we do</h2>
+          <div className="eyebrow">How we help</div>
+          <h2 className="section-title mt-4">Here&rsquo;s how we solve that</h2>
           <p className="section-sub mx-auto">
-            Training, consulting, and implementation, built around how your business actually works.
+            Four ways we put AI to work with you: hands-on training, consulting and strategy,
+            implementation, and agentic systems, all built around how your business actually works.
           </p>
         </div>
 
