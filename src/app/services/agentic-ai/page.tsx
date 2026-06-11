@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
+import CompareNotebook from '@/components/page/CompareNotebook';
+import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
@@ -43,26 +44,20 @@ type Section = { h2: string; body: string; points?: string[] };
 const SECTIONS: Section[] = [
   {
     h2: 'What is agentic AI?',
-    body: 'A chatbot answers when you ask. An AI agent is given a goal and carries out the steps to reach it: pulling data, making decisions, using tools, and handing off when something needs a person. Agentic workflows chain these agents together so whole processes run without someone driving each step.',
-    points: [
-      'AI agents that plan and execute multi-step work',
-      'Agentic workflows where agents hand off to each other',
-      'Autonomous, self-improving operations with people on the exceptions',
-      'Built with you, in your context, not in a black box',
-    ],
+    body: 'A chatbot answers when you ask; an AI agent takes a goal and carries out the steps to reach it, using tools, making decisions and handing off when something needs a person. Agentic workflows chain these agents together so whole processes run without someone driving each step.',
   },
   {
     h2: 'What does an autonomous operation look like in practice?',
-    body: 'We do not just advise on this. We run a full autonomous operation end to end for a company we operate, where agents handle the day-to-day work and escalate only what needs judgement. That is the same kind of system we build for clients, grounded in what holds up in production rather than a slide deck.',
+    body: 'We do not just advise on this. We run a full autonomous operation end to end for a company we operate, where agents handle the day-to-day and escalate only what needs judgement, so what we build for you is grounded in production, not a slide deck.',
   },
   {
     h2: 'How do you build agentic workflows safely?',
-    body: 'We start narrow, with one workflow that is well understood and high volume, prove it runs reliably, then expand. You keep visibility and control throughout, with clear guardrails and human checkpoints where they matter, so autonomy never means losing oversight.',
+    body: 'We start narrow, with one well-understood, high-volume workflow, prove it runs reliably, then expand. You keep visibility and control throughout, with clear guardrails and human checkpoints where they matter.',
   },
 ];
 
-// Agentic AI vs traditional automation (RPA / scripts). Real table for high
-// citation value on "agentic AI vs automation" and "agents vs RPA" queries.
+// Agentic AI vs traditional automation (RPA / scripts). Paired contrasts:
+// rpa[i] (what doesn't work) sits opposite agentic[i] (what works).
 const COMPARISON: { dimension: string; agentic: string; rpa: string }[] = [
   {
     dimension: 'How work is defined',
@@ -89,13 +84,6 @@ const COMPARISON: { dimension: string; agentic: string; rpa: string }[] = [
     agentic: 'People handle the exceptions and the judgement calls',
     rpa: 'People babysit failures and patch the rules',
   },
-];
-
-// Required internal links per the brief: ai-implementation and fractional-head-of-ai.
-const RELATED: { label: string; href: string }[] = [
-  { label: 'Implementation & enablement', href: '/services/ai-implementation' },
-  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
-  { label: 'All AI services', href: '/services' },
 ];
 
 const FAQS: Qa[] = [
@@ -140,79 +128,12 @@ export default function AgenticAiPage() {
 
       <ContentSections sections={SECTIONS} />
 
-      {/* Agentic AI vs traditional automation - comparison table */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Compare</div>
-          <h2 className="section-title mt-3">Agentic AI vs traditional automation</h2>
-          <p className="section-sub mt-4">
-            How AI agents differ from scripted automation like RPA, across how work gets defined,
-            how each handles the unexpected, and where people fit.
-          </p>
-
-          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
-            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
-              <caption className="sr-only">
-                Agentic AI compared with traditional scripted automation across how work is defined,
-                handling the unexpected, unstructured input, improvement over time and the human role
-              </caption>
-              <thead>
-                <tr className="border-b border-border-subtle bg-bg-subtle">
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Consideration
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Agentic AI
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Traditional automation (RPA)
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map((row) => (
-                  <tr
-                    key={row.dimension}
-                    className="border-b border-border-subtle last:border-b-0 align-top"
-                  >
-                    <th scope="row" className="px-5 py-4 text-left font-semibold text-ink sm:px-6">
-                      {row.dimension}
-                    </th>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.agentic}</td>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.rpa}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Related</div>
-          <h2 className="section-title mt-3">Keep reading</h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-            {RELATED.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-center justify-between gap-3 rounded-[18px] border border-border-subtle bg-white px-5 py-5 shadow-card transition-colors hover:border-border-strong"
-              >
-                <span className="text-[15px] font-semibold leading-snug text-ink">
-                  {link.label}
-                </span>
-                <span
-                  className="flex-none text-traq-purple transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CompareNotebook
+        title="Agentic AI vs traditional automation"
+        intro="How AI agents differ from scripted automation like RPA, across how work gets defined, how each handles the unexpected, and where people fit."
+        bad={{ label: 'Traditional automation (RPA)', items: COMPARISON.map((r) => r.rpa) }}
+        good={{ label: 'Agentic AI', items: COMPARISON.map((r) => r.agentic) }}
+      />
 
       <FaqBlock
         qas={FAQS}
@@ -224,6 +145,8 @@ export default function AgenticAiPage() {
         heading="Want workflows that run without a person in the loop?"
         sub="Book a free call. We will find the workflow worth automating first. No deck, no obligation."
       />
+
+      <OtherServices currentSlug="agentic-ai" />
     </>
   );
 }

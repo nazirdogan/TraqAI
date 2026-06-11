@@ -160,7 +160,7 @@ export default function Hero() {
           className="max-w-2xl"
         >
           <motion.p variants={fade} transition={{ duration: 0.5, ease }} className="eyebrow">
-            AI training · consulting · implementation
+            AI training · consulting · implementation · UAE &amp; global
           </motion.p>
 
           <motion.h1
@@ -176,9 +176,10 @@ export default function Hero() {
             transition={{ duration: 0.6, ease }}
             className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:text-[17px] [text-wrap:pretty]"
           >
-            Most teams have AI tools they barely touch. We come in, train your people, and wire AI into
-            the way you already work, so the tools you pay for start saving real time. And we stay until
-            your team can run it without us.
+            Traq Collective is a UAE-based AI enablement partner. Most teams have AI tools they barely
+            touch, so we come in, train your people, and wire AI into the way you already work, until the
+            tools you pay for start saving real time. We run in-person workshops across Dubai and Abu
+            Dhabi, and deliver remotely worldwide.
           </motion.p>
 
           <motion.div

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
+import CompareNotebook from '@/components/page/CompareNotebook';
+import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
@@ -42,26 +43,20 @@ type Section = { h2: string; body: string; points?: string[] };
 const SECTIONS: Section[] = [
   {
     h2: 'What AI training for teams covers',
-    body: 'We start from the work your team already does, then teach the AI skills that save the most time on it. Sessions are practical and specific to each role, so a finance lead and a sales rep leave with different, directly usable habits.',
-    points: [
-      'Role-specific prompts and workflows for the tools you already pay for',
-      'Hands-on practice on your team’s real tasks, not generic demos',
-      'Guardrails for safe, accurate use so people trust the output',
-      'Capability that stays in-house after we leave',
-    ],
+    body: 'We start from the work your team already does, then teach the AI skills that save the most time on it, with guardrails for safe, accurate use. Sessions are hands-on and role-specific, so a finance lead and a sales rep each leave with directly usable habits, and the capability stays in-house.',
   },
   {
     h2: 'How our workshops work',
-    body: 'Each workshop is built for your team, not pulled off a shelf. We learn the work first, run live hands-on sessions, then check in so the new habits hold. Research shows comfort with AI nearly doubles after structured training, and people who get more than five hours of practice become regular users at far higher rates, so we design for practice, not slideware.',
+    body: 'Each workshop is built for your team, not pulled off a shelf: we learn the work first, run live hands-on sessions, then check in so the new habits hold. Comfort with AI nearly doubles after structured practice, so we design for practice, not slideware.',
   },
   {
     h2: 'AI training in the UAE',
-    body: 'We run in-person AI workshops for teams across Dubai, Abu Dhabi and the wider UAE, and deliver the same training remotely for teams anywhere. The content is built around your context and tools either way; only the delivery format changes.',
+    body: 'We run in-person workshops across Dubai, Abu Dhabi and the wider UAE, and deliver the same training remotely worldwide. The content is built around your context and tools either way; only the delivery format changes.',
   },
 ];
 
-// Guided AI training vs leaving teams to figure it out alone.
-// Real table, high citation value for "AI training vs doing it yourself".
+// Guided AI training vs leaving teams to figure it out alone. Paired contrasts:
+// diy[i] (what doesn't work) sits opposite trained[i] (what works).
 const COMPARISON: { dimension: string; trained: string; diy: string }[] = [
   {
     dimension: 'Adoption',
@@ -88,12 +83,6 @@ const COMPARISON: { dimension: string; trained: string; diy: string }[] = [
     trained: 'Habits reinforced with follow-up so they hold',
     diy: 'Early enthusiasm fades once the novelty wears off',
   },
-];
-
-const RELATED: { label: string; href: string }[] = [
-  { label: 'All AI services', href: '/services' },
-  { label: 'Consultation & strategy', href: '/services/ai-consulting' },
-  { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
 ];
 
 const FAQS: Qa[] = [
@@ -134,82 +123,12 @@ export default function AiTrainingPage() {
 
       <ContentSections sections={SECTIONS} />
 
-      {/* Guided training vs doing it yourself - comparison table */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Compare</div>
-          <h2 className="section-title mt-3">AI training vs leaving your team to figure it out</h2>
-          <p className="section-sub mt-4">
-            What changes when training is guided and built around your work, versus hoping people
-            pick it up on their own.
-          </p>
-
-          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
-            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
-              <caption className="sr-only">
-                Guided AI training compared with leaving teams to figure it out alone, across
-                adoption, relevance, safety, time to value and staying power
-              </caption>
-              <thead>
-                <tr className="border-b border-border-subtle bg-bg-subtle">
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Consideration
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Guided AI training
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Figuring it out alone
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map((row) => (
-                  <tr
-                    key={row.dimension}
-                    className="border-b border-border-subtle last:border-b-0 align-top"
-                  >
-                    <th
-                      scope="row"
-                      className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
-                    >
-                      {row.dimension}
-                    </th>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.trained}</td>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.diy}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Related</div>
-          <h2 className="section-title mt-3">Keep reading</h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-            {RELATED.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-center justify-between gap-3 rounded-[18px] border border-border-subtle bg-white px-5 py-5 shadow-card transition-colors hover:border-border-strong"
-              >
-                <span className="text-[15px] font-semibold leading-snug text-ink">
-                  {link.label}
-                </span>
-                <span
-                  className="flex-none text-traq-purple transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CompareNotebook
+        title="AI training vs leaving your team to figure it out"
+        intro="What changes when training is guided and built around your work, versus hoping people pick it up on their own."
+        bad={{ label: 'Figuring it out alone', items: COMPARISON.map((r) => r.diy) }}
+        good={{ label: 'Guided AI training', items: COMPARISON.map((r) => r.trained) }}
+      />
 
       <FaqBlock
         qas={FAQS}
@@ -221,6 +140,8 @@ export default function AiTrainingPage() {
         heading="Want your team using AI by next month?"
         sub="Book a free call. We will scope a workshop around your team’s real work. No deck, no obligation."
       />
+
+      <OtherServices currentSlug="ai-training" />
     </>
   );
 }

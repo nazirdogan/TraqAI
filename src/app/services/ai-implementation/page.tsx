@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
+import CompareNotebook from '@/components/page/CompareNotebook';
+import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
@@ -42,26 +43,20 @@ type Section = { h2: string; body: string; points?: string[] };
 const SECTIONS: Section[] = [
   {
     h2: 'What AI implementation involves',
-    body: 'We connect AI to the systems you already run, so it shows up where the work happens instead of in a separate tab nobody opens. That means the right prompts, the right access, and the guardrails that keep output accurate and safe, all built into your existing tools.',
-    points: [
-      'AI wired into the tools and workflows you already pay for',
-      'Prompts, templates and guardrails for safe, accurate use',
-      'Access and permissions set up so the right people can use it',
-      'Adoption support so the team uses it, not a handover doc',
-    ],
+    body: 'We connect AI to the systems you already run, so it shows up where the work happens instead of in a separate tab nobody opens. That means the right prompts, access and guardrails for safe, accurate use, plus the adoption support that makes the team actually use it.',
   },
   {
     h2: 'How we make adoption stick',
-    body: 'A tool nobody uses is not implemented. We roll out in stages, train the people who will use it on their real tasks, and stay close while the habits form. We measure adoption and the hours saved, then adjust, so the capability holds after we step back.',
+    body: 'A tool nobody uses is not implemented. We roll out in stages, train people on their real tasks, and measure adoption and hours saved, so the capability holds after we step back.',
   },
   {
     h2: 'From plan to working capability',
-    body: 'If you already have a roadmap, we build and embed it. If you do not, we can audit first through our consulting and strategy service, then implement. Either way you end up owning what we build, with your team able to run and extend it.',
+    body: 'If you already have a roadmap, we build and embed it; if you do not, we can audit first, then implement. Either way you end up owning what we build, with your team able to run and extend it.',
   },
 ];
 
-// Implementation that sticks vs a one-off setup the team never adopts.
-// Real table, high citation value for "AI implementation vs DIY / handover".
+// Embedded AI with adoption vs a one-off setup nobody opens. Paired contrasts:
+// handover[i] (what doesn't work) sits opposite embedded[i] (what works).
 const COMPARISON: { dimension: string; embedded: string; handover: string }[] = [
   {
     dimension: 'Where AI lives',
@@ -88,12 +83,6 @@ const COMPARISON: { dimension: string; embedded: string; handover: string }[] = 
     embedded: 'Adoption and hours saved are measured and reported',
     handover: 'No baseline, so nobody knows if it helped',
   },
-];
-
-const RELATED: { label: string; href: string }[] = [
-  { label: 'AI training', href: '/services/ai-training' },
-  { label: 'Agentic AI', href: '/services/agentic-ai' },
-  { label: 'Consultation & strategy', href: '/services/ai-consulting' },
 ];
 
 const FAQS: Qa[] = [
@@ -134,82 +123,12 @@ export default function AiImplementationPage() {
 
       <ContentSections sections={SECTIONS} />
 
-      {/* AI that gets embedded vs a one-off setup - comparison table */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Compare</div>
-          <h2 className="section-title mt-3">Embedded AI vs a one-off setup nobody adopts</h2>
-          <p className="section-sub mt-4">
-            What changes when AI is wired into your real workflows and owned by your team, versus a
-            one-time setup handed over in a doc.
-          </p>
-
-          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
-            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
-              <caption className="sr-only">
-                Embedded AI implementation compared with a one-off handover, across where AI lives,
-                adoption, safety, ownership and proof it worked
-              </caption>
-              <thead>
-                <tr className="border-b border-border-subtle bg-bg-subtle">
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Consideration
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Embedded with adoption
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    One-off setup and handover
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map((row) => (
-                  <tr
-                    key={row.dimension}
-                    className="border-b border-border-subtle last:border-b-0 align-top"
-                  >
-                    <th
-                      scope="row"
-                      className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
-                    >
-                      {row.dimension}
-                    </th>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.embedded}</td>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.handover}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Related</div>
-          <h2 className="section-title mt-3">Keep reading</h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-            {RELATED.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-center justify-between gap-3 rounded-[18px] border border-border-subtle bg-white px-5 py-5 shadow-card transition-colors hover:border-border-strong"
-              >
-                <span className="text-[15px] font-semibold leading-snug text-ink">
-                  {link.label}
-                </span>
-                <span
-                  className="flex-none text-traq-purple transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CompareNotebook
+        title="Embedded AI vs a one-off setup nobody adopts"
+        intro="What changes when AI is wired into your real workflows and owned by your team, versus a one-time setup handed over in a doc."
+        bad={{ label: 'One-off setup & handover', items: COMPARISON.map((r) => r.handover) }}
+        good={{ label: 'Embedded, with adoption', items: COMPARISON.map((r) => r.embedded) }}
+      />
 
       <FaqBlock
         qas={FAQS}
@@ -221,6 +140,8 @@ export default function AiImplementationPage() {
         heading="Know what to do but need it built and adopted?"
         sub="Book a free call. We will wire AI into your real workflows and make sure the team uses it. No deck, no obligation."
       />
+
+      <OtherServices currentSlug="ai-implementation" />
     </>
   );
 }

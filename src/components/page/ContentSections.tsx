@@ -47,7 +47,7 @@ export default function ContentSections({ sections, eyebrow, heading, intro, foo
           </div>
         )}
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {sections.map((section, i) => (
             <article key={section.h2} className="note-card flex flex-col">
               <div className="flex items-baseline gap-3">

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SERVICES } from '@/lib/constants';
 import ServiceIcon from '@/components/ui/ServiceIcon';
@@ -32,33 +33,35 @@ export default function Services() {
           className="grid auto-rows-fr gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
         >
           {SERVICES.map((s) => (
-            <motion.div
-              key={s.slug}
-              id={s.slug}
-              variants={card}
-              transition={{ duration: 0.5, ease }}
-              className="service-card"
-            >
-              <div className="service-icon">
-                <ServiceIcon slug={s.slug} />
-              </div>
-              <h3 className="m-0 text-[20px] font-semibold leading-tight tracking-tight text-ink sm:text-[22px]">
-                {s.title}
-              </h3>
-              <p className="mt-2.5 text-[13px] leading-relaxed text-ink-soft [text-wrap:pretty]">
-                {s.tagline}
-              </p>
-              <ul className="mt-5 flex list-none flex-col gap-2 p-0">
-                {s.bullets.map((b) => (
-                  <li
-                    key={b}
-                    className="flex items-start gap-2.5 text-[13px] leading-snug text-ink-soft"
-                  >
-                    <span className="mt-[7px] block h-[5px] w-[5px] flex-none rounded-full bg-traq-purple" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
+            <motion.div key={s.slug} id={s.slug} variants={card} transition={{ duration: 0.5, ease }}>
+              <Link href={`/services/${s.slug}`} className="service-card group h-full">
+                <div className="service-icon">
+                  <ServiceIcon slug={s.slug} />
+                </div>
+                <h3 className="m-0 text-[20px] font-semibold leading-tight tracking-tight text-ink sm:text-[22px]">
+                  {s.title}
+                </h3>
+                <p className="mt-2.5 text-[13px] leading-relaxed text-ink-soft [text-wrap:pretty]">
+                  {s.tagline}
+                </p>
+                <ul className="mt-5 flex list-none flex-col gap-2 p-0">
+                  {s.bullets.map((b) => (
+                    <li
+                      key={b}
+                      className="flex items-start gap-2.5 text-[13px] leading-snug text-ink-soft"
+                    >
+                      <span className="mt-[7px] block h-[5px] w-[5px] flex-none rounded-full bg-traq-purple" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[13px] font-semibold text-traq-purple transition-colors group-hover:text-traq-purple-ink">
+                  Explore {s.title}
+                  <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </span>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

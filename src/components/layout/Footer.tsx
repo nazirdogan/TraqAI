@@ -17,12 +17,10 @@ const FOOTER_NAV = [
     heading: 'Services',
     links: [
       { label: 'All services', href: '/services' },
-      { label: 'AI training', href: '/services/ai-training' },
-      { label: 'Consulting & strategy', href: '/services/ai-consulting' },
-      { label: 'Implementation', href: '/services/ai-implementation' },
+      { label: 'AI Training & Workshops', href: '/services/ai-training' },
+      { label: 'Consultation & Strategy', href: '/services/ai-consulting' },
+      { label: 'Implementation & Enablement', href: '/services/ai-implementation' },
       { label: 'Agentic AI', href: '/services/agentic-ai' },
-      { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
-      { label: 'AI consulting in the UAE', href: '/ai-consulting-uae' },
     ],
   },
   {

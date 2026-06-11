@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero';
+import LocalBand from '@/components/sections/LocalBand';
 import TrustedBy from '@/components/sections/TrustedBy';
 import Problem from '@/components/sections/Problem';
 import Services from '@/components/sections/Services';
@@ -21,6 +22,7 @@ export default function HomePage() {
     <div className="relative">
       <JourneySpine />
       <Hero />
+      <LocalBand />
       <TrustedBy />
       <Problem />
       <Services />

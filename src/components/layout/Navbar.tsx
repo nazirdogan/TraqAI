@@ -11,15 +11,13 @@ import { cn } from '@/lib/cn';
 
 type NavLink = { label: string; href: string };
 
-// Real routes (full pages), not in-page anchors.
+// The four core services — the only items in the Services dropdown. The parent
+// "Services" label still links to the /services hub.
 const SERVICE_LINKS: NavLink[] = [
-  { label: 'All services', href: '/services' },
-  { label: 'AI training', href: '/services/ai-training' },
-  { label: 'Consulting & strategy', href: '/services/ai-consulting' },
-  { label: 'Implementation', href: '/services/ai-implementation' },
+  { label: 'AI Training & Workshops', href: '/services/ai-training' },
+  { label: 'Consultation & Strategy', href: '/services/ai-consulting' },
+  { label: 'Implementation & Enablement', href: '/services/ai-implementation' },
   { label: 'Agentic AI', href: '/services/agentic-ai' },
-  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
-  { label: 'AI consulting in the UAE', href: '/ai-consulting-uae' },
 ];
 
 // Top-level links shown after the Services dropdown. Kept lean: About,
@@ -65,10 +63,7 @@ export default function Navbar() {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // The route-active item: Services when on any services route, otherwise none.
-  const onServices =
-    pathname?.startsWith('/services') ||
-    pathname === '/fractional-head-of-ai' ||
-    pathname === '/ai-consulting-uae';
+  const onServices = pathname?.startsWith('/services') ?? false;
   const routeActive = onServices ? 'Services' : null;
   // The lamp lights the hovered item, else the open dropdown, else the route.
   const lit = hovered ?? (servicesOpen ? 'Services' : routeActive);

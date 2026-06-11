@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
+import CompareNotebook from '@/components/page/CompareNotebook';
+import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
@@ -42,27 +43,20 @@ type Section = { h2: string; body: string; points?: string[] };
 const SECTIONS: Section[] = [
   {
     h2: 'What does an AI consultant actually do?',
-    body: 'A good AI consultant finds where AI saves your team real hours, decides what to do first, and sets the guardrails so people use it safely. The job is not to name a few tools and leave. We do this work alongside your team, in your own tools, so the plan fits how you actually operate.',
-    points: [
-      'An AI audit of your tools, workflows and where time is lost',
-      'A prioritised roadmap, sequenced by payoff and effort',
-      'Vendor and tooling decisions made for your context',
-      'Senior direction embedded with your team, not from behind a deck',
-    ],
+    body: 'A good AI consultant finds where AI saves your team real hours, decides what to do first, and sets the guardrails for safe use, working in your own tools rather than from behind a deck. You get an audit, a prioritised roadmap and senior direction your people can actually run.',
   },
   {
     h2: 'How do Traq AI strategy engagements work?',
-    body: 'We start with a fast, fixed-scope audit so you see value before any long commitment. From there we set the strategy, agree what we are moving first, and put a number on it: hours saved, tools adopted, work shipped. You keep everything we build, and your team learns to run it without us.',
+    body: 'We start with a fast, fixed-scope audit so you see value before any long commitment, then set the strategy and put a number on it: hours saved, tools adopted, work shipped. You keep everything we build, and your team learns to run it without us.',
   },
   {
     h2: 'Do I need AI consulting or a fractional Head of AI?',
-    body: 'A short consulting engagement is right when you need direction and a plan. If you want that senior leadership on an ongoing basis, embedded part-time to set strategy and lead the rollout, that is our embedded AI partner engagement, the partner alternative people search for as a fractional Head of AI. Many teams start with a consult and move into the embedded partnership once there is a plan.',
+    body: 'Consulting is right when you need direction and a plan. If you want that senior leadership on an ongoing basis, embedded part-time to set strategy and lead the rollout, that is our embedded AI partner engagement, the alternative people search for as a fractional Head of AI.',
   },
 ];
 
-// AI consultant vs AI agency: the core "who should I hire" comparison.
-// Real table, high citation value for "AI consultant vs AI agency" queries
-// and reinforces the practitioner wedge from the spec.
+// AI consultant (Traq) vs AI agency. Paired contrasts: agency[i] (what doesn't
+// work for you) sits opposite consultant[i] (what works).
 const COMPARISON: { dimension: string; consultant: string; agency: string }[] = [
   {
     dimension: 'What you get',
@@ -89,12 +83,6 @@ const COMPARISON: { dimension: string; consultant: string; agency: string }[] = 
     consultant: 'A number on every engagement: hours saved, tools adopted',
     agency: 'Measured by hours billed or features delivered',
   },
-];
-
-const RELATED: { label: string; href: string }[] = [
-  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
-  { label: 'Implementation & enablement', href: '/services/ai-implementation' },
-  { label: 'All AI services', href: '/services' },
 ];
 
 const FAQS: Qa[] = [
@@ -139,79 +127,12 @@ export default function AiConsultingPage() {
 
       <ContentSections sections={SECTIONS} />
 
-      {/* AI consultant vs AI agency - comparison table (high citation value) */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Compare</div>
-          <h2 className="section-title mt-3">AI consultant vs AI agency: which do you need?</h2>
-          <p className="section-sub mt-4">
-            Both can help. The difference is who ends up owning the capability and how fast you see
-            value.
-          </p>
-
-          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
-            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
-              <caption className="sr-only">
-                An AI consultant compared with an AI agency across what you get, how it is delivered,
-                where the capability lands, speed to value and accountability
-              </caption>
-              <thead>
-                <tr className="border-b border-border-subtle bg-bg-subtle">
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Consideration
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    AI consultant (Traq)
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    AI agency
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map((row) => (
-                  <tr
-                    key={row.dimension}
-                    className="border-b border-border-subtle last:border-b-0 align-top"
-                  >
-                    <th scope="row" className="px-5 py-4 text-left font-semibold text-ink sm:px-6">
-                      {row.dimension}
-                    </th>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.consultant}</td>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.agency}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Related</div>
-          <h2 className="section-title mt-3">Keep reading</h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-            {RELATED.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-center justify-between gap-3 rounded-[18px] border border-border-subtle bg-white px-5 py-5 shadow-card transition-colors hover:border-border-strong"
-              >
-                <span className="text-[15px] font-semibold leading-snug text-ink">
-                  {link.label}
-                </span>
-                <span
-                  className="flex-none text-traq-purple transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CompareNotebook
+        title="AI consultant vs AI agency: which do you need?"
+        intro="Both can help. The difference is who ends up owning the capability and how fast you see value."
+        bad={{ label: 'An AI agency', items: COMPARISON.map((r) => r.agency) }}
+        good={{ label: 'An AI consultant (Traq)', items: COMPARISON.map((r) => r.consultant) }}
+      />
 
       <FaqBlock
         qas={FAQS}
@@ -223,6 +144,8 @@ export default function AiConsultingPage() {
         heading="Need a plan and senior direction on AI?"
         sub="Book a free call. We will find where AI saves your team the most time. No deck, no obligation."
       />
+
+      <OtherServices currentSlug="ai-consulting" />
     </>
   );
 }

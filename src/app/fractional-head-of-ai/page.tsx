@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
+import CompareNotebook from '@/components/page/CompareNotebook';
+import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
@@ -53,30 +55,21 @@ type Section = { h2: string; body: string; points?: string[] };
 const SECTIONS: Section[] = [
   {
     h2: 'What is a fractional Head of AI, and do you need one?',
-    body: 'A fractional Head of AI is how people search for senior, part-time AI leadership: someone who sets the strategy, decides which tools to back, leads the rollout and puts guardrails in place. We deliver exactly that, but as a partner, not an employee. We work with your team to build the capability, then leave it with them. You get the seniority without a headcount, a job title or a year-long hire to manage.',
-    points: [
-      'Sets the AI strategy and sequences the work by payoff',
-      'Makes vendor and tooling decisions for your context',
-      'Leads training and rollout so adoption actually happens',
-      'Owns guardrails, safe use and outcomes you can measure',
-    ],
+    body: 'A fractional Head of AI is how people search for senior, part-time AI leadership: someone who sets the strategy, picks the tools, leads the rollout and owns the guardrails. We deliver exactly that, but as a partner rather than an employee, so you get the seniority without a headcount, a job title or a year-long hire to manage.',
   },
   {
     h2: 'What an embedded AI partner does',
-    body: 'We work with you, not for you. We sit alongside your team in your own tools, set the direction together, and prioritise the work that pays off first. We are your partner and consultants, accountable to outcomes, not a new role on your org chart. You keep everything we build, and your team learns to run it without us.',
+    body: 'We work with you, not for you: sitting alongside your team in your own tools, setting the direction together, and prioritising the work that pays off first. We stay accountable to outcomes, not a new role on your org chart, and you keep everything we build.',
   },
   {
     h2: 'What it costs and how engagements work',
-    body: 'We do not publish prices, because the right scope depends on your team and goals. We start with a fast, fixed-scope audit so you see value before any long commitment, then move into the embedded partnership at a cadence that fits. We agree what we are moving and put a number on it. You keep everything we build, and we take on a limited number of partners each quarter so every team gets senior attention.',
-  },
-  {
-    h2: 'What you get in the first 90 days',
-    body: 'Our engagement follows a clear path: audit and map where AI saves the most time, train your team on the workflows that matter, then implement and embed AI into daily work with guardrails. By day 90 we measure adoption and impact and your team owns the capability.',
+    body: 'We do not publish prices, because the right scope depends on your team and goals. We start with a fast, fixed-scope audit so you see value first, then move into the partnership at a cadence that fits, following a clear path from audit to trained team to embedded, measured AI by day 90.',
   },
 ];
 
 // Hiring a Head of AI vs an embedded AI partner. Intercepts the
-// "do I need to hire one?" crowd. Real table, high citation value.
+// "do I need to hire one?" crowd. Paired contrasts: hire[i] (what doesn't work)
+// sits opposite partner[i] (what works).
 const COMPARISON: { dimension: string; partner: string; hire: string }[] = [
   {
     dimension: 'Time to value',
@@ -103,12 +96,6 @@ const COMPARISON: { dimension: string; partner: string; hire: string }[] = [
     partner: 'We build it into your people and make ourselves redundant',
     hire: 'Capability tied to one person who may move on',
   },
-];
-
-const RELATED: { label: string; href: string }[] = [
-  { label: 'Consultation & strategy', href: '/services/ai-consulting' },
-  { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
-  { label: 'About Traq Collective', href: '/about' },
 ];
 
 const FAQS: Qa[] = [
@@ -167,84 +154,12 @@ export default function FractionalHeadOfAiPage() {
         }
       />
 
-      {/* Intercept: hiring a Head of AI vs an embedded AI partner - comparison table */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Compare</div>
-          <h2 className="section-title mt-3">
-            Hiring a Head of AI vs an embedded AI partner
-          </h2>
-          <p className="section-sub mt-4">
-            Both give you senior AI leadership. The difference is how fast you see value, how much
-            you spend, the risk you take on, and where the capability ends up.
-          </p>
-
-          <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
-            <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
-              <caption className="sr-only">
-                Hiring a full-time Head of AI compared with an embedded AI partner across time to
-                value, cost, risk, flexibility and whether the capability stays in your team
-              </caption>
-              <thead>
-                <tr className="border-b border-border-subtle bg-bg-subtle">
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Consideration
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Embedded AI partner (Traq)
-                  </th>
-                  <th scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                    Hiring a Head of AI
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARISON.map((row) => (
-                  <tr
-                    key={row.dimension}
-                    className="border-b border-border-subtle last:border-b-0 align-top"
-                  >
-                    <th
-                      scope="row"
-                      className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
-                    >
-                      {row.dimension}
-                    </th>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.partner}</td>
-                    <td className="px-5 py-4 text-ink-soft sm:px-6">{row.hire}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Related</div>
-          <h2 className="section-title mt-3">Keep reading</h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-            {RELATED.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-center justify-between gap-3 rounded-[18px] border border-border-subtle bg-white px-5 py-5 shadow-card transition-colors hover:border-border-strong"
-              >
-                <span className="text-[15px] font-semibold leading-snug text-ink">
-                  {link.label}
-                </span>
-                <span
-                  className="flex-none text-traq-purple transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CompareNotebook
+        title="Hiring a Head of AI vs an embedded AI partner"
+        intro="Both give you senior AI leadership. The difference is how fast you see value, how much you spend, the risk you take on, and where the capability ends up."
+        bad={{ label: 'Hiring a Head of AI', items: COMPARISON.map((r) => r.hire) }}
+        good={{ label: 'An embedded AI partner', items: COMPARISON.map((r) => r.partner) }}
+      />
 
       <FaqBlock
         qas={FAQS}
@@ -256,6 +171,8 @@ export default function FractionalHeadOfAiPage() {
         heading="Want senior AI leadership without a full-time hire?"
         sub="Book a free call. We will scope an embedded partnership to your team. No deck, no obligation."
       />
+
+      <OtherServices />
     </>
   );
 }

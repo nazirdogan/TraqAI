@@ -173,7 +173,7 @@ export const COMPANY = {
   email: 'hello@traqcollective.com',
   phone: '+971 50 868 7196',
   whatsapp: '+971 50 868 7196',
-  location: 'Remote-first · Global delivery',
+  location: 'UAE-based · Dubai & Abu Dhabi · Global delivery',
   tagline: 'We help your team actually use the AI you already pay for.',
 };
 

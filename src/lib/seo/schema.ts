@@ -46,7 +46,16 @@ export function organization(): JsonLdObject {
     url: SITE_URL,
     logo: LOGO_URL,
     description:
-      'Traq Collective helps your team actually use the AI you already pay for: hands-on training, consulting as your embedded AI partner, implementation, and agentic infrastructure.',
+      'Traq Collective is a UAE-based AI enablement partner that helps your team actually use the AI you already pay for: hands-on training, consulting as your embedded AI partner, implementation, and agentic infrastructure. We deliver in person across Dubai and Abu Dhabi, and remotely worldwide.',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'AE',
+      addressRegion: 'Dubai',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'United Arab Emirates' },
+      { '@type': 'Place', name: 'Worldwide' },
+    ],
     sameAs: ORG_SAME_AS,
     contactPoint: {
       '@type': 'ContactPoint',

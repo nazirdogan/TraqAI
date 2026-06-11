@@ -95,12 +95,6 @@ const COMPARISON: { situation: string; service: string; href: string }[] = [
   },
 ];
 
-const RELATED: { label: string; href: string }[] = [
-  { label: 'Embedded AI Partner', href: '/fractional-head-of-ai' },
-  { label: 'AI consulting and training in the UAE', href: '/ai-consulting-uae' },
-  { label: 'About Traq Collective', href: '/about' },
-];
-
 // Visible FAQ mirrors the FAQPage schema exactly.
 const FAQS: Qa[] = [
   {
@@ -224,33 +218,6 @@ export default function ServicesHubPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Related pages - internal links, no dead ends */}
-      <section className="bg-bg-base px-5 py-14 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="eyebrow eyebrow-accent">Related</div>
-          <h2 className="section-title mt-3 max-w-2xl">Keep reading</h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-            {RELATED.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-center justify-between gap-3 rounded-[18px] border border-border-subtle bg-white px-5 py-5 shadow-card transition-colors hover:border-border-strong"
-              >
-                <span className="text-[15px] font-semibold leading-snug text-ink">
-                  {link.label}
-                </span>
-                <span
-                  className="flex-none text-traq-purple transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  &rarr;
-                </span>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

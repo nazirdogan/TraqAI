@@ -45,13 +45,7 @@ type Section = { h2: string; body: string; points?: string[] };
 const SECTIONS: Section[] = [
   {
     h2: 'AI training for UAE teams',
-    body: 'We run hands-on, role-specific AI workshops on site with your team across Dubai, Abu Dhabi and the wider UAE. People practise on their own work, so they leave able to use AI in their job rather than holding a certificate that changes nothing day to day.',
-    points: [
-      'In-person workshops in Dubai, Abu Dhabi and across the UAE',
-      'Role-specific training on the tools your team already pays for',
-      'An embedded AI partner working with your leadership',
-      'Implementation that wires AI into your real workflows',
-    ],
+    body: 'We run hands-on, role-specific AI workshops on site with your team across Dubai, Abu Dhabi and the wider UAE. People practise on their own work, so they leave able to use AI in their job, not holding a certificate that changes nothing day to day.',
   },
   {
     h2: 'Why local context matters',
