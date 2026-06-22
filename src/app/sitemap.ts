@@ -112,6 +112,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/workbook/consultant`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
     ...articleRoutes,
     {
       url: `${SITE_URL}/privacy`,

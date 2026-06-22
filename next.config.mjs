@@ -6,14 +6,16 @@ const nextConfig = {
   },
   // Serve the standalone interactive workbooks (static files in /public) at
   // clean URLs. One per ManyChat flow. The .html paths keep working too.
-  //   /workbook          -> established teams adopting AI
-  //   /workbook/upskill  -> individuals levelling up their own AI skills
-  //   /workbook/start    -> new founders running lean with AI before hiring
+  //   /workbook            -> established teams adopting AI
+  //   /workbook/upskill    -> individuals levelling up their own AI skills
+  //   /workbook/start      -> new founders running lean with AI before hiring
+  //   /workbook/consultant -> AI agencies repositioning from builds to advisory
   async rewrites() {
     return [
       { source: '/workbook', destination: '/workbook.html' },
       { source: '/workbook/upskill', destination: '/workbook-upskill.html' },
       { source: '/workbook/start', destination: '/workbook-start.html' },
+      { source: '/workbook/consultant', destination: '/workbook-consultant.html' },
     ];
   },
 };
