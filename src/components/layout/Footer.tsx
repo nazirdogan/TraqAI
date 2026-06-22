@@ -29,6 +29,7 @@ const FOOTER_NAV = [
       { label: 'About', href: '/about' },
       { label: 'Insights', href: '/insights' },
       { label: 'AI readiness assessment', href: '/ai-readiness' },
+      { label: 'Repositioning workbook', href: '/workbook' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Book a call', href: '/book' },
       { label: 'Contact', href: '/#contact' },
@@ -67,12 +68,24 @@ export default function Footer() {
               <ul className="mt-5 space-y-3">
                 {group.links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-ink-soft transition-colors hover:text-traq-purple"
-                    >
-                      {link.label}
-                    </Link>
+                    {/* /workbook is a standalone static page (served from /public
+                        via a rewrite), so it uses a plain anchor for a clean
+                        full-page navigation rather than a client-side route. */}
+                    {link.href === '/workbook' ? (
+                      <a
+                        href={link.href}
+                        className="text-sm text-ink-soft transition-colors hover:text-traq-purple"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-ink-soft transition-colors hover:text-traq-purple"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

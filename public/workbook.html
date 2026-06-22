@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Consultant Repositioning Workbook · Traq Collective</title>
+<meta name="description" content="A free 10-minute workbook that scores whether you run like an AI agency or an AI consultant, then builds your repositioned offer, pricing ladder, and the exact three moves to go from paper to paid.">
+<link rel="canonical" href="https://traqcollective.com/workbook">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The AI Consultant Repositioning Workbook">
+<meta property="og:description" content="Stop building an AI agency. Become an AI consultant. A free diagnostic and offer-builder by Nazir Dogan at Traq Collective.">
+<meta property="og:url" content="https://traqcollective.com/workbook">
+<meta property="og:site_name" content="Traq Collective">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Traq brand */
+    --traq-purple:#5B3FE4; --traq-light:#7C63F0; --traq-dim:#3D2BAA; --traq-deep:#2A1D7A;
+    --traq-purple-ink:#4A30C9; --traq-tint:#F3F0FF;
+    /* Light surfaces + ink */
+    --bg:#FFFFFF; --bg-subtle:#FAFAFA;
+    --ink:#141414; --ink-soft:#555555; --ink-faint:#8A8A8A;
+    --line:#ECECEC; --line-strong:#DADADA;
+    /* Status */
+    --success:#1F9D55; --warning:#D9923B; --danger:#D14343;
+    /* Back-compat aliases referenced inline below */
+    --red:#D14343; --green:#1F9D55;
+    --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+    --shadow-hover:0 2px 4px rgba(20,20,20,.06),0 12px 28px rgba(20,20,20,.10);
+    --grid:linear-gradient(to right,rgba(91,63,228,.045) 1px,transparent 1px),
+           linear-gradient(to bottom,rgba(91,63,228,.045) 1px,transparent 1px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    font-feature-settings:'cv02','cv03','cv04','cv11'}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  a{color:var(--traq-purple)}
+  ::selection{background:rgba(91,63,228,.18);color:#141414}
+  :focus-visible{outline:2px solid var(--traq-purple);outline-offset:2px;border-radius:4px}
+
+  /* TOP BAR */
+  .topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+    position:sticky;top:0;z-index:40}
+  .topbar .wrap{max-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px}
+  .topbar img{height:26px;width:auto;display:block}
+  .topbar .right{display:flex;align-items:center;gap:18px}
+  .topbar .back{font-size:13.5px;font-weight:600;color:var(--ink-soft);text-decoration:none}
+  .topbar .back:hover{color:var(--traq-purple)}
+  .topbar .book{display:inline-flex;align-items:center;gap:7px;background:var(--traq-purple);color:#fff;text-decoration:none;
+    font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;box-shadow:var(--shadow);transition:.18s}
+  .topbar .book:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+
+  /* HERO */
+  .hero{background:var(--bg);background-image:var(--grid);background-size:28px 28px;
+    border-bottom:1px solid var(--line);padding:64px 0 56px}
+  .hero .kick{color:var(--traq-purple);font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 18px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.08;margin:0;font-weight:800;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+  .hero h1 .accent{color:var(--traq-purple)}
+  .hero p{color:var(--ink-soft);font-size:17px;max-width:640px;margin:22px 0 0;text-wrap:pretty}
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;max-width:680px}
+  .contrast div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .contrast h4{margin:0 0 10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .contrast.trap h4{color:var(--danger)}.contrast .edge h4{color:var(--traq-purple)}
+  .contrast ul{margin:0;padding-left:16px;color:var(--ink-soft);font-size:13.5px}
+  .contrast li{margin:3px 0}
+  .by{margin-top:30px;color:var(--ink-faint);font-size:14px}.by b{color:var(--ink)}
+
+  /* SECTIONS */
+  section{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);padding:30px 30px 34px 36px;margin:26px 0;overflow:hidden}
+  section::before{content:'';position:absolute;inset:16px auto 16px 16px;width:1.5px;border-radius:2px;background:rgba(91,63,228,.22)}
+  section.locked{opacity:.5;pointer-events:none;filter:grayscale(.3)}
+  .step{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+  .num{width:32px;height:32px;border-radius:50%;background:var(--traq-purple);color:#fff;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+  .step h2{font-size:21px;margin:0;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .lead{color:var(--ink-soft);margin:4px 0 22px;font-size:15px}
+  label.f{display:block;font-weight:700;font-size:14.5px;margin:18px 0 4px;color:var(--ink)}
+  .hint{color:var(--ink-faint);font-size:12.5px;margin:0 0 8px}
+  input[type=text],textarea{width:100%;border:1px solid var(--line);background:var(--bg-subtle);
+    border-radius:10px;padding:11px 13px;font:inherit;color:var(--ink);resize:vertical}
+  input[type=text]::placeholder,textarea::placeholder{color:#aab0b8}
+  input[type=text]:focus,textarea:focus{outline:none;border-color:var(--traq-purple);
+    background:#fff;box-shadow:0 0 0 3px rgba(91,63,228,.14)}
+  textarea{min-height:54px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  /* SCORECARD (multi-option) */
+  .qblock{padding:16px 0;border-bottom:1px solid var(--line)}
+  .qblock:last-child{border-bottom:none}
+  .qtitle{font-weight:800;font-size:15px;margin:0 0 11px;display:flex;gap:9px;align-items:center;color:var(--ink)}
+  .qtitle .dot{width:7px;height:7px;border-radius:50%;background:var(--traq-purple);flex:0 0 auto}
+  .opts{display:grid;gap:8px}
+  .opt{display:flex;align-items:center;gap:11px;border:1.5px solid var(--line);border-radius:12px;
+    padding:11px 14px;cursor:pointer;background:#fff;font-size:14px;color:var(--ink);transition:.14s}
+  .opt:hover{border-color:var(--traq-light);background:var(--traq-tint)}
+  .opt input{accent-color:var(--traq-purple);width:17px;height:17px;flex:0 0 auto;margin:0}
+  .opt.sel{border-color:var(--traq-purple);background:var(--traq-tint);font-weight:600}
+  .opt .tag{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.5px;padding:2px 8px;
+    border-radius:999px;opacity:0;transition:.14s;white-space:nowrap}
+  .opt.sel .tag{opacity:1}
+  .opt.sel .tag.ag{background:#FBE7E7;color:#9c2a2a}
+  .opt.sel .tag.co{background:#E3F4EA;color:#0f6b3c}
+  .opt.sel .tag.mid{background:var(--traq-tint);color:var(--traq-purple-ink)}
+
+  /* SCORE REVEAL */
+  #scoreCard{display:none;margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    animation:pop .45s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .score-top{background:var(--traq-purple);color:#fff;padding:24px 26px}
+  .score-top .lbl{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+  .score-num{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+  .score-num b{font-size:42px;font-weight:800;line-height:1}
+  .score-num span{font-size:16px;color:rgba(255,255,255,.8);font-weight:700}
+  .meter{margin:16px 0 6px;height:12px;border-radius:999px;position:relative;
+    background:linear-gradient(90deg,var(--danger) 0%,var(--warning) 50%,var(--success) 100%)}
+  .meter .marker{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:#fff;
+    border:3px solid var(--traq-purple);transform:translate(-50%,-50%);box-shadow:0 2px 6px rgba(0,0,0,.3);transition:left .5s}
+  .meter-labels{display:flex;justify-content:space-between;color:rgba(255,255,255,.8);font-size:11.5px;font-weight:700}
+  .score-body{background:#fff;padding:20px 26px 22px}
+  .score-body .band{font-size:17px;font-weight:800;margin:0 0 6px;color:var(--ink)}
+  .score-body p{margin:0;color:var(--ink-soft);font-size:14.5px}
+  /* revenue block (growth mode) */
+  #revBlock{display:none;margin-top:18px;background:var(--traq-tint);border:1px solid #d9d0fb;
+    border-radius:12px;padding:16px 18px}
+  #revBlock h4{margin:0 0 4px;font-size:14px;color:var(--traq-purple-ink)}
+  #revBlock p{margin:0 0 12px;font-size:12.5px;color:var(--ink-soft)}
+
+  /* PRICING */
+  .tier{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0;
+    display:grid;grid-template-columns:1fr 150px;gap:14px;align-items:center}
+  .tier.core{border:1.5px solid var(--traq-purple);background:var(--traq-tint)}
+  .tier h4{margin:0 0 3px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+  .tier.core h4{color:var(--traq-purple-ink)}
+  .tier p{margin:0;color:var(--ink-soft);font-size:12.5px}
+
+  /* RESULTS */
+  .summary{background:var(--traq-purple);color:#fff;border-radius:16px;padding:24px 26px;margin:6px 0 4px}
+  .summary .lbl{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px}
+  .summary .oneliner{font-size:19px;font-weight:700;line-height:1.45;margin:0;outline:none}
+  .summary .oneliner:focus{box-shadow:0 0 0 2px rgba(255,255,255,.4);border-radius:6px}
+  .summary .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+  .summary .chip{background:rgba(255,255,255,.14);border-radius:999px;padding:6px 13px;font-size:12.5px;color:rgba(255,255,255,.85)}
+  .summary .chip b{color:#fff}
+  .moves-intro{color:var(--ink-soft);font-size:14px;margin:24px 0 14px}
+  .move{display:grid;grid-template-columns:36px 1fr;gap:14px;border:1px solid var(--line);
+    border-radius:14px;padding:16px;margin:12px 0;background:#fff;box-shadow:var(--shadow)}
+  .move .mn{width:30px;height:30px;border-radius:50%;background:var(--traq-purple);color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center}
+  .move .mt{font-weight:800;font-size:15.5px;margin:0 0 7px;border:none;width:100%;background:transparent;color:var(--ink)}
+  .move .mt:focus{outline:none}
+  .move textarea.md{min-height:56px;font-size:14px}
+  .move .when{display:flex;align-items:center;gap:8px;margin-top:9px}
+  .move .when label{font-size:12.5px;font-weight:700;color:var(--ink-soft)}
+  .move .when input{max-width:170px;background:#fff}
+
+  /* CTA — pale-purple tint panel, matches the site CTA */
+  .cta{background:var(--traq-tint);color:var(--ink);border-radius:20px;padding:30px 32px;margin:26px 0;
+    border:1px solid var(--line);border-left:5px solid var(--traq-purple)}
+  .cta .lbl{color:var(--traq-purple);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+  .cta h3{margin:0 0 8px;font-size:23px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .cta p{color:var(--ink-soft);margin:0 0 18px;max-width:560px}
+  .cta a.btn{display:inline-flex;align-items:center;gap:8px;background:var(--traq-purple);color:#fff;text-decoration:none;
+    font-weight:700;padding:13px 26px;border-radius:999px;font-size:15px;box-shadow:var(--shadow);transition:.18s}
+  .cta a.btn:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .cta .note{color:var(--ink-faint);font-size:13px;margin-left:14px}
+
+  /* ACTION BAR */
+  .bar{position:sticky;bottom:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);padding:12px 0;margin-top:30px}
+  .bar .wrap{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .bar button{font:inherit;font-weight:700;border:none;border-radius:999px;padding:12px 22px;cursor:pointer;transition:.18s}
+  .bar .gen{background:var(--traq-purple);color:#fff;box-shadow:var(--shadow)}
+  .bar .gen:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .bar .pdf{background:#fff;color:var(--ink);border:1.5px solid var(--line-strong)}
+  .bar .pdf:hover{border-color:var(--traq-purple);color:var(--traq-purple)}
+  .bar .hintbar{color:var(--ink-faint);font-size:12.5px;width:100%;text-align:center}
+
+  /* FOOTER */
+  footer.site{border-top:1px solid var(--line);background:var(--bg);margin-top:40px}
+  footer.site .wrap{max-width:1100px;padding:30px 20px 44px;text-align:center}
+  footer.site img{height:30px;width:auto;margin:0 auto 14px;display:block}
+  footer.site p{margin:6px 0;color:var(--ink-faint);font-size:13px}
+  footer.site a{color:var(--ink-soft);text-decoration:none;font-weight:600}
+  footer.site a:hover{color:var(--traq-purple)}
+
+  @media(max-width:680px){
+    .two,.contrast{grid-template-columns:1fr}
+    .tier{grid-template-columns:1fr}
+    .topbar .back{display:none}
+    section{padding:26px 22px 28px 28px}
+  }
+  @media print{
+    body{background:#fff}
+    .topbar,.bar,.hint,.moves-intro,section.locked{display:none!important}
+    .hero{background:#fff;background-image:none;border:none}
+    section,.cta,.summary,#scoreCard{box-shadow:none;break-inside:avoid}
+    section::before{display:none}
+    .hero{padding:30px 0}
+    input,textarea{border:none!important;background:#fff!important;box-shadow:none!important;padding:2px 0!important}
+    .opt{border:1px solid #bbb}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <a href="/" aria-label="Traq Collective home"><img src="/logos/wordmark-purple.png" alt="Traq Collective"></a>
+    <div class="right">
+      <a class="back" href="/">Back to traqcollective.com</a>
+      <a class="book" href="/book">Book a call <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="kick">A 10-minute repositioning workbook</p>
+    <h1>Stop building an AI agency.<br><span class="accent">Become an AI consultant.</span></h1>
+    <p>An agency sells your hands. A consultant sells your head. Answer the diagnostic and it will score
+       where you sit, then build your repositioned offer and the exact three moves to go from paper to paid.</p>
+    <div class="contrast trap">
+      <div><h4>The agency trap</h4>
+        <ul><li>You deliver everything</li><li>Hire to grow</li><li>Margins shrink</li><li>You are the bottleneck</li></ul></div>
+      <div class="edge"><h4>The consultant edge</h4>
+        <ul><li>You advise, they execute</li><li>Grow without headcount</li><li>Premium fees</li><li>You are the authority</li></ul></div>
+    </div>
+    <p class="by"><b>Nazir Dogan</b> &nbsp;·&nbsp; AI Consultant at Traq Collective &nbsp;·&nbsp; Builder of agentic AI products</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- 1. DIAGNOSTIC -->
+  <section id="s1">
+    <div class="step"><div class="num">1</div><h2>Which model are you actually running?</h2></div>
+    <p class="lead">Pick the answer closest to how you operate today. Each one nudges your score toward
+       <b>agency</b> or <b>consultant</b>. Answer all six to reveal where you sit.</p>
+    <div id="scorecard"></div>
+
+    <div id="scoreCard">
+      <div class="score-top">
+        <p class="lbl">Your model score</p>
+        <div class="score-num"><b id="scorePct">0%</b><span id="scoreSide">consultant</span></div>
+        <div class="meter"><div class="marker" id="scoreMarker" style="left:0%"></div></div>
+        <div class="meter-labels"><span>100% Agency</span><span>100% Consultant</span></div>
+      </div>
+      <div class="score-body">
+        <p class="band" id="scoreBand"></p>
+        <p id="scoreMsg"></p>
+        <div id="revBlock">
+          <h4>Let's talk growth.</h4>
+          <p>You already run like a consultant, so this is about scaling what works. Two quick numbers tailor your plan.</p>
+          <div class="two">
+            <div><label class="f" style="margin-top:0">Roughly what are you making per month now?</label>
+              <input type="text" id="revNow" placeholder="e.g. $6k/mo"></div>
+            <div><label class="f" style="margin-top:0">Where do you want it in 6 months?</label>
+              <input type="text" id="revGoal" placeholder="e.g. $20k/mo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. LANE -->
+  <section id="s2">
+    <div class="step"><div class="num">2</div><h2>Pick your lane</h2></div>
+    <p class="lead">Consultants get paid for being known for one thing. Narrow to one audience and one outcome.</p>
+    <label class="f">The audience I serve</label>
+    <p class="hint">Who specifically? e.g. e-commerce founders, law firms, real estate teams.</p>
+    <input type="text" id="audience" placeholder="e.g. e-commerce founders">
+    <label class="f">The outcome I help them get</label>
+    <p class="hint">The result they actually want. e.g. cut support costs, 3x lead flow, automate reporting.</p>
+    <input type="text" id="outcome" placeholder="e.g. cut support costs in half">
+    <label class="f">Why AI is the unlock for this</label>
+    <textarea id="whyai" placeholder="In a line or two, why AI is the right lever right now."></textarea>
+    <label class="f">Proof I can point to</label>
+    <textarea id="proof" placeholder="A past result, build, or experiment. A personal project counts."></textarea>
+  </section>
+
+  <!-- 3. REFRAME -->
+  <section id="s3">
+    <div class="step"><div class="num">3</div><h2>Reframe the offer</h2></div>
+    <p class="lead">Same expertise, different delivery. Stop selling the build. Sell the clarity that lets them execute.</p>
+    <div class="two">
+      <div><label class="f" style="color:var(--red)">Agency version (rewrite this...)</label>
+        <textarea id="agencyv" placeholder='"We build and manage AI automations for you."'></textarea></div>
+      <div><label class="f" style="color:var(--green)">Consultant version (...into this)</label>
+        <textarea id="consv" placeholder='"I show your team how to..."'></textarea></div>
+    </div>
+    <div class="two">
+      <div><label class="f">Offer name</label><input type="text" id="offername" placeholder="e.g. The AI Roadmap Sprint"></div>
+      <div><label class="f">What the client walks away with</label><input type="text" id="walkaway" placeholder="e.g. a 90-day AI plan"></div>
+    </div>
+    <div class="two">
+      <div><label class="f">How you deliver it</label><input type="text" id="deliver" placeholder="e.g. audit + 2 strategy calls"></div>
+      <div><label class="f">How long it takes</label><input type="text" id="howlong" placeholder="e.g. 2 weeks"></div>
+    </div>
+  </section>
+
+  <!-- 4. PRICING -->
+  <section id="s4">
+    <div class="step"><div class="num">4</div><h2>Price the advisory</h2></div>
+    <p class="lead">Agencies price labour. Consultants price the outcome. Build a ladder so every prospect can say yes.</p>
+    <div class="tier"><div><h4>Entry</h4><p>A paid audit, strategy session, or roadmap. Low commitment, fast yes.</p></div>
+      <input type="text" id="entry" placeholder="$"></div>
+    <div class="tier core"><div><h4>Core (your main offer)</h4><p>Your signature engagement. A fixed-scope advisory sprint or program.</p></div>
+      <input type="text" id="core" placeholder="$"></div>
+    <div class="tier"><div><h4>Retainer</h4><p>Ongoing advisory. Monthly access, reviews, and direction.</p></div>
+      <input type="text" id="retainer" placeholder="$ / mo"></div>
+  </section>
+
+  <!-- 5. POSITIONING -->
+  <section id="s5">
+    <div class="step"><div class="num">5</div><h2>Your positioning one-liner</h2></div>
+    <p class="lead">This goes in your bio, your DMs, and your call intro. It builds itself from your answers. Tweak the approach if you like.</p>
+    <label class="f">Your AI approach (how you do it)</label>
+    <p class="hint">e.g. agentic automations, custom GPT workflows, AI strategy + training.</p>
+    <input type="text" id="approach" placeholder="e.g. agentic AI workflows">
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="step"><div class="num">&#9733;</div><h2>Your plan, built from your answers</h2></div>
+    <p class="lead">Hit <b>Build my plan</b> below (or just keep typing). Everything updates live and stays fully editable.</p>
+    <div class="summary">
+      <p class="lbl">Your one-liner</p>
+      <p class="oneliner" id="oneliner" contenteditable="true" spellcheck="false">I help [your audience] [their outcome] using [your AI approach].</p>
+      <div class="meta" id="metachips"></div>
+    </div>
+    <p class="moves-intro" id="movesIntro">&#9733; <b>Your next three moves.</b> Generated from your answers and ordered by leverage. Edit any of them, set a date, then save the page as a PDF.</p>
+    <div id="moves"></div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <p class="lbl" id="ctaLbl">Want a second set of eyes?</p>
+    <h3 id="ctaHead">Let's pressure-test your offer together.</h3>
+    <p id="ctaBody">Book a free call and we will sharpen your niche, offer, and pricing live, then map your first consulting clients. No pitch, just a working session.</p>
+    <a class="btn" href="/book" id="ctaLink">Book your free call <span aria-hidden="true">&rarr;</span></a>
+    <span class="note">or email hello@traqcollective.com.</span>
+  </div>
+
+</div>
+
+<div class="bar">
+  <div class="wrap">
+    <button class="gen" id="genBtn">&#9733; Build my plan</button>
+    <button class="pdf" id="pdfBtn">&#8595; Save as PDF</button>
+    <div class="hintbar">Your answers stay on your device. Nothing is sent anywhere.</div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/" aria-label="Traq Collective home"><img src="/logos/wordmark-purple.png" alt="Traq Collective"></a>
+    <p>The AI Consultant Repositioning Workbook &nbsp;·&nbsp; by Nazir Dogan</p>
+    <p>&copy; <span id="yr">2026</span> Traq Collective &nbsp;·&nbsp; <a href="/">traqcollective.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var BOOKING_URL = "/book"; // Traq Collective booking page
+  document.getElementById('ctaLink').setAttribute('href', BOOKING_URL);
+  try{ var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear(); }catch(e){}
+
+  // Weighted diagnostic. score 0 = pure agency, 3 = pure consultant.
+  var QUESTIONS = [
+    {q:"Who actually does the work?", o:[
+      ["A team I manage delivers it all",0],
+      ["I deliver most of it myself",1],
+      ["Split between me and the client's team",2],
+      ["The client's team executes, I advise",3]]},
+    {q:"How do you grow revenue today?", o:[
+      ["Take on more projects and hire",0],
+      ["Work more hours myself",1],
+      ["Raise prices on the same services",2],
+      ["Add advisory and retainers",3]]},
+    {q:"What does the client really pay for?", o:[
+      ["Done-for-you output",0],
+      ["Managing the tools and execution",1],
+      ["A mix of strategy and delivery",2],
+      ["My judgement and roadmap",3]]},
+    {q:"If you stepped away for a month...", o:[
+      ["Revenue stops, everything stalls",0],
+      ["Things slow down a lot",1],
+      ["Runs with some check-ins",2],
+      ["Value keeps compounding",3]]},
+    {q:"Your typical margin?", o:[
+      ["Thin after payroll and costs",0],
+      ["Up and down",1],
+      ["Healthy",2],
+      ["High, very low overhead",3]]},
+    {q:"How do clients see you?", o:[
+      ["A vendor or supplier",0],
+      ["A reliable contractor",1],
+      ["A trusted partner",2],
+      ["The expert they come to",3]]}
+  ];
+  var MAXSCORE = QUESTIONS.length * 3;
+
+  function $(id){return document.getElementById(id);}
+  function val(id){var e=$(id);return e?(e.value||"").trim():"";}
+  function low(s){return s? s.charAt(0).toLowerCase()+s.slice(1):s;}
+  function strip(s){return (s||"").replace(/[."]\s*$/,"").replace(/^["“]/,"").trim();}
+
+  // build diagnostic
+  var sc=$('scorecard');
+  QUESTIONS.forEach(function(item,i){
+    var b=document.createElement('div'); b.className='qblock';
+    var opts=item.o.map(function(o,j){
+      var tag = o[1]===0?'<span class="tag ag">AGENCY</span>'
+              : o[1]===3?'<span class="tag co">CONSULTANT</span>'
+              : '<span class="tag mid">'+(o[1]===1?'AGENCY-ISH':'CONSULTANT-ISH')+'</span>';
+      return '<label class="opt"><input type="radio" name="q'+i+'" value="'+o[1]+'"><span>'+o[0]+'</span>'+tag+'</label>';
+    }).join('');
+    b.innerHTML='<p class="qtitle"><span class="dot"></span>'+item.q+'</p><div class="opts">'+opts+'</div>';
+    sc.appendChild(b);
+  });
+
+  document.querySelectorAll('.opt input').forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var name=this.name;
+      document.querySelectorAll('input[name="'+name+'"]').forEach(function(o){o.closest('.opt').classList.remove('sel');});
+      this.closest('.opt').classList.add('sel');
+      updateScore();
+    });
+  });
+
+  function answered(){var n=0;for(var i=0;i<QUESTIONS.length;i++){if(document.querySelector('input[name="q'+i+'"]:checked'))n++;}return n;}
+  function totalScore(){var s=0;for(var i=0;i<QUESTIONS.length;i++){var c=document.querySelector('input[name="q'+i+'"]:checked');if(c)s+=+c.value;}return s;}
+  function consPct(){return Math.round(totalScore()/MAXSCORE*100);}
+  function mode(){return consPct()>60?'growth':'reposition';}
+
+  function updateScore(){
+    if(answered()<QUESTIONS.length){ $('scoreCard').style.display='none'; render(); return; }
+    var pct=consPct();
+    $('scoreCard').style.display='block';
+    $('scorePct').innerText=pct+'%';
+    $('scoreSide').innerText='consultant';
+    $('scoreMarker').style.left=pct+'%';
+    var band,msg,growth=false;
+    if(pct<=39){
+      band="Agency-led model";
+      msg="You are running an agency: you (and a team) deliver the work. That is exactly where we come in. The fastest wins come from repositioning what you already do into advisory. Work through the next sections and you will have a consultant offer you can sell this week.";
+    } else if(pct<=60){
+      band="In transition";
+      msg="You are part agency, part consultant. A few delivery habits are quietly capping your margin. The sections below close the gap and turn your expertise into a premium offer.";
+    } else {
+      band="Consultant-led model";
+      growth=true;
+      msg="You already operate like a consultant. So the game is not repositioning, it is growth: tighten the offer, raise your fees, and add leverage. Tell us what you are making now and the plan below focuses on scaling it.";
+    }
+    $('scoreBand').innerText=band;
+    $('scoreMsg').innerText=msg;
+    $('revBlock').style.display=growth?'block':'none';
+    render();
+  }
+
+  function buildOneLiner(){
+    var aud=strip(val('audience'))||"[your audience]";
+    var out=strip(val('outcome'))||"[their outcome]";
+    var app=strip(val('approach'))||"[your AI approach]";
+    return "I help "+aud+" "+out+" using "+app+".";
+  }
+
+  function renderChips(){
+    var chips=[],aud=strip(val('audience')),out=strip(val('outcome')),
+        offer=strip(val('offername')),core=strip(val('core'));
+    if(answered()===QUESTIONS.length) chips.push('<span class="chip">Model: <b>'+consPct()+'% consultant</b></span>');
+    if(aud) chips.push('<span class="chip">Niche: <b>'+aud+'</b></span>');
+    if(out) chips.push('<span class="chip">Outcome: <b>'+out+'</b></span>');
+    if(offer) chips.push('<span class="chip">Offer: <b>'+offer+'</b></span>');
+    if(core) chips.push('<span class="chip">Core: <b>'+core+'</b></span>');
+    $('metachips').innerHTML=chips.join('');
+  }
+
+  // ---- MOVE ENGINE (branches by mode) ----
+  function buildMoves(){
+    var aud=strip(val('audience')), out=strip(val('outcome')), why=strip(val('whyai')),
+        proof=strip(val('proof')), offer=strip(val('offername')), entry=strip(val('entry')),
+        core=strip(val('core')), retainer=strip(val('retainer')),
+        revNow=strip(val('revNow')), revGoal=strip(val('revGoal')),
+        oneLiner=$('oneliner').innerText.trim();
+    var audTxt=aud||"your ideal clients", outTxt=out||"the result you drive",
+        offerTxt=offer?'"'+offer+'"':"your consulting offer", coreTxt=core||"your core offer";
+    var pool=[];
+
+    if(mode()==='growth'){
+      // GROWTH: already a consultant, scale revenue
+      pool.push({w:100,t:"Raise your fees on the next 2 proposals",
+        d:"Add 20-40% to "+coreTxt+" on your next two quotes"+(revGoal?(", the fastest path toward "+revGoal):"")+". The market pushes back less than you expect, and it flows straight to margin."});
+      pool.push(retainer?
+        {w:94,t:"Move 2 clients onto your "+retainer+" retainer",
+         d:"Turn one-off work into recurring advisory. Pitch your best two clients on ongoing access at "+retainer+" so income compounds instead of resetting each project."}:
+        {w:94,t:"Add a monthly retainer tier",
+         d:"Create a recurring advisory option ("+(revNow?"on top of your "+revNow+" base":"monthly access and reviews")+") so revenue compounds instead of resetting each project."});
+      pool.push({w:86,t:"Add a premium tier above "+coreTxt,
+        d:"Some "+audTxt+" want more access and will pay for it. A high-tier option raises your average deal size with no extra lead flow."});
+      pool.push(proof?
+        {w:78,t:'Turn "'+proof+'" into a referral ask',
+         d:"Use that result to ask your best clients for one warm intro each. Referrals are the highest-margin growth channel you have."}:
+        {w:74,t:"Systemise referrals",
+         d:"Ask every happy client for one intro. For a consultant it is the cheapest growth there is."});
+      pool.push({w:68,t:"Publish to lift your authority (and your rates)",
+        d:"Post your point of view to "+audTxt+(why?(": "+low(why)):"")+". Visible expertise is what justifies higher fees."});
+    } else {
+      // REPOSITION: agency -> consultant
+      pool.push({w:100-(consPct()*0.4),t:"Lock your positioning and put it everywhere",
+        d:'Update your bio, pinned post, and call intro to: "'+oneLiner+'" Make it the first thing anyone sees about you.'});
+      if(aud) pool.push({w:96,t:"Take your offer to 5 "+aud,
+        d:"DM or email 5 "+aud+" you already know this week. Lead with the outcome ("+outTxt+"), not the build. Offer "+offerTxt+" as the next step."});
+      if(entry) pool.push({w:92,t:"Sell 3 paid audits at "+entry,
+        d:"Pitch your entry offer ("+entry+") to warm leads. A small paid yes converts prospects into clients and proves the consulting model fast."});
+      if(out||why) pool.push({w:82,t:"Publish your point of view",
+        d:"Post one piece of content teaching "+audTxt+" "+(why?("why "+low(why)):("why AI is the unlock for "+outTxt))+". Teaching is how consultants earn inbound."});
+      if(proof) pool.push({w:74,t:"Turn your proof into a case study",
+        d:'Write up "'+proof+'" as a short before-and-after story. Proof lets you charge advisory fees instead of labour rates.'});
+    }
+
+    var fb=[
+      {w:40,t:"Name and write down your one offer",d:"Decide on a single signature offer with one outcome and one price. Clarity is what makes you referable."},
+      {w:35,t:"List 10 warm contacts to reach out to",d:"Write down 10 people who already know your work. They are your fastest path to a client."},
+      {w:30,t:"Block 2 hours this week to launch",d:"Put a focus block in your calendar to update your profiles and send your first outreach. Action is what counts."}
+    ];
+    pool.sort(function(a,b){return b.w-a.w;});
+    var chosen=pool.slice(0,3),fi=0;
+    while(chosen.length<3&&fi<fb.length){chosen.push(fb[fi++]);}
+    return chosen.slice(0,3);
+  }
+
+  function renderMoves(){
+    var moves=buildMoves(),box=$('moves');
+    box.innerHTML='';
+    moves.forEach(function(m,i){
+      var div=document.createElement('div'); div.className='move';
+      div.innerHTML='<div class="mn">'+(i+1)+'</div>'+
+        '<div><input class="mt" type="text" value="'+m.t.replace(/"/g,'&quot;')+'">'+
+        '<textarea class="md">'+m.d+'</textarea>'+
+        '<div class="when"><label>By when:</label><input type="text" placeholder="e.g. Fri 27 Jun"></div></div>';
+      box.appendChild(div);
+    });
+  }
+
+  function renderIntroAndCta(){
+    var g=mode()==='growth' && answered()===QUESTIONS.length;
+    if(g){
+      $('movesIntro').innerHTML='&#9733; <b>Your next three growth moves.</b> You already run like a consultant, so these focus on raising fees and adding leverage. Edit any of them, set a date, then save as PDF.';
+      $('ctaHead').innerText="Let's map your growth plan.";
+      $('ctaBody').innerText="Book a free call and we will look at your numbers, your pricing, and your offer ladder, then build a concrete plan to grow what you already have.";
+    } else {
+      $('movesIntro').innerHTML='&#9733; <b>Your next three moves.</b> Generated from your answers and ordered by leverage. Edit any of them, set a date, then save as PDF.';
+      $('ctaHead').innerText="Let's pressure-test your offer together.";
+      $('ctaBody').innerText="Book a free call and we will sharpen your niche, offer, and pricing live, then map your first consulting clients. No pitch, just a working session.";
+    }
+  }
+
+  function render(){
+    if(!$('oneliner').dataset.edited){ $('oneliner').innerText=buildOneLiner(); }
+    renderChips();
+    renderIntroAndCta();
+  }
+
+  $('oneliner').addEventListener('input',function(){this.dataset.edited="1";});
+  ['audience','outcome','whyai','proof','agencyv','consv','offername','walkaway','deliver','howlong',
+   'entry','core','retainer','approach','revNow','revGoal'].forEach(function(id){
+    var e=$(id); if(e) e.addEventListener('input',render);
+  });
+
+  $('genBtn').addEventListener('click',function(){
+    $('oneliner').dataset.edited="";
+    render(); renderMoves();
+    var r=$('results'); if(r.scrollIntoView){r.scrollIntoView({behavior:'smooth'});}
+  });
+  $('pdfBtn').addEventListener('click',function(){window.print();});
+
+  render(); renderMoves();
+})();
+</script>
+</body>
+</html>
