@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lean AI Startup Workbook · Traq Collective</title>
+<meta name="description" content="A free 10-minute workbook for new and pre-launch founders. Score how lean and AI-ready your setup is, see which functions to automate from day one, build a starter stack to your budget, and find out what AI saves you versus hiring.">
+<link rel="canonical" href="https://traqcollective.com/workbook/start">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Lean AI Startup Workbook">
+<meta property="og:description" content="Run your business with AI before you hire. A free lean-setup diagnostic and starter plan by Nazir Dogan at Traq Collective.">
+<meta property="og:url" content="https://traqcollective.com/workbook/start">
+<meta property="og:site_name" content="Traq Collective">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --traq-purple:#5B3FE4; --traq-light:#7C63F0; --traq-dim:#3D2BAA; --traq-deep:#2A1D7A;
+    --traq-purple-ink:#4A30C9; --traq-tint:#F3F0FF;
+    --bg:#FFFFFF; --bg-subtle:#FAFAFA;
+    --ink:#141414; --ink-soft:#555555; --ink-faint:#8A8A8A;
+    --line:#ECECEC; --line-strong:#DADADA;
+    --success:#1F9D55; --warning:#D9923B; --danger:#D14343;
+    --red:#D14343; --green:#1F9D55;
+    --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+    --shadow-hover:0 2px 4px rgba(20,20,20,.06),0 12px 28px rgba(20,20,20,.10);
+    --grid:linear-gradient(to right,rgba(91,63,228,.045) 1px,transparent 1px),
+           linear-gradient(to bottom,rgba(91,63,228,.045) 1px,transparent 1px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    font-feature-settings:'cv02','cv03','cv04','cv11'}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  a{color:var(--traq-purple)}
+  ::selection{background:rgba(91,63,228,.18);color:#141414}
+  :focus-visible{outline:2px solid var(--traq-purple);outline-offset:2px;border-radius:4px}
+
+  .topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:40}
+  .topbar .wrap{max-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px}
+  .topbar img{height:26px;width:auto;display:block}
+  .topbar .right{display:flex;align-items:center;gap:18px}
+  .topbar .back{font-size:13.5px;font-weight:600;color:var(--ink-soft);text-decoration:none}
+  .topbar .back:hover{color:var(--traq-purple)}
+  .topbar .book{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--traq-purple);text-decoration:none;
+    font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line-strong);transition:.18s}
+  .topbar .book:hover{border-color:var(--traq-purple);transform:translateY(-1px)}
+
+  .hero{background:var(--bg);background-image:var(--grid);background-size:28px 28px;border-bottom:1px solid var(--line);padding:54px 0 50px}
+  .pill{display:inline-block;background:var(--traq-tint);color:var(--traq-purple-ink);font-weight:700;font-size:11.5px;
+    letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin:0 0 16px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.08;margin:0;font-weight:800;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+  .hero h1 .accent{color:var(--traq-purple)}
+  .hero p{color:var(--ink-soft);font-size:17px;max-width:660px;margin:22px 0 0;text-wrap:pretty}
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;max-width:700px}
+  .contrast div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .contrast h4{margin:0 0 10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .contrast.trap h4{color:var(--danger)}.contrast .edge h4{color:var(--traq-purple)}
+  .contrast ul{margin:0;padding-left:16px;color:var(--ink-soft);font-size:13.5px}
+  .contrast li{margin:3px 0}
+  .by{margin-top:30px;color:var(--ink-faint);font-size:14px}.by b{color:var(--ink)}
+
+  section{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:30px 30px 34px 36px;margin:26px 0;overflow:hidden}
+  section::before{content:'';position:absolute;inset:16px auto 16px 16px;width:1.5px;border-radius:2px;background:rgba(91,63,228,.22)}
+  .step{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+  .num{width:32px;height:32px;border-radius:50%;background:var(--traq-purple);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+  .step h2{font-size:21px;margin:0;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .lead{color:var(--ink-soft);margin:4px 0 22px;font-size:15px}
+  label.f{display:block;font-weight:700;font-size:14.5px;margin:18px 0 4px;color:var(--ink)}
+  .hint{color:var(--ink-faint);font-size:12.5px;margin:0 0 8px}
+  input[type=text],input[type=number],input[type=email],textarea{width:100%;border:1px solid var(--line);background:var(--bg-subtle);border-radius:10px;padding:11px 13px;font:inherit;color:var(--ink);resize:vertical}
+  input::placeholder,textarea::placeholder{color:#aab0b8}
+  input:focus,textarea:focus{outline:none;border-color:var(--traq-purple);background:#fff;box-shadow:0 0 0 3px rgba(91,63,228,.14)}
+  textarea{min-height:54px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+  .reasons{display:grid;gap:12px;margin-top:6px}
+  .reason{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+  .reason .rh{display:flex;gap:11px;align-items:flex-start}
+  .reason .rn{width:26px;height:26px;border-radius:50%;background:var(--traq-tint);color:var(--traq-purple-ink);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:1px}
+  .reason h4{margin:0;font-size:15.5px;font-weight:800;color:var(--ink)}
+  .reason .cost{margin:8px 0 0 37px;color:var(--ink-soft);font-size:13.5px}
+  .reason .fix{margin:8px 0 0 37px;color:var(--ink);font-size:13.5px;border-left:3px solid var(--traq-light);padding-left:12px}
+  .reason .fix b{color:var(--traq-purple-ink)}
+
+  .research{margin-top:22px;background:var(--bg-subtle);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .research p{margin:0 0 10px;font-size:14px;color:var(--ink)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+  .stat b{display:block;font-size:22px;font-weight:800;color:var(--traq-purple);line-height:1.1}
+  .stat span{display:block;font-size:12px;color:var(--ink-soft);margin-top:4px}
+  .stat cite{display:block;font-size:10.5px;color:var(--ink-faint);margin-top:7px;font-style:normal}
+
+  .qblock{padding:16px 0;border-bottom:1px solid var(--line)}
+  .qblock:last-child{border-bottom:none}
+  .qtitle{font-weight:800;font-size:15px;margin:0 0 11px;display:flex;gap:9px;align-items:flex-start;color:var(--ink)}
+  .qtitle .dot{width:7px;height:7px;border-radius:50%;background:var(--traq-purple);flex:0 0 auto;margin-top:7px}
+  .opts{display:grid;gap:8px}
+  .opt{display:flex;align-items:center;gap:11px;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;cursor:pointer;background:#fff;font-size:14px;color:var(--ink);transition:.14s}
+  .opt:hover{border-color:var(--traq-light);background:var(--traq-tint)}
+  .opt input{accent-color:var(--traq-purple);width:17px;height:17px;flex:0 0 auto;margin:0}
+  .opt.sel{border-color:var(--traq-purple);background:var(--traq-tint);font-weight:600}
+  .opt .tag{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.5px;padding:2px 8px;border-radius:999px;opacity:0;transition:.14s;white-space:nowrap}
+  .opt.sel .tag{opacity:1}
+  .opt.sel .tag.lo{background:#FBE7E7;color:#9c2a2a}
+  .opt.sel .tag.hi{background:#E3F4EA;color:#0f6b3c}
+  .opt.sel .tag.mid{background:var(--traq-tint);color:var(--traq-purple-ink)}
+
+  #scoreCard{display:none;margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);animation:pop .45s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .score-top{background:var(--traq-purple);color:#fff;padding:24px 26px}
+  .score-top .lbl{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+  .score-num{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+  .score-num b{font-size:42px;font-weight:800;line-height:1}
+  .score-num span{font-size:16px;color:rgba(255,255,255,.8);font-weight:700}
+  .meter{margin:16px 0 6px;height:12px;border-radius:999px;position:relative;background:linear-gradient(90deg,var(--danger) 0%,var(--warning) 50%,var(--success) 100%)}
+  .meter .marker{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--traq-purple);transform:translate(-50%,-50%);box-shadow:0 2px 6px rgba(0,0,0,.3);transition:left .5s}
+  .meter-labels{display:flex;justify-content:space-between;color:rgba(255,255,255,.8);font-size:11.5px;font-weight:700}
+  .score-body{background:#fff;padding:20px 26px 22px}
+  .score-body .band{font-size:17px;font-weight:800;margin:0 0 6px;color:var(--ink)}
+  .score-body p{margin:0;color:var(--ink-soft);font-size:14.5px}
+  .softnote{margin-top:14px;font-size:13px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:12px}
+  .softnote b{color:var(--ink-soft)}
+
+  .calcwrap{background:var(--traq-tint);border:1px solid #d9d0fb;border-radius:14px;padding:18px 20px;margin-top:6px}
+  .calcwrap .hint{color:var(--traq-purple-ink)}
+  .calc-out{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .calc-out .big{font-size:24px;font-weight:800;color:var(--traq-purple);line-height:1.2}
+  .calc-out p{margin:6px 0 0;font-size:13px;color:var(--ink-soft)}
+
+  .funcs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  .func{border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;background:#fff;transition:.14s}
+  .func:hover{border-color:var(--traq-light);background:var(--traq-tint)}
+  .func.sel{border-color:var(--traq-purple);background:var(--traq-tint)}
+  .func h4{margin:0 0 4px;font-size:14px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .func h4 .chk{width:16px;height:16px;border-radius:5px;border:1.5px solid var(--line-strong);flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:#fff}
+  .func.sel h4 .chk{background:var(--traq-purple);border-color:var(--traq-purple)}
+  .func p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+  .func .vs{display:block;margin-top:6px;font-size:11px;font-weight:700;color:var(--traq-purple-ink)}
+
+  /* budget tiers (single select) */
+  .budget{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+  .btier{border:1.5px solid var(--line);border-radius:14px;padding:16px;background:#fff;cursor:pointer;transition:.14s}
+  .btier:hover{border-color:var(--traq-light);background:var(--traq-tint)}
+  .btier.sel{border-color:var(--traq-purple);background:var(--traq-tint)}
+  .btier h4{margin:0 0 2px;font-size:14px;font-weight:800;color:var(--ink)}
+  .btier .cost{font-size:12px;font-weight:700;color:var(--traq-purple-ink);margin-bottom:8px}
+  .btier ul{margin:0;padding-left:16px;color:var(--ink-soft);font-size:12.5px}
+  .btier li{margin:3px 0}
+
+  .road{display:grid;gap:12px;margin-top:6px}
+  .phase{display:grid;grid-template-columns:78px 1fr;gap:14px;border:1px solid var(--line);border-radius:14px;padding:15px 16px;background:#fff}
+  .phase .pn{font-weight:800;color:var(--traq-purple);font-size:13px;letter-spacing:.02em}
+  .phase h4{margin:0 0 3px;font-size:15px;font-weight:800;color:var(--ink)}
+  .phase p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .handover{margin-top:16px;font-size:13.5px;color:var(--ink-soft);background:var(--bg-subtle);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .handover b{color:var(--ink)}
+
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+  .case{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+  .case .m{font-size:26px;font-weight:800;color:var(--traq-purple);line-height:1}
+  .case .ml{font-size:12.5px;font-weight:700;color:var(--ink);margin:4px 0 8px}
+  .case .who{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);font-weight:700;margin-bottom:5px}
+  .case p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+
+  .summary{background:var(--traq-purple);color:#fff;border-radius:16px;padding:24px 26px;margin:6px 0 4px}
+  .summary .lbl{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px}
+  .summary .oneliner{font-size:18px;font-weight:700;line-height:1.5;margin:0;outline:none}
+  .summary .oneliner:focus{box-shadow:0 0 0 2px rgba(255,255,255,.4);border-radius:6px}
+  .summary .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+  .summary .chip{background:rgba(255,255,255,.14);border-radius:999px;padding:6px 13px;font-size:12.5px;color:rgba(255,255,255,.85)}
+  .summary .chip b{color:#fff}
+  .moves-intro{color:var(--ink-soft);font-size:14px;margin:24px 0 14px}
+  .move{display:grid;grid-template-columns:36px 1fr;gap:14px;border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;background:#fff;box-shadow:var(--shadow)}
+  .move .mn{width:30px;height:30px;border-radius:50%;background:var(--traq-purple);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .move .mt{font-weight:800;font-size:15.5px;margin:0 0 7px;border:none;width:100%;background:transparent;color:var(--ink)}
+  .move .mt:focus{outline:none}
+  .move textarea.md{min-height:52px;font-size:14px}
+  .move .when{display:flex;align-items:center;gap:8px;margin-top:9px}
+  .move .when label{font-size:12.5px;font-weight:700;color:var(--ink-soft)}
+  .move .when input{max-width:170px;background:#fff}
+
+  .cta{background:var(--traq-tint);color:var(--ink);border-radius:20px;padding:32px 34px;margin:26px 0;border:1px solid var(--line);border-left:5px solid var(--traq-purple)}
+  .cta .lbl{color:var(--traq-purple);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+  .cta h3{margin:0 0 10px;font-size:24px;font-weight:800;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+  .cta p.body{color:var(--ink-soft);margin:0 0 14px;max-width:600px;font-size:15px}
+  .cta .promise{display:grid;gap:7px;margin:0 0 18px;padding:0;list-style:none}
+  .cta .promise li{font-size:14px;color:var(--ink);padding-left:24px;position:relative}
+  .cta .promise li::before{content:'\2713';position:absolute;left:0;color:var(--traq-purple);font-weight:800}
+  .cta a.btn{display:inline-flex;align-items:center;gap:8px;background:var(--traq-purple);color:#fff;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:999px;font-size:15px;box-shadow:var(--shadow);transition:.18s}
+  .cta a.btn:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .cta .cred{margin:16px 0 0;font-size:13px;color:var(--ink-faint)}
+  .cta .cred b{color:var(--ink-soft)}
+  .emailcap{margin-top:20px;border-top:1px solid #d9d0fb;padding-top:18px}
+  .emailcap .el{font-weight:700;font-size:14px;color:var(--ink);margin:0 0 4px}
+  .emailcap .es{font-size:12.5px;color:var(--ink-soft);margin:0 0 10px}
+  .emailrow{display:flex;gap:10px;flex-wrap:wrap;max-width:520px}
+  .emailrow input{flex:1;min-width:200px;background:#fff}
+  .emailrow button{font:inherit;font-weight:700;border:none;border-radius:10px;padding:11px 18px;cursor:pointer;background:var(--ink);color:#fff;transition:.18s}
+  .emailrow button:hover{background:#000}
+  .emailmsg{font-size:13px;margin:10px 0 0;color:var(--green);font-weight:600;display:none}
+
+  .bar{position:sticky;bottom:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 0;margin-top:30px}
+  .bar .wrap{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .bar button{font:inherit;font-weight:700;border:none;border-radius:999px;padding:12px 22px;cursor:pointer;transition:.18s}
+  .bar .gen{background:var(--traq-purple);color:#fff;box-shadow:var(--shadow)}
+  .bar .gen:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .bar .pdf{background:#fff;color:var(--ink);border:1.5px solid var(--line-strong)}
+  .bar .pdf:hover{border-color:var(--traq-purple);color:var(--traq-purple)}
+  .bar .hintbar{color:var(--ink-faint);font-size:12.5px;width:100%;text-align:center}
+
+  .pickrow{max-width:880px;margin:22px auto 0;padding:0 20px}
+  .pickrow .pk{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .pickrow a{flex:1;min-width:210px;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;box-shadow:var(--shadow);transition:.16s;color:var(--ink)}
+  .pickrow a:hover{border-color:var(--traq-purple);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .pickrow a.here{border-color:var(--traq-purple);background:var(--traq-tint)}
+  .pickrow .t{font-weight:800;font-size:14px;display:block}
+  .pickrow .d{font-size:12px;color:var(--ink-soft)}
+
+  footer.site{border-top:1px solid var(--line);background:var(--bg);margin-top:40px}
+  footer.site .wrap{max-width:1100px;padding:30px 20px 44px;text-align:center}
+  footer.site img{height:30px;width:auto;margin:0 auto 14px;display:block}
+  footer.site p{margin:6px 0;color:var(--ink-faint);font-size:13px}
+  footer.site a{color:var(--ink-soft);text-decoration:none;font-weight:600}
+  footer.site a:hover{color:var(--traq-purple)}
+
+  @media(max-width:680px){
+    .two,.three,.contrast,.stats,.funcs,.budget,.cases{grid-template-columns:1fr}
+    .topbar .back{display:none}
+    section{padding:26px 22px 28px 28px}
+  }
+  @media print{
+    body{background:#fff}
+    .topbar,.bar,.hint,.moves-intro,.emailcap,.softnote{display:none!important}
+    .hero{background:#fff;background-image:none;border:none;padding:30px 0}
+    section,.cta,.summary,#scoreCard,.research,.calcwrap{box-shadow:none;break-inside:avoid}
+    section::before{display:none}
+    input,textarea{border:none!important;background:#fff!important;box-shadow:none!important;padding:2px 0!important}
+    .opt{border:1px solid #bbb}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="/" aria-label="Traq Collective home"><img src="/logos/wordmark-purple.png" alt="Traq Collective"></a>
+    <div class="right">
+      <a class="back" href="/">Back to traqcollective.com</a>
+      <a class="book" href="/book">Book a call</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="pill">The Lean AI Startup Workbook &middot; for new founders</span>
+    <h1>Run your business with AI<br><span class="accent">before you hire.</span></h1>
+    <p>Early on, every hire is a risk you cannot really afford, and a slow one. AI can carry the work of a small
+       team while you stay lean and move fast. This workbook scores how AI-ready your setup is, shows which
+       functions to automate from day one, builds a starter stack to your budget, and puts a number on what AI
+       saves you versus hiring. No sign-up to read it.</p>
+    <div class="contrast trap">
+      <div><h4>Hiring too early</h4>
+        <ul><li>Big fixed cost before revenue</li><li>Managing people, not building</li><li>Slow to recruit and onboard</li><li>Hard to undo if you are wrong</li></ul></div>
+      <div class="edge"><h4>Starting lean with AI</h4>
+        <ul><li>Low, flexible monthly cost</li><li>You stay focused on the core</li><li>Live in days, not months</li><li>Hire later, from strength</li></ul></div>
+    </div>
+    <p class="by"><b>Nazir Dogan</b> &nbsp;&middot;&nbsp; Founder, Traq Collective &nbsp;&middot;&nbsp; Builder of agentic AI products and lean AI setups</p>
+  </div>
+</div>
+
+<div class="pickrow"><div class="pk">
+  <a href="/workbook/upskill"><span class="t">Just me</span><span class="d">Level up my own AI skills</span></a>
+  <a class="here" href="/workbook/start"><span class="t">Starting a business</span><span class="d">Run lean with AI before I hire</span></a>
+  <a href="/workbook"><span class="t">We have a team</span><span class="d">Get our team adopting AI</span></a>
+</div></div>
+
+<div class="wrap">
+
+  <!-- 0. VALUE-FIRST -->
+  <section id="s0">
+    <div class="step"><div class="num">&#9733;</div><h2>The 5 jobs a lean founder should hand to AI first</h2></div>
+    <p class="lead">Read this first, no input needed. The work that quietly eats a founder's week, and what AI can
+       carry so you do not have to hire for it yet. If you only take one thing from this workbook, take these.</p>
+    <div class="reasons">
+      <div class="reason"><div class="rh"><div class="rn">1</div><h4>Customer replies and support</h4></div>
+        <p class="cost">Answering the same questions by hand, at all hours, is the first thing that pulls a founder off real work.</p>
+        <p class="fix"><b>Hand to AI:</b> drafted replies, a smart FAQ, and first-line triage, so you only touch the messages that truly need you.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">2</div><h4>Content and marketing</h4></div>
+        <p class="cost">Posts, captions, emails and a landing page are a full job on their own, and the reason most founders go quiet.</p>
+        <p class="fix"><b>Hand to AI:</b> a content engine you steer, drafts in your voice that you approve, not a blank page every morning.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">3</div><h4>Sales follow-up and outreach</h4></div>
+        <p class="cost">Leads go cold because nobody chased them. That is revenue leaking while you build.</p>
+        <p class="fix"><b>Hand to AI:</b> personalised first drafts, follow-up sequences and CRM tidying, so no lead slips through.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">4</div><h4>Admin, ops and documents</h4></div>
+        <p class="cost">Invoices, scheduling, notes, data entry. None of it grows the business, all of it takes your time.</p>
+        <p class="fix"><b>Hand to AI:</b> templated docs, meeting notes to action items, and simple automations between your tools.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">5</div><h4>Research and decisions</h4></div>
+        <p class="cost">As a team of one, you have no one to think out loud with, so calls get made slowly or not at all.</p>
+        <p class="fix"><b>Hand to AI:</b> fast research, competitor scans, and a sounding board that pressure-tests your thinking before you commit.</p></div>
+    </div>
+    <div class="research">
+      <p>The reason this works now, and did not three years ago: the gains from AI land hardest exactly where a lean
+         founder lives, on routine knowledge work, and the biggest lift goes to the least specialised hands.</p>
+      <div class="stats">
+        <div class="stat"><b>+14 to 34%</b><span>output lift from AI, with the largest gains for less experienced users</span><cite>Brynjolfsson, Li &amp; Raymond, NBER</cite></div>
+        <div class="stat"><b>3&times;</b><span>faster lead response in a real engagement, from hours to minutes</span><cite>Traq Collective</cite></div>
+        <div class="stat"><b>60%</b><span>less manual data entry after one workflow replaced three spreadsheets</span><cite>Traq Collective</cite></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. DIAGNOSTIC -->
+  <section id="s1">
+    <div class="step"><div class="num">1</div><h2>How lean and AI-ready are you?</h2></div>
+    <p class="lead">Pick the answer closest to how you operate today. Each one moves your score from <b>doing it all by
+       hand</b> toward <b>AI-first lean</b>. Answer all six to reveal where you stand.</p>
+    <div id="scorecard"></div>
+    <div id="scoreCard">
+      <div class="score-top">
+        <p class="lbl">Your lean AI readiness</p>
+        <div class="score-num"><b id="scorePct">0%</b><span id="scoreSide">AI-first</span></div>
+        <div class="meter"><div class="marker" id="scoreMarker" style="left:0%"></div></div>
+        <div class="meter-labels"><span>By hand</span><span>AI-first lean</span></div>
+      </div>
+      <div class="score-body">
+        <p class="band" id="scoreBand"></p>
+        <p id="scoreMsg"></p>
+        <p class="softnote" id="softNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FUNCTIONS -->
+  <section id="s2">
+    <div class="step"><div class="num">2</div><h2>Which functions to automate from day one</h2></div>
+    <p class="lead">Tick the work that is eating your week. Each one shows what AI can carry, and the hire you can put
+       off by setting it up. Your plan below leads with these.</p>
+    <div class="funcs" id="funcs"></div>
+  </section>
+
+  <!-- 3. STARTER STACK -->
+  <section id="s3">
+    <div class="step"><div class="num">3</div><h2>Your AI starter stack, by budget</h2></div>
+    <p class="lead">You do not need an expensive setup to start. Pick the budget that fits where you are. Each tier is
+       a real, working stack you could stand up this week.</p>
+    <div class="budget" id="budget"></div>
+    <div class="handover" style="margin-top:14px"><b>Start one tier down from what you think you need.</b> Most lean
+      founders get further than they expect on the free and near-free tier, because the limit is rarely the tool, it
+      is having a clear setup and the habit of reaching for it first.</div>
+  </section>
+
+  <!-- 4. VS HIRING CALCULATOR -->
+  <section id="s4">
+    <div class="step"><div class="num">4</div><h2>What AI saves you versus hiring</h2></div>
+    <p class="lead">The honest comparison. Put in the help you would otherwise pay for, and your AI stack cost, and
+       see what staying lean keeps in the business. We have pre-filled sensible defaults, adjust to your reality.</p>
+    <div class="calcwrap">
+      <div class="three">
+        <div><label class="f" style="margin-top:0">Hours/week you'd pay someone for</label><input type="number" id="hours" min="0" value="20"></div>
+        <div><label class="f" style="margin-top:0">What that help costs/month</label><input type="text" id="hire" placeholder="AED" value="AED 6,000"></div>
+        <div><label class="f" style="margin-top:0">Your AI stack cost/month</label><input type="text" id="stack" placeholder="AED" value="AED 200"></div>
+      </div>
+      <div class="calc-out">
+        <div class="big" id="calcBig">Adjust the numbers above</div>
+        <p id="calcSub">AI carries the routine share of that work while you keep the judgement. This is what you avoid spending while you stay lean, not a promise that a person is never needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PROOF -->
+  <section id="s5">
+    <div class="step"><div class="num">5</div><h2>What a lean AI setup can run</h2></div>
+    <p class="lead">Real results from real engagements. These were teams, not solo founders, but every one of them is
+       work AI can carry for you from the start.</p>
+    <div class="cases">
+      <div class="case"><div class="m">60%</div><div class="ml">less manual data entry</div><div class="who">UAE logistics company</div><p>One AI-assisted workflow replaced three spreadsheet-driven processes the team ran daily.</p></div>
+      <div class="case"><div class="m">3&times;</div><div class="ml">faster lead response</div><div class="who">B2B services team</div><p>Automated routing and AI-drafted replies cut first response from hours to minutes.</p></div>
+      <div class="case"><div class="m">+43%</div><div class="ml">more qualified enquiries</div><div class="who">Professional services firm</div><p>A sharper site plus an AI-scored intake meant only real opportunities reached a human.</p></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="step"><div class="num">&#9733;</div><h2>Your lean AI plan</h2></div>
+    <p class="lead">Built from your answers. Hit <b>Build my plan</b> below (or just keep editing). Everything stays
+       fully editable, and you can save the page as a PDF.</p>
+    <div class="summary">
+      <p class="lbl">Your setup, at a glance</p>
+      <p class="oneliner" id="oneliner" contenteditable="true" spellcheck="false">Answer the six questions above and your plan builds itself here.</p>
+      <div class="meta" id="metachips"></div>
+    </div>
+    <p class="moves-intro" id="movesIntro">&#9733; <b>The first 5 things to set up this week.</b> Generated from your answers and ordered by leverage. Edit any of them, set a date, then save as PDF.</p>
+    <div id="moves"></div>
+    <div class="handover" id="planNote"><b>This is your starting setup, not the finished build.</b> Which tools to
+      wire together, how to connect them safely, and the order that gets you live fastest are what we map against
+      your specific business. That is the call below.</div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <p class="lbl" id="ctaLbl">Your next step</p>
+    <h3 id="ctaHead">Build your AI foundation right, from day one.</h3>
+    <p class="body" id="ctaBody">Book a free 20-minute call about your lean AI setup. We will look at your score, the
+       functions you flagged and your budget, then map the foundation that lets AI carry the work while you stay
+       lean, and the order to build it in.</p>
+    <ul class="promise">
+      <li>The first functions to automate, in priority order</li>
+      <li>A starter stack matched to your budget and your business</li>
+      <li>No deck, no obligation, and nothing to prepare</li>
+    </ul>
+    <a class="btn" href="/book" id="ctaLink">Book your free call <span aria-hidden="true">&rarr;</span></a>
+    <p class="cred">A typical starting point for a lean business is a fixed-scope AI Readiness Audit (from AED 7,500),
+       a fast, practical plan of where AI pays off first. Run by <b>Nazir Dogan</b> of Traq Collective, across
+       Dubai, Abu Dhabi and beyond. Or email <a href="mailto:hello@traqcollective.com">hello@traqcollective.com</a>.</p>
+    <div class="emailcap">
+      <p class="el">Prefer it in writing?</p>
+      <p class="es">Drop your email and we will send your lean AI plan as a PDF, with the stack and first steps. No spam, ever.</p>
+      <div class="emailrow">
+        <input type="email" id="leadEmail" placeholder="you@company.com" autocomplete="email">
+        <button id="emailBtn" type="button">Email me my plan</button>
+      </div>
+      <p class="emailmsg" id="emailMsg"></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="bar">
+  <div class="wrap">
+    <button class="gen" id="genBtn">&#9733; Build my plan</button>
+    <button class="pdf" id="pdfBtn">&#8595; Save as PDF</button>
+    <div class="hintbar">Your answers stay on your device. Nothing is sent unless you ask us to email your plan.</div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/" aria-label="Traq Collective home"><img src="/logos/wordmark-purple.png" alt="Traq Collective"></a>
+    <p>The Lean AI Startup Workbook &nbsp;&middot;&nbsp; by Nazir Dogan</p>
+    <p>&copy; <span id="yr">2026</span> Traq Collective &nbsp;&middot;&nbsp; <a href="/">traqcollective.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var CONFIG = {
+    BOOKING_URL: "/book",
+    LEAD_WEBHOOK: "",
+    LEAD_EMAIL: "hello@traqcollective.com"
+  };
+  document.getElementById('ctaLink').setAttribute('href', CONFIG.BOOKING_URL);
+  try{ var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear(); }catch(e){}
+
+  function $(id){return document.getElementById(id);}
+  function val(id){var e=$(id);return e?(e.value||"").trim():"";}
+  function numv(id){var v=parseFloat(val(id));return isNaN(v)?0:v;}
+  function money(id){var r=val(id).replace(/[^0-9.]/g,'');var v=parseFloat(r);return isNaN(v)?0:v;}
+  function esc(s){return (s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+
+  /* DIAGNOSTIC: 0 = by hand, 3 = AI-first lean */
+  var QUESTIONS = [
+    {q:"Right now, the non-core work (admin, content, support) is...", o:[
+      ["All me, by hand",0],["Me, with basic tools",1],["Partly automated",2],["Mostly handled by AI and automations",3]]},
+    {q:"When something repetitive comes up, your instinct is to...", o:[
+      ["Just do it myself",0],["Wonder if I should hire",1],["Look for a tool",2],["Build an AI workflow for it",3]]},
+    {q:"Your tool setup is...", o:[
+      ["Email and spreadsheets",0],["A few separate SaaS apps",1],["SaaS plus some AI",2],["An integrated AI-first stack",3]]},
+    {q:"Your content, outreach and replies are...", o:[
+      ["All written by hand",0],["From templates",1],["AI-assisted, I edit",2],["AI-driven, I approve",3]]},
+    {q:"Your plan for growth is to...", o:[
+      ["Hire as soon as I can afford it",0],["Hire cautiously",1],["Automate first, hire later",2],["Stay AI-first by design",3]]},
+    {q:"Your processes are...", o:[
+      ["All in my head",0],["A few scattered notes",1],["Written down",2],["Written and ready to automate",3]]}
+  ];
+  var MAXSCORE = QUESTIONS.length * 3;
+
+  var FUNCTIONS = [
+    {id:"support", name:"Customer comms & support", what:"Drafted replies, a smart FAQ, first-line triage", vs:"a support hire or VA"},
+    {id:"sales",   name:"Sales & outreach",         what:"Personalised first drafts, follow-up sequences, CRM tidying", vs:"an SDR"},
+    {id:"market",  name:"Marketing & content",      what:"Posts, captions, emails, landing copy in your voice", vs:"a marketing hire or agency"},
+    {id:"ops",     name:"Admin & operations",       what:"Templated docs, scheduling, notes to action items, simple automations", vs:"an ops assistant"},
+    {id:"finance", name:"Finance & invoicing",      what:"Invoices, reminders, plain-English reporting", vs:"a bookkeeper's routine hours"},
+    {id:"research",name:"Research & decisions",     what:"Market and competitor scans, a sounding board for calls", vs:"a junior analyst"}
+  ];
+
+  var BUDGETS = [
+    {id:"free", name:"Free / near-free", cost:"AED 0 to ~75/mo", items:["A capable free AI assistant (ChatGPT or Claude)","A free password manager and shared docs","One free automation between two apps"]},
+    {id:"lean", name:"Lean", cost:"~AED 200 to 550/mo", items:["A paid AI assistant for better quality and limits","One paid tool for your biggest function","A paid automation tool (Make or Zapier) wiring them up"]},
+    {id:"serious", name:"Serious lean", cost:"~AED 1,100 to 1,800/mo", items:["AI assistants plus a function-specific AI tool or two","Automations across several workflows","Light custom setup so it runs with little touch from you"]}
+  ];
+
+  var PROCESS_NOTE = "";
+
+  /* build diagnostic */
+  var sc=$('scorecard');
+  QUESTIONS.forEach(function(item,i){
+    var b=document.createElement('div'); b.className='qblock';
+    var opts=item.o.map(function(o){
+      var tag = o[1]===0?'<span class="tag lo">BY HAND</span>'
+              : o[1]===3?'<span class="tag hi">AI-FIRST</span>'
+              : '<span class="tag mid">'+(o[1]===1?'MANUAL':'GETTING THERE')+'</span>';
+      return '<label class="opt"><input type="radio" name="q'+i+'" value="'+o[1]+'"><span>'+o[0]+'</span>'+tag+'</label>';
+    }).join('');
+    b.innerHTML='<p class="qtitle"><span class="dot"></span>'+item.q+'</p><div class="opts">'+opts+'</div>';
+    sc.appendChild(b);
+  });
+  document.querySelectorAll('.opt input').forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var name=this.name;
+      document.querySelectorAll('input[name="'+name+'"]').forEach(function(o){o.closest('.opt').classList.remove('sel');});
+      this.closest('.opt').classList.add('sel');
+      updateScore();
+    });
+  });
+
+  /* build functions picker */
+  var picked={}, fbox=$('funcs');
+  FUNCTIONS.forEach(function(f){
+    var d=document.createElement('div'); d.className='func'; d.dataset.id=f.id;
+    d.innerHTML='<h4><span class="chk">&#10003;</span>'+f.name+'</h4><p>'+f.what+'</p><span class="vs">Puts off: '+f.vs+'</span>';
+    d.addEventListener('click',function(){ this.classList.toggle('sel'); picked[f.id]=this.classList.contains('sel'); render(); });
+    fbox.appendChild(d);
+  });
+  function pickedFns(){return FUNCTIONS.filter(function(f){return picked[f.id];});}
+  function pickedNames(){return pickedFns().map(function(f){return f.name;});}
+
+  /* build budget tiers (single select) */
+  var chosenBudget=null, bbox=$('budget');
+  BUDGETS.forEach(function(t){
+    var d=document.createElement('div'); d.className='btier'; d.dataset.id=t.id;
+    d.innerHTML='<h4>'+t.name+'</h4><div class="cost">'+t.cost+'</div><ul>'+t.items.map(function(i){return '<li>'+i+'</li>';}).join('')+'</ul>';
+    d.addEventListener('click',function(){
+      var was=this.classList.contains('sel');
+      Array.prototype.forEach.call(bbox.children,function(c){c.classList.remove('sel');});
+      if(!was){ this.classList.add('sel'); chosenBudget=t; } else { chosenBudget=null; }
+      render();
+    });
+    bbox.appendChild(d);
+  });
+
+  /* scoring */
+  function answered(){var n=0;for(var i=0;i<QUESTIONS.length;i++){if(document.querySelector('input[name="q'+i+'"]:checked'))n++;}return n;}
+  function totalScore(){var s=0;for(var i=0;i<QUESTIONS.length;i++){var c=document.querySelector('input[name="q'+i+'"]:checked');if(c)s+=+c.value;}return s;}
+  function pct(){return Math.round(totalScore()/MAXSCORE*100);}
+  function band(){var p=pct(); return p<=39?'low':(p<=65?'mid':'high');}
+
+  function updateScore(){
+    if(answered()<QUESTIONS.length){ $('scoreCard').style.display='none'; render(); return; }
+    var p=pct();
+    $('scoreCard').style.display='block';
+    $('scorePct').innerText=p+'%';
+    $('scoreMarker').style.left=p+'%';
+    var b=band(),title,msg;
+    if(b==='low'){
+      title="Doing it all by hand";
+      msg="You are the whole team right now, which is exactly the moment AI pays off most. Every routine job you hand over buys back hours and delays an expensive hire. Pick two functions below and you can be live this week.";
+    } else if(b==='mid'){
+      title="Lean but manual";
+      msg="You have some tools, but a lot still runs on your time and attention. Wiring a few of these into real workflows is what turns a busy founder into a lean operation that scales without a payroll.";
+    } else {
+      title="AI-first lean";
+      msg="Strong. You already reach for AI before you reach for a job ad. The game now is depth: connect your tools into workflows that run themselves, so you can grow revenue without growing headcount.";
+    }
+    $('scoreBand').innerText=title;
+    $('scoreMsg').innerText=msg;
+    $('softNote').innerHTML="<b>There is a faster way to set this up than piecing it together alone.</b> Keep going, the full picture and the options are at the end.";
+    render();
+  }
+
+  /* vs-hiring calculator */
+  function updateCalc(){
+    var hrs=numv('hours'), hire=money('hire'), stack=money('stack');
+    if(hire<=0){ $('calcBig').innerText="Adjust the numbers above"; return; }
+    var saveMo=hire-stack, saveYr=saveMo*12, mult = stack>0 ? hire/stack : 0;
+    var multTxt = mult>0 ? (", and your AI stack does it for about 1/"+Math.max(1,Math.round(mult))+" of that cost") : "";
+    if(saveMo>=0){
+      $('calcBig').innerText="You keep about AED "+fmt(saveMo)+" a month, roughly AED "+fmt(saveYr)+" a year, by staying lean"+multTxt+".";
+    } else {
+      $('calcBig').innerText="Your stack costs more than this hire. For "+hrs+" hours a week, a person may be the better call here.";
+    }
+    $('calcSub').innerText="Based on AED "+fmt(hire)+"/month of help against an AED "+fmt(stack)+"/month stack, covering about "+hrs+" hours a week. AI carries the routine share, you keep the judgement.";
+  }
+
+  /* results */
+  function listify(a){ if(a.length===1)return a[0]; if(a.length===2)return a[0]+" and "+a[1]; return a.slice(0,-1).join(", ")+" and "+a[a.length-1]; }
+  function buildOneLiner(){
+    if(answered()<QUESTIONS.length) return "Answer the six questions above and your plan builds itself here.";
+    var b=band(), names=pickedNames();
+    var where = b==='low' ? "you are running everything by hand and have the most to gain"
+              : b==='mid' ? "you are lean but a lot still runs on your time"
+              : "you already run AI-first and are ready to deepen it";
+    var focus = names.length ? (" First to automate: "+listify(names)+".") : " Tick the functions above to focus your plan.";
+    var bud = chosenBudget ? (" Starting stack: "+chosenBudget.name+".") : "";
+    return "At "+pct()+"% AI-ready, "+where+"."+focus+bud;
+  }
+  function renderChips(){
+    var chips=[];
+    if(answered()===QUESTIONS.length){
+      chips.push('<span class="chip">Readiness: <b>'+pct()+'%</b></span>');
+      var b=band(); chips.push('<span class="chip">Stage: <b>'+(b==='low'?'By hand':b==='mid'?'Lean but manual':'AI-first lean')+'</b></span>');
+    }
+    var hire=money('hire'), stack=money('stack');
+    if(hire>0) chips.push('<span class="chip">Kept/yr vs hiring: <b>AED '+fmt(Math.max(0,(hire-stack)*12))+'</b></span>');
+    var names=pickedNames();
+    if(names.length) chips.push('<span class="chip">Automate: <b>'+esc(names.length>2?names.length+' functions':listify(names))+'</b></span>');
+    if(chosenBudget) chips.push('<span class="chip">Stack: <b>'+esc(chosenBudget.name)+'</b></span>');
+    $('metachips').innerHTML=chips.join('');
+  }
+
+  function buildMoves(){
+    var b=band(), fns=pickedFns(), names=pickedNames(), pool=[];
+    var f1 = fns.length ? fns[0] : {name:"your biggest time sink", what:"the routine work eating your week"};
+    var f2 = fns.length>1 ? fns[1] : null;
+    var budName = chosenBudget ? chosenBudget.name : "the free or lean";
+
+    pool.push({w:100,t:"Set up "+esc(f1.name)+" with AI first",d:"Start with the work costing you most time. Stand up "+esc(f1.what)+" so it runs this week, before anything else."});
+    pool.push({w:96,t:"Pick your starter stack ("+esc(budName)+")",d:"Choose your AI assistant and one tool for "+esc(f1.name)+". Resist over-buying. One assistant plus one tool beats five half-used apps."});
+    if(f2) pool.push({w:90,t:"Add "+esc(f2.name)+" once the first is live",d:"With one function running, layer in "+esc(f2.name)+". One at a time keeps it working instead of half-built everywhere."});
+    else pool.push({w:90,t:"Write your top 3 prompts down",d:"Save the prompts you will reuse for "+esc(f1.name)+" so the setup is repeatable, not re-typed every time."});
+    pool.push({w:84,t:"Wire one automation between two tools",d:"Connect two apps you already use (Make or Zapier) so a routine handoff happens without you. This is where lean starts to feel like a team."});
+    pool.push({w:78,t:"Write down one process you keep repeating",d:"Capture the steps for one recurring job. A written process is the thing AI and automations can actually run for you."});
+    pool.push({w:70,t:"Book your free setup call",d:"Use your snapshot below to get the build order and the safe way to connect it all, so you do not lose a week to trial and error."});
+
+    pool.sort(function(a,b){return b.w-a.w;});
+    return pool.slice(0,5);
+  }
+  function renderMoves(){
+    var moves=buildMoves(),box=$('moves'); box.innerHTML='';
+    moves.forEach(function(m,i){
+      var div=document.createElement('div'); div.className='move';
+      div.innerHTML='<div class="mn">'+(i+1)+'</div><div><input class="mt" type="text" value="'+esc(m.t)+'">'+
+        '<textarea class="md">'+esc(m.d)+'</textarea><div class="when"><label>By when:</label><input type="text" placeholder="e.g. Fri 27 Jun"></div></div>';
+      box.appendChild(div);
+    });
+  }
+  function renderIntroAndCta(){
+    var done=answered()===QUESTIONS.length, b=done?band():null;
+    if(b==='high'){
+      $('ctaHead').innerText="Turn your AI-first setup into workflows that run themselves.";
+      $('ctaBody').innerText="Book a free 20-minute call. We will look at your score, the functions you flagged and your stack, then map how to connect it into automations that grow revenue without growing headcount.";
+    } else {
+      $('ctaHead').innerText="Build your AI foundation right, from day one.";
+      $('ctaBody').innerText="Book a free 20-minute call about your lean AI setup. We will look at your score, the functions you flagged and your budget, then map the foundation that lets AI carry the work while you stay lean, and the order to build it in.";
+    }
+  }
+  function render(){
+    if(!$('oneliner').dataset.edited){ $('oneliner').innerText=buildOneLiner(); }
+    renderChips(); renderIntroAndCta();
+  }
+
+  /* email capture */
+  function collectLead(){
+    return { source:"workbook-start", email:val('leadEmail'),
+      readiness: answered()===QUESTIONS.length?pct():null, stage: answered()===QUESTIONS.length?band():null,
+      automate:pickedNames(), budget: chosenBudget?chosenBudget.name:null,
+      keptVsHiringYr: money('hire')>0?Math.max(0,(money('hire')-money('stack'))*12):null,
+      snapshot:$('oneliner').innerText.trim(), ts:new Date().toISOString() };
+  }
+  $('emailBtn').addEventListener('click',function(){
+    var email=val('leadEmail');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('leadEmail').focus(); $('leadEmail').style.borderColor='var(--danger)'; return; }
+    $('leadEmail').style.borderColor='';
+    $('oneliner').dataset.edited=""; render(); renderMoves();
+    var payload=collectLead();
+    if(CONFIG.LEAD_WEBHOOK){
+      try{ fetch(CONFIG.LEAD_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'no-cors',keepalive:true}).catch(function(){}); }catch(e){}
+      $('emailMsg').innerText="Done. Your PDF is ready to save, and a copy is on its way."; $('emailMsg').style.display='block';
+      setTimeout(function(){ window.print(); }, 350);
+    } else if(CONFIG.LEAD_EMAIL){
+      var lines=["My lean AI plan from the Traq workbook:","",payload.snapshot,"",
+        (payload.readiness!=null?("AI readiness: "+payload.readiness+"% ("+payload.stage+")"):""),
+        (payload.automate.length?("Automate first: "+payload.automate.join(", ")):""),
+        (payload.budget?("Starter stack: "+payload.budget):""),
+        (payload.keptVsHiringYr!=null?("Kept vs hiring/yr: AED "+payload.keptVsHiringYr.toLocaleString('en-US')):""),
+        "","Please send me my lean AI plan as a PDF."].join("\n");
+      var href="mailto:"+CONFIG.LEAD_EMAIL+"?subject="+encodeURIComponent("My lean AI plan")+"&body="+encodeURIComponent(lines);
+      $('emailMsg').innerText="Your email just opened with your plan filled in. Hit send and we will get it."; $('emailMsg').style.display='block';
+      window.location.href=href;
+    } else { $('emailMsg').innerText="Your PDF is ready to save."; $('emailMsg').style.display='block'; setTimeout(function(){ window.print(); }, 350); }
+  });
+
+  /* wiring */
+  $('oneliner').addEventListener('input',function(){this.dataset.edited="1";});
+  ['hours','hire','stack'].forEach(function(id){ var e=$(id); if(e) e.addEventListener('input',function(){updateCalc();render();}); });
+  $('genBtn').addEventListener('click',function(){ $('oneliner').dataset.edited=""; render(); renderMoves(); var r=$('results'); if(r.scrollIntoView){r.scrollIntoView({behavior:'smooth'});} });
+  $('pdfBtn').addEventListener('click',function(){window.print();});
+  updateCalc(); render(); renderMoves();
+})();
+</script>
+</body>
+</html>

@@ -100,6 +100,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${SITE_URL}/workbook/upskill`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/workbook/start`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
     ...articleRoutes,
     {
       url: `${SITE_URL}/privacy`,

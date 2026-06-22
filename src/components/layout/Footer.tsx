@@ -29,7 +29,9 @@ const FOOTER_NAV = [
       { label: 'About', href: '/about' },
       { label: 'Insights', href: '/insights' },
       { label: 'AI readiness assessment', href: '/ai-readiness' },
-      { label: 'AI adoption workbook', href: '/workbook' },
+      { label: 'AI adoption workbook (teams)', href: '/workbook' },
+      { label: 'AI fluency workbook (individuals)', href: '/workbook/upskill' },
+      { label: 'Lean AI startup workbook', href: '/workbook/start' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Book a call', href: '/book' },
       { label: 'Contact', href: '/#contact' },
@@ -68,10 +70,10 @@ export default function Footer() {
               <ul className="mt-5 space-y-3">
                 {group.links.map((link) => (
                   <li key={link.href}>
-                    {/* /workbook is a standalone static page (served from /public
-                        via a rewrite), so it uses a plain anchor for a clean
+                    {/* /workbook* are standalone static pages (served from /public
+                        via rewrites), so they use a plain anchor for a clean
                         full-page navigation rather than a client-side route. */}
-                    {link.href === '/workbook' ? (
+                    {link.href.startsWith('/workbook') ? (
                       <a
                         href={link.href}
                         className="text-sm text-ink-soft transition-colors hover:text-traq-purple"

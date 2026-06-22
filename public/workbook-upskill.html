@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Fluency Workbook · Traq Collective</title>
+<meta name="description" content="A free 10-minute workbook for individuals. Score where your AI skills stand today, see the skills that matter most right now, and get a personalised 30-day learning path with starter prompts for your role.">
+<link rel="canonical" href="https://traqcollective.com/workbook/upskill">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The AI Fluency Workbook">
+<meta property="og:description" content="Become the person who actually knows how to use AI. A free skills diagnostic and 30-day learning path by Nazir Dogan at Traq Collective.">
+<meta property="og:url" content="https://traqcollective.com/workbook/upskill">
+<meta property="og:site_name" content="Traq Collective">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --traq-purple:#5B3FE4; --traq-light:#7C63F0; --traq-dim:#3D2BAA; --traq-deep:#2A1D7A;
+    --traq-purple-ink:#4A30C9; --traq-tint:#F3F0FF;
+    --bg:#FFFFFF; --bg-subtle:#FAFAFA;
+    --ink:#141414; --ink-soft:#555555; --ink-faint:#8A8A8A;
+    --line:#ECECEC; --line-strong:#DADADA;
+    --success:#1F9D55; --warning:#D9923B; --danger:#D14343;
+    --red:#D14343; --green:#1F9D55;
+    --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+    --shadow-hover:0 2px 4px rgba(20,20,20,.06),0 12px 28px rgba(20,20,20,.10);
+    --grid:linear-gradient(to right,rgba(91,63,228,.045) 1px,transparent 1px),
+           linear-gradient(to bottom,rgba(91,63,228,.045) 1px,transparent 1px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    font-feature-settings:'cv02','cv03','cv04','cv11'}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  a{color:var(--traq-purple)}
+  ::selection{background:rgba(91,63,228,.18);color:#141414}
+  :focus-visible{outline:2px solid var(--traq-purple);outline-offset:2px;border-radius:4px}
+
+  .topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+    position:sticky;top:0;z-index:40}
+  .topbar .wrap{max-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px}
+  .topbar img{height:26px;width:auto;display:block}
+  .topbar .right{display:flex;align-items:center;gap:18px}
+  .topbar .back{font-size:13.5px;font-weight:600;color:var(--ink-soft);text-decoration:none}
+  .topbar .back:hover{color:var(--traq-purple)}
+  .topbar .book{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--traq-purple);text-decoration:none;
+    font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line-strong);transition:.18s}
+  .topbar .book:hover{border-color:var(--traq-purple);transform:translateY(-1px)}
+
+  .hero{background:var(--bg);background-image:var(--grid);background-size:28px 28px;
+    border-bottom:1px solid var(--line);padding:54px 0 50px}
+  .pill{display:inline-block;background:var(--traq-tint);color:var(--traq-purple-ink);font-weight:700;font-size:11.5px;
+    letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin:0 0 16px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.08;margin:0;font-weight:800;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+  .hero h1 .accent{color:var(--traq-purple)}
+  .hero p{color:var(--ink-soft);font-size:17px;max-width:660px;margin:22px 0 0;text-wrap:pretty}
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;max-width:700px}
+  .contrast div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .contrast h4{margin:0 0 10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .contrast.trap h4{color:var(--danger)}.contrast .edge h4{color:var(--traq-purple)}
+  .contrast ul{margin:0;padding-left:16px;color:var(--ink-soft);font-size:13.5px}
+  .contrast li{margin:3px 0}
+  .by{margin-top:30px;color:var(--ink-faint);font-size:14px}.by b{color:var(--ink)}
+
+  section{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);padding:30px 30px 34px 36px;margin:26px 0;overflow:hidden}
+  section::before{content:'';position:absolute;inset:16px auto 16px 16px;width:1.5px;border-radius:2px;background:rgba(91,63,228,.22)}
+  .step{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+  .num{width:32px;height:32px;border-radius:50%;background:var(--traq-purple);color:#fff;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+  .step h2{font-size:21px;margin:0;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .lead{color:var(--ink-soft);margin:4px 0 22px;font-size:15px}
+  label.f{display:block;font-weight:700;font-size:14.5px;margin:18px 0 4px;color:var(--ink)}
+  .hint{color:var(--ink-faint);font-size:12.5px;margin:0 0 8px}
+  input[type=text],input[type=number],input[type=email],textarea,select{width:100%;border:1px solid var(--line);background:var(--bg-subtle);
+    border-radius:10px;padding:11px 13px;font:inherit;color:var(--ink);resize:vertical}
+  input::placeholder,textarea::placeholder{color:#aab0b8}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--traq-purple);
+    background:#fff;box-shadow:0 0 0 3px rgba(91,63,228,.14)}
+  textarea{min-height:54px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+  .reasons{display:grid;gap:12px;margin-top:6px}
+  .reason{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+  .reason .rh{display:flex;gap:11px;align-items:flex-start}
+  .reason .rn{width:26px;height:26px;border-radius:50%;background:var(--traq-tint);color:var(--traq-purple-ink);
+    font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:1px}
+  .reason h4{margin:0;font-size:15.5px;font-weight:800;color:var(--ink)}
+  .reason .cost{margin:8px 0 0 37px;color:var(--ink-soft);font-size:13.5px}
+  .reason .fix{margin:8px 0 0 37px;color:var(--ink);font-size:13.5px;border-left:3px solid var(--traq-light);padding-left:12px}
+  .reason .fix b{color:var(--traq-purple-ink)}
+
+  .research{margin-top:22px;background:var(--bg-subtle);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .research p{margin:0 0 10px;font-size:14px;color:var(--ink)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+  .stat b{display:block;font-size:22px;font-weight:800;color:var(--traq-purple);line-height:1.1}
+  .stat span{display:block;font-size:12px;color:var(--ink-soft);margin-top:4px}
+  .stat cite{display:block;font-size:10.5px;color:var(--ink-faint);margin-top:7px;font-style:normal}
+
+  .qblock{padding:16px 0;border-bottom:1px solid var(--line)}
+  .qblock:last-child{border-bottom:none}
+  .qtitle{font-weight:800;font-size:15px;margin:0 0 11px;display:flex;gap:9px;align-items:flex-start;color:var(--ink)}
+  .qtitle .dot{width:7px;height:7px;border-radius:50%;background:var(--traq-purple);flex:0 0 auto;margin-top:7px}
+  .opts{display:grid;gap:8px}
+  .opt{display:flex;align-items:center;gap:11px;border:1.5px solid var(--line);border-radius:12px;
+    padding:11px 14px;cursor:pointer;background:#fff;font-size:14px;color:var(--ink);transition:.14s}
+  .opt:hover{border-color:var(--traq-light);background:var(--traq-tint)}
+  .opt input{accent-color:var(--traq-purple);width:17px;height:17px;flex:0 0 auto;margin:0}
+  .opt.sel{border-color:var(--traq-purple);background:var(--traq-tint);font-weight:600}
+  .opt .tag{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.5px;padding:2px 8px;
+    border-radius:999px;opacity:0;transition:.14s;white-space:nowrap}
+  .opt.sel .tag{opacity:1}
+  .opt.sel .tag.lo{background:#FBE7E7;color:#9c2a2a}
+  .opt.sel .tag.hi{background:#E3F4EA;color:#0f6b3c}
+  .opt.sel .tag.mid{background:var(--traq-tint);color:var(--traq-purple-ink)}
+
+  #scoreCard{display:none;margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);animation:pop .45s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .score-top{background:var(--traq-purple);color:#fff;padding:24px 26px}
+  .score-top .lbl{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+  .score-num{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+  .score-num b{font-size:42px;font-weight:800;line-height:1}
+  .score-num span{font-size:16px;color:rgba(255,255,255,.8);font-weight:700}
+  .meter{margin:16px 0 6px;height:12px;border-radius:999px;position:relative;
+    background:linear-gradient(90deg,var(--danger) 0%,var(--warning) 50%,var(--success) 100%)}
+  .meter .marker{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:#fff;
+    border:3px solid var(--traq-purple);transform:translate(-50%,-50%);box-shadow:0 2px 6px rgba(0,0,0,.3);transition:left .5s}
+  .meter-labels{display:flex;justify-content:space-between;color:rgba(255,255,255,.8);font-size:11.5px;font-weight:700}
+  .score-body{background:#fff;padding:20px 26px 22px}
+  .score-body .band{font-size:17px;font-weight:800;margin:0 0 6px;color:var(--ink)}
+  .score-body p{margin:0;color:var(--ink-soft);font-size:14.5px}
+  .softnote{margin-top:14px;font-size:13px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:12px}
+  .softnote b{color:var(--ink-soft)}
+
+  .calcwrap{background:var(--traq-tint);border:1px solid #d9d0fb;border-radius:14px;padding:18px 20px;margin-top:6px}
+  .calcwrap .hint{color:var(--traq-purple-ink)}
+  .calc-out{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .calc-out .big{font-size:26px;font-weight:800;color:var(--traq-purple);line-height:1.15}
+  .calc-out p{margin:6px 0 0;font-size:13px;color:var(--ink-soft)}
+
+  .funcs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  .func{border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;background:#fff;transition:.14s}
+  .func:hover{border-color:var(--traq-light);background:var(--traq-tint)}
+  .func.sel{border-color:var(--traq-purple);background:var(--traq-tint)}
+  .func h4{margin:0 0 4px;font-size:14px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .func h4 .chk{width:16px;height:16px;border-radius:5px;border:1.5px solid var(--line-strong);flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:#fff}
+  .func.sel h4 .chk{background:var(--traq-purple);border-color:var(--traq-purple)}
+  .func p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+
+  /* role prompt picker */
+  .rolepick{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+  .rolepick button{font:inherit;font-weight:700;font-size:13px;border:1.5px solid var(--line-strong);background:#fff;color:var(--ink-soft);
+    border-radius:999px;padding:8px 15px;cursor:pointer;transition:.14s}
+  .rolepick button:hover{border-color:var(--traq-light);color:var(--traq-purple)}
+  .rolepick button.sel{background:var(--traq-purple);border-color:var(--traq-purple);color:#fff}
+  .promptpanel{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--bg-subtle)}
+  .promptpanel h4{margin:0 0 4px;font-size:14.5px;color:var(--ink)}
+  .promptpanel .tools{font-size:12.5px;color:var(--traq-purple-ink);font-weight:700;margin:0 0 12px}
+  .prompt{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:8px 0;font-size:13px;color:var(--ink)}
+  .prompt b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:4px;font-weight:800}
+
+  .road{display:grid;gap:12px;margin-top:6px}
+  .phase{display:grid;grid-template-columns:78px 1fr;gap:14px;border:1px solid var(--line);border-radius:14px;padding:15px 16px;background:#fff}
+  .phase .pn{font-weight:800;color:var(--traq-purple);font-size:13px;letter-spacing:.02em}
+  .phase h4{margin:0 0 3px;font-size:15px;font-weight:800;color:var(--ink)}
+  .phase p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .handover{margin-top:16px;font-size:13.5px;color:var(--ink-soft);background:var(--bg-subtle);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .handover b{color:var(--ink)}
+
+  .summary{background:var(--traq-purple);color:#fff;border-radius:16px;padding:24px 26px;margin:6px 0 4px}
+  .summary .lbl{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px}
+  .summary .oneliner{font-size:18px;font-weight:700;line-height:1.5;margin:0;outline:none}
+  .summary .oneliner:focus{box-shadow:0 0 0 2px rgba(255,255,255,.4);border-radius:6px}
+  .summary .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+  .summary .chip{background:rgba(255,255,255,.14);border-radius:999px;padding:6px 13px;font-size:12.5px;color:rgba(255,255,255,.85)}
+  .summary .chip b{color:#fff}
+  .moves-intro{color:var(--ink-soft);font-size:14px;margin:24px 0 14px}
+  .move{display:grid;grid-template-columns:36px 1fr;gap:14px;border:1px solid var(--line);
+    border-radius:14px;padding:16px;margin:12px 0;background:#fff;box-shadow:var(--shadow)}
+  .move .mn{width:30px;height:30px;border-radius:50%;background:var(--traq-purple);color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center}
+  .move .mt{font-weight:800;font-size:15.5px;margin:0 0 7px;border:none;width:100%;background:transparent;color:var(--ink)}
+  .move .mt:focus{outline:none}
+  .move textarea.md{min-height:52px;font-size:14px}
+  .move .when{display:flex;align-items:center;gap:8px;margin-top:9px}
+  .move .when label{font-size:12.5px;font-weight:700;color:var(--ink-soft)}
+  .move .when input{max-width:170px;background:#fff}
+
+  .cta{background:var(--traq-tint);color:var(--ink);border-radius:20px;padding:32px 34px;margin:26px 0;
+    border:1px solid var(--line);border-left:5px solid var(--traq-purple)}
+  .cta .lbl{color:var(--traq-purple);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+  .cta h3{margin:0 0 10px;font-size:24px;font-weight:800;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+  .cta p.body{color:var(--ink-soft);margin:0 0 14px;max-width:600px;font-size:15px}
+  .cta .promise{display:grid;gap:7px;margin:0 0 18px;padding:0;list-style:none}
+  .cta .promise li{font-size:14px;color:var(--ink);padding-left:24px;position:relative}
+  .cta .promise li::before{content:'\2713';position:absolute;left:0;color:var(--traq-purple);font-weight:800}
+  .cta a.btn{display:inline-flex;align-items:center;gap:8px;background:var(--traq-purple);color:#fff;text-decoration:none;
+    font-weight:700;padding:14px 28px;border-radius:999px;font-size:15px;box-shadow:var(--shadow);transition:.18s}
+  .cta a.btn:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .cta .cred{margin:16px 0 0;font-size:13px;color:var(--ink-faint)}
+  .cta .cred b{color:var(--ink-soft)}
+  .emailcap{margin-top:20px;border-top:1px solid #d9d0fb;padding-top:18px}
+  .emailcap .el{font-weight:700;font-size:14px;color:var(--ink);margin:0 0 4px}
+  .emailcap .es{font-size:12.5px;color:var(--ink-soft);margin:0 0 10px}
+  .emailrow{display:flex;gap:10px;flex-wrap:wrap;max-width:520px}
+  .emailrow input{flex:1;min-width:200px;background:#fff}
+  .emailrow button{font:inherit;font-weight:700;border:none;border-radius:10px;padding:11px 18px;cursor:pointer;background:var(--ink);color:#fff;transition:.18s}
+  .emailrow button:hover{background:#000}
+  .emailmsg{font-size:13px;margin:10px 0 0;color:var(--green);font-weight:600;display:none}
+
+  .bar{position:sticky;bottom:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);padding:12px 0;margin-top:30px}
+  .bar .wrap{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .bar button{font:inherit;font-weight:700;border:none;border-radius:999px;padding:12px 22px;cursor:pointer;transition:.18s}
+  .bar .gen{background:var(--traq-purple);color:#fff;box-shadow:var(--shadow)}
+  .bar .gen:hover{background:var(--traq-purple-ink);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .bar .pdf{background:#fff;color:var(--ink);border:1.5px solid var(--line-strong)}
+  .bar .pdf:hover{border-color:var(--traq-purple);color:var(--traq-purple)}
+  .bar .hintbar{color:var(--ink-faint);font-size:12.5px;width:100%;text-align:center}
+
+  .pickrow{max-width:880px;margin:22px auto 0;padding:0 20px}
+  .pickrow .pk{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .pickrow a{flex:1;min-width:210px;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+    background:#fff;box-shadow:var(--shadow);transition:.16s;color:var(--ink)}
+  .pickrow a:hover{border-color:var(--traq-purple);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+  .pickrow a.here{border-color:var(--traq-purple);background:var(--traq-tint)}
+  .pickrow .t{font-weight:800;font-size:14px;display:block}
+  .pickrow .d{font-size:12px;color:var(--ink-soft)}
+
+  footer.site{border-top:1px solid var(--line);background:var(--bg);margin-top:40px}
+  footer.site .wrap{max-width:1100px;padding:30px 20px 44px;text-align:center}
+  footer.site img{height:30px;width:auto;margin:0 auto 14px;display:block}
+  footer.site p{margin:6px 0;color:var(--ink-faint);font-size:13px}
+  footer.site a{color:var(--ink-soft);text-decoration:none;font-weight:600}
+  footer.site a:hover{color:var(--traq-purple)}
+
+  @media(max-width:680px){
+    .two,.three,.contrast,.stats,.funcs{grid-template-columns:1fr}
+    .topbar .back{display:none}
+    section{padding:26px 22px 28px 28px}
+  }
+  @media print{
+    body{background:#fff}
+    .topbar,.bar,.hint,.moves-intro,.emailcap,.softnote,.rolepick{display:none!important}
+    .hero{background:#fff;background-image:none;border:none;padding:30px 0}
+    section,.cta,.summary,#scoreCard,.research,.calcwrap{box-shadow:none;break-inside:avoid}
+    section::before{display:none}
+    input,textarea,select{border:none!important;background:#fff!important;box-shadow:none!important;padding:2px 0!important}
+    .opt{border:1px solid #bbb}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="/" aria-label="Traq Collective home"><img src="/logos/wordmark-purple.png" alt="Traq Collective"></a>
+    <div class="right">
+      <a class="back" href="/">Back to traqcollective.com</a>
+      <a class="book" href="/book">Book a call</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="pill">The AI Fluency Workbook &middot; for individuals</span>
+    <h1>Become the person who<br><span class="accent">actually knows how to use AI.</span></h1>
+    <p>Almost everyone has poked at ChatGPT. Very few are genuinely fluent, and that gap is quietly becoming a
+       career divide. This workbook scores where your AI skills stand today, shows the skills that matter most
+       right now, and builds a 30-day learning path with starter prompts for your role. No sign-up to read it.</p>
+    <div class="contrast trap">
+      <div><h4>The dabbler</h4>
+        <ul><li>Asks one-line questions</li><li>Takes the first answer</li><li>One tool, used shallowly</li><li>Falls behind quietly</li></ul></div>
+      <div class="edge"><h4>The AI-fluent professional</h4>
+        <ul><li>Designs prompts and workflows</li><li>Knows where AI fails and checks it</li><li>Picks the right tool for the job</li><li>Becomes the person others ask</li></ul></div>
+    </div>
+    <p class="by"><b>Nazir Dogan</b> &nbsp;&middot;&nbsp; Founder, Traq Collective &nbsp;&middot;&nbsp; Builder of agentic AI products and team enablement programmes</p>
+  </div>
+</div>
+
+<div class="pickrow"><div class="pk">
+  <a class="here" href="/workbook/upskill"><span class="t">Just me</span><span class="d">Level up my own AI skills</span></a>
+  <a href="/workbook/start"><span class="t">Starting a business</span><span class="d">Run lean with AI before I hire</span></a>
+  <a href="/workbook"><span class="t">We have a team</span><span class="d">Get our team adopting AI</span></a>
+</div></div>
+
+<div class="wrap">
+
+  <!-- 0. VALUE-FIRST -->
+  <section id="s0">
+    <div class="step"><div class="num">&#9733;</div><h2>What separates AI-fluent people from dabblers</h2></div>
+    <p class="lead">Read this first, no input needed. Five habits that move you from poking at AI to genuinely
+       working with it. If you only take one thing from this workbook, take these.</p>
+    <div class="reasons">
+      <div class="reason"><div class="rh"><div class="rn">1</div><h4>They give context, not one-liners</h4></div>
+        <p class="cost">A dabbler types "write me an email." A fluent user gives the role, the audience, the goal and an example, then gets something usable in one pass.</p>
+        <p class="fix"><b>Skill:</b> prompting with context, constraints and examples. It is the single highest-return habit to build.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">2</div><h4>They iterate instead of accepting</h4></div>
+        <p class="cost">The first answer is rarely the best one. Dabblers stop there. Fluent users push back, refine, and steer toward what they actually wanted.</p>
+        <p class="fix"><b>Skill:</b> treating AI as a thinking partner you direct, not a vending machine you accept.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">3</div><h4>They verify, because they know where it fails</h4></div>
+        <p class="cost">Trusting every output blindly is how people get burned and then quietly stop using AI altogether.</p>
+        <p class="fix"><b>Skill:</b> judgement. Knowing what AI is reliable for, what to double-check, and how to design around its weak spots.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">4</div><h4>They pick the right tool, and combine them</h4></div>
+        <p class="cost">Living in one free chat window leaves most of the value on the table.</p>
+        <p class="fix"><b>Skill:</b> knowing which tool fits which job, and stringing them together into a workflow.</p></div>
+      <div class="reason"><div class="rh"><div class="rn">5</div><h4>They build reusable systems</h4></div>
+        <p class="cost">Re-typing the same prompt every time is slow. The gain compounds when you save and reuse what works.</p>
+        <p class="fix"><b>Skill:</b> turning your best prompts into saved, repeatable systems so the speed becomes permanent.</p></div>
+    </div>
+    <div class="research">
+      <p>The encouraging part: fluency is learnable, and faster than people think. The data is clear on what moves
+         the needle, and that practice pays off in real output and confidence, not just on paper.</p>
+      <div class="stats">
+        <div class="stat"><b>43% &rarr; 72%</b><span>comfort using AI nearly doubles after structured training</span><cite>Slack</cite></div>
+        <div class="stat"><b>+14 to 34%</b><span>output lift from AI, and the largest gains go to less experienced people</span><cite>Brynjolfsson, Li &amp; Raymond, NBER</cite></div>
+        <div class="stat"><b>+81%</b><span>daily AI users report higher satisfaction, focus and productivity</span><cite>Slack Workforce Index, 2025</cite></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. DIAGNOSTIC -->
+  <section id="s1">
+    <div class="step"><div class="num">1</div><h2>Score your AI fluency</h2></div>
+    <p class="lead">Pick the answer closest to how you actually work today. Each one moves your score along the curve
+       from <b>beginner</b> to <b>fluent</b>. Answer all six to reveal where you stand.</p>
+    <div id="scorecard"></div>
+    <div id="scoreCard">
+      <div class="score-top">
+        <p class="lbl">Your AI fluency score</p>
+        <div class="score-num"><b id="scorePct">0%</b><span id="scoreSide">fluent</span></div>
+        <div class="meter"><div class="marker" id="scoreMarker" style="left:0%"></div></div>
+        <div class="meter-labels"><span>Beginner</span><span>Fluent</span></div>
+      </div>
+      <div class="score-body">
+        <p class="band" id="scoreBand"></p>
+        <p id="scoreMsg"></p>
+        <p class="softnote" id="softNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SKILLS THAT MATTER -->
+  <section id="s2">
+    <div class="step"><div class="num">2</div><h2>The skills that matter most right now</h2></div>
+    <p class="lead">These are the five capabilities that turn AI from a toy into an edge. Tick the ones you want to
+       grow first. Your plan below will lead with them.</p>
+    <div class="funcs" id="skills"></div>
+    <div class="calcwrap">
+      <label class="f" style="margin-top:0">What fluency could give back to you</label>
+      <p class="hint">Roughly how many hours a week do you spend on work AI could speed up (drafting, research,
+         admin, analysis)? We have pre-filled a modest 5. This is time you could reclaim or redirect to higher-value work.</p>
+      <div class="three">
+        <div><label class="f">Hours/week AI could speed up</label><input type="number" id="hpp" min="0" step="0.5" value="5"></div>
+        <div><label class="f">Your value of an hour (optional)</label><input type="text" id="rate" placeholder="e.g. AED 120"></div>
+        <div><label class="f">Working weeks/year</label><input type="number" id="weeks" min="1" value="46"></div>
+      </div>
+      <div class="calc-out">
+        <div class="big" id="calcBig">Adjust the numbers above</div>
+        <p id="calcSub">This is time back, not extra hours worked. Fluency is how you turn a chunk of routine work into thinking, learning, or simply finishing earlier.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 30-DAY PATH -->
+  <section id="s3">
+    <div class="step"><div class="num">3</div><h2>Your 30-day learning path</h2></div>
+    <p class="lead">This is the four-week structure that takes someone from curious to genuinely capable. It is the
+       same shape for everyone. What changes is which skills you lead with and the examples from your own work,
+       and that is what we tailor on a call.</p>
+    <div class="road" id="road"></div>
+    <div class="handover"><b>Why 30 days, and why little-and-often beats a binge.</b> Comfort with AI roughly doubles
+      after structured practice, and the people who cross about five hours of real, applied use become regular,
+      confident users rather than occasional dabblers. Twenty focused minutes a day on your real tasks clears that
+      bar inside a month and makes the habit stick.</div>
+  </section>
+
+  <!-- 4. STARTER PROMPTS -->
+  <section id="s4">
+    <div class="step"><div class="num">4</div><h2>Starter prompts and tools for your role</h2></div>
+    <p class="lead">Pick your role and take these with you. Copy a prompt, swap in your details, and you are working
+       with AI in the next two minutes. This is yours to keep whether or not we ever speak.</p>
+    <div class="rolepick" id="rolepick"></div>
+    <div class="promptpanel" id="promptpanel"></div>
+  </section>
+
+  <!-- 5. PROOF -->
+  <section id="s5">
+    <div class="step"><div class="num">5</div><h2>Why this is worth your month</h2></div>
+    <p class="lead">Not opinion, evidence. Structured practice changes output and confidence, and the gains land
+       hardest for people earlier in the curve.</p>
+    <div class="stats">
+      <div class="stat"><b>+34%</b><span>output lift for less experienced workers using AI, vs +14% on average</span><cite>Brynjolfsson, Li &amp; Raymond, NBER/QJE</cite></div>
+      <div class="stat"><b>5+ hours</b><span>of practice is the tipping point where people become regular AI users</span><cite>BCG, 2025</cite></div>
+      <div class="stat"><b>48%</b><span>of employees say training is the single biggest factor for adopting AI</span><cite>McKinsey, 2025</cite></div>
+    </div>
+    <div class="handover">The pattern is consistent across the research: the tool is not the differentiator, the
+      practised person is. Thirty days of applied, role-specific use is what turns a licence into a skill.</div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="step"><div class="num">&#9733;</div><h2>Your AI fluency snapshot</h2></div>
+    <p class="lead">Built from your answers. Hit <b>Build my snapshot</b> below (or just keep editing). Everything
+       stays fully editable, and you can save the page as a PDF.</p>
+    <div class="summary">
+      <p class="lbl">Where your skills stand</p>
+      <p class="oneliner" id="oneliner" contenteditable="true" spellcheck="false">Answer the six questions above and your snapshot builds itself here.</p>
+      <div class="meta" id="metachips"></div>
+    </div>
+    <p class="moves-intro" id="movesIntro">&#9733; <b>Your first three moves this week.</b> Generated from your answers and ordered by leverage. Edit any of them, set a date, then save as PDF.</p>
+    <div id="moves"></div>
+    <div class="handover" id="planNote"><b>This is your starting path, not the finished plan.</b> Which skills to
+      drill first, the right examples from your own work, and how to keep momentum past week one are what a focused
+      coaching conversation locks in. That is the call below.</div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <p class="lbl" id="ctaLbl">Your next step</p>
+    <h3 id="ctaHead">Want to close the gap faster, with someone in your corner?</h3>
+    <p class="body" id="ctaBody">Book a free 20-minute call about structured AI upskilling. We will look at your score
+       and the skills you flagged, then map a focused learning path, and talk through whether one-to-one or
+       small-group coaching is the fastest way for you to get genuinely fluent.</p>
+    <ul class="promise">
+      <li>A clear read on your single biggest skill gap</li>
+      <li>A realistic 30-day plan tailored to your role and goals</li>
+      <li>No pressure and no obligation, just a useful conversation</li>
+    </ul>
+    <a class="btn" href="/book" id="ctaLink">Book your free call <span aria-hidden="true">&rarr;</span></a>
+    <p class="cred">Run by <b>Nazir Dogan</b> of Traq Collective, who trains people and teams to actually use AI,
+       across Dubai, Abu Dhabi and beyond. Or email <a href="mailto:hello@traqcollective.com">hello@traqcollective.com</a>.</p>
+    <div class="emailcap">
+      <p class="el">Prefer it in writing?</p>
+      <p class="es">Drop your email and we will send your fluency snapshot and 30-day path as a PDF. No spam, ever.</p>
+      <div class="emailrow">
+        <input type="email" id="leadEmail" placeholder="you@email.com" autocomplete="email">
+        <button id="emailBtn" type="button">Email me my snapshot</button>
+      </div>
+      <p class="emailmsg" id="emailMsg"></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="bar">
+  <div class="wrap">
+    <button class="gen" id="genBtn">&#9733; Build my snapshot</button>
+    <button class="pdf" id="pdfBtn">&#8595; Save as PDF</button>
+    <div class="hintbar">Your answers stay on your device. Nothing is sent unless you ask us to email your snapshot.</div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="/" aria-label="Traq Collective home"><img src="/logos/wordmark-purple.png" alt="Traq Collective"></a>
+    <p>The AI Fluency Workbook &nbsp;&middot;&nbsp; by Nazir Dogan</p>
+    <p>&copy; <span id="yr">2026</span> Traq Collective &nbsp;&middot;&nbsp; <a href="/">traqcollective.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var CONFIG = {
+    BOOKING_URL: "/book",
+    LEAD_WEBHOOK: "",                       // ManyChat / Zapier / Make webhook URL, optional
+    LEAD_EMAIL: "hello@traqcollective.com"  // mailto fallback when no webhook is set
+  };
+  document.getElementById('ctaLink').setAttribute('href', CONFIG.BOOKING_URL);
+  try{ var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear(); }catch(e){}
+
+  function $(id){return document.getElementById(id);}
+  function val(id){var e=$(id);return e?(e.value||"").trim():"";}
+  function numv(id){var v=parseFloat(val(id));return isNaN(v)?0:v;}
+  function esc(s){return (s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+  /* DIAGNOSTIC: 0 = beginner, 3 = fluent */
+  var QUESTIONS = [
+    {q:"How often do you use AI in your actual work?", o:[
+      ["Rarely, if ever",0],["Now and then",1],["Most days",2],["It is woven through my day",3]]},
+    {q:"What do you mostly use it for?", o:[
+      ["Simple questions and quick answers",0],["Drafting and summarising",1],["Multi-step tasks and analysis",2],["Building workflows and automations",3]]},
+    {q:"How do you prompt?", o:[
+      ["One-line asks",0],["I add a bit of context",1],["I iterate and give examples",2],["I design reusable prompts and systems",3]]},
+    {q:"Your range of tools?", o:[
+      ["Just one free chatbot",0],["One tool, used well",1],["A few tools for different jobs",2],["I pick the right tool and combine them",3]]},
+    {q:"How do you handle AI's mistakes?", o:[
+      ["I take outputs as they come",0],["I sometimes check",1],["I always sanity-check",2],["I know where it fails and design around it",3]]},
+    {q:"When it comes to AI, on your team you are...", o:[
+      ["The one asking for help",0],["Able to help a little",1],["The person colleagues ask",2],["The one who sets the standard",3]]}
+  ];
+  var MAXSCORE = QUESTIONS.length * 3;
+
+  var SKILLS = [
+    {id:"prompt", name:"Prompting with context", desc:"Give AI the role, goal, constraints and examples so it nails it in one pass."},
+    {id:"iterate", name:"Directing and iterating", desc:"Steer, refine and push back instead of accepting the first answer."},
+    {id:"judge", name:"Judgement and verification", desc:"Know what to trust, what to check, and where AI quietly gets it wrong."},
+    {id:"tools", name:"Choosing and combining tools", desc:"Match the tool to the job and string them into a workflow."},
+    {id:"systems", name:"Building reusable systems", desc:"Turn your best prompts into saved, repeatable assets so speed compounds."},
+    {id:"role", name:"Applying it to your role", desc:"Bend all of the above to the specific work you do every day."}
+  ];
+
+  var PATH = [
+    {n:"Week 1", t:"Foundations and prompting", d:"Build the core habit: context, constraints, examples, and iterating. Use it daily on small real tasks."},
+    {n:"Week 2", t:"Your real workflows", d:"Apply AI to the actual jobs in your role. Find the three tasks it speeds up most and lean in."},
+    {n:"Week 3", t:"Tools and judgement", d:"Add a second and third tool, and sharpen your eye for what to verify and where AI fails."},
+    {n:"Week 4", t:"Build your system", d:"Save your best prompts, wire a small workflow, and become the person others come to."}
+  ];
+
+  var ROLES = {
+    "Marketing": {tools:"ChatGPT or Claude, plus a research tool", prompts:[
+      ["Campaign angle","Act as a senior marketer for [audience]. Give me 5 distinct campaign angles for [product], each with a hook, the core insight, and why it would land. Then flag the riskiest one."],
+      ["Repurpose","Here is a long post: [paste]. Turn it into a LinkedIn post, 3 short tweets, and an email subject line plus preview text, keeping my voice: [describe voice]."]]},
+    "Sales": {tools:"ChatGPT or Claude, plus your CRM notes", prompts:[
+      ["Tailored outreach","You are an SDR. Write a 90-word first-touch message to [name, role, company]. Lead with this trigger: [trigger]. One clear ask, no fluff, no buzzwords."],
+      ["Call prep","Here are my notes on [account]: [paste]. Give me the 3 likely objections, a one-line response to each, and 5 discovery questions that open the real pain."]]},
+    "Ops / Admin": {tools:"ChatGPT or Claude, plus a spreadsheet", prompts:[
+      ["Untangle a process","Here is how we currently do [task]: [paste steps]. Find the redundant steps, suggest a leaner flow, and tell me which steps AI could handle."],
+      ["Inbox to actions","Here is a messy email thread: [paste]. Summarise the decisions, list the action items with owners, and draft a short reply confirming next steps."]]},
+    "Finance": {tools:"ChatGPT or Claude, plus your spreadsheet", prompts:[
+      ["Explain the numbers","Here is this month's figures: [paste]. Explain the 3 most important movements in plain English for a non-finance reader, and flag anything that looks off."],
+      ["Draft the report","Turn these numbers into a tight monthly update: headline, 3 wins, 2 watch-outs, and the one decision I need from leadership."]]},
+    "HR / People": {tools:"ChatGPT or Claude", prompts:[
+      ["Job spec","Write a job spec for [role] at a [type] company. Plain, inclusive language, the real day-to-day, and the 5 must-have outcomes rather than a wishlist of skills."],
+      ["Onboarding plan","Build a 30-day onboarding plan for a new [role], with week-by-week goals, who they should meet, and what good looks like by day 30."]]},
+    "Founder / Manager": {tools:"ChatGPT or Claude, plus a notes tool", prompts:[
+      ["Think it through","I am deciding whether to [decision]. Play devil's advocate. Give me the strongest case against, the 3 things I am probably underweighting, and what I would need to believe for this to be right."],
+      ["Draft fast","Here are rough notes: [paste]. Turn them into a clear one-pager for [audience] with a recommendation up top and the reasoning below."]]},
+    "Creative": {tools:"ChatGPT or Claude, plus an image tool", prompts:[
+      ["Beat creative block","I am working on [brief]. Give me 10 directions that are genuinely different from each other, not variations on one idea. Push a couple of them somewhere unexpected."],
+      ["Tighten the copy","Here is my draft: [paste]. Cut 30% without losing meaning, sharpen the verbs, and give me two alternative openings."]]}
+  };
+
+  /* build diagnostic */
+  var sc=$('scorecard');
+  QUESTIONS.forEach(function(item,i){
+    var b=document.createElement('div'); b.className='qblock';
+    var opts=item.o.map(function(o){
+      var tag = o[1]===0?'<span class="tag lo">BEGINNER</span>'
+              : o[1]===3?'<span class="tag hi">FLUENT</span>'
+              : '<span class="tag mid">'+(o[1]===1?'EARLY':'CAPABLE')+'</span>';
+      return '<label class="opt"><input type="radio" name="q'+i+'" value="'+o[1]+'"><span>'+o[0]+'</span>'+tag+'</label>';
+    }).join('');
+    b.innerHTML='<p class="qtitle"><span class="dot"></span>'+item.q+'</p><div class="opts">'+opts+'</div>';
+    sc.appendChild(b);
+  });
+  document.querySelectorAll('.opt input').forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var name=this.name;
+      document.querySelectorAll('input[name="'+name+'"]').forEach(function(o){o.closest('.opt').classList.remove('sel');});
+      this.closest('.opt').classList.add('sel');
+      updateScore();
+    });
+  });
+
+  /* build skills picker */
+  var picked={}, sbox=$('skills');
+  SKILLS.forEach(function(f){
+    var d=document.createElement('div'); d.className='func'; d.dataset.id=f.id;
+    d.innerHTML='<h4><span class="chk">&#10003;</span>'+f.name+'</h4><p>'+f.desc+'</p>';
+    d.addEventListener('click',function(){ this.classList.toggle('sel'); picked[f.id]=this.classList.contains('sel'); render(); });
+    sbox.appendChild(d);
+  });
+  function pickedNames(){return SKILLS.filter(function(f){return picked[f.id];}).map(function(f){return f.name;});}
+
+  /* build path */
+  var rbox=$('road');
+  PATH.forEach(function(p){
+    var d=document.createElement('div'); d.className='phase';
+    d.innerHTML='<div class="pn">'+p.n+'</div><div><h4>'+p.t+'</h4><p>'+p.d+'</p></div>';
+    rbox.appendChild(d);
+  });
+
+  /* build role prompt picker */
+  var rp=$('rolepick'), pp=$('promptpanel'), roleKeys=Object.keys(ROLES), activeRole=roleKeys[0];
+  roleKeys.forEach(function(k){
+    var btn=document.createElement('button'); btn.type='button'; btn.textContent=k;
+    btn.addEventListener('click',function(){ activeRole=k; paintRoles(); });
+    rp.appendChild(btn);
+  });
+  function paintRoles(){
+    Array.prototype.forEach.call(rp.children,function(b){ b.classList.toggle('sel', b.textContent===activeRole); });
+    var r=ROLES[activeRole];
+    var html='<h4>'+activeRole+' starter prompts</h4><p class="tools">Good tools to start: '+r.tools+'</p>';
+    r.prompts.forEach(function(p){ html+='<div class="prompt"><b>'+esc(p[0])+'</b>'+esc(p[1])+'</div>'; });
+    pp.innerHTML=html;
+  }
+  paintRoles();
+
+  /* scoring */
+  function answered(){var n=0;for(var i=0;i<QUESTIONS.length;i++){if(document.querySelector('input[name="q'+i+'"]:checked'))n++;}return n;}
+  function totalScore(){var s=0;for(var i=0;i<QUESTIONS.length;i++){var c=document.querySelector('input[name="q'+i+'"]:checked');if(c)s+=+c.value;}return s;}
+  function pct(){return Math.round(totalScore()/MAXSCORE*100);}
+  function band(){var p=pct(); return p<=39?'low':(p<=65?'mid':'high');}
+
+  function updateScore(){
+    if(answered()<QUESTIONS.length){ $('scoreCard').style.display='none'; render(); return; }
+    var p=pct();
+    $('scoreCard').style.display='block';
+    $('scorePct').innerText=p+'%';
+    $('scoreMarker').style.left=p+'%';
+    var b=band(),title,msg;
+    if(b==='low'){
+      title="Curious beginner";
+      msg="You have started, which already puts you ahead of the people who have not. The good news: this stage moves fastest. A focused month of daily practice on your real work will take you further than the last year of occasional poking.";
+    } else if(b==='mid'){
+      title="Capable user";
+      msg="You get real value from AI already, but there is a clear next gear: better prompting, sharper judgement, and a couple of tools used deliberately. Closing that gap is what turns you into the person others come to.";
+    } else {
+      title="Approaching fluent";
+      msg="You are in rare company. The work now is depth and systems: reusable workflows, the right tool for each job, and sharing what you know so it compounds. The plan below is about consolidating an edge, not catching up.";
+    }
+    $('scoreBand').innerText=title;
+    $('scoreMsg').innerText=msg;
+    $('softNote').innerHTML="<b>There is a faster way to close this than going it alone.</b> Keep going, the full picture and the options are at the end.";
+    render();
+  }
+
+  /* calculator */
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function parseRate(){var r=val('rate').replace(/[^0-9.]/g,'');var v=parseFloat(r);return isNaN(v)?0:v;}
+  function updateCalc(){
+    var hpp=numv('hpp'), wk=numv('weeks')||46, rate=parseRate();
+    if(hpp<=0){ $('calcBig').innerText="Adjust the numbers above"; return; }
+    var yr=hpp*wk;
+    if(rate>0){ $('calcBig').innerText="About "+fmt(yr)+" hours a year, roughly AED "+fmt(yr*rate)+" of your time"; }
+    else { $('calcBig').innerText="About "+fmt(yr)+" hours a year back ("+fmt(hpp)+" a week)"; }
+    $('calcSub').innerText="That is what "+hpp+" hours a week adds up to over "+wk+" weeks. Fluency is how you turn that routine time into thinking, learning, or simply finishing earlier.";
+  }
+
+  /* results */
+  function listify(a){ if(a.length===1)return a[0]; if(a.length===2)return a[0]+" and "+a[1]; return a.slice(0,-1).join(", ")+" and "+a[a.length-1]; }
+  function buildOneLiner(){
+    if(answered()<QUESTIONS.length) return "Answer the six questions above and your snapshot builds itself here.";
+    var b=band(), names=pickedNames();
+    var where = b==='low' ? "you are an early AI user with the most room to gain"
+              : b==='mid' ? "you are a capable user with a clear next gear to reach"
+              : "you are approaching genuine fluency and ready to build depth";
+    var focus = names.length ? (" Your priority skills: "+listify(names)+".") : " Tick the skills above to focus your plan.";
+    return "At "+pct()+"% fluency, "+where+"."+focus;
+  }
+  function renderChips(){
+    var chips=[];
+    if(answered()===QUESTIONS.length){
+      chips.push('<span class="chip">Fluency: <b>'+pct()+'%</b></span>');
+      var b=band(); chips.push('<span class="chip">Level: <b>'+(b==='low'?'Beginner':b==='mid'?'Capable':'Approaching fluent')+'</b></span>');
+    }
+    var hpp=numv('hpp'),wk=numv('weeks')||46;
+    if(hpp>0) chips.push('<span class="chip">Hours/yr in play: <b>'+fmt(hpp*wk)+'</b></span>');
+    var names=pickedNames();
+    if(names.length) chips.push('<span class="chip">Focus: <b>'+esc(names.length>2?names.length+' skills':listify(names))+'</b></span>');
+    chips.push('<span class="chip">Role kit: <b>'+esc(activeRole)+'</b></span>');
+    $('metachips').innerHTML=chips.join('');
+  }
+
+  function buildMoves(){
+    var b=band(), names=pickedNames(), pool=[];
+    var first = names.length ? names[0] : "prompting with context";
+    if(b==='high'){
+      pool.push({w:100,t:"Turn your 3 best prompts into a saved library",d:"Capture the prompts you reuse most into a doc or a custom GPT so your speed becomes permanent and shareable."});
+      pool.push({w:92,t:"Wire one multi-step workflow this week",d:"Chain two or three tools on a task you do often ("+esc(activeRole)+" work is a good place to start) so AI runs the sequence, not just a step."});
+      pool.push({w:84,t:"Teach one colleague what you know",d:"Run a 20-minute show-and-tell. Teaching cements your own fluency and makes you the person the team comes to."});
+    } else if(b==='mid'){
+      pool.push({w:100,t:"Drill "+esc(first)+" on a real task today",d:"Take one job from your "+esc(activeRole)+" work and do it properly with AI, context, examples and iteration, not a one-liner."});
+      pool.push({w:92,t:"Add a second tool to your kit",d:"Pick one tool beyond your default and use it for the job it is best at this week. Range is what unlocks the next gear."});
+      pool.push({w:84,t:"Build a verify-it habit",d:"For anything that matters, sanity-check the output and note where AI got it wrong. That judgement is what separates capable from fluent."});
+    } else {
+      pool.push({w:100,t:"Use AI on one real task every day this week",d:"Start with the "+esc(activeRole)+" prompts above. Daily reps on real work are how the habit forms, and this stage moves fastest."});
+      pool.push({w:92,t:"Practise giving context, not one-liners",d:"For each task, tell AI the role, the goal, the constraints and an example. This single habit is the biggest jump in quality you can make."});
+      pool.push({w:84,t:"Block 20 minutes a day for a month",d:"Put a short daily slot in your calendar. Twenty focused minutes clears the 5-hour tipping point inside four weeks."});
+    }
+    var fb=[
+      {w:40,t:"Save this workbook and your role prompts",d:"Keep the starter prompts somewhere you will actually open them. Friction is the enemy of a new habit."},
+      {w:35,t:"Pick the one task you most dread",d:"The work you like least is usually the best first thing to hand to AI. Name it and start there."}
+    ];
+    pool.sort(function(a,b){return b.w-a.w;});
+    var chosen=pool.slice(0,3),fi=0;
+    while(chosen.length<3&&fi<fb.length){chosen.push(fb[fi++]);}
+    return chosen.slice(0,3);
+  }
+  function renderMoves(){
+    var moves=buildMoves(),box=$('moves'); box.innerHTML='';
+    moves.forEach(function(m,i){
+      var div=document.createElement('div'); div.className='move';
+      div.innerHTML='<div class="mn">'+(i+1)+'</div><div><input class="mt" type="text" value="'+esc(m.t)+'">'+
+        '<textarea class="md">'+esc(m.d)+'</textarea><div class="when"><label>By when:</label><input type="text" placeholder="e.g. Fri 27 Jun"></div></div>';
+      box.appendChild(div);
+    });
+  }
+  function renderIntroAndCta(){
+    var done=answered()===QUESTIONS.length, b=done?band():null;
+    if(b==='high'){
+      $('ctaHead').innerText="Want to turn fluency into an edge others notice?";
+      $('ctaBody').innerText="Book a free 20-minute call. We will look at your score and the skills you flagged, then map how to go from capable to the go-to person, with systems and a plan worth the effort.";
+    } else {
+      $('ctaHead').innerText="Want to close the gap faster, with someone in your corner?";
+      $('ctaBody').innerText="Book a free 20-minute call about structured AI upskilling. We will look at your score and the skills you flagged, then map a focused learning path, and talk through whether one-to-one or small-group coaching is the fastest way for you to get genuinely fluent.";
+    }
+  }
+  function render(){
+    if(!$('oneliner').dataset.edited){ $('oneliner').innerText=buildOneLiner(); }
+    renderChips(); renderIntroAndCta();
+  }
+
+  /* email capture */
+  function collectLead(){
+    return { source:"workbook-upskill", email:val('leadEmail'),
+      fluencyScore: answered()===QUESTIONS.length?pct():null, level: answered()===QUESTIONS.length?band():null,
+      focusSkills:pickedNames(), role:activeRole, snapshot:$('oneliner').innerText.trim(), ts:new Date().toISOString() };
+  }
+  $('emailBtn').addEventListener('click',function(){
+    var email=val('leadEmail');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('leadEmail').focus(); $('leadEmail').style.borderColor='var(--danger)'; return; }
+    $('leadEmail').style.borderColor='';
+    $('oneliner').dataset.edited=""; render(); renderMoves();
+    var payload=collectLead();
+    if(CONFIG.LEAD_WEBHOOK){
+      try{ fetch(CONFIG.LEAD_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'no-cors',keepalive:true}).catch(function(){}); }catch(e){}
+      $('emailMsg').innerText="Done. Your PDF is ready to save, and a copy is on its way."; $('emailMsg').style.display='block';
+      setTimeout(function(){ window.print(); }, 350);
+    } else if(CONFIG.LEAD_EMAIL){
+      var lines=["My AI fluency snapshot from the Traq workbook:","",payload.snapshot,"",
+        (payload.fluencyScore!=null?("Fluency score: "+payload.fluencyScore+"% ("+payload.level+")"):""),
+        (payload.focusSkills.length?("Skills to grow: "+payload.focusSkills.join(", ")):""),
+        ("Role kit: "+payload.role),"","Please send me my snapshot and 30-day path as a PDF."].join("\n");
+      var href="mailto:"+CONFIG.LEAD_EMAIL+"?subject="+encodeURIComponent("My AI fluency snapshot")+"&body="+encodeURIComponent(lines);
+      $('emailMsg').innerText="Your email just opened with your snapshot filled in. Hit send and we will get it."; $('emailMsg').style.display='block';
+      window.location.href=href;
+    } else { $('emailMsg').innerText="Your PDF is ready to save."; $('emailMsg').style.display='block'; setTimeout(function(){ window.print(); }, 350); }
+  });
+
+  /* wiring */
+  $('oneliner').addEventListener('input',function(){this.dataset.edited="1";});
+  ['hpp','rate','weeks'].forEach(function(id){ var e=$(id); if(e) e.addEventListener('input',function(){updateCalc();render();}); });
+  $('genBtn').addEventListener('click',function(){ $('oneliner').dataset.edited=""; render(); renderMoves(); var r=$('results'); if(r.scrollIntoView){r.scrollIntoView({behavior:'smooth'});} });
+  $('pdfBtn').addEventListener('click',function(){window.print();});
+  updateCalc(); render(); renderMoves();
+})();
+</script>
+</body>
+</html>
