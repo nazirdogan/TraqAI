@@ -29,7 +29,7 @@ const FOOTER_NAV = [
       { label: 'About', href: '/about' },
       { label: 'Insights', href: '/insights' },
       { label: 'AI readiness assessment', href: '/ai-readiness' },
-      { label: 'Repositioning workbook', href: '/workbook' },
+      { label: 'AI adoption workbook', href: '/workbook' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Book a call', href: '/book' },
       { label: 'Contact', href: '/#contact' },
