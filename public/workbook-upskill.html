@@ -441,11 +441,11 @@
     <p class="cred">Run by <b>Nazir Dogan</b> of Traq Collective, who trains people and teams to actually use AI,
        across Dubai, Abu Dhabi and beyond. Or email <a href="mailto:hello@traqcollective.com">hello@traqcollective.com</a>.</p>
     <div class="emailcap">
-      <p class="el">Prefer it in writing?</p>
-      <p class="es">Drop your email and we will send your fluency snapshot and 30-day path as a PDF. No spam, ever.</p>
+      <p class="el">Keep your results, or get a follow-up</p>
+      <p class="es">Hit <b>Save as PDF</b> in the bar below to download everything on this page, it is yours to keep. Want us to follow up with a couple of tailored next steps? Leave your email and we will reach out. No spam, ever.</p>
       <div class="emailrow">
         <input type="email" id="leadEmail" placeholder="you@email.com" autocomplete="email">
-        <button id="emailBtn" type="button">Email me my snapshot</button>
+        <button id="emailBtn" type="button">Ask for a follow-up</button>
       </div>
       <p class="emailmsg" id="emailMsg"></p>
     </div>
@@ -720,24 +720,30 @@
       focusSkills:pickedNames(), role:activeRole, snapshot:$('oneliner').innerText.trim(), ts:new Date().toISOString() };
   }
   $('emailBtn').addEventListener('click',function(){
+    if(answered()<QUESTIONS.length){
+      $('emailMsg').style.color='var(--danger)';
+      $('emailMsg').innerText="Answer the six questions and hit Build my snapshot first, then we will have something to follow up on.";
+      $('emailMsg').style.display='block';
+      var s=$('s1'); if(s&&s.scrollIntoView){s.scrollIntoView({behavior:'smooth'});}
+      return;
+    }
     var email=val('leadEmail');
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('leadEmail').focus(); $('leadEmail').style.borderColor='var(--danger)'; return; }
-    $('leadEmail').style.borderColor='';
+    $('leadEmail').style.borderColor=''; $('emailMsg').style.color='';
     $('oneliner').dataset.edited=""; render(); renderMoves();
     var payload=collectLead();
     if(CONFIG.LEAD_WEBHOOK){
       try{ fetch(CONFIG.LEAD_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'no-cors',keepalive:true}).catch(function(){}); }catch(e){}
-      $('emailMsg').innerText="Done. Your PDF is ready to save, and a copy is on its way."; $('emailMsg').style.display='block';
-      setTimeout(function(){ window.print(); }, 350);
+      $('emailMsg').innerText="Thanks, we will be in touch. Hit Save as PDF in the bar below to keep your results now."; $('emailMsg').style.display='block';
     } else if(CONFIG.LEAD_EMAIL){
-      var lines=["My AI fluency snapshot from the Traq workbook:","",payload.snapshot,"",
+      var lines=["Here is where I landed in the Traq AI Fluency Workbook:","",payload.snapshot,"",
         (payload.fluencyScore!=null?("Fluency score: "+payload.fluencyScore+"% ("+payload.level+")"):""),
         (payload.focusSkills.length?("Skills to grow: "+payload.focusSkills.join(", ")):""),
-        ("Role kit: "+payload.role),"","Please send me my snapshot and 30-day path as a PDF."].join("\n");
-      var href="mailto:"+CONFIG.LEAD_EMAIL+"?subject="+encodeURIComponent("My AI fluency snapshot")+"&body="+encodeURIComponent(lines);
-      $('emailMsg').innerText="Your email just opened with your snapshot filled in. Hit send and we will get it."; $('emailMsg').style.display='block';
+        ("Role kit: "+payload.role),"","I would like a follow-up on my next steps."].join("\n");
+      var href="mailto:"+CONFIG.LEAD_EMAIL+"?subject="+encodeURIComponent("Follow-up from the AI Fluency Workbook")+"&body="+encodeURIComponent(lines);
+      $('emailMsg').innerText="Thanks. Your email just opened, hit send and we will be in touch. You can also Save as PDF in the bar below to keep your results."; $('emailMsg').style.display='block';
       window.location.href=href;
-    } else { $('emailMsg').innerText="Your PDF is ready to save."; $('emailMsg').style.display='block'; setTimeout(function(){ window.print(); }, 350); }
+    } else { $('emailMsg').innerText="Hit Save as PDF in the bar below to keep your results."; $('emailMsg').style.display='block'; }
   });
 
   /* wiring */

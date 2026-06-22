@@ -508,13 +508,13 @@
 
     <!-- EMAIL CAPTURE -->
     <div class="emailcap">
-      <p class="el">Prefer it in writing?</p>
-      <p class="es">Drop your email and we will send your snapshot as a PDF, plus the first workflows worth tackling. No spam, ever.</p>
+      <p class="el">Keep your snapshot, or get a follow-up</p>
+      <p class="es">Hit <b>Save as PDF</b> in the bar below to download everything on this page, it is yours to keep. Want us to follow up with a couple of tailored next steps? Leave your email and we will reach out. No spam, ever.</p>
       <div class="emailrow">
         <input type="email" id="leadEmail" placeholder="you@company.com" autocomplete="email">
-        <button id="emailBtn" type="button">Email me my snapshot</button>
+        <button id="emailBtn" type="button">Ask for a follow-up</button>
       </div>
-      <p class="emailmsg" id="emailMsg">Done. Your PDF is ready to save, and a copy is on its way.</p>
+      <p class="emailmsg" id="emailMsg"></p>
     </div>
   </div>
 
@@ -823,14 +823,21 @@
     };
   }
   $('emailBtn').addEventListener('click',function(){
+    if(answered()<QUESTIONS.length){
+      $('emailMsg').style.color='var(--danger)';
+      $('emailMsg').innerText="Answer the six questions and hit Build my snapshot first, then we will have something to follow up on.";
+      $('emailMsg').style.display='block';
+      var s=$('s1'); if(s&&s.scrollIntoView){s.scrollIntoView({behavior:'smooth'});}
+      return;
+    }
     var email=val('leadEmail');
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
       $('leadEmail').focus();
       $('leadEmail').style.borderColor='var(--danger)';
       return;
     }
-    $('leadEmail').style.borderColor='';
-    // Build the snapshot first so the captured payload and the PDF are current.
+    $('leadEmail').style.borderColor=''; $('emailMsg').style.color='';
+    // Build the snapshot first so the captured payload is current.
     $('oneliner').dataset.edited=""; render(); renderMoves();
     var payload=collectLead();
     if(CONFIG.LEAD_WEBHOOK){
@@ -839,13 +846,12 @@
         fetch(CONFIG.LEAD_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
           body:JSON.stringify(payload),mode:'no-cors',keepalive:true}).catch(function(){});
       }catch(e){}
-      $('emailMsg').innerText="Done. Your PDF is ready to save, and a copy is on its way.";
+      $('emailMsg').innerText="Thanks, we will be in touch. Hit Save as PDF in the bar below to keep your snapshot now.";
       $('emailMsg').style.display='block';
-      setTimeout(function(){ window.print(); }, 350);
     } else if(CONFIG.LEAD_EMAIL){
       // No webhook: open a pre-filled email to the team inbox so the lead still lands.
       var lines=[
-        "My AI adoption snapshot from the Traq workbook:",
+        "Here is where I landed in the Traq AI Adoption Workbook:",
         "",
         payload.snapshot,
         "",
@@ -853,16 +859,15 @@
         (payload.annualHoursAtStake!=null?("Hours a year at stake: "+payload.annualHoursAtStake.toLocaleString('en-US')):""),
         (payload.focusFunctions.length?("Focus areas: "+payload.focusFunctions.join(", ")):""),
         "",
-        "Please send me my snapshot as a PDF and the first workflows worth tackling."
+        "I would like a follow-up on my next steps."
       ].filter(function(x){return x!==undefined;}).join("\n");
-      var href="mailto:"+CONFIG.LEAD_EMAIL+"?subject="+encodeURIComponent("My AI adoption snapshot")+"&body="+encodeURIComponent(lines);
-      $('emailMsg').innerText="Your email just opened with your snapshot filled in. Hit send and we will get it.";
+      var href="mailto:"+CONFIG.LEAD_EMAIL+"?subject="+encodeURIComponent("Follow-up from the AI Adoption Workbook")+"&body="+encodeURIComponent(lines);
+      $('emailMsg').innerText="Thanks. Your email just opened, hit send and we will be in touch. You can also Save as PDF in the bar below to keep your snapshot.";
       $('emailMsg').style.display='block';
       window.location.href=href;
     } else {
-      $('emailMsg').innerText="Your PDF is ready to save.";
+      $('emailMsg').innerText="Hit Save as PDF in the bar below to keep your snapshot.";
       $('emailMsg').style.display='block';
-      setTimeout(function(){ window.print(); }, 350);
     }
   });
 
