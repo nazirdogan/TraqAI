@@ -24,12 +24,16 @@ export function absoluteUrl(path = '/'): string {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
-// sameAs socials are a placeholder until the official handles are confirmed.
-// Swap in real profile URLs (LinkedIn company, Crunchbase, etc.) when available.
-const ORG_SAME_AS = ['https://www.linkedin.com/company/traq-collective'];
+// Confirmed official profiles. These anchor entity recognition so AI engines and
+// search can disambiguate Traq Collective (the company) and Nazir Dogan (the
+// founder) from similarly named entities such as traq.ai.
+const ORG_SAME_AS = [
+  'https://www.linkedin.com/company/traq-collective',
+  'https://www.instagram.com/traqcollective',
+];
 
-// Founder social profiles are pending. Placeholder until Nazir confirms handles.
-const PERSON_SAME_AS = ['https://www.linkedin.com/company/traq-collective'];
+// Founder profiles point at the Person entity, not the company.
+const PERSON_SAME_AS = ['https://www.linkedin.com/in/nazir-dogan-010ab117a'];
 
 export type JsonLdObject = Record<string, unknown>;
 
@@ -149,7 +153,7 @@ export function person(): JsonLdObject {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': PERSON_ID,
-    name: 'Nazir',
+    name: 'Nazir Dogan',
     jobTitle: 'Founder, AI enablement partner',
     description:
       'Founder of Traq Collective. Nazir builds AI systems and trains teams to use them every day, including a full autonomous operation he runs end to end.',
