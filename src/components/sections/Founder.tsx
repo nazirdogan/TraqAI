@@ -11,7 +11,7 @@ export default function Founder() {
   const [photoOk, setPhotoOk] = useState(true);
 
   return (
-    <section id="founder" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="founder" className="relative bg-bg-subtle px-5 py-16 sm:px-8 sm:py-28 md:py-32">
       <motion.div
         initial={{ opacity: 0, y: reduce ? 0 : 18 }}
         whileInView={{ opacity: 1, y: 0 }}

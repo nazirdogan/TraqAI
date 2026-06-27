@@ -13,7 +13,7 @@ export default function WhyUs() {
   };
 
   return (
-    <section id="about" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="about" className="relative bg-bg-subtle px-5 py-16 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto grid max-w-7xl items-start gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="text-left">
           <div className="eyebrow">Why Traq</div>

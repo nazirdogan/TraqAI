@@ -65,7 +65,7 @@ export default function Process() {
   return (
     <section
       id="how-we-work"
-      className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32"
+      className="relative bg-bg-subtle px-5 py-16 sm:px-8 sm:py-28 md:py-32"
     >
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 grid items-center gap-10 sm:mb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">

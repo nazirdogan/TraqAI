@@ -3,6 +3,7 @@ import { Inter, Caveat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import MobileCtaBar from '@/components/layout/MobileCtaBar';
 import JsonLd from '@/components/seo/JsonLd';
 import Analytics from '@/components/analytics/Analytics';
 import { baseMetadata } from '@/lib/metadata';
@@ -41,7 +42,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${caveat.variable}`}>
-      <body className="bg-bg-base font-sans text-ink antialiased">
+      {/* Bottom padding on mobile reserves space for the sticky MobileCtaBar so
+          it never covers the footer; cleared at lg where the bar is hidden. */}
+      <body className="bg-bg-base font-sans text-ink antialiased pb-24 lg:pb-0">
         <Analytics />
         <JsonLd data={organizationSchema} />
         <a href="#main" className="skip-link">
@@ -52,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );

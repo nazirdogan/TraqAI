@@ -93,7 +93,11 @@ export default function JourneySpine() {
   }, [reduce]);
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-20" ref={ref} aria-hidden="true">
+    <div
+      className="pointer-events-none absolute inset-0 z-20 hidden lg:block"
+      ref={ref}
+      aria-hidden="true"
+    >
       {/* Rail column pinned to the left margin (clear of px-5 content padding). */}
       <div className="absolute inset-y-0 left-3 w-[2px] sm:left-5 lg:left-8 2xl:left-10">
         <div className="absolute inset-0 rounded-full bg-[#E3DCFA]" />

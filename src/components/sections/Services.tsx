@@ -15,7 +15,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="services" className="relative px-5 py-16 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center sm:mb-16">
           <h2 className="section-title">Here&rsquo;s how we solve that</h2>

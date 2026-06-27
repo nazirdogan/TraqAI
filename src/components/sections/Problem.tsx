@@ -13,7 +13,7 @@ export default function Problem() {
   };
 
   return (
-    <section id="problem" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="problem" className="relative bg-bg-subtle px-5 py-16 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <h2 className="section-title">Does this sound like you?</h2>

@@ -15,7 +15,7 @@ export default function Offers() {
   };
 
   return (
-    <section id="ways-to-work" className="relative px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="ways-to-work" className="relative px-5 py-16 sm:px-8 sm:py-28 md:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center sm:mb-16">
           <div className="eyebrow">Ways to work with us</div>

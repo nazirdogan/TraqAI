@@ -29,7 +29,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative bg-bg-subtle px-5 py-20 sm:px-8 sm:py-28 md:py-32">
+    <section id="faq" className="relative bg-bg-subtle px-5 py-16 sm:px-8 sm:py-28 md:py-32">
       <JsonLd data={faqSchema} />
       <div className="mx-auto max-w-3xl">
         <div className="text-center">

@@ -5,7 +5,7 @@ import { track } from '@/components/analytics/Analytics';
 
 export default function CTABanner() {
   return (
-    <section className="relative px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16 md:pb-32">
+    <section className="relative px-5 pb-16 pt-12 sm:px-8 sm:pb-28 sm:pt-16 md:pb-32">
       <div className="mx-auto max-w-7xl">
         <div className="cta-panel">
           <div className="eyebrow eyebrow-accent">Book a call</div>

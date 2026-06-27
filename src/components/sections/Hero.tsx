@@ -149,9 +149,9 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-bg-base px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40 lg:pb-32"
+      className="relative overflow-hidden bg-bg-base px-5 pb-16 pt-28 sm:px-8 sm:pb-28 sm:pt-40 lg:pb-32"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         {/* Left: copy */}
         <motion.div
           initial="hidden"
@@ -185,7 +185,7 @@ export default function Hero() {
           <motion.div
             variants={fade}
             transition={{ duration: 0.6, ease }}
-            className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+            className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
           >
             <Link
               href="/book"
