@@ -1,0 +1,28 @@
+{
+  "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
+  "published": [
+    {
+      "type": "field-note",
+      "slug": "where-small-teams-should-start-with-ai",
+      "targetQuery": "where should a small business start with AI",
+      "date": "2026-07-16"
+    },
+    {
+      "type": "field-note",
+      "slug": "the-five-hour-rule-for-ai-training",
+      "targetQuery": "how much AI training does a team need",
+      "date": "2026-07-15"
+    }
+  ],
+  "runs": [
+    {
+      "date": "2026-07-16",
+      "mode": "seed",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "where-small-teams-should-start-with-ai",
+      "critic": "seed content, human-authored",
+      "build": "pending-first-agent-run"
+    }
+  ]
+}

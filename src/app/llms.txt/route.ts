@@ -1,5 +1,6 @@
 import { SERVICES, COMPANY } from '@/lib/constants';
 import { ARTICLES } from '@/lib/content/insights';
+import { FIELD_NOTES } from '@/lib/content/field-notes';
 import { absoluteUrl } from '@/lib/seo/schema';
 
 /**
@@ -44,6 +45,14 @@ function buildLlmsTxt(): string {
     lines.push(`- [${article.h1}](${absoluteUrl(`/insights/${article.slug}`)}): ${article.metaDescription}`);
   }
   lines.push('');
+
+  if (FIELD_NOTES.length > 0) {
+    lines.push('## Field notes (recent)');
+    for (const note of FIELD_NOTES.slice(0, 15)) {
+      lines.push(`- [${note.h1}](${absoluteUrl(`/field-notes/${note.slug}`)}): ${note.metaDescription}`);
+    }
+    lines.push('');
+  }
 
   lines.push('## Key pages');
   lines.push(

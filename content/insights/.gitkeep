@@ -1,0 +1,3 @@
+# Weekly evergreen guides authored by the daily content agent land here as
+# validated JSON (one file per guide), and merge into the /insights registry.
+# Kept in git so the directory exists at build time.

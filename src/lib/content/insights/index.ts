@@ -16,6 +16,10 @@
  * - dates: datePublished and dateModified are ISO strings
  */
 
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { articleSchema } from './schema';
+
 /** A single cited statistic. Reuse the verified IMPACT_METRICS sources. */
 export type ArticleStat = {
   /** Plain-language claim the stat backs up. */
@@ -1378,7 +1382,8 @@ const aiTrainingVsDiy: Article = {
  * are added in the following Phase 3 tasks; the index and [slug] route are
  * written to be empty-safe so this can start as an empty array.
  */
-export const ARTICLES: Article[] = [
+/** The cornerstone guides, authored inline (newest-first display is applied below). */
+const CORNERSTONE_ARTICLES: Article[] = [
   getTeamUsingAi,
   aiReadinessChecklist,
   fractionalHeadOfAi,
@@ -1388,6 +1393,50 @@ export const ARTICLES: Article[] = [
   fractionalVsFullTimeHire,
   aiTrainingVsDiy,
 ];
+
+const JSON_ARTICLES_DIR = join(process.cwd(), 'content', 'insights');
+
+/**
+ * Load the daily content agent's weekly guides from content/insights/*.json,
+ * validated into the same Article shape. A malformed guide throws and fails the
+ * build on purpose. A missing directory (before the first guide ships) is
+ * treated as empty.
+ */
+function loadJsonArticles(): Article[] {
+  let files: string[];
+  try {
+    files = readdirSync(JSON_ARTICLES_DIR).filter((f) => f.endsWith('.json'));
+  } catch {
+    return [];
+  }
+  return files.map((file) => {
+    const raw = readFileSync(join(JSON_ARTICLES_DIR, file), 'utf8');
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (err) {
+      throw new Error(`content/insights/${file} is not valid JSON: ${String(err)}`);
+    }
+    const result = articleSchema.safeParse(parsed);
+    if (!result.success) {
+      throw new Error(
+        `content/insights/${file} failed validation:\n${result.error.toString()}`,
+      );
+    }
+    return result.data as Article;
+  });
+}
+
+/**
+ * All guides: cornerstone + agent-authored, newest first by dateModified. The
+ * cornerstone set shares one publish date, so a stable sort preserves its order.
+ */
+export const ARTICLES: Article[] = [...CORNERSTONE_ARTICLES, ...loadJsonArticles()].sort(
+  (a, b) => {
+    if (a.dateModified !== b.dateModified) return a.dateModified < b.dateModified ? 1 : -1;
+    return 0;
+  },
+);
 
 /** Look up an article by slug. Returns undefined when not found. */
 export function getBySlug(slug: string): Article | undefined {

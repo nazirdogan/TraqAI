@@ -28,6 +28,7 @@ const FOOTER_NAV = [
     links: [
       { label: 'About', href: '/about' },
       { label: 'Insights', href: '/insights' },
+      { label: 'Field notes', href: '/field-notes' },
       { label: 'AI readiness assessment', href: '/ai-readiness' },
       { label: 'AI adoption workbook (teams)', href: '/workbook' },
       { label: 'AI fluency workbook (individuals)', href: '/workbook/upskill' },
