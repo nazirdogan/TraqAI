@@ -30,6 +30,14 @@ export function absoluteUrl(path = '/'): string {
 const ORG_SAME_AS = [
   'https://www.linkedin.com/company/traq-collective',
   'https://www.instagram.com/traqcollective',
+  // Verified live third-party profiles. These corroborate the entity across the
+  // surfaces AI engines and search actually scrape, so the model treats them all
+  // as one company rather than ignoring a small, unlinked brand.
+  'https://www.crunchbase.com/organization/traq-collective',
+  'https://clutch.co/profile/traq-collective',
+  'https://www.goodfirms.co/company/traq-collective',
+  'https://themanifest.com/company/traq-collective',
+  'https://techbehemoths.com/company/traq-collective',
 ];
 
 // Founder profiles point at the Person entity, not the company.
