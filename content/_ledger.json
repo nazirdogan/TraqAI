@@ -12,6 +12,12 @@
       "slug": "the-five-hour-rule-for-ai-training",
       "targetQuery": "how much AI training does a team need",
       "date": "2026-07-15"
+    },
+    {
+      "type": "field-note",
+      "slug": "microsoft-365-copilot-pricing-for-small-business",
+      "targetQuery": "how much does microsoft 365 copilot cost for a small business",
+      "date": "2026-07-16"
     }
   ],
   "runs": [
@@ -23,6 +29,25 @@
       "slug": "where-small-teams-should-start-with-ai",
       "critic": "seed content, human-authored",
       "build": "pending-first-agent-run"
+    },
+    {
+      "date": "2026-07-16",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "microsoft-365-copilot-pricing-for-small-business",
+      "critic": "self-critique pass complete: sources verified against microsoft.com (blog + pricing page), no em-dashes, intro 60 words standalone, related links point to existing /services/ai-training and /insights/how-to-get-your-team-using-ai, not a repeat of ledger topics",
+      "build": "pending"
+    },
+    {
+      "date": "2026-07-16",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-16-microsoft-365-copilot-pricing-for-small-business.json"
+      ],
+      "build": "passed"
     }
   ]
 }
