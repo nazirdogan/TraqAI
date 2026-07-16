@@ -45,7 +45,9 @@ function sh(cmd, opts = {}) {
 function pushChanges(branch) {
   const token = process.env.GITHUB_TOKEN;
   const repo = process.env.CONTENT_REPO || 'nazirdogan/TraqAI';
-  if (!token) {
+  // Only use the token if it looks real. A short/placeholder GITHUB_TOKEN in the
+  // environment should not break an otherwise-working ambient git credential.
+  if (!token || token.length < 40) {
     sh(`git push origin ${branch}`);
     return;
   }
@@ -133,9 +135,9 @@ async function main() {
 
   // 5b. Commit + push. Vercel auto-deploys from the pushed branch.
   const branch = sh('git rev-parse --abbrev-ref HEAD').trim();
-  sh(`git -c user.name="Traq Content Agent" -c user.email="hello@traqcollective.com" commit -m ${JSON.stringify(
-    `content(${MODE}): ${SUMMARY}`,
-  )}`);
+  // Commit with the environment's own git identity (not a forced bot identity),
+  // so the repo's verified-commits policy is satisfied on automated runs.
+  sh(`git commit -m ${JSON.stringify(`content(${MODE}): ${SUMMARY}`)}`);
   pushChanges(branch);
 
   await sendAlert({
