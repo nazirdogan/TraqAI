@@ -36,6 +36,28 @@ function sh(cmd, opts = {}) {
   return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: 'pipe', ...opts });
 }
 
+/**
+ * Push the current branch. If GITHUB_TOKEN is set in the environment (the cloud
+ * routine's secret), push over an authenticated URL built at runtime; the token
+ * is read from env, never hardcoded, and scrubbed from any error output. If no
+ * token is present, fall back to the checkout's ambient git credentials.
+ */
+function pushChanges(branch) {
+  const token = process.env.GITHUB_TOKEN;
+  const repo = process.env.CONTENT_REPO || 'nazirdogan/TraqAI';
+  if (!token) {
+    sh(`git push origin ${branch}`);
+    return;
+  }
+  const url = `https://x-access-token:${token}@github.com/${repo}.git`;
+  try {
+    execSync(`git push ${url} HEAD:${branch}`, { cwd: ROOT, stdio: 'pipe' });
+  } catch (err) {
+    const raw = String(err.stderr || err.stdout || err.message || err);
+    throw new Error(`git push failed: ${raw.split(token).join('***')}`);
+  }
+}
+
 const MODE = arg('mode', 'daily-note');
 const SUMMARY = arg('summary', 'content update');
 const today = new Date().toISOString().slice(0, 10);
@@ -114,7 +136,7 @@ async function main() {
   sh(`git -c user.name="Traq Content Agent" -c user.email="hello@traqcollective.com" commit -m ${JSON.stringify(
     `content(${MODE}): ${SUMMARY}`,
   )}`);
-  sh(`git push origin ${branch}`);
+  pushChanges(branch);
 
   await sendAlert({
     subject: `[Traq content agent] Published — ${today}`,
