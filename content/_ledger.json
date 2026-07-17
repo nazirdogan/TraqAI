@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "turning-off-ai-in-microsoft-teams-meetings",
+      "targetQuery": "how to turn off AI in a Microsoft Teams meeting",
+      "date": "2026-07-17"
+    },
+    {
+      "type": "field-note",
       "slug": "where-small-teams-should-start-with-ai",
       "targetQuery": "where should a small business start with AI",
       "date": "2026-07-16"
@@ -46,6 +52,25 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-16-microsoft-365-copilot-pricing-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-17",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "turning-off-ai-in-microsoft-teams-meetings",
+      "critic": "self-critique pass complete: source (Windows Latest, corroborated by Ghacks, Notebookcheck, BetaNews, Windows Central) is a real resolvable URL, no em-dashes, intro 60 words standalone, related links verified to exist (/insights/ai-readiness-checklist, /services/ai-implementation), not a repeat of ledger topics",
+      "build": "pending"
+    },
+    {
+      "date": "2026-07-17",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-17-turning-off-ai-in-microsoft-teams-meetings.json"
       ],
       "build": "passed"
     }
