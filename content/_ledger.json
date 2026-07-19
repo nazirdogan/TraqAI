@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "claude-for-small-business-explained",
+      "targetQuery": "what is Claude for Small Business",
+      "date": "2026-07-19"
+    },
+    {
+      "type": "field-note",
       "slug": "turning-off-ai-in-microsoft-teams-meetings",
       "targetQuery": "how to turn off AI in a Microsoft Teams meeting",
       "date": "2026-07-17"
@@ -71,6 +77,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-17-turning-off-ai-in-microsoft-teams-meetings.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-19",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "claude-for-small-business-explained",
+      "critic": "self-critique pass complete: stat sourced to SBA Office of Advocacy 2026 FAQ (advocacy.sba.gov), product facts corroborated across Anthropic's own announcement and independent coverage (dynamicbusiness.com, cryptobriefing.com, digitalapplied.com), no em-dashes, intro 57 words standalone, related links verified to exist (/insights/how-agentic-workflows-work, /services/ai-implementation), not a repeat of ledger topics"
+    },
+    {
+      "date": "2026-07-19",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-19-claude-for-small-business-explained.json"
       ],
       "build": "passed"
     }
