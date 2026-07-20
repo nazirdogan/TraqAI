@@ -1,0 +1,98 @@
+{
+  "slug": "ai-acceptable-use-policy-for-small-business",
+  "title": "How to write an AI use policy for a small business | Traq Collective",
+  "metaDescription": "An AI use policy tells your team which tools are approved, what data is off limits, and when to check AI output. Here is how to write one and get people to follow it.",
+  "targetQuery": "how to write an AI acceptable use policy for a small business",
+  "h1": "How to write an AI use policy for a small business",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": "Nazir Dogan",
+  "intro": "An AI acceptable use policy is a short written document that tells your team which AI tools are approved, what data must never go into them, when a human has to check the output, and who to ask when unsure. Most small businesses do not have one, even though most of their staff already use AI daily.",
+  "bodySections": [
+    {
+      "h2": "What is an AI acceptable use policy?",
+      "body": "An AI acceptable use policy is the written rulebook for how your team uses AI tools at work. It names which tools are approved, lists the data that is off limits, says when a person has to check AI output before it goes out the door, and gives people someone to ask when they are not sure. It is not a legal contract and it does not need a lawyer to draft the first version. It needs to be short enough that people actually read it and specific enough that it answers the question someone has at their desk on a Tuesday afternoon."
+    },
+    {
+      "h2": "Why does a small business need an AI policy now?",
+      "body": "Most small businesses already have an AI problem they cannot see: their people are using AI whether there is a policy or not. Across small and medium companies, 80% of AI users already bring their own AI tools to work, often without telling anyone, according to Microsoft's Work Trend Index. A policy without adoption does nothing, but adoption without a policy is worse. It means client names, contracts and financial details are being pasted into tools nobody vetted, with no record of what went where. Writing the policy is not about slowing people down. It is about catching up to what your team is already doing."
+    },
+    {
+      "h2": "What should an AI use policy actually cover?",
+      "body": "A usable AI policy answers five practical questions and nothing more. Cover those five and you have something people can actually follow, rather than a document that sits in a shared drive unread.",
+      "points": [
+        "Which AI tools are approved, and which are off limits",
+        "What data can never go into an AI tool, on any plan",
+        "When a human must check the output before it goes out",
+        "Who owns the policy and takes questions",
+        "What happens after an honest mistake, versus a deliberate breach"
+      ]
+    },
+    {
+      "h2": "What data should never go into an AI tool?",
+      "body": "Treat this as the one part of the policy nobody is allowed to guess at. If a task touches any of the categories below, it either goes through a tool your business has specifically vetted and configured for that data, or it does not go through AI at all. That single rule catches most of the damage before it starts.",
+      "points": [
+        "Client names or details tied to a sensitive or confidential matter",
+        "Social security numbers, national ID numbers or dates of birth",
+        "Bank account, routing or payment card details",
+        "Health information about any employee or client",
+        "Employee records, salaries or performance reviews",
+        "Unreleased financial figures or anything under a signed NDA"
+      ]
+    },
+    {
+      "h2": "How do you get a small team to actually follow the policy?",
+      "body": "A policy nobody reads is not a policy, it is a PDF. Introduce it the same way you would introduce a new tool: walk through it in a normal team meeting, use two or three real examples from your own work, and give people a five-minute way to check whether something is safe to paste in. Training matters more than the document itself. Employees rank training as the single most important thing they need to use AI well, ahead of any new tool, so pair the policy launch with a short, hands-on session rather than an email nobody opens."
+    },
+    {
+      "h2": "How often should you update an AI policy, and who owns it?",
+      "body": "Review the policy every quarter, or sooner if you add a new tool or a client raises a concern. Assign one named owner, usually whoever already owns IT or operations in a small business, so questions have a clear home instead of drifting into a group chat. Keep changes small and dated at the top of the document, so people can see it is a living rule set, not a one-time announcement nobody revisits."
+    }
+  ],
+  "stats": [
+    {
+      "claim": "At companies with fewer than 10 employees, most workers say there is no clear AI policy or they are not sure one exists, which is the exact gap this guide closes.",
+      "value": "59%",
+      "source": "Founder Reports",
+      "url": "https://founderreports.com/ai-in-the-workplace-statistics/",
+      "year": "2026"
+    },
+    {
+      "claim": "At small and medium companies specifically, AI users are already bringing their own AI tools to work without a policy or guidance, which is why writing the policy is catching up, not getting ahead.",
+      "value": "80%",
+      "source": "Microsoft Work Trend Index",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
+      "year": "2024"
+    },
+    {
+      "claim": "Employees rank training as the single most important thing they need to use AI well, ahead of any new tool, which is why a policy needs a short training session to land.",
+      "value": "48%",
+      "source": "McKinsey",
+      "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+      "year": "2025"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do we need an AI policy if we only have five employees?",
+      "a": "Yes, and smaller teams need it more, not less. At companies with fewer than 10 employees, 59% of workers say there is no clear AI policy or they are not sure one exists, according to a 2026 Founder Reports survey, a higher rate than at larger companies. A five-person team can write a usable policy in an afternoon: one page, five rules, one owner."
+    },
+    {
+      "q": "Which AI tools should we approve first?",
+      "a": "Start with whichever tool your team is already using the most, since that is where the real risk already sits. Confirm its data and privacy settings, check whether it trains on your inputs by default, and turn that off if it does. Approve one or two tools well rather than a long list nobody checked properly."
+    },
+    {
+      "q": "What happens if someone breaks the policy by accident?",
+      "a": "Treat an honest mistake as a training gap, not a disciplinary case. Have the person tell you what happened, fix any exposure quickly, and use it as the real example in your next training session. Save formal consequences for deliberate or repeated breaches, so people are not afraid to report a mistake the moment it happens."
+    },
+    {
+      "q": "Do we need a lawyer to write an AI use policy?",
+      "a": "Not for the first version. A one-page policy covering approved tools, off-limits data, a human-check rule and an owner does not need legal drafting to be useful. Bring in a lawyer later if you are in a regulated industry or want the policy tied into client contracts, but do not let that step delay writing something today."
+    }
+  ],
+  "related": [
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" },
+    { "label": "AI readiness checklist", "href": "/insights/ai-readiness-checklist" }
+  ]
+}

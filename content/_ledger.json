@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "insight",
+      "slug": "ai-acceptable-use-policy-for-small-business",
+      "targetQuery": "how to write an AI acceptable use policy for a small business",
+      "date": "2026-07-20"
+    },
+    {
       "type": "field-note",
       "slug": "claude-for-small-business-explained",
       "targetQuery": "what is Claude for Small Business",
@@ -95,6 +101,34 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-19-claude-for-small-business-explained.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-20",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "ai-acceptable-use-policy-for-small-business",
+      "critic": "self-critique pass complete: no em-dashes, intro is 57 words and stands alone, six bodySections each phrased as a real query, three stats sourced to Microsoft Work Trend Index (microsoft.com, confirmed live), McKinsey Superagency in the Workplace (mckinsey.com, previously verified in this repo), and Founder Reports AI in the Workplace 2026 (founderreports.com, corroborated across independent coverage: bignewsnetwork.com, defend-id.com, ctrhcm.com), related links verified to exist (/services/ai-training, /services/ai-consulting, /insights/ai-readiness-checklist), not a repeat of any ledger topic or targetQuery"
+    },
+    {
+      "date": "2026-07-20",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-acceptable-use-policy-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-20",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-acceptable-use-policy-for-small-business.json"
       ],
       "build": "passed"
     }
