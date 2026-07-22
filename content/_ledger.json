@@ -9,6 +9,12 @@
     },
     {
       "type": "field-note",
+      "slug": "what-makes-someone-an-advanced-ai-user",
+      "targetQuery": "what makes someone an advanced AI user at work",
+      "date": "2026-07-22"
+    },
+    {
+      "type": "field-note",
       "slug": "claude-for-small-business-explained",
       "targetQuery": "what is Claude for Small Business",
       "date": "2026-07-19"
@@ -129,6 +135,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-acceptable-use-policy-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-22",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "what-makes-someone-an-advanced-ai-user",
+      "critic": "self-critique pass complete: all stats sourced to Microsoft's 2026 Work Trend Index (microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization, confirmed live via fetch), no em-dashes, intro 57 words and stands alone, related links verified to exist (/insights/how-to-get-your-team-using-ai, /services/ai-training), not a repeat of any ledger topic or targetQuery"
+    },
+    {
+      "date": "2026-07-22",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-22-what-makes-someone-an-advanced-ai-user.json"
       ],
       "build": "passed"
     }

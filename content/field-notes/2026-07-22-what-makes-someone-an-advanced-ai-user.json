@@ -1,0 +1,36 @@
+{
+  "slug": "what-makes-someone-an-advanced-ai-user",
+  "title": "What makes someone an advanced AI user | Traq Collective",
+  "h1": "What makes someone an advanced AI user at work",
+  "metaDescription": "The most advanced AI users share three habits, per Microsoft's 2026 Work Trend Index: multi-step workflows, rethinking process, and shared standards. Here is how a small team copies them.",
+  "targetQuery": "what makes someone an advanced AI user at work",
+  "tags": ["training", "best-uses", "making-it-stick"],
+  "datePublished": "2026-07-22",
+  "dateModified": "2026-07-22",
+  "author": "Nazir Dogan",
+  "dek": "It is not the model. It is three habits any small team can copy this month.",
+  "intro": "The workers getting genuinely new results from AI are not using a smarter model. Microsoft's 2026 Work Trend Index found they use agents for multi-step tasks, keep rethinking which parts of a process AI should touch, and hold each other to shared standards, and those three habits are exactly what a small team can copy this month.",
+  "body": [
+    "Microsoft's 2026 Work Trend Index surveyed 20,000 AI users across ten countries and found that 58% are now producing work they could not have made a year ago. Among the top 16%, the group the report calls Frontier Professionals, that number jumps to 80%. The gap is not talent or budget. It comes down to three habits: using AI agents for multi-step work instead of single replies, regularly asking which part of a process AI should now own, and holding a shared standard for how good work looks rather than leaving it to whoever is fastest with a prompt.",
+    "None of that means trusting the output blindly. The same report found workers rank quality control of AI output (50%) and critical thinking (46%) as the two skills that matter most as AI takes on more of the work, and 86% say they treat AI's first answer as a draft, not a finished one. For a small team, that is the whole discipline: nobody ships an AI draft unread, and the person who reviews it is still accountable for what goes out.",
+    "The habit a small team can copy fastest is the shared standard. Write down the two or three prompts, checklists or workflows that already work well on your team in one place everyone can see, instead of leaving that knowledge in one person's head. That single document does more for adoption than another all-hands demo, because it turns one person's shortcut into the whole team's default."
+  ],
+  "takeaway": "This week, get the two or three AI prompts or workflows that already work on your team into one shared doc, with a one-line rule attached: someone always checks the first output before it goes out.",
+  "stat": {
+    "claim": "AI users who work like Frontier Professionals, using agents for multi-step tasks and holding shared standards, report producing work they could not have done a year earlier far more often than typical AI users.",
+    "value": "80%",
+    "source": "Microsoft Work Trend Index",
+    "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization",
+    "year": "2026"
+  },
+  "related": [
+    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" },
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" }
+  ],
+  "faqs": [
+    {
+      "q": "Do you need expensive tools to become an advanced AI user?",
+      "a": "No. Microsoft's research ties advanced use to habits, not spend: multi-step workflows, regularly rethinking which tasks AI should own, and a shared team standard for good output. All three run on tools most teams already pay for."
+    }
+  ]
+}
