@@ -1,0 +1,31 @@
+{
+  "slug": "how-to-make-ai-usage-stick-after-training",
+  "title": "How to make AI usage stick after training | Traq Collective",
+  "h1": "How to make AI usage stick after training",
+  "metaDescription": "AI training day rarely changes Monday. What makes usage stick is a visible win people can copy, a light bit of competition, and doing the first weeks together.",
+  "targetQuery": "how to make AI usage stick after training",
+  "tags": ["making-it-stick", "training"],
+  "datePublished": "2026-07-23",
+  "dateModified": "2026-07-23",
+  "author": "Nazir Dogan",
+  "dek": "The session was never the hard part. The four weeks after it are.",
+  "intro": "AI usage sticks when people see a real colleague winning with it, get a light reason to keep practising, and go through the first weeks together instead of alone. Training day changes nothing on its own. What changes daily behaviour is a visible example, a bit of friendly competition, and a shared push right after the session.",
+  "body": [
+    "Most AI rollouts follow the same shape: a training session, a burst of use that week, then a slow drift back to old habits. Nobody is being lazy. A single event was never designed to change what people do every day, and without something to keep the habit alive it fades inside a month, same as any other training.",
+    "The first thing that works is making wins visible. Microsoft's own legal team ran a short internal series where staff shared their best AI use cases with each other, and Microsoft reports it saw close to a 50 percent rise in monthly active use of some Microsoft 365 apps afterward. You do not need a formal series to copy the idea: a Slack channel or a five-minute slot in the team meeting where one person shows the task AI just saved them time on gives everyone else a script to copy.",
+    "The second is a bit of friendly competition. When Microsoft's sales team ran quiz games and a scavenger hunt built around Copilot, daily active use jumped 31.7 percent, the clearest sign that people moved from occasional use to a real habit. A small business does not need a whole event: a weekly 'best prompt' shout-out or a lightweight team challenge does the same job at a fraction of the effort.",
+    "The third is doing it together rather than sending people off with a link. Microsoft's support organisation ran localised, peer-led sessions where colleagues walked each other through real workflows, and saw a measurable lift in daily use of the specific features they practised. For a small team, that just means blocking an hour where everyone opens the tool at the same time and works on their own real task with someone nearby to ask."
+  ],
+  "takeaway": "Pick one tactic, not three: start a weekly 10-minute show-and-tell where someone shares the AI win that saved them the most time, and run it for the next month before adding anything else.",
+  "stat": {
+    "claim": "A light competition around a specific AI tool measurably shifted people from occasional to daily use, which is the habit that actually compounds.",
+    "value": "31.7%",
+    "source": "Microsoft WorkLab",
+    "url": "https://www.microsoft.com/en-us/worklab/3-proven-ways-to-make-ai-usage-stick",
+    "year": "2024"
+  },
+  "related": [
+    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" },
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" }
+  ]
+}
