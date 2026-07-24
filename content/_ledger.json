@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "openai-chatgpt-for-small-business-explained",
+      "targetQuery": "what is OpenAI's ChatGPT for small business program",
+      "date": "2026-07-24"
+    },
+    {
+      "type": "field-note",
       "slug": "how-to-make-ai-usage-stick-after-training",
       "targetQuery": "how to make AI usage stick after training",
       "date": "2026-07-23"
@@ -169,6 +175,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-23-how-to-make-ai-usage-stick-after-training.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-24",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "openai-chatgpt-for-small-business-explained",
+      "critic": "self-critique pass complete: core facts (program launched July 21 2026, free webinars, in-person OpenAI Academy events in the US, guides, partner offers from Shopify and Intuit, GPT-5.6, 10M ChatGPT Work and Codex users) corroborated across independent coverage (9to5Mac, TechRadar, PYMNTS, Inc, TUN, Windows Forum, Seeking Alpha, ground.news, techbuzz.ai) after WebFetch returned 403 on every domain tried this run, including anthropic.com, confirming a session-wide fetch outage rather than a source-specific block; stat sourced to 9to5Mac (headline states the 10M figure directly); no em-dashes; intro 57 words and stands alone; related links verified to exist (/services/ai-training, /insights/how-to-get-your-team-using-ai); not a repeat of any ledger topic or targetQuery, and distinct from the earlier Claude for Small Business note (different vendor and program)"
+    },
+    {
+      "date": "2026-07-24",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-24-openai-chatgpt-for-small-business-explained.json"
       ],
       "build": "passed"
     }
