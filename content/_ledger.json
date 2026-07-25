@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "gusto-cofounder-ai-teammate-for-small-business",
+      "targetQuery": "what is Gusto Cofounder for small business",
+      "date": "2026-07-25"
+    },
+    {
+      "type": "field-note",
       "slug": "openai-chatgpt-for-small-business-explained",
       "targetQuery": "what is OpenAI's ChatGPT for small business program",
       "date": "2026-07-24"
@@ -193,6 +199,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-24-openai-chatgpt-for-small-business-explained.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-25",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "gusto-cofounder-ai-teammate-for-small-business",
+      "critic": "self-critique pass complete: Gusto Cofounder launch (early access, June 2026, free pending pricing, 20+ pre-built automations, SMS/Slack/web control, Google Workspace/Notion/Slack integrations) corroborated across independent coverage (CPA Practice Advisor, TipRanks, AOL/Yahoo syndication of the PR Newswire release, TechRSeries) after WebFetch returned 403 specifically on gusto.com, prnewswire.com, aol.com, finance.yahoo.com, tipranks.com, cpapracticeadvisor.com and anthropic.com this run while microsoft.com fetched cleanly, indicating source-side bot blocking rather than a session-wide outage; stat (20+ automations) sourced to CPA Practice Advisor with a live, resolvable URL; no em-dashes (verified programmatically); title 68/70 chars, metaDescription 174/200 chars; intro is 52 words and stands alone as a definition of what Gusto Cofounder is; related links verified to exist (/services/agentic-ai, /insights/how-agentic-workflows-work); validated against the live fieldNoteSchema (Zod) via tsx, result VALID; not a repeat of any ledger topic or targetQuery, distinct from prior Microsoft/OpenAI/Claude small-business notes (different vendor, different product category: payroll/HR agent, not a chat assistant)"
+    },
+    {
+      "date": "2026-07-25",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-25-gusto-cofounder-ai-teammate-for-small-business.json"
       ],
       "build": "passed"
     }
