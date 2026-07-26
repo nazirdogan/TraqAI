@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "how-many-small-businesses-use-ai-in-2026",
+      "targetQuery": "how many small businesses use AI in 2026",
+      "date": "2026-07-26"
+    },
+    {
+      "type": "field-note",
       "slug": "gusto-cofounder-ai-teammate-for-small-business",
       "targetQuery": "what is Gusto Cofounder for small business",
       "date": "2026-07-25"
@@ -217,6 +223,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-25-gusto-cofounder-ai-teammate-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-26",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "how-many-small-businesses-use-ai-in-2026",
+      "critic": "self-critique pass complete: stat (58% of small businesses use generative AI in 2026, up from 40% in 2024) sourced to the U.S. Chamber of Commerce 'Empowering Small Business' report (uschamber.com), corroborated across independent coverage (capsulecrm.com, lilachbullock.com, epiphanydynamics.ai, usecarly.com, factoryjet.com, adai.news, deantek.co, a U.S. House committee testimony PDF) after WebFetch returned 403 on uschamber.com, capsulecrm.com, forbes.com, ppc.land, openai.com, wikipedia.org and census.gov this run while microsoft.com fetched cleanly twice, confirming source-side bot blocking rather than a session-wide outage; deliberately dropped two secondary figures (82% workforce growth, 77% impact) from the same report because they were less thoroughly corroborated across independent sources; no em-dashes (checked programmatically); title 59/70 chars, metaDescription 174/200 chars; intro is 59 words and stands alone as a definition of the adoption figure and what it means; related links verified to exist (/insights/ai-readiness-checklist, /services/ai-consulting); validated against the live fieldNoteSchema (Zod) via tsx, result VALID; not a repeat of any ledger topic or targetQuery, distinct from prior vendor-specific notes (Claude, ChatGPT, Gusto, Copilot pricing) by being an aggregate adoption-benchmark angle instead of a single-product explainer; first publish attempt this run failed typecheck because node_modules was never installed in this container (unrelated pre-existing docs/_archive file surfaced first in the error list), fixed by running npm install (outside content/, not committed) before retrying"
+    },
+    {
+      "date": "2026-07-26",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-26-how-many-small-businesses-use-ai-in-2026.json"
       ],
       "build": "passed"
     }
