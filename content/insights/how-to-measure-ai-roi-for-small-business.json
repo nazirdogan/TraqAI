@@ -1,0 +1,105 @@
+{
+  "slug": "how-to-measure-ai-roi-for-small-business",
+  "title": "How to measure ROI from AI in a small business | Traq Collective",
+  "metaDescription": "Most small businesses feel AI is helping but cannot prove it. Here is a simple way to measure real ROI: pick one workflow, set a baseline, and track the dollars.",
+  "targetQuery": "how to measure ROI from AI tools at a small business",
+  "h1": "How to measure ROI from AI in a small business",
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-07-27",
+  "author": "Nazir Dogan",
+  "intro": "AI ROI is the dollar value a business gets back from an AI tool, measured against what it costs, not how often the tool gets used. For a small business, that means picking one real workflow, timing it before and after AI, and turning the difference into hours saved or dollars earned instead of a general feeling that things improved.",
+  "bodySections": [
+    {
+      "h2": "What does AI ROI actually mean for a small business?",
+      "body": "AI ROI is not the number of people who opened the tool this month. It is what changed in one specific piece of work because the tool was there: a task that used to take three hours now takes forty minutes, an invoice that used to sit for a week now clears in a day, a first draft that used to cost a freelancer's hourly rate now costs a subscription fee. Tie the number to one workflow you can name out loud, not to AI usage in general. Usage is easy to count and tells you almost nothing about whether the tool is paying for itself."
+    },
+    {
+      "h2": "Why do most businesses feel AI is working but cannot prove it?",
+      "body": "There is a real gap between feeling and proof. Across organizations of every size, 88% now use AI in at least one part of the business, but only 39% can point to any measurable effect on the bottom line, according to McKinsey's State of AI research. Small businesses report the opposite problem in a different form: Intuit QuickBooks' 2026 AI Impact Report, based on more than 34,000 small and midsize business owners, found 62% report recent productivity gains from AI, a record high. Both things can be true at once. People genuinely feel faster, but feeling faster and having a number you can defend in a budget conversation are not the same thing, and only the second one survives when someone asks whether the subscription is worth renewing."
+    },
+    {
+      "h2": "What should you actually measure?",
+      "body": "Pick one workflow, not your whole operation. Write down what it looked like before AI touched it, then track the same workflow for 30 to 90 days after. Four things are worth tracking on every workflow you test.",
+      "points": [
+        "Time: how long the task took before, versus after, per unit of work",
+        "Volume: how much output the same person produced in the same window",
+        "Error rate: how often the output needed a full redo, not a light edit",
+        "Review time: how long a human spent checking or fixing the AI's output"
+      ]
+    },
+    {
+      "h2": "How do you turn hours saved into a dollar figure?",
+      "body": "Multiply the hours saved per week by the hourly cost of the person doing the work, then multiply by the number of weeks in your test window. That gives you a dollar value for the time freed up. Subtract the tool's cost for that same window, plus any time spent on review or fixes, and what is left is the real return. Small businesses that ran this discipline reported an average return of $3.70 for every dollar invested in AI, according to the U.S. Chamber of Commerce's 2026 small business survey, and the businesses seeing the strongest returns were not the ones spending the most. They were the ones who had redesigned a specific workflow around the tool instead of bolting AI onto the old process."
+    },
+    {
+      "h2": "What mistakes make small business AI ROI look better or worse than it is?",
+      "body": "The most common mistake is skipping the baseline: without knowing how long the task took before, any after number is a guess dressed up as data. The second is counting adoption instead of outcome, treating 'the team logged in' as a win instead of asking what the login produced. The third is forgetting the review step. If a tool saves an hour of drafting but adds forty minutes of fact-checking because nobody trusts the output yet, the real saving is twenty minutes, not an hour, and that gap closes fast once people learn where the tool tends to get things wrong."
+    },
+    {
+      "h2": "When should you expand a tool versus cut it?",
+      "body": "After your 30 to 90 day window, you have a real number, so make a real decision. If the dollar return clears the tool's cost plus the time spent reviewing its output, expand it to the next adjacent workflow and repeat the same measurement there. If it does not, do not assume the tool is bad. Check whether the workflow was a poor fit, whether training was too thin for people to use it well, or whether the process around the tool never actually changed. Cut it only after you have ruled those out, since most disappointing AI results trace back to the workflow, not the model."
+    }
+  ],
+  "tables": [
+    {
+      "heading": "A 30 day AI ROI scorecard",
+      "intro": "Copy this into a shared doc for the one workflow you are testing. It takes ten minutes to fill in and gives you a number you can defend later.",
+      "caption": "Fill in one row of answers for the workflow you are testing before and after AI.",
+      "columns": ["Question", "What to write down"],
+      "rows": [
+        ["Which workflow is this?", "Name the specific task, e.g. 'first-draft client proposals'"],
+        ["Time before AI", "Average minutes or hours per unit of work, over a real sample"],
+        ["Time after AI, including review", "Same measure, taken after 30 to 90 days of real use"],
+        ["Hourly cost of the person doing it", "Loaded hourly cost, not just salary"],
+        ["Tool cost for the window", "Subscription or usage cost for the same period"],
+        ["Net return", "(Hours saved x hourly cost) minus tool cost minus extra review time"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Across organizations of every size, most now use AI somewhere in the business, but only a minority can point to a measurable effect on profit, which is the exact gap a workflow-level ROI test closes.",
+      "value": "88% use AI, 39% see bottom-line impact",
+      "source": "McKinsey",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "year": "2025"
+    },
+    {
+      "claim": "Small and midsize business owners report a record share seeing productivity gains from AI, which is the 'it feels like it's working' half of the ROI question this guide answers.",
+      "value": "62%",
+      "source": "Intuit QuickBooks 2026 AI Impact Report",
+      "url": "https://quickbooks.intuit.com/r/small-business-data/ai-impact-report/",
+      "year": "2026"
+    },
+    {
+      "claim": "Small businesses that measured AI's effect on a real workflow reported an average return per dollar invested, and the strongest returns came from redesigning a workflow, not from spending more.",
+      "value": "$3.70 per $1 invested",
+      "source": "U.S. Chamber of Commerce",
+      "url": "https://www.uschamber.com/co/run/technology/ai-powered-growth-engines",
+      "year": "2026"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long should we test an AI tool before judging its ROI?",
+      "a": "Give it 30 to 90 days on one real workflow. Shorter than that and you are mostly measuring the learning curve, not the tool. Longer than that without a checkpoint and you risk paying for a subscription nobody is actually evaluating anymore."
+    },
+    {
+      "q": "What if a workflow does not produce a clean dollar number?",
+      "a": "Convert time into money using the hourly cost of whoever does the work, even if the output itself is hard to price. A support reply, a first-draft contract, or a scheduling task all have a defensible hourly cost even when they do not have a per-unit price tag."
+    },
+    {
+      "q": "Do we need special software to track AI ROI?",
+      "a": "No. A shared spreadsheet with one row per workflow is enough for a small business testing one or two tools at a time. Save the dedicated tracking software for once you have several workflows running and want to compare them side by side."
+    },
+    {
+      "q": "Should we measure ROI for every AI tool we try?",
+      "a": "Measure it for anything you plan to keep paying for after a free trial or the first renewal. A quick internal experiment that costs nothing and touches nobody's client work does not need a formal scorecard, but anything going on the monthly bill does."
+    }
+  ],
+  "related": [
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" },
+    { "label": "AI Implementation", "href": "/services/ai-implementation" },
+    { "label": "AI readiness checklist", "href": "/insights/ai-readiness-checklist" }
+  ]
+}

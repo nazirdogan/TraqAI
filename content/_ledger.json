@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "insight",
+      "slug": "how-to-measure-ai-roi-for-small-business",
+      "targetQuery": "how to measure ROI from AI tools at a small business",
+      "date": "2026-07-27"
+    },
+    {
       "type": "field-note",
       "slug": "how-many-small-businesses-use-ai-in-2026",
       "targetQuery": "how many small businesses use AI in 2026",
@@ -241,6 +247,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-26-how-many-small-businesses-use-ai-in-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-27",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "how-to-measure-ai-roi-for-small-business",
+      "critic": "self-critique pass complete: filled a real gap in the existing /insights set (no prior guide covers ROI measurement, distinct from the acceptable-use-policy, adoption-playbook, readiness-checklist, agentic-workflows, fractional-head-of-ai and training guides already published); three stats sourced to McKinsey's State of AI research (mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai, 88% use AI in one function vs 39% measurable bottom-line impact), Intuit QuickBooks' 2026 AI Impact Report (quickbooks.intuit.com/r/small-business-data/ai-impact-report/, 62% productivity gains, surveyed 34,000+ small business owners), and the U.S. Chamber of Commerce's 2026 small business survey (uschamber.com/co/run/technology/ai-powered-growth-engines, $3.70 return per $1 invested), each corroborated across multiple independent secondary sources (Silicon Canals, European Purpose, CIO.com, Forbes, capsulecrm.com and others) after WebFetch returned 403 on all three primary domains this run (consistent with the bot-blocking pattern seen on prior runs, not a session-wide outage, since the domains resolve and are cited live by independent outlets); no em-dashes (checked programmatically); intro is 60 words and stands alone as a definition of AI ROI; six bodySections each phrased as a real query plus one practical scorecard table; four FAQs; related links verified to exist (/services/ai-consulting, /services/ai-implementation, /insights/ai-readiness-checklist); validated against the live articleSchema (Zod) via tsx after running npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery"
+    },
+    {
+      "date": "2026-07-27",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-measure-ai-roi-for-small-business.json"
       ],
       "build": "passed"
     }
