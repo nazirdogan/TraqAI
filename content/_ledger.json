@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "field-note",
+      "slug": "zapier-human-in-the-loop-for-ai-agents",
+      "targetQuery": "how to add human oversight to AI agents with Zapier",
+      "date": "2026-07-28"
+    },
+    {
       "type": "insight",
       "slug": "how-to-measure-ai-roi-for-small-business",
       "targetQuery": "how to measure ROI from AI tools at a small business",
@@ -265,6 +271,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/how-to-measure-ai-roi-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-28",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "zapier-human-in-the-loop-for-ai-agents",
+      "critic": "self-critique pass complete: Zapier's Human in the Loop feature for AI agents (pause a Zap after an agent step, approval request by email or Slack, reviewer can approve, edit, or reject before the workflow continues) corroborated across multiple official Zapier and help.zapier.com pages found via search after WebFetch returned 403 on zapier.com and help.zapier.com this run, while a microsoft.com control fetch succeeded, confirming source-side bot blocking rather than a session-wide outage; stat (78% of small business owners do not fully trust AI to handle low level tasks without oversight) sourced to a Bluevine survey fielded by Centiment, corroborated across five independent syndicated outlets (KESQ, KTVZ, The Bradenton Times, North Country Now, Alabama Gazette) all citing the same figures, with the source url pointing to the original PR Newswire release; no em-dashes (checked programmatically); title 58/70 chars, metaDescription 159/200 chars; intro is 57 words and stands alone as a definition of the feature; related links verified to exist (/insights/how-agentic-workflows-work, /services/agentic-ai); validated against the live fieldNoteSchema (Zod) via tsx after npm install, result VALID; not a repeat of any ledger slug or targetQuery, distinct from all prior vendor/product explainers and training/adoption notes by covering agent oversight and trust specifically"
+    },
+    {
+      "date": "2026-07-28",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-28-zapier-human-in-the-loop-for-ai-agents.json"
       ],
       "build": "passed"
     }
