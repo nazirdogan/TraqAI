@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ArticleLayout from '@/components/insights/ArticleLayout';
 import { getAllSlugs, getBySlug } from '@/lib/content/insights';
+import { brandedTitle, stripBrandSuffix } from '@/lib/metadata';
 
 type PageProps = {
   params: { slug: string };
@@ -25,12 +26,12 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   const canonical = `${SITE_URL}/insights/${article.slug}`;
   return {
-    title: article.title,
+    title: stripBrandSuffix(article.title),
     description: article.metaDescription,
     alternates: { canonical },
     openGraph: {
       type: 'article',
-      title: article.title,
+      title: brandedTitle(article.title),
       description: article.metaDescription,
       url: canonical,
       publishedTime: article.datePublished,

@@ -11,7 +11,8 @@ const PATH = '/about';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'About Traq Collective | Founder-led AI enablement',
+  // The root template appends '| Traq Collective', so it is deliberately absent here.
+  title: 'About Traq Collective: founder-led AI enablement',
   description:
     'Traq Collective is a founder-led AI enablement partner run by Nazir. We are practitioners, not consultants: we build AI systems, run an autonomous operation end to end, and train teams to use AI every day. UAE and global.',
   alternates: { canonical: CANONICAL },

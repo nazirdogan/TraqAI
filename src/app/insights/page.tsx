@@ -10,7 +10,8 @@ const PATH = '/insights';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'Insights: practical guides to AI adoption | Traq Collective',
+  // The root template appends '| Traq Collective', so it is deliberately absent here.
+  title: 'Insights: practical guides to AI adoption',
   description:
     'Plain-language guides on getting your team using AI, AI readiness, agentic workflows and AI training. Sourced, practical and written for teams that want results, not theory.',
   alternates: { canonical: CANONICAL },

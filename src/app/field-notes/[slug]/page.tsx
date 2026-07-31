@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import FieldNoteLayout from '@/components/field-notes/FieldNoteLayout';
 import { getAllFieldNoteSlugs, getFieldNoteBySlug } from '@/lib/content/field-notes';
+import { brandedTitle, stripBrandSuffix } from '@/lib/metadata';
 
 type PageProps = {
   params: { slug: string };
@@ -21,13 +22,14 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   const canonical = `${SITE_URL}/field-notes/${note.slug}`;
+  const title = stripBrandSuffix(note.title);
   return {
-    title: note.title,
+    title,
     description: note.metaDescription,
     alternates: { canonical },
     openGraph: {
       type: 'article',
-      title: note.title,
+      title: brandedTitle(note.title),
       description: note.metaDescription,
       url: canonical,
       publishedTime: note.datePublished,

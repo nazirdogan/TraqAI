@@ -10,7 +10,8 @@ const PATH = '/field-notes';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'Field notes: daily AI tips for SMBs | Traq Collective',
+  // The root template appends '| Traq Collective', so it is deliberately absent here.
+  title: 'Field notes: daily AI tips for SMBs',
   description:
     'Short, practical field notes for small and mid-sized teams putting AI to work: how to adopt it, train people, make it stick, and pick the uses that pay off. Updated regularly.',
   alternates: { canonical: CANONICAL },
