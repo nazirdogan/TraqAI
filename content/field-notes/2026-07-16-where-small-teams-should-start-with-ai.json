@@ -4,16 +4,34 @@
   "h1": "Where a small team should start with AI",
   "metaDescription": "The fastest AI win for a small team is not a new tool. It is picking two or three high-volume tasks and training people to use the AI you already pay for on them.",
   "targetQuery": "where should a small business start with AI",
-  "tags": ["adoption", "best-uses"],
+  "tags": [
+    "adoption",
+    "best-uses"
+  ],
   "datePublished": "2026-07-16",
   "dateModified": "2026-07-16",
   "author": "Nazir Dogan",
   "dek": "Skip the tool hunt. Start with the tasks that already eat your team's week.",
   "intro": "The best place for a small team to start with AI is not a new tool, it is a task. Pick two or three jobs that happen often and eat real time, like drafting first replies or summarising long threads, and train people to do those with the AI you already pay for. Start narrow, win fast, then widen.",
   "body": [
-    "Most small teams stall because they treat AI as a shopping problem. They compare tools, sign up for another subscription, and then nobody changes how they actually work on Monday. The tool was never the blocker. The blocker is that no one showed people how AI fits the specific tasks they already do every day.",
-    "So start from the work, not the software. List the jobs each person repeats most: the first-draft emails, the meeting notes, the weekly report, the research prep. Pick the two or three that are frequent, time-consuming, and low-risk to get wrong. Those are your first use cases, and they almost always run on the ChatGPT or Copilot licence you are already paying for.",
-    "Then train on that real work, live, until people get a result they trust. One person saving a genuine hour this week is worth more than a company-wide webinar nobody applies. When a colleague sees that hour saved, adoption spreads on its own."
+    {
+      "heading": "Why most small teams stall on AI",
+      "paragraphs": [
+        "Most small teams stall because they treat AI as a shopping problem. They compare tools, sign up for another subscription, and then nobody changes how they actually work on Monday. The tool was never the blocker. The blocker is that no one showed people how AI fits the specific tasks they already do every day."
+      ]
+    },
+    {
+      "heading": "Start from the work, not the software",
+      "paragraphs": [
+        "So start from the work, not the software. List the jobs each person repeats most: the first-draft emails, the meeting notes, the weekly report, the research prep. Pick the two or three that are frequent, time-consuming, and low-risk to get wrong. Those are your first use cases, and they almost always run on the ChatGPT or Copilot licence you are already paying for."
+      ]
+    },
+    {
+      "heading": "Train on real tasks until someone gets a result they trust",
+      "paragraphs": [
+        "Then train on that real work, live, until people get a result they trust. One person saving a genuine hour this week is worth more than a company-wide webinar nobody applies. When a colleague sees that hour saved, adoption spreads on its own."
+      ]
+    }
   ],
   "takeaway": "This week, name the three tasks that waste the most time on your team and train one person to do each with AI. That is the whole starting move.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2024"
   },
   "related": [
-    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
-    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    }
   ],
   "faqs": [
     {

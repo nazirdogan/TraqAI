@@ -4,16 +4,34 @@
   "h1": "What Canva Code 2.0 means for a small business",
   "metaDescription": "Canva opened Code 2.0 to every account, free included. It turns a plain-English prompt into a working calculator, quiz or landing page, no developer required.",
   "targetQuery": "what is Canva Code 2.0 and how can a small business use it",
-  "tags": ["tools", "best-uses"],
+  "tags": [
+    "tools",
+    "best-uses"
+  ],
   "datePublished": "2026-07-31",
   "dateModified": "2026-07-31",
   "author": "Nazir Dogan",
   "dek": "No developer, no brief, no waiting. Just a prompt and a working page.",
   "intro": "Canva Code 2.0 is a feature inside Canva that turns a plain-English description into a working interactive page, such as a calculator, quiz or small landing page, complete with working code you can then edit visually. Launched on July 14, 2026, it is now open to every Canva account, including the free tier, not just paid plans.",
   "body": [
-    "Before this update, building anything interactive, a pricing calculator, a short quiz, a one-page tool, meant either a developer or a separate no-code app with its own learning curve. Canva Code 2.0 collapses that into the same editor most small teams already use for slides and social posts: describe what you want in a sentence, get working HTML, CSS and JavaScript back, then drag and tweak it like any other Canva design. Canva says code generation is now 75 percent faster than the first version, and the median time from prompt to a published page is down 30 percent.",
-    "The most useful application for a small business is not a full website, it is a single-purpose page tied to one piece of content that already works. Take a social post that got real engagement, a seasonal checklist, a routine, a comparison, and turn it into a short interactive version: a three-question planner, a cost calculator, a scored quiz. The interactive version gives someone a useful result immediately, then asks for an email or a booking on the back of that value, instead of the other way around.",
-    "Treat this as one tool in the kit, not a website replacement. A generated page is a fast way to test whether an idea converts before you invest developer time in a permanent version. If a calculator or quiz built this way gets real clicks and signups over a couple of weeks, that is your signal to build a proper version into your main site. If it does not, you have lost an afternoon, not a development sprint."
+    {
+      "heading": "What changed in Canva Code 2.0",
+      "paragraphs": [
+        "Before this update, building anything interactive, a pricing calculator, a short quiz, a one-page tool, meant either a developer or a separate no-code app with its own learning curve. Canva Code 2.0 collapses that into the same editor most small teams already use for slides and social posts: describe what you want in a sentence, get working HTML, CSS and JavaScript back, then drag and tweak it like any other Canva design. Canva says code generation is now 75 percent faster than the first version, and the median time from prompt to a published page is down 30 percent."
+      ]
+    },
+    {
+      "heading": "The best use is one page tied to content that already works",
+      "paragraphs": [
+        "The most useful application for a small business is not a full website, it is a single-purpose page tied to one piece of content that already works. Take a social post that got real engagement, a seasonal checklist, a routine, a comparison, and turn it into a short interactive version: a three-question planner, a cost calculator, a scored quiz. The interactive version gives someone a useful result immediately, then asks for an email or a booking on the back of that value, instead of the other way around."
+      ]
+    },
+    {
+      "heading": "Treat it as a test, not a website replacement",
+      "paragraphs": [
+        "Treat this as one tool in the kit, not a website replacement. A generated page is a fast way to test whether an idea converts before you invest developer time in a permanent version. If a calculator or quiz built this way gets real clicks and signups over a couple of weeks, that is your signal to build a proper version into your main site. If it does not, you have lost an afternoon, not a development sprint."
+      ]
+    }
   ],
   "takeaway": "This week, pick your best-performing social post or one recurring customer question, and use Canva Code to turn it into a one-question calculator or quiz with a single call to action at the end. Measure clicks for two weeks before deciding whether it earns a permanent page.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "AI Consulting", "href": "/services/ai-consulting" },
-    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    }
   ],
   "faqs": [
     {

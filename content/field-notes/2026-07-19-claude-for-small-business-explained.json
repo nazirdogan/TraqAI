@@ -4,16 +4,34 @@
   "h1": "Claude for Small Business, explained",
   "metaDescription": "Anthropic's Claude for Small Business toggles Claude into QuickBooks, PayPal, HubSpot, Canva, Docusign and Microsoft 365, with owner approval required before anything sends or pays.",
   "targetQuery": "what is Claude for Small Business",
-  "tags": ["tools", "news"],
+  "tags": [
+    "tools",
+    "news"
+  ],
   "datePublished": "2026-07-19",
   "dateModified": "2026-07-19",
   "author": "Nazir Dogan",
   "dek": "Anthropic just wired Claude into the software you already run your business on. Here is what it actually does.",
   "intro": "Claude for Small Business is Anthropic's new toggle-on package that puts Claude to work inside the tools a small business already runs on: QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace and Microsoft 365. It ships with ready-made workflows for jobs like reconciliation and lead triage, but nothing sends, posts or pays without the owner approving it first.",
   "body": [
-    "This is not a new app to learn. It is Claude sitting inside the software you already pay for and already trust with your books, your leads and your contracts. Turn on the QuickBooks connector and Claude can handle the monthly close, cash-flow prep and reconciliation. Turn on HubSpot and it runs lead triage and campaign attribution. PayPal gets settlements, invoicing, disputes and refunds. Canva gets content drafted, edited and published across channels. Docusign gets contracts sent, tracked and filed once signed.",
-    "The part worth trusting is the control model, not the connector list. Every workflow starts because the owner or a named person triggers it, and nothing gets sent, posted or paid without that person approving it first. That is the difference between an assistant that drafts the reconciliation for you to check and a system quietly moving money on its own. There is no extra software fee either: it runs on top of an existing Claude Pro or Max subscription plus whatever you already pay for QuickBooks, HubSpot and the rest.",
-    "None of this replaces judgement. It removes the part of the job that was pure re-typing: pulling numbers from one system, checking them, and keying them into another. That is exactly where small teams lose the most hours, and small businesses make up 43.5 percent of U.S. GDP while running with a fraction of the headcount of the companies AI vendors usually build for first."
+    {
+      "heading": "Which tools Claude for Small Business connects to",
+      "paragraphs": [
+        "This is not a new app to learn. It is Claude sitting inside the software you already pay for and already trust with your books, your leads and your contracts. Turn on the QuickBooks connector and Claude can handle the monthly close, cash-flow prep and reconciliation. Turn on HubSpot and it runs lead triage and campaign attribution. PayPal gets settlements, invoicing, disputes and refunds. Canva gets content drafted, edited and published across channels. Docusign gets contracts sent, tracked and filed once signed."
+      ]
+    },
+    {
+      "heading": "How the approval model keeps you in control",
+      "paragraphs": [
+        "The part worth trusting is the control model, not the connector list. Every workflow starts because the owner or a named person triggers it, and nothing gets sent, posted or paid without that person approving it first. That is the difference between an assistant that drafts the reconciliation for you to check and a system quietly moving money on its own. There is no extra software fee either: it runs on top of an existing Claude Pro or Max subscription plus whatever you already pay for QuickBooks, HubSpot and the rest."
+      ]
+    },
+    {
+      "heading": "What it removes, and what it does not",
+      "paragraphs": [
+        "None of this replaces judgement. It removes the part of the job that was pure re-typing: pulling numbers from one system, checking them, and keying them into another. That is exactly where small teams lose the most hours, and small businesses make up 43.5 percent of U.S. GDP while running with a fraction of the headcount of the companies AI vendors usually build for first."
+      ]
+    }
   ],
   "takeaway": "This week, turn on one connector against the tool that already causes you the most admin pain (QuickBooks if reconciliation eats your Mondays, HubSpot if leads go stale), run it on real work with approval switched on, and only add a second connector once you trust the first.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "How agentic workflows actually work", "href": "/insights/how-agentic-workflows-work" },
-    { "label": "AI Implementation & Adoption", "href": "/services/ai-implementation" }
+    {
+      "label": "How agentic workflows actually work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "AI Implementation & Adoption",
+      "href": "/services/ai-implementation"
+    }
   ],
   "faqs": [
     {

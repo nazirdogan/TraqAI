@@ -4,16 +4,34 @@
   "h1": "Microsoft just made Copilot a default, not an add-on",
   "metaDescription": "As of July 1, 2026, Microsoft folded Copilot into Business Standard ($23.50/user/month) and Business Premium ($32) plans. Here is what that changes for a small team.",
   "targetQuery": "how much does microsoft 365 copilot cost for a small business",
-  "tags": ["tools", "news"],
+  "tags": [
+    "tools",
+    "news"
+  ],
   "datePublished": "2026-07-16",
   "dateModified": "2026-07-16",
   "author": "Nazir Dogan",
   "dek": "Copilot is no longer a separate purchase. That lowers the cost of trying it, not the work of making it useful.",
   "intro": "As of July 1, 2026, Microsoft 365 Copilot is bundled into two new small business plans instead of sold as a separate add-on: Business Standard with Copilot at $23.50 per user a month, and Business Premium with Copilot at $32. Before, Copilot sat on top of whatever base plan you already paid for. Now it is one licence, not two.",
   "body": [
-    "Until July 1, buying AI for a Microsoft-based team meant two separate purchases: a Microsoft 365 Business licence for email and Office, then a Copilot add-on stacked on top. Microsoft has now folded that into two single-SKU plans. Business Standard with Copilot runs $23.50 per user a month and Business Premium with Copilot runs $32, and both come with Copilot built into Word, Excel, PowerPoint and Outlook plus access to models from OpenAI and Anthropic. If your team already runs on Microsoft 365, this removes the awkward step of arguing for a second line item on the invoice.",
-    "The part worth paying attention to is not the chat window, it is the 1,000+ connectors to apps like Xero, Shopify, Asana and Docusign. That is where Copilot stops being a smarter autocomplete and starts touching your actual workflow: pulling an invoice status from Xero into a summary, or drafting a reply based on a ticket in a connected help desk. Before you upgrade a seat, check whether your team already runs any of those connected apps. If they do, that connector is your real use case, not the general-purpose chatbot.",
-    "The risk with bundling is that it makes it easy to switch everyone on at once and assume the AI explains itself. It will not. The same rule applies here as with any AI rollout: pick two or three tasks tied to tools your team already touches daily, train one person on each, and expand from what actually saves time. A cheaper bundle does not skip that step, it just lowers the cost of trying it."
+    {
+      "heading": "What Microsoft 365 Copilot costs a small business now",
+      "paragraphs": [
+        "Until July 1, buying AI for a Microsoft-based team meant two separate purchases: a Microsoft 365 Business licence for email and Office, then a Copilot add-on stacked on top. Microsoft has now folded that into two single-SKU plans. Business Standard with Copilot runs $23.50 per user a month and Business Premium with Copilot runs $32, and both come with Copilot built into Word, Excel, PowerPoint and Outlook plus access to models from OpenAI and Anthropic. If your team already runs on Microsoft 365, this removes the awkward step of arguing for a second line item on the invoice."
+      ]
+    },
+    {
+      "heading": "The connectors matter more than the chat window",
+      "paragraphs": [
+        "The part worth paying attention to is not the chat window, it is the 1,000+ connectors to apps like Xero, Shopify, Asana and Docusign. That is where Copilot stops being a smarter autocomplete and starts touching your actual workflow: pulling an invoice status from Xero into a summary, or drafting a reply based on a ticket in a connected help desk. Before you upgrade a seat, check whether your team already runs any of those connected apps. If they do, that connector is your real use case, not the general-purpose chatbot."
+      ]
+    },
+    {
+      "heading": "What to do before you switch it on for everyone",
+      "paragraphs": [
+        "The risk with bundling is that it makes it easy to switch everyone on at once and assume the AI explains itself. It will not. The same rule applies here as with any AI rollout: pick two or three tasks tied to tools your team already touches daily, train one person on each, and expand from what actually saves time. A cheaper bundle does not skip that step, it just lowers the cost of trying it."
+      ]
+    }
   ],
   "takeaway": "This week, list which of Copilot's connected apps (Xero, Shopify, Asana, Docusign or similar) your team already uses daily. That connector, not the chat box, is where the upgrade will pay for itself first.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
-    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    }
   ],
   "faqs": [
     {

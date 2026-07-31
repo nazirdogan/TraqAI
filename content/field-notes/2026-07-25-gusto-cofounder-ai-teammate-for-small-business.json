@@ -4,16 +4,34 @@
   "h1": "Gusto's new AI teammate runs payroll tasks so you do not have to ask twice",
   "metaDescription": "Gusto Cofounder is a free, early-access AI teammate that runs payroll, flags compliance risks and chases timesheets by text, Slack or web chat. Here is what it actually does.",
   "targetQuery": "what is Gusto Cofounder for small business",
-  "tags": ["tools", "news"],
+  "tags": [
+    "tools",
+    "news"
+  ],
   "datePublished": "2026-07-25",
   "dateModified": "2026-07-25",
   "author": "Nazir Dogan",
   "dek": "Payroll software just got an agent. Here is what that means before you hand it the keys.",
   "intro": "Gusto Cofounder is an AI teammate built into Gusto's payroll platform that small business owners can direct in plain language, by text, Slack or web chat, to run payroll, flag compliance risks, chase missing timesheets and surface staffing conflicts. It launched in early access in June 2026, free while Gusto finalises pricing.",
   "body": [
-    "Cofounder works from context Gusto already has: your team roster, payroll schedule, benefits setup and compliance calendar, plus whatever you connect from Google Workspace, Notion or Slack. Instead of clicking through screens, you tell it what you want in a sentence, something like \"run payroll for this Friday and flag anything that needs my approval\" or \"send me a labor cost report by department every Monday morning\". Reporting on the launch counts more than 20 pre-built automations covering payroll runs, onboarding, expense approvals and compliance tasks.",
-    "This is worth naming for what it is: an agentic workflow, not a chatbot. A chatbot answers when you ask. An agent is handed a goal and takes the steps itself, including steps that touch money and compliance. That is exactly where the caution belongs. Before you connect anything like this to a live payroll account, decide in advance what it can do without you, what it can only draft or flag, and what always needs your sign-off. Free early access is still a live system touching real pay runs, not a sandbox.",
-    "If you already run payroll on Gusto, the sensible way in is to join early access at gusto.com/cofounder and start it on a read-only task, like a weekly labor cost report, before letting it near approvals. If you run payroll elsewhere, the pattern still applies to whatever AI teammate your own vendor ships next: test it on something you can only get wrong cheaply, then widen its permissions once it has earned them."
+    {
+      "heading": "What Gusto Cofounder actually does",
+      "paragraphs": [
+        "Cofounder works from context Gusto already has: your team roster, payroll schedule, benefits setup and compliance calendar, plus whatever you connect from Google Workspace, Notion or Slack. Instead of clicking through screens, you tell it what you want in a sentence, something like \"run payroll for this Friday and flag anything that needs my approval\" or \"send me a labor cost report by department every Monday morning\". Reporting on the launch counts more than 20 pre-built automations covering payroll runs, onboarding, expense approvals and compliance tasks."
+      ]
+    },
+    {
+      "heading": "Why an agent needs different caution than a chatbot",
+      "paragraphs": [
+        "This is worth naming for what it is: an agentic workflow, not a chatbot. A chatbot answers when you ask. An agent is handed a goal and takes the steps itself, including steps that touch money and compliance. That is exactly where the caution belongs. Before you connect anything like this to a live payroll account, decide in advance what it can do without you, what it can only draft or flag, and what always needs your sign-off. Free early access is still a live system touching real pay runs, not a sandbox."
+      ]
+    },
+    {
+      "heading": "How to start it safely",
+      "paragraphs": [
+        "If you already run payroll on Gusto, the sensible way in is to join early access at gusto.com/cofounder and start it on a read-only task, like a weekly labor cost report, before letting it near approvals. If you run payroll elsewhere, the pattern still applies to whatever AI teammate your own vendor ships next: test it on something you can only get wrong cheaply, then widen its permissions once it has earned them."
+      ]
+    }
   ],
   "takeaway": "If you run payroll on Gusto, join the Cofounder early access list this week and start it on one read-only automation, like a weekly labor cost report, before letting it touch approvals or payroll runs.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "Agentic AI & Autonomous Operations", "href": "/services/agentic-ai" },
-    { "label": "How agentic workflows actually work", "href": "/insights/how-agentic-workflows-work" }
+    {
+      "label": "Agentic AI & Autonomous Operations",
+      "href": "/services/agentic-ai"
+    },
+    {
+      "label": "How agentic workflows actually work",
+      "href": "/insights/how-agentic-workflows-work"
+    }
   ],
   "faqs": [
     {

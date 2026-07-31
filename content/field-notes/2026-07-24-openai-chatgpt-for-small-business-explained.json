@@ -4,16 +4,34 @@
   "h1": "OpenAI's ChatGPT for Small Business, explained",
   "metaDescription": "OpenAI's new small business program pairs free ChatGPT Work training, in-person academies and partner offers from Shopify and Intuit. Here is what it actually includes.",
   "targetQuery": "what is OpenAI's ChatGPT for small business program",
-  "tags": ["tools", "news"],
+  "tags": [
+    "tools",
+    "news"
+  ],
   "datePublished": "2026-07-24",
   "dateModified": "2026-07-24",
   "author": "Nazir Dogan",
   "dek": "OpenAI wants small businesses past one-off prompts. Here is what the new program actually offers.",
   "intro": "OpenAI's ChatGPT for Small Business program, launched July 21, 2026, is a package of free training, in-person workshops and partner offers built to help small business owners move past occasional chatbot use into repeatable AI workflows. It bundles webinars, hands-on academies in the US, written guides, and integrations from partners like Shopify and Intuit, running on GPT-5.6.",
   "body": [
-    "OpenAI announced the program on July 21, 2026, joining Microsoft, Google and Anthropic in a push for the small business AI budget. The pitch is the same everywhere: owners have already started using AI on their own, one subscription at a time, but most stop at drafting an email or summarising a document. OpenAI's bet is that free training closes that gap faster than a better model does on its own.",
-    "The program itself is straightforward. There are free virtual webinars walking through ChatGPT Work on accounting, marketing and ecommerce tasks, in-person OpenAI Academy events in the US with hands-on exercises, written guides and short customer-story videos, plus integrations and special offers from partners including Shopify and Intuit. None of these pieces are new inventions on their own. Bundling them into one on-ramp, timed right after OpenAI said ChatGPT Work and Codex had already reached 10 million users, is the actual news.",
-    "Treat it the way you would treat any vendor-run training: useful for the basics, not a substitute for training built around your own workflows. A generic webinar can show a bookkeeper how ChatGPT reads a spreadsheet. It cannot tell your team which of your specific tasks are worth automating first, or what data should never go into a prompt. Use OpenAI's program to get comfortable with the tool, then bring in someone who knows your business to turn that comfort into an actual routine."
+    {
+      "heading": "Why OpenAI launched a small business program",
+      "paragraphs": [
+        "OpenAI announced the program on July 21, 2026, joining Microsoft, Google and Anthropic in a push for the small business AI budget. The pitch is the same everywhere: owners have already started using AI on their own, one subscription at a time, but most stop at drafting an email or summarising a document. OpenAI's bet is that free training closes that gap faster than a better model does on its own."
+      ]
+    },
+    {
+      "heading": "What the program actually includes",
+      "paragraphs": [
+        "The program itself is straightforward. There are free virtual webinars walking through ChatGPT Work on accounting, marketing and ecommerce tasks, in-person OpenAI Academy events in the US with hands-on exercises, written guides and short customer-story videos, plus integrations and special offers from partners including Shopify and Intuit. None of these pieces are new inventions on their own. Bundling them into one on-ramp, timed right after OpenAI said ChatGPT Work and Codex had already reached 10 million users, is the actual news."
+      ]
+    },
+    {
+      "heading": "What vendor training can and cannot do for you",
+      "paragraphs": [
+        "Treat it the way you would treat any vendor-run training: useful for the basics, not a substitute for training built around your own workflows. A generic webinar can show a bookkeeper how ChatGPT reads a spreadsheet. It cannot tell your team which of your specific tasks are worth automating first, or what data should never go into a prompt. Use OpenAI's program to get comfortable with the tool, then bring in someone who knows your business to turn that comfort into an actual routine."
+      ]
+    }
   ],
   "takeaway": "This week, have one person on your team sign up for one free ChatGPT for Small Business webinar and bring a real task, like a client email or a spreadsheet, to test live instead of a hypothetical one.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
-    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    }
   ],
   "faqs": [
     {

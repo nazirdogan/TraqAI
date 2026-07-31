@@ -4,16 +4,34 @@
   "h1": "The five-hour rule for AI training",
   "metaDescription": "A single AI workshop rarely changes how a team works. Past roughly five hours of hands-on practice, people cross from one-time triers into regular users.",
   "targetQuery": "how much AI training does a team need",
-  "tags": ["training", "making-it-stick"],
+  "tags": [
+    "training",
+    "making-it-stick"
+  ],
   "datePublished": "2026-07-15",
   "dateModified": "2026-07-15",
   "author": "Nazir Dogan",
   "dek": "One workshop is not a programme. The habit forms after real practice, not a demo.",
   "intro": "The five-hour rule is a simple way to size AI training: below about five hours of hands-on practice, most people stay one-time triers, and above it they become regular users. A single lunch-and-learn almost never sticks. What changes behaviour is repeated practice on real tasks, spread over the first few weeks.",
   "body": [
-    "It is tempting to book one AI workshop, tick the training box, and move on. The problem is that comfort with a new tool comes from reps, not from watching a demo. People need to try AI on their own work, get it wrong, adjust, and get a result they trust, more than once, before it becomes a habit they reach for without being told.",
-    "That is why we build training as a short programme rather than an event. A first hands-on session gets people a quick win, then follow-up practice on their real tasks pushes them past the point where the habit holds. Role-specific beats generic here: the marketing team and the finance team should practise on their own jobs, not a shared toy example.",
-    "The number is not magic, and it is not a certificate. It is a planning floor. If your team has had one hour of AI training, do not expect regular use yet. Budget for the practice, and the adoption follows."
+    {
+      "heading": "Why one workshop does not change how a team works",
+      "paragraphs": [
+        "It is tempting to book one AI workshop, tick the training box, and move on. The problem is that comfort with a new tool comes from reps, not from watching a demo. People need to try AI on their own work, get it wrong, adjust, and get a result they trust, more than once, before it becomes a habit they reach for without being told."
+      ]
+    },
+    {
+      "heading": "How much practice a team actually needs",
+      "paragraphs": [
+        "That is why we build training as a short programme rather than an event. A first hands-on session gets people a quick win, then follow-up practice on their real tasks pushes them past the point where the habit holds. Role-specific beats generic here: the marketing team and the finance team should practise on their own jobs, not a shared toy example."
+      ]
+    },
+    {
+      "heading": "Treat five hours as a planning floor, not a target",
+      "paragraphs": [
+        "The number is not magic, and it is not a certificate. It is a planning floor. If your team has had one hour of AI training, do not expect regular use yet. Budget for the practice, and the adoption follows."
+      ]
+    }
   ],
   "takeaway": "Plan for at least five hours of hands-on AI practice per person over the first month, on their real work, not one all-hands session.",
   "stat": {
@@ -24,7 +42,23 @@
     "year": "2025"
   },
   "related": [
-    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
-    { "label": "AI training for teams in the UAE", "href": "/insights/ai-training-for-teams-uae" }
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "AI training for teams in the UAE",
+      "href": "/insights/ai-training-for-teams-uae"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many hours of AI training does a team actually need?",
+      "a": "Treat roughly five hours of hands-on practice as a planning floor rather than a target. Below that, most people try AI once and drift back to old habits. The hours only count when people are working on their own real tasks, not watching a demo."
+    },
+    {
+      "q": "Is one AI workshop enough to change how a team works?",
+      "a": "Rarely. A single session can get people a first win, but comfort with a new tool comes from repetition. Plan a short programme with follow-up practice on real work instead of a one-off event."
+    }
   ]
 }

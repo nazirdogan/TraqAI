@@ -40,6 +40,20 @@ export const fieldNoteRelatedSchema = z.object({
   href: z.string().min(1),
 });
 
+/**
+ * A body section: a question-shaped heading plus the paragraphs under it.
+ *
+ * AI search engines extract passages, not pages, and they pick the passage
+ * sitting under the heading that best matches the query. A note written as a
+ * flat run of paragraphs gives them nothing to select, so headings here are the
+ * difference between being read and being cited. Phrase each one the way a
+ * person would actually ask it.
+ */
+export const fieldNoteSectionSchema = z.object({
+  heading: z.string().min(1),
+  paragraphs: z.array(z.string().min(1)).min(1),
+});
+
 export const fieldNoteSchema = z.object({
   /** URL slug: /field-notes/{slug}. */
   slug,
@@ -62,8 +76,12 @@ export const fieldNoteSchema = z.object({
   dek: z.string().min(1),
   /** Definition-first, standalone 40-60 word lead. The first extractable block. */
   intro: z.string().min(1),
-  /** Body paragraphs. Each is one clear idea. */
-  body: z.array(z.string().min(1)).min(1),
+  /**
+   * Body content. Each entry is either a bare paragraph (one clear idea) or a
+   * section with a query-shaped heading. Prefer sections: they are what makes a
+   * note extractable. Bare strings stay legal so older notes keep validating.
+   */
+  body: z.array(z.union([z.string().min(1), fieldNoteSectionSchema])).min(1),
   /** The single practical "do this next" line. */
   takeaway: z.string().min(1),
   /** Optional cited stat with source + url + year. */
@@ -77,3 +95,10 @@ export const fieldNoteSchema = z.object({
 export type FieldNote = z.infer<typeof fieldNoteSchema>;
 export type FieldNoteStat = z.infer<typeof fieldNoteStatSchema>;
 export type FieldNoteFaq = z.infer<typeof fieldNoteFaqSchema>;
+export type FieldNoteSection = z.infer<typeof fieldNoteSectionSchema>;
+export type FieldNoteBodyItem = FieldNote['body'][number];
+
+/** Narrow a body entry to a headed section. */
+export function isFieldNoteSection(item: FieldNoteBodyItem): item is FieldNoteSection {
+  return typeof item !== 'string';
+}

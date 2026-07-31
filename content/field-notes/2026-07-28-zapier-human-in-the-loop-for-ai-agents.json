@@ -4,17 +4,40 @@
   "h1": "What Zapier's Human in the Loop actually does for your AI agents",
   "metaDescription": "Zapier's Human in the Loop pauses an AI agent at one step so a person can approve, edit, or reject its action before it runs. Here is where to actually use it.",
   "targetQuery": "how to add human oversight to AI agents with Zapier",
-  "tags": ["tools", "adoption"],
+  "tags": [
+    "tools",
+    "adoption"
+  ],
   "datePublished": "2026-07-28",
   "dateModified": "2026-07-28",
   "author": "Nazir Dogan",
   "dek": "A built-in pause button for AI agents, so a person signs off before anything risky goes out.",
   "intro": "Human in the Loop is a Zapier feature that pauses an AI agent at a chosen step in a workflow until a person reviews it. Add it right after any agent step and Zapier sends an approval request by email or Slack, where a teammate can approve, edit, or reject the agent's proposed action before it runs.",
   "body": [
-    "Three out of four small business owners are already using or testing AI, but most still do not trust it to work unsupervised. A Bluevine survey of small business owners this year found 78% do not fully trust AI to handle even low level tasks without oversight, with data security and doubts about accuracy cited as the top two reasons. That gap is exactly what a feature like Human in the Loop is built to close.",
-    "The mechanics are simple. You add a Human in the Loop step to a Zap right after an AI agent step. Instead of the agent finishing the job on its own, Zapier pauses the workflow and sends a reviewer an approval request by email or Slack. The reviewer can approve the agent's proposed action as is, edit it, or reject it, and the rest of the workflow only continues once that decision is made.",
-    "The mistake is putting a review step on everything, which just turns automation back into manual work. Reserve it for the steps that are hard to undo or easy to get wrong in public: sending an email to a customer, posting to a shared channel or social account, updating a customer record, or spending money. Let the agent draft, research, and route freely, and have it wait for a person only at the moment something actually goes out the door.",
-    "This matters more as agents get connected to real inboxes, payment details, and live accounts instead of just draft documents. A small team running an agent to triage support tickets or draft outreach can add one review step before anything is sent, and keep most of the speed of automation without the risk of an agent doing something costly or embarrassing while nobody was watching."
+    {
+      "heading": "Why owners still do not trust agents to run unsupervised",
+      "paragraphs": [
+        "Three out of four small business owners are already using or testing AI, but most still do not trust it to work unsupervised. A Bluevine survey of small business owners this year found 78% do not fully trust AI to handle even low level tasks without oversight, with data security and doubts about accuracy cited as the top two reasons. That gap is exactly what a feature like Human in the Loop is built to close."
+      ]
+    },
+    {
+      "heading": "How Human in the Loop works",
+      "paragraphs": [
+        "The mechanics are simple. You add a Human in the Loop step to a Zap right after an AI agent step. Instead of the agent finishing the job on its own, Zapier pauses the workflow and sends a reviewer an approval request by email or Slack. The reviewer can approve the agent's proposed action as is, edit it, or reject it, and the rest of the workflow only continues once that decision is made."
+      ]
+    },
+    {
+      "heading": "Which steps deserve a review, and which do not",
+      "paragraphs": [
+        "The mistake is putting a review step on everything, which just turns automation back into manual work. Reserve it for the steps that are hard to undo or easy to get wrong in public: sending an email to a customer, posting to a shared channel or social account, updating a customer record, or spending money. Let the agent draft, research, and route freely, and have it wait for a person only at the moment something actually goes out the door."
+      ]
+    },
+    {
+      "heading": "Why this matters more as agents touch live accounts",
+      "paragraphs": [
+        "This matters more as agents get connected to real inboxes, payment details, and live accounts instead of just draft documents. A small team running an agent to triage support tickets or draft outreach can add one review step before anything is sent, and keep most of the speed of automation without the risk of an agent doing something costly or embarrassing while nobody was watching."
+      ]
+    }
   ],
   "takeaway": "This week, pick one AI-agent-powered workflow you already run and add a Human in the Loop step right before the one action that would actually hurt you if it went out wrong: an email to a customer, a public post, or a charge.",
   "stat": {
@@ -25,8 +48,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "How agentic workflows work", "href": "/insights/how-agentic-workflows-work" },
-    { "label": "Agentic AI Services", "href": "/services/agentic-ai" }
+    {
+      "label": "How agentic workflows work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "Agentic AI Services",
+      "href": "/services/agentic-ai"
+    }
   ],
   "faqs": [
     {

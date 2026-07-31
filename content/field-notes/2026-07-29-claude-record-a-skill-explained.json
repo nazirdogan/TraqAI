@@ -4,21 +4,61 @@
   "h1": "Claude's Record a Skill: teach AI a task by recording your screen",
   "metaDescription": "Claude's Record a Skill lets you teach the AI a repeatable task by recording yourself doing it and talking through it, no prompt writing or automation setup required.",
   "targetQuery": "how to teach Claude a skill by recording your screen",
-  "tags": ["training", "tools", "best-uses"],
+  "tags": [
+    "training",
+    "tools",
+    "best-uses"
+  ],
   "datePublished": "2026-07-29",
   "dateModified": "2026-07-29",
   "author": "Nazir Dogan",
   "dek": "No prompt writing, no automation builder. You just do the task once and narrate it.",
   "intro": "Record a Skill is a Claude feature that turns a screen recording into a reusable AI skill. You record yourself doing a task while explaining it out loud, and Claude turns that demonstration into instructions it can follow again on similar work, without you writing a prompt or building an automation.",
   "body": [
-    "Anthropic added Record a Skill to the Claude desktop app in late July 2026, available to Pro, Max and Team subscribers. It sits under the plus menu: Skills, Manage skills, Add, Record your screen. You hit record, work through the task normally on your own files, say what you are doing and why as you go, then stop. Claude turns the recording into a structured skill it can run again on similar requests.",
-    "This matters for small teams because the usual blocker on AI adoption is not access, it is translation. Someone knows exactly how they reconcile an invoice or format a weekly report, but turning that into a written prompt or an automation feels like a separate technical job, so it never gets done. Record a Skill removes that step. You show the work once, in your own words, and the documentation writes itself.",
-    "The practical use is training your best person's method into something the rest of the team can reuse. Have your strongest operator record how they actually do a recurring task, the real one, on real files, not a sanitised example. That recording becomes a skill anyone on a paid seat can call on, which is a faster way to spread a good habit than a written SOP nobody rereads.",
-    "Treat it like any screen recording: do not narrate passwords, API keys, or client data you would not want stored, and check the resulting skill on a low-stakes example before you trust it on something that matters."
+    {
+      "heading": "How Record a Skill works",
+      "paragraphs": [
+        "Anthropic added Record a Skill to the Claude desktop app in late July 2026, available to Pro, Max and Team subscribers. It sits under the plus menu: Skills, Manage skills, Add, Record your screen. You hit record, work through the task normally on your own files, say what you are doing and why as you go, then stop. Claude turns the recording into a structured skill it can run again on similar requests."
+      ]
+    },
+    {
+      "heading": "Why this removes the real blocker on AI adoption",
+      "paragraphs": [
+        "This matters for small teams because the usual blocker on AI adoption is not access, it is translation. Someone knows exactly how they reconcile an invoice or format a weekly report, but turning that into a written prompt or an automation feels like a separate technical job, so it never gets done. Record a Skill removes that step. You show the work once, in your own words, and the documentation writes itself."
+      ]
+    },
+    {
+      "heading": "Use it to spread your best person's method",
+      "paragraphs": [
+        "The practical use is training your best person's method into something the rest of the team can reuse. Have your strongest operator record how they actually do a recurring task, the real one, on real files, not a sanitised example. That recording becomes a skill anyone on a paid seat can call on, which is a faster way to spread a good habit than a written SOP nobody rereads."
+      ]
+    },
+    {
+      "heading": "What not to record",
+      "paragraphs": [
+        "Treat it like any screen recording: do not narrate passwords, API keys, or client data you would not want stored, and check the resulting skill on a low-stakes example before you trust it on something that matters."
+      ]
+    }
   ],
   "takeaway": "Pick one task your best person does every week and have them record it once, narrating as they go, to turn it into a Claude skill the rest of the team can reuse.",
   "related": [
-    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
-    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How do you teach Claude a skill by recording your screen?",
+      "a": "In the Claude desktop app, open the plus menu, then Skills, Manage skills, Add, Record your screen. Work through the task normally on your own files while saying what you are doing and why, then stop. Claude turns the recording into a structured skill it can run again."
+    },
+    {
+      "q": "Who can use Record a Skill?",
+      "a": "It is available to Claude Pro, Max and Team subscribers in the Claude desktop app, added in late July 2026."
+    }
   ]
 }

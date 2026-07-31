@@ -8,7 +8,7 @@ import {
   FaqPageJsonLd,
 } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
-import type { FieldNote } from '@/lib/content/field-notes';
+import { isFieldNoteSection, type FieldNote } from '@/lib/content/field-notes';
 
 /**
  * Format an ISO date ("2026-07-16") as "16 July 2026", parsed as UTC so the
@@ -107,14 +107,35 @@ export default function FieldNoteLayout({ note }: FieldNoteLayoutProps) {
             </p>
 
             <div className="mt-6 space-y-5">
-              {note.body.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-[15px] leading-relaxed text-ink-soft sm:text-[17px]"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              {note.body.map((item, index) =>
+                isFieldNoteSection(item) ? (
+                  // A headed section. The H2 is the extraction handle: AI search
+                  // selects the passage under the heading that matches the query,
+                  // so heading and paragraphs must ship as one block.
+                  <section key={index} className="pt-3 first:pt-0">
+                    <h2 className="text-[19px] font-bold leading-snug tracking-tight text-ink sm:text-[22px]">
+                      {item.heading}
+                    </h2>
+                    <div className="mt-3 space-y-5">
+                      {item.paragraphs.map((paragraph, pIndex) => (
+                        <p
+                          key={pIndex}
+                          className="text-[15px] leading-relaxed text-ink-soft sm:text-[17px]"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </section>
+                ) : (
+                  <p
+                    key={index}
+                    className="text-[15px] leading-relaxed text-ink-soft sm:text-[17px]"
+                  >
+                    {item}
+                  </p>
+                )
+              )}
             </div>
 
             {note.stat ? (

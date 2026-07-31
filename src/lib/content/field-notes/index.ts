@@ -64,4 +64,5 @@ export function getAllFieldNoteSlugs(): string[] {
   return FIELD_NOTES.map((note) => note.slug);
 }
 
-export type { FieldNote } from './schema';
+export type { FieldNote, FieldNoteSection, FieldNoteBodyItem } from './schema';
+export { isFieldNoteSection } from './schema';

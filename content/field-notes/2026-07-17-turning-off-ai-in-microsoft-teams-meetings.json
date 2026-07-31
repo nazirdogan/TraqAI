@@ -4,16 +4,34 @@
   "h1": "Microsoft Teams now lets you turn AI off mid-meeting",
   "metaDescription": "Since July 2026, Teams organizers and presenters can turn Copilot, Facilitator and Recap off during a live call, not just before it starts. Here is what that means for your team.",
   "targetQuery": "how to turn off AI in a Microsoft Teams meeting",
-  "tags": ["tools", "news"],
+  "tags": [
+    "tools",
+    "news"
+  ],
   "datePublished": "2026-07-17",
   "dateModified": "2026-07-17",
   "author": "Nazir Dogan",
   "dek": "Copilot, Facilitator and Recap used to run by default. Now the organizer decides, mid-call.",
   "intro": "Microsoft Teams now lets meeting organizers and presenters turn Copilot, Facilitator and Recap on or off during a live call, not just before it starts. The toggle rolled out in July 2026 after user pushback over AI features running by default. It requires a Teams Premium or Microsoft 365 Copilot licence, and turning on transcription still activates the AI automatically.",
   "body": [
-    "Until now, if your Teams meetings had Copilot, Facilitator or Recap switched on, that was a setting made before the call, usually by IT, and rarely revisited. Microsoft rolled out an in-meeting toggle in July 2026, after enough customers pushed back on AI features (especially Facilitator, which summarises and nudges the conversation as it happens) running without anyone in the room choosing that. Now an organizer or presenter can turn any of the three off, or back on, from the meeting controls menu, mid-call.",
-    "Two details matter more than the headline. First, only organizers and presenters get the toggle, and it needs a Teams Premium or Microsoft 365 Copilot licence, so check who on your team actually has that access before you assume everyone can flip it. Second, transcription and AI are linked: starting a transcript switches Copilot and Recap on automatically, even if someone turned them off earlier. If a meeting needs to be genuinely AI-free, both transcription and the AI toggle have to be off, not just one.",
-    "The useful move here is not turning AI off everywhere. It is deciding, as a team, when it should be off, client calls where someone hasn't consented to being recorded or summarised, sensitive HR conversations, anything under an NDA, and making that a default rather than something one person remembers to click. Write it down as a one-line rule, tell the team, and check occasionally that new hires know it too."
+    {
+      "heading": "What changed in Microsoft Teams in July 2026",
+      "paragraphs": [
+        "Until now, if your Teams meetings had Copilot, Facilitator or Recap switched on, that was a setting made before the call, usually by IT, and rarely revisited. Microsoft rolled out an in-meeting toggle in July 2026, after enough customers pushed back on AI features (especially Facilitator, which summarises and nudges the conversation as it happens) running without anyone in the room choosing that. Now an organizer or presenter can turn any of the three off, or back on, from the meeting controls menu, mid-call."
+      ]
+    },
+    {
+      "heading": "Who can turn it off, and the transcription catch",
+      "paragraphs": [
+        "Two details matter more than the headline. First, only organizers and presenters get the toggle, and it needs a Teams Premium or Microsoft 365 Copilot licence, so check who on your team actually has that access before you assume everyone can flip it. Second, transcription and AI are linked: starting a transcript switches Copilot and Recap on automatically, even if someone turned them off earlier. If a meeting needs to be genuinely AI-free, both transcription and the AI toggle have to be off, not just one."
+      ]
+    },
+    {
+      "heading": "Decide as a team when AI should be off",
+      "paragraphs": [
+        "The useful move here is not turning AI off everywhere. It is deciding, as a team, when it should be off, client calls where someone hasn't consented to being recorded or summarised, sensitive HR conversations, anything under an NDA, and making that a default rather than something one person remembers to click. Write it down as a one-line rule, tell the team, and check occasionally that new hires know it too."
+      ]
+    }
   ],
   "takeaway": "This week, name the two or three meeting types where AI notetaking should default to off (client calls, HR, anything under NDA) and tell your team which toggle controls it. Do not leave it to whoever remembers to click.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "AI readiness checklist", "href": "/insights/ai-readiness-checklist" },
-    { "label": "AI implementation", "href": "/services/ai-implementation" }
+    {
+      "label": "AI readiness checklist",
+      "href": "/insights/ai-readiness-checklist"
+    },
+    {
+      "label": "AI implementation",
+      "href": "/services/ai-implementation"
+    }
   ],
   "faqs": [
     {

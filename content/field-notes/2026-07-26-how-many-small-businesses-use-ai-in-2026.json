@@ -4,16 +4,34 @@
   "h1": "Most small businesses now use AI. Here is what that changes for you",
   "metaDescription": "58% of small businesses now use generative AI, up from 40% in 2024, per the U.S. Chamber of Commerce. Here is what that shift actually means if your team has not started yet.",
   "targetQuery": "how many small businesses use AI in 2026",
-  "tags": ["adoption", "news"],
+  "tags": [
+    "adoption",
+    "news"
+  ],
   "datePublished": "2026-07-26",
   "dateModified": "2026-07-26",
   "author": "Nazir Dogan",
   "dek": "The majority crossed over. Waiting is no longer the safe option.",
   "intro": "In 2026, 58% of small businesses in the United States say they use generative AI at work, up from 40% in 2024, according to the U.S. Chamber of Commerce. That is the fastest technology adoption curve the Chamber says it has tracked since social media, which means using AI is now ordinary practice, not something only early movers do.",
   "body": [
-    "That is a big jump, from 40% to 58% in two years, and it is worth taking seriously if your business is still in the 42% that has not used AI at all. It also tracks with what most owners will recognise on the ground: \"using AI\" mostly means one person drafting an email in ChatGPT, not a company rollout. A lot of that 58% is a habit, not a capability.",
-    "That gap matters more than the headline number. A single employee quietly using AI for their own drafts is not the same as a business that has decided which tasks AI touches, trained the rest of the team on them, and set a rule for what it should never be trusted with unsupervised. The Chamber's number counts who has tried AI, not who has built a working process around it, and those are very different starting points if you actually want the hours back.",
-    "If you are past wondering whether to use AI and stuck on how, the fix is not another tool. It is picking two or three real tasks, training your team on them the same way, and writing down what AI can and cannot touch without a human checking it first. That is the difference between being counted in the 58% and actually getting the time back."
+    {
+      "heading": "What the 58% figure really counts",
+      "paragraphs": [
+        "That is a big jump, from 40% to 58% in two years, and it is worth taking seriously if your business is still in the 42% that has not used AI at all. It also tracks with what most owners will recognise on the ground: \"using AI\" mostly means one person drafting an email in ChatGPT, not a company rollout. A lot of that 58% is a habit, not a capability."
+      ]
+    },
+    {
+      "heading": "The gap between a habit and a capability",
+      "paragraphs": [
+        "That gap matters more than the headline number. A single employee quietly using AI for their own drafts is not the same as a business that has decided which tasks AI touches, trained the rest of the team on them, and set a rule for what it should never be trusted with unsupervised. The Chamber's number counts who has tried AI, not who has built a working process around it, and those are very different starting points if you actually want the hours back."
+      ]
+    },
+    {
+      "heading": "What to do if you are still in the 42%",
+      "paragraphs": [
+        "If you are past wondering whether to use AI and stuck on how, the fix is not another tool. It is picking two or three real tasks, training your team on them the same way, and writing down what AI can and cannot touch without a human checking it first. That is the difference between being counted in the 58% and actually getting the time back."
+      ]
+    }
   ],
   "takeaway": "This week, check whether your team's AI use is a habit or a plan. If it is a habit, pick one task to formalise, train everyone on it the same way, and write down the one thing AI should never touch without your sign-off.",
   "stat": {
@@ -24,8 +42,14 @@
     "year": "2026"
   },
   "related": [
-    { "label": "AI readiness checklist", "href": "/insights/ai-readiness-checklist" },
-    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+    {
+      "label": "AI readiness checklist",
+      "href": "/insights/ai-readiness-checklist"
+    },
+    {
+      "label": "Consultation & Strategy",
+      "href": "/services/ai-consulting"
+    }
   ],
   "faqs": [
     {
