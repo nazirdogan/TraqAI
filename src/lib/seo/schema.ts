@@ -245,6 +245,39 @@ export function blogPosting({
   };
 }
 
+export type WebPageInput = {
+  name: string;
+  description: string;
+  url: string;
+  /** ISO date the page content was last genuinely reviewed. */
+  dateModified: string;
+};
+
+/**
+ * WebPage — a freshness signal for the commercial landing pages.
+ *
+ * Guides and field notes carry their own dates, but the pages that actually
+ * have to win commercial queries (services, /ai-consulting-uae) carried no date
+ * at all, and AI search weights recency when choosing between sources. Set
+ * `dateModified` from a hand-maintained constant, never `new Date()`, so it
+ * stays a truthful claim about when the copy was last reviewed rather than a
+ * number that rebuilds itself every deploy.
+ */
+export function webPage({ name, description, url, dateModified }: WebPageInput): JsonLdObject {
+  const canonical = absoluteUrl(url);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': canonical,
+    name,
+    description,
+    url: canonical,
+    dateModified,
+    isPartOf: { '@type': 'WebSite', url: absoluteUrl('/'), name: SITE_NAME },
+    publisher: { '@type': 'Organization', '@id': ORG_ID },
+  };
+}
+
 export type Qa = { q: string; a: string };
 
 /**

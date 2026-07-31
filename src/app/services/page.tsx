@@ -4,7 +4,8 @@ import PageHero from '@/components/page/PageHero';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import ServiceIcon from '@/components/ui/ServiceIcon';
-import { BreadcrumbsJsonLd, FaqPageJsonLd } from '@/components/seo/JsonLd';
+import { BreadcrumbsJsonLd, FaqPageJsonLd, WebPageJsonLd } from '@/components/seo/JsonLd';
+import { STATIC_REVIEWED_ISO } from '@/lib/seo/reviewed';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 
 const PATH = '/services';
@@ -119,6 +120,12 @@ export default function ServicesHubPage() {
   return (
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
+      <WebPageJsonLd
+        name="AI services"
+        description="AI training, consulting and strategy, implementation, and agentic infrastructure from an embedded AI partner."
+        url="/services"
+        dateModified={STATIC_REVIEWED_ISO}
+      />
       <FaqPageJsonLd qas={FAQS} />
 
       <PageHero

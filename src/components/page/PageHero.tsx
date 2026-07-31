@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/page/Breadcrumbs';
+import { formatReviewed } from '@/lib/seo/reviewed';
 import HeroDoodle from '@/components/ui/HeroDoodle';
 import type { BreadcrumbItem } from '@/lib/seo/schema';
 
@@ -29,6 +30,13 @@ type PageHeroProps = {
    */
   motif?: string;
   visual?: ReactNode;
+  /**
+   * ISO date this page's copy was last reviewed. When set, renders a visible
+   * "Last updated" line under the intro. Commercial pages carried no date at
+   * all, and AI search weights recency when picking between sources, so the
+   * date has to be on the page and not only in the JSON-LD.
+   */
+  reviewedIso?: string;
 };
 
 /**
@@ -49,6 +57,7 @@ export default function PageHero({
   secondary,
   motif = 'notebook',
   visual,
+  reviewedIso,
 }: PageHeroProps) {
   return (
     <section className="paper-grid relative bg-bg-base px-5 pb-14 pt-32 sm:px-8 sm:pb-16 sm:pt-40">
@@ -68,6 +77,15 @@ export default function PageHero({
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:text-[17px] [text-wrap:pretty]">
             {intro}
           </p>
+
+          {reviewedIso ? (
+            <p className="mt-4 text-[13px] text-ink-faint">
+              Last updated:{' '}
+              <time dateTime={reviewedIso} className="font-medium text-ink-soft">
+                {formatReviewed(reviewedIso)}
+              </time>
+            </p>
+          ) : null}
 
           <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <Link

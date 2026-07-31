@@ -8,7 +8,9 @@ import {
   BreadcrumbsJsonLd,
   FaqPageJsonLd,
   LocalBusinessJsonLd,
+  WebPageJsonLd,
 } from '@/components/seo/JsonLd';
+import { STATIC_REVIEWED_ISO } from '@/lib/seo/reviewed';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 
 const PATH = '/ai-consulting-uae';
@@ -116,6 +118,12 @@ export default function AiConsultingUaePage() {
   return (
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
+      <WebPageJsonLd
+        name="AI consulting and training in the UAE"
+        description="AI consulting and training in the UAE: in-person workshops in Dubai and Abu Dhabi, an embedded AI partner working with your team, and global delivery."
+        url="/ai-consulting-uae"
+        dateModified={STATIC_REVIEWED_ISO}
+      />
       <LocalBusinessJsonLd />
       <FaqPageJsonLd qas={FAQS} />
 
@@ -124,6 +132,7 @@ export default function AiConsultingUaePage() {
         h1={HERO.h1}
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
+        reviewedIso={STATIC_REVIEWED_ISO}
         motif="uae"
         secondary={{ label: 'See all services', href: '/services' }}
       />

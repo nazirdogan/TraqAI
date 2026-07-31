@@ -6,7 +6,13 @@ import CompareNotebook from '@/components/page/CompareNotebook';
 import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
-import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
+import {
+  BreadcrumbsJsonLd,
+  FaqPageJsonLd,
+  ServiceJsonLd,
+  WebPageJsonLd,
+} from '@/components/seo/JsonLd';
+import { STATIC_REVIEWED_ISO } from '@/lib/seo/reviewed';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 
 const PATH = '/fractional-head-of-ai';
@@ -121,6 +127,12 @@ export default function FractionalHeadOfAiPage() {
   return (
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
+      <WebPageJsonLd
+        name="Embedded AI partner: a better fit than a fractional Head of AI"
+        description="Senior AI leadership as an embedded partner: strategy, vendor decisions, rollout and guardrails, without a full-time executive hire."
+        url="/fractional-head-of-ai"
+        dateModified={STATIC_REVIEWED_ISO}
+      />
       <ServiceJsonLd
         name="Embedded AI Partner"
         description="Senior AI leadership delivered as an embedded partner: strategy, vendor decisions, rollout and guardrails, working with your team and accountable to outcomes. A better fit than a fractional Head of AI or Chief AI Officer. UAE and global."
@@ -134,6 +146,7 @@ export default function FractionalHeadOfAiPage() {
         h1={HERO.h1}
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
+        reviewedIso={STATIC_REVIEWED_ISO}
         motif="embedded"
         secondary={{ label: 'See how we work', href: '/#how-we-work' }}
       />

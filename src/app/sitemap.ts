@@ -1,16 +1,16 @@
 import type { MetadataRoute } from 'next';
 import { ARTICLES } from '@/lib/content/insights';
 import { FIELD_NOTES } from '@/lib/content/field-notes';
+import { STATIC_REVIEWED_DATE } from '@/lib/seo/reviewed';
 
 const SITE_URL = 'https://traqcollective.com';
 
 /**
- * Stable last-modified date for the static marketing pages. Hand-set rather than
- * `new Date()` so a rebuild does not stamp every URL with today's date (a weak,
- * gameable freshness signal). Bump this when the static pages materially change.
- * Guides and field notes carry their own real per-item dateModified.
+ * Stable last-modified date for the static marketing pages, shared with the
+ * WebPage JSON-LD on those same pages so `lastmod` and `dateModified` cannot
+ * drift apart. Guides and field notes carry their own real per-item dates.
  */
-const STATIC_LASTMOD = new Date('2026-07-16T00:00:00Z');
+const STATIC_LASTMOD = STATIC_REVIEWED_DATE;
 
 function isoToDate(iso: string): Date {
   return new Date(`${iso}T00:00:00Z`);
