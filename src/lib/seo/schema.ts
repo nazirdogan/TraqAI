@@ -204,6 +204,8 @@ export type BlogPostingInput = {
   dateModified: string;
   /** Author display name. Defaults to the founder. */
   authorName?: string;
+  /** Local path to the lead image, e.g. "/field-notes/slug.jpg". */
+  imageUrl?: string;
 };
 
 /**
@@ -219,6 +221,7 @@ export function blogPosting({
   datePublished,
   dateModified,
   authorName = 'Nazir Dogan',
+  imageUrl,
 }: BlogPostingInput): JsonLdObject {
   const canonical = absoluteUrl(url);
   return {
@@ -227,6 +230,7 @@ export function blogPosting({
     headline,
     description,
     url: canonical,
+    ...(imageUrl ? { image: absoluteUrl(imageUrl) } : {}),
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
     datePublished,
     dateModified,

@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    formats: ['image/avif', 'image/webp'],
+    // webp only, deliberately. The optimiser has hung on `Accept: image/avif`
+    // in this stack before and silently dropped photos from the page, which is
+    // a worse failure than serving a slightly larger file.
+    formats: ['image/webp'],
   },
   // Serve the standalone interactive workbooks (static files in /public) at
   // clean URLs. One per ManyChat flow. The .html paths keep working too.

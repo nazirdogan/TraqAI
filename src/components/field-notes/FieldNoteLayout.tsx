@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Breadcrumbs from '@/components/page/Breadcrumbs';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
@@ -59,6 +60,7 @@ export default function FieldNoteLayout({ note }: FieldNoteLayoutProps) {
         datePublished={note.datePublished}
         dateModified={note.dateModified}
         authorName={note.author}
+        imageUrl={note.image?.src}
       />
       <BreadcrumbsJsonLd items={breadcrumbItems} />
       {faqQas.length > 0 ? <FaqPageJsonLd qas={faqQas} /> : null}
@@ -102,6 +104,45 @@ export default function FieldNoteLayout({ note }: FieldNoteLayoutProps) {
 
         <section className="bg-bg-base px-5 pb-14 pt-2 sm:px-8 sm:pb-16">
           <div className="mx-auto max-w-3xl">
+            {note.image ? (
+              // Attribution renders visibly, not just in the JSON. Every image
+              // here is openly licensed and most of those licences require the
+              // credit to be shown, so it is part of the component rather than
+              // something a future edit can quietly drop.
+              <figure className="mb-8">
+                <Image
+                  src={note.image.src}
+                  alt={note.image.alt}
+                  width={note.image.width}
+                  height={note.image.height}
+                  className="w-full rounded-[18px] border border-border-subtle object-cover"
+                  sizes="(min-width: 768px) 768px, 100vw"
+                  priority
+                />
+                <figcaption className="mt-2 text-[12px] text-ink-faint">
+                  Photo by{' '}
+                  <a
+                    href={note.image.creditUrl}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="underline-offset-4 hover:text-traq-purple hover:underline"
+                  >
+                    {note.image.credit}
+                  </a>{' '}
+                  via {note.image.source}, licensed under{' '}
+                  <a
+                    href={note.image.licenseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow license"
+                    className="underline-offset-4 hover:text-traq-purple hover:underline"
+                  >
+                    {note.image.license}
+                  </a>
+                  .
+                </figcaption>
+              </figure>
+            ) : null}
+
             <p className="text-[15px] leading-relaxed text-ink-soft sm:text-[17px] [text-wrap:pretty]">
               {note.intro}
             </p>

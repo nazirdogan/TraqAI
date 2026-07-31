@@ -35,6 +35,32 @@ export const fieldNoteFaqSchema = z.object({
   a: z.string().min(1),
 });
 
+/**
+ * An openly-licensed lead image, already downloaded into /public/field-notes/.
+ *
+ * Every field is required, including the licence and the creator. This is a
+ * commercial site, so an image without provenance is a liability, not a
+ * decoration: the schema refuses to let one ship rather than trusting whoever
+ * added it to remember the attribution. `src` must be a local path because
+ * hotlinking someone else's host is both rude and fragile.
+ */
+export const fieldNoteImageSchema = z.object({
+  /** Local path under /public, e.g. "/field-notes/my-slug.jpg". */
+  src: z.string().regex(/^\/field-notes\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/i),
+  /** Real alt text describing the image. Never the post title. */
+  alt: z.string().min(1),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  /** Creator name, as the licence requires it to be given. */
+  credit: z.string().min(1),
+  creditUrl: z.string().url(),
+  /** Human-readable licence, e.g. "CC BY 4.0" or "CC0". */
+  license: z.string().min(1),
+  licenseUrl: z.string().url(),
+  /** Where it was found, e.g. "Openverse". */
+  source: z.string().min(1),
+});
+
 export const fieldNoteRelatedSchema = z.object({
   label: z.string().min(1),
   href: z.string().min(1),
@@ -86,6 +112,8 @@ export const fieldNoteSchema = z.object({
   takeaway: z.string().min(1),
   /** Optional cited stat with source + url + year. */
   stat: fieldNoteStatSchema.optional(),
+  /** Optional openly-licensed lead image. Omit rather than force a bad match. */
+  image: fieldNoteImageSchema.optional(),
   /** 2-3 internal related links (a guide and a service). */
   related: z.array(fieldNoteRelatedSchema).min(1),
   /** Optional FAQs, mirrored into FAQPage JSON-LD when present. */
@@ -95,6 +123,7 @@ export const fieldNoteSchema = z.object({
 export type FieldNote = z.infer<typeof fieldNoteSchema>;
 export type FieldNoteStat = z.infer<typeof fieldNoteStatSchema>;
 export type FieldNoteFaq = z.infer<typeof fieldNoteFaqSchema>;
+export type FieldNoteImage = z.infer<typeof fieldNoteImageSchema>;
 export type FieldNoteSection = z.infer<typeof fieldNoteSectionSchema>;
 export type FieldNoteBodyItem = FieldNote['body'][number];
 
