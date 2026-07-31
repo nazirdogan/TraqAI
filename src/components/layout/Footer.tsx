@@ -24,15 +24,23 @@ const FOOTER_NAV = [
     ],
   },
   {
-    heading: 'Company',
+    // The published feed lives here rather than in the header: it is a reason to
+    // come back, not a step in the buying journey, and it was previously buried
+    // eight links deep in a single long Company list.
+    heading: 'Learn',
     links: [
-      { label: 'About', href: '/about' },
-      { label: 'Insights', href: '/insights' },
-      { label: 'Field notes', href: '/field-notes' },
+      { label: 'Field notes (daily)', href: '/field-notes' },
+      { label: 'Insights (guides)', href: '/insights' },
       { label: 'AI readiness assessment', href: '/ai-readiness' },
       { label: 'AI adoption workbook (teams)', href: '/workbook' },
       { label: 'AI fluency workbook (individuals)', href: '/workbook/upskill' },
       { label: 'Lean AI startup workbook', href: '/workbook/start' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About', href: '/about' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Book a call', href: '/book' },
       { label: 'Contact', href: '/#contact' },
@@ -46,7 +54,7 @@ export default function Footer() {
   return (
     <footer className="mt-16 border-t border-border-subtle bg-bg-base sm:mt-24">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
-        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:gap-14">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.3fr_1fr_1fr_0.9fr_1.1fr] lg:gap-12">
           <div>
             <Link href="/" className="inline-block" aria-label="Traq Collective home">
               <Image
