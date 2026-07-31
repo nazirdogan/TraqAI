@@ -10,10 +10,15 @@ If `content/_paused` exists, or the env var `CONTENT_BOT_ENABLED` is `false`, st
 ## Step 2 — Decide today's mode
 Run `node scripts/content-agent/mode.mjs`. It prints one of:
 - `daily-note`: write one short field note (`content/field-notes/YYYY-MM-DD-slug.json`). Topic comes from the daily topic pipeline (Step 3b).
-- `weekly-guide`: write one new evergreen guide (`content/insights/slug.json`). **Topic does NOT come from research. It comes from the target-query backlog (Step 3a).**
+- `news-note`: Tuesdays and Fridays. Write one short field note about what actually happened in AI this week (Step 3c).
+- `weekly-guide`: Mondays. Write one new evergreen guide (`content/insights/slug.json`) against the target-query backlog (Step 3a), **and refill the topic pipeline (Step 3d).**
 - `monthly-refresh`: improve one existing guide (see Step 6b).
 
-Both lanes are planned, not improvised. Daily notes work a broad topic pipeline that covers the whole subject area evenly. Weekly guides work a narrower backlog of high-intent commercial queries. Neither lane picks its topic from whatever happened in the news that morning, because a feed driven by news covers whatever vendors announced rather than what buyers ask.
+The week is deliberately mixed, and each lane exists for a different reason.
+
+Evergreen topics win the queries buyers type, but a feed made only of them looks frozen and never catches anyone searching "what changed this week". News posts keep the site current and pick up fast-moving queries while there is still no good answer indexed, but a feed made only of news reprints vendor announcements and wins nothing commercial. Four planned days, two news days and one commercial guide a week is the balance.
+
+Two of those lanes are planned in advance and one is not, so do not let a news story pull the Monday guide or a planned daily off its topic.
 
 ## Step 3 — Read the contract and the ledger
 Read `content/README.md` (the hard rules and JSON shapes) and `content/_ledger.json` (everything already published). You will not repeat a `slug` or a `targetQuery` already in the ledger, and you will not paraphrase an existing piece.
@@ -55,6 +60,47 @@ The working title is a brief, not a headline. Sharpen it if the research gives y
 
 If the report says the pipeline is empty or low, say so in the run summary so a human refills it. Do not invent filler topics to keep the streak alive.
 
+## Step 3c: News notes only, find what actually happened
+
+Skip unless the mode is `news-note`. Search for what genuinely changed in AI in the **last seven days** that a small or mid-sized business would care about. Good sources: official product and pricing announcements from Anthropic, OpenAI, Microsoft, Google, Zapier, Notion, Canva, Gusto and similar; regulator or government guidance affecting UAE or GCC businesses; credible research releases with real numbers.
+
+Judge each candidate on one test: **does this change what an owner should do, or what it costs them?** A price change to a tool they already pay for passes. A new enterprise tier for Fortune 500s does not. A model benchmark score almost never does.
+
+Then write it as a field note like any other, with the same structure rules. The difference is only the topic source, not the quality bar.
+
+Three rules specific to news:
+
+1. **Date it explicitly in the copy.** Say when the change happened. News notes age fast and an undated one becomes quietly wrong.
+2. **Link the primary source,** the vendor's own announcement or the actual paper, never a secondary blog summarising it.
+3. **Answer "so what for a 20-person company".** Reprinting the announcement adds nothing an engine cannot get from the vendor directly. The reframing is the entire value.
+
+If nothing genuinely qualifies this week, **fall back to the next pipeline topic** (Step 3b) rather than inflating a minor feature release into news. Note the fallback in the run summary.
+
+Tag news notes `news` so they are identifiable later, and remember they are the ones most likely to need a `monthly-refresh` pass.
+
+## Step 3d: Mondays only, refill the topic pipeline
+
+Skip unless the mode is `weekly-guide`. Run `node scripts/seo/report.mjs daily` and read the runway.
+
+**If fewer than 30 topics are queued,** generate 12 to 15 new ones and add them:
+
+```
+node scripts/seo/pipeline-add.mjs '[{"cluster":"agents","workingTitle":"...","targetQuery":"...","format":"how-to"}]'
+```
+
+The script assigns ids and rejects anything that duplicates a queued topic, a published topic, or a `targetQuery` already in the ledger, so propose freely and let it filter.
+
+Where new topics come from, in priority order:
+
+1. **Gaps in cluster coverage.** The report prints published/queued per cluster. Feed the thin ones.
+2. **Questions the last month of posts raised but did not answer.** These are the best source, because they are real follow-ups rather than invented angles.
+3. **Follow-ups to news notes.** A vendor shipped a feature; the evergreen question is how a team should actually use it.
+4. **Real questions from search.** Autocomplete and "people also ask" for the cluster's core terms.
+
+Quality bar for a proposed topic: an owner could plausibly type that `targetQuery` into a search box, and you could write 400 useful words answering it without padding. If you cannot picture both, do not add it. **A short queue is not a problem. A queue full of filler is**, because the agent will dutifully write every entry.
+
+Keep clusters roughly balanced and do not add a topic just to hit a number.
+
 ## Step 4 — Research
 Research today's topic properly before writing. You are not summarising your own priors: find the current state of the thing, the real numbers, and the primary sources. For a comparison topic, use both tools' current documentation and pricing pages rather than a third-party blog post that may be a year stale.
 
@@ -83,6 +129,15 @@ Write a JSON file that matches the schema exactly (see `content/README.md` and t
 - **Internal links:** `related` must include at least one real `/insights` guide and one `/services` page.
 - **Keywords natural:** use the target query and close variants only where they read well. No stuffing.
 - **A takeaway:** one concrete "do this next" line.
+- **An image, when one genuinely fits.** Run:
+
+  ```
+  node scripts/content-agent/fetch-image.mjs <slug> "<plain description of the subject>"
+  ```
+
+  It searches Openverse, takes only CC0, Public Domain or CC BY images (never share-alike, which could oblige us to license the page under the same terms), downloads into `/public/field-notes/`, and prints the `image` block to paste in. **Replace the placeholder alt text** with a real description of what is in the picture, never the post title: alt text is for someone who cannot see the image, not a place to repeat a keyword.
+
+  Exit code 2 means nothing suitable was found. **That is a normal outcome. Publish without an image.** A generic stock photo of a handshake attached to a post about Copilot pricing is worse than no photo: it adds page weight, tells the reader nothing, and signals padding. Search for the concrete subject ("laptop spreadsheet", "warehouse shelves"), not the abstract concept ("innovation", "synergy"), and skip the image entirely on posts about a specific product, where openly-licensed stock will never match and a wrong screenshot is a trademark problem.
 Set `datePublished` and `dateModified` to today (UTC). Filename for notes: `content/field-notes/<today>-<slug>.json`. For guides: `content/insights/<slug>.json`.
 
 ### 6b. Monthly refresh
@@ -98,6 +153,9 @@ Re-read what you wrote and check every item. If any fails, revise once. If it st
 - There are at least two FAQs.
 - For a `weekly-guide`: `targetQuery` matches the backlog entry verbatim, and `scripts/seo/target-queries.json` has been updated to `published` with the new slug and the SERP evidence you gathered.
 - For a `daily-note`: `scripts/seo/topic-pipeline.json` has been updated to `published` with the new slug (or `skipped` with a reason).
+- For a `news-note`: the change is dated in the copy, the primary source is linked, and the note says what it means for a small team rather than restating the announcement.
+- For a Monday run: if the pipeline was under 30, new topics were added and the queue is healthy again.
+- If an image was attached: the alt text describes the picture (not the post title), and the credit, licence and source are all filled in.
 - This post says something a reader could not have guessed from the title. If it could, skip it.
 - Keywords are natural, not stuffed.
 - The `related` links point at real pages that exist.
