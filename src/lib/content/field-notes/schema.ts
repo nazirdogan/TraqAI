@@ -66,6 +66,80 @@ export const fieldNoteRelatedSchema = z.object({
   href: z.string().min(1),
 });
 
+/* ------------------------------------------------------------------ *
+ * Diagrams
+ *
+ * Two types only, both rendered as HTML rather than SVG so a long label
+ * wraps inside its box instead of spilling out of it. Lengths are capped
+ * here rather than trusted: the daily agent writes these unattended, and a
+ * caption that is one word too long should fail the build, not ship squashed.
+ *
+ * A diagram is always optional. Attaching one to a post with no sequence or
+ * no contrast to show is the same mistake as a decorative stock photo.
+ * ------------------------------------------------------------------ */
+
+export const fieldNoteFlowStepSchema = z.object({
+  /** Short imperative, e.g. "Map the process". */
+  label: z.string().min(1).max(28),
+  /** One supporting clause, e.g. "As it really runs, not the flowchart". */
+  detail: z.string().min(1).max(52),
+});
+
+export const fieldNoteFlowSchema = z.object({
+  type: z.literal('flow'),
+  /** Describes the sequence. Read out to screen readers, not shown as a heading. */
+  title: z.string().min(1).max(90),
+  steps: z.array(fieldNoteFlowStepSchema).min(3).max(4),
+  /** Optional line under the diagram. Say something the picture does not. */
+  caption: z.string().max(120).optional(),
+});
+
+export const fieldNoteBeforeAfterRowSchema = z.object({
+  label: z.string().min(1).max(22),
+  before: z.number().nonnegative(),
+  after: z.number().nonnegative(),
+  /** Shown after the number, e.g. "hours". Omit for a bare count. */
+  unit: z.string().max(12).optional(),
+  /**
+   * How the quantity is drawn. Dots suit small counts you can take in at a
+   * glance; a bar suits durations and anything larger. Both are derived from
+   * the numbers, so the picture can never disagree with the data.
+   */
+  as: z.enum(['dots', 'bar']).default('dots'),
+});
+
+export const fieldNoteBeforeAfterSchema = z
+  .object({
+    type: z.literal('before-after'),
+    title: z.string().min(1).max(90),
+    rows: z.array(fieldNoteBeforeAfterRowSchema).min(2).max(3),
+    /** The point of the whole diagram: what each state means for the reader. */
+    beforeVerdict: z.string().min(1).max(48),
+    afterVerdict: z.string().min(1).max(48),
+    caption: z.string().max(120).optional(),
+  })
+  .superRefine((value, ctx) => {
+    value.rows.forEach((row, index) => {
+      if (row.as !== 'dots') return;
+      // Nine dots in a row stops being countable at a glance, which is the only
+      // reason to use dots at all. Past that the row wants a bar.
+      const tooMany = row.before > 8 || row.after > 8;
+      const notWhole = !Number.isInteger(row.before) || !Number.isInteger(row.after);
+      if (tooMany || notWhole) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['rows', index, 'as'],
+          message: 'dots need whole numbers of 8 or fewer; use "as": "bar" instead',
+        });
+      }
+    });
+  });
+
+export const fieldNoteDiagramSchema = z.union([
+  fieldNoteFlowSchema,
+  fieldNoteBeforeAfterSchema,
+]);
+
 /**
  * A body section: a question-shaped heading plus the paragraphs under it.
  *
@@ -114,6 +188,8 @@ export const fieldNoteSchema = z.object({
   stat: fieldNoteStatSchema.optional(),
   /** Optional openly-licensed lead image. Omit rather than force a bad match. */
   image: fieldNoteImageSchema.optional(),
+  /** Optional diagram. Omit unless the post genuinely has a sequence or a contrast. */
+  diagram: fieldNoteDiagramSchema.optional(),
   /** 2-3 internal related links (a guide and a service). */
   related: z.array(fieldNoteRelatedSchema).min(1),
   /** Optional FAQs, mirrored into FAQPage JSON-LD when present. */
@@ -125,6 +201,9 @@ export type FieldNoteStat = z.infer<typeof fieldNoteStatSchema>;
 export type FieldNoteFaq = z.infer<typeof fieldNoteFaqSchema>;
 export type FieldNoteImage = z.infer<typeof fieldNoteImageSchema>;
 export type FieldNoteSection = z.infer<typeof fieldNoteSectionSchema>;
+export type FieldNoteDiagram = z.infer<typeof fieldNoteDiagramSchema>;
+export type FieldNoteFlow = z.infer<typeof fieldNoteFlowSchema>;
+export type FieldNoteBeforeAfter = z.infer<typeof fieldNoteBeforeAfterSchema>;
 export type FieldNoteBodyItem = FieldNote['body'][number];
 
 /** Narrow a body entry to a headed section. */

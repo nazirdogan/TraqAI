@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Breadcrumbs from '@/components/page/Breadcrumbs';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
+import FieldNoteDiagramBlock from '@/components/field-notes/FieldNoteDiagram';
 import {
   BlogPostingJsonLd,
   BreadcrumbsJsonLd,
@@ -146,6 +147,8 @@ export default function FieldNoteLayout({ note }: FieldNoteLayoutProps) {
             <p className="text-[15px] leading-relaxed text-ink-soft sm:text-[17px] [text-wrap:pretty]">
               {note.intro}
             </p>
+
+            {note.diagram ? <FieldNoteDiagramBlock diagram={note.diagram} /> : null}
 
             <div className="mt-6 space-y-5">
               {note.body.map((item, index) =>

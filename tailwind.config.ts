@@ -18,6 +18,10 @@ const config: Config = {
         'traq-purple': '#5B3FE4', // confirmed brand token (brand-kit/tokens.css)
         'traq-purple-ink': '#4A30C9',
         'traq-tint': '#F3F0FF', // solid pale-purple surface (NOT a gradient)
+        // The one non-brand hue. Reserved for a state that means "this is the
+        // bad version" (currently only the before-and-after diagram), so the
+        // purple never has to do double duty as both accent and warning.
+        'signal-warn': '#A8442A',
         // Solid brand scale, kept for accents (no gradients).
         traq: {
           purple: '#5B3FE4',

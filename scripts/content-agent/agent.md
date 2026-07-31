@@ -129,6 +129,47 @@ Write a JSON file that matches the schema exactly (see `content/README.md` and t
 - **Internal links:** `related` must include at least one real `/insights` guide and one `/services` page.
 - **Keywords natural:** use the target query and close variants only where they read well. No stuffing.
 - **A takeaway:** one concrete "do this next" line.
+- **A diagram, only when the post genuinely contains one.** Optional, and skipping is the normal outcome. Expect roughly one post in four to earn one. There are exactly two types:
+
+  **`flow`** for an ordered sequence of 3 or 4 steps, where the order carries meaning. Use it when the post says "first this, then that". Do not use it for a list: numbering something with no sequence invents structure the content does not have.
+
+  ```json
+  "diagram": {
+    "type": "flow",
+    "title": "Where to start with AI, in four steps",
+    "steps": [
+      { "label": "List the jobs", "detail": "What people repeat most often" },
+      { "label": "Pick two or three", "detail": "Frequent, and low risk to get wrong" },
+      { "label": "Train on those", "detail": "On the licence you already pay for" }
+    ],
+    "caption": "Narrow beats broad. Two tasks done properly beat ten half-started."
+  }
+  ```
+
+  **`before-after`** for a contrast between two states of the same thing, on 2 or 3 shared rows. This is the visual form of the process-first argument, so it belongs on posts that say something must change before AI is worth applying.
+
+  ```json
+  "diagram": {
+    "type": "before-after",
+    "title": "Fix the process before you embed AI",
+    "rows": [
+      { "label": "Handoffs", "before": 4, "after": 2, "as": "dots" },
+      { "label": "End to end", "before": 48, "after": 4, "unit": "hours", "as": "bar" }
+    ],
+    "beforeVerdict": "AI here amplifies the mess",
+    "afterVerdict": "AI here compounds"
+  }
+  ```
+
+  Rules that matter more than the syntax:
+
+  1. **Everything in the diagram must already be argued in the prose.** If a label introduces a claim the body does not make, it is decoration. Derive it from what you wrote, do not write to fill it.
+  2. **Never invent the numbers.** `before-after` needs figures from a real engagement or a cited source. If you do not have both sides, there is no diagram. This is the same rule as the stats, and it is the one most likely to tempt you.
+  3. **Use `as: "bar"` for durations and anything above 8.** Dots are for small counts you can take in at a glance; the schema rejects more than 8 dots or fractional values.
+  4. **The caption should say something the picture does not.** Restating the diagram in words underneath is wasted space.
+  5. Length caps are enforced by the schema (labels 28 characters, details 52, verdicts 48). A diagram that breaches them fails the build rather than shipping squashed. Write to fit rather than trimming afterwards.
+
+  If the post is a list of tips, a tool explainer, or a news item with no sequence and no contrast, **omit `diagram` entirely.** Forcing one on is the same mistake as attaching a generic stock photo, and it is more obvious.
 - **An image, when one genuinely fits.** Run:
 
   ```
@@ -156,6 +197,7 @@ Re-read what you wrote and check every item. If any fails, revise once. If it st
 - For a `news-note`: the change is dated in the copy, the primary source is linked, and the note says what it means for a small team rather than restating the announcement.
 - For a Monday run: if the pipeline was under 30, new topics were added and the queue is healthy again.
 - If an image was attached: the alt text describes the picture (not the post title), and the credit, licence and source are all filled in.
+- If a diagram was attached: every label is already argued in the prose, no number is invented, and the post genuinely has a sequence or a contrast. If it does not, remove the diagram rather than reshaping the post around it.
 - This post says something a reader could not have guessed from the title. If it could, skip it.
 - Keywords are natural, not stuffed.
 - The `related` links point at real pages that exist.

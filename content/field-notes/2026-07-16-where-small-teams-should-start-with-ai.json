@@ -41,6 +41,29 @@
     "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
     "year": "2024"
   },
+  "diagram": {
+    "type": "flow",
+    "title": "Where to start with AI, in four steps",
+    "steps": [
+      {
+        "label": "List the jobs",
+        "detail": "What people repeat most often"
+      },
+      {
+        "label": "Pick two or three",
+        "detail": "Frequent, and low risk to get wrong"
+      },
+      {
+        "label": "Train on those",
+        "detail": "On the licence you already pay for"
+      },
+      {
+        "label": "Copy what works",
+        "detail": "One saved hour spreads on its own"
+      }
+    ],
+    "caption": "Narrow beats broad. Two tasks done properly beat ten half-started."
+  },
   "related": [
     {
       "label": "AI Training & Workshops",
