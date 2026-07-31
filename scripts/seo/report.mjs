@@ -15,6 +15,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PIPELINE_DAYS_PER_WEEK } from '../content-agent/mode.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
@@ -24,8 +25,15 @@ const queries = read(join(HERE, 'target-queries.json'));
 const outreach = read(join(HERE, 'outreach-targets.json'));
 const pipeline = read(join(HERE, 'topic-pipeline.json'));
 
-/** Refill the pipeline before it gets this low. About three weeks of runway. */
-const QUEUE_FLOOR = 20;
+/**
+ * Refill the pipeline before it gets this low. Matches the threshold the agent
+ * acts on in agent.md Step 3d, so the report and the agent never disagree about
+ * whether a refill is due.
+ */
+const QUEUE_FLOOR = 30;
+
+/** Runway in weeks, counting only the days that actually consume a topic. */
+const weeksOfRunway = (n) => (n / PIPELINE_DAYS_PER_WEEK).toFixed(1);
 
 /**
  * Pick the next daily topic, rotating clusters.
@@ -123,7 +131,7 @@ if (mode === 'daily') {
   console.log(`    id      ${dailyTopic.id}`);
   console.log(`    cluster ${dailyTopic.cluster} · ${dailyTopic.format}`);
   console.log(`    query   ${dailyTopic.targetQuery}`);
-  console.log(`\n  ${queuedCount} topics queued (${(queuedCount / 7).toFixed(1)} weeks of runway).`);
+  console.log(`\n  ${queuedCount} topics queued (${weeksOfRunway(queuedCount)} weeks of runway).`);
   if (queuedCount < QUEUE_FLOOR) console.log('  REFILL THE PIPELINE SOON.');
   console.log('');
   process.exit(0);
@@ -136,7 +144,7 @@ if (mode === 'full') {
   console.log(bar('Daily blog pipeline'));
   console.log(`\n  next: ${dailyTopic ? dailyTopic.workingTitle : 'PIPELINE EMPTY'}`);
   if (dailyTopic) console.log(`        ${dailyTopic.cluster} · ${dailyTopic.format}`);
-  console.log(`  queued: ${queuedCount} (${(queuedCount / 7).toFixed(1)} weeks)`);
+  console.log(`  queued: ${queuedCount} (${weeksOfRunway(queuedCount)} weeks)`);
   if (queuedCount < QUEUE_FLOOR) console.log('  REFILL THE PIPELINE SOON.');
 
   const byCluster = {};
