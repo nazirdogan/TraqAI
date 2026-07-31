@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "canva-code-2-for-small-business",
+      "targetQuery": "what is Canva Code 2.0 and how can a small business use it",
+      "date": "2026-07-31"
+    },
+    {
+      "type": "field-note",
       "slug": "claude-record-a-skill-explained",
       "targetQuery": "how to teach Claude a skill by recording your screen",
       "date": "2026-07-29"
@@ -313,6 +319,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-07-29-claude-record-a-skill-explained.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-07-31",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-07-31-canva-code-2-for-small-business.json"
       ],
       "build": "passed"
     }
