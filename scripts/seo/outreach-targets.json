@@ -1,0 +1,138 @@
+{
+  "$comment": "Off-domain backlink and citation backlog. Traq is cited ~6.5x more often via third parties than via its own domain, and the 2026-07-31 audit confirmed it directly: every engine that recommended competitors was reading listicles and directories, not provider websites. This file is the system of record for that work. Anything requiring an account, a payment, a public client name, or a human relationship is marked ownedBy 'nazir' and must not be automated.",
+  "lastReviewed": "2026-07-31",
+  "tiers": {
+    "1-directory": "Profiles already live. Rank inside them is driven by reviews, not by copy. Fastest measurable movement.",
+    "2-listicle": "Third-party 'best of' articles that AI engines demonstrably cite. Requires a pitch to a human editor.",
+    "3-community": "Q&A and forum answers. Highest AI-citation value per unit effort, lowest durability.",
+    "4-owned-profile": "Profiles Traq controls. Keep the entity description identical everywhere or the entity fragments."
+  },
+  "targets": [
+    {
+      "id": "ot-001",
+      "name": "Clutch reviews",
+      "tier": "1-directory",
+      "url": "https://clutch.co/profile/traq-collective",
+      "status": "blocked",
+      "ownedBy": "nazir",
+      "priority": 1,
+      "action": "Request 3 to 5 reviews from past clients. The request email is drafted in Off-Domain-Presence-Kit section 1.",
+      "why": "Traq is already on clutch.co/ae/consulting/ai/dubai but sits on page 2. That list itself ranks 4th for 'AI consultant Dubai small business', so page 1 of it is worth more than any single on-site change. Clutch rank is overwhelmingly review-driven and Traq currently has zero.",
+      "automatable": false,
+      "blocker": "Only Nazir can ask real clients for reviews."
+    },
+    {
+      "id": "ot-002",
+      "name": "Bayut AI training / AI companies listicle",
+      "tier": "2-listicle",
+      "url": "https://www.bayut.com",
+      "status": "open",
+      "ownedBy": "nazir",
+      "priority": 1,
+      "action": "Identify the specific Bayut article Perplexity cited, find the editor, pitch Traq for inclusion on the next update.",
+      "why": "Directly observed: several of Perplexity's citations for 'best AI training and enablement companies in Dubai' traced to a Bayut listicle. A property portal is outranking every specialist provider on an AI query. This is the single clearest demonstrated path into Perplexity answers.",
+      "automatable": "partial",
+      "blocker": "Pitch must come from a real person. Drafting and target discovery can be automated."
+    },
+    {
+      "id": "ot-003",
+      "name": "Edstellar 'Best Corporate Training Companies in Dubai'",
+      "tier": "2-listicle",
+      "url": "https://www.edstellar.com/blog/corporate-training-companies-dubai",
+      "status": "open",
+      "ownedBy": "nazir",
+      "priority": 2,
+      "action": "Pitch for inclusion in the 2026 refresh.",
+      "why": "Surfaced on both the US and UAE runs for corporate-training queries. Already an established citation source.",
+      "automatable": "partial"
+    },
+    {
+      "id": "ot-004",
+      "name": "Acamind Dubai AI training roundups",
+      "tier": "2-listicle",
+      "url": "https://acamind.ae",
+      "status": "open",
+      "ownedBy": "nazir",
+      "priority": 3,
+      "action": "Pitch, but note Acamind is a direct competitor that also publishes roundups. Low probability, low cost to try.",
+      "why": "Ranks top 3 on the primary training query.",
+      "automatable": "partial"
+    },
+    {
+      "id": "ot-005",
+      "name": "LinkedIn Pulse 'best AI consulting companies Dubai' authors",
+      "tier": "2-listicle",
+      "url": "https://www.linkedin.com/pulse/best-10-ai-consulting-companies-dubai-uae-2025-ranjana-srivastava-2bstc",
+      "status": "open",
+      "ownedBy": "nazir",
+      "priority": 2,
+      "action": "Approach the authors directly. These are individuals, not publications, so the ask is a normal LinkedIn conversation.",
+      "why": "Two separate LinkedIn Pulse roundups ranked in the UAE top 20 for consulting queries. Lowest-friction listicle path because it needs no editorial process.",
+      "automatable": "partial"
+    },
+    {
+      "id": "ot-006",
+      "name": "Google Business Profile verification",
+      "tier": "4-owned-profile",
+      "url": "https://business.google.com/locations",
+      "status": "blocked",
+      "ownedBy": "nazir",
+      "priority": 1,
+      "action": "Complete the 'Get verified' step, then add the missing categories, attributes, opening date and photos.",
+      "why": "Profile is about 85% built and claimed but unverified, so nothing appears in Places or the local AI pack. Unchanged blocker since June.",
+      "automatable": false,
+      "blocker": "Verification requires video or postcard and can only be done by the owner."
+    },
+    {
+      "id": "ot-007",
+      "name": "Entity description consistency sweep",
+      "tier": "4-owned-profile",
+      "url": null,
+      "status": "open",
+      "ownedBy": "shared",
+      "priority": 2,
+      "action": "Make the one-line description byte-identical across LinkedIn, Crunchbase, Clutch, GoodFirms, TechBehemoths and The Manifest, and confirm none still describe ERP, data warehouses, BI dashboards or website builds.",
+      "why": "Perplexity blended Traq with five unrelated TRAQ companies (two debt-collection vendors, a Queensland trail-running association, and Traqq the time-tracking app). Identical descriptions across profiles are the strongest available signal that these are one entity. Also a chance to purge any surviving pre-rebuild service copy.",
+      "automatable": "partial",
+      "note": "The stale traq-collective.netlify.app site was 301'd to traqcollective.com on 2026-07-31, which removed the largest single source of the obsolete ERP positioning."
+    },
+    {
+      "id": "ot-008",
+      "name": "Quora answers on AI training and adoption",
+      "tier": "3-community",
+      "url": "https://www.quora.com",
+      "status": "in-progress",
+      "ownedBy": "nazir",
+      "priority": 3,
+      "action": "One existing answer is live. Add two or three more on training and activation questions, each with the employment credential attached.",
+      "why": "The existing Quora thread now ranks 1st for an SME AI-consulting query. Proven surface. Caveat from the audit: the page got cited but Traq was not named in the generated answer, so the brand claim has to be a self-contained sentence rather than a soft mention at the end.",
+      "automatable": false,
+      "blocker": "Cloudflare human check, and promotional answers need Nazir's own aged account."
+    },
+    {
+      "id": "ot-009",
+      "name": "traqcollective.net defensive registration",
+      "tier": "4-owned-profile",
+      "url": "http://traqcollective.net",
+      "status": "open",
+      "ownedBy": "nazir",
+      "priority": 3,
+      "action": "Acquire if cheap. Currently a parked lander owned by someone else.",
+      "why": "Ranks 8th on the branded query, which is a slot that should belong to Traq.",
+      "automatable": false
+    },
+    {
+      "id": "ot-010",
+      "name": "Force recrawl of traqcollective.com",
+      "tier": "4-owned-profile",
+      "url": "https://search.google.com/search-console",
+      "status": "open",
+      "ownedBy": "nazir",
+      "priority": 1,
+      "action": "Submit the homepage, /about and /services for reindexing in Google Search Console and Bing Webmaster Tools now that the legacy site is redirected.",
+      "why": "Perplexity was serving pre-rebuild copy describing services Traq does not sell. The source has now been redirected, but engines need a reason to revisit. The dateModified added on 2026-07-31 helps; an explicit submission is faster.",
+      "automatable": false,
+      "blocker": "Requires Search Console login."
+    }
+  ]
+}

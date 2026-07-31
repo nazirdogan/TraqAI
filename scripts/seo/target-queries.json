@@ -1,0 +1,194 @@
+{
+  "$comment": "SEO/GEO target-query backlog. This is the system of record for what the content agent writes next and why. Every entry carries the evidence that justified it: who actually ranked when it was last checked, and on which engine. Update `evidence` when you re-run the audit; never add a query without checking what already wins it, because the winning page format is the single most useful thing the SERP tells you.",
+  "lastAudited": "2026-07-31",
+  "clusters": {
+    "training": "Someone wants their team taught to use AI. Highest commercial intent for Traq.",
+    "strategy": "Someone wants help deciding what to do with AI before buying or training. Nazir's stated buyer intent.",
+    "activation": "Someone already pays for AI tools and is getting nothing back. Traq's sharpest wedge.",
+    "consulting": "Generic AI consulting demand, most contested, mostly won by directories.",
+    "comparison": "Evaluation-stage queries. Highest AI-citation rate of any format (~33%).",
+    "local": "UAE/Dubai-qualified variants. Winnable because the competitor set is small and weak."
+  },
+  "queries": [
+    {
+      "id": "tq-001",
+      "query": "AI training company Dubai for corporate teams",
+      "cluster": "training",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "landing",
+      "status": "partial",
+      "assignedTo": "/services/ai-training",
+      "note": "Traq has a service page but it does not rank. The pages that win are geo-qualified with named formats, durations and prices. The existing page has none of those.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "Google (UAE-localized)",
+        "traqPosition": null,
+        "winners": ["teamland.com", "acamind.ae", "royex.ae", "spearhead-training.com", "zabeelinstitute.ae"],
+        "observation": "Every winner names the geography in the H1 and publishes a course/format list. None of them are better practitioners. They are more specific."
+      }
+    },
+    {
+      "id": "tq-002",
+      "query": "AI consultant Dubai small business",
+      "cluster": "consulting",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "landing",
+      "status": "partial",
+      "assignedTo": "/ai-consulting-uae",
+      "note": "Position 4 on this query is Clutch's own Dubai AI list, which Traq is on but at page 2. Winning here is as much an off-domain job as an on-domain one. See outreach-targets.json.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "Google (UAE-localized)",
+        "traqPosition": null,
+        "winners": ["kineticcs.com", "digiscorp.com", "clutch.co/ae/consulting/ai/dubai", "opinosis-analytics.com", "quora.com"],
+        "observation": "A directory list and a Quora thread both outrank every independent provider site. Third-party surfaces beat owned surfaces on this query."
+      }
+    },
+    {
+      "id": "tq-003",
+      "query": "who should I hire to train my team to use AI in Dubai",
+      "cluster": "training",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "This is the conversational form buyers actually use with an AI assistant, and it is the exact prompt Traq lost on. Write the guide that answers it honestly, including how to brief and evaluate a provider, because that is the passage an engine will lift.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "ChatGPT (web search, Temporary Chat)",
+        "traqPosition": null,
+        "winners": ["AiRK", "4D Training & Consultancy", "AxisOne Consultancy", "PUSH MENA", "PwC Academy Middle East", "Evolution Technologies"],
+        "observation": "ChatGPT's own stated filter was 'boutiques beat big academies for a 20-person firm because they map real workflows'. That is Traq's positioning verbatim. It recommended six other firms purely because Traq was in none of the sources it read."
+      }
+    },
+    {
+      "id": "tq-004",
+      "query": "how to build an AI strategy for a small business",
+      "cluster": "strategy",
+      "intent": "informational",
+      "priority": 1,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Named by Nazir as core buyer intent. Top-of-funnel but it feeds every commercial query underneath it. Needs a real step sequence, not a definition.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": "Not yet SERP-checked. Check before writing so the format matches what wins."
+      }
+    },
+    {
+      "id": "tq-005",
+      "query": "how to get value from AI tools we already pay for",
+      "cluster": "activation",
+      "intent": "informational",
+      "priority": 1,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Traq's sharpest differentiator and the one nobody else is targeting. Named by Nazir. Variants worth covering in the same guide: 'nobody uses the AI tools we bought', 'low Copilot adoption', 'we pay for ChatGPT and nobody uses it'.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": "Underserved. Most content sells a new tool; almost nothing addresses activation of tools already bought."
+      }
+    },
+    {
+      "id": "tq-006",
+      "query": "corporate AI training cost UAE",
+      "cluster": "training",
+      "intent": "commercial",
+      "priority": 2,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Pricing pages get cited disproportionately because AI answers want concrete numbers. Publish real ranges even if banded. Refusing to name a number is why vendors get skipped in AI answers.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "Google (US)",
+        "traqPosition": null,
+        "winners": ["parikshitkhanna.com", "sawankr.com"],
+        "observation": "The pages that surfaced published explicit AED bands per format. Neither is a strong brand. Specificity alone won the citation."
+      }
+    },
+    {
+      "id": "tq-007",
+      "query": "AI training vs AI consulting: which does my team need",
+      "cluster": "comparison",
+      "intent": "comparison",
+      "priority": 2,
+      "pageType": "comparison",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Comparison articles are roughly a third of all AI citations. Traq already has 'AI consultant vs AI agency'; this is the adjacent gap and it maps directly onto the two services.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": "Must stay genuinely balanced. Obviously self-serving comparisons get filtered out of AI answers."
+      }
+    },
+    {
+      "id": "tq-008",
+      "query": "how to make AI training stick after a workshop",
+      "cluster": "activation",
+      "intent": "informational",
+      "priority": 2,
+      "pageType": "guide",
+      "status": "published",
+      "assignedTo": "/field-notes/how-to-make-ai-usage-stick-after-training",
+      "note": "The control experiment. Traq owns a matching article and lost anyway, because the note had zero content headings. Headings were added 2026-07-31, so if this query is still lost after a recrawl, on-site structure is not the constraint and effort should move entirely off-domain.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "Google (US)",
+        "traqPosition": null,
+        "winners": ["iq-it.co.uk", "atlassian.com", "adoptailab.com", "aisurvivors.com", "aismartventures.com"],
+        "observation": "Winners are not more authoritative than Traq. They are more structured: multi-heading guides against Traq's flat 475-word block."
+      }
+    },
+    {
+      "id": "tq-009",
+      "query": "best AI training companies in Dubai",
+      "cluster": "local",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "off-domain",
+      "status": "off-domain",
+      "assignedTo": null,
+      "note": "Deliberately NOT an on-domain target. This query is won by listicles, and a self-published 'best of' listing yourself first is both weak and correctly distrusted by AI engines. The job is to get onto other people's lists. See outreach-targets.json.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "Perplexity (logged out)",
+        "traqPosition": null,
+        "winners": ["AiRK", "NobleProg MEA", "ISM Training", "Atton Institute", "bayut.com listicle"],
+        "observation": "Several Perplexity citations traced to a Bayut listicle, a property portal. One well-placed third-party list outperformed every provider's own site."
+      }
+    },
+    {
+      "id": "tq-010",
+      "query": "AI workshop for non-technical teams",
+      "cluster": "training",
+      "intent": "commercial",
+      "priority": 3,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Long-tail, low competition, high intent, and precisely what Traq delivers. Cheap win once the higher-priority items ship.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": "Not yet checked."
+      }
+    }
+  ]
+}

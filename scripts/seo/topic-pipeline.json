@@ -1,0 +1,668 @@
+{
+  "$comment": "Daily blog topic pipeline. The daily-note lane draws from here in order instead of chasing news, so the feed is planned rather than reactive and the clusters get covered evenly. workingTitle and targetQuery are a brief, not a script: the agent researches and writes the real thing, and may sharpen the angle. Anything it cannot source properly it marks 'skipped' with a reason rather than padding. Refill when the queue drops below about 20.",
+  "lastReviewed": "2026-07-31",
+  "clusters": {
+    "ai-foundations": "What AI is and is not, for a non-technical team.",
+    "ai-training": "Teaching people to use it. Traq's core commercial service.",
+    "embedding-ai": "Getting AI into how the business actually runs.",
+    "tools": "Specific tools explained for business use.",
+    "tool-comparison": "Head-to-head. Highest AI-citation rate of any format.",
+    "tool-selection": "Which tool for which job.",
+    "agents": "AI agents in business terms.",
+    "automation": "What to automate and what not to.",
+    "workflows": "Mapping and fixing the work itself.",
+    "ai-strategy": "How a business should set AI direction.",
+    "strategy-fundamentals": "What makes a strategy strong or hollow.",
+    "process-first": "Fix the process before you embed AI."
+  },
+  "topics": [
+    {
+      "id": "tp-001",
+      "cluster": "ai-foundations",
+      "workingTitle": "What AI can and cannot do for a small business right now",
+      "targetQuery": "what can AI actually do for a small business",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-002",
+      "cluster": "ai-foundations",
+      "workingTitle": "The difference between AI, automation and an agent, in plain English",
+      "targetQuery": "difference between AI automation and AI agents",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-003",
+      "cluster": "ai-foundations",
+      "workingTitle": "What good looks like when a small team uses AI well",
+      "targetQuery": "what does good AI adoption look like",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-004",
+      "cluster": "ai-foundations",
+      "workingTitle": "Why AI pilots stall at the proof-of-concept stage",
+      "targetQuery": "why do AI pilots fail",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-005",
+      "cluster": "ai-foundations",
+      "workingTitle": "What to tell your team the first time you introduce AI",
+      "targetQuery": "how to introduce AI to your team",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-006",
+      "cluster": "ai-foundations",
+      "workingTitle": "The questions to ask before you buy any AI tool",
+      "targetQuery": "questions to ask before buying an AI tool",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-007",
+      "cluster": "ai-training",
+      "workingTitle": "How to run an AI training session people actually use afterwards",
+      "targetQuery": "how to run an AI training session for staff",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-008",
+      "cluster": "ai-training",
+      "workingTitle": "Role-specific AI training vs generic workshops",
+      "targetQuery": "role specific AI training vs generic workshops",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-009",
+      "cluster": "ai-training",
+      "workingTitle": "What to train a finance team on first",
+      "targetQuery": "AI training for finance teams",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-010",
+      "cluster": "ai-training",
+      "workingTitle": "What to train a sales team on first",
+      "targetQuery": "AI training for sales teams",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-011",
+      "cluster": "ai-training",
+      "workingTitle": "What to train an operations team on first",
+      "targetQuery": "AI training for operations teams",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-012",
+      "cluster": "ai-training",
+      "workingTitle": "How to measure whether AI training actually worked",
+      "targetQuery": "how to measure AI training effectiveness",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-013",
+      "cluster": "embedding-ai",
+      "workingTitle": "Where AI belongs in a workflow, and where it does not",
+      "targetQuery": "where to use AI in a business workflow",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-014",
+      "cluster": "embedding-ai",
+      "workingTitle": "How to embed AI without replacing the tools you already use",
+      "targetQuery": "how to add AI to existing business tools",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-015",
+      "cluster": "embedding-ai",
+      "workingTitle": "The first three places AI usually pays off in a small business",
+      "targetQuery": "best first AI use cases for small business",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-016",
+      "cluster": "embedding-ai",
+      "workingTitle": "How to write an internal rule for what AI is allowed to touch",
+      "targetQuery": "AI usage policy for employees",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-017",
+      "cluster": "embedding-ai",
+      "workingTitle": "Who should own AI inside a 20-person company",
+      "targetQuery": "who should own AI in a small company",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-018",
+      "cluster": "embedding-ai",
+      "workingTitle": "How to run a two-week AI pilot that proves something",
+      "targetQuery": "how to run an AI pilot",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-019",
+      "cluster": "tools",
+      "workingTitle": "What ChatGPT Projects are actually for",
+      "targetQuery": "what are ChatGPT projects",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-020",
+      "cluster": "tools",
+      "workingTitle": "What Claude Projects do that a normal chat does not",
+      "targetQuery": "what are Claude projects",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-021",
+      "cluster": "tools",
+      "workingTitle": "Copilot in Excel: what it does well and where it struggles",
+      "targetQuery": "Microsoft Copilot in Excel for business",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-022",
+      "cluster": "tools",
+      "workingTitle": "Notion AI for small teams, honestly assessed",
+      "targetQuery": "is Notion AI worth it for a small team",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-023",
+      "cluster": "tools",
+      "workingTitle": "What a vector database is, and whether you need one",
+      "targetQuery": "does my business need a vector database",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-024",
+      "cluster": "tools",
+      "workingTitle": "Using AI meeting notetakers without breaking confidentiality",
+      "targetQuery": "AI meeting notes and client confidentiality",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-025",
+      "cluster": "tool-comparison",
+      "workingTitle": "Claude vs ChatGPT for business work",
+      "targetQuery": "Claude vs ChatGPT for business",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-026",
+      "cluster": "tool-comparison",
+      "workingTitle": "Copilot vs ChatGPT for a Microsoft-based team",
+      "targetQuery": "Copilot vs ChatGPT for business",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-027",
+      "cluster": "tool-comparison",
+      "workingTitle": "Gemini vs ChatGPT for a Google Workspace team",
+      "targetQuery": "Gemini vs ChatGPT for Google Workspace",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-028",
+      "cluster": "tool-comparison",
+      "workingTitle": "Zapier vs Make for AI automations",
+      "targetQuery": "Zapier vs Make for AI automation",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-029",
+      "cluster": "tool-comparison",
+      "workingTitle": "Paying for one AI tool vs several",
+      "targetQuery": "should we pay for multiple AI tools",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-030",
+      "cluster": "tool-comparison",
+      "workingTitle": "Free vs paid AI tiers: what you actually give up",
+      "targetQuery": "free vs paid ChatGPT for business",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-031",
+      "cluster": "tool-selection",
+      "workingTitle": "Which AI tool for which job: a plain matching guide",
+      "targetQuery": "which AI tool should I use for what",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-032",
+      "cluster": "tool-selection",
+      "workingTitle": "When to use a chatbot and when to use an automation",
+      "targetQuery": "chatbot vs automation for business",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-033",
+      "cluster": "tool-selection",
+      "workingTitle": "Picking an AI tool when your data cannot leave the country",
+      "targetQuery": "AI tools and data residency in the UAE",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-034",
+      "cluster": "tool-selection",
+      "workingTitle": "What to use for writing vs research vs analysis",
+      "targetQuery": "best AI tool for writing vs research",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-035",
+      "cluster": "tool-selection",
+      "workingTitle": "Choosing AI tools when your team is non-technical",
+      "targetQuery": "easiest AI tools for non technical teams",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-036",
+      "cluster": "tool-selection",
+      "workingTitle": "Signs you picked the wrong AI tool",
+      "targetQuery": "signs you chose the wrong AI tool",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-037",
+      "cluster": "agents",
+      "workingTitle": "What an AI agent actually is, in business terms",
+      "targetQuery": "what is an AI agent for business",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-038",
+      "cluster": "agents",
+      "workingTitle": "The tasks AI agents are genuinely good at today",
+      "targetQuery": "what can AI agents do for a business",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-039",
+      "cluster": "agents",
+      "workingTitle": "Guardrails every business agent needs before it goes live",
+      "targetQuery": "AI agent guardrails",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-040",
+      "cluster": "agents",
+      "workingTitle": "When an agent is the wrong answer",
+      "targetQuery": "when not to use an AI agent",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-041",
+      "cluster": "agents",
+      "workingTitle": "How to test an agent before it touches real work",
+      "targetQuery": "how to test an AI agent",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-042",
+      "cluster": "agents",
+      "workingTitle": "What it actually costs to run an agent in production",
+      "targetQuery": "AI agent cost for a small business",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-043",
+      "cluster": "automation",
+      "workingTitle": "What to automate first in a small business",
+      "targetQuery": "what to automate first in a small business",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-044",
+      "cluster": "automation",
+      "workingTitle": "The automations that quietly break, and how to catch them",
+      "targetQuery": "how to monitor business automations",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-045",
+      "cluster": "automation",
+      "workingTitle": "Automating customer replies without sounding automated",
+      "targetQuery": "how to automate customer replies",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-046",
+      "cluster": "automation",
+      "workingTitle": "Automating quotes and proposals",
+      "targetQuery": "how to automate quotes and proposals",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-047",
+      "cluster": "automation",
+      "workingTitle": "Automating onboarding for a new hire",
+      "targetQuery": "how to automate employee onboarding",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-048",
+      "cluster": "automation",
+      "workingTitle": "When automation costs more than it saves",
+      "targetQuery": "when is automation not worth it",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-049",
+      "cluster": "workflows",
+      "workingTitle": "How to map a workflow before you automate it",
+      "targetQuery": "how to map a business process",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-050",
+      "cluster": "workflows",
+      "workingTitle": "Turning a messy process into something AI can run",
+      "targetQuery": "how to prepare a process for automation",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-051",
+      "cluster": "workflows",
+      "workingTitle": "Where human approval belongs in an AI workflow",
+      "targetQuery": "human in the loop AI workflow",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-052",
+      "cluster": "workflows",
+      "workingTitle": "Documenting a workflow so anyone on the team can run it",
+      "targetQuery": "how to document a business process",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-053",
+      "cluster": "workflows",
+      "workingTitle": "The handoffs that break most workflows",
+      "targetQuery": "common workflow bottlenecks",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-054",
+      "cluster": "workflows",
+      "workingTitle": "How to know a workflow is ready for AI",
+      "targetQuery": "is my process ready for automation",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-055",
+      "cluster": "ai-strategy",
+      "workingTitle": "How a small business should actually build an AI strategy",
+      "targetQuery": "how to build an AI strategy for a small business",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-056",
+      "cluster": "ai-strategy",
+      "workingTitle": "What belongs on a one-page AI strategy",
+      "targetQuery": "one page AI strategy",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-057",
+      "cluster": "ai-strategy",
+      "workingTitle": "Building an AI strategy without a budget",
+      "targetQuery": "AI strategy on a small budget",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-058",
+      "cluster": "ai-strategy",
+      "workingTitle": "How to sequence AI work across twelve months",
+      "targetQuery": "AI roadmap for a small business",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-059",
+      "cluster": "ai-strategy",
+      "workingTitle": "Who to involve when you set AI direction",
+      "targetQuery": "who should be involved in AI strategy",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-060",
+      "cluster": "ai-strategy",
+      "workingTitle": "How to review an AI strategy that is not working",
+      "targetQuery": "what to do when AI strategy is not working",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-061",
+      "cluster": "strategy-fundamentals",
+      "workingTitle": "The strongest part of any AI strategy is the problem you pick",
+      "targetQuery": "how to choose AI use cases",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-062",
+      "cluster": "strategy-fundamentals",
+      "workingTitle": "Why measurable baselines beat ambitious goals",
+      "targetQuery": "how to set an AI ROI baseline",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-063",
+      "cluster": "strategy-fundamentals",
+      "workingTitle": "Why an AI strategy fails without a named owner",
+      "targetQuery": "AI strategy ownership",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-064",
+      "cluster": "strategy-fundamentals",
+      "workingTitle": "The difference between an AI strategy and a tool list",
+      "targetQuery": "AI strategy vs a list of tools",
+      "format": "comparison",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-065",
+      "cluster": "strategy-fundamentals",
+      "workingTitle": "What to cut from an AI strategy that got too big",
+      "targetQuery": "how to simplify an AI strategy",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-066",
+      "cluster": "strategy-fundamentals",
+      "workingTitle": "How to tell a good AI strategy from a good-looking one",
+      "targetQuery": "how to evaluate an AI strategy",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-067",
+      "cluster": "process-first",
+      "workingTitle": "Why fixing the process has to come before embedding AI",
+      "targetQuery": "fix the process before automating it",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-068",
+      "cluster": "process-first",
+      "workingTitle": "How AI amplifies a broken process instead of fixing it",
+      "targetQuery": "does AI make bad processes worse",
+      "format": "explainer",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-069",
+      "cluster": "process-first",
+      "workingTitle": "A process audit any owner can run in an afternoon",
+      "targetQuery": "how to audit a business process",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-070",
+      "cluster": "process-first",
+      "workingTitle": "The processes that are never worth automating",
+      "targetQuery": "processes not worth automating",
+      "format": "opinion",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-071",
+      "cluster": "process-first",
+      "workingTitle": "How to spot the process that is really costing you money",
+      "targetQuery": "find your most expensive business process",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    },
+    {
+      "id": "tp-072",
+      "cluster": "process-first",
+      "workingTitle": "Cleaning up your data before you point AI at it",
+      "targetQuery": "clean your data before using AI",
+      "format": "how-to",
+      "status": "queued",
+      "publishedAs": null
+    }
+  ]
+}
