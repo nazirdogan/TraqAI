@@ -331,6 +331,24 @@
         "content/field-notes/2026-07-31-canva-code-2-for-small-business.json"
       ],
       "build": "passed"
+    },
+    {
+      "date": "2026-08-01",
+      "mode": "monthly-refresh",
+      "action": "refresh",
+      "type": "insight",
+      "slug": "ai-acceptable-use-policy-for-small-business",
+      "critic": "monthly-refresh pass on the guide with the oldest dateModified among the agent-writable content/insights/ files (the eight cornerstone guides in src/lib/content/insights/index.ts are out of scope, never edit outside content/); sharpened the 'Why does a small business need an AI policy now?' section and added a fourth stat with a genuinely new, more current source: Verizon's 2026 Data Breach Investigations Report finding that unsanctioned AI use is now the third most common non-malicious insider action found in real breach investigations, a fourfold increase in a single year, moving the urgency argument from a 2024 adoption survey alone to a current, concrete security outcome; corroborated across many independent secondary sources (kiteworks.com, natlawreview.com, mimecast.com, sentra.io, cybersecurity-insiders.com, layerxsecurity.com, techtimes.com, symmetry-systems.com, suzulabs.com, nudgesecurity.com) after WebFetch returned 403 on verizon.com, techinformed.com, globenewswire.com, nudgesecurity.com and techtimes.com this run, while a microsoft.com/en-us/worklab/work-trend-index control fetch succeeded, confirming source-side bot blocking rather than a session-wide outage, consistent with the pattern in prior runs; primary source URL is the real, resolvable Verizon DBIR 2026 PDF; considered a PagerDuty 2026 shadow-AI stat (66% used unauthorized AI despite believing it was against policy) but rejected it because that survey was fielded only at companies with $500M+ annual revenue, a mismatch for an SMB-focused guide; no em-dashes (checked programmatically); dateModified bumped from 2026-07-20 to 2026-08-01; validated against the live articleSchema (Zod) via tsx, result VALID; not a new slug, no ledger dedup entry needed, existing published entry already covers this slug and targetQuery"
+    },
+    {
+      "date": "2026-08-01",
+      "mode": "monthly-refresh",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-acceptable-use-policy-for-small-business.json"
+      ],
+      "build": "passed"
     }
   ]
 }
