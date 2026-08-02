@@ -1,0 +1,74 @@
+{
+  "slug": "what-ai-can-and-cannot-do-for-small-business",
+  "title": "What AI can and cannot do for a small business | Traq Collective",
+  "h1": "What AI can and cannot do for a small business",
+  "metaDescription": "AI reliably drafts, summarises and sorts first-pass work. It cannot yet be trusted alone on anything with real legal, financial or customer-facing stakes. Here is the line, and how to use it.",
+  "targetQuery": "what can AI actually do for a small business",
+  "tags": [
+    "adoption",
+    "best-uses"
+  ],
+  "datePublished": "2026-08-02",
+  "dateModified": "2026-08-02",
+  "author": "Nazir Dogan",
+  "dek": "The honest boundary between what AI is good at today and what still needs a person.",
+  "intro": "AI can reliably draft, summarise and sort first-pass work: emails, meeting notes, marketing copy and research prep, cutting the time to a usable version. It cannot yet be trusted alone on anything with real legal, financial or customer-facing stakes. The rule for a small business: let AI produce the draft, keep a person responsible for the call.",
+  "body": [
+    {
+      "heading": "What can AI reliably handle for a small business right now?",
+      "paragraphs": [
+        "AI is dependable on drafting and pattern work: first-pass emails and proposals, meeting summaries, job descriptions, marketing copy, and pulling the shape out of a pile of documents or reviews. These are tasks with a roughly right answer, low cost if imperfect, and a human already checking the output before it goes anywhere. That combination, frequent, low-risk and reviewable, is where AI earns its keep fastest."
+      ]
+    },
+    {
+      "heading": "Where does AI still need a person keeping the final say?",
+      "paragraphs": [
+        "Even people who use AI daily do not treat it as the final word. Microsoft's 2026 Work Trend Index found that 86% of AI users treat AI output as a starting point rather than a finished answer, and say they stay responsible for the thinking themselves. For a small business that means contracts, tax positions, hiring decisions, and anything you would tell a customer directly: draft it with AI if that helps, but keep the sign-off human."
+      ]
+    },
+    {
+      "heading": "What can AI not fix, no matter how good the tool is?",
+      "paragraphs": [
+        "AI cannot repair a broken process. If your intake form is confusing, your pricing is inconsistent, or nobody owns a handoff, adding AI on top just produces the same mess faster and with more confidence in the wrong answer. Fix the process first, then point AI at it. This is also why switching tools rarely solves an adoption problem: the gap is usually in how the work is organised, not in which model people are using."
+      ]
+    },
+    {
+      "heading": "How do you decide what to hand to AI and what to keep human?",
+      "paragraphs": [
+        "Ask two questions about the task: how often does it happen, and how bad is it if AI gets it wrong and nobody catches it in time? Frequent and low-risk, an email draft, a summary, a first pass at social copy, is a safe AI candidate. Rare and high-stakes, a contract term, a compliance filing, a customer refund policy, stays human end to end, with AI doing no more than drafting a version for someone else to actually check."
+      ]
+    }
+  ],
+  "takeaway": "This week, sort your team's recurring tasks into two lists: draft with AI then a human checks, and stays human throughout. Everything on the first list is fair game to hand to AI now.",
+  "stat": {
+    "claim": "Even heavy AI users do not treat its output as final, which is the honest boundary small businesses should copy.",
+    "value": "86%",
+    "source": "Microsoft Work Trend Index",
+    "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "AI readiness checklist",
+      "href": "/insights/ai-readiness-checklist"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can AI replace an employee at a small business?",
+      "a": "Not on its own. AI can take over the drafting and first-pass work inside a role, which frees up hours, but someone still needs to check the output, handle judgment calls, and own relationships with customers and vendors. Most small businesses use AI to make existing people faster, not to remove the role."
+    },
+    {
+      "q": "Is AI accurate enough to trust for legal or financial decisions?",
+      "a": "No, not without a human check. AI can produce a useful first draft of a contract clause or a financial summary, but it can also state something wrong with full confidence. Treat legal, tax or compliance output as a draft for a qualified person to verify, never as the final answer."
+    },
+    {
+      "q": "What is the easiest AI task for a small business to start with?",
+      "a": "Anything done often that carries low risk if the first draft is a little off: meeting notes, first-pass email replies, or summarising a long document. Use one of those for two weeks, then consider moving to higher-stakes work once the habit is real."
+    }
+  ]
+}

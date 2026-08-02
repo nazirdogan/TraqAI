@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "what-ai-can-and-cannot-do-for-small-business",
+      "targetQuery": "what can AI actually do for a small business",
+      "date": "2026-08-02"
+    },
+    {
+      "type": "field-note",
       "slug": "canva-code-2-for-small-business",
       "targetQuery": "what is Canva Code 2.0 and how can a small business use it",
       "date": "2026-07-31"
@@ -347,6 +353,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-acceptable-use-policy-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-02",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "what-ai-can-and-cannot-do-for-small-business",
+      "critic": "self-critique pass complete: topic taken verbatim from the topic pipeline (tp-001, cluster ai-foundations, targetQuery 'what can AI actually do for a small business'), sharpened from the working title into a definition-first explainer on the capability boundary rather than a vendor writeup; one stat sourced to Microsoft's 2026 Work Trend Index ('Agents, human agency, and the opportunity for every organization', microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization), confirmed live via WebFetch which returned the exact 86% figure directly from the page (86% of AI users treat AI output as a starting point, not a final answer, and stay responsible for the thinking) after a direct curl returned 403, consistent with the bot-blocking pattern seen on prior runs rather than an invented number; no em-dashes (checked programmatically); title 64/70 chars, metaDescription 191/200 chars; intro is 57 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; related links verified to exist (/insights/ai-readiness-checklist, /services/ai-consulting); tried fetch-image.mjs with a concrete search term ('person reviewing paperwork at office desk'), Openverse returned 403, so published without an image per the normal-outcome rule; no diagram, since the post is a capability boundary explainer with no genuine ordered sequence or a before/after with real numbers on both sides, and forcing one would invent structure the content does not have; validated against the live fieldNoteSchema (Zod) via tsx after npm install (node_modules was not present in this container; package-lock.json was reverted afterward since it is outside content/), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-001 status set to published, publishedAs set to /field-notes/what-ai-can-and-cannot-do-for-small-business, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 72 topics queued (18 weeks), healthy, no refill needed"
+    },
+    {
+      "date": "2026-08-02",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-02-what-ai-can-and-cannot-do-for-small-business.json"
       ],
       "build": "passed"
     }
