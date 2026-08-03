@@ -53,8 +53,8 @@
       "intent": "commercial",
       "priority": 1,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/how-to-hire-an-ai-trainer-in-dubai",
       "note": "This is the conversational form buyers actually use with an AI assistant, and it is the exact prompt Traq lost on. Write the guide that answers it honestly, including how to brief and evaluate a provider, because that is the passage an engine will lift.",
       "evidence": {
         "checked": "2026-07-31",

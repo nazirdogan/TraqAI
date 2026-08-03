@@ -1,0 +1,103 @@
+{
+  "slug": "how-to-hire-an-ai-trainer-in-dubai",
+  "title": "Who should you hire to train your team on AI in Dubai? | Traq Collective",
+  "metaDescription": "Who to hire to train your team on AI in Dubai: how to brief a provider, the questions that expose a certificate mill, and a one-page scorecard to compare proposals.",
+  "targetQuery": "who should I hire to train my team to use AI in Dubai",
+  "h1": "Who should you hire to train your team on AI in Dubai?",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "author": "Nazir Dogan",
+  "intro": "The right person to train your team on AI in Dubai is a practitioner who builds and uses AI on real client work, not a reseller running the same slide deck for every company. For a team under fifty people, that usually means a boutique specialist who trains in person on your actual workflows and checks the habit held after.",
+  "bodySections": [
+    {
+      "h2": "What kind of provider actually fits your team?",
+      "body": "Four types of provider will pitch you, and they suit different situations. A big academy sells a fixed curriculum at scale, which works if you need to certify hundreds of people against a standard syllabus and do not need it tied to your own workflows. A boutique specialist builds the session around your team's real tasks, which is what a 10 to 200 person company usually needs because a generic course wastes half the room. A freelance trainer can be excellent and cheap, but check they train professionally rather than teaching between other jobs, since consistency is what makes the habit stick. Training your own team internally works only if someone already uses AI daily in their own work and has the time to teach it, which is rare in a company small enough to be asking this question.",
+      "points": [
+        "Big academy: fixed curriculum, scales to hundreds, not tailored to your workflows",
+        "Boutique specialist: built around your team's real tasks, best fit under 200 people",
+        "Freelance trainer: can be strong, verify they train regularly, not between other jobs",
+        "Internal champion: only works if someone already lives in AI daily and has the hours"
+      ]
+    },
+    {
+      "h2": "What should go in the brief before you talk to anyone?",
+      "body": "Write the brief before you take a single call, because a vague ask gets a vague, generic proposal back. Name the team size and the roles you want trained, not just 'the whole company'. List the tools people already pay for, since training should start there and not sell you a new subscription. State whether you want in-person sessions, remote, or a mix, and give a real timeline: this quarter, not 'sometime soon'. Name what success looks like in your own words, for example 'sales replies drafted in half the time' rather than 'AI literacy'. A provider who asks you to sharpen this brief in the first call is doing the job properly. One who skips straight to a quote without asking is selling a template."
+    },
+    {
+      "h2": "What questions separate a real practitioner from a reseller?",
+      "body": "Ask what AI tools the trainer personally uses in their own work every week, and ask them to show you, live, on the call. Someone who builds with AI can demonstrate in ninety seconds; someone selling a course usually cannot. Ask when the curriculum was last rewritten and what specific change in the tools triggered the rewrite, since AI moves monthly and a course written against last year's version of a tool is already stale. Ask for a reference from a company your size that finished training at least three months ago, and ask that reference one question: are people still using it. Ask how they measure success 30, 60 and 90 days after the session, not just whether attendance was good."
+    },
+    {
+      "h2": "What are the red flags that signal a certificate mill?",
+      "body": "The clearest red flag is a syllabus that never changes and is not tied to your tools or your team's actual work, dressed up with a certificate at the end. Watch for a quote that prices the session by the hour with nothing after it: no follow-up, no check-in, no measurement of whether anyone kept using what they learned. Be wary of a provider who cannot name what they personally build with AI, since teaching a tool you do not use yourself produces theory, not a habit. And be cautious of anyone who promises a finished, AI-fluent team after a single half-day workshop. Comfort using AI nearly doubles after structured training, but that shift takes sustained practice, not one session, so a provider promising instant fluency is selling a certificate, not a result.",
+      "points": [
+        "A syllabus that has not changed in a year and ignores your actual tools",
+        "A price for the session with nothing built in for follow-up or measurement",
+        "A trainer who cannot show you what they personally build with AI",
+        "A promise of full team fluency after one workshop"
+      ]
+    },
+    {
+      "h2": "How do you structure the engagement so it survives past the workshop?",
+      "body": "Book a first group and a real task in week one, not a company-wide kickoff, so you get an early result you can point to before you commit further. Set a 30, 60, 90 day path where the first thirty days is quick wins on one or two roles, the next thirty widens to more of the team, and the last thirty is follow-up sessions for stragglers and new starters. Agree upfront what the provider measures at each checkpoint: hours saved, tasks people now do without help, and whether the tools they were trained on are still open on their screen a month later. If the provider cannot describe this path before you sign, ask them to, because a single workshop without a follow-up structure is the single most common reason AI training does not stick."
+    }
+  ],
+  "tables": [
+    {
+      "heading": "A one-page scorecard for comparing AI training proposals",
+      "intro": "Send this back to every provider who quotes you. The answers tell you more than the price does.",
+      "caption": "Score each provider 1 to 5 per row, then compare totals alongside price.",
+      "columns": ["Question", "What a strong answer sounds like"],
+      "rows": [
+        ["What do you personally build with AI?", "A specific tool and task, demonstrated live, not a list of features"],
+        ["When did the curriculum last change, and why?", "A recent, named change tied to a real tool update"],
+        ["Can you train on our actual tools and workflows?", "Yes, and they ask for examples of your real work before the session"],
+        ["What happens after the workshop?", "A named 30, 60, 90 day path with defined checkpoints"],
+        ["How do you measure success?", "Task-level outcomes (time, volume, errors), not attendance or satisfaction scores"],
+        ["Can we speak to a reference from a similar-sized team?", "Yes, from a session at least three months old"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Employees rank training as the single most important thing they need to adopt AI, ahead of any new tool, which is why who runs that training matters more than which tool you buy.",
+      "value": "48%",
+      "source": "McKinsey",
+      "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+      "year": "2025"
+    },
+    {
+      "claim": "More than five hours of hands-on practice is the tipping point to regular AI use, which is the evidence behind rejecting any provider whose plan stops at a single workshop.",
+      "value": "79% vs 67%",
+      "source": "BCG",
+      "url": "https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain",
+      "year": "2025"
+    },
+    {
+      "claim": "Average direct training spend per employee fell by roughly a third in a single year while average formal training hours per employee rose. Organizations are getting more from a smaller budget, which is why the right provider now matters more than the size of the spend.",
+      "value": "$1,254 to $846 per employee",
+      "source": "Association for Talent Development, 2026 State of the Industry Report",
+      "url": "https://www.td.org/content/atd-blog/highlights-from-atd-s-2026-state-of-the-industry-report",
+      "year": "2026"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Should I hire a big training academy or a boutique provider in Dubai?",
+      "a": "For a team under 200 people, a boutique provider that trains on your actual tools and workflows usually beats a big academy's fixed curriculum. Academies make sense at scale, when you need to certify hundreds of people against one standard syllabus rather than tailor sessions to a specific team."
+    },
+    {
+      "q": "How much should AI training for a small team cost in Dubai?",
+      "a": "It depends on team size, number of roles covered, and whether sessions run in person or remotely, so treat any fixed number with suspicion until a provider has seen your brief. Compare proposals on the scorecard above rather than price alone, since the cheapest quote with no follow-up plan usually costs more in wasted time."
+    },
+    {
+      "q": "Can a freelance trainer be as good as an agency?",
+      "a": "Yes, if they train regularly rather than between other jobs and can show what they personally build with AI. Ask for the same references and follow-up plan you would ask an agency for. The format of the provider matters less than whether they practice what they teach and stay past the first session."
+    }
+  ],
+  "related": [
+    { "label": "AI training for teams in the UAE", "href": "/insights/ai-training-for-teams-uae" },
+    { "label": "AI consultant vs AI agency: which do you need?", "href": "/insights/ai-consultant-vs-ai-agency" },
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" }
+  ]
+}

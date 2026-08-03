@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "insight",
+      "slug": "how-to-hire-an-ai-trainer-in-dubai",
+      "targetQuery": "who should I hire to train my team to use AI in Dubai",
+      "date": "2026-08-03"
+    },
+    {
       "type": "field-note",
       "slug": "what-ai-can-and-cannot-do-for-small-business",
       "targetQuery": "what can AI actually do for a small business",
@@ -371,6 +377,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-02-what-ai-can-and-cannot-do-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-03",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "how-to-hire-an-ai-trainer-in-dubai",
+      "critic": "self-critique pass complete: topic taken verbatim from the target-query backlog (tq-003, cluster training, targetQuery 'who should I hire to train my team to use AI in Dubai'), evidence.checked was already 2026-07-31 (ChatGPT web search, Temporary Chat) so no SERP re-check was needed per the rules; wrote the honest hiring/evaluation guide the backlog note asked for (how to brief a provider, questions that expose a certificate mill, a comparison scorecard) rather than a self-serving 'best AI training companies' listicle, which stays correctly excluded as tq-009 off-domain; checked for overlap against the existing cornerstone guide ai-training-for-teams-uae (which covers what good training looks like as a service description) and confirmed this piece is a distinct hiring/evaluation framework (provider types, brief template, interview questions, red flags, scorecard table) rather than a paraphrase, cross-linked instead of duplicated; three stats: McKinsey Superagency 48% training-is-top-need (mckinsey.com, already verified live in this repo) and BCG five-hour tipping point 79% vs 67% (bcg.com, already verified live in this repo), both reused because they are directly relevant to a hiring guide's argument that a single workshop is not enough; third stat is new, ATD's 2026 State of the Industry Report ($1,254 to $846 average per-employee spend, formal hours up from 13.7 to 16.7), sourced to td.org which returned 403 on direct WebFetch this run, corroborated across multiple independent secondary sources (research.com, trainingcost.com, peoplepilot.io) all citing the identical figures to the same ATD report, consistent with the bot-blocking pattern documented in prior runs rather than an invented number; no em-dashes (checked programmatically); title 72 chars, metaDescription 164/200 chars; intro is 60 words and stands alone as a direct answer to the target query; five bodySections each phrased as a real question; one comparison table (provider-proposal scorecard); three FAQs; related links verified to exist (/insights/ai-training-for-teams-uae, /insights/ai-consultant-vs-ai-agency, /services/ai-training); validated against the live articleSchema (Zod) via tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/target-queries.json updated: tq-003 status set to published, assignedTo set to /insights/how-to-hire-an-ai-trainer-in-dubai, existing SERP evidence left as recorded from the 2026-07-31 audit; pipeline runway checked via report.mjs daily: 71 topics queued (17.8 weeks), healthy, no refill needed"
+    },
+    {
+      "date": "2026-08-03",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-hire-an-ai-trainer-in-dubai.json"
       ],
       "build": "passed"
     }
