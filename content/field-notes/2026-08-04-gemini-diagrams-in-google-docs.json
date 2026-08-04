@@ -1,0 +1,78 @@
+{
+  "slug": "gemini-diagrams-in-google-docs",
+  "title": "Gemini Can Now Draw Diagrams in Google Docs | Traq Collective",
+  "h1": "Gemini can now draw diagrams inside Google Docs",
+  "metaDescription": "Google rolled out Gemini-generated diagrams, infographics and images inside Docs on July 28, 2026. Here is which Workspace plans get it and what a small team should do with it.",
+  "targetQuery": "can Gemini create diagrams and images in Google Docs",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04",
+  "author": "Nazir Dogan",
+  "dek": "A real Docs feature landed this week, not a roadmap slide.",
+  "intro": "Yes. As of July 28, 2026, Gemini in Google Docs can generate and edit images, diagrams and infographics from a plain-language prompt, using the document's own text as context. It ships to Business Standard and Plus, Enterprise Standard and Plus, and Google AI Pro and Ultra accounts, not the cheaper Business Starter tier.",
+  "body": [
+    {
+      "heading": "What exactly did Google ship on July 28?",
+      "paragraphs": [
+        "Google began rolling out inline visual generation in Docs on July 28, 2026, across both its Rapid Release and Scheduled Release domains, with full visibility expected within about 15 days. You can now ask Gemini, from the side panel, to build a diagram, an infographic or an image directly inside a document, and it reads the surrounding text as context so the visual matches what you are actually writing. You can also ask it to insert section-specific infographics across a long document in one pass, and to refine an existing visual with a follow-up prompt instead of regenerating from scratch.",
+        "The same July update added deck generation in Slides: describe the presentation you want, point Gemini at existing docs, sheets or past decks to match your formatting, and it drafts a complete, editable deck while asking clarifying questions along the way."
+      ]
+    },
+    {
+      "heading": "Which Workspace plans actually get it?",
+      "paragraphs": [
+        "Business Standard and Plus, Enterprise Standard and Plus, Education Plus, and Google AI Pro and Ultra subscribers get it at no extra charge. Business Starter, the roughly $7-per-user entry plan a lot of very small teams are still on, does not: Starter's Gemini access is limited to Help Me Write in Gmail. If your business is on Starter, this feature will not appear until someone upgrades the account to Standard or above."
+      ]
+    },
+    {
+      "heading": "Why might your team still not see the feature?",
+      "paragraphs": [
+        "Being on an eligible plan is not enough on its own. Gemini in the Docs side panel also requires 'smart features and personalisation' to be turned on for your domain in the Admin console, and on a fair number of business accounts that default was left off during setup. If nobody on your team can see the Gemini icon in Docs despite paying for Standard or Plus, that admin setting is the first thing to check, not a support ticket."
+      ]
+    },
+    {
+      "heading": "What should a small team actually do with this?",
+      "paragraphs": [
+        "Before this, turning a paragraph in a proposal or an SOP into a diagram meant leaving Docs for Canva, PowerPoint, or a designer, which is exactly the kind of friction that makes people skip the visual and ship a wall of text instead. Now the diagram can happen in the same window, on the same document, without breaking the writing flow. Pair it with the new Slides deck generation and a client proposal that used to take an afternoon of formatting can start from the Doc you already wrote.",
+        "None of that happens automatically just because the feature exists. Have one person try it on a real document this week, not a test file, and show the result to the rest of the team. That is what turns a feature announcement into something people actually reach for."
+      ]
+    }
+  ],
+  "takeaway": "This week, confirm your Workspace plan is Business Standard or higher, then have an admin check that smart features are turned on before assuming Gemini's new diagram tool is broken for your team.",
+  "stat": {
+    "claim": "Gemini in Google Docs can now generate and edit images, diagrams and infographics from a plain-language prompt, using the document itself as context, rolling out to eligible Workspace and Google AI plans.",
+    "value": "Rolled out July 28, 2026",
+    "source": "Google Workspace Updates",
+    "url": "https://workspaceupdates.googleblog.com/2026/07/generate-and-edit-visuals-with-gemini-in-Google-Docs.html",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "Getting Gemini's Docs diagrams live for your team",
+    "steps": [
+      { "label": "Check your plan", "detail": "Standard or Plus, not Starter" },
+      { "label": "Enable smart features", "detail": "Admin console, off by default for some" },
+      { "label": "Prompt inside the doc", "detail": "Describe the diagram, then ask for edits" },
+      { "label": "Try it in Slides too", "detail": "Same update added deck generation" }
+    ],
+    "caption": "Most teams will stall on step one or two. Knowing a feature shipped is not the same as an admin turning it on."
+  },
+  "related": [
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
+    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+  ],
+  "faqs": [
+    {
+      "q": "Does the new Gemini Docs diagram feature cost extra?",
+      "a": "No. It is included in Business Standard and Plus, Enterprise Standard and Plus, Education Plus, and Google AI Pro and Ultra subscriptions at no additional charge. It is not available on the cheaper Business Starter plan."
+    },
+    {
+      "q": "Why can't my team see the Gemini diagram tool in Docs even though we pay for Standard?",
+      "a": "Your Admin console likely has 'smart features and personalisation' turned off for the organization. Gemini's side panel in Docs will not work on an eligible plan until an admin enables that setting under Workspace app settings."
+    },
+    {
+      "q": "Does this replace a tool like Canva for a small business?",
+      "a": "Not entirely. It removes the need to leave Docs for a quick internal diagram or infographic, but a dedicated design tool still handles polished, on-brand external materials better."
+    }
+  ]
+}

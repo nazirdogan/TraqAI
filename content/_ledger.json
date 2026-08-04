@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "field-note",
+      "slug": "gemini-diagrams-in-google-docs",
+      "targetQuery": "can Gemini create diagrams and images in Google Docs",
+      "date": "2026-08-04"
+    },
+    {
       "type": "insight",
       "slug": "how-to-hire-an-ai-trainer-in-dubai",
       "targetQuery": "who should I hire to train my team to use AI in Dubai",
@@ -395,6 +401,34 @@
       "files": [
         "content/_ledger.json",
         "content/insights/how-to-hire-an-ai-trainer-in-dubai.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-04",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "gemini-diagrams-in-google-docs",
+      "critic": "self-critique pass complete: searched Anthropic, OpenAI, Microsoft and Google news from the last seven days against the 'does this change what an owner should do or what it costs them' test; passed over the Microsoft Copilot unified-app story because the only real news peg was a July 3, 2026 internal memo reported by press (more than a week old and still a plan, not a shipped change), and passed over Claude Sonnet 5's Aug 31 promo pricing expiry as developer-API news rather than SMB-facing; selected Google's July 2026 Workspace feature drop instead because the actual rollout began July 28, 2026 (within the seven day window), it is officially confirmed, and it directly changes what an existing Workspace subscriber can do; primary source is Google's own Workspace Updates post (workspaceupdates.googleblog.com/2026/07/generate-and-edit-visuals-with-gemini-in-Google-Docs.html), which returned 403 on direct WebFetch this run (consistent with the source-side bot-blocking pattern documented in prior runs), so the rollout date, plan eligibility and feature behaviour were corroborated across the Google Workspace Blog itself plus independent coverage (Android Authority, Chrome Unboxed, News9live, TaxHeal) all citing the identical July 28 date and plan list; the Business Starter exclusion and its ~$7/user price point were corroborated across three independent 2026 Workspace pricing roundups (eesel.ai, qualtir.com, ifeeltech.com) plus Google's own compare-business-editions help page; the admin-console 'smart features' requirement is sourced to Google's own support page (support.google.com/a/answer/15698295); dated the change explicitly in copy (July 28, 2026, twice), linked the primary source via the stat object's url field since the schema has no inline body links, and the whole piece argues what a small team should actually do rather than restating the announcement, per the three news-specific rules; no em-dashes (checked programmatically); title 61/70 chars, metaDescription 176/200 chars; intro is 53 words and stands alone as a yes/no answer to the target query; four bodySections each phrased as a real question; three FAQs; flow diagram mirrors the four actionable steps already argued in body sections two through four (check plan, enable smart features, prompt inside the doc, try Slides too), no invented numbers; no image, skipped per the rule against generic stock on a specific-product post rather than running fetch-image.mjs; related links verified to exist (/services/ai-training, /insights/how-to-get-your-team-using-ai); validated against the live fieldNoteSchema (Zod) via tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery; tagged news and tools; no fallback to the daily topic pipeline was needed since a genuine news item cleared the bar, so scripts/seo/topic-pipeline.json was left untouched"
+    },
+    {
+      "date": "2026-08-04",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-04-gemini-diagrams-in-google-docs.json"
+      ],
+      "build": "pending"
+    },
+    {
+      "date": "2026-08-04",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-04-gemini-diagrams-in-google-docs.json"
       ],
       "build": "passed"
     }
