@@ -1,0 +1,97 @@
+{
+  "slug": "how-to-run-an-ai-training-session-for-staff",
+  "title": "How to run an AI training session for staff | Traq Collective",
+  "h1": "How to run an AI training session for staff",
+  "metaDescription": "The best AI training sessions spend most of the time on hands-on practice, not a lecture. Here is the agenda, the pairing trick and the follow-up that make it stick.",
+  "targetQuery": "how to run an AI training session for staff",
+  "tags": [
+    "training",
+    "adoption"
+  ],
+  "datePublished": "2026-08-05",
+  "dateModified": "2026-08-05",
+  "author": "Nazir Dogan",
+  "dek": "Skip the slides. Structure the session around hands-on practice and it survives Monday.",
+  "intro": "An AI training session works when most of the time is hands-on practice on real work, not a lecture about AI. Show one task live, then have each person run it on their own actual work while you walk the room. Close by having everyone commit to a specific task this week and a short follow-up date.",
+  "body": [
+    {
+      "heading": "What should the agenda actually look like?",
+      "paragraphs": [
+        "Keep the opening short: one live demo of a task people already do, on a tool they already have, in the first ten to fifteen minutes. Everything after that should be hands-on. If more than a third of the session is you talking at a slide, it is a presentation, not training, and it will not change what anyone does back at their desk."
+      ]
+    },
+    {
+      "heading": "How much of the time should be hands-on practice?",
+      "paragraphs": [
+        "Most of it. Comfort using AI nearly doubles, from 43% to 72%, when training moves from a general talk to structured, hands-on practice, according to Slack's research on AI microlearning at work. That gap is the entire argument for the format: watching someone else use AI teaches almost nothing, running it yourself on a task you actually have to finish does."
+      ]
+    },
+    {
+      "heading": "How do you stop people from just watching?",
+      "paragraphs": [
+        "Make it physically impossible to sit back. Ask everyone to open the tool on their own laptop or phone before the demo starts, then pair a confident user with a hesitant one so nobody is stuck alone. Walk the room instead of standing at the front, and do not move on until each pair has run the task once on something real, not the example you showed them."
+      ]
+    },
+    {
+      "heading": "What has to happen before people leave the room?",
+      "paragraphs": [
+        "Two things, both concrete. Each person writes down one specific task they will run with AI this week, the actual task, not \"use AI more\". And the group agrees a short follow-up, ten or fifteen minutes, seven to ten days later, to check what worked and unstick whoever got stuck. Skip either one and the session's energy usually does not survive the walk back to their desk."
+      ]
+    }
+  ],
+  "takeaway": "Before your next session, cut the agenda to one ten-minute demo and give the rest of the time to hands-on practice on real work, with a specific task and a follow-up date booked before anyone leaves.",
+  "stat": {
+    "claim": "Comfort using AI nearly doubles when training moves from a general talk to structured, hands-on practice, which is the argument for spending most of a session on real tasks instead of a lecture.",
+    "value": "43% → 72%",
+    "source": "Slack",
+    "url": "https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning",
+    "year": "2024"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to run an AI training session, in four steps",
+    "steps": [
+      {
+        "label": "Demo one task",
+        "detail": "Ten minutes, live, on a tool you already pay for"
+      },
+      {
+        "label": "Pair up and practice",
+        "detail": "Confident user with a hesitant one, on real work"
+      },
+      {
+        "label": "Commit to a task",
+        "detail": "One specific task each person runs this week"
+      },
+      {
+        "label": "Book the follow-up",
+        "detail": "Ten minutes, seven to ten days later"
+      }
+    ],
+    "caption": "The demo is the shortest part. Practice time is what changes what people do on Monday."
+  },
+  "related": [
+    {
+      "label": "AI training for teams in the UAE: what good looks like",
+      "href": "/insights/ai-training-for-teams-uae"
+    },
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long should an AI training session be?",
+      "a": "Long enough for one demo and real practice on an actual task, usually 60 to 90 minutes for a single group. A shorter session that is mostly hands-on beats a longer one that is mostly slides, because practice time is what changes behaviour, not session length."
+    },
+    {
+      "q": "Should the session run in person or over video call?",
+      "a": "In person makes pairing people up and walking the room easier, which is why it works well for a single office. Remote works too if you keep breakout pairs and screen-share practice instead of a straight lecture. The format matters more than the medium."
+    },
+    {
+      "q": "What if some people on the team are already ahead of others?",
+      "a": "Pair them together instead of splitting into separate tracks. A confident user coaching a hesitant one in real time teaches both people, and it is usually faster to run than building two different sessions for one team."
+    }
+  ]
+}

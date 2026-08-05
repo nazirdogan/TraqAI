@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "how-to-run-an-ai-training-session-for-staff",
+      "targetQuery": "how to run an AI training session for staff",
+      "date": "2026-08-05"
+    },
+    {
+      "type": "field-note",
       "slug": "gemini-diagrams-in-google-docs",
       "targetQuery": "can Gemini create diagrams and images in Google Docs",
       "date": "2026-08-04"
@@ -429,6 +435,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-04-gemini-diagrams-in-google-docs.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-05",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "how-to-run-an-ai-training-session-for-staff",
+      "critic": "self-critique pass complete: topic taken verbatim from the topic pipeline (tp-007, cluster ai-training, targetQuery 'how to run an AI training session for staff'), no genuine 24-hour news event cleared the override bar (checked: OpenAI's Luna/Terra API price cuts are developer-API pricing, not an SMB-facing tool change, so the pipeline topic stood); angle is session facilitation and agenda design, checked against and kept distinct from prior related notes in the ledger (the-five-hour-rule-for-ai-training covers total practice hours needed, how-to-make-ai-usage-stick-after-training covers post-training reinforcement, what-makes-someone-an-advanced-ai-user covers usage habits, and the ai-training-for-teams-uae guide covers choosing a training provider, none of which cover how to structure and run the session itself); one stat (comfort using AI rising 43% to 72% after structured, hands-on training) sourced to Slack's AI microlearning research (slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning), reused from prior verified citations in this repo (ai-training-for-teams-uae, where-small-teams-should-start-with-ai) since direct WebFetch returned 403 this run, consistent with the source-side bot-blocking pattern documented across many prior runs rather than an invented number; no em-dashes (checked programmatically via grep for the UTF-8 em-dash byte sequence); title 61/70 chars, metaDescription 165/200 chars; intro is 57 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; flow diagram mirrors the four-step session structure already argued in body sections one through four (demo, pair and practice, commit to a task, book the follow-up), all durations reused from the prose, no invented numbers; tried fetch-image.mjs with a concrete search term ('small office team workshop laptops table'), Openverse returned 403, so published without an image per the normal-outcome rule; related links verified to exist (/insights/ai-training-for-teams-uae, /services/ai-training); validated against the live fieldNoteSchema (Zod) via tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-007 status set to published, publishedAs set to /field-notes/how-to-run-an-ai-training-session-for-staff, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 71 topics queued (17.8 weeks), healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-05",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-05-how-to-run-an-ai-training-session-for-staff.json"
       ],
       "build": "passed"
     }
