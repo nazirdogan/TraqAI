@@ -1,0 +1,82 @@
+{
+  "slug": "where-ai-belongs-in-a-workflow",
+  "title": "Where AI belongs in a business workflow | Traq Collective",
+  "h1": "Where AI belongs in a business workflow, and where it doesn't",
+  "metaDescription": "AI works best at structured, repeatable steps like intake and drafting. It works worst at decision gates and customer-facing moments where someone is accountable. Here is how to place it.",
+  "targetQuery": "where to use AI in a business workflow",
+  "tags": ["adoption", "best-uses"],
+  "datePublished": "2026-08-06",
+  "dateModified": "2026-08-06",
+  "author": "Nazir Dogan",
+  "dek": "A short field guide to placing AI at the right step, and only the right step.",
+  "intro": "AI belongs at the structured, repeatable steps in a workflow: sorting an inbox, drafting a first reply, pulling data into a summary. It does not belong at decision gates where someone is accountable, or at customer-facing moments carrying relationship risk. Place it at one or two steps per workflow and keep a person at the rest.",
+  "body": [
+    {
+      "heading": "What counts as a step in a business workflow?",
+      "paragraphs": [
+        "Every recurring process breaks into the same four stages, whatever the domain: intake (a request, a lead, or a document arrives), processing (turning that input into a draft or a shape), a decision (someone signs off or picks a course), and delivery (the output reaches a customer, a regulator, or another team). Where AI fits depends on which of those four stages a given step sits in, not on which tool you are considering or how impressive its demo looked."
+      ]
+    },
+    {
+      "heading": "Which steps are the safest place to put AI?",
+      "paragraphs": [
+        "Intake and processing are the safest steps, because the input and the shape of the desired output are both fairly fixed: sorting a ticket queue, pulling fields out of an invoice, drafting a first-pass reply to a common question. AI adds speed here, and a person still checks the result before it moves on. This is also why the fastest AI wins tend to cluster in the middle of a process rather than at either end of it."
+      ]
+    },
+    {
+      "heading": "Which steps should stay human, no matter how capable the tool is?",
+      "paragraphs": [
+        "Decision gates and delivery moments should stay human. A decision gate is the point where someone is accountable for the call: approving a refund, signing off on a hire, choosing which vendor to use. A delivery moment is where the output reaches someone outside the process, a customer, a regulator, a partner, and a mistake is now their problem, not an internal one. AI can draft the material that feeds both, but the sign-off and the send should stay with a person who owns the outcome."
+      ]
+    },
+    {
+      "heading": "Why does putting AI at every step of a workflow backfire?",
+      "paragraphs": [
+        "Adding AI to every step at once, instead of one or two, tends to create more monitoring work than it saves, and monitoring work is where AI adoption quietly breaks down. A 2026 BCG study of 1,500 US workers found that people with high AI oversight demands, checking and correcting AI output across multiple tools and steps, reported a form of cognitive overload researchers call AI brain fry: major errors up 39% and a measurably higher intention to quit. The lesson for a small team: pick the one or two steps in a workflow where AI genuinely helps, and do not ask the same person to police AI output at every stage of the process."
+      ]
+    }
+  ],
+  "takeaway": "This week, map one recurring workflow start to finish, mark which part is intake, processing, decision and delivery, and put AI at one stage only, the processing step. Leave the decision and the delivery to a person.",
+  "stat": {
+    "claim": "Workers who oversee AI output across many steps or tools report a form of cognitive overload with measurably more errors and higher intent to quit, the case for placing AI at fewer steps rather than all of them.",
+    "value": "39%",
+    "source": "BCG (Boston Consulting Group)",
+    "url": "https://www.bcg.com/news/5march2026-when-using-ai-leads-brain-fry",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "Where AI fits across a workflow's four stages",
+    "steps": [
+      { "label": "Intake", "detail": "Request arrives: good AI fit" },
+      { "label": "Processing", "detail": "Draft the shape: good AI fit" },
+      { "label": "Decision gate", "detail": "Someone accountable: keep human" },
+      { "label": "Delivery", "detail": "Reaches outsiders: keep human" }
+    ],
+    "caption": "Two safe stages, two that stay human. That is the whole placement rule."
+  },
+  "related": [
+    {
+      "label": "How agentic workflows work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many steps in a workflow should use AI?",
+      "a": "Usually one or two, not the whole process. Pick the structured step, sorting, drafting, or summarising, where the input and output shape are predictable, and leave decision gates and customer-facing delivery to a person."
+    },
+    {
+      "q": "What is a decision gate in a workflow?",
+      "a": "The point where someone is accountable for a call with real consequences: approving a refund, signing a contract, choosing a vendor. AI can draft the material that feeds the decision, but the sign-off should stay with a person who owns the outcome."
+    },
+    {
+      "q": "Does adding AI at more steps always save more time?",
+      "a": "Not past a point. A 2026 BCG study found workers overseeing AI across many steps or tools report more major errors and a higher intent to quit, a pattern researchers call AI brain fry. Fewer, well-chosen steps beat AI everywhere."
+    }
+  ]
+}

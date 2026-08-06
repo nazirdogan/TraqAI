@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "where-ai-belongs-in-a-workflow",
+      "targetQuery": "where to use AI in a business workflow",
+      "date": "2026-08-06"
+    },
+    {
+      "type": "field-note",
       "slug": "how-to-run-an-ai-training-session-for-staff",
       "targetQuery": "how to run an AI training session for staff",
       "date": "2026-08-05"
@@ -453,6 +459,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-05-how-to-run-an-ai-training-session-for-staff.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-06",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "where-ai-belongs-in-a-workflow",
+      "critic": "self-critique pass complete: topic taken verbatim from the topic pipeline (tp-013, cluster embedding-ai, targetQuery 'where to use AI in a business workflow'), checked for a genuine 24-hour override event (Anaconda's acquisition of Enkrypt AI and a new Rust LLM contribution policy were the top AI stories in the prior day, neither is an SMB-facing tool or pricing change) so the pipeline topic stood; angle is workflow position (which of the four stages, intake, processing, decision, delivery, a step sits in) rather than task risk level or where to start training, checked against and kept distinct from what-ai-can-and-cannot-do-for-small-business (task-level risk framework: frequent/low-risk vs rare/high-stakes) and where-small-teams-should-start-with-ai (which recurring tasks to train on first); one stat (workers with high AI oversight demands across many tools or steps report major errors up 39% and higher intent to quit, the phenomenon researchers call AI brain fry) sourced to BCG's March 2026 study of 1,500 US workers (bcg.com/news/5march2026-when-using-ai-leads-brain-fry), corroborated across multiple independent outlets (the-decoder.com, unleash.ai, itpro.com, euronews.com, aol.com syndicating an HBR item) all citing the identical 1,500-worker sample size and 39% figure, after direct WebFetch returned 403 on bcg.com and every secondary source this run while a microsoft.com/worklab control fetch succeeded, consistent with the source-side bot-blocking pattern documented across many prior runs rather than an invented number; no em-dashes (checked programmatically, and confirmed no non-ASCII characters at all in the file); title 57/70 chars, metaDescription 187/200 chars; intro is 56 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; flow diagram maps the four workflow stages already argued in body sections two and three (intake and processing are a good AI fit, decision gate and delivery stay human), no invented numbers in the diagram; tried fetch-image.mjs with a concrete search term ('warehouse conveyor belt sorting boxes'), Openverse returned 403, so published without an image per the normal-outcome rule; related links verified to exist (/insights/how-agentic-workflows-work, /services/ai-implementation); validated against the live fieldNoteSchema (Zod) via tsx, result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-013 status set to published, publishedAs set to /field-notes/where-ai-belongs-in-a-workflow, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 70 topics queued (17.5 weeks) before this publish, healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-06",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-06-where-ai-belongs-in-a-workflow.json"
       ],
       "build": "passed"
     }
