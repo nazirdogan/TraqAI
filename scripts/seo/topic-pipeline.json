@@ -184,8 +184,8 @@
       "workingTitle": "What ChatGPT Projects are actually for",
       "targetQuery": "what are ChatGPT projects",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/what-chatgpt-projects-are-for"
     },
     {
       "id": "tp-020",
