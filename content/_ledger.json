@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "what-chatgpt-projects-are-for",
+      "targetQuery": "what are ChatGPT projects",
+      "date": "2026-08-08"
+    },
+    {
+      "type": "field-note",
       "slug": "where-ai-belongs-in-a-workflow",
       "targetQuery": "where to use AI in a business workflow",
       "date": "2026-08-06"
@@ -477,6 +483,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-06-where-ai-belongs-in-a-workflow.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-08",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "what-chatgpt-projects-are-for",
+      "critic": "self-critique pass complete: topic taken verbatim from the topic pipeline (tp-019, cluster tools, targetQuery 'what are ChatGPT projects'), checked for a genuine 24-hour override event (Google DeepMind leadership reorg, Alibaba's Qwen3.8-Max model, EU AI Act high-risk provisions taking effect Aug 2, 2026, Anthropic's Chief Global Affairs hire) and none changes what an SMB owner should do or what a tool they pay for costs, so the pipeline topic stood; angle is a plain explainer distinguishing a ChatGPT Project from a regular chat and from a Custom GPT, then a practical small-business use (one Project per recurring client with brand voice, past examples and instructions loaded once), checked against the ledger and distinct from prior ChatGPT/OpenAI notes (openai-chatgpt-for-small-business-explained covered OpenAI's training program launch, not this specific in-app feature); this run hit a session-wide egress block rather than the usual per-domain 403 pattern (confirmed via the agent proxy status endpoint, which logged connect_rejected/403 on help.openai.com, openai.com, and every independent secondary domain tried, including ones with no prior history of blocking), so facts were corroborated across multiple independent WebSearch results rather than direct WebFetch/curl on any single source; the file-limit figures (5 Free, 25 Go/Plus, 40 Pro/Business/Enterprise/Edu, 10 uploaded at once) appeared identically across the OpenAI Help Center's own indexed page title/snippet and independent secondary coverage (Folio3 AI, LaoZhang AI blog, CustomGPT.ai, an OpenAI community forum thread), so the stat cites the OpenAI Help Center URL directly rather than an invented number; the Project-vs-Custom-GPT distinctions (Actions support, shareability, fixed vs editable system prompt) and project-only memory behaviour were corroborated across Geeky Gadgets, Medium, Adventures in CRE and Unite.AI search summaries, all agreeing on the same mechanics; no em-dashes (checked programmatically, none found); title 56/70 chars, metaDescription 169/200 chars; intro is 59 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; no diagram, since Projects, Custom GPTs and plain chats are three parallel categories with no genuine sequence or before/after to draw; no image attempted, since this is a specific in-app product feature where openly-licensed stock cannot match and fetch-image.mjs was skipped per that explicit rule; related links verified to exist (/services/ai-training has a page.tsx, /insights/how-to-get-your-team-using-ai is a real slug in src/lib/content/insights/index.ts); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json was reverted afterward since it is outside content/), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-019 status set to published, publishedAs set to /field-notes/what-chatgpt-projects-are-for, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 69 topics queued (17.3 weeks) before this publish, healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-08",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-08-what-chatgpt-projects-are-for.json"
       ],
       "build": "passed"
     }

@@ -1,0 +1,74 @@
+{
+  "slug": "what-chatgpt-projects-are-for",
+  "title": "What ChatGPT Projects Are Actually For | Traq Collective",
+  "h1": "What ChatGPT Projects are actually for",
+  "metaDescription": "ChatGPT Projects bundle chats, files and instructions into one workspace with its own memory. Here is what that actually means for a small business, and when to use one.",
+  "targetQuery": "what are ChatGPT projects",
+  "tags": [
+    "tools"
+  ],
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "author": "Nazir Dogan",
+  "dek": "Not a Custom GPT, not a folder. Here is what a Project actually does differently.",
+  "intro": "A ChatGPT Project is a dedicated workspace inside ChatGPT that holds a set of related chats, reference files and custom instructions together, so every conversation in it shares the same context. Unlike a plain chat, which starts blank, or a Custom GPT, which anyone can use via a link, a Project stays private and builds memory only within itself.",
+  "body": [
+    {
+      "heading": "What is a ChatGPT Project, exactly?",
+      "paragraphs": [
+        "A Project is a container for one piece of ongoing work. You give it a name, write instructions once for how it should behave inside that workspace, and upload the files it should treat as background knowledge, a style guide, a pricing sheet, last quarter's reports, whatever is relevant. Every new chat you start inside that Project automatically has access to those files and instructions, without you re-explaining or re-uploading anything."
+      ]
+    },
+    {
+      "heading": "How is a Project different from a regular chat?",
+      "paragraphs": [
+        "A regular chat starts blank except for whatever you have saved to your general ChatGPT memory. If you want it to know your brand voice or a client's history, you paste that in every time or hope memory picked it up correctly. A Project chat inherits the files and instructions you set up once, and it can optionally use project-only memory, which builds context from conversations inside that Project alone and keeps it separate from your account-wide memory and every other Project."
+      ]
+    },
+    {
+      "heading": "How is a Project different from a Custom GPT?",
+      "paragraphs": [
+        "A Custom GPT is a standalone assistant you build once and can share by link or publish, with a fixed system prompt and the option to connect outside services through Actions. A Project has no Actions and cannot be shared or published, it is a private workspace for your own work. What it trades for that is flexibility: you can edit a Project's instructions or swap its files at any time, where changing a published Custom GPT means updating something other people may already be relying on."
+      ]
+    },
+    {
+      "heading": "What is a Project actually useful for in a small business?",
+      "paragraphs": [
+        "The clearest use is keeping recurring work separated and consistent. One Project per client, with that client's brand guidelines, past correspondence and a few approved examples loaded as files, means every draft you ask for already sounds right and never mixes up which client is which. A second use is a standing reference Project, your policies, your product catalogue, your FAQ answers, so anyone on the team drafting a reply pulls from the same source instead of remembering it from memory.",
+        "File capacity is worth checking before you build a workflow around this. OpenAI's own limits put the free tier at 5 files per Project, the Go and Plus tiers at 25, and Pro, Business, Enterprise and Edu at 40, with a maximum of 10 uploaded at once. A client history that runs past that cap needs trimming to the documents that actually matter, not everything you have ever sent them."
+      ]
+    }
+  ],
+  "takeaway": "This week, create one Project for the client or workstream you touch most often, upload your last five to ten real examples of the work as files, and write one paragraph of instructions on tone and constraints. That is the whole setup.",
+  "stat": {
+    "claim": "OpenAI caps how many reference files a Project can hold by subscription plan, so the tier you pay for matters if you plan to load real client history rather than a handful of samples.",
+    "value": "40 files",
+    "source": "OpenAI Help Center",
+    "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is a ChatGPT Project the same as a Custom GPT?",
+      "a": "No. A Custom GPT is a shareable, standalone assistant with a fixed system prompt that anyone with the link can use, and it can call outside services through Actions. A Project is a private workspace for your own chats and files, cannot be shared or published, and has no Actions, but its instructions and files can be edited at any time."
+    },
+    {
+      "q": "Does a Project's memory carry over into my other chats?",
+      "a": "Not if you turn on project-only memory when you create it. ChatGPT then builds context only from conversations inside that Project and keeps it separate from your account-wide memory and from every other Project you run."
+    },
+    {
+      "q": "How many files can I add to a ChatGPT Project?",
+      "a": "It depends on your plan. OpenAI's published limits are 5 files on the Free tier, 25 on Go and Plus, and 40 on Pro, Business, Enterprise and Edu, with a maximum of 10 files uploaded at the same time."
+    }
+  ]
+}
