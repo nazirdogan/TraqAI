@@ -238,8 +238,8 @@
       "workingTitle": "Claude vs ChatGPT for business work",
       "targetQuery": "Claude vs ChatGPT for business",
       "format": "comparison",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/claude-vs-chatgpt-for-business"
     },
     {
       "id": "tp-026",

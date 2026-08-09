@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "claude-vs-chatgpt-for-business",
+      "targetQuery": "Claude vs ChatGPT for business",
+      "date": "2026-08-09"
+    },
+    {
+      "type": "field-note",
       "slug": "what-chatgpt-projects-are-for",
       "targetQuery": "what are ChatGPT projects",
       "date": "2026-08-08"
@@ -501,6 +507,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-08-what-chatgpt-projects-are-for.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-09",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "claude-vs-chatgpt-for-business",
+      "critic": "self-critique pass complete: topic taken verbatim from the topic pipeline (tp-025, cluster tool-comparison, targetQuery 'Claude vs ChatGPT for business'), checked for a genuine 24-hour override event (OpenAI's unlimited free-tier chat and GPT-5.6 Luna price cut, Google's AI org reorg, and Anthropic's in-house chip confirmation all landed around Aug 7, 2026, more than 24 hours out and none is an SMB-facing tool-they-already-pay-for change) so the pipeline topic stood; this run hit a broad WebFetch egress block on every AI-vendor and reference domain tried (claude.com, anthropic.com, openai.com, help.openai.com, duet.so, ai-edu.ch, even en.wikipedia.org), confirmed via the agent proxy status endpoint and a working microsoft.com control fetch, so this is a session-wide fetch restriction rather than source-side bot blocking; because live pricing figures for Claude Team/ChatGPT Business conflicted across independent secondary sources this run (one summary read a 5-seat, $125/month floor as a per-seat 'Team Premium' price), pricing was deliberately left out of the note entirely rather than risk publishing a wrong number; the two claims actually used, that ChatGPT trains on Free/Plus/Pro conversations by default (opt-out) while Claude does not train on any consumer plan by default (opt-in), and both vendors exclude training by default once a team tier is bought, and that ChatGPT's web browsing is more mature/integrated than Claude's newer search tool, were each corroborated across four or more independent WebSearch result summaries (duet.so, ai-edu.ch, lumichats.com, aiamigo.io, ai-chat-importer.com for training defaults; nxcode.io, zemith.com, jotform.com, llm-stats.com for web search maturity) rather than a single direct fetch; no numeric stat field included since no clean, confidently-sourced number cleared the no-fabrication bar this run, consistent with the precedent set on the claude-record-a-skill-explained entry; no em-dashes (checked programmatically for both em-dash and en-dash characters, none found); title 65/70 chars, metaDescription 165/200 chars; intro is 53 words and stands alone as a direct answer to the target query; five bodySections each phrased as a real question; three FAQs; no diagram, since this is a parallel two-option comparison with no genuine ordered sequence and no before/after with real numbers on both sides; no image, skipped per the rule against openly-licensed stock on a post naming two specific competing products, where a mismatched or trademark-adjacent photo would be worse than none; related links verified to exist (/services/ai-training has a page.tsx, /insights/how-to-get-your-team-using-ai is a real slug in src/lib/content/insights/index.ts); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; the validation script and package-lock.json changes were both removed afterward since they are outside content/), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-025 status set to published, publishedAs set to /field-notes/claude-vs-chatgpt-for-business, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 68 topics queued (17.0 weeks) before this publish, healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-09",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-09-claude-vs-chatgpt-for-business.json"
       ],
       "build": "passed"
     }
