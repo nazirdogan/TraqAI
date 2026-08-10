@@ -1,6 +1,6 @@
 {
   "$comment": "SEO/GEO target-query backlog. This is the system of record for what the content agent writes next and why. Every entry carries the evidence that justified it: who actually ranked when it was last checked, and on which engine. Update `evidence` when you re-run the audit; never add a query without checking what already wins it, because the winning page format is the single most useful thing the SERP tells you.",
-  "lastAudited": "2026-07-31",
+  "lastAudited": "2026-08-10",
   "clusters": {
     "training": "Someone wants their team taught to use AI. Highest commercial intent for Traq.",
     "strategy": "Someone wants help deciding what to do with AI before buying or training. Nazir's stated buyer intent.",
@@ -71,15 +71,15 @@
       "intent": "informational",
       "priority": 1,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/how-to-build-an-ai-strategy-for-a-small-business",
       "note": "Named by Nazir as core buyer intent. Top-of-funnel but it feeds every commercial query underneath it. Needs a real step sequence, not a definition.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-08-10",
+        "engine": "web search",
         "traqPosition": null,
-        "winners": [],
-        "observation": "Not yet SERP-checked. Check before writing so the format matches what wins."
+        "winners": ["shopify.com", "online.hbs.edu", "salesforce.com", "bdc.ca", "ibm.com", "gartner.com", "cloud.google.com", "revgenpartners.com"],
+        "observation": "Every winner publishes a numbered step sequence (identify pain points, pick a use case, pilot, measure, scale), not a definition. Shopify and Salesforce are the only two written specifically for small businesses; the rest are enterprise-generic. Matched the format with a six-step guide plus a one-page worksheet table instead of prose."
       }
     },
     {

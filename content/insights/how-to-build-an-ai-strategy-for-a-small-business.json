@@ -1,0 +1,95 @@
+{
+  "slug": "how-to-build-an-ai-strategy-for-a-small-business",
+  "title": "How to build an AI strategy for a small business | Traq Collective",
+  "metaDescription": "A real AI strategy names two or three actual problems, picks one workflow to pilot, sets a metric, and decides before scaling. Here is the six-step sequence.",
+  "targetQuery": "how to build an AI strategy for a small business",
+  "h1": "How to build an AI strategy for a small business",
+  "datePublished": "2026-08-10",
+  "dateModified": "2026-08-10",
+  "author": "Nazir Dogan",
+  "intro": "An AI strategy for a small business is a short written plan that names the two or three real problems worth solving with AI, picks one workflow to pilot first, sets a metric to judge it by, and decides whether to expand only after that pilot proves itself, rather than buying tools and hoping something sticks.",
+  "bodySections": [
+    {
+      "h2": "What does an AI strategy actually mean for a small business?",
+      "body": "Most small businesses already have AI in the building. What they do not have is a plan for it. A strategy is not a list of tools or a subscription to the newest chatbot. It is a short document, one page is enough at this size, that names the specific problems AI is meant to solve, ranks them, and says how you will know if it worked. Without that document, adoption drifts: one person tries a tool, another tries a different one, nobody compares results, and six months later the business has AI spend but no clear picture of what it bought. Across organizations of every size, 88% now use AI in at least one part of the business, but only 39% can point to any measurable effect on the bottom line, according to McKinsey's State of AI research. A strategy is what closes that gap, because it forces the question a subscription never asks: what is this actually for."
+    },
+    {
+      "h2": "Where should you actually start: the tool or the problem?",
+      "body": "Start with the problem, every time. The businesses that end up with a drawer full of unused logins are the ones that started with a tool someone saw on LinkedIn and went looking for a use for it afterward. Instead, spend an hour with whoever runs each part of the business and write down the tasks that eat the most time, get repeated the most often, or cause the most friction when they go wrong: drafting the same kind of email, chasing the same kind of paperwork, answering the same kind of customer question. You want a short list of named, specific tasks, not a general feeling that 'we should be doing more with AI.' A strategy built on a real list survives contact with the business. A strategy built on a trend does not."
+    },
+    {
+      "h2": "How do you pick the first use case to pilot?",
+      "body": "From that list, pick one task, two at most, using two questions: how often does this happen, and how bad is it if AI gets it wrong the first few times. A task that happens daily and where a mistake just means a human edits a draft is a good first pilot. A task that happens twice a year and touches a client contract is not, no matter how appealing it looks. Resist the urge to pilot your hardest, highest-value problem first. The point of a first pilot is to learn how your team actually works with AI, cheaply, before you bet anything that matters on it. Narrow beats broad here: one task done properly teaches you more than five tasks started at once and half-finished."
+    },
+    {
+      "h2": "Why does the process matter more than the tool you pick?",
+      "body": "The single biggest predictor of whether an AI pilot pays off is not which model or vendor you choose. It is whether you actually change the process around it, instead of dropping a tool into the workflow you already had. McKinsey's State of AI research found that organizations getting real financial results from AI are 2.8 times more likely to have fundamentally redesigned the workflow the AI sits in, 55% versus 20% for everyone else, and that workflow redesign has the strongest correlation with financial impact of any factor the research measured. Even so, 70% of organizations skip that step and just bolt AI onto the process they already had. For a small business, redesigning does not mean a consultant-grade overhaul. It means asking, honestly, whether the three approval steps a draft used to need are all still necessary once AI produces the first version, or whether you are just adding a fast first draft to a slow old process and calling it transformation."
+    },
+    {
+      "h2": "How do you know if the pilot actually worked?",
+      "body": "Decide the metric before you start, not after you like the result. Pick something concrete: minutes per task before and after, the number of items handled in a week, or the error rate on a sample of outputs. Give the pilot a real window, 30 days is usually enough for a daily task, and make sure the people running it actually get enough hands-on time with the tool to judge it fairly rather than abandoning it after one awkward first attempt. That threshold is not a guess: more than five hours of hands-on practice is the point where regular AI use becomes the norm rather than the exception, 79% versus 67% below that line, according to BCG. A pilot judged after twenty minutes of poking at a new tool is not a fair test of the tool. It is a test of how confusing week one felt."
+    },
+    {
+      "h2": "What happens after the pilot: scale it, adjust it, or stop?",
+      "body": "Once the window closes, make an actual decision instead of letting the pilot quietly become permanent by default. If the metric moved and the team wants to keep using it, write down what worked and move to the next task on your original list, one at a time. If it did not move, find out why before you blame the tool: a thin process, missing training, or a mismatched use case are all more common causes than the model being wrong for the job. If a use case genuinely does not clear the bar, kill it and say so, rather than letting it sit half-adopted. A strategy is only useful if it produces decisions. The businesses that get stuck are not the ones whose first pilot failed. They are the ones who never decided anything either way."
+    }
+  ],
+  "tables": [
+    {
+      "heading": "A one-page AI strategy worksheet",
+      "intro": "Fill this in for one part of the business before you buy or expand anything. It should take less than an hour to complete honestly.",
+      "caption": "One row per candidate task. Only move a task past 'Decision' once the pilot window has actually closed.",
+      "columns": ["Question", "What to write down"],
+      "rows": [
+        ["Which task, specifically?", "Name it the way a person would describe it, e.g. 'first-draft supplier emails'"],
+        ["How often does it happen?", "Daily, weekly, or rarely. Prefer frequent tasks for a first pilot"],
+        ["How bad is a mistake?", "What happens if AI gets the first few attempts wrong"],
+        ["What changes in the process?", "Which existing step gets shorter, removed, or reordered"],
+        ["What metric proves it worked?", "Minutes saved, items handled, or error rate, picked before you start"],
+        ["Decision after 30 days", "Scale it, adjust it, or stop it, and why"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Across organizations of every size, most now use AI somewhere in the business, but only a minority can point to a measurable effect on profit, which is the exact gap a written strategy is meant to close.",
+      "value": "88% use AI, 39% see bottom-line impact",
+      "source": "McKinsey",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "year": "2025"
+    },
+    {
+      "claim": "Organizations that see real financial results from AI are far more likely to have redesigned the workflow around it rather than bolting AI onto an unchanged process, and most organizations skip that step entirely.",
+      "value": "2.8x more likely (55% vs 20%), 70% skip it",
+      "source": "McKinsey",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value",
+      "year": "2025"
+    },
+    {
+      "claim": "More than five hours of hands-on practice is the tipping point to regular AI use, which is why a pilot judged after a few confused minutes is not a fair test of the tool.",
+      "value": "79% vs 67%",
+      "source": "BCG",
+      "url": "https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain",
+      "year": "2025"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long should writing a first AI strategy actually take?",
+      "a": "An afternoon, not a quarter. A small business does not need a 40-page document. One page naming two or three candidate tasks, a pilot plan, and a metric is enough to start. Add detail as pilots produce real results, not before you have any."
+    },
+    {
+      "q": "Do we need a dedicated budget before we start?",
+      "a": "No. Most first pilots can run on tools your team already pays for or a single low-cost subscription. Save a real budget conversation for after a pilot has proven a specific task is worth scaling, when you have a number to justify the spend."
+    },
+    {
+      "q": "What is the difference between an AI strategy and an AI policy?",
+      "a": "A strategy decides what you are trying to do with AI and in what order. A policy governs how people use it once it is in place, which tools are approved and what data can never go into them. Write the strategy first, since it tells you which tools the policy actually needs to cover."
+    }
+  ],
+  "related": [
+    { "label": "AI readiness checklist", "href": "/insights/ai-readiness-checklist" },
+    { "label": "How to measure AI ROI for a small business", "href": "/insights/how-to-measure-ai-roi-for-small-business" },
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+  ]
+}

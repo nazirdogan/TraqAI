@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "insight",
+      "slug": "how-to-build-an-ai-strategy-for-a-small-business",
+      "targetQuery": "how to build an AI strategy for a small business",
+      "date": "2026-08-10"
+    },
+    {
       "type": "field-note",
       "slug": "claude-vs-chatgpt-for-business",
       "targetQuery": "Claude vs ChatGPT for business",
@@ -525,6 +531,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-09-claude-vs-chatgpt-for-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-10",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "how-to-build-an-ai-strategy-for-a-small-business",
+      "critic": "self-critique pass complete: topic taken verbatim from the target-query backlog (tq-004, cluster strategy, targetQuery \"how to build an AI strategy for a small business\"), named by Nazir as core buyer intent per the backlog note; evidence.checked was null so ran a live SERP check via web search before writing, per the rule, and recorded the audit in scripts/seo/target-queries.json (winners are Shopify, HBS Online, Salesforce, BDC, IBM, Gartner, Google Cloud and RevGen, every one publishing a numbered step sequence rather than a definition, so matched the format with a six-step guide plus a one-page worksheet table instead of prose); checked for overlap against every existing /insights guide (ai-readiness-checklist is a self-assessment of current state, how-to-get-your-team-using-ai is the adoption playbook for after tools are chosen, what-a-fractional-head-of-ai-does describes a role, how-to-measure-ai-roi-for-small-business measures results after the fact) and confirmed this is the missing piece: the decision sequence for choosing what to actually do with AI before buying or training, cross-linked to the ROI and readiness guides rather than duplicating them; three stats: McKinsey State of AI 88% use AI in one function vs 39% see bottom-line impact (mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai, reused from a prior run where it was confirmed live via WebFetch), McKinsey workflow-redesign finding that AI high performers are 2.8x more likely to have fundamentally redesigned the workflow (55% vs 20%) with 70% of organizations skipping that step (mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value, a real URL returned directly by search and corroborated across independent coverage including siliconcanals.com and cxtoday.com), and BCG five-hour tipping point 79% vs 67% (bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain, reused from a prior run where it was verified live), after direct WebFetch returned EGRESS_BLOCKED on mckinsey.com, bcg.com, gartner.com, salesforce.com, uschamber.com, digitalapplied.com and capsulecrm.com this run (confirmed against a working microsoft.com/en-us/worklab control fetch, consistent with the source-side bot-blocking pattern documented across many prior runs rather than a session-wide outage); deliberately rejected a widely-repeated \"77% of small businesses have no written AI policy\" stat attributed to the U.S. Chamber of Commerce because a direct site search of uschamber.com turned up a different 77% figure in the same report (about regulatory limits, not internal policy), an unresolved conflict that failed the no-fabrication bar, so it was dropped rather than risking a wrong number; no em-dashes or en-dashes (checked programmatically, none found); title 66/70 chars, metaDescription 157/200 chars; intro is 56 words and stands alone as a direct answer to the target query; six bodySections each phrased as a real question; one worksheet table; three FAQs, the third of which explicitly distinguishes this guide from the existing AI acceptable-use-policy guide so readers are routed correctly; related links verified to exist (/insights/ai-readiness-checklist, /insights/how-to-measure-ai-roi-for-small-business, /services/ai-consulting has a page.tsx); validated against the live articleSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; the validation script and package-lock.json changes were both removed/reverted afterward since they are outside content/), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/target-queries.json updated: tq-004 status set to published, assignedTo set to /insights/how-to-build-an-ai-strategy-for-a-small-business, evidence filled with the 2026-08-10 SERP audit, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 67 topics queued (16.8 weeks), healthy, no refill needed this Monday"
+    },
+    {
+      "date": "2026-08-10",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-build-an-ai-strategy-for-a-small-business.json"
       ],
       "build": "passed"
     }
