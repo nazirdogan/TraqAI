@@ -1,0 +1,80 @@
+{
+  "slug": "quickbooks-online-price-increase-2026",
+  "title": "Why QuickBooks Online got more expensive in 2026 | Traq Collective",
+  "h1": "Why QuickBooks Online got more expensive in 2026",
+  "metaDescription": "QuickBooks Online prices jumped on renewals from August 1, 2026, some plans by 70 percent, to fund new AI bookkeeping features. What changed and how to decide if it is worth paying for.",
+  "targetQuery": "why did QuickBooks Online prices go up in 2026",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "author": "Nazir Dogan",
+  "dek": "Intuit tied its biggest QuickBooks Online price increase in years to a wave of new AI features. Here is what changed and how to decide if it earns its keep.",
+  "intro": "QuickBooks Online's prices rose sharply for renewals on or after August 1, 2026: Essentials from $60 to $85 a month, Plus from $99 to $140, and Advanced from $200 to $340. Intuit says the increase funds new Intuit Intelligence AI features across bookkeeping, invoicing, and reporting, plus payroll now bundled into Advanced.",
+  "body": [
+    {
+      "heading": "What actually changed with QuickBooks Online pricing on August 1, 2026?",
+      "paragraphs": [
+        "Intuit raised list prices across its main QuickBooks Online tiers: Essentials went from $60 to $85 a month, Plus from $99 to $140, and Advanced from $200 to $340. That is roughly a 40 percent jump on Essentials and Plus, and a 70 percent jump on Advanced.",
+        "It does not land on every customer at once. Existing subscriptions move to the new price on their next billing date on or after August 1, 2026, so if your renewal falls in September, you are still on the old price until then. New subscribers get six months of protection before the new price applies on their seventh invoice."
+      ]
+    },
+    {
+      "heading": "Why is Intuit raising the price now?",
+      "paragraphs": [
+        "Intuit ties the increase to a set of features it calls Intuit Intelligence: AI that categorizes and reconciles bank feed transactions on its own (what Intuit calls Continuously Clean Books), drafts and sends invoices without a person starting them (Invoicing on Autopilot), flags unusual transactions, and lets you ask plain-language questions about your own numbers instead of building a report.",
+        "Advanced's 70 percent jump is the outlier because the plan now bundles QuickBooks Workforce Elite payroll, which used to be a separate line item. Part of that increase is the AI, and part of it is a feature that used to cost extra now sitting inside the base price."
+      ]
+    },
+    {
+      "heading": "Is the new QuickBooks Online pricing worth it for a small business?",
+      "paragraphs": [
+        "That depends entirely on whether you will actually use what got added, not on whether the features sound useful in a press release. If your books are already clean and reconciled by a bookkeeper who knows your business, paying $25 to $41 more a month for AI categorization is paying twice for the same job. If reconciliation and chasing unpaid invoices genuinely eat hours every month, the AI agents have a real chance of paying for themselves.",
+        "The honest way to find out is to run the same before-and-after test you would run on any AI tool: time the task now, use the new features for a month, then time it again and compare the hours saved against the extra you are paying. A subscription increase is not a reason to skip the measurement step, it is exactly the situation that measurement step exists for."
+      ]
+    },
+    {
+      "heading": "What should you do before your next QuickBooks renewal?",
+      "paragraphs": [
+        "Check your actual renewal date rather than assuming the new price already applies. Then look at your plan, not just the AI: if you are on Advanced mainly for payroll and already run payroll through a different provider, you are now paying for a bundle you do not use. Try the new AI features for the weeks before renewal so the decision is based on what they actually save you, not on the announcement. If the number still does not work for your budget, Essentials or Plus without the extras, or a competing tool, are worth pricing out properly before you renew on autopilot."
+      ]
+    }
+  ],
+  "takeaway": "Find your QuickBooks Online renewal date this week, then spend the weeks before it actually using Intuit Intelligence so you are deciding on real time saved, not on the price change alone.",
+  "stat": {
+    "claim": "QuickBooks Online Plus rose from $99 to $140 a month, the increase Intuit ties to its new Intuit Intelligence AI features across bookkeeping, invoicing, and reporting.",
+    "value": "41%",
+    "source": "Intuit QuickBooks",
+    "url": "https://quickbooks.intuit.com/r/product-update/quickbooks-price-changes/",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "before-after",
+    "title": "QuickBooks Online monthly price, before and after August 1, 2026",
+    "rows": [
+      { "label": "Essentials", "before": 60, "after": 85, "unit": "$/mo", "as": "bar" },
+      { "label": "Plus", "before": 99, "after": 140, "unit": "$/mo", "as": "bar" },
+      { "label": "Advanced", "before": 200, "after": 340, "unit": "$/mo", "as": "bar" }
+    ],
+    "beforeVerdict": "Price before Aug 1, 2026",
+    "afterVerdict": "AI features now bundled in",
+    "caption": "Advanced jumped the most because payroll that used to cost extra is now included in the base price."
+  },
+  "related": [
+    { "label": "How to measure AI ROI for a small business", "href": "/insights/how-to-measure-ai-roi-for-small-business" },
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+  ],
+  "faqs": [
+    {
+      "q": "How much more does QuickBooks Online cost after the August 2026 price increase?",
+      "a": "Essentials went from $60 to $85 a month, Plus from $99 to $140, and Advanced from $200 to $340. Advanced rose the most because it now bundles QuickBooks Workforce Elite payroll, which used to cost extra."
+    },
+    {
+      "q": "Do existing QuickBooks Online customers pay the new price right away?",
+      "a": "No. The new price applies on each subscription's next billing date on or after August 1, 2026, not immediately. New subscribers keep the old price for six months before it changes on their seventh invoice."
+    },
+    {
+      "q": "Should a small business downgrade or switch after the QuickBooks Online price increase?",
+      "a": "Only after checking real usage. If your bookkeeping is already handled well, you may be paying more for AI features you will not use. If reconciliation and invoicing eat real time, test the new features for a month before deciding either way."
+    }
+  ]
+}

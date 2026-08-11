@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "type": "field-note",
+      "slug": "quickbooks-online-price-increase-2026",
+      "targetQuery": "why did QuickBooks Online prices go up in 2026",
+      "date": "2026-08-11"
+    },
+    {
       "type": "insight",
       "slug": "how-to-build-an-ai-strategy-for-a-small-business",
       "targetQuery": "how to build an AI strategy for a small business",
@@ -549,6 +555,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/how-to-build-an-ai-strategy-for-a-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-11",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "quickbooks-online-price-increase-2026",
+      "critic": "self-critique pass complete: searched Anthropic, OpenAI, Microsoft, Google, Notion, Zapier and Intuit news against the 'does this change what an owner should do or what it costs them' test; passed over OpenAI's GPT-5.6 Luna/Terra API price cuts (developer-API pricing, not SMB-facing, consistent with the precedent set on prior runs), Anthropic's Chief Global Affairs hire and chip-team confirmation (not a product or pricing change), and a ChatGPT Business billing-timing change effective Aug 19 2026 (timing only, total amount unchanged, too thin to carry a full note); seriously considered Notion Workers moving off free beta onto Notion credits but rejected it after WebFetch on notion.com returned EGRESS_BLOCKED and two independent WebSearch passes surfaced a genuine, unresolved conflict between Notion's own pages on the effective date (August 11, 2026 per the pricing page vs October 15, 2026 per the US help center), which fails the no-fabrication bar for a news note that must date the change explicitly, so it was dropped rather than guessing; selected Intuit's QuickBooks Online price increase instead because it is a real, dated cost change (renewals on or after August 1, 2026) to an accounting tool a large share of small businesses already pay for, explicitly tied to new Intuit Intelligence AI features, and still actively landing on customers as individual renewal dates fall through August; WebFetch returned EGRESS_BLOCKED on quickbooks.intuit.com, investors.intuit.com, businesswire.com, nerdwallet.com, firmofthefuture.com, blog.insightfulaccountant.com and certumsolutions.com this run while a microsoft.com/worklab control fetch succeeded, confirming source-side/domain-family blocking rather than a session-wide outage; the per-plan figures (Essentials $60 to $85, Plus $99 to $140, Advanced $200 to $340) were corroborated identically across eight independent secondary sources (certumsolutions.com, firmofthefuture.com, one8solutions.com, booksla.com, losangelesquickbookshelp.com, strategicfinancialreporting.com, blog.insightfulaccountant.com, stephsbooks.com) all citing Intuit's own announcement, so the stat cites the primary quickbooks.intuit.com announcement URL directly rather than a secondary summary; deliberately dropped an unverified '$2 billion AI investment' figure and a 'saves up to 12 hours a month' stat after search could not confirm the former and traced the latter to a different, year-old (July 2025) product announcement unrelated to this price change, both excluded rather than risking a wrong or stale number; no em-dashes or en-dashes (checked programmatically via grep, none found); title 66/70 chars, metaDescription 185/200 chars; intro is 52 words and stands alone as a direct answer to the target query, dated explicitly (August 1, 2026, twice); four bodySections each phrased as a real question; three FAQs; before-after diagram uses only the sourced dollar figures already argued in body section one (Essentials, Plus, Advanced, before and after), no invented numbers, all label/verdict/caption lengths within schema limits; no image, skipped per the rule against openly-licensed stock on a post about a specific named product where a mismatched photo is worse than none; related links verified to exist (/insights/how-to-measure-ai-roi-for-small-business, /services/ai-consulting has a page.tsx); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; the validation script and package-lock.json changes were both removed/reverted afterward since they are outside content/), result VALID; not a repeat of any ledger slug or targetQuery; tagged news and tools"
+    },
+    {
+      "date": "2026-08-11",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-11-quickbooks-online-price-increase-2026.json"
       ],
       "build": "passed"
     }
