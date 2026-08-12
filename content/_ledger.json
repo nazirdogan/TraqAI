@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "which-ai-tool-for-which-job",
+      "targetQuery": "which AI tool should I use for what",
+      "date": "2026-08-12"
+    },
+    {
+      "type": "field-note",
       "slug": "quickbooks-online-price-increase-2026",
       "targetQuery": "why did QuickBooks Online prices go up in 2026",
       "date": "2026-08-11"
@@ -573,6 +579,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-11-quickbooks-online-price-increase-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-12",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "which-ai-tool-for-which-job",
+      "critic": "branch preflight: session started on a detached HEAD three commits ahead of local main (2026-08-09 through 2026-08-11 posts stranded by prior runs' detached-HEAD bug); checked out main, confirmed it was a fast-forward ancestor, and merged the three stranded commits in via --ff-only before starting today's work, no rewrite, no force-push; topic taken verbatim from the topic pipeline (tp-031, cluster tool-selection, targetQuery 'which AI tool should I use for what'), checked for a genuine 24-hour override event (OpenAI's GPT-5.6 three-tier API pricing, Anthropic's Opus 5 cost cut, Nvidia's $500B financing alliance, OpenAI's cybersecurity model) and none is an SMB-facing tool-they-already-pay-for change within the window, so the pipeline topic stood; angle is a cross-tool matching framework (office-suite-embedded tools, a team's standard chat assistant, and a cited-source research tool) rather than a two-tool pick-one decision, checked against and kept distinct from claude-vs-chatgpt-for-business (head-to-head on one category, recommends standardising on one general assistant) by explicitly reusing that post's 'do not split a team across two general assistants' conclusion rather than contradicting it, and extending the framework to suite-embedded Copilot/Gemini and Perplexity, which that post did not cover; one stat (AI productivity impact scaling from 45% among people using it for one or two purposes to 90% among those using it for seven or more) sourced to Gallup's Q2 2026 workplace report (gallup.com/workplace/712736/organizational-adoption-jumps-six-points.aspx), corroborated across seven independent secondary sources (usnews.com, nojitter.com, autofaceless.ai, macmdviewer.com, agora-intelligence.com, leadwithai.co, omniflowai.com) all citing the identical figures and methodology, after direct WebFetch returned EGRESS_BLOCKED on gallup.com this run, consistent with the domain-blocking pattern documented across many prior runs rather than an invented number; no em-dashes or en-dashes (checked programmatically, none found); title 55/70 chars, metaDescription 182/200 chars; intro is 59 words and stands alone as a direct answer to the target query; five bodySections each phrased as a real question; three FAQs; no diagram, since this is a matching/explainer post with no genuine ordered sequence and no before-after with real numbers on both sides; no image, skipped per the established rule against openly-licensed stock on a post naming five specific competing products, where a mismatched or trademark-adjacent photo is worse than none; related links verified to exist (/insights/how-to-get-your-team-using-ai is a real slug in src/lib/content/insights/index.ts, /services/ai-consulting has a page.tsx); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-031 status set to published, publishedAs set to /field-notes/which-ai-tool-for-which-job, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 67 topics queued (16.8 weeks) before this publish, healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-12",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-12-which-ai-tool-for-which-job.json"
       ],
       "build": "passed"
     }

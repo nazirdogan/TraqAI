@@ -1,0 +1,83 @@
+{
+  "slug": "which-ai-tool-for-which-job",
+  "title": "Which AI tool should you use for what | Traq Collective",
+  "h1": "Which AI tool should you use for what",
+  "metaDescription": "Most small businesses already have access to two or three AI tools without paying for a new one. A plain guide to matching ChatGPT, Claude, Gemini, Copilot and Perplexity to the job.",
+  "targetQuery": "which AI tool should I use for what",
+  "tags": [
+    "tools",
+    "best-uses"
+  ],
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-08-12",
+  "author": "Nazir Dogan",
+  "dek": "You do not need one AI tool for everything. You need to know which one to open for which job.",
+  "intro": "Most small businesses already have access to two or three AI tools without buying anything new: your office suite includes one, and someone on the team pays for ChatGPT or Claude. Match the job to the tool: writing and analysis to a general chat assistant, live research with sources to Perplexity, and office documents to whatever your suite includes.",
+  "body": [
+    {
+      "heading": "Do you actually need to buy a new AI tool?",
+      "paragraphs": [
+        "Usually not. If your team is on Microsoft 365, Copilot is already licensed inside Word, Excel and Outlook. If you run Google Workspace, Gemini is already in Docs, Sheets and Gmail. Add whatever chat assistant someone on the team already pays for personally, and most small businesses are covered for the jobs that come up in an ordinary week without a new line item on the bill.",
+        "The gap is not access. It is that nobody has decided which tool is the default for which job, so people either stick to the one they learned first for everything, or bounce between tabs without a reason."
+      ]
+    },
+    {
+      "heading": "Which tool should you use for writing and general drafting?",
+      "paragraphs": [
+        "For emails, proposals, policies and anything drafted from scratch, use your team's standard chat assistant, ChatGPT or Claude. Do not run both in parallel for this: pick one, because splitting a small team across two general assistants means two sets of training material and two data policies to explain, for no real gain on a day-to-day draft.",
+        "Claude tends to hold a consistent tone and structure across a long document more reliably. ChatGPT edits faster in quick back-and-forth and has the bigger library of third-party integrations. Either is fine as the team default. The point is picking one and sticking to it for this category of work."
+      ]
+    },
+    {
+      "heading": "Which tool should you use for research where the source matters?",
+      "paragraphs": [
+        "When you need to check a fact, a competitor's pricing or a current number before it goes into a client-facing document, use Perplexity rather than your general chat assistant. It is built to search the live web on every query and cite the page it pulled the answer from, so you can click through and check it yourself before you rely on it.",
+        "A general chat assistant can answer the same question, but without the same habit of showing its source. For anything you would need to defend if a client questioned it, that citation is the difference."
+      ]
+    },
+    {
+      "heading": "Which tool should you use for work already inside Word, Excel or Google Docs?",
+      "paragraphs": [
+        "For a task on a file you already have open, use whatever is built into that suite rather than copying the content into a separate chat window. Copilot works directly inside a Word draft or an Excel model on a Microsoft 365 licence. Gemini does the same inside Docs, Sheets and Gmail on Google Workspace. Both skip the extra step of exporting content out, prompting elsewhere, and pasting the result back in, which is where most of the friction in day-to-day AI use actually comes from."
+      ]
+    },
+    {
+      "heading": "So how do you actually decide, job by job?",
+      "paragraphs": [
+        "Default to whatever is already open in front of you: a file in your office suite, use the suite's built-in tool. Starting from a blank page, use your team's standard chat assistant. Need a number or a claim you can point to a source for, use Perplexity. That covers the large majority of what a small team actually does with AI in a week, and it takes longer to explain than it does to apply once people know the three lanes."
+      ]
+    }
+  ],
+  "takeaway": "This week, write down the AI tools your team already has access to through your office suite and any personal subscriptions, pick one default for drafting, one for sourced research, and stop adding tools past that.",
+  "stat": {
+    "claim": "Productivity gains from AI scale with how many distinct tasks someone applies it to, not with which single tool they picked: employees who use AI for one or two purposes report a positive productivity impact 45% of the time, rising to 90% among those using it for seven or more purposes.",
+    "value": "45% to 90%",
+    "source": "Gallup",
+    "url": "https://www.gallup.com/workplace/712736/organizational-adoption-jumps-six-points.aspx",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to pay for ChatGPT, Claude, Gemini and Copilot all at once?",
+      "a": "No. Most small businesses already have access to two of these without an extra subscription: Copilot comes with Microsoft 365 and Gemini comes with Google Workspace. Add whichever general chat assistant your team already pays for, and that is usually enough coverage for a normal week."
+    },
+    {
+      "q": "What is Perplexity actually for, compared to ChatGPT or Claude?",
+      "a": "Perplexity is built to search the live web on every query and show the source page it pulled the answer from, so you can check it yourself. Use it specifically when a fact, price or figure needs to be defensible, not for everyday drafting where a general chat assistant is faster."
+    },
+    {
+      "q": "Should a small team standardise on one AI tool or use several?",
+      "a": "Standardise on one general chat assistant for drafting, so training and data policy stay simple, but it is fine to also use whatever tool is built into your office suite for files you already have open, and a sourced research tool like Perplexity when a claim needs a citation. That is three defaults, not one tool for everything."
+    }
+  ]
+}
