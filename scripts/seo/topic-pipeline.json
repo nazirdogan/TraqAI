@@ -292,8 +292,8 @@
       "workingTitle": "Which AI tool for which job: a plain matching guide",
       "targetQuery": "which AI tool should I use for what",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/which-ai-tool-for-which-job"
     },
     {
       "id": "tp-032",
