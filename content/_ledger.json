@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "what-is-an-ai-agent-for-business",
+      "targetQuery": "what is an AI agent for business",
+      "date": "2026-08-13"
+    },
+    {
+      "type": "field-note",
       "slug": "which-ai-tool-for-which-job",
       "targetQuery": "which AI tool should I use for what",
       "date": "2026-08-12"
@@ -597,6 +603,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-12-which-ai-tool-for-which-job.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-13",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "what-is-an-ai-agent-for-business",
+      "critic": "branch preflight: session started on a detached HEAD five commits ahead of local main (2026-08-09 through 2026-08-12 posts stranded by the same detached-HEAD bug the 2026-08-12 run believed it had fixed, confirming that run's local ff-only merge never actually reached origin/main); checked out main, confirmed it was a fast-forward ancestor, merged the five stranded commits in via --ff-only before starting today's work, no rewrite, no force-push, and this run additionally verifies the push against origin/main after publish.mjs runs rather than trusting the merge alone; topic taken verbatim from the topic pipeline (tp-037, cluster agents, targetQuery 'what is an AI agent for business'), checked for a genuine 24-hour override event (Anthropic IPO-prep reporting, frontier platform user-count milestones, a supply-chain breach affecting other companies, executive departures) and none is an SMB-facing tool-they-already-pay-for change within the window, so the pipeline topic stood; angle is a definitional explainer distinguishing an AI agent from a chatbot by who decides the next step, plus concrete small-business examples, when an agent is overkill, and how to trial one safely; checked for overlap against the existing /insights guide how-agentic-workflows-work (targetQuery 'agentic AI / autonomous workflows for business') since both cover agent basics; first draft of the definition section paraphrased that guide's 'engine plus a plan, a set of tools, and the freedom to act' formula too closely, caught on self-critique and rewritten around a different test (who decides the next step, permission to act inside real systems) with a new intro, section and FAQ answer, then cross-linked to the deeper guide rather than duplicating it, consistent with how prior notes handled overlap with existing pieces; one stat (Gartner's prediction that 40% of enterprise applications will include task-specific AI agents by end of 2026, up from under 5% in 2025) sourced to Gartner's own newsroom press release (gartner.com/en/newsroom/press-releases/2025-08-26-...), corroborated across nine independent secondary sources (processexcellencenetwork.com, uctoday.com, joget.com, devopsdigest.com, insentragroup.com, tentoro.ai, inno-thought.com, paul-okhrem.com, callsphere.ai) all citing the identical 40%/5% figures and press release date, after direct WebFetch returned EGRESS_BLOCKED on gartner.com this run, consistent with the domain-blocking pattern documented across many prior runs rather than an invented number; no em-dashes or en-dashes (checked programmatically, none found); title 59/70 chars, metaDescription 196/200 chars; intro is 59 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; flow diagram mirrors the four-step trial sequence already argued in the fourth body section (pick one narrow task, set the handoff rule, watch it on real work, widen once reliable), no invented numbers; tried fetch-image.mjs with a concrete search term ('person reviewing automated workflow dashboard on laptop'), Openverse returned HTTP 403 (exit code 2), so published without an image per the normal-outcome rule; related links verified to exist (/insights/how-agentic-workflows-work is a real slug in src/lib/content/insights/index.ts, /services/agentic-ai has a page.tsx); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-037 status set to published, publishedAs set to /field-notes/what-is-an-ai-agent-for-business, staged alongside content/ so it commits with this run; pipeline runway checked via report.mjs daily: 66 topics queued (16.5 weeks) before this publish, healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-13",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-13-what-is-an-ai-agent-for-business.json"
       ],
       "build": "passed"
     }

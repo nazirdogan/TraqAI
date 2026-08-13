@@ -1,0 +1,97 @@
+{
+  "slug": "what-is-an-ai-agent-for-business",
+  "title": "What is an AI agent for a small business? | Traq Collective",
+  "h1": "What is an AI agent for a small business?",
+  "metaDescription": "An AI agent is software given a goal and real tools that works out and carries out the steps to reach it, unlike a chatbot that only answers when asked. What that means in practice, with examples.",
+  "targetQuery": "what is an AI agent for business",
+  "tags": [
+    "best-uses",
+    "adoption"
+  ],
+  "datePublished": "2026-08-13",
+  "dateModified": "2026-08-13",
+  "author": "Nazir Dogan",
+  "dek": "Not a chatbot with extra steps: what actually makes something an agent, and where one earns its keep.",
+  "intro": "An AI agent is software given a goal and permission to act inside real systems, your inbox, calendar or CRM, rather than just a question to answer. It decides the steps needed to reach that goal, carries them out across those systems, and pauses only when something needs a person's sign-off. A chatbot only answers; it does not act.",
+  "body": [
+    {
+      "heading": "What makes something an AI agent, not just a chatbot?",
+      "paragraphs": [
+        "The test is not how smart the model sounds, it is who decides the next step. A chatbot hands a draft back to you and stops there: you read it, you send it, you decide what happens after. An AI agent is given a goal and permission to act inside real systems, an inbox, a calendar, a CRM, and it decides the next step itself, carries it out, and checks the outcome before deciding the one after that. It only stops for a person when something crosses a line it was told to respect."
+      ]
+    },
+    {
+      "heading": "What does an AI agent actually do for a small business?",
+      "paragraphs": [
+        "In practice this looks less dramatic than the term suggests. A support agent reads an incoming email, checks the order in your system, and drafts or sends a reply. A scheduling agent finds a slot that works across two calendars and books it without a back and forth. A reconciliation agent matches invoices to purchase orders and flags the ones that do not line up, instead of a person doing it line by line. None of this needs a science project: it runs on the tools you already use, wired to act rather than only answer."
+      ]
+    },
+    {
+      "heading": "When is an agent overkill, and a plain tool is enough?",
+      "paragraphs": [
+        "Not everything needs an agent. If a task happens once, needs a person's judgment every time, or touches a system nothing can connect to automatically, a plain AI assistant handling one request at a time does the job better and is far easier to trust. Agents earn their keep on work that is frequent, has a repeatable shape, and currently eats someone's day: the same three questions in every support inbox, the same match-invoice-to-order step every week."
+      ]
+    },
+    {
+      "heading": "How do you try one without betting the business on it?",
+      "paragraphs": [
+        "Start with one workflow you understand well, set a clear rule for when it hands off to a person, and watch it on real work before you trust it with more. That is the same narrow-then-widen approach that works for AI adoption generally, and it matters more here because an agent that gets a task wrong can take three or four actions before anyone notices, not one."
+      ]
+    }
+  ],
+  "takeaway": "Pick one repeatable task that already eats someone's week, agent it, and set the rule for when it hands off to a person before you switch it on.",
+  "stat": {
+    "claim": "Gartner expects task-specific AI agents to be built into a large share of business software within a year, up from almost none the year before, which is why the term is showing up in ordinary business tools now rather than staying a lab demo.",
+    "value": "40%",
+    "source": "Gartner",
+    "url": "https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025",
+    "year": "2025"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to try an AI agent without betting the business on it",
+    "steps": [
+      {
+        "label": "Pick one narrow task",
+        "detail": "Frequent, well understood, repeatable"
+      },
+      {
+        "label": "Set the handoff rule",
+        "detail": "When it stops and asks a person"
+      },
+      {
+        "label": "Watch it on real work",
+        "detail": "Before you trust it with more"
+      },
+      {
+        "label": "Widen once it's reliable",
+        "detail": "Not before"
+      }
+    ],
+    "caption": "The risk with an agent is several wrong steps before anyone notices, not one wrong reply."
+  },
+  "related": [
+    {
+      "label": "How agentic workflows actually work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "Agentic AI",
+      "href": "/services/agentic-ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is an AI agent the same as a chatbot?",
+      "a": "No. A chatbot hands you a draft and stops, leaving you to decide what happens next. An AI agent has permission to act inside your systems and decides the next step itself, stopping only when something crosses a line it was told to respect. The difference is who decides the next step, not how capable the model is."
+    },
+    {
+      "q": "Does a small business need custom software to run an AI agent?",
+      "a": "Not usually. Agent features built into tools you already pay for, an inbox, a scheduling tool, a CRM, can act as agents once someone turns on the automation and sets the rules for when it hands off. A custom-built agent is for a specific, high-volume workflow, not a starting point."
+    },
+    {
+      "q": "What is the main risk of using an AI agent?",
+      "a": "An agent can complete several wrong steps before anyone checks the result, rather than giving one wrong reply. That is why the first agent a business runs should sit on a narrow, well-understood task with a clear rule for when it stops and asks a person."
+    }
+  ]
+}
