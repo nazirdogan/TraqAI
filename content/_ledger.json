@@ -3,6 +3,12 @@
   "published": [
     {
       "type": "field-note",
+      "slug": "chatgpt-business-premium-seats-2026",
+      "targetQuery": "is ChatGPT Business Premium worth $125 a seat",
+      "date": "2026-08-14"
+    },
+    {
+      "type": "field-note",
       "slug": "what-is-an-ai-agent-for-business",
       "targetQuery": "what is an AI agent for business",
       "date": "2026-08-13"
@@ -159,6 +165,14 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-08-14",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "chatgpt-business-premium-seats-2026",
+      "critic": "branch preflight: session started on a detached HEAD seven commits ahead of local main (2026-08-08 through 2026-08-13 posts locally stranded by the same detached-HEAD bug noted in prior runs); checked out main, confirmed fast-forward ancestry, merged the seven commits in via --ff-only, no rewrite, no force-push; a fetch of origin/main immediately after showed origin already had all seven commits (c5a5180..8d995a6), confirming this run's earlier concern (voiced in the 2026-08-13 entry) that prior pushes might not be landing was unfounded, the detached HEAD only ever stranded commits locally in this container, publish.mjs's push itself has been reaching origin correctly; searched Anthropic, OpenAI, Microsoft and Google news from the last seven days against the 'does this change what an owner should do or what it costs them' test; initially found and researched OpenAI's August 6, 2026 move of ChatGPT for PowerPoint and Excel from free to metered credit pricing but set it aside as the lead story since that date sits 8 days before publish, just outside the 7-day window; kept researching and found a cleaner, more current story: OpenAI launched a $125-a-month Premium seat tier for ChatGPT Business on August 10, 2026 (4 days before publish, corroborated across seekingalpha.com, techgenyz.com, itbrief.co.uk, marketscreener.com, cryptobriefing.com, techtimes.com, roic.ai, businesstoday.in, techfocus24.com, all citing identical figures), with a live August 20, 2026 deadline (6 days out from publish) for bonus workspace credits, giving the piece a genuine 'act now' hook within the window; folded the August 6 PowerPoint/Excel metering change in as supporting context for why OpenAI added a paid usage tier now, rather than as the lead; WebFetch returned EGRESS_BLOCKED on openai.com and help.openai.com this run (help.openai.com also failed a domain-safety check before that), consistent with the source-side/domain-family blocking pattern documented across many prior runs, so facts were corroborated across nine independent secondary sources rather than a direct primary fetch, and the citation URL points to OpenAI's own announcement page (openai.com/index/premium-seats-chatgpt-business/) since its content is directly reflected in every corroborating source; no numbers invented, deliberately did not include a diagram since this is a tier-upgrade decision with no genuine ordered sequence and no temporal before/after (a Standard-vs-Premium tier comparison was considered and rejected as a misuse of the before-after diagram type, which the schema and instructions reserve for a single quantity changing over time or a process-fix argument, not a plan comparison); no image, skipped per the established rule against openly-licensed stock on a post naming a specific paid product tier; no em-dashes or en-dashes (checked programmatically via grep, none found); title 64/70 chars, metaDescription 180/200 chars; intro is 58 words and stands alone as a direct yes/no-shaped answer to the target query (revised once during self-critique: the first draft described the launch but never actually answered 'worth it', rewritten to lead with the conditional answer); four bodySections each phrased as a real question; three FAQs; related links verified to exist (/insights/how-to-measure-ai-roi-for-small-business is a real file in content/insights/, /services/ai-consulting has a page.tsx); validated against the live fieldNoteSchema (Zod) via npx tsx, result VALID; not a repeat of any ledger slug or targetQuery; tagged news and tools; this run was pure news-note (no fallback to the pipeline needed since a genuine, dated, SMB-cost-relevant story cleared the bar), so scripts/seo/topic-pipeline.json was left untouched"
+    },
     {
       "date": "2026-07-16",
       "mode": "seed",
@@ -621,6 +635,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-13-what-is-an-ai-agent-for-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-14",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-14-chatgpt-business-premium-seats-2026.json"
       ],
       "build": "passed"
     }
