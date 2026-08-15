@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-15",
+      "type": "field-note",
+      "slug": "what-to-automate-first-in-a-small-business",
+      "targetQuery": "what to automate first in a small business"
+    },
+    {
       "type": "field-note",
       "slug": "chatgpt-business-premium-seats-2026",
       "targetQuery": "is ChatGPT Business Premium worth $125 a seat",
@@ -645,6 +651,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-14-chatgpt-business-premium-seats-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-15",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-15-what-to-automate-first-in-a-small-business.json"
       ],
       "build": "passed"
     }

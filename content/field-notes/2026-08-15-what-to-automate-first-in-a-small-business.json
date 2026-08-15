@@ -1,0 +1,85 @@
+{
+  "slug": "what-to-automate-first-in-a-small-business",
+  "title": "What to automate first in a small business | Traq Collective",
+  "h1": "What to automate first in a small business",
+  "metaDescription": "The task worth automating first is frequent, rule-based and already eating someone's week. How to score candidates, fix the process, then automate exactly one.",
+  "targetQuery": "what to automate first in a small business",
+  "tags": [
+    "best-uses",
+    "adoption"
+  ],
+  "datePublished": "2026-08-15",
+  "dateModified": "2026-08-15",
+  "author": "Nazir Dogan",
+  "dek": "Score candidates on frequency and consistency, fix the process, then automate exactly one.",
+  "intro": "The task worth automating first is the one that is frequent, rule-based and already eating someone's week, not the flashiest use case, the most boring one. Score candidates on volume, consistency and the cost of a mistake, pick the single task that scores highest, and fix its process before you touch a tool.",
+  "body": [
+    {
+      "heading": "What makes a task worth automating first?",
+      "paragraphs": [
+        "Four things matter more than how impressive the task sounds. It has to happen often, at least weekly, so the time saved actually adds up. It has to follow the same steps in the same order every time, because automation needs a rule to follow, not a judgment call. It should be a task where a mistake is annoying rather than catastrophic, since the first automation you run is also the one you trust least. And it needs an owner who can say clearly what \"done right\" looks like, because if two people on the team do it two different ways, there is nothing consistent yet to automate."
+      ]
+    },
+    {
+      "heading": "Which small business tasks are usually the best early candidates?",
+      "paragraphs": [
+        "In practice, a short list covers most businesses: matching invoices to purchase orders, sending appointment reminders and chasing no-shows, moving a new lead's details from a form into the CRM, answering the same handful of customer questions that show up in every support inbox, and reconciling numbers between two systems that do not talk to each other. None of these need a custom build. They are high-volume, low-judgment, and already running on rules someone follows by hand today, which is exactly what makes them safe to hand to a tool."
+      ]
+    },
+    {
+      "heading": "Why should you fix the process before you automate it?",
+      "paragraphs": [
+        "Automating a process that is inconsistent just makes the inconsistency happen faster. If invoices get approved differently depending on who is at their desk, or leads get logged with different fields depending on who picked up the call, automating that process locks in whichever version you happened to build against, and every exception becomes a support ticket. Write down the steps as they should actually run, agree them with whoever does the work today, and only then automate. A tidied-up process is also usually the bigger win: teams often find the manual version gets faster on its own once the inconsistency is gone, before a tool has touched it."
+      ]
+    },
+    {
+      "heading": "How do you pick just one thing to start with?",
+      "paragraphs": [
+        "List every task in the business that repeats weekly and follows a fixed set of steps, then score each one on how often it happens, how consistent it already is, and how much a mistake would cost. Automate only the task at the top of that list, not the one that would look best in a case study. Watch it run on real work for a few weeks before adding a second. Most businesses have far more they could eventually automate than they have gotten to; only the top one or two are worth doing now, and picking correctly matters more than moving fast."
+      ]
+    }
+  ],
+  "takeaway": "List every task that repeats weekly and follows the same steps every time, score each on frequency, consistency and the cost of a mistake, and automate only the one that scores highest, not the one that sounds most impressive.",
+  "stat": {
+    "claim": "McKinsey Global Institute research published in November 2025 found that AI agents can already carry out tasks making up 44% of current US work hours using capability that exists today, which is why most small businesses have far more to automate than they have gotten to, not less.",
+    "value": "44%",
+    "source": "McKinsey Global Institute",
+    "url": "https://www.mckinsey.com/mgi/our-research/agents-robots-and-us-skill-partnerships-in-the-age-of-ai",
+    "year": "2025"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to pick the first task to automate in a small business",
+    "steps": [
+      { "label": "List repeating tasks", "detail": "Same steps, same order, every time" },
+      { "label": "Score each candidate", "detail": "Frequency, consistency, cost of a mistake" },
+      { "label": "Fix the process first", "detail": "A broken process just fails faster automated" },
+      { "label": "Automate the top one", "detail": "Watch it before adding a second" }
+    ],
+    "caption": "The task that sounds most impressive is rarely the one worth automating first."
+  },
+  "related": [
+    {
+      "label": "AI readiness checklist",
+      "href": "/insights/ai-readiness-checklist"
+    },
+    {
+      "label": "AI implementation",
+      "href": "/services/ai-implementation"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Should I automate the task that takes the most time, or the one that happens most often?",
+      "a": "Frequency and consistency usually matter more than raw hours. A task that happens fifty times a week and always follows the same steps is a safer and faster win than a task that eats one afternoon a month but changes shape every time. Volume is what makes the time saved add up."
+    },
+    {
+      "q": "What if the process I want to automate is done differently by different people?",
+      "a": "Fix the process before you automate it. Write down the steps as they should run, agree them with whoever does the work today, and standardize first. Automating an inconsistent process just locks in one version and turns every exception into a support ticket."
+    },
+    {
+      "q": "How many processes should a small business automate at once?",
+      "a": "One. Pick the single highest-scoring task, run it on real work for a few weeks, and confirm it holds up before adding a second. Most businesses have far more they could eventually automate than they have gotten to, and only the top one or two are worth doing right now."
+    }
+  ]
+}
