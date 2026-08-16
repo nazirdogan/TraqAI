@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-16",
+      "type": "field-note",
+      "slug": "how-to-map-a-business-process",
+      "targetQuery": "how to map a business process"
+    },
+    {
       "date": "2026-08-15",
       "type": "field-note",
       "slug": "what-to-automate-first-in-a-small-business",
@@ -661,6 +667,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-15-what-to-automate-first-in-a-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-16",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-16-how-to-map-a-business-process.json"
       ],
       "build": "passed"
     }

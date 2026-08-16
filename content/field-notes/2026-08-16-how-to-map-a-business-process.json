@@ -1,0 +1,83 @@
+{
+  "slug": "how-to-map-a-business-process",
+  "title": "How to map a business process before you automate it | Traq Collective",
+  "h1": "How to map a business process before you automate it",
+  "metaDescription": "Mapping a business process means writing down every real step, decision and handoff before you automate any of it. Skip this and automation just makes the current mess faster, not better.",
+  "targetQuery": "how to map a business process",
+  "tags": ["adoption", "best-uses"],
+  "datePublished": "2026-08-16",
+  "dateModified": "2026-08-16",
+  "author": "Nazir Dogan",
+  "dek": "The unglamorous step that decides whether automation actually helps or just speeds up the mess.",
+  "intro": "To map a business process, write down every real step in the order it happens, including the handoffs and workarounds people actually use, not the idealised version. Note who owns each step, what triggers it, and where decisions happen. Do this before choosing a tool: automation speeds up whatever process you hand it, mess included.",
+  "body": [
+    {
+      "heading": "What does it actually mean to map a process?",
+      "paragraphs": [
+        "It means writing down the process as it really runs, not as the onboarding doc or the manager's mental model describes it. Pick one recurring piece of work, an invoice getting approved, a lead moving from enquiry to quote, a new hire getting set up, and walk it step by step with the two or three people who actually do it. You are capturing the as-is, the version with the copy-paste from three different spreadsheets and the email someone always has to chase, not the to-be version you wish existed. Automation built on the wish list breaks the first time reality does not match it."
+      ]
+    },
+    {
+      "heading": "What do you write down for each step?",
+      "paragraphs": [
+        "For every step, note five things: what triggers it, what goes in, what comes out, who owns it, and whether a decision or a judgement call happens there. A sticky note or a plain spreadsheet works fine for this; you do not need diagramming software for a process under twenty steps. The trigger and the owner matter as much as the task itself, because automation needs to know exactly when to start and who gets pulled in when something looks wrong.",
+        "Write down the exceptions too, the order that arrives with no PO number, the client who always replies by phone instead of email. Most processes look clean until you hit the cases that do not follow the happy path, and those exceptions are usually where an automated version quietly fails first."
+      ]
+    },
+    {
+      "heading": "How do you turn the map into automation candidates?",
+      "paragraphs": [
+        "Once the steps are on paper, look for the ones that are repetitive, rule-based and high-volume, the same input producing the same shape of output every time: pulling fields off an invoice, sorting an inbox by request type, drafting a first-pass reply to a common question. Those are strong candidates. Steps where someone is exercising judgement, approving a discount, choosing a vendor, deciding how to handle an angry client, are not, no matter how repetitive they feel to the person doing them. The map tells you which is which; without it you are guessing from a demo."
+      ]
+    },
+    {
+      "heading": "Why does skipping this step make automation worse, not faster?",
+      "paragraphs": [
+        "RAND Corporation interviewed 65 experienced AI and machine learning practitioners about why AI projects fail, and named a misunderstood or miscommunicated problem as the leading cause: a project built on a version of the work that does not match how the work actually happens. A process that has never been mapped is exactly that kind of misunderstood problem. Automating it does not fix the copy-paste, the chasing, the manual workaround, it just runs the mess at higher speed and makes it harder to see where the mess is. Map first, simplify what the map shows you, and only then decide what gets automated."
+      ]
+    }
+  ],
+  "takeaway": "This week, pick one recurring process and write down its real steps with the trigger, owner and output for each. Automate only the step that is repetitive and rule-based. Leave everything else, especially the exceptions, for a person until it is mapped too.",
+  "stat": {
+    "claim": "RAND Corporation interviewed experienced AI and machine learning practitioners across industry and academia about failed AI projects and found a misunderstood or miscommunicated problem, not the technology itself, was the most commonly reported cause, the same failure mode an unmapped process invites.",
+    "value": "65",
+    "source": "RAND Corporation",
+    "url": "https://www.rand.org/pubs/research_reports/RRA2680-1.html",
+    "year": "2024"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to map a workflow, in four steps",
+    "steps": [
+      { "label": "Write the real steps", "detail": "As it runs today, not the manual" },
+      { "label": "Note owner and trigger", "detail": "Who does it, and what starts it" },
+      { "label": "Mark the exceptions", "detail": "The workarounds people fall back on" },
+      { "label": "Flag automation candidates", "detail": "Repetitive, rule-based, no real judgement" }
+    ],
+    "caption": "The map is the plan. Automating before it exists just moves the mess faster."
+  },
+  "related": [
+    {
+      "label": "How agentic workflows work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long does it take to map a business process?",
+      "a": "For a single process under twenty steps, usually an hour or two with the two or three people who actually do the work. The time is in getting them in a room together, not in the mapping itself. A spreadsheet or sticky notes are enough; you do not need diagramming software to start."
+    },
+    {
+      "q": "Do I need special software to map a workflow?",
+      "a": "No. A shared spreadsheet or a whiteboard works for most small business processes. Diagramming tools help once a process has many branches or you want to share the map widely, but they are not the hard part. Talking to the people who do the work and writing down what actually happens is."
+    },
+    {
+      "q": "What is the difference between mapping a process and automating it?",
+      "a": "Mapping is documenting every real step, trigger, owner and exception in a process as it currently runs. Automating is deciding which of those mapped steps a tool can safely take over. Skipping straight to automation without mapping first means guessing at what the process actually is, which is how automation ends up running the current mess faster instead of fixing it."
+    }
+  ]
+}
