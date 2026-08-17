@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-17",
+      "type": "insight",
+      "slug": "how-to-get-value-from-ai-tools-you-already-pay-for",
+      "targetQuery": "how to get value from AI tools we already pay for"
+    },
+    {
       "date": "2026-08-16",
       "type": "field-note",
       "slug": "how-to-map-a-business-process",
@@ -677,6 +683,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-16-how-to-map-a-business-process.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-17",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "how-to-get-value-from-ai-tools-you-already-pay-for",
+      "critic": "branch preflight: session started on a detached HEAD one commit ahead of local main (the 2026-08-16 field note, stranded by the same detached-HEAD bug noted in prior runs); checked out main, confirmed fast-forward ancestry, merged the one commit in via --ff-only, no rewrite, no force-push, then pushed it to origin/main immediately (verified via git fetch, origin/main tip matched) rather than leaving it for this run's publish to carry, since a skip today would otherwise have left it stranded again; topic taken verbatim from the target-query backlog (tq-005, cluster activation, targetQuery 'how to get value from AI tools we already pay for', explicitly flagged in the backlog note as Traq's sharpest differentiator and previously unchecked); ran the required SERP check since evidence.checked was null: no page targets the exact query, the ranking content is generic enterprise Copilot-rollout and change-management writing aimed at large enterprises, none framed as auditing a tool already bought, confirming the backlog note that this is underserved; checked for overlap against the existing cornerstone guide how-to-get-your-team-using-ai (a from-zero adoption playbook) and kept this piece deliberately narrower: an audit-and-fix angle for a tool already purchased and already stalled, not a rollout playbook, cross-linked rather than duplicated; three stats: IBM's 2026 Global CEO Study (85% of employees have access to an AI tool, about 25% use it regularly), a February 2026 Gallup survey of 23,000+ US employees (46% of non-users and 36% of infrequent users cite preferring their current way of working as the reason they skip an available AI tool), and Slack's AI microlearning research (comfort using AI rising 43% to 72% after a structured hands-on session, reused from prior verified citations in this repo); WebFetch returned EGRESS_BLOCKED on ibm.com and gallup.com this run, so both stats were corroborated across multiple independent WebSearch result summaries (mindstudio.ai, pickaxe.co, amaiko.ai for the IBM figure; techxplore.com, clickondetroit.com for the Gallup figure) rather than a direct fetch, consistent with the egress-blocked domain list noted in the run instructions, and the citation URLs point to the primary source pages directly since their content is reflected identically across every corroborating source; no numbers invented; no em-dashes (checked programmatically for both em-dash and en-dash characters, none found); title 68 chars, metaDescription 170/200 chars; intro is 59 words and stands alone as a direct answer to the target query; five bodySections each phrased as a real question; one practical audit table; three FAQs; related links verified to exist (/insights/how-to-build-an-ai-strategy-for-a-small-business, /insights/how-to-measure-ai-roi-for-small-business, /services/ai-training all real files/pages); validated against the live articleSchema (Zod) via npx tsx, result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/target-queries.json updated: tq-005 status set to published, assignedTo set to /insights/how-to-get-value-from-ai-tools-you-already-pay-for, evidence filled in with the SERP check date, engine and winners; pipeline runway checked via report.mjs daily (Monday refill check): 63 topics queued (15.8 weeks), healthy, no refill needed; noted but did not fix a pre-existing data issue for a human to check later: topic pipeline entry tp-055 carries the exact same targetQuery ('how to build an AI strategy for a small business') as the already-published insight from 2026-08-10, so a future daily-note run hitting tp-055 will need to skip it as a duplicate rather than write it"
+    },
+    {
+      "date": "2026-08-17",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-get-value-from-ai-tools-you-already-pay-for.json"
       ],
       "build": "passed"
     }
