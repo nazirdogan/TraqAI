@@ -89,15 +89,15 @@
       "intent": "informational",
       "priority": 1,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for",
       "note": "Traq's sharpest differentiator and the one nobody else is targeting. Named by Nazir. Variants worth covering in the same guide: 'nobody uses the AI tools we bought', 'low Copilot adoption', 'we pay for ChatGPT and nobody uses it'.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-08-17",
+        "engine": "Google (via web search)",
         "traqPosition": null,
-        "winners": [],
-        "observation": "Underserved. Most content sells a new tool; almost nothing addresses activation of tools already bought."
+        "winners": ["chronus.com", "unily.com", "apty.ai", "whatfix.com", "worklytics.co", "amaiko.ai"],
+        "observation": "No page targets this exact query. The SERP is generic enterprise adoption-strategy content (Copilot rollout guides, change-management blogs) aimed at large enterprises, none framed as auditing a tool already bought. Confirms the note: underserved, most content sells a new tool rather than activating one already paid for."
       }
     },
     {
