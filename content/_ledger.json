@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-18",
+      "type": "field-note",
+      "slug": "google-sheets-canvas-for-small-business",
+      "targetQuery": "what is Google Sheets canvas and how can a small business use it"
+    },
+    {
       "date": "2026-08-17",
       "type": "insight",
       "slug": "how-to-get-value-from-ai-tools-you-already-pay-for",
@@ -701,6 +707,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/how-to-get-value-from-ai-tools-you-already-pay-for.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-18",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "google-sheets-canvas-for-small-business",
+      "critic": "branch preflight: session started on a detached HEAD three commits ahead of local main (the 2026-08-16 and 2026-08-17 posts, stranded by the same detached-HEAD bug noted in prior runs); checked out main, confirmed fast-forward ancestry, merged the three commits in via --ff-only, no rewrite, no force-push; a fetch of origin/main immediately after showed origin already at the same tip (0627626..037bdd8), confirming these commits had already reached origin in a prior run and were only ever stranded locally in this container, consistent with the 2026-08-14 entry's finding that publish.mjs's push itself reaches origin correctly; searched Anthropic, OpenAI, Microsoft and Google news from the last seven days against the 'does this change what an owner should do or what it costs them' test; considered and set aside Claude Sonnet 5's Sept 1 pricing reversion (developer-API, not SMB-facing, consistent with the 2026-08-14 entry's reasoning), DeepSeek's Aug 16 peak/off-peak API pricing (developer-facing, not a mainstream SMB tool), Intuit's QuickBooks 'Intuit Intelligence' update (published Aug 3-4, 2026, 14+ days before this run, outside the seven-day window), and Microsoft's 'Copilot in 30' CSP trial (launched Aug 1, 2026, also outside the window); selected Google's Sheets canvas instead: a Gemini feature that turns spreadsheet data into an interactive dashboard, kanban board or tracker from a plain-language prompt, with the Rapid Release rollout starting August 10, 2026 and the official Google Workspace Updates announcement published August 13, 2026, both within the seven-day window, and it directly changes what an existing Workspace subscriber can build without a developer or a separate paid tool; primary source is Google's own Workspace Updates post (workspaceupdates.googleblog.com/2026/08/use-google-sheets-canvas-to-visualize-data.html), which returned EGRESS_BLOCKED on direct WebFetch this run, so the rollout dates, plan eligibility (Business Standard, Business Plus, Enterprise Standard, Enterprise Plus, Google AI Pro and Ultra, excluding Business Starter and free accounts), the admin 'Gemini in Sheets' requirement, the web-only launch state, and the Scheduled Release start date of August 31 were corroborated across multiple independent secondary sources (jetstream.blog, basic-tutorials.com, androidauthority.com, testingcatalog.com, fonearena.com, techtimes.com) all citing identical figures, consistent with the bot-blocking pattern documented across many prior runs rather than an invented fact; no numeric stat invented, the stat field carries the dated rollout claim with the primary source URL instead of a fabricated number; dated the change explicitly in copy (August 10 and August 31, 2026, each stated twice), linked the primary source, and the piece argues what a small team should actually try and what it could let them cancel, rather than restating the announcement, per the three news-specific rules; no em-dashes or en-dashes (checked programmatically, none found); title 68/70 chars, metaDescription 180/200 chars; intro is 55 words and stands alone as a direct definition of the feature and its plan eligibility; four bodySections each phrased as a real question; three FAQs, revised once during self-critique to bring each answer closer to the 40-60 word target (was 26-38 words, now 38-51); flow diagram mirrors the four-step trial sequence already argued in body sections one, two and four (check plan, confirm admin access, open Ask Gemini, prompt for the view), no invented numbers; no image, skipped per the established rule against openly-licensed stock on a post naming a specific product feature; related links verified to exist (/insights/how-to-get-value-from-ai-tools-you-already-pay-for, /services/ai-implementation, both real files/pages); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json was reverted afterward since it is outside content/), result VALID; not a repeat of any ledger slug or targetQuery, checked via grep for sheet/canvas/dashboard terms across the ledger, none found; tagged news and tools; no fallback to the daily topic pipeline was needed since a genuine, dated, SMB-relevant story cleared the bar, so scripts/seo/topic-pipeline.json was left untouched"
+    },
+    {
+      "date": "2026-08-18",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-18-google-sheets-canvas-for-small-business.json"
       ],
       "build": "passed"
     }

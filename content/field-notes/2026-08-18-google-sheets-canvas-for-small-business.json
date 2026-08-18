@@ -1,0 +1,76 @@
+{
+  "slug": "google-sheets-canvas-for-small-business",
+  "title": "Google Sheets Canvas: What It Is and How to Use It | Traq Collective",
+  "h1": "Google Sheets canvas: what it is and how to use it",
+  "metaDescription": "Google rolled out Sheets canvas from August 10, 2026: turn spreadsheet data into a dashboard, tracker, or kanban board with a prompt, no code needed. Who gets it and how to try it.",
+  "targetQuery": "what is Google Sheets canvas and how can a small business use it",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "author": "Nazir Dogan",
+  "dek": "A real spreadsheet feature landed this week, not a roadmap slide.",
+  "intro": "Google Sheets canvas is a Gemini feature that turns spreadsheet data into an interactive dashboard, kanban board, or tracker from a plain-language prompt, with no formulas or code required. Rolling out from August 10, 2026, it ships to Business Standard, Business Plus, Enterprise, and Google AI Pro and Ultra accounts, not the entry-level Starter plan.",
+  "body": [
+    {
+      "heading": "What exactly is Sheets canvas?",
+      "paragraphs": [
+        "Sheets canvas is a read-write layer that sits on top of an existing spreadsheet. Open the Ask Gemini side panel in a sheet, select Create canvas, and describe what you want in plain language, a hiring tracker, a heat map of stock levels, a kanban board of open deals, and Gemini builds it from the data already in the sheet. It is not a static export: the canvas stays linked both ways, so editing a row in the spreadsheet updates the canvas view, and changes made in the canvas write back to the sheet."
+      ]
+    },
+    {
+      "heading": "Which Workspace plans get it, and when?",
+      "paragraphs": [
+        "Google began the rollout on August 10, 2026, to Rapid Release domains, with Scheduled Release domains starting August 31 and taking up to 15 additional days to reach everyone. It is included at no extra charge for Google Workspace Business Standard, Business Plus, Enterprise Standard and Enterprise Plus, and for Google AI Pro and Ultra subscribers. It is not available on Business Starter or a free personal account, and creating a canvas also needs an admin to have Gemini in Sheets and smart features turned on for the domain, a setting a fair number of business accounts leave off by default. It is web-only at launch, with no mobile date announced yet."
+      ]
+    },
+    {
+      "heading": "What does this actually replace for a small business?",
+      "paragraphs": [
+        "A lot of small teams already pay for a separate lightweight tool, a project board app, a small BI dashboard, a kanban add-on, purely to make a spreadsheet they already maintain easier to look at. Sheets canvas removes that extra step for the simple cases: a hiring pipeline, an inventory dashboard, a sales tracker, built straight from the sheet the team already updates, without commissioning a developer or adding another paid seat somewhere else. It will not replace a real application with workflow logic and permissions behind it, and per-user limits apply to how many canvases you can create and edit. For a single internal dashboard, it is genuinely a substitute worth testing before renewing a separate tool for the same job."
+      ]
+    },
+    {
+      "heading": "What should a small team try first?",
+      "paragraphs": [
+        "Pick one spreadsheet the team already updates regularly rather than a demo file, so you can judge the result against something real. Confirm the account is on an eligible plan and that an admin has Gemini in Sheets switched on, open that sheet, use Create canvas in the Ask Gemini panel, and describe the view you actually need. If it holds up against whatever tool you are paying for today to visualise the same data, that is a real signal to cancel the extra subscription, not just a novelty to show around the office once."
+      ]
+    }
+  ],
+  "takeaway": "Pick one spreadsheet your team already relies on, confirm Gemini in Sheets is enabled for your Workspace plan, and build one canvas from it this week before renewing any separate dashboard tool doing the same job.",
+  "stat": {
+    "claim": "Google Sheets canvas, a Gemini feature that turns spreadsheet data into interactive dashboards, kanban boards and trackers from a plain-language prompt, began rolling out to eligible Workspace and Google AI accounts.",
+    "value": "Rapid Release rollout started August 10, 2026",
+    "source": "Google Workspace Updates",
+    "url": "https://workspaceupdates.googleblog.com/2026/08/use-google-sheets-canvas-to-visualize-data.html",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "Trying Sheets canvas for the first time",
+    "steps": [
+      { "label": "Check your plan", "detail": "Business Standard/Plus, not Starter" },
+      { "label": "Confirm admin access", "detail": "Gemini in Sheets must be turned on" },
+      { "label": "Open Ask Gemini", "detail": "Select Create canvas in the side panel" },
+      { "label": "Prompt for your view", "detail": "Dashboard, tracker, or kanban board" }
+    ],
+    "caption": "Most teams stall on step one or two: a feature shipping is not the same as a plan covering it."
+  },
+  "related": [
+    { "label": "How to get value from AI tools you already pay for", "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for" },
+    { "label": "AI Implementation", "href": "/services/ai-implementation" }
+  ],
+  "faqs": [
+    {
+      "q": "Does Google Sheets canvas cost extra?",
+      "a": "No. It is included at no additional charge for Business Standard, Business Plus, Enterprise Standard and Enterprise Plus, and for Google AI Pro and Ultra subscribers, though per-user limits apply to how many canvases you can create and edit. It is not available on Business Starter or a free personal account."
+    },
+    {
+      "q": "Can I use Sheets canvas on my phone?",
+      "a": "Not yet. It is web-only at launch, opened from the Ask Gemini side panel inside Google Sheets on a desktop or laptop browser, and Google has not announced a date for the Sheets mobile apps to get it."
+    },
+    {
+      "q": "Why can't my team see Create canvas even though we are on Business Standard?",
+      "a": "Two likely causes: an admin has not turned on Gemini in Sheets and smart features for the domain, or the account sits on a Scheduled Release domain, where the rollout does not begin until August 31, 2026, and can take up to 15 more days to fully land."
+    }
+  ]
+}
