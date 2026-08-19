@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-19",
+      "type": "field-note",
+      "slug": "ai-strategy-on-a-small-budget",
+      "targetQuery": "AI strategy on a small budget"
+    },
+    {
       "date": "2026-08-18",
       "type": "field-note",
       "slug": "google-sheets-canvas-for-small-business",
@@ -725,6 +731,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-18-google-sheets-canvas-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-19",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "ai-strategy-on-a-small-budget",
+      "critic": "branch preflight: session started on a detached HEAD four commits ahead of local main (2026-08-15 through 2026-08-18 posts, stranded by the same detached-HEAD bug noted in every prior run's entry); checked out main, confirmed fast-forward ancestry, merged the four commits in via --ff-only, no rewrite, no force-push, then pushed to origin/main immediately (verified via git fetch: origin/main tip matched HEAD exactly, git log origin/main..HEAD empty) rather than deferring recovery to this run's own publish step, so the four days of posts are confirmed live; report.mjs daily returned tp-055 as today's topic ('how to build an AI strategy for a small business'), which the 2026-08-17 run's ledger entry had already flagged by name as a stale duplicate of the insight guide published 2026-08-10 at the identical targetQuery, so today's run is the 'future daily-note run' that entry warned would hit it; confirmed the duplication directly, then set tp-055 to status skipped in scripts/seo/topic-pipeline.json with a skipReason so the picker (which filters on status === 'queued') never re-serves it; re-ran report.mjs daily, which then returned tp-056 ('what belongs on a one-page AI strategy', query 'one page AI strategy'), checked it against the same insight guide and found it maps almost one-to-one onto that guide's already-published 'one-page AI strategy worksheet' table (same six fields: task, frequency, mistake severity, process change, metric, decision), so an honest field note at that query would paraphrase the table rather than add anything, and skipped it too with a skipReason rather than force a thin rewrite; re-ran report.mjs daily a third time, which returned tp-057 ('building an AI strategy without a budget', query 'AI strategy on a small budget'), checked it against every existing /insights guide and found no overlap, the parent strategy guide only touches budget in one FAQ line ('no dedicated budget needed'), so this is a genuine gap with something real to add; checked for a 24-hour override event (DeepSeek's Aug 16 peak/off-peak API pricing and Claude Sonnet 5's Sept 1 pricing reversion are both developer-API pricing, not SMB-facing, consistent with the reasoning in the 2026-08-14 and 2026-08-18 entries) so the pipeline topic stood; one stat, JPMorgan Chase Institute's transaction-data analysis that only 17.7% of US small businesses have paid for an AI tool (jpmorganchase.com/institute/all-topics/business-growth-and-entrepreneurship/understanding-ai-use-by-small-businesses), corroborated across independent secondary coverage (factoryjet.com, thestacc.com) all citing the identical figure and methodology (de-identified Chase Business Banking data, 2019 through 2025) after direct WebFetch returned EGRESS_BLOCKED on jpmorganchase.com this run, consistent with the domain-blocking pattern documented across many prior runs rather than an invented number; a second real, corroborated figure from Bluevine's 2026 Small Business AI Trends Report (942 owners surveyed, 33% spend nothing on AI tools) was found and verified but deliberately left out of the piece entirely, in prose and in the schema's single stat slot alike, to keep the piece anchored to one clean, confidently-sourced number rather than crowding in a second; no em-dashes (checked programmatically via grep for both em-dash and en-dash characters, none found); title 63/70 chars, metaDescription 153/200 chars; intro is 56 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs, 43-45 words each; flow diagram mirrors the four-step pilot sequence (pick one task, run it free, check the metric, pay for what earned it); self-critique caught that the diagram's first step detail ('frequent, and low risk if AI gets it wrong') was not actually argued anywhere in the body text as drafted, an invented-claim mistake the rules warn against directly, so body section two was revised to add the task-selection sentence ('pick something you do often... where an early mistake is easy to catch and fix') before re-validating, rather than shipping the mismatch; tried fetch-image.mjs with a concrete search term ('laptop and calculator on a small desk'), Openverse returned HTTP 403 (exit code 2), so published without an image per the normal-outcome rule; related links verified to exist (/insights/how-to-build-an-ai-strategy-for-a-small-business, /insights/how-to-get-value-from-ai-tools-you-already-pay-for, /services/ai-consulting, all real files/pages); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json was reverted afterward since it is outside content/), result VALID, re-validated after the diagram fix, still VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-055 and tp-056 set to skipped with reasons, tp-057 set to published with publishedAs set to /field-notes/ai-strategy-on-a-small-budget, all three staged alongside content/ so they commit with this run; pipeline runway checked via report.mjs daily: 61 topics queued (15.3 weeks) before this publish, healthy, no refill needed (refill is a Monday-only task in any case)"
+    },
+    {
+      "date": "2026-08-19",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-19-ai-strategy-on-a-small-budget.json"
       ],
       "build": "passed"
     }

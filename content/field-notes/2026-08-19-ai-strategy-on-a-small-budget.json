@@ -1,0 +1,77 @@
+{
+  "slug": "ai-strategy-on-a-small-budget",
+  "title": "How to Build an AI Strategy on a Small Budget | Traq Collective",
+  "h1": "How to build an AI strategy on a small budget",
+  "metaDescription": "You do not need a line item to start. Run your first pilot on tools you already pay for or free tiers, prove one task, then spend only on what earned it.",
+  "targetQuery": "AI strategy on a small budget",
+  "tags": ["adoption", "best-uses"],
+  "datePublished": "2026-08-19",
+  "dateModified": "2026-08-19",
+  "author": "Nazir Dogan",
+  "dek": "Most businesses running AI well right now are not paying for it.",
+  "intro": "An AI strategy on a small budget is a written plan that runs its first pilot entirely on free tiers or tools already paid for, judges one task against a real metric, and only adds a paid subscription once that task proves it saves real time. Money is rarely the actual constraint. A missing plan is.",
+  "body": [
+    {
+      "heading": "Does an AI strategy actually require a budget?",
+      "paragraphs": [
+        "No, and most small businesses using AI right now prove it by accident. JPMorgan Chase Institute tracked actual payments to AI services through de-identified small business banking transaction data from 2019 through 2025 and found that only 17.7% of US small businesses had paid for an AI tool at all. The rest are not sitting on the sidelines. Many are running ChatGPT, Claude, or Gemini's free tier, or using AI features already bundled into software they pay for anyway. If a strategy is a plan for what you are trying to do with AI and in what order, nothing about that plan requires a purchase order first. It requires knowing which task you are testing and how you will judge it."
+      ]
+    },
+    {
+      "heading": "What can you actually build with $0 to spend?",
+      "paragraphs": [
+        "More than most owners assume. The free tiers of ChatGPT, Claude, and Gemini are genuinely capable for drafting, summarizing, and first passes at repetitive writing, the kind of task most first pilots should be anyway. Pick something you do often, so there is enough real work to judge it fairly, and where an early mistake is easy to catch and fix, a first-draft email rather than a client contract. Beyond the standalone chat apps, check what is already sitting unused inside tools you pay for: Google Workspace, Microsoft 365, and most CRM and helpdesk platforms have shipped AI features into existing plans over the past year, features a team is often paying for without touching. Before adding a single new subscription, spend an afternoon checking what your current software already does. A zero-budget stack built from a free chat tool plus one feature you are already paying for and not using is a complete first pilot, not a placeholder for a real one."
+      ]
+    },
+    {
+      "heading": "When is it actually worth spending money?",
+      "paragraphs": [
+        "After a specific task has proven itself, not before. Run the pilot on the free tools above for a real window, 30 days is usually enough for something you do daily, and decide the metric before you start: minutes saved per task, items handled in a week, or an error rate you can sample and check. If the metric moves and the team keeps reaching for the tool without being told to, that is the signal to spend, and even then, spend on the one tool that earned it, upgrading a single seat or a single paid tier, not the whole stack at once. A budget built this way follows evidence instead of a vendor's roadmap, and it never buys a tool nobody has proven they will use."
+      ]
+    },
+    {
+      "heading": "What is the actual risk of staying at $0 too long?",
+      "paragraphs": [
+        "Hitting a real ceiling and not noticing. Free tiers cap out on context length, usage volume, or the newer models eventually, and a team that never checks whether it has outgrown the free plan just quietly gets worse results without knowing why. The fix is not to pre-pay against that risk. It is to check in at the same 30-day mark you set for the pilot: if the free tier is now the bottleneck on a task that has already proven its value, that is exactly the evidence that justifies the upgrade. Staying free by default is fine. Staying free out of habit, after a tool has clearly outgrown it, is the same mistake as overspending in the other direction."
+      ]
+    }
+  ],
+  "takeaway": "Pick one task, run it for 30 days entirely on a free AI tier or a feature you already pay for, decide your metric before you start, and only spend money on the one tool that proves it earned a seat.",
+  "stat": {
+    "claim": "Tracking actual small business payments to AI services through banking transaction data, rather than self-reported survey answers, found that the large majority of small businesses using AI have never paid for it.",
+    "value": "Only 17.7% of US small businesses have paid for an AI tool",
+    "source": "JPMorgan Chase Institute",
+    "url": "https://www.jpmorganchase.com/institute/all-topics/business-growth-and-entrepreneurship/understanding-ai-use-by-small-businesses",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "Building an AI strategy from $0",
+    "steps": [
+      { "label": "Pick one task", "detail": "Frequent, and low risk if AI gets it wrong" },
+      { "label": "Run it free", "detail": "A free tier or a feature you already pay for" },
+      { "label": "Check the metric", "detail": "Minutes saved or errors, decided in advance" },
+      { "label": "Pay for what earned it", "detail": "One tool, not the whole stack" }
+    ],
+    "caption": "Money enters the plan last, after a task has already proven itself."
+  },
+  "related": [
+    { "label": "How to build an AI strategy for a small business", "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business" },
+    { "label": "How to get value from AI tools you already pay for", "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for" },
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to buy any AI tool before running a first pilot?",
+      "a": "No. Free tiers of ChatGPT, Claude, or Gemini, plus AI features already bundled into software you pay for, are enough to test a real task for 30 days. Most businesses using AI successfully right now have never paid for a dedicated AI tool at all."
+    },
+    {
+      "q": "What is the first thing to check before adding a new AI subscription?",
+      "a": "Whether the tools you already pay for, your office suite, CRM, or helpdesk, have shipped an AI feature you have not turned on yet. A lot of small teams pay twice for the same capability without realizing the first one already included it."
+    },
+    {
+      "q": "How do I know when it is time to actually spend money on AI?",
+      "a": "When a specific task, tested for a real window against a metric you set in advance, keeps getting used by the team without being told to. Spend on that one tool. Do not pre-buy a stack on the assumption it will get used eventually."
+    }
+  ]
+}

@@ -508,7 +508,8 @@
       "workingTitle": "How a small business should actually build an AI strategy",
       "targetQuery": "how to build an AI strategy for a small business",
       "format": "how-to",
-      "status": "queued",
+      "status": "skipped",
+      "skipReason": "duplicate targetQuery, already published as insight guide /insights/how-to-build-an-ai-strategy-for-a-small-business on 2026-08-10",
       "publishedAs": null
     },
     {
@@ -517,7 +518,8 @@
       "workingTitle": "What belongs on a one-page AI strategy",
       "targetQuery": "one page AI strategy",
       "format": "how-to",
-      "status": "queued",
+      "status": "skipped",
+      "skipReason": "too close to the worksheet table already published in /insights/how-to-build-an-ai-strategy-for-a-small-business (same six fields: task, frequency, mistake severity, process change, metric, decision); an honest daily note on this query would paraphrase that table rather than add anything new",
       "publishedAs": null
     },
     {
@@ -526,8 +528,8 @@
       "workingTitle": "Building an AI strategy without a budget",
       "targetQuery": "AI strategy on a small budget",
       "format": "how-to",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/ai-strategy-on-a-small-budget"
     },
     {
       "id": "tp-058",
