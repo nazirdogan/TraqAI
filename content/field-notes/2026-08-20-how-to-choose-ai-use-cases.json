@@ -1,0 +1,101 @@
+{
+  "slug": "how-to-choose-ai-use-cases",
+  "title": "How to choose AI use cases that actually work | Traq Collective",
+  "h1": "How to choose AI use cases that actually work",
+  "metaDescription": "How to choose AI use cases: pick tasks with a clear input, a clear output, and a human reviewer. That is what separates a pilot that sticks from one that quietly dies.",
+  "targetQuery": "how to choose AI use cases",
+  "tags": [
+    "adoption",
+    "best-uses"
+  ],
+  "datePublished": "2026-08-20",
+  "dateModified": "2026-08-20",
+  "author": "Nazir Dogan",
+  "dek": "Most AI pilots do not fail because the model was weak. They fail because the task was wrong.",
+  "intro": "To choose an AI use case, look for a real pain point with a clear input, a clear output, and a human who reviews the result before it ships. Skip anything picked for novelty, anything with a vague brief, or anything with no one accountable for the output. The task matters more than the tool.",
+  "body": [
+    {
+      "heading": "Why do most AI pilots fail to deliver value?",
+      "paragraphs": [
+        "Not because the models are not good enough. MIT's Project NANDA reviewed over 300 enterprise generative AI initiatives in 2025 and found that 95 percent produced no measurable return, while a small minority extracted real, repeatable value. The researchers traced the gap to approach, not technology: the pilots that failed were picked for visibility or ambition, not for how well they fit a real, bounded piece of work.",
+        "The same pattern shows up at small business scale, just with lower stakes and shorter memories. A tool gets bought, someone runs a flashy demo on a task nobody actually does every day, the excitement fades in a week, and the licence sits unused. The fix is not a better model. It is a better first task."
+      ]
+    },
+    {
+      "heading": "What three traits should a first AI use case have?",
+      "paragraphs": [
+        "A use case worth trying has a clear input, a clear output, and a named person who reviews the result before it goes anywhere. Clear input means the AI is not guessing at what you want: a support ticket, a call transcript, a batch of invoices. Clear output means you know what good looks like before you start, so you can judge the result in seconds rather than debate it. A human reviewer means someone owns the final check, so a bad output gets caught instead of shipped.",
+        "Tasks that are text-heavy, repetitive, and low-risk to get wrong fit this shape well: drafting first-pass replies, summarising long threads, turning meeting notes into action items, organising a messy FAQ. Tasks that fail the test are usually the ones picked because they sound impressive: a fully autonomous customer-facing agent, a one-shot strategy document, anything where nobody can say in advance what a correct answer looks like."
+      ]
+    },
+    {
+      "heading": "How do you score competing use case ideas?",
+      "paragraphs": [
+        "When a team has five ideas and time for one, score each against three questions, not a gut feeling. Does it fix a real, named pain point, or did it just come up in a brainstorm? Does the task recur often enough that a fix compounds, rather than a one-off you will not repeat next month? Can someone realistically review the output in under a minute? An idea that answers yes to a real pain point but no to the other two is not ready yet; narrow it until it fits.",
+        "Strategic fit matters too, but only as a tiebreaker. If two ideas both clear the bar above, pick the one that supports whatever the business is already trying to do this quarter, whether that is cutting response time or freeing up a specific role's hours. Do not let strategic fit alone justify a vague, hard-to-review task. That is how FOMO gets dressed up as strategy."
+      ]
+    },
+    {
+      "heading": "What does a badly chosen use case look like next to a good one?",
+      "paragraphs": [
+        "A poorly chosen use case: 'use AI to improve customer experience.' There is no clear input, no defined output, and no one checking the result, so nobody can say a month later whether it worked. A well chosen use case: 'draft the first reply to every support ticket tagged billing, using the last three replies to similar tickets as the input, with the support lead reviewing every draft before it sends.' The second version can be built this week, measured by Friday, and either kept or dropped on real evidence.",
+        "Notice the second one is smaller and less exciting to describe in a meeting. That is normal. The point of a first use case is not to impress anyone, it is to prove the pattern works on your own data before you spend more time or money widening it."
+      ]
+    }
+  ],
+  "takeaway": "Before you try another AI tool, write down one task with a clear input, a clear output, and a named reviewer. If you cannot fill in all three, the task is not ready, and no model will fix that for you.",
+  "stat": {
+    "claim": "Most enterprise generative AI pilots never produce a measurable return, and the researchers trace the gap to how the pilot was chosen and run, not to model quality.",
+    "value": "95%",
+    "source": "MIT Project NANDA, The GenAI Divide: State of AI in Business 2025",
+    "url": "https://nanda.media.mit.edu/ai_report_2025.pdf",
+    "year": "2025"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to choose an AI use case, in four steps",
+    "steps": [
+      {
+        "label": "List the pain points",
+        "detail": "Where staff repeat the same task daily"
+      },
+      {
+        "label": "Check input and output",
+        "detail": "Vague in, vague out rarely works"
+      },
+      {
+        "label": "Add a human reviewer",
+        "detail": "Someone checks it before it ships"
+      },
+      {
+        "label": "Pick one, not five",
+        "detail": "Test it, then scale what works"
+      }
+    ],
+    "caption": "The best use case is boring and specific, not exciting and vague."
+  },
+  "related": [
+    {
+      "label": "How to build an AI strategy for a small business",
+      "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What makes an AI use case a good starting point?",
+      "a": "A good starting use case has a clear input (a specific document or message type), a clear output (you know what a correct answer looks like before you start), and a named person who reviews the result before it ships. Text-heavy, repetitive, low-risk tasks usually fit this shape best."
+    },
+    {
+      "q": "How many AI use cases should a small business start with?",
+      "a": "One. Pick a single task that meets the clear input, clear output, and reviewer test, run it for a few weeks, and measure whether it actually saves time. Widen to a second task only once the first one is proven, not before."
+    },
+    {
+      "q": "Why do most AI pilots fail even with good tools?",
+      "a": "Research from MIT's Project NANDA found 95 percent of enterprise generative AI pilots in 2025 produced no measurable return, and traced the failure to how the pilot was chosen and run rather than to the underlying model. Picking a vague or unreviewable task is the most common mistake."
+    }
+  ]
+}

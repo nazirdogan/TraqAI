@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-20",
+      "type": "field-note",
+      "slug": "how-to-choose-ai-use-cases",
+      "targetQuery": "how to choose AI use cases"
+    },
+    {
       "date": "2026-08-19",
       "type": "field-note",
       "slug": "ai-strategy-on-a-small-budget",
@@ -749,6 +755,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-19-ai-strategy-on-a-small-budget.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-20",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-20-how-to-choose-ai-use-cases.json"
       ],
       "build": "passed"
     }
