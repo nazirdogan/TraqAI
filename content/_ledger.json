@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-21",
+      "type": "field-note",
+      "slug": "chatgpt-computer-history-privacy-for-small-business",
+      "targetQuery": "should a small business use ChatGPT's Computer History feature"
+    },
+    {
       "date": "2026-08-20",
       "type": "field-note",
       "slug": "how-to-choose-ai-use-cases",
@@ -765,6 +771,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-20-how-to-choose-ai-use-cases.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-21",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "chatgpt-computer-history-privacy-for-small-business",
+      "critic": "branch preflight: session started on a detached HEAD six commits ahead of local main (2026-08-15 through 2026-08-20 posts, stranded by the same detached-HEAD bug noted in every prior run's entry); checked out main, confirmed fast-forward ancestry, merged the six commits in via --ff-only, no rewrite, no force-push; a fetch of origin/main immediately after (before this run's own publish) showed origin already at the same tip, confirming these six days of posts had already reached origin in prior runs and were only ever stranded locally in this container, consistent with the finding in the 2026-08-14, 2026-08-17, 2026-08-18 and 2026-08-19 entries that publish.mjs's push itself reaches origin correctly and no post has actually been lost, only the local branch ref goes stale on a fresh detached-HEAD checkout; searched Anthropic, OpenAI, Microsoft and Google news from the last seven days against the 'does this change what an owner should do or what it costs them' test; considered and set aside Anthropic's Q2 2026 earnings and first operating profit (investor news, not an SMB action item), Google Gemini crossing 1 billion MAU (a milestone, not a change to what a subscriber can do or pay), Grok 4.6's launch (developer-facing model competition, not a mainstream SMB tool), Notion's Custom Agent meeting-note triggers (shipped July 31, 2026, 21 days before this run, outside the seven-day window), and Microsoft's Business Standard/Premium Copilot bundle pricing (took effect July 1, 2026, well outside the window); selected OpenAI's Computer History feature for the ChatGPT Mac desktop app instead: shipped August 13, 2026 (8 days before publish, the launch itself sits just outside a strict 7-day window but the privacy warnings and independent security analysis it triggered are dated August 14 through 19, 2026, squarely inside the window, and the feature only became a live decision for a small business once those risk details surfaced, so the news peg used in the piece is the flagged privacy tradeoff, not the bare launch date), it is limited specifically to ChatGPT Pro, Business and Enterprise plans (Traq's own SMB readers' paid tier, not Free or Plus), and it directly creates a real governance decision (whether to let a team member opt in, and on which apps) rather than being a minor feature nobody needs to act on; primary source is OpenAI's own documentation page (learn.chatgpt.com/docs/customization/computer-history), which returned EGRESS_BLOCKED on direct WebFetch this run, so the launch date, plan eligibility, off-by-default and opt-in mechanics, the 48-hour raw-event retention window, the unencrypted local memory files, and OpenAI's own prompt-injection warning were corroborated across many independent secondary sources citing identical figures (techrepublic.com, digitaltrends.com, cybernews.com, mlq.ai, alphasignal.ai, helpnetsecurity.com, thenextweb.com, howdoiuseai.com, yoopya.com, itechpost.com, 9to5mac.com, theregister.com, slashdot.org, futurism.com, inc.com, biggo.com), consistent with the bot-blocking pattern documented across many prior runs rather than an invented fact; investigated and ruled out a red-herring lead (a Seeking Alpha headline suggesting OpenAI had disabled the feature over a bug) by checking further, which showed that story conflated a 2023 ChatGPT history bug with the 2026 Computer History feature and the current feature has not been disabled, so it was correctly left out of the piece; no numbers invented, the one stat cites the real, resolvable 48-hour retention figure with OpenAI's own docs page as the source url; no em-dashes or en-dashes (checked programmatically via node regex on the raw file, none found); title 62/70 chars, metaDescription 185/200 chars; intro is 50 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs at 46, 50 and 55 words; no diagram, since this is a governance-decision piece with no genuine ordered sequence and no before/after with real numbers on both sides, forcing one would have invented structure the content does not have; no image, skipped per the established rule against openly-licensed stock on a post naming a specific paid product feature; related links verified to exist (/insights/ai-acceptable-use-policy-for-small-business, /services/ai-consulting, both real files/pages); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json was reverted afterward since it is outside content/), result VALID; not a repeat of any ledger slug or targetQuery; tagged news and tools; no fallback to the daily topic pipeline was needed since a genuine, dated, SMB-relevant story cleared the bar, so scripts/seo/topic-pipeline.json was left untouched"
+    },
+    {
+      "date": "2026-08-21",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-21-chatgpt-computer-history-privacy-for-small-business.json"
       ],
       "build": "passed"
     }

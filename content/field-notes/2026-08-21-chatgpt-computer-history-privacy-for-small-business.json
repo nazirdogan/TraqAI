@@ -1,0 +1,74 @@
+{
+  "slug": "chatgpt-computer-history-privacy-for-small-business",
+  "title": "ChatGPT Computer History: turn it on or not? | Traq Collective",
+  "h1": "Should your business turn on ChatGPT's Computer History feature?",
+  "metaDescription": "ChatGPT's Computer History feature tracks Mac activity to build AI memory. Live since August 13, 2026 on Business and Enterprise plans. Here is how to decide if your team should use it.",
+  "targetQuery": "should a small business use ChatGPT's Computer History feature",
+  "tags": [
+    "news",
+    "tools"
+  ],
+  "datePublished": "2026-08-21",
+  "dateModified": "2026-08-21",
+  "author": "Nazir Dogan",
+  "dek": "OpenAI's new opt-in feature builds an AI memory of your Mac activity. Here is the real tradeoff before anyone on your team switches it on.",
+  "intro": "A small business should treat ChatGPT's Computer History as opt-in with real risk, not a default to switch on for the team. Live since August 13, 2026 on Business and Enterprise plans, it tracks Mac activity to build AI memory, but the files it creates sit unencrypted on the device.",
+  "body": [
+    {
+      "heading": "What is ChatGPT's Computer History feature?",
+      "paragraphs": [
+        "OpenAI shipped Computer History inside the ChatGPT desktop app for Mac on August 13, 2026. It builds a searchable timeline of what a person does across the apps and websites they choose to include, using macOS accessibility features to capture clicks, typing, keyboard shortcuts and app switching. It does not capture screenshots, audio or video. The feature is off by default, and it is limited to ChatGPT Pro, Business and Enterprise plans. It is not yet available in the EEA, UK or Switzerland."
+      ]
+    },
+    {
+      "heading": "Why does this land specifically on Business and Enterprise plans?",
+      "paragraphs": [
+        "This is not a consumer novelty. OpenAI built Computer History to give ChatGPT and Codex the kind of ongoing context a real colleague would have: what someone was working on yesterday, which project they are mid-way through, what they usually do after a certain kind of meeting. That is a genuine productivity idea for a team that already runs its work through ChatGPT Business seats. It is also the reason the feature warrants a real decision rather than a shrug: it is aimed at exactly the accounts that hold client work, not personal chat."
+      ]
+    },
+    {
+      "heading": "What privacy risk does OpenAI itself flag?",
+      "paragraphs": [
+        "OpenAI's own documentation is direct about the tradeoff. Raw interaction event files are deleted from the Mac after 48 hours, but the AI-generated memory summaries built from them are saved locally as plain text and are not encrypted. OpenAI states outright that other programs running as the same macOS user may be able to read those files. The feature also raises the risk of prompt injection, since instructions hidden in a website or an app that Computer History is watching could end up inside ChatGPT's context without anyone typing them."
+      ]
+    },
+    {
+      "heading": "How should a small business decide whether to allow it?",
+      "paragraphs": [
+        "Treat this the way you would treat any new access request, not as a checkbox in someone's personal settings. If a team member wants to try it, have them include only apps and sites with nothing sensitive in them at first: project boards and drafting tools, not email, client files, banking, or HR systems. Because it is off by default, nobody ends up on it by accident, but that also means it needs a deliberate decision and a written note in your AI use policy about which apps are in bounds, not silence until someone asks after the fact."
+      ]
+    }
+  ],
+  "takeaway": "If someone on your team wants to try Computer History, write down which apps they are allowed to include before they turn it on, exclude anything with client or financial data, and revisit in two weeks to see if the memory feature earned the exposure.",
+  "stat": {
+    "claim": "OpenAI deletes the raw interaction event files Computer History records after this window, though the AI-generated memory summaries it builds from them stay on the Mac, unencrypted, until a person clears them.",
+    "value": "48 hours",
+    "source": "OpenAI, ChatGPT Learn: Computer History",
+    "url": "https://learn.chatgpt.com/docs/customization/computer-history",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "AI Acceptable Use Policy for Small Business",
+      "href": "/insights/ai-acceptable-use-policy-for-small-business"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is ChatGPT's Computer History available on the Free or Plus plan?",
+      "a": "No. Since its August 13, 2026 launch, Computer History has been limited to ChatGPT Pro, Business and Enterprise plans on the Mac desktop app. Free and Plus users do not have access, and the feature is not yet available in the EEA, UK or Switzerland either."
+    },
+    {
+      "q": "Does Computer History record screenshots, audio or video?",
+      "a": "No. OpenAI says it only captures interaction events exposed through macOS accessibility features, things like clicks, typing, keyboard shortcuts and switching between apps. It explicitly does not capture screen images, audio or video content, so it is closer to an activity log than a recording of what was on screen."
+    },
+    {
+      "q": "Is Computer History turned on automatically?",
+      "a": "No, it is off by default and each person has to opt in individually inside ChatGPT's settings. During setup, they choose exactly which apps and websites are allowed to feed the feature, so a business only needs a policy for the people who actively decide to turn it on, not for every seat by default."
+    }
+  ]
+}
