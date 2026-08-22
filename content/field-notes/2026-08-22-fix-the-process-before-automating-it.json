@@ -1,0 +1,91 @@
+{
+  "slug": "fix-the-process-before-automating-it",
+  "title": "Fix the process before automating it | Traq Collective",
+  "h1": "Fix the process before you automate it",
+  "metaDescription": "Fixing a process before automating it means cutting the wasted steps and approvals first. AI runs whatever process you give it, flaws included, at far higher speed.",
+  "targetQuery": "fix the process before automating it",
+  "tags": ["best-uses", "adoption"],
+  "datePublished": "2026-08-22",
+  "dateModified": "2026-08-22",
+  "author": "Nazir Dogan",
+  "dek": "AI does not fix a bad process. It runs it faster, mistakes included.",
+  "intro": "Fix the process before automating it means finding and removing the wasted steps, unnecessary approvals and manual workarounds in a task before you point AI at it. AI executes whatever process you give it, including its flaws, at far higher speed and volume, so a messy process automated is a messy process running faster, not a better one.",
+  "body": [
+    {
+      "heading": "Why does adding AI to a broken process make things worse?",
+      "paragraphs": [
+        "Because AI does not judge whether a step is necessary, it just runs it. If a task has three redundant approvals, two people copying data between systems by hand, and a step that only exists because someone left the company in 2019, AI will faithfully execute all of it, just faster and at higher volume than a person ever could. Speed does not fix a bad design. It just means the bad design now produces its output, and its errors, at machine pace.",
+        "This is not a new problem AI invented. Harvard Business Review made the same argument in 1990, before automation meant software at all: \"It is time to stop paving the cow paths. Instead of embedding outdated processes in silicon and software, we should obliterate them and start over.\" AI changes what is technically possible to automate. It does not change the order of operations: fix the process, then automate what is left."
+      ]
+    },
+    {
+      "heading": "What did fixing the process actually look like, before AI existed?",
+      "paragraphs": [
+        "Ford's accounts payable department is the case Hammer used to make the point, and the numbers are worth knowing because they show the size of the gap between automating and fixing. Ford ran its invoice-matching process with roughly 500 clerks checking purchase orders, receiving documents and invoices against each other by hand across 15 steps, using 5 separate documents, and taking about 5 days per invoice. Mazda ran the equivalent process, handling comparable volume, with about 100 people.",
+        "Ford's first instinct was to speed up its existing process with better systems. The fix that actually worked was different: cut the process to 3 steps and 1 document, so a receiving clerk could clear most invoices on the spot without a paper trail to reconcile at all. Headcount dropped from 500 to about 125, a 75 percent reduction, and processing time fell from roughly 5 days to 1. The technology helped. The redesign is what produced the result."
+      ]
+    },
+    {
+      "heading": "Does this still hold true now that the automation is AI?",
+      "paragraphs": [
+        "It holds more, not less, because AI raises the stakes on getting the order right. Deloitte's 2026 Global Human Capital Trends research found that organizations that redesign work and workflows around AI, rather than layering AI on top of the process they already had, are about twice as likely to exceed their own AI ROI expectations. The gap is not the model. It is whether anyone touched the process the model was asked to run before turning it on.",
+        "A small business feels this at a smaller scale but the same shape: an AI drafting client replies on top of an inbox with no triage, three inboxes for one request type, and no agreed answer for the common question will draft confident, fast, wrong replies. The AI is not the problem. The undesigned process feeding it is."
+      ]
+    },
+    {
+      "heading": "What should a small business actually do before turning on an AI tool?",
+      "paragraphs": [
+        "Pick the one task you are about to hand to AI and write down its real steps, the ones people actually follow, not the version in the onboarding doc. Then ask three questions of every step: does this need to happen at all, does it need a person, and does it need to happen in this order. Cut what fails the first test, simplify what fails the second, and only then decide what AI should run.",
+        "This takes an hour for most single-owner tasks, longer for anything that crosses teams or needs sign-off from more than one person. Either way, do it before the AI tool, not after. Automating the fixed version of a process is a project. Automating the broken version and fixing it later is two projects, and the second one is harder because now people trust the automated output less."
+      ]
+    }
+  ],
+  "takeaway": "Before you turn on an AI tool for a task, spend an hour listing its real steps, approvals and handoffs, and cut whatever does not need to be there. Automate what is left, not what you started with.",
+  "stat": {
+    "claim": "Organizations that redesign work and workflows around AI, rather than adding AI on top of the process they already had, are about twice as likely to exceed their own AI ROI expectations.",
+    "value": "2x",
+    "source": "Deloitte 2026 Global Human Capital Trends",
+    "url": "https://www.deloitte.com/us/en/about/press-room/work-design-essential-to-ai-roi.html",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "before-after",
+    "title": "Ford's accounts payable process, fixed first, then automated",
+    "rows": [
+      { "label": "Steps in the process", "before": 15, "after": 3, "as": "bar" },
+      { "label": "Processing time", "before": 5, "after": 1, "unit": "days", "as": "bar" },
+      { "label": "Clerks needed", "before": 500, "after": 125, "as": "bar" }
+    ],
+    "beforeVerdict": "Automating this just runs the mess faster",
+    "afterVerdict": "Fixed first, then automation compounds it",
+    "caption": "The technology came second. Cutting 12 unneeded steps came first, and did most of the work."
+  },
+  "related": [
+    {
+      "label": "How agentic workflows actually work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "How to map a business process before you automate it",
+      "href": "/field-notes/how-to-map-a-business-process"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between automating a process and fixing it first?",
+      "a": "Automating a process means using a tool, often AI, to execute the existing steps faster. Fixing it first means removing the wasted steps, redundant approvals and manual workarounds before any tool touches it. Skip the fix and the tool just runs the same mess at higher speed and volume."
+    },
+    {
+      "q": "How long does fixing a process take before I can automate it?",
+      "a": "For most recurring, single-owner tasks, an hour of listing the real steps and cutting what does not need to be there is enough to start. Cross-team or approval-heavy processes take longer, but even a rough cut before automating beats skipping it entirely."
+    },
+    {
+      "q": "Does this only apply to AI, or to automation generally?",
+      "a": "It applies to any automation, but AI raises the stakes because it can act on more volume, faster, and with less visible friction than older rule-based tools. A flawed process compounds faster once AI, not a slower script, is the one running it."
+    }
+  ]
+}

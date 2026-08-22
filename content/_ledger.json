@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-22",
+      "type": "field-note",
+      "slug": "fix-the-process-before-automating-it",
+      "targetQuery": "fix the process before automating it"
+    },
+    {
       "date": "2026-08-21",
       "type": "field-note",
       "slug": "chatgpt-computer-history-privacy-for-small-business",
@@ -789,6 +795,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-21-chatgpt-computer-history-privacy-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-22",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "fix-the-process-before-automating-it",
+      "critic": "branch preflight: session started on a detached HEAD at the exact sha origin/main was already at (78d1e32); checked out main, confirmed --is-ancestor true, fast-forwarded via --ff-only, no rewrite, no force-push, confirmed HEAD back on refs/heads/main before continuing, consistent with every prior run's finding that publish.mjs's push reaches origin correctly and only the local branch ref goes stale on a fresh detached-HEAD checkout; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned daily-note; took today's topic verbatim from the pipeline (tp-067, cluster process-first, format opinion, targetQuery 'fix the process before automating it'), no override since nothing more urgent broke in the last 24 hours; checked it against how-to-map-a-business-process (2026-08-16, already in the ledger) and confirmed this is a distinct angle, that note is a documentation method for writing down a process, this one is the argument that inefficiencies must actually be removed before AI is applied, and cross-linked the two rather than paraphrasing; researched the historical Michael Hammer 1990 HBR case (hbr.org/1990/07/reengineering-work-dont-automate-obliterate, live and resolvable) for the classic proof that automating a broken process just runs the mess faster, Ford's accounts payable reengineering (500 clerks to about 125, a 75 percent cut, 15 steps to 3, 5 days to 1), figures corroborated across multiple independent secondary sources (bprford.wordpress.com, tallyfy.com, managementconsulted.com and others) all citing the same numbers back to the original HBR article; tied the historical case to the current AI era with Deloitte's 2026 Global Human Capital Trends finding that organizations which redesign work and workflows around AI, rather than layering AI on the process they already had, are about twice as likely to exceed their own AI ROI expectations, sourced to deloitte.com/us/en/about/press-room/work-design-essential-to-ai-roi.html; WebFetch returned EGRESS_BLOCKED on every domain tried this run (sloanreview.mit.edu, deloitte.com, hrexecutive.com, prnewswire.com, libertify.com), so the Deloitte figure was corroborated instead across five independently-phrased WebSearch queries that each independently surfaced the same specific press-room URL and the same '2x'/'twice as likely' figure, consistent with the bot-blocking pattern documented in every prior run rather than an invented number; no other numbers invented; no em-dashes (checked programmatically via grep, none found); title 54/70 chars, metaDescription 164/200 chars; intro is 58 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; used a before-after diagram (steps 15 to 3, processing time 5 to 1 day, clerks 500 to 125, all bar rows since above 8 or a duration) since the post's entire argument is a before/after contrast and every number in it is already argued in body section two with a real cited source, not invented to fill the diagram; tried fetch-image.mjs with a concrete subject ('stack of paper invoices on an office desk'), Openverse returned HTTP 403 (exit code 2), published without an image per the normal-outcome rule; related links verified to exist (/insights/how-agentic-workflows-work, /services/ai-implementation, /field-notes/how-to-map-a-business-process, all real files/pages); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json was reverted afterward since it is outside content/); result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-067 status set to published, publishedAs set to /field-notes/fix-the-process-before-automating-it"
+    },
+    {
+      "date": "2026-08-22",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-22-fix-the-process-before-automating-it.json"
       ],
       "build": "passed"
     }
