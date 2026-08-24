@@ -107,15 +107,15 @@
       "intent": "commercial",
       "priority": 2,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/corporate-ai-training-cost-uae",
       "note": "Pricing pages get cited disproportionately because AI answers want concrete numbers. Publish real ranges even if banded. Refusing to name a number is why vendors get skipped in AI answers.",
       "evidence": {
-        "checked": "2026-07-31",
-        "engine": "Google (US)",
+        "checked": "2026-08-24",
+        "engine": "Google (US), re-checked via web search",
         "traqPosition": null,
         "winners": ["parikshitkhanna.com", "sawankr.com"],
-        "observation": "The pages that surfaced published explicit AED bands per format. Neither is a strong brand. Specificity alone won the citation."
+        "observation": "Same two pages still surface three-plus weeks later. sawankr.com still publishes explicit AED price bands per workshop format (half-day, full-day, multi-day); parikshitkhanna.com remains quote-only with no public figure. Matched the winning format by leading the new guide with the same real AED bands, sourced and cited rather than invented."
       }
     },
     {

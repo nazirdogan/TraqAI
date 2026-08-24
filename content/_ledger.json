@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-24",
+      "type": "insight",
+      "slug": "corporate-ai-training-cost-uae",
+      "targetQuery": "corporate AI training cost UAE"
+    },
+    {
       "date": "2026-08-22",
       "type": "field-note",
       "slug": "fix-the-process-before-automating-it",
@@ -813,6 +819,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-22-fix-the-process-before-automating-it.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-24",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "corporate-ai-training-cost-uae",
+      "critic": "branch preflight: git symbolic-ref -q HEAD printed refs/heads/main immediately, no detached HEAD this run, so no checkout/ff-only was needed; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned weekly-guide; ran scripts/seo/report.mjs next, which returned the highest-priority open backlog entry (tq-006, cluster training, intent commercial, targetQuery 'corporate AI training cost UAE' verbatim), so the topic was not chosen, only accepted; evidence.checked on tq-006 was already 2026-07-31 (not null), so a fresh SERP check was not mandatory per the rules, but re-verified anyway since three-plus weeks had passed: the same two pages (parikshitkhanna.com, sawankr.com) still surface, and sawankr.com is still the one publishing explicit AED price bands per the SERP's original observation that specificity alone won the citation, so matched that winning format by leading the guide with real AED price bands rather than vague ranges; researched via a background agent plus my own WebSearch and WebFetch: WebFetch returned EGRESS_BLOCKED on sawankr.com and zabeelinstitute.ae this run (consistent with the standing bot-blocking pattern in this environment), so all figures are corroborated across independent WebSearch result snippets that quote the source pages directly, each checked with at least two independently-phrased queries before use; sawankr.com's own published workshop bands (half-day AED 8,000-15,000, full-day AED 15,000-30,000, multi-day AED 25,000-100,000) came back identical across three separate queries; parikshitkhanna.com publishes no findable AED figure at all (quote-only via email per a third-party pricing writeup), so no number was attributed to it and it is only referenced narratively, never with an invented figure; individual/open-enrollment AI course fees in Dubai (AED 250-20,000, averaging ~4,889) sourced to Coursetakers.ae, corroborated against Zabeel Institute and Laimoon.com's overlapping ranges; a general (non-AI) Dubai management/leadership training benchmark (AED 3,500 to 25,000+) sourced to BMC Training, used only as a floor comparison, not presented as an AI-specific figure; Dubai's free 'One Million Prompters' programme (4 modules, accredited certificate, open to private-sector employees) sourced to Gulf News, corroborated across gulfnews.com, dubaiofw.com, thelawreporters.com, richproperty.ae, middleeastainews.com and socialkandura.com all describing the same programme; deliberately dropped a secondary claim about an 80,000-employee UAE federal Agentic AI training rollout since it could not be traced to one authoritative primary source (only secondary aggregator mentions), consistent with the no-invented-number rule; no em-dashes (checked programmatically via grep, none found); title 55/70 chars, metaDescription 159/200 chars; intro is 54 words and stands alone as a direct AED-banded answer to the target query; five bodySections each phrased as a real question; one price-band table with five rows, matching the SERP's winning format; four stats, each with a real resolvable url; three FAQs; related links verified to exist (/services/ai-training has a page.tsx, /insights/how-to-hire-an-ai-trainer-in-dubai is a real content/insights file, /insights/ai-training-for-teams-uae is a real cornerstone slug in src/lib/content/insights/index.ts); checked against the existing cornerstone guide ai-training-for-teams-uae, which has one cost-related FAQ that deliberately avoids naming a number in favor of a scoping call, so this guide is complementary rather than a paraphrase, being the one that actually publishes the market price bands the SERP note says AI answers reward, and the two guides cross-link; validated against the live articleSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json reverted afterward since it is outside content/); result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/target-queries.json updated: tq-006 status set to published, assignedTo set to /insights/corporate-ai-training-cost-uae, evidence refreshed with today's re-check date and the same winners/observation since the SERP had not changed"
+    },
+    {
+      "date": "2026-08-24",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/corporate-ai-training-cost-uae.json"
       ],
       "build": "passed"
     }
