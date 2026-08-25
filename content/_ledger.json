@@ -216,6 +216,12 @@
       "slug": "microsoft-365-copilot-pricing-for-small-business",
       "targetQuery": "how much does microsoft 365 copilot cost for a small business",
       "date": "2026-07-16"
+    },
+    {
+      "type": "field-note",
+      "slug": "ask-gemini-in-google-chat-for-small-business",
+      "targetQuery": "what is Ask Gemini in Google Chat",
+      "date": "2026-08-25"
     }
   ],
   "runs": [
@@ -837,6 +843,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/corporate-ai-training-cost-uae.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-25",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "ask-gemini-in-google-chat-for-small-business",
+      "critic": "branch preflight: session started on a detached HEAD at the exact sha origin/main was already at (ac0e7ab); checked out main, confirmed --is-ancestor true, fast-forwarded via --ff-only, no rewrite, no force-push, confirmed HEAD back on refs/heads/main before continuing, consistent with every prior run finding that publish.mjs push reaches origin correctly and only the local branch ref goes stale on a fresh detached-HEAD checkout; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned news-note (Tuesday); searched Anthropic, OpenAI, Microsoft and Google news from the last seven days against the does-this-change-what-an-owner-should-do-or-pay test; considered and set aside Anthropic Q2 2026 earnings and first operating profit (investor news, not an SMB action item), OpenAI S-1/IPO prep and GPT-5.6-Cyber (developer/security-researcher facing, not a mainstream SMB tool), Google AI leadership reshuffle (internal org news, no reader action), and Microsoft Copilot super-app merger plus Copilot Podcasts/Labs cuts (real but the concrete pricing and packaging changes behind it took effect July 1, 2026, well outside the seven-day window, and the merger itself had no confirmed date inside the window); selected Google retiring the Gemini side panel in Google Chat and replacing it with Ask Gemini instead: rollout begins August 26, 2026 (dated, one day after this run, with the announcement and independent coverage landing August 19 to 21, 2026, squarely inside the seven-day window), it is scoped to the exact paid tiers Traq SMB readers are on (Business Standard, Business Plus, Enterprise Standard, Enterprise Plus), and it creates a real, time-boxed action item rather than a feature nobody needs to act on: old side-panel Gemini conversation history does not migrate automatically, so a team that relied on it for summaries or file lookups needs to export before the old panel is retired on their account; primary source is Google own announcement (workspaceupdates.googleblog.com/2026/08/ask-gemini-in-chat.html), which returned EGRESS_BLOCKED on direct WebFetch this run (also tried and blocked: neowin.net, cloudbooklet.com, mezosoft.net, phandroid.com), so the rollout date, the 15-day gradual window, the English-only initial scope, the four eligible plan tiers, the non-migrating conversation history, the Data Export/Google Takeout mechanics and the Gems limitation were all corroborated across multiple independently-phrased WebSearch queries returning identical figures from independent outlets (Neowin, MezoSoftDotNet, Cloudbooklet, Phandroid, YouMobile, Releasebot), consistent with the bot-blocking pattern documented in every prior run rather than an invented fact; no numeric stat invented, the stat field cites the real, sourced 15-day gradual-rollout window with the primary Google announcement URL; no em-dashes or en-dashes (checked programmatically via node string search on the raw file, none found); title 67/70 chars, metaDescription 157/200 chars; intro is 56 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs, revised the second FAQ once during self-critique from 35 to 53 words to bring it inside the 40-60 word target; flow diagram (check plan, check language, export old notes, try the new bar) mirrors the four actions argued explicitly in body sections two, three and four, no invented numbers; no image, skipped per the established rule against openly-licensed stock on a post naming a specific product feature (Google Chat/Gemini), consistent with prior product-specific entries; related links verified to exist (/insights/how-to-get-value-from-ai-tools-you-already-pay-for, /services/ai-implementation, both real files/pages); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; package-lock.json reverted afterward since it is outside content/), result VALID; not a repeat of any ledger slug or targetQuery, checked via grep across all published slugs and targetQueries, none found; tagged news and tools; no fallback to the daily topic pipeline was needed since a genuine, dated, SMB-relevant story cleared the bar, so scripts/seo/topic-pipeline.json was left untouched"
+    },
+    {
+      "date": "2026-08-25",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-25-ask-gemini-in-google-chat-for-small-business.json"
       ],
       "build": "passed"
     }

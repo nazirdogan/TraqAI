@@ -1,0 +1,98 @@
+{
+  "slug": "ask-gemini-in-google-chat-for-small-business",
+  "title": "Google Chat's Gemini side panel is being replaced | Traq Collective",
+  "h1": "Google Chat's Gemini side panel is being replaced",
+  "metaDescription": "Google retires the Gemini side panel in Chat from August 26, 2026, replacing it with Ask Gemini. Here is who gets it, what changes, and what to export first.",
+  "targetQuery": "what is Ask Gemini in Google Chat",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-08-25",
+  "dateModified": "2026-08-25",
+  "author": "Nazir Dogan",
+  "dek": "The old Gemini side panel disappears from Chat on August 26. Here is what replaces it, and what to save before it goes.",
+  "intro": "Ask Gemini in Chat is Google's replacement for the old Gemini side panel in Google Chat, rolling out from August 26, 2026 to Business and Enterprise Workspace accounts set to English. It turns Chat into a single search bar across Gmail, Drive and Calendar, but it does not carry your old side panel conversations forward automatically.",
+  "body": [
+    {
+      "heading": "What is Ask Gemini in Chat?",
+      "paragraphs": [
+        "It replaces the Gemini side panel that has sat inside Google Chat, with a single command bar built into the app instead. From that bar you can search across Gmail, Drive and Calendar without leaving the conversation, draft a reply or an image directly inside a chat thread, and get help scheduling a meeting or tracking a to-do that came up in a message.",
+        "The change is a redesign, not an add-on. Google is retiring the old panel rather than running it alongside the new bar, so a team that used the panel for quick lookups inside Chat will be using the new one from the moment it lands on their account."
+      ]
+    },
+    {
+      "heading": "Which plans get it, and when?",
+      "paragraphs": [
+        "It is rolling out to Google Workspace Business Standard, Business Plus, Enterprise Standard and Enterprise Plus accounts, the same tiers that already include Gemini at no extra cost. The rollout starts August 26, 2026 and is gradual, reaching accounts over as much as 15 days rather than all at once.",
+        "Two catches worth knowing. It only applies if a Google account's display language is set to English at first, so a team running Workspace in another language keeps the old side panel until Google expands support. And through October 1, 2026, Google is giving eligible accounts a temporary promotional bump to usage limits, so early testing feels more generous than what settles in afterward."
+      ]
+    },
+    {
+      "heading": "What happens to your old Gemini side panel notes?",
+      "paragraphs": [
+        "This is the part worth acting on. Conversation history from the old Gemini side panel in Chat does not migrate to the new Ask Gemini bar on its own. If anyone on your team used the panel to summarize a long thread or pull up a file and kept that answer as a reference, it will not simply reappear in the new interface.",
+        "A Workspace admin can pull that history through the Admin Console's Data Export tool, and end users can do the same through Google Takeout if the admin has allowed it, but look under the category \"Gemini in Workspace\", not \"Google Chat\", since that is where Google files it. One more small loss: Gems, the custom saved prompts some teams build for repeat tasks, stop working inside Chat once the new bar lands, though they keep working in the side panels of Docs and Gmail."
+      ]
+    },
+    {
+      "heading": "What should a small team do before August 26?",
+      "paragraphs": [
+        "Check two things this week. First, confirm your plan is one of the four listed above, since a Business Starter account or a personal Google AI subscription does not get this change. Second, ask whoever uses the Gemini panel most inside Chat whether they have anything worth keeping from it, and if so, have your admin export it before the old panel goes away for their account.",
+        "After that, there is nothing to configure. Once the new bar appears, try it on the kind of question that used to send someone hunting through three apps: where a file is, what a thread decided, or what is on the calendar for a meeting mentioned in a message. That is the actual point of the change, not the redesign itself."
+      ]
+    }
+  ],
+  "takeaway": "If anyone on your team leans on the Gemini panel inside Google Chat to summarize threads or find files, ask your Workspace admin this week to export that history through Google Takeout before it is retired on your account, since it will not carry forward on its own.",
+  "stat": {
+    "claim": "Google is rolling Ask Gemini in Chat out gradually rather than switching every account over at once, so an eligible team may not see it the same day the old panel is retired for others.",
+    "value": "15 days",
+    "source": "Google Workspace Updates",
+    "url": "https://workspaceupdates.googleblog.com/2026/08/ask-gemini-in-chat.html",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "Before Ask Gemini in Chat replaces the side panel",
+    "steps": [
+      {
+        "label": "Check your plan",
+        "detail": "Business or Enterprise Workspace, Gemini included"
+      },
+      {
+        "label": "Check the language",
+        "detail": "English accounts get it first"
+      },
+      {
+        "label": "Export old notes",
+        "detail": "Side panel history will not carry over"
+      },
+      {
+        "label": "Try the new bar",
+        "detail": "Search Gmail, Drive and Calendar from Chat"
+      }
+    ],
+    "caption": "The side panel disappears either way. What you lose is only what you did not export first."
+  },
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do we need to do anything before Ask Gemini in Chat rolls out?",
+      "a": "Only if someone on your team saved anything useful from the old Gemini side panel inside Chat, since that history does not carry over automatically. Have your Workspace admin export it through the Admin Console's Data Export tool or Google Takeout before it is retired on your account."
+    },
+    {
+      "q": "Does Ask Gemini in Chat cost extra?",
+      "a": "No. It is included at no extra cost for Business Standard, Business Plus, Enterprise Standard and Enterprise Plus Workspace plans, the same tiers that already include Gemini today. If your plan already has the Gemini side panel in Chat, Ask Gemini replaces it automatically. There is nothing new to buy, enable, or configure."
+    },
+    {
+      "q": "Why has our team not seen it yet?",
+      "a": "The rollout is gradual, reaching accounts over as much as 15 days from August 26, 2026, and it only applies to accounts with their display language set to English at first. Other languages keep the old side panel until Google expands support."
+    }
+  ]
+}
