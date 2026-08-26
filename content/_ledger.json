@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-26",
+      "type": "field-note",
+      "slug": "ai-vs-automation-vs-agent",
+      "targetQuery": "difference between AI automation and AI agents"
+    },
+    {
       "date": "2026-08-24",
       "type": "insight",
       "slug": "corporate-ai-training-cost-uae",
@@ -861,6 +867,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-25-ask-gemini-in-google-chat-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-26",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "ai-vs-automation-vs-agent",
+      "critic": "branch preflight: session started on a detached HEAD at the tip of origin/main (6954922), checked out main and ff-merged the same sha in, confirmed refs/heads/main and zero divergence from origin/main via fetch, no stranded commits this run, no force-push, no rewrite; topic tp-002 from the daily pipeline (difference between AI automation and AI agents, ai-foundations cluster), 58 topics queued (14.5 weeks runway) so no refill needed; checked for a genuine 24h-news override per step 3b and found none that clears the SMB action-or-cost bar (GPT-Live voice latency, A2A joining the Agentic AI Foundation, Thomson Reuters proprietary LLM: none change what an owner should do or pay today), so stayed on the assigned topic; grounded definitions via AWS agents-vs-automation executive insights (aws.amazon.com, WebFetch EGRESS_BLOCKED so corroborated via search snippets and independent secondary coverage) and general industry sources; one stat, fewer than 10% of enterprises that experimented with AI agents have scaled one to deliver tangible value, sourced to McKinsey Seizing the Agentic AI Advantage (mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage, published June 13 2025, WebFetch on forbes.com and aws.amazon.com both returned EGRESS_BLOCKED this run, so the figure and publish date were corroborated across multiple independent secondary sources: tmcnet.com, brianheger.com, searchyour.ai, forbes.com coverage of the same report, joget.com, cxtoday.com); no em-dashes or en-dashes (checked programmatically via node, none found); title 50/70 chars, metaDescription 179/200 chars; intro is 57 words and stands alone as a definition covering all three terms (AI, automation, agent); four bodySections each phrased as a real question; three FAQs; takeaway gives one concrete pre-purchase test; deliberately omitted a diagram, this is a definitional explainer with no genuine ordered sequence and no before/after contrast to show; image fetch via fetch-image.mjs attempted twice (factory assembly line robot arm, office computer screen), both failed with Openverse HTTP 403 (exit code 2), published without an image per the documented normal-outcome rule; related links verified to exist (/insights/how-agentic-workflows-work is a real file in src/lib/content/insights/index.ts, /services/agentic-ai has a page.tsx); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated: tp-002 set to published with publishedAs /field-notes/ai-vs-automation-vs-agent"
+    },
+    {
+      "date": "2026-08-26",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-26-ai-vs-automation-vs-agent.json"
       ],
       "build": "passed"
     }

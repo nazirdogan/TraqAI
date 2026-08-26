@@ -1,0 +1,75 @@
+{
+  "slug": "ai-vs-automation-vs-agent",
+  "title": "AI vs automation vs agent: what's different | Traq",
+  "h1": "AI, automation and an agent: what's actually different",
+  "metaDescription": "Automation follows fixed rules you set in advance. An AI agent decides its own steps toward a goal and adjusts when things go wrong. Most 'agents' sold today are still automation.",
+  "targetQuery": "difference between AI automation and AI agents",
+  "tags": ["adoption", "best-uses", "tools"],
+  "datePublished": "2026-08-26",
+  "dateModified": "2026-08-26",
+  "author": "Nazir Dogan",
+  "dek": "Not every tool called an agent actually is one, and the difference decides how much you can trust it unsupervised.",
+  "intro": "AI is the general term for software that can understand language, images or patterns. Automation is AI, or plain code, following a fixed set of rules you define in advance. An agent is AI given a goal and the freedom to decide its own steps, checking its work and adjusting when something does not go to plan.",
+  "body": [
+    {
+      "heading": "What is automation, exactly?",
+      "paragraphs": [
+        "Automation is the oldest of the three and the one most businesses already run everywhere: a Zapier trigger that files an invoice, a mail rule that sorts your inbox, a macro that reformats a report. You wrote the rules once, and the software repeats them exactly, every time, with no judgment involved.",
+        "Add AI to one step, say, using a model to summarise a document before automation files it, and it is still automation. The AI is doing one bounded task inside a fixed process. Nothing about the system decides what happens next."
+      ]
+    },
+    {
+      "heading": "What actually makes something an AI agent, not just automation with a chatbot attached?",
+      "paragraphs": [
+        "An agent gets a goal instead of a script. Point it at 'follow up on invoices over 30 days late' and it decides for itself which invoices qualify, what tone to use with a client who has already ignored two emails, and when to escalate to a person instead of sending a third reminder.",
+        "It calls tools, checks its own output, and changes course if the first approach fails. That loop, plan, act, check, adjust, is the part plain automation cannot do, because a fixed rule has no way to notice it produced a bad result."
+      ]
+    },
+    {
+      "heading": "Why the label gets stretched so much right now",
+      "paragraphs": [
+        "'Agent' sells better than 'workflow', so most software marketed as an agent this year is still automation with a language model bolted on for the parts that need language. That is not automatically a problem: automation is cheaper, faster and far more predictable than a genuine agent, and most SMB tasks (sorting, formatting, first-draft replies) do not need autonomy at all.",
+        "The problem is paying agent prices for a fixed script with an AI-written email template stapled to one step, and then expecting it to handle judgment calls it was never built to make."
+      ]
+    },
+    {
+      "heading": "How to tell which one you actually have",
+      "paragraphs": [
+        "Ask what happens when the input does not match what the builder expected. If the tool breaks, stalls, or hands you an obviously wrong result with no attempt to notice, it is automation, however it is marketed. If it tries a different approach, asks a clarifying question, or flags that something looks off before acting, that is agent behaviour.",
+        "Also ask what it does when it is wrong. An agent that quietly acts on a bad decision with no check is not safer than automation, it is automation with worse predictability. That is why oversight matters more with an agent, not less."
+      ]
+    }
+  ],
+  "takeaway": "Before buying anything sold as an AI agent, ask what it does when it hits a case nobody planned for. If the honest answer is 'it breaks', you are buying automation, and that is fine, just do not pay agent prices for it.",
+  "stat": {
+    "claim": "Most companies that start building an AI agent never get one far enough to deliver real value, which is one reason so much of what is marketed as an agent today is still automation with an AI step bolted on.",
+    "value": "fewer than 10%",
+    "source": "McKinsey, Seizing the Agentic AI Advantage",
+    "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage",
+    "year": "2025"
+  },
+  "related": [
+    {
+      "label": "How agentic workflows work",
+      "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "Agentic AI Services",
+      "href": "/services/agentic-ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is ChatGPT an AI agent?",
+      "a": "Not on its own. Answering a question in a chat window is AI, not automation and not an agent, because nothing decides or acts afterward. It becomes agent-like only when given a goal, tools and the ability to check its own work and adjust, such as in an agent mode wired to real actions."
+    },
+    {
+      "q": "Can automation use AI at all?",
+      "a": "Yes, and most of it already does. A workflow that drafts a reply, tags a support ticket by sentiment, or pulls data from a scanned invoice is automation with an AI step inside it. It only becomes an agent once the system decides what step comes next, rather than following a route you set in advance."
+    },
+    {
+      "q": "Do small businesses actually need AI agents?",
+      "a": "Rarely, at first. Most small business AI wins come from simple automation and better use of tools already paid for, not an autonomous agent. Agents earn their complexity on multi-step jobs with real ambiguity, like qualifying inbound leads or chasing overdue invoices, where a fixed script keeps breaking on edge cases."
+    }
+  ]
+}
