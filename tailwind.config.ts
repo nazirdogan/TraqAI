@@ -12,7 +12,7 @@ const config: Config = {
         'bg-subtle': '#FAFAFA',
         ink: '#141414', // headings
         'ink-soft': '#555555', // body
-        'ink-faint': '#8A8A8A', // captions
+        'ink-faint': '#6B6B6B', // captions (>=4.5:1 on white and bg-subtle)
         'border-subtle': '#ECECEC',
         'border-strong': '#DADADA',
         'traq-purple': '#5B3FE4', // confirmed brand token (brand-kit/tokens.css)

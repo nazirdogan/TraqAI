@@ -18,7 +18,12 @@
   --bg-subtle: #fafafa;
   --ink: #141414;
   --ink-soft: #555555;
-  --ink-faint: #8a8a8a;
+  /* Darkened from #8a8a8a, which rendered 3.45:1 on white and 3.31:1 on
+     --bg-subtle: below the 4.5:1 WCAG AA floor for normal text, and the only
+     accessibility failure Lighthouse reported. Every .eyebrow and 11px caption
+     on the site uses this token, so all of them were failing. This value clears
+     5.1:1 on both grounds while staying clearly lighter than --ink-soft. */
+  --ink-faint: #6b6b6b;
   --border-subtle: #ececec;
   --border-strong: #dadada;
 }
