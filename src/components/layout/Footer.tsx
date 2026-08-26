@@ -35,6 +35,10 @@ const FOOTER_NAV = [
       { label: 'AI adoption workbook (teams)', href: '/workbook' },
       { label: 'AI fluency workbook (individuals)', href: '/workbook/upskill' },
       { label: 'Lean AI startup workbook', href: '/workbook/start' },
+      // Listed last because it targets AI agencies rather than the core ICP.
+      // It was in the sitemap with zero inbound links, so crawlers had no route
+      // to it at all: either it is linked or it does not belong in the sitemap.
+      { label: 'AI agency to consultant workbook', href: '/workbook/consultant' },
     ],
   },
   {
