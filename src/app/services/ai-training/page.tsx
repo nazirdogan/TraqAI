@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
 import CompareNotebook from '@/components/page/CompareNotebook';
@@ -12,11 +13,12 @@ const PATH = '/services/ai-training';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'AI training for teams that actually use it',
+  title: 'Employee AI Training, Dubai and Abu Dhabi',
   description:
-    'AI training for teams and companies, built around your real work. Role-specific, hands-on workshops that move people from hesitant to confident. Delivered in-person across the UAE and remotely worldwide.',
+    'AI training for teams, built around your real work. Role-specific, hands-on workshops that move people from hesitant to confident. In-person across the UAE.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'AI training for teams | Traq Collective',
     description:
       'Hands-on, role-specific AI training built around your team’s real work. UAE in-person and remote worldwide.',

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
@@ -17,11 +18,12 @@ const PATH = '/ai-consulting-uae';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'AI consulting and training in the UAE',
+  title: 'AI Consulting for Small Business, UAE',
   description:
-    'AI consulting and training in the UAE: in-person workshops in Dubai and Abu Dhabi, an embedded AI partner working with your team, and global delivery. Globally fluent, locally embedded.',
+    'AI consulting and training in the UAE: in-person workshops in Dubai and Abu Dhabi, an embedded AI partner working with your team, and global delivery.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'AI consulting and training in the UAE | Traq Collective',
     description:
       'In-person AI workshops in Dubai and Abu Dhabi, an embedded AI partner, and remote delivery worldwide.',

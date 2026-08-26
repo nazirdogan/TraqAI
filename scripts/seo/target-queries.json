@@ -1,13 +1,18 @@
 {
   "$comment": "SEO/GEO target-query backlog. This is the system of record for what the content agent writes next and why. Every entry carries the evidence that justified it: who actually ranked when it was last checked, and on which engine. Update `evidence` when you re-run the audit; never add a query without checking what already wins it, because the winning page format is the single most useful thing the SERP tells you.",
   "lastAudited": "2026-08-10",
+  "lastDemandStudy": "2026-08-26",
+  "$demandStudy": "tq-011 to tq-020 come from GEO-Tracking/Keyword-Demand-Study-2026-08-26.md. Entries with `evidence.checked: null` were justified on demand data only and still need a SERP check before writing, which report.mjs will tell you.",
   "clusters": {
     "training": "Someone wants their team taught to use AI. Highest commercial intent for Traq.",
     "strategy": "Someone wants help deciding what to do with AI before buying or training. Nazir's stated buyer intent.",
     "activation": "Someone already pays for AI tools and is getting nothing back. Traq's sharpest wedge.",
     "consulting": "Generic AI consulting demand, most contested, mostly won by directories.",
     "comparison": "Evaluation-stage queries. Highest AI-citation rate of any format (~33%).",
-    "local": "UAE/Dubai-qualified variants. Winnable because the competitor set is small and weak."
+    "local": "UAE/Dubai-qualified variants. Winnable because the competitor set is small and weak.",
+    "pricing": "Someone is budgeting or comparing quotes. Largest coherent cluster in the 2026-08-26 demand study, and the winning format is unambiguous: the number and the year go in the title tag.",
+    "vertical": "Someone wants AI help for their specific industry or role. Long-tail and low-competition, and it is the shape of question people ask an AI assistant rather than Google.",
+    "compliance": "Someone has to buy training because a regulation says so. Mandated demand rather than discretionary."
   },
   "queries": [
     {
@@ -188,6 +193,236 @@
         "traqPosition": null,
         "winners": [],
         "observation": "Not yet checked."
+      }
+    },
+    {
+      "id": "tq-011",
+      "query": "AI consulting rates",
+      "cluster": "pricing",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Highest single buyer-intent term in the whole demand harvest and Traq has nothing on it. Publish real bands the way the corporate-training-cost guide already does, but for consulting engagements, and put the range in the title.",
+      "evidence": {
+        "checked": "2026-08-26",
+        "engine": "Google (US-geolocated)",
+        "traqPosition": null,
+        "winners": ["leanware.co", "groovyweb.co", "peopleinai.com", "nicolalazzari.ai", "aidolsgroup.com"],
+        "observation": "Checked through the adjacent query 'how much does an AI consultant cost per hour'. Every page-one result carries a price range AND the year in the title tag. Not one of them asks the question; they all answer it in the title."
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 9.27,
+        "note": "Prominence is an inverse-rank tally across locales, not search volume. Related terms: 'ai consultant hourly rate' 8.10, 'ai consultant price per hour' 5.53, 'ai consultant cost' 3.30."
+      }
+    },
+    {
+      "id": "tq-012",
+      "query": "employee AI training program cost",
+      "cluster": "training",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Executives search for the people, not the discipline: 'employee ai training' and 'staff ai training' both outrank every abstract term in the harvest. The winning format bundles programs, costs and ROI on one page.",
+      "evidence": {
+        "checked": "2026-08-26",
+        "engine": "Google (US-geolocated)",
+        "traqPosition": null,
+        "winners": ["iternal.ai", "business.udemy.com", "scaledagile.com", "greatplacetowork.com", "ttms.com"],
+        "observation": "Top result is titled 'AI Training for Employees (2026): Programs, Costs & ROI'. Costs and the year in the title again. Several winners lead with named company examples (KPMG, PwC, Ally), which Traq cannot match and should not try to; the price transparency is the winnable half."
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 4.5,
+        "note": "'employee ai training' 4.50, 'staff ai training' 3.75, 'ai training for employees' 3.00, 'how to train employees on ai' 3.00."
+      }
+    },
+    {
+      "id": "tq-013",
+      "query": "employee AI training Dubai",
+      "cluster": "training",
+      "intent": "commercial",
+      "priority": 1,
+      "pageType": "landing",
+      "status": "partial",
+      "assignedTo": "/services/ai-training",
+      "note": "Retitled on 2026-08-26 from 'AI training for teams that actually use it' to 'Employee AI Training, Dubai and Abu Dhabi', to use the phrase buyers actually type plus the geo. The page still lacks the named formats, durations and prices that every UAE winner publishes. See tq-001, which is the same gap.",
+      "evidence": {
+        "checked": "2026-07-31",
+        "engine": "Google (UAE-localized)",
+        "traqPosition": null,
+        "winners": ["teamland.com", "acamind.ae", "royex.ae", "spearhead-training.com", "zabeelinstitute.ae"],
+        "observation": "Carried over from tq-001. The retitle addresses the phrasing half of that finding; the format list is still missing."
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 4.5,
+        "note": "Geo variants: 'ai training dubai' 8.18, 'ai training uae' 6.43, 'corporate ai training uae' 4.42."
+      }
+    },
+    {
+      "id": "tq-014",
+      "query": "AI course Dubai for companies",
+      "cluster": "local",
+      "intent": "commercial",
+      "priority": 2,
+      "pageType": "landing",
+      "status": "open",
+      "assignedTo": null,
+      "note": "In the UAE 'AI course' outdraws 'AI training'; worldwide it is the reverse. The local market searches in the language of structured, credentialed learning, which is exactly why the training institutes win these SERPs. Traq publishes nothing shaped like a course: no named modules, no duration, no outcome list. This is a packaging gap, not a capability gap.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google Trends, geo=AE, 12 months, 2026-08-26",
+        "prominence": 61.7,
+        "note": "Relative interest indexed within one set of five: AI course 61.7, AI training 50.5, AI consulting 9.6, AI consultant 4.0, AI workshop 4.0. Worldwide the same set reads AI training 58.5, AI course 37.0. Also surfaced: 'ai course dubai government' 4.50, which is an untouched public-sector angle."
+      }
+    },
+    {
+      "id": "tq-015",
+      "query": "how to use AI in a real estate business",
+      "cluster": "vertical",
+      "intent": "informational",
+      "priority": 2,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "The strongest vertical-and-geo overlap available to Traq: real estate is one of Dubai's largest sectors and it has real searched AI demand. Zero coverage on the site today. Write it for an agency principal, not a developer.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google Trends, worldwide, 12 months, 2026-08-26",
+        "prominence": 32.0,
+        "note": "Indexed within one set of five verticals: AI for healthcare 37.4, AI for real estate 32.0, AI for HR 14.6, AI for lawyers 5.6, AI for accountants 1.6. Not comparable to the head-term sets."
+      }
+    },
+    {
+      "id": "tq-016",
+      "query": "AI training for accountants",
+      "cluster": "vertical",
+      "intent": "commercial",
+      "priority": 2,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Highest-scoring role vertical in the autocomplete harvest. The exact phrasing matters here: 'AI training for accountants' is a real query while 'AI for accountants' as a general topic is not, so write to the long-tail phrase verbatim.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 6.9,
+        "note": "Against Trends 'AI for accountants' at 1.6 in the vertical set. The two disagree and both are right: the demand lives in the long-tail phrasing, not the topic. Related: 'ai consulting for accounting' 3.75, 'how to use ai for cost accounting' 4.00."
+      }
+    },
+    {
+      "id": "tq-017",
+      "query": "AI training for law firms",
+      "cluster": "vertical",
+      "intent": "commercial",
+      "priority": 3,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Second-strongest role vertical, and it scores independently on the consulting phrasing too. Confidentiality and privilege are the objections to lead with, which suits Traq's guardrails angle.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 6.19,
+        "note": "'ai consulting for law firms' scored 4.00 separately. Trends 'AI for lawyers' 5.6 in the vertical set."
+      }
+    },
+    {
+      "id": "tq-018",
+      "query": "AI literacy training for employees",
+      "cluster": "compliance",
+      "intent": "commercial",
+      "priority": 2,
+      "pageType": "guide",
+      "status": "open",
+      "assignedTo": null,
+      "note": "Mandated demand rather than discretionary, which makes it a different sale entirely. Autocomplete clusters this term to 'eu', 'ireland' and 'uk', which is the EU AI Act literacy obligation showing up in search. Applies to any UAE client with EU operations, customers or staff, and to Traq's remote worldwide delivery. Check the current text of the obligation before writing; do not state a deadline from memory.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google Trends and autocomplete, 2026-08-26",
+        "prominence": 6.1,
+        "note": "Trends 'AI literacy' 6.1 against 'prompt engineering course' 1.0 in the same set. Autocomplete returns 'ai literacy training for employees', 'ai literacy training eu', 'ai literacy training ireland', 'ai literacy training uk'."
+      }
+    },
+    {
+      "id": "tq-019",
+      "query": "AI policy for companies",
+      "cluster": "strategy",
+      "intent": "commercial",
+      "priority": 2,
+      "pageType": "guide",
+      "status": "partial",
+      "assignedTo": "/insights/ai-acceptable-use-policy-for-small-business",
+      "note": "The guide already exists and is good. It is titled 'How to write an AI use policy for a small business' while the searched phrase is 'ai policy for companies'. Retitle toward the query and add a downloadable one-page template rather than writing a second page.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 3.0,
+        "note": "Also 'ai policy for nonprofits' 1.50, which suggests a sector-templated version has legs."
+      }
+    },
+    {
+      "id": "tq-020",
+      "query": "AI training near me",
+      "cluster": "local",
+      "intent": "commercial",
+      "priority": 2,
+      "pageType": "off-domain",
+      "status": "off-domain",
+      "assignedTo": null,
+      "note": "Not winnable with a page. 'near me' is answered by the local pack, which needs a verified Google Business Profile. That verification has been open since Run 1 of the GEO tracker and is Nazir-only. Logged here so the demand is on the record against the right owner.",
+      "evidence": {
+        "checked": null,
+        "engine": null,
+        "traqPosition": null,
+        "winners": [],
+        "observation": null
+      },
+      "demand": {
+        "source": "Google autocomplete, AE/US/GB, 2026-08-26",
+        "prominence": 7.0,
+        "note": "'ai training near me' 7.00, 'ai consultant near me' 6.50, 'ai consulting near me' 4.50, 'ai consulting firms near me' 3.60. One of the strongest recurring modifiers in the whole harvest."
       }
     }
   ]
