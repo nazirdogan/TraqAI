@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
@@ -12,11 +13,12 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
   // The root template appends '| Traq Collective', so it is deliberately absent here.
-  title: 'About Traq Collective: founder-led AI enablement',
+  title: 'Founder-led AI enablement in the UAE',
   description:
-    'Traq Collective is a founder-led AI enablement partner run by Nazir. We are practitioners, not consultants: we build AI systems, run an autonomous operation end to end, and train teams to use AI every day. UAE and global.',
+    'Traq Collective is a founder-led AI enablement partner run by Nazir Dogan. Practitioners, not consultants: we build AI systems and train teams to use them daily.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'About Traq Collective | Founder-led AI enablement',
     description:
       'Founder-led AI enablement by Nazir. Practitioners, not consultants. We build, we run it, we train your team, then we make ourselves redundant.',

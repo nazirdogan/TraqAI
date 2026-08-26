@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ArticleLayout from '@/components/insights/ArticleLayout';
 import { getAllSlugs, getBySlug } from '@/lib/content/insights';
-import { brandedTitle, stripBrandSuffix } from '@/lib/metadata';
+import { brandedTitle, stripBrandSuffix, OG_IMAGE } from '@/lib/metadata';
 
 type PageProps = {
   params: { slug: string };
@@ -26,10 +26,13 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   const canonical = `${SITE_URL}/insights/${article.slug}`;
   return {
-    title: stripBrandSuffix(article.title),
+    // See the note in field-notes/[slug]: articles opt out of the brand
+    // template so the headline is not truncated to pay for the suffix.
+    title: { absolute: stripBrandSuffix(article.title) },
     description: article.metaDescription,
     alternates: { canonical },
     openGraph: {
+      images: [OG_IMAGE],
       type: 'article',
       title: brandedTitle(article.title),
       description: article.metaDescription,

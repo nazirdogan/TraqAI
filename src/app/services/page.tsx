@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import FaqBlock from '@/components/page/FaqBlock';
@@ -12,11 +13,12 @@ const PATH = '/services';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'AI consulting services: training, strategy, implementation, agentic AI',
+  title: 'AI training, consulting and agentic AI',
   description:
     'The four ways Traq Collective helps your team use AI: hands-on training, consulting as your embedded AI partner, implementation, and agentic systems. UAE and global.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'AI consulting services | Traq Collective',
     description:
       'Training, consulting and strategy, implementation, and agentic AI. Pick the service that fits where your team is today.',

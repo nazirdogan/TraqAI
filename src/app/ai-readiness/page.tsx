@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import FaqBlock from '@/components/page/FaqBlock';
@@ -12,9 +13,9 @@ const PATH = '/ai-readiness';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'AI readiness assessment: is your company ready? (free)',
+  title: 'Free AI readiness assessment for teams',
   description:
-    'A free AI readiness assessment for teams. Answer nine quick questions across tools, team confidence, training, leadership buy-in and use-case clarity, then get your band (Early, Building or Ready) and tailored next steps in two minutes.',
+    'A free AI readiness assessment. Nine quick questions across tools, team confidence, training, leadership and use cases, then your band and next steps in two minutes.',
   alternates: { canonical: CANONICAL },
   keywords: [
     'AI readiness assessment',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     'AI adoption assessment',
   ],
   openGraph: {
+      images: [OG_IMAGE],
     title: 'Free AI readiness assessment | Traq Collective',
     description:
       'See how ready your team is for AI in two minutes. Get your band and tailored next steps across tools, confidence, training, leadership and use cases.',

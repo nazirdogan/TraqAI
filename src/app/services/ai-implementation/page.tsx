@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
 import CompareNotebook from '@/components/page/CompareNotebook';
@@ -12,11 +13,12 @@ const PATH = '/services/ai-implementation';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'We wire AI into the tools you already pay for',
+  title: 'AI implementation for your existing tools',
   description:
-    'AI implementation and adoption: we set up AI inside your real workflows, add the guardrails to use it safely, and make sure your team actually adopts it. Not a handover doc. UAE and global.',
+    'AI implementation and adoption: we set up AI inside your real workflows, add the guardrails to use it safely, and make sure your team actually adopts it.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'AI implementation and adoption | Traq Collective',
     description:
       'We wire AI into the tools you already pay for, with guardrails, and make sure your team adopts it.',

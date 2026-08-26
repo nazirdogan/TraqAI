@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import CtaStrip from '@/components/page/CtaStrip';
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   // The root template appends '| Traq Collective', so it is deliberately absent here.
   title: 'Field notes: daily AI tips for SMBs',
   description:
-    'Short, practical field notes for small and mid-sized teams putting AI to work: how to adopt it, train people, make it stick, and pick the uses that pay off. Updated regularly.',
+    'Short, practical field notes for teams putting AI to work: how to adopt it, train people, make it stick, and pick the uses that pay off. Updated regularly.',
   alternates: { canonical: CANONICAL },
   keywords: [
     'AI tips for small business',
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
     'AI training tips',
   ],
   openGraph: {
+      images: [OG_IMAGE],
     title: 'Field notes | Traq Collective',
     description:
       'Short, practical field notes for teams putting AI to work: adoption, training, best uses, and making it stick.',

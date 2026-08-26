@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
 import CompareNotebook from '@/components/page/CompareNotebook';
@@ -14,9 +15,10 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'Agentic AI and autonomous operations',
   description:
-    'Agentic AI: we build AI agents and agentic workflows that run and improve on their own. We run a full autonomous operation end to end for a company, and we can build yours. UAE and global.',
+    'Agentic AI: we build AI agents and workflows that run and improve on their own. We run a full autonomous operation end to end, and we can build yours.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'Agentic AI and autonomous operations | Traq Collective',
     description:
       'AI agents and agentic systems that run and improve without a person in the loop. Built with you, not in a black box.',

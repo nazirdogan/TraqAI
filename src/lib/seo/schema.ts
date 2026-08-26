@@ -68,6 +68,23 @@ export function organization(): JsonLdObject {
       { '@type': 'Country', name: 'United Arab Emirates' },
       { '@type': 'Place', name: 'Worldwide' },
     ],
+    // The founder edge closes the entity loop. The Person already points here
+    // via `worksFor`, but the link was one-directional, so a crawler reading the
+    // Organization alone had no route to the human behind it.
+    founder: { '@id': PERSON_ID },
+    // Explicit topic scope. "Traq" collides with several unrelated entities
+    // (traq.ai in Florida, a debt-collection vendor, a PHP issue tracker) and
+    // this domain previously served a padel-court pricing product, so engines
+    // have more than one plausible reading of what this company does. Naming
+    // the subject matter gives them a reason to prefer the right one.
+    knowsAbout: [
+      'AI enablement',
+      'AI training for teams',
+      'AI consulting',
+      'AI implementation',
+      'Agentic AI',
+      'AI adoption',
+    ],
     sameAs: ORG_SAME_AS,
     contactPoint: {
       '@type': 'ContactPoint',

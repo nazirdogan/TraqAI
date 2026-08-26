@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import FaqBlock from '@/components/page/FaqBlock';
@@ -12,9 +13,10 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'AI training and consulting FAQ',
   description:
-    'Answers to common questions about AI training, consulting, a fractional Head of AI, implementation, agentic AI, working in the UAE, pricing, and what makes Traq Collective different.',
+    'Answers to common questions about AI training, consulting, implementation, agentic AI, working in the UAE, pricing, and what makes Traq Collective different.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'FAQ | Traq Collective',
     description:
       'Common questions on AI training, consulting, a fractional Head of AI, implementation, agentic AI, UAE delivery, and pricing.',

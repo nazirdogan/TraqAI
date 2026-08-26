@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import Link from 'next/link';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
@@ -23,9 +24,9 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 // Embedded AI Partner offer; the terms appear as a definition, FAQ and schema,
 // never as how we describe ourselves.
 export const metadata: Metadata = {
-  title: 'Embedded AI partner: a better fit than a fractional Head of AI',
+  title: 'Fractional Head of AI vs embedded partner',
   description:
-    'Looking for a fractional Head of AI or Chief AI Officer? Traq Collective gives you senior AI leadership as an embedded partner: strategy, vendor decisions, rollout and guardrails, working with your team and accountable to outcomes. UAE and global.',
+    'Looking for a fractional Head of AI? Traq Collective gives you senior AI leadership as an embedded partner: strategy, vendor decisions, rollout and guardrails.',
   alternates: { canonical: CANONICAL },
   keywords: [
     'fractional Head of AI',
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
     'AI consulting partner',
   ],
   openGraph: {
+      images: [OG_IMAGE],
     title: 'Your embedded AI partner | Traq Collective',
     description:
       'A better fit than a fractional Head of AI or Chief AI Officer: senior AI leadership delivered as an embedded partner who works with your team, not for it.',

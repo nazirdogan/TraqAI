@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import FieldNoteLayout from '@/components/field-notes/FieldNoteLayout';
 import { getAllFieldNoteSlugs, getFieldNoteBySlug } from '@/lib/content/field-notes';
-import { brandedTitle, stripBrandSuffix } from '@/lib/metadata';
+import { brandedTitle, stripBrandSuffix, OG_IMAGE } from '@/lib/metadata';
 
 type PageProps = {
   params: { slug: string };
@@ -24,10 +24,16 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const canonical = `${SITE_URL}/field-notes/${note.slug}`;
   const title = stripBrandSuffix(note.title);
   return {
-    title,
+    // `absolute` opts out of the root "%s | Traq Collective" template. The
+    // suffix costs 18 characters, which pushed most note titles past the ~60
+    // Google renders, so the brand was being bought with the end of the
+    // headline. Commercial pages keep it; articles need the room, and the brand
+    // still reaches the SERP via og:site_name and the Organization entity.
+    title: { absolute: title },
     description: note.metaDescription,
     alternates: { canonical },
     openGraph: {
+      images: [OG_IMAGE],
       type: 'article',
       title: brandedTitle(note.title),
       description: note.metaDescription,

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_IMAGE } from '@/lib/metadata';
 import PageHero from '@/components/page/PageHero';
 import ContentSections from '@/components/page/ContentSections';
 import CompareNotebook from '@/components/page/CompareNotebook';
@@ -12,11 +13,12 @@ const PATH = '/services/ai-consulting';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'AI consulting that ends in adoption, not a deck',
+  title: 'AI consulting that ends in adoption',
   description:
-    'AI consulting and strategy that acts as your embedded AI partner: we audit your tools and workflows, find the uses that save the most time, and give you a roadmap your team can act on. UAE and global.',
+    'AI consulting and strategy as your embedded AI partner: we audit your tools and workflows, find the uses that save the most time, and give you a roadmap to act on.',
   alternates: { canonical: CANONICAL },
   openGraph: {
+      images: [OG_IMAGE],
     title: 'AI consulting and strategy | Traq Collective',
     description:
       'An AI consultant who delivers adoption, not a slide deck. Audit, roadmap, and senior direction embedded with your team.',
