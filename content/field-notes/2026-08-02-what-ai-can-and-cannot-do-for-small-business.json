@@ -2,7 +2,7 @@
   "slug": "what-ai-can-and-cannot-do-for-small-business",
   "title": "What AI can and cannot do for a small business | Traq Collective",
   "h1": "What AI can and cannot do for a small business",
-  "metaDescription": "AI reliably drafts, summarises and sorts first-pass work. It cannot yet be trusted alone on anything with real legal, financial or customer-facing stakes. Here is the line, and how to use it.",
+  "metaDescription": "AI reliably drafts, summarises and sorts first-pass work. It cannot be trusted alone on anything with real legal, financial or customer stakes. Here is the line.",
   "targetQuery": "what can AI actually do for a small business",
   "tags": [
     "adoption",
@@ -55,6 +55,14 @@
     {
       "label": "AI Consulting",
       "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Where AI belongs in a workflow",
+      "href": "/field-notes/where-ai-belongs-in-a-workflow"
+    },
+    {
+      "label": "How to choose AI use cases that actually work",
+      "href": "/field-notes/how-to-choose-ai-use-cases"
     }
   ],
   "faqs": [

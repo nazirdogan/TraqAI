@@ -104,7 +104,7 @@ const getTeamUsingAi: Article = {
   slug: 'how-to-get-your-team-using-ai',
   title: 'How to get your team using AI: a practical adoption playbook | Traq Collective',
   metaDescription:
-    'A step-by-step playbook for getting employees to actually use AI: start from real work, train people properly, set light guardrails, and measure adoption so the habits stick.',
+    'A step-by-step playbook for getting employees to actually use AI: start from real work, train people properly, set guardrails, and measure adoption so habits stick.',
   targetQuery: 'how to get employees to use AI / AI adoption playbook',
   h1: 'How to actually get your team using AI',
   datePublished: '2026-06-10',
@@ -233,7 +233,7 @@ const aiReadinessChecklist: Article = {
   slug: 'ai-readiness-checklist',
   title: 'AI readiness checklist: is your company ready for AI? | Traq Collective',
   metaDescription:
-    'A practical AI readiness checklist across tools, team, training, leadership and use cases. Score where you stand, see what to fix first, and book a free call for a tailored plan.',
+    'A practical AI readiness checklist across tools, team, training, leadership and use cases. Score where you stand, see what to fix first, and get a tailored plan.',
   targetQuery: 'AI readiness assessment / checklist',
   h1: 'AI readiness: is your company ready? (a checklist)',
   datePublished: '2026-06-10',
@@ -407,7 +407,7 @@ const fractionalHeadOfAi: Article = {
   slug: 'what-a-fractional-head-of-ai-does',
   title: 'What a fractional Head of AI does, and when you need one | Traq Collective',
   metaDescription:
-    'A fractional Head of AI sets your AI strategy, picks the tools, leads the rollout and owns guardrails part-time. Here is what the role covers, when to hire, and why most teams are better served by an embedded AI partner.',
+    'A fractional Head of AI sets strategy, picks the tools, leads the rollout and owns guardrails part-time. What the role covers, when to hire, and the alternative.',
   targetQuery: 'what is a fractional Head of AI / when to hire',
   h1: 'What a fractional Head of AI does, and when you need one',
   datePublished: '2026-06-10',
@@ -567,7 +567,7 @@ const howAgenticWorkflowsWork: Article = {
   slug: 'how-agentic-workflows-work',
   title: 'How agentic workflows actually work: a plain-language guide | Traq Collective',
   metaDescription:
-    'A plain-language explainer of agentic AI and autonomous workflows for business: what an AI agent is, how agentic workflows run multi-step work on their own, where they help, and how to roll them out safely.',
+    'A plain-language explainer of agentic AI for business: what an AI agent is, how agentic workflows run multi-step work on their own, and how to roll them out safely.',
   targetQuery: 'agentic AI / autonomous workflows for business',
   h1: 'How agentic workflows actually work',
   datePublished: '2026-06-10',
@@ -733,7 +733,7 @@ const aiTrainingForTeamsUae: Article = {
   slug: 'ai-training-for-teams-uae',
   title: 'AI training for teams in the UAE: what good looks like | Traq Collective',
   metaDescription:
-    'A practical guide to AI training for teams in the UAE and Dubai: what good training looks like, why in-person workshops work, how to pick a provider, and what results to expect.',
+    'A practical guide to AI training for teams in the UAE and Dubai: what good training looks like, why in-person workshops work, and how to pick a provider.',
   targetQuery: 'AI training UAE / Dubai',
   h1: 'AI training for teams in the UAE: what good looks like',
   datePublished: '2026-06-10',
@@ -876,7 +876,7 @@ const aiConsultantVsAiAgency: Article = {
   slug: 'ai-consultant-vs-ai-agency',
   title: 'AI consultant vs AI agency: which do you need? | Traq Collective',
   metaDescription:
-    'AI consultant vs AI agency, compared: scope, seniority, speed, cost model and who owns the capability afterwards. A neutral guide to picking the right model for your team.',
+    'AI consultant vs AI agency, compared: scope, seniority, speed, cost and who owns the capability afterwards. A neutral guide to picking the right model.',
   targetQuery: 'AI consultant vs AI agency',
   h1: 'AI consultant vs AI agency: which do you need?',
   datePublished: '2026-06-10',
@@ -1039,9 +1039,9 @@ const aiConsultantVsAiAgency: Article = {
  */
 const fractionalVsFullTimeHire: Article = {
   slug: 'fractional-head-of-ai-vs-full-time-hire',
-  title: 'Fractional Head of AI vs a full-time hire: cost, speed and risk | Traq Collective',
+  title: 'Fractional Head of AI vs a full-time hire',
   metaDescription:
-    'Fractional Head of AI vs a full-time hire, compared across cost, speed, risk and flexibility, plus the embedded AI partner alternative. A neutral guide to picking the right way to lead your AI work.',
+    'Fractional Head of AI vs a full-time hire, compared across cost, speed, risk and flexibility, plus the embedded AI partner alternative. A neutral guide.',
   targetQuery: 'fractional Head of AI vs full-time hire',
   h1: 'Fractional Head of AI vs a full-time hire',
   datePublished: '2026-06-10',
@@ -1205,7 +1205,7 @@ const aiTrainingVsDiy: Article = {
   slug: 'ai-training-vs-doing-it-yourself',
   title: 'AI training vs doing it yourself: an honest comparison | Traq Collective',
   metaDescription:
-    'AI training vs figuring it out yourself, compared honestly: the real pros and cons of each, what DIY actually costs in time, and when self-teaching is the right call. With the evidence on what changes adoption.',
+    'AI training vs figuring it out yourself, compared honestly: the real pros and cons, what DIY costs in time, and when self-teaching is the right call.',
   targetQuery: 'AI training vs doing it yourself / DIY',
   h1: 'AI training vs doing it yourself',
   datePublished: '2026-06-10',

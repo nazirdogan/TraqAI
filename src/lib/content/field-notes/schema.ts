@@ -13,6 +13,11 @@
  */
 import { z } from 'zod';
 
+/** Mirror of stripBrandSuffix in src/lib/metadata.ts, which the routes apply. */
+function stripBrand(title: string): string {
+  return title.replace(/\s*\|\s*Traq(?:\s+Collective)?\s*$/i, '').trim() || title;
+}
+
 const isoDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, 'date must be an ISO date, e.g. 2026-07-16');
@@ -33,6 +38,25 @@ export const fieldNoteStatSchema = z.object({
 export const fieldNoteFaqSchema = z.object({
   q: z.string().min(1),
   a: z.string().min(1),
+});
+
+/**
+ * A primary source backing the note.
+ *
+ * `stat` already carries a citation, but it forces a headline figure, and some
+ * notes rest on documented vendor behaviour rather than on a number: what a
+ * plan does with your data, which tiers get a feature. Those notes were
+ * shipping with no outbound citation at all, which is the single strongest
+ * signal an AI search engine uses to decide whether a page is worth citing
+ * back. This lets a note cite the documentation directly.
+ *
+ * Label the source for what it actually documents. A link that does not support
+ * the sentence next to it is worse than no link.
+ */
+export const fieldNoteSourceSchema = z.object({
+  /** Publisher plus page, e.g. "Anthropic, Is my data used for model training?". */
+  label: z.string().min(1),
+  url: z.string().url(),
 });
 
 /**
@@ -65,6 +89,38 @@ export const fieldNoteRelatedSchema = z.object({
   label: z.string().min(1),
   href: z.string().min(1),
 });
+
+/**
+ * A comparison table, matching the /insights ArticleTable shape so both feeds
+ * render through the same component.
+ *
+ * Comparison content is one of the formats AI search cites most, and a note
+ * that answers a "X vs Y" question in prose gives an extractor nothing to lift.
+ * Every row is width-checked against the header so a ragged table fails the
+ * build rather than rendering with empty cells.
+ */
+export const fieldNoteTableSchema = z
+  .object({
+    heading: z.string().min(1),
+    intro: z.string().min(1).optional(),
+    /** Accessible caption. Describes the comparison; not shown visually. */
+    caption: z.string().min(1),
+    /** Column headers, row-label column first. */
+    columns: z.array(z.string().min(1)).min(2),
+    /** Each row: first cell is the row label, the rest are values. */
+    rows: z.array(z.array(z.string().min(1)).min(2)).min(2),
+  })
+  .superRefine((value, ctx) => {
+    value.rows.forEach((row, index) => {
+      if (row.length !== value.columns.length) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['rows', index],
+          message: `row has ${row.length} cells but there are ${value.columns.length} columns`,
+        });
+      }
+    });
+  });
 
 /* ------------------------------------------------------------------ *
  * Diagrams
@@ -157,12 +213,28 @@ export const fieldNoteSectionSchema = z.object({
 export const fieldNoteSchema = z.object({
   /** URL slug: /field-notes/{slug}. */
   slug,
-  /** Document <title> / SEO title. */
-  title: z.string().min(1).max(70),
+  /**
+   * Document <title> / SEO title.
+   *
+   * Measured after any " | Traq Collective" the author baked in is stripped,
+   * because the route strips it too. 60 is roughly what Google renders before
+   * truncating, and the daily agent writes these unattended, so the cap is
+   * enforced here rather than trusted.
+   */
+  title: z
+    .string()
+    .min(1)
+    .max(78)
+    .refine(
+      (value) => stripBrand(value).length <= 60,
+      (value) => ({
+        message: `title is ${stripBrand(value).length} chars once the brand suffix is stripped; keep it to 60`,
+      }),
+    ),
   /** The page H1. */
   h1: z.string().min(1),
-  /** Meta description. */
-  metaDescription: z.string().min(1).max(200),
+  /** Meta description. Past ~165 chars Google truncates it in the SERP. */
+  metaDescription: z.string().min(1).max(165),
   /** The primary query this note targets. */
   targetQuery: z.string().min(1),
   /** Cluster tags: adoption, training, best-uses, making-it-stick, tools, news. */
@@ -186,10 +258,14 @@ export const fieldNoteSchema = z.object({
   takeaway: z.string().min(1),
   /** Optional cited stat with source + url + year. */
   stat: fieldNoteStatSchema.optional(),
+  /** Optional primary sources. Use when the note rests on documentation, not a figure. */
+  sources: z.array(fieldNoteSourceSchema).min(1).optional(),
   /** Optional openly-licensed lead image. Omit rather than force a bad match. */
   image: fieldNoteImageSchema.optional(),
   /** Optional diagram. Omit unless the post genuinely has a sequence or a contrast. */
   diagram: fieldNoteDiagramSchema.optional(),
+  /** Optional comparison tables. Add one whenever the note answers "X vs Y". */
+  tables: z.array(fieldNoteTableSchema).min(1).optional(),
   /** 2-3 internal related links (a guide and a service). */
   related: z.array(fieldNoteRelatedSchema).min(1),
   /** Optional FAQs, mirrored into FAQPage JSON-LD when present. */
@@ -200,6 +276,8 @@ export type FieldNote = z.infer<typeof fieldNoteSchema>;
 export type FieldNoteStat = z.infer<typeof fieldNoteStatSchema>;
 export type FieldNoteFaq = z.infer<typeof fieldNoteFaqSchema>;
 export type FieldNoteImage = z.infer<typeof fieldNoteImageSchema>;
+export type FieldNoteTable = z.infer<typeof fieldNoteTableSchema>;
+export type FieldNoteSource = z.infer<typeof fieldNoteSourceSchema>;
 export type FieldNoteSection = z.infer<typeof fieldNoteSectionSchema>;
 export type FieldNoteDiagram = z.infer<typeof fieldNoteDiagramSchema>;
 export type FieldNoteFlow = z.infer<typeof fieldNoteFlowSchema>;

@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/page/Breadcrumbs';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
 import FieldNoteDiagramBlock from '@/components/field-notes/FieldNoteDiagram';
+import ComparisonTable from '@/components/content/ComparisonTable';
 import {
   BlogPostingJsonLd,
   BreadcrumbsJsonLd,
@@ -182,6 +183,14 @@ export default function FieldNoteLayout({ note }: FieldNoteLayoutProps) {
               )}
             </div>
 
+            {note.tables && note.tables.length > 0 ? (
+              <div className="mt-10 space-y-10">
+                {note.tables.map((table) => (
+                  <ComparisonTable key={table.heading} table={table} />
+                ))}
+              </div>
+            ) : null}
+
             {note.stat ? (
               <div className="mt-8 rounded-[18px] border border-border-subtle bg-white p-5 shadow-card sm:p-6">
                 <div className="text-2xl font-bold tracking-tight text-traq-purple sm:text-3xl">
@@ -200,6 +209,26 @@ export default function FieldNoteLayout({ note }: FieldNoteLayoutProps) {
                     {note.stat.source}, {note.stat.year}
                   </a>
                 </p>
+              </div>
+            ) : null}
+
+            {note.sources && note.sources.length > 0 ? (
+              <div className="mt-8 border-t border-border-subtle pt-5">
+                <p className="eyebrow">Sources</p>
+                <ul className="mt-3 space-y-2">
+                  {note.sources.map((source) => (
+                    <li key={source.url} className="text-[13px] leading-relaxed text-ink-soft">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4 transition-colors hover:text-traq-purple"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ) : null}
 

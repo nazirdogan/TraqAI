@@ -2,7 +2,7 @@
   "slug": "gusto-cofounder-ai-teammate-for-small-business",
   "title": "Gusto Cofounder: an AI teammate for small business | Traq Collective",
   "h1": "Gusto's new AI teammate runs payroll tasks so you do not have to ask twice",
-  "metaDescription": "Gusto Cofounder is a free, early-access AI teammate that runs payroll, flags compliance risks and chases timesheets by text, Slack or web chat. Here is what it actually does.",
+  "metaDescription": "Gusto Cofounder is a free, early-access AI teammate that runs payroll, flags compliance risks and chases timesheets by text, Slack or web. What it actually does.",
   "targetQuery": "what is Gusto Cofounder for small business",
   "tags": [
     "tools",
@@ -49,6 +49,14 @@
     {
       "label": "How agentic workflows actually work",
       "href": "/insights/how-agentic-workflows-work"
+    },
+    {
+      "label": "What is an AI agent for a small business?",
+      "href": "/field-notes/what-is-an-ai-agent-for-business"
+    },
+    {
+      "label": "Zapier's Human in the Loop, explained",
+      "href": "/field-notes/zapier-human-in-the-loop-for-ai-agents"
     }
   ],
   "faqs": [

@@ -2,7 +2,7 @@
   "slug": "google-sheets-canvas-for-small-business",
   "title": "Google Sheets Canvas: What It Is and How to Use It | Traq Collective",
   "h1": "Google Sheets canvas: what it is and how to use it",
-  "metaDescription": "Google rolled out Sheets canvas from August 10, 2026: turn spreadsheet data into a dashboard, tracker, or kanban board with a prompt, no code needed. Who gets it and how to try it.",
+  "metaDescription": "Google rolled out Sheets canvas from August 10, 2026: turn spreadsheet data into a dashboard, tracker or kanban board with a prompt. Who gets it and how to try it.",
   "targetQuery": "what is Google Sheets canvas and how can a small business use it",
   "tags": ["news", "tools"],
   "datePublished": "2026-08-18",
@@ -57,7 +57,15 @@
   },
   "related": [
     { "label": "How to get value from AI tools you already pay for", "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for" },
-    { "label": "AI Implementation", "href": "/services/ai-implementation" }
+    { "label": "AI Implementation", "href": "/services/ai-implementation" },
+    {
+      "label": "Gemini diagrams inside Google Docs",
+      "href": "/field-notes/gemini-diagrams-in-google-docs"
+    },
+    {
+      "label": "What Canva Code 2.0 means for a small business",
+      "href": "/field-notes/canva-code-2-for-small-business"
+    }
   ],
   "faqs": [
     {

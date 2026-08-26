@@ -2,7 +2,7 @@
   "slug": "claude-record-a-skill-explained",
   "title": "Claude's Record a Skill: teach AI by recording | Traq Collective",
   "h1": "Claude's Record a Skill: teach AI a task by recording your screen",
-  "metaDescription": "Claude's Record a Skill lets you teach the AI a repeatable task by recording yourself doing it and talking through it, no prompt writing or automation setup required.",
+  "metaDescription": "Claude's Record a Skill lets you teach the AI a repeatable task by recording yourself doing it and talking through it. No prompt writing or automation setup.",
   "targetQuery": "how to teach Claude a skill by recording your screen",
   "tags": [
     "training",
@@ -41,6 +41,16 @@
     }
   ],
   "takeaway": "Pick one task your best person does every week and have them record it once, narrating as they go, to turn it into a Claude skill the rest of the team can reuse.",
+  "sources": [
+    {
+      "label": "Anthropic, Agent Skills announcement (what a Skill is)",
+      "url": "https://claude.com/blog/skills"
+    },
+    {
+      "label": "Anthropic, Claude Cowork (the paid-plan surface Record a Skill sits in)",
+      "url": "https://claude.com/cowork"
+    }
+  ],
   "related": [
     {
       "label": "AI Training & Workshops",
@@ -49,6 +59,14 @@
     {
       "label": "How to get your team using AI",
       "href": "/insights/how-to-get-your-team-using-ai"
+    },
+    {
+      "label": "Claude for Small Business, explained",
+      "href": "/field-notes/claude-for-small-business-explained"
+    },
+    {
+      "label": "How to run an AI training session for staff",
+      "href": "/field-notes/how-to-run-an-ai-training-session-for-staff"
     }
   ],
   "faqs": [

@@ -2,7 +2,7 @@
   "slug": "claude-for-small-business-explained",
   "title": "Claude for Small Business, Explained | Traq Collective",
   "h1": "Claude for Small Business, explained",
-  "metaDescription": "Anthropic's Claude for Small Business toggles Claude into QuickBooks, PayPal, HubSpot, Canva, Docusign and Microsoft 365, with owner approval required before anything sends or pays.",
+  "metaDescription": "Anthropic's Claude for Small Business connects Claude to QuickBooks, PayPal, HubSpot, Canva, Docusign and Microsoft 365, with owner approval before anything sends.",
   "targetQuery": "what is Claude for Small Business",
   "tags": [
     "tools",
@@ -49,6 +49,18 @@
     {
       "label": "AI Implementation & Adoption",
       "href": "/services/ai-implementation"
+    },
+    {
+      "label": "Claude vs ChatGPT for business",
+      "href": "/field-notes/claude-vs-chatgpt-for-business"
+    },
+    {
+      "label": "ChatGPT for Small Business, explained",
+      "href": "/field-notes/openai-chatgpt-for-small-business-explained"
+    },
+    {
+      "label": "Claude's Record a Skill, explained",
+      "href": "/field-notes/claude-record-a-skill-explained"
     }
   ],
   "faqs": [

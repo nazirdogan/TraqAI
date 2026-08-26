@@ -9,6 +9,7 @@ import {
 } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 import type { Article } from '@/lib/content/insights';
+import ComparisonTable from '@/components/content/ComparisonTable';
 
 /**
  * Format an ISO date ("2026-06-10") as a readable, locale-stable string
@@ -132,50 +133,7 @@ export default function ArticleLayout({ article }: ArticleLayoutProps) {
           <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
             <div className="mx-auto max-w-3xl space-y-12 sm:space-y-14">
               {article.tables.map((table) => (
-                <div key={table.heading}>
-                  <div className="eyebrow eyebrow-accent">Compare</div>
-                  <h2 className="section-title mt-3">{table.heading}</h2>
-                  {table.intro ? <p className="section-sub mt-4">{table.intro}</p> : null}
-
-                  <div className="mt-8 overflow-x-auto rounded-[20px] border border-border-subtle bg-white shadow-card">
-                    <table className="w-full border-collapse text-left text-[14px] sm:text-[15px]">
-                      <caption className="sr-only">{table.caption}</caption>
-                      <thead>
-                        <tr className="border-b border-border-subtle bg-bg-subtle">
-                          {table.columns.map((col) => (
-                            <th key={col} scope="col" className="px-5 py-4 font-semibold text-ink sm:px-6">
-                              {col}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {table.rows.map((row) => (
-                          <tr
-                            key={row[0]}
-                            className="border-b border-border-subtle align-top last:border-b-0"
-                          >
-                            {row.map((cell, cellIndex) =>
-                              cellIndex === 0 ? (
-                                <th
-                                  key={cell}
-                                  scope="row"
-                                  className="px-5 py-4 text-left font-semibold text-ink sm:px-6"
-                                >
-                                  {cell}
-                                </th>
-                              ) : (
-                                <td key={cellIndex} className="px-5 py-4 text-ink-soft sm:px-6">
-                                  {cell}
-                                </td>
-                              ),
-                            )}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+                <ComparisonTable key={table.heading} table={table} />
               ))}
             </div>
           </section>

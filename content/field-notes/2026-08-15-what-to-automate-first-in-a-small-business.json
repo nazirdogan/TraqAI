@@ -66,6 +66,14 @@
     {
       "label": "AI implementation",
       "href": "/services/ai-implementation"
+    },
+    {
+      "label": "How to map a business process",
+      "href": "/field-notes/how-to-map-a-business-process"
+    },
+    {
+      "label": "Fix the process before you automate it",
+      "href": "/field-notes/fix-the-process-before-automating-it"
     }
   ],
   "faqs": [

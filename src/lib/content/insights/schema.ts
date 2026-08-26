@@ -10,6 +10,11 @@
  */
 import { z } from 'zod';
 
+/** Mirror of stripBrandSuffix in src/lib/metadata.ts, which the routes apply. */
+function stripBrand(title: string): string {
+  return title.replace(/\s*\|\s*Traq(?:\s+Collective)?\s*$/i, '').trim() || title;
+}
+
 const isoDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, 'date must be an ISO date, e.g. 2026-07-16');
@@ -52,8 +57,23 @@ const articleRelated = z.object({
 
 export const articleSchema = z.object({
   slug,
-  title: z.string().min(1),
-  metaDescription: z.string().min(1).max(200),
+  /**
+   * SEO title, measured after any baked-in " | Traq Collective" is stripped,
+   * because the /insights/[slug] route strips it before rendering. 60 is about
+   * what Google shows before truncating.
+   */
+  title: z
+    .string()
+    .min(1)
+    .max(78)
+    .refine(
+      (value) => stripBrand(value).length <= 60,
+      (value) => ({
+        message: `title is ${stripBrand(value).length} chars once the brand suffix is stripped; keep it to 60`,
+      }),
+    ),
+  /** Meta description. Past ~165 chars Google truncates it in the SERP. */
+  metaDescription: z.string().min(1).max(165),
   targetQuery: z.string().min(1),
   h1: z.string().min(1),
   datePublished: isoDate,

@@ -79,6 +79,14 @@
     {
       "label": "AI Implementation",
       "href": "/services/ai-implementation"
+    },
+    {
+      "label": "Gemini diagrams inside Google Docs",
+      "href": "/field-notes/gemini-diagrams-in-google-docs"
+    },
+    {
+      "label": "Google Sheets canvas, explained",
+      "href": "/field-notes/google-sheets-canvas-for-small-business"
     }
   ],
   "faqs": [

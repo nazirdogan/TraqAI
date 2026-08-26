@@ -2,7 +2,7 @@
   "slug": "chatgpt-computer-history-privacy-for-small-business",
   "title": "ChatGPT Computer History: turn it on or not? | Traq Collective",
   "h1": "Should your business turn on ChatGPT's Computer History feature?",
-  "metaDescription": "ChatGPT's Computer History feature tracks Mac activity to build AI memory. Live since August 13, 2026 on Business and Enterprise plans. Here is how to decide if your team should use it.",
+  "metaDescription": "ChatGPT's Computer History feature tracks Mac activity to build AI memory. Live since August 13, 2026 on Business plans. How to decide if your team should use it.",
   "targetQuery": "should a small business use ChatGPT's Computer History feature",
   "tags": [
     "news",
@@ -55,6 +55,14 @@
     {
       "label": "AI Consulting",
       "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Turning AI off mid-meeting in Teams",
+      "href": "/field-notes/turning-off-ai-in-microsoft-teams-meetings"
+    },
+    {
+      "label": "ChatGPT for Small Business, explained",
+      "href": "/field-notes/openai-chatgpt-for-small-business-explained"
     }
   ],
   "faqs": [

@@ -2,7 +2,7 @@
   "slug": "what-chatgpt-projects-are-for",
   "title": "What ChatGPT Projects Are Actually For | Traq Collective",
   "h1": "What ChatGPT Projects are actually for",
-  "metaDescription": "ChatGPT Projects bundle chats, files and instructions into one workspace with its own memory. Here is what that actually means for a small business, and when to use one.",
+  "metaDescription": "ChatGPT Projects bundle chats, files and instructions into one workspace with its own memory. What that means for a small business, and when to use one.",
   "targetQuery": "what are ChatGPT projects",
   "tags": [
     "tools"
@@ -55,6 +55,14 @@
     {
       "label": "How to get your team using AI",
       "href": "/insights/how-to-get-your-team-using-ai"
+    },
+    {
+      "label": "ChatGPT for Small Business, explained",
+      "href": "/field-notes/openai-chatgpt-for-small-business-explained"
+    },
+    {
+      "label": "Which AI tool to use for which job",
+      "href": "/field-notes/which-ai-tool-for-which-job"
     }
   ],
   "faqs": [

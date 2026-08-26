@@ -2,7 +2,7 @@
   "slug": "how-to-choose-ai-use-cases",
   "title": "How to choose AI use cases that actually work | Traq Collective",
   "h1": "How to choose AI use cases that actually work",
-  "metaDescription": "How to choose AI use cases: pick tasks with a clear input, a clear output, and a human reviewer. That is what separates a pilot that sticks from one that quietly dies.",
+  "metaDescription": "How to choose AI use cases: pick tasks with a clear input, a clear output and a human reviewer. That is what separates a pilot that sticks from one that dies.",
   "targetQuery": "how to choose AI use cases",
   "tags": [
     "adoption",
@@ -82,6 +82,14 @@
     {
       "label": "AI Consulting",
       "href": "/services/ai-consulting"
+    },
+    {
+      "label": "What to automate first in a small business",
+      "href": "/field-notes/what-to-automate-first-in-a-small-business"
+    },
+    {
+      "label": "Where AI belongs in a workflow",
+      "href": "/field-notes/where-ai-belongs-in-a-workflow"
     }
   ],
   "faqs": [

@@ -2,7 +2,7 @@
   "slug": "turning-off-ai-in-microsoft-teams-meetings",
   "title": "Microsoft Teams lets you turn off AI mid-meeting | Traq Collective",
   "h1": "Microsoft Teams now lets you turn AI off mid-meeting",
-  "metaDescription": "Since July 2026, Teams organizers and presenters can turn Copilot, Facilitator and Recap off during a live call, not just before it starts. Here is what that means for your team.",
+  "metaDescription": "Since July 2026, Teams organizers and presenters can turn Copilot, Facilitator and Recap off during a live call, not just before it. What that means for your team.",
   "targetQuery": "how to turn off AI in a Microsoft Teams meeting",
   "tags": [
     "tools",
@@ -49,6 +49,14 @@
     {
       "label": "AI implementation",
       "href": "/services/ai-implementation"
+    },
+    {
+      "label": "ChatGPT's Computer History feature",
+      "href": "/field-notes/chatgpt-computer-history-privacy-for-small-business"
+    },
+    {
+      "label": "What Microsoft bundling Copilot changes",
+      "href": "/field-notes/microsoft-365-copilot-pricing-for-small-business"
     }
   ],
   "faqs": [

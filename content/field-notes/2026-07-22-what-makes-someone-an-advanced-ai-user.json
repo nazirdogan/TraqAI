@@ -2,7 +2,7 @@
   "slug": "what-makes-someone-an-advanced-ai-user",
   "title": "What makes someone an advanced AI user | Traq Collective",
   "h1": "What makes someone an advanced AI user at work",
-  "metaDescription": "The most advanced AI users share three habits, per Microsoft's 2026 Work Trend Index: multi-step workflows, rethinking process, and shared standards. Here is how a small team copies them.",
+  "metaDescription": "Advanced AI users share three habits, per Microsoft's 2026 Work Trend Index: multi-step workflows, rethinking process, shared standards. How a small team copies them",
   "targetQuery": "what makes someone an advanced AI user at work",
   "tags": [
     "training",
@@ -50,6 +50,14 @@
     {
       "label": "AI Training & Workshops",
       "href": "/services/ai-training"
+    },
+    {
+      "label": "The five-hour rule for AI training",
+      "href": "/field-notes/the-five-hour-rule-for-ai-training"
+    },
+    {
+      "label": "How to make AI usage stick after training",
+      "href": "/field-notes/how-to-make-ai-usage-stick-after-training"
     }
   ],
   "faqs": [

@@ -78,6 +78,18 @@
     {
       "label": "AI Training & Workshops",
       "href": "/services/ai-training"
+    },
+    {
+      "label": "The five-hour rule for AI training",
+      "href": "/field-notes/the-five-hour-rule-for-ai-training"
+    },
+    {
+      "label": "How to make AI usage stick after training",
+      "href": "/field-notes/how-to-make-ai-usage-stick-after-training"
+    },
+    {
+      "label": "Claude's Record a Skill, explained",
+      "href": "/field-notes/claude-record-a-skill-explained"
     }
   ],
   "faqs": [

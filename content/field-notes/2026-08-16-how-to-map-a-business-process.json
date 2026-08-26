@@ -2,7 +2,7 @@
   "slug": "how-to-map-a-business-process",
   "title": "How to map a business process before you automate it | Traq Collective",
   "h1": "How to map a business process before you automate it",
-  "metaDescription": "Mapping a business process means writing down every real step, decision and handoff before you automate any of it. Skip this and automation just makes the current mess faster, not better.",
+  "metaDescription": "Mapping a business process means writing down every real step, decision and handoff before you automate it. Skip it and automation just makes the mess faster.",
   "targetQuery": "how to map a business process",
   "tags": ["adoption", "best-uses"],
   "datePublished": "2026-08-16",
@@ -64,6 +64,14 @@
     {
       "label": "AI Implementation",
       "href": "/services/ai-implementation"
+    },
+    {
+      "label": "Fix the process before you automate it",
+      "href": "/field-notes/fix-the-process-before-automating-it"
+    },
+    {
+      "label": "What to automate first in a small business",
+      "href": "/field-notes/what-to-automate-first-in-a-small-business"
     }
   ],
   "faqs": [

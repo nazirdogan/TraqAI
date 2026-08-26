@@ -2,7 +2,7 @@
   "slug": "what-is-an-ai-agent-for-business",
   "title": "What is an AI agent for a small business? | Traq Collective",
   "h1": "What is an AI agent for a small business?",
-  "metaDescription": "An AI agent is software given a goal and real tools that works out and carries out the steps to reach it, unlike a chatbot that only answers when asked. What that means in practice, with examples.",
+  "metaDescription": "An AI agent is software given a goal and real tools, which works out and carries out the steps itself. A chatbot only answers when asked. What that means day to day.",
   "targetQuery": "what is an AI agent for business",
   "tags": [
     "best-uses",
@@ -78,6 +78,18 @@
     {
       "label": "Agentic AI",
       "href": "/services/agentic-ai"
+    },
+    {
+      "label": "AI, automation and an agent: what's different",
+      "href": "/field-notes/ai-vs-automation-vs-agent"
+    },
+    {
+      "label": "Zapier's Human in the Loop, explained",
+      "href": "/field-notes/zapier-human-in-the-loop-for-ai-agents"
+    },
+    {
+      "label": "Gusto's AI teammate for payroll tasks",
+      "href": "/field-notes/gusto-cofounder-ai-teammate-for-small-business"
     }
   ],
   "faqs": [

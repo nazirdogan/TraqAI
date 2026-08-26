@@ -2,7 +2,7 @@
   "slug": "quickbooks-online-price-increase-2026",
   "title": "Why QuickBooks Online got more expensive in 2026 | Traq Collective",
   "h1": "Why QuickBooks Online got more expensive in 2026",
-  "metaDescription": "QuickBooks Online prices jumped on renewals from August 1, 2026, some plans by 70 percent, to fund new AI bookkeeping features. What changed and how to decide if it is worth paying for.",
+  "metaDescription": "QuickBooks Online prices jumped on renewals from August 1, 2026, some by 70 percent, to fund AI bookkeeping features. What changed, and whether it is worth paying.",
   "targetQuery": "why did QuickBooks Online prices go up in 2026",
   "tags": ["news", "tools"],
   "datePublished": "2026-08-11",
@@ -61,7 +61,15 @@
   },
   "related": [
     { "label": "How to measure AI ROI for a small business", "href": "/insights/how-to-measure-ai-roi-for-small-business" },
-    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" },
+    {
+      "label": "Is ChatGPT Business Premium worth $125 a seat?",
+      "href": "/field-notes/chatgpt-business-premium-seats-2026"
+    },
+    {
+      "label": "What Microsoft bundling Copilot changes",
+      "href": "/field-notes/microsoft-365-copilot-pricing-for-small-business"
+    }
   ],
   "faqs": [
     {

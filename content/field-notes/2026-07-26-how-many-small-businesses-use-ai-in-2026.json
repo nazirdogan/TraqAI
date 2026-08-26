@@ -2,7 +2,7 @@
   "slug": "how-many-small-businesses-use-ai-in-2026",
   "title": "How many small businesses use AI in 2026? | Traq Collective",
   "h1": "Most small businesses now use AI. Here is what that changes for you",
-  "metaDescription": "58% of small businesses now use generative AI, up from 40% in 2024, per the U.S. Chamber of Commerce. Here is what that shift actually means if your team has not started yet.",
+  "metaDescription": "58% of small businesses now use generative AI, up from 40% in 2024, per the U.S. Chamber of Commerce. What that shift means if your team has not started yet.",
   "targetQuery": "how many small businesses use AI in 2026",
   "tags": [
     "adoption",
@@ -49,6 +49,14 @@
     {
       "label": "Consultation & Strategy",
       "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Where a small team should start with AI",
+      "href": "/field-notes/where-small-teams-should-start-with-ai"
+    },
+    {
+      "label": "What AI can and cannot do for a small business",
+      "href": "/field-notes/what-ai-can-and-cannot-do-for-small-business"
     }
   ],
   "faqs": [

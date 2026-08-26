@@ -2,7 +2,7 @@
   "slug": "ai-vs-automation-vs-agent",
   "title": "AI vs automation vs agent: what's different | Traq",
   "h1": "AI, automation and an agent: what's actually different",
-  "metaDescription": "Automation follows fixed rules you set in advance. An AI agent decides its own steps toward a goal and adjusts when things go wrong. Most 'agents' sold today are still automation.",
+  "metaDescription": "Automation follows fixed rules you set in advance. An AI agent picks its own steps toward a goal and adjusts when things go wrong. Most 'agents' sold are automation.",
   "targetQuery": "difference between AI automation and AI agents",
   "tags": ["adoption", "best-uses", "tools"],
   "datePublished": "2026-08-26",
@@ -48,6 +48,50 @@
     "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage",
     "year": "2025"
   },
+  "tables": [
+    {
+      "heading": "Automation vs an agent, side by side",
+      "intro": "AI is the umbrella term. The line that matters commercially is the one between automation and an agent.",
+      "caption": "Automation and an AI agent compared across control, adaptability and oversight.",
+      "columns": [
+        "What you are comparing",
+        "Automation",
+        "AI agent"
+      ],
+      "rows": [
+        [
+          "What you give it",
+          "A fixed set of rules, written in advance",
+          "A goal, and the freedom to pick its own steps"
+        ],
+        [
+          "Who decides the next step",
+          "You did, when you built it",
+          "It does, and it changes course mid-task"
+        ],
+        [
+          "When the input is unexpected",
+          "Breaks, stalls, or returns a wrong result",
+          "Tries another route, or escalates"
+        ],
+        [
+          "Checking its own work",
+          "No, a fixed rule cannot notice a bad result",
+          "Yes: plan, act, check, adjust"
+        ],
+        [
+          "Cost and predictability",
+          "Cheaper and more predictable",
+          "Costlier, and needs more oversight"
+        ],
+        [
+          "A language model bolted onto one step",
+          "Still automation",
+          "Not what makes something an agent"
+        ]
+      ]
+    }
+  ],
   "related": [
     {
       "label": "How agentic workflows work",
@@ -56,6 +100,14 @@
     {
       "label": "Agentic AI Services",
       "href": "/services/agentic-ai"
+    },
+    {
+      "label": "What is an AI agent for a small business?",
+      "href": "/field-notes/what-is-an-ai-agent-for-business"
+    },
+    {
+      "label": "Zapier's Human in the Loop, explained",
+      "href": "/field-notes/zapier-human-in-the-loop-for-ai-agents"
     }
   ],
   "faqs": [

@@ -49,6 +49,60 @@
     }
   ],
   "takeaway": "This week, run one real piece of work, a client email, a proposal, or a report, through both tools' free tiers, and put your team's budget behind whichever version needed the least editing before you would actually send it.",
+  "tables": [
+    {
+      "heading": "Claude vs ChatGPT, side by side",
+      "intro": "Both handle everyday business tasks. These are the differences that actually change which one you standardise on.",
+      "caption": "Claude and ChatGPT compared for small business work across data defaults, long-form writing, research and integrations.",
+      "columns": [
+        "What you are comparing",
+        "Claude",
+        "ChatGPT"
+      ],
+      "rows": [
+        [
+          "Training on your chats, individual plans",
+          "Excluded by default",
+          "Used on Free, Plus and Pro unless you opt out"
+        ],
+        [
+          "Training on your chats, team plans",
+          "Excluded on Team and Enterprise",
+          "Excluded on Business and Enterprise"
+        ],
+        [
+          "Long client-facing documents",
+          "Holds voice and structure across a long piece",
+          "Capable, drifts more on style over length"
+        ],
+        [
+          "Live research with sources",
+          "Search tool is newer and less established",
+          "More mature browsing, cites inside the chat"
+        ],
+        [
+          "Third-party integrations",
+          "Smaller library",
+          "Wider library of connected apps"
+        ],
+        [
+          "Free tier",
+          "Smaller",
+          "Bigger"
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Anthropic, Is my data used for model training? (Claude consumer plans)",
+      "url": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training"
+    },
+    {
+      "label": "OpenAI, Data controls FAQ (ChatGPT training and opt-out)",
+      "url": "https://help.openai.com/en/articles/7730893-data-controls-faq"
+    }
+  ],
   "related": [
     {
       "label": "AI Training & Workshops",
@@ -57,6 +111,14 @@
     {
       "label": "How to get your team using AI",
       "href": "/insights/how-to-get-your-team-using-ai"
+    },
+    {
+      "label": "Which AI tool to use for which job",
+      "href": "/field-notes/which-ai-tool-for-which-job"
+    },
+    {
+      "label": "Claude for Small Business, explained",
+      "href": "/field-notes/claude-for-small-business-explained"
     }
   ],
   "faqs": [

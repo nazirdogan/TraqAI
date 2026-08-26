@@ -58,7 +58,19 @@
   "related": [
     { "label": "How to build an AI strategy for a small business", "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business" },
     { "label": "How to get value from AI tools you already pay for", "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for" },
-    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" },
+    {
+      "label": "Where a small team should start with AI",
+      "href": "/field-notes/where-small-teams-should-start-with-ai"
+    },
+    {
+      "label": "How to choose AI use cases that actually work",
+      "href": "/field-notes/how-to-choose-ai-use-cases"
+    },
+    {
+      "label": "How many small businesses use AI in 2026",
+      "href": "/field-notes/how-many-small-businesses-use-ai-in-2026"
+    }
   ],
   "faqs": [
     {

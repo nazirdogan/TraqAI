@@ -2,7 +2,7 @@
   "slug": "gemini-diagrams-in-google-docs",
   "title": "Gemini Can Now Draw Diagrams in Google Docs | Traq Collective",
   "h1": "Gemini can now draw diagrams inside Google Docs",
-  "metaDescription": "Google rolled out Gemini-generated diagrams, infographics and images inside Docs on July 28, 2026. Here is which Workspace plans get it and what a small team should do with it.",
+  "metaDescription": "Google rolled out Gemini-generated diagrams, infographics and images inside Docs on July 28, 2026. Which Workspace plans get it, and what a small team should do.",
   "targetQuery": "can Gemini create diagrams and images in Google Docs",
   "tags": ["news", "tools"],
   "datePublished": "2026-08-04",
@@ -59,7 +59,15 @@
   },
   "related": [
     { "label": "AI Training & Workshops", "href": "/services/ai-training" },
-    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" }
+    { "label": "How to get your team using AI", "href": "/insights/how-to-get-your-team-using-ai" },
+    {
+      "label": "Google Sheets canvas, explained",
+      "href": "/field-notes/google-sheets-canvas-for-small-business"
+    },
+    {
+      "label": "Google Chat's Gemini panel is changing",
+      "href": "/field-notes/ask-gemini-in-google-chat-for-small-business"
+    }
   ],
   "faqs": [
     {

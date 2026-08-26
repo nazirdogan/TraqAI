@@ -2,7 +2,7 @@
   "slug": "chatgpt-business-premium-seats-2026",
   "title": "Is ChatGPT Business Premium Worth $125 a Seat? | Traq Collective",
   "h1": "Is ChatGPT Business Premium worth $125 a seat?",
-  "metaDescription": "OpenAI added a $125-a-month Premium seat to ChatGPT Business on August 10, 2026, with 5x usage and no five-hour cap. What it costs, who needs it, and the August 20 credit deadline.",
+  "metaDescription": "OpenAI added a $125-a-month Premium seat to ChatGPT Business on August 10, 2026, with 5x usage and no five-hour cap. What it costs and who actually needs it.",
   "targetQuery": "is ChatGPT Business Premium worth $125 a seat",
   "tags": ["news", "tools"],
   "datePublished": "2026-08-14",
@@ -50,7 +50,19 @@
   },
   "related": [
     { "label": "How to measure AI ROI for a small business", "href": "/insights/how-to-measure-ai-roi-for-small-business" },
-    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" }
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" },
+    {
+      "label": "ChatGPT for Small Business, explained",
+      "href": "/field-notes/openai-chatgpt-for-small-business-explained"
+    },
+    {
+      "label": "What Microsoft bundling Copilot changes",
+      "href": "/field-notes/microsoft-365-copilot-pricing-for-small-business"
+    },
+    {
+      "label": "Why QuickBooks Online got more expensive",
+      "href": "/field-notes/quickbooks-online-price-increase-2026"
+    }
   ],
   "faqs": [
     {

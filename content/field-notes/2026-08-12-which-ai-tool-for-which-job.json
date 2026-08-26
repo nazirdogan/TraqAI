@@ -2,7 +2,7 @@
   "slug": "which-ai-tool-for-which-job",
   "title": "Which AI tool should you use for what | Traq Collective",
   "h1": "Which AI tool should you use for what",
-  "metaDescription": "Most small businesses already have access to two or three AI tools without paying for a new one. A plain guide to matching ChatGPT, Claude, Gemini, Copilot and Perplexity to the job.",
+  "metaDescription": "Most small businesses already have two or three AI tools without buying another. A plain guide to matching ChatGPT, Claude, Gemini, Copilot and Perplexity to a job.",
   "targetQuery": "which AI tool should I use for what",
   "tags": [
     "tools",
@@ -56,6 +56,50 @@
     "url": "https://www.gallup.com/workplace/712736/organizational-adoption-jumps-six-points.aspx",
     "year": "2026"
   },
+  "tables": [
+    {
+      "heading": "Match the job to the tool",
+      "intro": "Most teams already have access to all of these. The gap is deciding which one is the default for which job.",
+      "caption": "Which AI tool to use for each kind of job, and the reason for each choice.",
+      "columns": [
+        "The job",
+        "Use this",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Drafting from a blank page",
+          "Your team's standard chat assistant",
+          "Pick one default so you train the team once"
+        ],
+        [
+          "A long client-facing document",
+          "Claude",
+          "Holds tone and structure across a long piece"
+        ],
+        [
+          "Quick back-and-forth editing",
+          "ChatGPT",
+          "Faster in short iterations, more integrations"
+        ],
+        [
+          "Research where the source matters",
+          "Perplexity",
+          "Searches the live web and shows its sources"
+        ],
+        [
+          "A file open in Word or Excel",
+          "Microsoft 365 Copilot",
+          "Already licensed, works on the open file"
+        ],
+        [
+          "A file open in Docs, Sheets or Gmail",
+          "Gemini",
+          "Already in Workspace, no copying into a chat"
+        ]
+      ]
+    }
+  ],
   "related": [
     {
       "label": "How to get your team using AI",
@@ -64,6 +108,14 @@
     {
       "label": "AI Consulting",
       "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Claude vs ChatGPT for business",
+      "href": "/field-notes/claude-vs-chatgpt-for-business"
+    },
+    {
+      "label": "What ChatGPT Projects are actually for",
+      "href": "/field-notes/what-chatgpt-projects-are-for"
     }
   ],
   "faqs": [

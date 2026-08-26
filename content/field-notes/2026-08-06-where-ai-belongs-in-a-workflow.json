@@ -2,7 +2,7 @@
   "slug": "where-ai-belongs-in-a-workflow",
   "title": "Where AI belongs in a business workflow | Traq Collective",
   "h1": "Where AI belongs in a business workflow, and where it doesn't",
-  "metaDescription": "AI works best at structured, repeatable steps like intake and drafting. It works worst at decision gates and customer-facing moments where someone is accountable. Here is how to place it.",
+  "metaDescription": "AI works best at structured, repeatable steps like intake and drafting. It works worst at decision gates and customer-facing moments. Here is how to place it.",
   "targetQuery": "where to use AI in a business workflow",
   "tags": ["adoption", "best-uses"],
   "datePublished": "2026-08-06",
@@ -63,6 +63,14 @@
     {
       "label": "AI Implementation",
       "href": "/services/ai-implementation"
+    },
+    {
+      "label": "Fix the process before you automate it",
+      "href": "/field-notes/fix-the-process-before-automating-it"
+    },
+    {
+      "label": "What to automate first in a small business",
+      "href": "/field-notes/what-to-automate-first-in-a-small-business"
     }
   ],
   "faqs": [
