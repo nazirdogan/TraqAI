@@ -638,7 +638,16 @@ export default function AssessmentForm({
 
           <p className="mt-4 text-[13px] leading-relaxed text-ink-faint">
             This is how we deliver the score, not a gate. No spam, and you can
-            finish the remaining questions either way.
+            finish the remaining questions either way. See our{' '}
+            <a
+              href="/privacy"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-4 transition-colors hover:text-traq-purple"
+            >
+              privacy policy
+            </a>
+            .
           </p>
 
           <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
