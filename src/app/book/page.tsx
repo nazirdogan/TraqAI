@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import BookViewTracker from '@/components/analytics/BookViewTracker';
+import BookingEmbed from '@/components/analytics/BookingEmbed';
 import { COMPANY } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -33,14 +35,15 @@ export default function BookPage() {
 
       <div className="mx-auto mt-10 max-w-4xl sm:mt-14">
         {BOOKING_URL ? (
-          <div className="overflow-hidden rounded-[24px] border border-border-subtle bg-white shadow-card">
-            <iframe
-              src={BOOKING_URL}
-              title="Book a call with Traq Collective"
-              className="h-[80vh] min-h-[640px] w-full"
-              loading="lazy"
-            />
-          </div>
+          /* useSearchParams needs a Suspense boundary or the whole route opts
+             into dynamic rendering. */
+          <Suspense
+            fallback={
+              <div className="h-[80vh] min-h-[640px] w-full rounded-[24px] border border-border-subtle bg-white shadow-card" />
+            }
+          >
+            <BookingEmbed bookingUrl={BOOKING_URL} />
+          </Suspense>
         ) : (
           <div className="rounded-[24px] border border-border-subtle bg-bg-subtle p-8 text-center shadow-card sm:p-12">
             {/* TODO: set NEXT_PUBLIC_BOOKING_URL on Vercel to a Cal.com/Calendly

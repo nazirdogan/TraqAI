@@ -66,6 +66,27 @@ export default function AssessmentLeadEmail({ intake, maxScore = 27 }: Props) {
             <Text style={value}>
               {intake.score} / {maxScore}
             </Text>
+
+            {intake.budget ? (
+              <>
+                <Text style={label}>Budget</Text>
+                <Text style={value}>{intake.budget}</Text>
+              </>
+            ) : null}
+
+            {intake.source ? (
+              <>
+                <Text style={label}>Source</Text>
+                <Text style={value}>{intake.source}</Text>
+              </>
+            ) : null}
+
+            {intake.attribution ? (
+              <>
+                <Text style={label}>Attribution</Text>
+                <Text style={value}>{intake.attribution}</Text>
+              </>
+            ) : null}
           </Section>
 
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />

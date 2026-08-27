@@ -106,6 +106,37 @@ export const assessmentIntakeSchema = z.object({
   answers: z.array(assessmentAnswerSchema).min(1).max(20),
   score: z.number().int().min(0).max(60),
   band: z.enum(READINESS_BANDS),
+  /**
+   * Which page the assessment was completed on, e.g. a paid-search landing
+   * page slug. Optional so the existing /ai-readiness form keeps working
+   * unchanged; without it a paid lead is indistinguishable from an organic one.
+   */
+  source: z.string().trim().max(120).optional(),
+  /**
+   * Optional, unscored. Whether a budget exists yet and roughly what it is,
+   * asked at the end of the landing-page assessment so a call can open at the
+   * right format instead of guessing.
+   */
+  budget: z.string().trim().max(80).optional(),
+  /** gclid and utm values for the click that produced this lead. */
+  attribution: z.string().trim().max(500).optional(),
 });
 
 export type AssessmentIntake = z.infer<typeof assessmentIntakeSchema>;
+
+/**
+ * A partial assessment lead, sent the moment the email is captured mid-quiz.
+ *
+ * Without this the address collected at question three lives only in React
+ * state and dies with the tab, which defeats the point of asking for it early:
+ * the people worth recovering are exactly the ones who never reach the end.
+ */
+export const assessmentPartialSchema = z.object({
+  email: z.string().trim().email('Enter a valid email').max(200),
+  /** How many questions were answered when the email was given. */
+  answered: z.number().int().min(0).max(20),
+  source: z.string().trim().max(120).optional(),
+  attribution: z.string().trim().max(500).optional(),
+});
+
+export type AssessmentPartial = z.infer<typeof assessmentPartialSchema>;

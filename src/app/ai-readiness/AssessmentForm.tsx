@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Turnstile } from '@marsidev/react-turnstile';
 import {
@@ -12,6 +12,11 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import { track } from '@/components/analytics/Analytics';
+import {
+  attributionSummary,
+  captureAttribution,
+  getAttribution,
+} from '@/lib/attribution';
 import { cn } from '@/lib/cn';
 
 /**
@@ -224,7 +229,67 @@ const DIMENSION_LABELS: Record<Dimension, string> = {
   'use-cases': 'Use-case clarity',
 };
 
-type Phase = 'quiz' | 'result' | 'submitting' | 'success' | 'error';
+type Phase =
+  | 'quiz'
+  | 'capture'
+  | 'budget'
+  | 'result'
+  | 'submitting'
+  | 'success'
+  | 'error';
+
+/**
+ * Budget bands for the optional closing question.
+ *
+ * Deliberately coarse, and "not set yet" is listed first so it reads as a
+ * normal answer rather than a disqualification. This does not touch the score:
+ * readiness and budget are different things, and folding one into the other
+ * would move the band thresholds.
+ */
+const BUDGET_OPTIONS = [
+  'No budget set yet',
+  'Under AED 15,000',
+  'AED 15,000 to 50,000',
+  'Over AED 50,000',
+] as const;
+
+export type AssessmentFormProps = {
+  /**
+   * Ask for the email this many questions in, as a delivery mechanism for the
+   * score rather than a gate. Everyone who abandons after this point stays
+   * reachable, and completion barely moves. Omit for the original behaviour,
+   * where the email is only asked for at the result.
+   */
+  captureEmailAfter?: number;
+  /**
+   * When set, a Building or Ready result leads with a booking CTA instead of
+   * dead-ending at an article. Those two bands have just told us they have
+   * tools in place and leadership behind them, which is the qualification a
+   * discovery call would otherwise establish. Early never books: they are
+   * honestly not ready, and the article plus nurture serves them better.
+   */
+  bookingHref?: string;
+  /** Where this submission came from, so paid leads are attributable. */
+  source?: string;
+  /**
+   * Overrides the outer wrapper. Defaults to the centred 2xl measure the
+   * /ai-readiness page uses; the landing pages pass a full-width value so the
+   * card fills its grid column and lines up with the copy above it.
+   */
+  containerClassName?: string;
+  /**
+   * Adds one optional, unscored question after the last real one: whether a
+   * budget exists yet. An answer sizes the format we suggest, and "not yet" is
+   * just as useful to know before a call.
+   */
+  askBudget?: boolean;
+  /**
+   * Tightens the card's internal spacing. Used on the landing pages, where the
+   * quiz sits inside a column rather than alone on a page and the first
+   * question should land higher in the viewport.
+   */
+  compact?: boolean;
+};
 
 const INPUT_BASE =
   'w-full min-h-[44px] rounded-xl border border-border-subtle bg-white px-4 py-3 text-base text-ink placeholder:text-ink-faint transition-colors focus:border-traq-purple focus:outline-none focus:ring-0 sm:text-sm';
@@ -232,7 +297,20 @@ const INPUT_BASE =
 const LABEL_BASE =
   'text-[11px] font-semibold uppercase tracking-widest text-ink-faint';
 
-export default function AssessmentForm() {
+export default function AssessmentForm({
+  captureEmailAfter,
+  bookingHref,
+  source,
+  compact = false,
+  containerClassName = 'mx-auto max-w-2xl',
+  askBudget = false,
+}: AssessmentFormProps = {}) {
+  // One shell class for all four phases, so compact never drifts between them.
+  const cardClass = cn(
+    'rounded-[24px] border border-border-subtle bg-white shadow-card',
+    compact ? 'p-5 sm:p-7' : 'p-6 sm:p-9',
+  );
+  const promptGap = compact ? 'mt-6' : 'mt-8';
   const turnstileSiteKey =
     process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ?? '';
   const turnstileRequired = Boolean(turnstileSiteKey);
@@ -246,6 +324,16 @@ export default function AssessmentForm() {
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  // The mid-quiz email step runs at most once, whether it was filled or skipped.
+  const [emailStepSeen, setEmailStepSeen] = useState(false);
+  const [captureError, setCaptureError] = useState('');
+  const [budget, setBudget] = useState('');
+  const [completedFired, setCompletedFired] = useState(false);
+
+  // Read gclid/utm once per session so the lead can be tied back to the click.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
 
   const answeredCount = Object.keys(answers).length;
   const progressPct = Math.round((answeredCount / QUESTIONS.length) * 100);
@@ -256,6 +344,19 @@ export default function AssessmentForm() {
   );
   const detail = useMemo(() => bandFor(score), [score]);
   const current = QUESTIONS[step];
+
+  // Conversion action 3. The result being on screen is the completion, not the
+  // form submit below it: most people read the score and never fill the form.
+  useEffect(() => {
+    if (phase !== 'result' || completedFired) return;
+    setCompletedFired(true);
+    track('assessment_completed', {
+      score,
+      band: detail.band,
+      source,
+    });
+  }, [phase, completedFired, score, detail.band, source]);
+
 
   // A readable per-dimension breakdown for the result screen and the email.
   const dimensionBreakdown = useMemo(() => {
@@ -274,13 +375,70 @@ export default function AssessmentForm() {
   }, [answers]);
 
   const handleSelect = (questionId: string, value: number) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: value }));
-    // Auto-advance for momentum; the last question lands on the result.
-    if (step < QUESTIONS.length - 1) {
-      setStep((s) => s + 1);
-    } else {
-      setPhase('result');
+    // Conversion action 1. Fires once, on the first answer of the session.
+    if (Object.keys(answers).length === 0) {
+      track('assessment_started', { source });
     }
+    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+
+    const nextStep = step + 1;
+
+    // Ask for the email as soon as the configured question is answered, then
+    // carry on. Asked here it reads as "where do we send this", not as a wall.
+    if (
+      captureEmailAfter !== undefined &&
+      nextStep === captureEmailAfter &&
+      !emailStepSeen &&
+      nextStep < QUESTIONS.length
+    ) {
+      setStep(nextStep);
+      setPhase('capture');
+      return;
+    }
+
+    // Auto-advance for momentum; the last question lands on the result, or on
+    // the budget question first where that is switched on.
+    if (step < QUESTIONS.length - 1) {
+      setStep(nextStep);
+    } else {
+      setPhase(askBudget ? 'budget' : 'result');
+    }
+  };
+
+  const answerBudget = (value: string) => {
+    setBudget(value);
+    track('budget_answered', { budget: value, source });
+    setPhase('result');
+  };
+
+  /** Leave the mid-quiz email step, with or without an address. */
+  const leaveCaptureStep = (withEmail: boolean) => {
+    if (withEmail) {
+      const trimmed = email.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed)) {
+        setCaptureError('Enter an email we can send the score to.');
+        return;
+      }
+      // Conversion action 2, and the reason the email is asked for here at all:
+      // it has to exist somewhere other than this tab before they can abandon.
+      track('email_captured', { step: captureEmailAfter ?? 0, source });
+      void fetch('/api/intake/assessment/partial', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          email: trimmed,
+          answered: Object.keys(answers).length,
+          source,
+          attribution: attributionSummary(getAttribution()),
+        }),
+        keepalive: true,
+      }).catch(() => {
+        // Best effort. A failed partial capture must never block the quiz.
+      });
+    }
+    setCaptureError('');
+    setEmailStepSeen(true);
+    setPhase('quiz');
   };
 
   const restart = () => {
@@ -291,6 +449,10 @@ export default function AssessmentForm() {
     setEmail('');
     setCompany('');
     setErrorMessage('');
+    setEmailStepSeen(false);
+    setCaptureError('');
+    setBudget('');
+    setCompletedFired(false);
   };
 
   const canSubmit =
@@ -330,6 +492,9 @@ export default function AssessmentForm() {
             answers: answerDetail,
             score,
             band: detail.band,
+            source,
+            budget: budget || undefined,
+            attribution: attributionSummary(getAttribution()),
           },
           turnstileToken: turnstileRequired ? turnstileToken : undefined,
         }),
@@ -348,7 +513,7 @@ export default function AssessmentForm() {
                   : 'Something went wrong. Try again.',
         );
       }
-      track('assessment_submit', { band: detail.band, score });
+      track('assessment_submit', { band: detail.band, score, source });
       setPhase('success');
     } catch (err) {
       setPhase('error');
@@ -360,7 +525,7 @@ export default function AssessmentForm() {
 
   if (phase === 'success') {
     return (
-      <div className="mx-auto max-w-2xl">
+      <div className={containerClassName}>
         <div className="rounded-[24px] border border-border-subtle bg-white px-6 py-12 text-center shadow-card sm:px-10 sm:py-14">
           <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-traq-tint text-traq-purple">
             <CheckCircle2 className="h-7 w-7" />
@@ -396,11 +561,192 @@ export default function AssessmentForm() {
     );
   }
 
+  // Mid-quiz capture. The score is the thing being delivered, so the ask is
+  // framed as a delivery address and stays skippable: a hard gate here costs
+  // more completions than the addresses are worth.
+  if (phase === 'capture') {
+    return (
+      <div className={containerClassName}>
+        <div className={cardClass}>
+          <div className="flex items-center justify-between gap-4">
+            <p className={LABEL_BASE}>Almost there</p>
+            <p className="text-[13px] font-medium text-ink-faint">
+              {answeredCount} of {QUESTIONS.length} answered
+            </p>
+          </div>
+
+          <div
+            className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-border-subtle"
+            role="progressbar"
+            aria-valuenow={answeredCount}
+            aria-valuemin={0}
+            aria-valuemax={QUESTIONS.length}
+          >
+            <div
+              className="h-full rounded-full bg-traq-purple transition-all duration-300"
+              style={{ width: `${progressPct}%` }}
+            />
+          </div>
+
+          <h2
+            className={cn(
+              promptGap,
+              'text-balance text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl',
+            )}
+          >
+            Where should we send your score?
+          </h2>
+          <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
+            {`You are ${answeredCount} questions in. We will send the full result so you keep it.`}
+          </p>
+
+          <div className="mt-6">
+            <label className={LABEL_BASE} htmlFor="ar-capture-email">
+              Work email
+            </label>
+            <input
+              id="ar-capture-email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (captureError) setCaptureError('');
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  leaveCaptureStep(true);
+                }
+              }}
+              className={cn(INPUT_BASE, 'mt-2')}
+              placeholder="you@company.com"
+              aria-invalid={captureError ? true : undefined}
+              aria-describedby={captureError ? 'ar-capture-error' : undefined}
+            />
+            {captureError ? (
+              <p
+                id="ar-capture-error"
+                className="mt-2 flex items-center gap-1.5 text-[13px] font-medium text-signal-warn"
+              >
+                <AlertCircle className="h-3.5 w-3.5" />
+                {captureError}
+              </p>
+            ) : null}
+          </div>
+
+          <p className="mt-4 text-[13px] leading-relaxed text-ink-faint">
+            This is how we deliver the score, not a gate. No spam, and you can
+            finish the remaining questions either way.
+          </p>
+
+          <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              onClick={() => leaveCaptureStep(true)}
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
+            >
+              {`Continue to question ${Math.min(answeredCount + 1, QUESTIONS.length)}`}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <button
+              type="button"
+              onClick={() => leaveCaptureStep(false)}
+              className="inline-flex items-center justify-center gap-2 text-[13px] font-semibold text-ink-soft transition-colors hover:text-traq-purple"
+            >
+              Skip, just show my score
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // The optional closing question. Unscored, skippable, and framed so that
+  // "no budget yet" is a normal thing to click rather than a door closing.
+  if (phase === 'budget') {
+    return (
+      <div className={containerClassName}>
+        <div className={cardClass}>
+          <div className="flex items-center justify-between gap-4">
+            <p className={LABEL_BASE}>Last one, optional</p>
+            <p className="text-[13px] font-medium text-ink-faint">
+              {QUESTIONS.length} of {QUESTIONS.length} answered
+            </p>
+          </div>
+
+          <div
+            className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-border-subtle"
+            role="progressbar"
+            aria-valuenow={QUESTIONS.length}
+            aria-valuemin={0}
+            aria-valuemax={QUESTIONS.length}
+          >
+            <div className="h-full w-full rounded-full bg-traq-purple" />
+          </div>
+
+          <h2
+            className={cn(
+              promptGap,
+              'text-balance text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl',
+            )}
+          >
+            Do you have a budget in mind for this?
+          </h2>
+          <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
+            It helps us point you at a format that fits. There is no wrong
+            answer, and not having one yet is useful to know too.
+          </p>
+
+          <fieldset className="mt-6 flex flex-col gap-3">
+            <legend className="sr-only">Do you have a budget in mind for this?</legend>
+            {BUDGET_OPTIONS.map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => answerBudget(option)}
+                aria-pressed={budget === option}
+                className={cn(
+                  'flex items-center justify-between gap-3 rounded-2xl border px-5 py-4 text-left text-[15px] font-medium transition-colors',
+                  budget === option
+                    ? 'border-traq-purple bg-traq-tint text-traq-purple-ink'
+                    : 'border-border-subtle bg-white text-ink hover:border-traq-purple/40',
+                )}
+              >
+                <span>{option}</span>
+                <span
+                  className={cn(
+                    'flex h-5 w-5 flex-none items-center justify-center rounded-full border transition-colors',
+                    budget === option
+                      ? 'border-traq-purple bg-traq-purple text-white'
+                      : 'border-border-strong text-transparent',
+                  )}
+                  aria-hidden="true"
+                >
+                  <CheckCircle2 className="h-3.5 w-3.5" />
+                </span>
+              </button>
+            ))}
+          </fieldset>
+
+          <button
+            type="button"
+            onClick={() => setPhase('result')}
+            className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-ink-soft transition-colors hover:text-traq-purple"
+          >
+            Skip, show my score
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   // Quiz phase: one question at a time, with progress and a back step.
   if (phase === 'quiz') {
     return (
-      <div className="mx-auto max-w-2xl">
-        <div className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-9">
+      <div className={containerClassName}>
+        <div className={cardClass}>
           <div className="flex items-center justify-between gap-4">
             <p className={LABEL_BASE}>
               {DIMENSION_LABELS[current.dimension]}
@@ -423,7 +769,12 @@ export default function AssessmentForm() {
             />
           </div>
 
-          <h2 className="mt-8 text-balance text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl">
+          <h2
+            className={cn(
+              promptGap,
+              'text-balance text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl',
+            )}
+          >
             {current.prompt}
           </h2>
           {current.hint ? (
@@ -487,9 +838,44 @@ export default function AssessmentForm() {
 
   // Result + capture phase (also covers 'submitting' and 'error').
   const submitting = phase === 'submitting';
+
+  // The routing fix. A Building or Ready score is a qualified lead telling us
+  // it has tools, confidence and budget, so peak intent goes to a calendar
+  // rather than being spent on a page view. Early keeps the article only.
+  /**
+   * The routing.
+   *
+   * Building and Ready have just told us they have tools, confidence and
+   * budget behind them, which is the qualification a discovery call would
+   * otherwise spend ten minutes establishing, so those two get a calendar as
+   * the headline action at the moment of peak intent.
+   *
+   * Early gets the guide first, because a sales call at that score wastes both
+   * sides. It still gets a booking link underneath: someone who wants to talk
+   * should never have to hunt for the way to do it, whatever they scored.
+   */
+  const bookHref = bookingHref
+    ? `${bookingHref}${bookingHref.includes('?') ? '&' : '?'}score=${score}&band=${detail.band.toLowerCase()}`
+    : null;
+
+  const booking =
+    bookHref && detail.band !== 'Early'
+      ? {
+          href: bookHref,
+          heading:
+            detail.band === 'Ready'
+              ? 'Map your next three workflows'
+              : 'Walk through your score',
+          body:
+            detail.band === 'Ready'
+              ? 'You scored in the top band, so the useful conversation is which repetitive work to automate first. Thirty minutes, your answers already on screen.'
+              : 'Thirty minutes on where the gap between your early adopters and the rest of the team actually is, and what closes it fastest.',
+          cta: detail.band === 'Ready' ? 'Book the workflow call' : 'Book a call about your score',
+        }
+      : null;
   return (
-    <div className="mx-auto max-w-2xl">
-      <div className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-9">
+    <div className={containerClassName}>
+      <div className={cardClass}>
         <div className="flex items-center justify-between gap-4">
           <p className={LABEL_BASE}>Your result</p>
           <button
@@ -569,7 +955,64 @@ export default function AssessmentForm() {
             {detail.guideLabel}
             <ArrowRight className="h-4 w-4" />
           </Link>
+
+          {bookHref && !booking ? (
+            <p className="mt-4 border-t border-border-subtle pt-4 text-[13.5px] leading-relaxed text-ink-soft">
+              At this score the guide will get you further than a call would.
+              If you would rather talk it through anyway,{' '}
+              <Link
+                href={bookHref}
+                onClick={() => track('assessment_book_click', { band: detail.band, score })}
+                className="font-semibold text-traq-purple underline underline-offset-4"
+              >
+                book thirty minutes
+              </Link>
+              .
+            </p>
+          ) : null}
         </div>
+
+        {booking ? (
+          <div className="mt-7 overflow-hidden rounded-2xl border border-traq-purple/40">
+            <div className="border-b border-border-subtle bg-traq-tint px-5 py-4">
+              <h3 className="text-[15px] font-semibold tracking-tight text-ink">
+                {booking.heading}
+              </h3>
+              <p className="mt-1 text-[13px] leading-relaxed text-ink-soft">
+                {booking.body}
+              </p>
+            </div>
+            <div className="bg-white px-5 py-4">
+              <ul className="flex flex-wrap gap-2" aria-label="Sent with your booking">
+                {[
+                  `Score ${score}/${MAX_SCORE}`,
+                  `Band ${detail.band}`,
+                  `All ${QUESTIONS.length} answers attached`,
+                ].map((chip) => (
+                  <li
+                    key={chip}
+                    className="rounded-md border border-border-subtle bg-bg-subtle px-2.5 py-1 text-[11.5px] font-semibold text-ink-soft"
+                  >
+                    {chip}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={booking.href}
+                onClick={() =>
+                  track('assessment_book_click', {
+                    band: detail.band,
+                    score,
+                  })
+                }
+                className="group mt-4 inline-flex items-center justify-center gap-2.5 rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
+              >
+                {booking.cta}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+        ) : null}
 
         <form
           onSubmit={handleSubmit}
