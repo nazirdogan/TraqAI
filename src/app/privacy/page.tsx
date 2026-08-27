@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://traqcollective.com/privacy' },
 };
 
-const LAST_UPDATED = '10 June 2026';
+const LAST_UPDATED = '27 August 2026';
 
 export default function PrivacyPage() {
   return (
@@ -21,9 +21,10 @@ export default function PrivacyPage() {
         </h1>
         <p className="mt-4 text-sm text-ink-faint">Last updated: {LAST_UPDATED}</p>
         <p className="mt-6 text-[15px] leading-relaxed text-ink-soft md:text-[17px]">
-          This is the short, honest version. We only collect what we need to reply to you and to
-          understand how people use the site. We do not sell your data, and we do not run ad
-          trackers.
+          This is the short, honest version. We only collect what we need to reply to you, to give
+          you the result you asked for, and to understand how people find and use the site. We do
+          not sell your data. We do run advertising measurement, because we advertise on Google
+          Search, and the section below says exactly what that involves.
         </p>
 
         <div className="mt-12 space-y-12">
@@ -38,10 +39,24 @@ export default function PrivacyPage() {
               you enter.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
+              When you take the AI readiness assessment, we collect your answers, the score and band
+              they produce, and the optional budget range if you choose to give one. If you enter
+              your email part-way through so we can send you the result, we receive that email even
+              if you do not finish. That is deliberate, and it is the only reason we ask for it
+              there: so we can send you the score you started.
+            </p>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
               We also use Google Analytics 4 to understand site traffic. It collects standard
               analytics data such as pages viewed, rough location (country or city level), device
               and browser type, and how you arrived at the site. It uses cookies to do this. We do
               not link this data to your name.
+            </p>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
+              If you reach us by clicking a Google Search ad, your browser arrives carrying a Google
+              click identifier (a <span className="font-medium text-ink">gclid</span>) and campaign
+              labels. We keep those for the duration of your visit and attach them to your enquiry,
+              so we can tell which advert produced it and stop paying for the ones that do not work.
+              It identifies the click, not you.
             </p>
           </section>
 
@@ -64,9 +79,12 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
               We use a small number of trusted providers to run the site: Resend for email delivery,
-              Google Analytics for traffic, and Cloudflare Turnstile to keep spam out of the form.
-              Each processes only what it needs for that job. We never sell your data or pass it to
-              advertisers.
+              Google Analytics for traffic, Cloudflare Turnstile to keep spam out of the forms, and
+              Calendly when you book a call. Each processes only what it needs for that job.
+              <span className="font-medium text-ink"> We never sell your data.</span> Where you came
+              from a Google advert, Google Analytics reports back to Google Ads that a conversion
+              happened and which click it belonged to. That measurement is about the advert, not
+              about you, and we do not upload your name or email to any advertising platform.
             </p>
           </section>
 
@@ -76,7 +94,9 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
               We keep enquiry emails for as long as we are in contact and for a reasonable period
-              after, in case you come back to us. You can ask us to delete your details at any time.
+              after, in case you come back to us. If you gave us an email part-way through the
+              assessment and never finished, we may send you one message about it and then leave you
+              alone. You can ask us to delete your details at any time, and we will.
             </p>
           </section>
 

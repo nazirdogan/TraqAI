@@ -236,6 +236,28 @@ export default function LandingPage({ params }: Params) {
             anonymised at the client&rsquo;s request. Every engagement is scoped
             and quoted through an enquiry.
           </p>
+          {/* The page has no navigation by design, but it collects an email, so
+              the policy that covers it has to be reachable from it. New tab, so
+              the one permitted link out cannot cost the conversion. */}
+          <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+            <a
+              href="/privacy"
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-border-strong underline-offset-4 transition-colors hover:text-traq-purple-ink hover:decoration-traq-purple"
+            >
+              Privacy policy
+            </a>
+            <a
+              href="/terms"
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-border-strong underline-offset-4 transition-colors hover:text-traq-purple-ink hover:decoration-traq-purple"
+            >
+              Terms
+            </a>
+            <span>&copy; {new Date().getFullYear()} Traq Collective</span>
+          </p>
         </div>
       </div>
     </>
