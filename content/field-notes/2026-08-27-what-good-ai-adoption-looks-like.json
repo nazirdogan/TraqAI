@@ -1,0 +1,83 @@
+{
+  "slug": "what-good-ai-adoption-looks-like",
+  "title": "What good AI adoption looks like | Traq Collective",
+  "h1": "What good AI adoption actually looks like",
+  "metaDescription": "Good AI adoption is not about which tool a team uses or how often. Microsoft's 2026 data ties it to treating AI output as a draft and managers modeling real use.",
+  "targetQuery": "what does good AI adoption look like",
+  "tags": ["adoption", "training", "making-it-stick"],
+  "datePublished": "2026-08-27",
+  "dateModified": "2026-08-27",
+  "author": "Nazir Dogan",
+  "dek": "The gap between teams that get real value from AI and teams that don't isn't the tool. It's what happens after the AI answers.",
+  "intro": "Good AI adoption looks less like which tool a team uses and more like what happens after: people treat AI output as a first draft they stay responsible for, not a finished answer. Microsoft's 2026 Work Trend Index found the gap between advanced and typical AI users comes down to that habit, not access to better software.",
+  "body": [
+    {
+      "heading": "What actually separates good AI adoption from just using AI a lot?",
+      "paragraphs": [
+        "Microsoft's 2026 Work Trend Index found that 80% of what it calls frontier professionals, workers using AI most effectively, say they are producing work they could not have a year ago, against 58% of AI users overall. That 22 point gap has nothing to do with hours logged or the number of tools on a team's subscription list.",
+        "It comes down to a habit: 86% of AI users surveyed said they treat AI output as a starting point, not a final answer, and that they stay responsible for the thinking. Good adoption is that discipline, applied consistently, not the volume of prompts sent in a week."
+      ]
+    },
+    {
+      "heading": "Why do managers set the ceiling on how well a team uses AI?",
+      "paragraphs": [
+        "The same research found that when managers actively modeled AI use themselves, rather than just approving a tool for their team, employees reported a 17 point lift in how much value they got from AI, a 22 point lift in critical thinking about how they used it, and a 30 point lift in trust in agentic AI specifically.",
+        "Psychological safety mattered on its own: when managers made it safe to experiment and get something wrong, employees reported up to 20 points higher AI readiness and were 1.4 times more likely to become high-frequency agentic AI users. A team's ceiling on AI is set by what its manager visibly does, not by a policy document nobody read."
+      ]
+    },
+    {
+      "heading": "What does this look like day to day on a small team?",
+      "paragraphs": [
+        "It looks small and specific. Whoever leads the team uses AI on a real task in front of people, including the part where the first draft was wrong and needed a fix. Nobody sends AI output straight through without reading it first. Mistakes with AI get mentioned out loud instead of quietly corrected and hidden, because that is what makes the next person willing to try."
+      ]
+    },
+    {
+      "heading": "Does using AI every day already count as good adoption?",
+      "paragraphs": [
+        "Not by itself. Frequency is easy to measure and easy to mistake for maturity, but the Work Trend Index data ties the real gap to review habits and manager behaviour, not to how often the tool gets opened. A team that uses AI constantly but never checks its output, and whose manager never shows their own use, is not further ahead. It is just moving faster in whatever direction it was already headed."
+      ]
+    }
+  ],
+  "takeaway": "This week, have whoever leads your team share one real example of using AI on an actual task, including the part where it needed a fix. Done openly, that single modeled example moves the numbers more than a training session or a policy document sitting in a shared drive.",
+  "stat": {
+    "claim": "The most advanced AI users report producing work they could not have a year ago at a far higher rate than typical AI users, a gap Microsoft ties to habits and management, not to which tool people use.",
+    "value": "80% vs. 58%",
+    "source": "Microsoft, 2026 Work Trend Index",
+    "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "Microsoft, 2026 Work Trend Index: manager modeling and psychological safety findings",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get your team using AI",
+      "href": "/insights/how-to-get-your-team-using-ai"
+    },
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to make AI usage stick after training",
+      "href": "/field-notes/how-to-make-ai-usage-stick-after-training"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is using AI every day enough to count as good adoption?",
+      "a": "Not on its own. Microsoft's research found the split between employees getting real value from AI and those who aren't comes from habits like treating AI output as a draft and reviewing it, not from how often people open the tool. Frequency without that discipline just moves work faster in the wrong direction."
+    },
+    {
+      "q": "Do we need an AI policy before we can adopt well?",
+      "a": "No, and waiting for one is a common excuse to delay. Manager modeling and psychological safety come first: someone with authority using AI openly, mistakes included, moves the numbers more than a document sitting in a shared drive. Write the policy once real use is already happening."
+    },
+    {
+      "q": "What's the fastest way to improve how a small team uses AI?",
+      "a": "Have whoever leads the team use AI on a real task in front of people, including where it needed a correction. Microsoft found this one behaviour, a manager modeling AI use, lifts employee trust in agentic AI by 30 points and critical thinking about its use by 22 points."
+    }
+  ]
+}

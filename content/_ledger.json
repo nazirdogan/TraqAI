@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-27",
+      "type": "field-note",
+      "slug": "what-good-ai-adoption-looks-like",
+      "targetQuery": "what does good AI adoption look like"
+    },
+    {
       "date": "2026-08-26",
       "type": "field-note",
       "slug": "ai-vs-automation-vs-agent",
@@ -885,6 +891,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-26-ai-vs-automation-vs-agent.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-27",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-27-what-good-ai-adoption-looks-like.json"
       ],
       "build": "passed"
     }
