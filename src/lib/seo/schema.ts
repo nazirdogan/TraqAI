@@ -319,3 +319,64 @@ export function faqPage(qas: Qa[]): JsonLdObject {
     })),
   };
 }
+
+export type CourseInput = {
+  name: string;
+  description: string;
+  /** Path plus anchor for the track, e.g. "/services/ai-training#claude-for-business". */
+  url: string;
+  /** ISO 8601 duration, e.g. "PT4H". Google rejects prose in courseWorkload. */
+  workloadIso: string;
+};
+
+/**
+ * ItemList of Course — the training catalogue as structured data.
+ *
+ * The visible catalogue on /services/ai-training answers "what exactly is in
+ * this", and that answer is worth nothing to an AI engine if it only exists as
+ * styled markup. Each track is emitted as a Course whose provider points back
+ * to the sitewide Organization by @id, wrapped in an ItemList so the six read
+ * as one catalogue rather than six unrelated declarations.
+ *
+ * courseMode carries both delivery formats because every track runs onsite in
+ * the UAE and online everywhere else; the Place is the UAE delivery footprint,
+ * not a campus address, since there is no public street address to claim.
+ */
+export function courseList(courses: CourseInput[]): JsonLdObject {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: courses.map((course, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Course',
+        name: course.name,
+        description: course.description,
+        url: absoluteUrl(course.url),
+        provider: {
+          '@type': 'Organization',
+          '@id': ORG_ID,
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        hasCourseInstance: {
+          '@type': 'CourseInstance',
+          courseMode: ['onsite', 'online'],
+          courseWorkload: course.workloadIso,
+          location: {
+            '@type': 'Place',
+            name: 'Dubai, United Arab Emirates',
+            address: { '@type': 'PostalAddress', addressCountry: 'AE', addressRegion: 'Dubai' },
+          },
+        },
+        offers: {
+          '@type': 'Offer',
+          category: 'Paid',
+          url: absoluteUrl('/book'),
+          availability: 'https://schema.org/InStock',
+        },
+      },
+    })),
+  };
+}

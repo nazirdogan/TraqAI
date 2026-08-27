@@ -11,6 +11,13 @@
  */
 export const STATIC_REVIEWED_ISO = '2026-07-16';
 
+/**
+ * The AI training page carries its own date. Its catalogue, formats and module
+ * detail were rewritten well after the rest of the static set, and rolling the
+ * shared constant forward would claim every other page changed with it.
+ */
+export const TRAINING_REVIEWED_ISO = '2026-08-27';
+
 /** The same instant as a Date, for MetadataRoute.Sitemap's `lastModified`. */
 export const STATIC_REVIEWED_DATE = new Date(`${STATIC_REVIEWED_ISO}T00:00:00Z`);
 

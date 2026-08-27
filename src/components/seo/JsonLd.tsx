@@ -7,9 +7,11 @@ import {
   faqPage,
   blogPosting,
   webPage,
+  courseList,
   type ServiceInput,
   type BlogPostingInput,
   type WebPageInput,
+  type CourseInput,
   type BreadcrumbItem,
   type Qa,
 } from '@/lib/seo/schema';
@@ -66,4 +68,8 @@ export function BlogPostingJsonLd(props: BlogPostingInput) {
 
 export function WebPageJsonLd(props: WebPageInput) {
   return <JsonLd data={webPage(props)} />;
+}
+
+export function CourseListJsonLd({ courses }: { courses: CourseInput[] }) {
+  return <JsonLd data={courseList(courses)} />;
 }
