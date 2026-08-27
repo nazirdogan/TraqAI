@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import MobileCtaBar from '@/components/layout/MobileCtaBar';
+import ChromeGate from '@/components/layout/ChromeGate';
 import JsonLd from '@/components/seo/JsonLd';
 import Analytics from '@/components/analytics/Analytics';
 import { baseMetadata } from '@/lib/metadata';
@@ -50,12 +51,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Navbar />
+        <ChromeGate>
+          <Navbar />
+        </ChromeGate>
         <main id="main" className="relative">
           {children}
         </main>
-        <Footer />
-        <MobileCtaBar />
+        <ChromeGate>
+          <Footer />
+          <MobileCtaBar />
+        </ChromeGate>
       </body>
     </html>
   );

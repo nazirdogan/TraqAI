@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { ARTICLES } from '@/lib/content/insights';
 import { FIELD_NOTES } from '@/lib/content/field-notes';
-import { STATIC_REVIEWED_DATE } from '@/lib/seo/reviewed';
+import { STATIC_REVIEWED_DATE, TRAINING_REVIEWED_ISO } from '@/lib/seo/reviewed';
 
 const SITE_URL = 'https://traqcollective.com';
 
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: STATIC_LASTMOD, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/book`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/services`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/services/ai-training`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/services/ai-training`, lastModified: isoToDate(TRAINING_REVIEWED_ISO), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/services/ai-consulting`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/services/ai-implementation`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/services/agentic-ai`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },

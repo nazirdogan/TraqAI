@@ -6,22 +6,34 @@ import CompareNotebook from '@/components/page/CompareNotebook';
 import OtherServices from '@/components/page/OtherServices';
 import FaqBlock from '@/components/page/FaqBlock';
 import CtaStrip from '@/components/page/CtaStrip';
-import { BreadcrumbsJsonLd, FaqPageJsonLd, ServiceJsonLd } from '@/components/seo/JsonLd';
+import AudienceBands from '@/components/training/AudienceBands';
+import TrainingTracks from '@/components/training/TrainingTracks';
+import DeliveryPhases from '@/components/training/DeliveryPhases';
+import FormatTable from '@/components/training/FormatTable';
+import {
+  BreadcrumbsJsonLd,
+  CourseListJsonLd,
+  FaqPageJsonLd,
+  ServiceJsonLd,
+  WebPageJsonLd,
+} from '@/components/seo/JsonLd';
+import { TRAINING_TRACKS } from '@/lib/training';
+import { TRAINING_REVIEWED_ISO } from '@/lib/seo/reviewed';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 
 const PATH = '/services/ai-training';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
 export const metadata: Metadata = {
-  title: 'Employee AI Training, Dubai and Abu Dhabi',
+  title: 'AI Training for Teams, Dubai and Abu Dhabi',
   description:
-    'AI training for teams, built around your real work. Role-specific, hands-on workshops that move people from hesitant to confident. In-person across the UAE.',
+    'Six hands-on AI training tracks: AI strategy and governance, Claude, ChatGPT, Microsoft 365 Copilot, Gemini and AI agents. Built around your team’s real work. In person across the UAE, remote worldwide.',
   alternates: { canonical: CANONICAL },
   openGraph: {
-      images: [OG_IMAGE],
+    images: [OG_IMAGE],
     title: 'AI training for teams | Traq Collective',
     description:
-      'Hands-on, role-specific AI training built around your team’s real work. UAE in-person and remote worldwide.',
+      'Six hands-on tracks covering strategy and governance, Claude, ChatGPT, Copilot, Gemini and AI agents, each rebuilt around your team’s real work.',
     url: CANONICAL,
   },
 };
@@ -35,25 +47,45 @@ const breadcrumbItems: BreadcrumbItem[] = [
 const HERO = {
   eyebrow: 'Services · AI training',
   h1: 'AI training for teams that actually use it',
-  // Standalone, definition-first answer (40-60 words).
+  // Standalone, definition-first answer (40-60 words). Names the tools, because
+  // "which product do you actually teach" is the first thing a buyer checks and
+  // the old version answered it nowhere on the page.
   intro:
-    'Good AI training teaches your people to use AI on their own work, not just explains what it is. Traq Collective runs hands-on, role-specific workshops built around your team’s real tasks, so people leave knowing exactly how to apply AI in their job. We deliver in person across the UAE and remotely worldwide.',
+    'Good AI training teaches your people to use AI on their own work, not just what it is. Traq Collective runs six hands-on tracks covering AI strategy and governance, Claude, ChatGPT, Microsoft 365 Copilot, Gemini and AI agents, each rebuilt around your team’s real tasks. In person across the UAE, remote worldwide.',
 };
 
 type Section = { h2: string; body: string; points?: string[] };
 
-const SECTIONS: Section[] = [
+// What is in the room when we leave. Named deliverables, because "hands-on and
+// practical" is what every provider in this market says, and none of them say
+// what you are left holding.
+const DELIVERABLES: Section[] = [
   {
-    h2: 'What AI training for teams covers',
-    body: 'We start from the work your team already does, then teach the AI skills that save the most time on it, with guardrails for safe, accurate use. Sessions are hands-on and role-specific, so a finance lead and a sales rep each leave with directly usable habits, and the capability stays in-house.',
+    h2: 'In their hands the same week',
+    body: 'Everyone leaves with working setups rather than notes to action later.',
+    points: [
+      'A prompt library written for their role, not a generic list',
+      'A Project, custom GPT or Skill set up on your business context',
+      'Two or three of their own recurring tasks rebuilt and timed',
+    ],
   },
   {
-    h2: 'How our workshops work',
-    body: 'Each workshop is built for your team, not pulled off a shelf: we learn the work first, run live hands-on sessions, then check in so the new habits hold. Comfort with AI nearly doubles after structured practice, so we design for practice, not slideware.',
+    h2: 'For the business',
+    body: 'The artefacts leadership needs to make the next decision without another discovery round.',
+    points: [
+      'A ranked use-case shortlist with hours attached to each one',
+      'A draft acceptable-use policy covering tools, data and sign-off',
+      'A 30, 60, 90 day plan with owners and the measures you report on',
+    ],
   },
   {
-    h2: 'AI training in the UAE',
-    body: 'We run in-person workshops across Dubai, Abu Dhabi and the wider UAE, and deliver the same training remotely worldwide. The content is built around your context and tools either way; only the delivery format changes.',
+    h2: 'So it holds after we leave',
+    body: 'One session changes a mood. Keeping the habit takes a bit more than that.',
+    points: [
+      'A recap pack and the session recording, sent the same week',
+      'A named internal champion briefed to answer the follow-up questions',
+      'A return session a few weeks later, once the friction has surfaced',
+    ],
   },
 ];
 
@@ -89,12 +121,28 @@ const COMPARISON: { dimension: string; trained: string; diy: string }[] = [
 
 const FAQS: Qa[] = [
   {
+    q: 'Which AI tools do you train on?',
+    a: 'Claude, ChatGPT, Microsoft 365 Copilot and Gemini, plus the automation tools that sit around them. We train on what you already pay for: if you hold Microsoft licences we go deep on Copilot, and if you run on Google Workspace we take the Gemini track. Most teams leave with a simple rule for which tool gets which job.',
+  },
+  {
     q: 'How long does AI training take?',
     a: 'Most teams start with a half-day or full-day workshop, then a short follow-up a few weeks later so the habits stick. Research points to five-plus hours of practice as the tipping point for regular use, so we scope enough hands-on time to get there, not a one-off talk.',
   },
   {
+    q: 'What is in an AI strategy and governance session?',
+    a: 'It is the leadership track. We work through what AI realistically does for your business, score and rank the use cases worth funding, agree what data can go into which tool, draft an acceptable-use policy in plain language, and finish with a 12-month roadmap carrying owners, budget and the measures you will report on.',
+  },
+  {
     q: 'Do you train non-technical teams?',
     a: 'Yes. Most of the people we train are not technical. We teach AI on the work they already do, in plain language, with no code required. Finance, sales, operations and admin teams are exactly who benefit most from practical, role-specific training.',
+  },
+  {
+    q: 'Can you build a track around our own tools and processes?',
+    a: 'Yes, and most engagements end up there. The six tracks are a spine, not a script. Before delivery we survey the people attending and look at how a few real tasks get done today, then rebuild the agenda around that. If your work lives in a tool we have not listed, we still train on it.',
+  },
+  {
+    q: 'What size group works best?',
+    a: 'Hands-on tracks run best between four and twenty-five people, because everyone needs to be doing the work rather than watching someone else do it. The 90-minute leadership taster scales to a couple of hundred. For a whole-company rollout we run the same track several times instead of putting everyone in one room.',
   },
   {
     q: 'Do you run AI training in the UAE?',
@@ -102,15 +150,31 @@ const FAQS: Qa[] = [
   },
 ];
 
+// Each track becomes a Course in the catalogue schema, anchored to its own
+// section on this page so an engine can cite the exact track.
+const COURSES = TRAINING_TRACKS.map((track) => ({
+  name: track.name,
+  description: track.summary,
+  url: `${PATH}#${track.slug}`,
+  workloadIso: track.workloadIso,
+}));
+
 export default function AiTrainingPage() {
   return (
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
       <ServiceJsonLd
         name="AI training for teams"
-        description="Hands-on, role-specific AI training built around your team’s real work. Delivered in person across the UAE and remotely worldwide."
+        description="Six hands-on AI training tracks covering AI strategy and governance, Claude, ChatGPT, Microsoft 365 Copilot, Gemini and AI agents, each built around your team’s real work. Delivered in person across the UAE and remotely worldwide."
         url={PATH}
         serviceType="AI training"
+      />
+      <CourseListJsonLd courses={COURSES} />
+      <WebPageJsonLd
+        name="AI training for teams"
+        description="The Traq Collective AI training catalogue: six tracks, their modules, the delivery model, and the formats and group sizes each runs in."
+        url={PATH}
+        dateModified={TRAINING_REVIEWED_ISO}
       />
       <FaqPageJsonLd qas={FAQS} />
 
@@ -120,10 +184,24 @@ export default function AiTrainingPage() {
         intro={HERO.intro}
         breadcrumbs={breadcrumbItems}
         motif="training"
-        secondary={{ label: 'See all services', href: '/services' }}
+        reviewedIso={TRAINING_REVIEWED_ISO}
+        secondary={{ label: 'See the six tracks', href: '#tracks' }}
       />
 
-      <ContentSections sections={SECTIONS} />
+      <AudienceBands />
+
+      <TrainingTracks />
+
+      <DeliveryPhases />
+
+      <ContentSections
+        eyebrow="Deliverables"
+        heading="What your team walks away with"
+        intro="Not a certificate. The working setups, the decision artefacts, and the follow-up that stops it fading."
+        sections={DELIVERABLES}
+      />
+
+      <FormatTable />
 
       <CompareNotebook
         title="AI training vs leaving your team to figure it out"
@@ -135,12 +213,12 @@ export default function AiTrainingPage() {
       <FaqBlock
         qas={FAQS}
         heading="AI training: common questions"
-        intro="Short answers on how training works and who it is for."
+        intro="Short answers on the tracks, the tools, the group sizes and how delivery works."
       />
 
       <CtaStrip
         heading="Want your team using AI by next month?"
-        sub="Book a free call. We will scope a workshop around your team’s real work. No deck, no obligation."
+        sub="Book a free call. We will scope a track around your team’s real work. No deck, no obligation."
       />
 
       <OtherServices currentSlug="ai-training" />
