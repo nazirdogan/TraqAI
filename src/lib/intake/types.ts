@@ -1,5 +1,26 @@
 import { z } from 'zod';
 
+/**
+ * The ad click that produced a lead, as discrete fields.
+ *
+ * The human-readable `attribution` string on the schemas below is for the team
+ * email and stays. It is not enough on its own: an offline conversion upload
+ * needs the raw gclid as its own value, and regex-ing it back out of a summary
+ * line ("google / cpc, gclid Cj0K...") is exactly the kind of fragility that
+ * loses conversions silently.
+ */
+export const clickAttributionSchema = z.object({
+  gclid: z.string().trim().max(200).optional(),
+  utmSource: z.string().trim().max(120).optional(),
+  utmMedium: z.string().trim().max(120).optional(),
+  utmCampaign: z.string().trim().max(160).optional(),
+  utmContent: z.string().trim().max(160).optional(),
+  utmTerm: z.string().trim().max(160).optional(),
+  landingPath: z.string().trim().max(200).optional(),
+});
+
+export type ClickAttribution = z.infer<typeof clickAttributionSchema>;
+
 export const SERVICES_OF_INTEREST = [
   'AI Training & Workshops',
   'Consultation & Strategy',
@@ -81,6 +102,8 @@ export const quickIntakeSchema = z.object({
     .array(z.enum(SERVICES_OF_INTEREST))
     .min(1, 'Pick at least one service')
     .max(SERVICES_OF_INTEREST.length),
+  /** The ad click that produced this lead, if any. */
+  click: clickAttributionSchema.optional(),
 });
 
 export type QuickIntake = z.infer<typeof quickIntakeSchema>;
@@ -120,6 +143,8 @@ export const assessmentIntakeSchema = z.object({
   budget: z.string().trim().max(80).optional(),
   /** gclid and utm values for the click that produced this lead. */
   attribution: z.string().trim().max(500).optional(),
+  /** The same click, structured, so it can be uploaded as an offline conversion. */
+  click: clickAttributionSchema.optional(),
 });
 
 export type AssessmentIntake = z.infer<typeof assessmentIntakeSchema>;
@@ -137,6 +162,7 @@ export const assessmentPartialSchema = z.object({
   answered: z.number().int().min(0).max(20),
   source: z.string().trim().max(120).optional(),
   attribution: z.string().trim().max(500).optional(),
+  click: clickAttributionSchema.optional(),
 });
 
 export type AssessmentPartial = z.infer<typeof assessmentPartialSchema>;

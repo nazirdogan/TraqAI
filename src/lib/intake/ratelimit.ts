@@ -1,19 +1,9 @@
-import { Redis } from '@upstash/redis';
 import { Ratelimit } from '@upstash/ratelimit';
+import { getRedis } from '@/lib/intake/redis';
 
 type Bucket = 'chat-burst' | 'chat-hour' | 'submit-hour';
 
-let redis: Redis | null = null;
 const limiters = new Map<Bucket, Ratelimit>();
-
-function getRedis(): Redis | null {
-  if (redis) return redis;
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) return null;
-  redis = new Redis({ url, token });
-  return redis;
-}
 
 function getLimiter(bucket: Bucket): Ratelimit | null {
   const cached = limiters.get(bucket);

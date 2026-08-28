@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { assessmentIntakeSchema } from '@/lib/intake/types';
 import { checkRate } from '@/lib/intake/ratelimit';
 import { clientIp, verifyTurnstile } from '@/lib/intake/turnstile';
+import { recordLead } from '@/lib/intake/leadstore';
 import AssessmentLeadEmail from '@/emails/AssessmentLeadEmail';
 import AssessmentResultEmail from '@/emails/AssessmentResultEmail';
 
@@ -47,6 +48,21 @@ export async function POST(request: Request) {
   }
 
   const intake = parsed.data;
+
+  // Persist before sending. The email is the notification; this is the record
+  // that lets a deal closing months from now be uploaded back to the click.
+  await recordLead({
+    kind: 'assessment',
+    email: intake.email,
+    firstName: intake.firstName,
+    company: intake.company,
+    band: intake.band,
+    score: intake.score,
+    budget: intake.budget,
+    source: intake.source,
+    ...(intake.click ?? {}),
+  });
+
   const resendKey = process.env.RESEND_API_KEY;
   const teamEmail = process.env.TEAM_INTAKE_EMAIL ?? 'hello@traqcollective.com';
   const fromEmail = process.env.FROM_EMAIL ?? 'Traq Collective <hello@traqcollective.com>';

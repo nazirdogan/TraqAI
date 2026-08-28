@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { quickIntakeSchema } from '@/lib/intake/types';
 import { checkRate } from '@/lib/intake/ratelimit';
 import { clientIp, verifyTurnstile } from '@/lib/intake/turnstile';
+import { recordLead } from '@/lib/intake/leadstore';
 import QuickLeadEmail from '@/emails/QuickLeadEmail';
 import QuickConfirmationEmail from '@/emails/QuickConfirmationEmail';
 
@@ -47,6 +48,16 @@ export async function POST(request: Request) {
   }
 
   const intake = parsed.data;
+
+  await recordLead({
+    kind: 'quick',
+    email: intake.email,
+    firstName: intake.firstName,
+    lastName: intake.lastName,
+    company: intake.company,
+    ...(intake.click ?? {}),
+  });
+
   const resendKey = process.env.RESEND_API_KEY;
   const teamEmail = process.env.TEAM_INTAKE_EMAIL ?? 'hello@traqcollective.com';
   const fromEmail = process.env.FROM_EMAIL ?? 'Traq Collective <hello@traqcollective.com>';

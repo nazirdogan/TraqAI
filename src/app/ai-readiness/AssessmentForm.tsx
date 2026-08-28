@@ -11,7 +11,7 @@ import {
   Loader2,
   RotateCcw,
 } from 'lucide-react';
-import { track } from '@/components/analytics/Analytics';
+import { setEnhancedConversionData, track } from '@/components/analytics/Analytics';
 import {
   attributionSummary,
   captureAttribution,
@@ -430,6 +430,7 @@ export default function AssessmentForm({
           answered: Object.keys(answers).length,
           source,
           attribution: attributionSummary(getAttribution()),
+          click: getAttribution(),
         }),
         keepalive: true,
       }).catch(() => {
@@ -495,6 +496,7 @@ export default function AssessmentForm({
             source,
             budget: budget || undefined,
             attribution: attributionSummary(getAttribution()),
+            click: getAttribution(),
           },
           turnstileToken: turnstileRequired ? turnstileToken : undefined,
         }),
@@ -513,6 +515,7 @@ export default function AssessmentForm({
                   : 'Something went wrong. Try again.',
         );
       }
+      setEnhancedConversionData(email.trim());
       track('assessment_submit', { band: detail.band, score, source });
       setPhase('success');
     } catch (err) {

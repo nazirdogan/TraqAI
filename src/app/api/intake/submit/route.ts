@@ -5,12 +5,14 @@ import { anthropicClient } from '@/lib/intake/claude';
 import { INTAKE_MODEL, SYSTEM_PROMPT, UPDATE_LEAD_PROFILE_TOOL } from '@/lib/intake/prompt';
 import {
   chatMessageSchema,
+  clickAttributionSchema,
   leadProfileSchema,
   type LeadProfile,
   type PartialLeadProfile,
 } from '@/lib/intake/types';
 import { checkRate } from '@/lib/intake/ratelimit';
 import { clientIp } from '@/lib/intake/turnstile';
+import { recordLead } from '@/lib/intake/leadstore';
 import TeamLeadEmail from '@/emails/TeamLeadEmail';
 import LeadConfirmationEmail from '@/emails/LeadConfirmationEmail';
 
@@ -20,6 +22,8 @@ export const dynamic = 'force-dynamic';
 const submitSchema = z.object({
   messages: z.array(chatMessageSchema).min(2).max(60),
   confirmedFields: leadProfileSchema.partial(),
+  /** The ad click that started the conversation, if any. */
+  click: clickAttributionSchema.optional(),
 });
 
 async function finalExtraction(
@@ -102,6 +106,16 @@ export async function POST(request: Request) {
     );
   }
   const profile: LeadProfile = profileResult.data;
+
+  await recordLead({
+    kind: 'chat',
+    email: profile.email,
+    firstName: profile.firstName,
+    lastName: profile.lastName,
+    company: profile.company,
+    budget: profile.budgetBand,
+    ...(parsed.click ?? {}),
+  });
 
   const resendKey = process.env.RESEND_API_KEY;
   const teamEmail = process.env.TEAM_INTAKE_EMAIL ?? 'hello@traqcollective.com';

@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { assessmentPartialSchema } from '@/lib/intake/types';
 import { checkRate } from '@/lib/intake/ratelimit';
 import { clientIp } from '@/lib/intake/turnstile';
+import { recordLead } from '@/lib/intake/leadstore';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -47,6 +48,16 @@ export async function POST(request: Request) {
   }
 
   const partial = parsed.data;
+
+  // An abandoner who gave an email is still a lead, and if they arrived on a
+  // gclid that click deserves to be recoverable too.
+  await recordLead({
+    kind: 'assessment_partial',
+    email: partial.email,
+    source: partial.source,
+    ...(partial.click ?? {}),
+  });
+
   const resendKey = process.env.RESEND_API_KEY;
   const teamEmail = process.env.TEAM_INTAKE_EMAIL ?? 'hello@traqcollective.com';
   const fromEmail =

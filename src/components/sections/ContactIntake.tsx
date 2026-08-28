@@ -16,7 +16,8 @@ import {
   SquarePen,
 } from 'lucide-react';
 import FadeUp from '@/components/ui/FadeUp';
-import { track } from '@/components/analytics/Analytics';
+import { setEnhancedConversionData, track } from '@/components/analytics/Analytics';
+import { getAttribution } from '@/lib/attribution';
 import { COMPANY } from '@/lib/constants';
 import { cn } from '@/lib/cn';
 import {
@@ -287,6 +288,7 @@ export default function ContactIntake() {
           body: JSON.stringify({
             messages: messages.map(({ role, content }) => ({ role, content })),
             confirmedFields: confirmed,
+            click: getAttribution(),
           }),
         });
         if (!res.ok) {
@@ -301,6 +303,7 @@ export default function ContactIntake() {
                   : 'Something went wrong. Try again.',
           );
         }
+        setEnhancedConversionData(confirmed.email ?? '');
         track('chat_lead_submit');
         setPhase('success');
       } catch (err) {
@@ -1019,6 +1022,7 @@ function QuickFormPanel({
             company: company.trim(),
             problem: problem.trim(),
             servicesOfInterest: services,
+            click: getAttribution(),
           },
           turnstileToken: turnstileRequired ? turnstileToken : undefined,
         }),
@@ -1037,6 +1041,7 @@ function QuickFormPanel({
                   : 'Something went wrong. Try again.',
         );
       }
+      setEnhancedConversionData(email.trim());
       track('quick_form_submit');
       onSuccess(firstName.trim());
     } catch (err) {
