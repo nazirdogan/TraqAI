@@ -1,0 +1,91 @@
+{
+  "slug": "chatgpt-admin-plugin-for-work-and-codex",
+  "title": "ChatGPT's New Admin Plugin, Explained | Traq Collective",
+  "h1": "What OpenAI's new ChatGPT Admin plugin actually does",
+  "metaDescription": "OpenAI launched an Admin plugin for ChatGPT Work and Codex on August 25, 2026. It moves seat, usage and budget management for Business plans into a chat.",
+  "targetQuery": "what does the ChatGPT Admin plugin do",
+  "tags": ["news", "tools", "adoption"],
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "author": "Nazir Dogan",
+  "dek": "OpenAI shipped an Admin plugin for ChatGPT Work and Codex on August 25, 2026. It puts seat, usage and budget management inside a normal chat, which matters most to the businesses too small to have someone whose job is running the dashboard.",
+  "intro": "OpenAI's Admin plugin, launched August 25, 2026, lets whoever manages a ChatGPT Work or Codex workspace handle admin tasks, adding staff, checking who is near their usage limit, approving a spend request, inside a normal chat instead of a settings dashboard. It ships for Business and Enterprise or Edu workspaces, and only acts within permissions that admin already has.",
+  "body": [
+    {
+      "heading": "What does the Admin plugin actually let you do?",
+      "paragraphs": [
+        "It brings four kinds of admin work into one conversation: reviewing activity and credit usage across the workspace, adding or removing members and updating groups (onboarding, offboarding, team moves), reviewing effective permissions and diagnosing why someone cannot access a model or feature, and adjusting usage limits before approving or denying a spend request with context attached.",
+        "The interaction pattern is the same for all four: ask a question, explore the details behind the answer, make an authorized change, then confirm the result, without switching to a separate dashboard or writing a complicated prompt to get there.",
+        "It can also automate recurring checks, like a weekly scan for members approaching their credit limit, and route pending usage requests to Slack or Microsoft Teams so someone else can approve or deny them without opening ChatGPT at all."
+      ]
+    },
+    {
+      "heading": "Who is this actually for, if nobody's job is 'ChatGPT admin'?",
+      "paragraphs": [
+        "Most SMBs running ChatGPT Business do not have a dedicated workspace administrator. It is usually the owner, the ops lead, or whoever set up the account originally, doing it between other jobs, which is exactly why usage tracking tends to slip: nobody has the spare time to open a settings dashboard and cross-reference it against a spreadsheet.",
+        "Folding that work into the same chat interface the team already uses removes the excuse to skip it. Checking who is close to a usage cap becomes a question you type, not a task you schedule."
+      ]
+    },
+    {
+      "heading": "Does this change anything about what ChatGPT Business costs us?",
+      "paragraphs": [
+        "Not the pricing itself, but it changes how cheaply you can find out whether you need to spend more. When OpenAI added a $125-a-month Premium seat to ChatGPT Business in August, the honest advice was to pull a week of usage data before upgrading anyone, since paying five times the Standard rate only makes sense for people provably hitting the cap.",
+        "That check used to mean digging through workspace analytics by hand. The Admin plugin turns it into a direct question inside ChatGPT itself, which makes it far more likely a small team actually runs the check before spending, rather than upgrading everyone out of convenience or upgrading nobody out of inertia."
+      ]
+    },
+    {
+      "heading": "What should a small business do about this?",
+      "paragraphs": [
+        "If you are on ChatGPT Business or Enterprise, install the plugin from Workspace settings, Plugins, and give it a real task in its first week: ask which members are closest to their usage limit, and use the answer to decide seats, not a guess.",
+        "If you route requests through Slack or Microsoft Teams already, point spend approvals there instead of leaving them to sit in an inbox. And if nobody currently checks usage at all, that is the actual gap this plugin closes: not a lack of controls, but a lack of anyone with time to use them."
+      ]
+    }
+  ],
+  "takeaway": "If your workspace is on ChatGPT Business or Enterprise, install the Admin plugin this week and ask it one question first: which members are near their usage limit. Use that answer, not a guess, to decide who actually needs a Premium seat.",
+  "diagram": {
+    "type": "flow",
+    "title": "How an admin uses the ChatGPT Admin plugin, in one conversation",
+    "steps": [
+      { "label": "Ask a question", "detail": "e.g. who's near their usage limit" },
+      { "label": "Explore the details", "detail": "See the workspace data behind it" },
+      { "label": "Make the change", "detail": "Adjust a limit or add a member" },
+      { "label": "Confirm the result", "detail": "No dashboard, no separate tool" }
+    ],
+    "caption": "This replaces the spreadsheet-and-guesswork routine most small teams use to track their ChatGPT usage cap."
+  },
+  "sources": [
+    {
+      "label": "OpenAI, Introducing the Admin plugin for ChatGPT Work and Codex",
+      "url": "https://openai.com/index/introducing-admin-plugin/"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    { "label": "Consultation & Strategy", "href": "/services/ai-consulting" },
+    {
+      "label": "Is ChatGPT Business Premium worth $125 a seat?",
+      "href": "/field-notes/chatgpt-business-premium-seats-2026"
+    },
+    {
+      "label": "How to measure AI ROI for a small business",
+      "href": "/insights/how-to-measure-ai-roi-for-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Which ChatGPT plans include the Admin plugin?",
+      "a": "Business and Enterprise or Edu workspaces. Admins install it from Workspace settings, Plugins, and it works alongside the existing role and permissions that admin already has."
+    },
+    {
+      "q": "Does the Admin plugin give an admin more access than they already have?",
+      "a": "No. OpenAI built it to operate within a user's existing role and permissions rather than widen them, so it changes how admin tasks get done, not who is allowed to do them."
+    },
+    {
+      "q": "Can spend approvals be routed to Slack or Microsoft Teams?",
+      "a": "Yes. The plugin can send pending usage requests to Slack or Teams so an authorized reviewer can approve or deny them without opening ChatGPT."
+    }
+  ]
+}
