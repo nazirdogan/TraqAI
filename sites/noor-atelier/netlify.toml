@@ -6,7 +6,6 @@
 
 [build]
   publish = "."
-  command = ""
 
 [build.processing]
   skip_processing = false
