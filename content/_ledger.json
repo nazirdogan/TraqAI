@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-29",
+      "type": "field-note",
+      "slug": "why-ai-pilots-fail",
+      "targetQuery": "why do AI pilots fail"
+    },
+    {
       "date": "2026-08-28",
       "type": "field-note",
       "slug": "chatgpt-admin-plugin-for-work-and-codex",
@@ -925,6 +931,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-28-chatgpt-admin-plugin-for-work-and-codex.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-29",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-08-29-why-ai-pilots-fail.json"
       ],
       "build": "passed"
     }

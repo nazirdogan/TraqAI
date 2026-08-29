@@ -1,0 +1,99 @@
+{
+  "slug": "why-ai-pilots-fail",
+  "title": "Why AI pilots fail after they already worked | Traq Collective",
+  "h1": "Why AI pilots fail after they already worked in testing",
+  "metaDescription": "AI pilots rarely fail in testing. They fail in the weeks after, when nobody owns keeping the tool alive. Here is why, and how to stop it happening to yours.",
+  "targetQuery": "why do AI pilots fail",
+  "tags": ["adoption", "making-it-stick"],
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-08-29",
+  "author": "Nazir Dogan",
+  "dek": "Most AI pilots do not die in the test. They die in the weeks after, when nobody is responsible for keeping the tool alive.",
+  "intro": "AI pilots rarely fail at the demo. They fail in the weeks after, when nobody owns making the tool part of the actual workflow. S&P Global's 2025 research on enterprise AI found nearly half of projects are scrapped between proof of concept and full rollout, mostly for accountability reasons, not technical ones.",
+  "body": [
+    {
+      "heading": "Why does a pilot that worked in testing still die?",
+      "paragraphs": [
+        "A working demo is not the same as an adopted tool, and the data backs that up starkly. S&P Global Market Intelligence surveyed enterprises in 2025 and found that the share abandoning most of their AI initiatives before production jumped from 17 percent in 2024 to 42 percent in 2025, with an average of 46 percent of projects scrapped somewhere between proof of concept and full rollout.",
+        "The report's own read on why is blunt: these were not casual experiments. Most had a real budget, a hired team and executive sponsorship behind them, and they still got killed. If a funded, sponsored pilot dies at that rate, a small business pilot run by one manager on the side of their real job has worse odds, not better."
+      ]
+    },
+    {
+      "heading": "Who is actually supposed to keep the pilot alive?",
+      "paragraphs": [
+        "Nobody, usually, and that is the failure by itself. A pilot gets built, a few people try it, the excitement fades once the person who set it up moves on to the next thing, and the tool quietly stops being anyone's job to maintain, fix or push further. Nothing broke. Nobody decided to stop. It just stopped.",
+        "Research from ghSMART, published in Harvard Business Review, points at the same gap from the top down. Asked to rank what actually drives AI ROI, senior leaders surveyed put leadership effectiveness far ahead of everything else, including workflow integration and organizational culture. The tool was rarely the deciding factor. Whether someone kept owning the rollout was."
+      ]
+    },
+    {
+      "heading": "What does this look like at a small business specifically?",
+      "paragraphs": [
+        "At a 10 to 50 person company, the pilot usually lives inside one person's own workflow, often the owner's or a single manager's, rather than the team's. It works for them because they built the prompt, know its quirks, and check the output out of habit. Nobody else was trained on it, so when that person gets pulled onto something else for two weeks, the tool does not get killed. It just gets quietly forgotten, and the subscription keeps renewing.",
+        "That is a different failure mode than a bad pilot. The tool worked. The business just never built a version of it that did not depend on one person's attention."
+      ]
+    },
+    {
+      "heading": "How do you stop a pilot from stalling out?",
+      "paragraphs": [
+        "Decide two things before the pilot starts, not after: who owns it once the initial excitement is over, and the date you will look at it again and decide, out loud, to scale it or kill it. Put both on a calendar. An unowned pilot with no decision date is not being tested. It is quietly winding down, and nobody will notice for months.",
+        "Pick an owner whose job the task already touches, not whoever happened to set the tool up. If the pilot drafts client replies, the person who owns client communication owns the pilot, not the person who liked playing with the AI tool. That single handoff is usually the difference between a pilot that becomes how the team works and one that becomes a forgotten line on a card statement."
+      ]
+    }
+  ],
+  "takeaway": "Before your next AI pilot starts, write down who owns it after week one and the date you will decide to scale it or kill it. A pilot with no owner and no deadline does not fail outright. It just stops, quietly, and nobody notices for months.",
+  "stat": {
+    "claim": "Enterprises abandoning most of their AI initiatives before they reach production jumped sharply in a year, and roughly half of all AI projects are scrapped somewhere between proof of concept and full rollout.",
+    "value": "42%",
+    "source": "S&P Global Market Intelligence, 2025 AI survey",
+    "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/10/generative-ai-shows-rapid-growth-but-yields-mixed-results",
+    "year": "2025"
+  },
+  "sources": [
+    {
+      "label": "Harvard Business Review / ghSMART, What Companies with Successful AI Pilots Do Differently",
+      "url": "https://hbr.org/2025/09/what-companies-with-successful-ai-pilots-do-differently"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "How to stop a pilot from stalling out",
+    "steps": [
+      { "label": "Name an owner", "detail": "Someone whose job it already touches" },
+      { "label": "Set a decide-by date", "detail": "Four to six weeks out, on the calendar" },
+      { "label": "Decide: scale or kill", "detail": "No open-ended, indefinite testing" }
+    ],
+    "caption": "The pilot itself is rarely the failure point. The missing decision is."
+  },
+  "related": [
+    {
+      "label": "How to measure AI ROI for a small business",
+      "href": "/insights/how-to-measure-ai-roi-for-small-business"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "How to choose AI use cases that actually work",
+      "href": "/field-notes/how-to-choose-ai-use-cases"
+    },
+    {
+      "label": "Fix the process before automating it",
+      "href": "/field-notes/fix-the-process-before-automating-it"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long should an AI pilot run before deciding whether to scale it?",
+      "a": "Long enough to get real usage data, typically four to six weeks, but the length matters less than fixing the date in advance. Pilots stuck in 'still testing' for months usually never had a decision date set at all, rather than the wrong number of weeks."
+    },
+    {
+      "q": "Does a failed AI pilot mean the tool did not work?",
+      "a": "Usually not. S&P Global's 2025 research found most abandoned AI projects had real budgets, dedicated teams and leadership backing behind them, and still got scrapped, which points to accountability and workflow gaps rather than the technology itself."
+    },
+    {
+      "q": "Who should own an AI pilot in a small business?",
+      "a": "Whoever already owns the task the pilot touches, not whoever happened to set the tool up. If the pilot drafts support replies, the support lead owns it. That keeps the tool tied to a real job that continues even if the person who built it gets pulled onto something else."
+    }
+  ]
+}
