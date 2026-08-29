@@ -40,8 +40,8 @@
       "workingTitle": "What good looks like when a small team uses AI well",
       "targetQuery": "what does good AI adoption look like",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/what-good-ai-adoption-looks-like"
     },
     {
       "id": "tp-004",
@@ -49,8 +49,8 @@
       "workingTitle": "Why AI pilots stall at the proof-of-concept stage",
       "targetQuery": "why do AI pilots fail",
       "format": "opinion",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/why-ai-pilots-fail"
     },
     {
       "id": "tp-005",
