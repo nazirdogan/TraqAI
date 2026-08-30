@@ -6,9 +6,9 @@ import BookingEmbed from '@/components/analytics/BookingEmbed';
 import { COMPANY } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Book a call · Traq Collective' },
+  title: { absolute: 'AI Intro (20 min) · Traq Collective' },
   description:
-    'Book a free call with Traq Collective. In one call, we will find where AI can save your team the most time. No deck, no obligation.',
+    'Book a free 20 minute AI Intro with Traq Collective. We will find where AI can save your team the most time. No deck, no obligation.',
   alternates: { canonical: 'https://traqcollective.com/book' },
 };
 
@@ -23,9 +23,9 @@ export default function BookPage() {
     <section className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
       <BookViewTracker />
       <div className="mx-auto max-w-3xl text-center">
-        <div className="eyebrow eyebrow-accent">Book a call</div>
+        <div className="eyebrow eyebrow-accent">Free 20 minute AI Intro</div>
         <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl md:text-5xl">
-          In one call, we&rsquo;ll find where AI can save your team the most time.
+          In 20 minutes, we&rsquo;ll find where AI saves your team the most time.
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:mt-5 sm:text-base md:text-[17px]">
           Pick a time that works for you. No deck, no obligation. We&rsquo;ll come ready to talk
@@ -50,12 +50,12 @@ export default function BookPage() {
                 inline-embed URL. Until then, route bookings through email so we
                 never lose a lead. */}
             <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-              Let&rsquo;s find a time.
+              Let&rsquo;s find a time for your AI Intro.
             </h2>
             <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink-soft">
-              Our live scheduler is being set up. In the meantime, email us and we&rsquo;ll get a
-              call in the diary within a day. Tell us a bit about your team and a couple of times
-              that suit you.
+              Our live scheduler is being set up. In the meantime, email us and we&rsquo;ll get
+              your 20 minute AI Intro in the diary within a day. Tell us a bit about your team and
+              a couple of times that suit you.
             </p>
             <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a

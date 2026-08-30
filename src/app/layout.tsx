@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import MobileCtaBar from '@/components/layout/MobileCtaBar';
+import ChatWidget from '@/components/layout/ChatWidget';
 import ChromeGate from '@/components/layout/ChromeGate';
 import JsonLd from '@/components/seo/JsonLd';
 import Analytics from '@/components/analytics/Analytics';
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChromeGate>
           <Footer />
           <MobileCtaBar />
+          <ChatWidget />
         </ChromeGate>
       </body>
     </html>

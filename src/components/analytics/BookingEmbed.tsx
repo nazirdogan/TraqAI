@@ -107,7 +107,7 @@ export default function BookingEmbed({ bookingUrl }: Props) {
       <div className="overflow-hidden rounded-[24px] border border-border-subtle bg-white shadow-card">
         <iframe
           src={src}
-          title="Book a call with Traq Collective"
+          title="AI Intro with Traq Collective"
           className="h-[80vh] min-h-[640px] w-full"
           loading="lazy"
         />

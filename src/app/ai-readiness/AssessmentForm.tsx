@@ -880,8 +880,8 @@ export default function AssessmentForm({
               : 'Walk through your score',
           body:
             detail.band === 'Ready'
-              ? 'You scored in the top band, so the useful conversation is which repetitive work to automate first. Thirty minutes, your answers already on screen.'
-              : 'Thirty minutes on where the gap between your early adopters and the rest of the team actually is, and what closes it fastest.',
+              ? 'You scored in the top band, so the useful conversation is which repetitive work to automate first. Twenty minutes, your answers already on screen.'
+              : 'Twenty minutes on where the gap between your early adopters and the rest of the team actually is, and what closes it fastest.',
           cta: detail.band === 'Ready' ? 'Book the workflow call' : 'Book a call about your score',
         }
       : null;
