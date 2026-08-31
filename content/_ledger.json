@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-08-31",
+      "type": "insight",
+      "slug": "ai-consulting-rates",
+      "targetQuery": "AI consulting rates"
+    },
+    {
       "date": "2026-08-29",
       "type": "field-note",
       "slug": "why-ai-pilots-fail",
@@ -941,6 +947,25 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-08-29-why-ai-pilots-fail.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-08-31",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "ai-consulting-rates",
+      "targetQuery": "AI consulting rates",
+      "critic": "branch preflight: session started on a detached HEAD 23 commits ahead of local main (2026-08-11 through 2026-08-29 posts, previously stranded by the same recurring detached-HEAD bug); checked out main, confirmed fast-forward ancestry via merge-base --is-ancestor, merged the 23 commits in via --ff-only, no rewrite, no force-push, confirmed refs/heads/main before any other work; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned weekly-guide (Monday); read content/README.md and content/_ledger.json for the hard rules and dedup index; ran node scripts/seo/report.mjs next, which returned tq-011 'AI consulting rates', priority 1, evidence.checked already set to 2026-08-26 (not null) so no fresh SERP check was required per step 3a, existing evidence shows every page-one result publishes a price range and the year directly in the title, so matched that format; researched via WebSearch (WebFetch on clutch.co and upwork.com both returned EGRESS_BLOCKED, so used search snippets per the standing instruction rather than retrying or mirror-hunting); deliberately avoided citing the actual SERP-winning blogs (leanware.co, groovyweb.co, peopleinai.com, nicolalazzari.ai, aidolsgroup.com) as sources since they are the low-quality competitor content this guide exists to beat, not primary sources; instead grounded every stat in two real marketplace/aggregator sources with their own published rate data: Clutch's August 2026 AI Pricing Guide (clutch.co/developers/artificial-intelligence/pricing) for named AI consulting hourly rates (125to300/hr), AI development company profile rates (24to49/hr) and project cost bands (15,000 discovery to 250,000+ transformation), corroborated across two independent search passes with consistent figures; and Upwork's own hire-cost pages (upwork.com/hire/machine-learning-experts/cost/ and upwork.com/hire/artificial-intelligence-engineers/cost/) for freelance AI/ML engineer rates (25to200/hr, median ~100), corroborated across two independent search passes; explicitly declined to cite UAE-specific AED figures after checking: Glassdoor's Dubai 'Data and AI Consultant' salary figure is based on a single anonymous submission (1 salary), too thin to publish as a stat, and every other UAE consulting-cost figure found traced back to the same class of SEO-mill blogs being avoided, so the guide stays scoped to the global rate bands the target query and its SERP winners actually address rather than inventing local color; no numeric stat invented, all four stats trace to the two sources above; no em-dashes or en-dashes (checked programmatically via node regex on the full JSON, none found); title 66 chars full / 48 chars stripped of brand suffix (limit 60), price range in the title matching the winning SERP format; metaDescription tightened twice during drafting to land at exactly 165/165 chars; targetQuery field is 'AI consulting rates' verbatim matching the backlog entry; intro is 51 words and stands alone as a direct answer to the target query; five bodySections each phrased as a real question; three FAQs, one trimmed during self-critique from 63 to 52 words to land inside the 40-60 word target; one price-band table with five rows, all traceable to the two cited sources, no invented numbers; no diagram or image fields, both are field-note-only schema additions and do not exist on the insights articleSchema; related links verified to exist (/services/ai-consulting has a page.tsx, /insights/ai-consultant-vs-ai-agency is a real entry in src/lib/content/insights/index.ts); validated against the live articleSchema (Zod) via npx tsx after npm install (node_modules was not present in this container, package-lock.json reverted afterward since it is outside content/), result VALID; not a repeat of any ledger slug or targetQuery, checked programmatically against content/_ledger.json before drafting; scripts/seo/target-queries.json updated: tq-011 set to status published with assignedTo /insights/ai-consulting-rates, evidence left as the prior run's 2026-08-26 SERP check since it was not null and was still current; pipeline runway checked via report.mjs daily: 55 topics queued (13.8 weeks), well above the 30-topic threshold, so no refill needed this Monday"
+    },
+    {
+      "date": "2026-08-31",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-consulting-rates.json"
       ],
       "build": "passed"
     }
