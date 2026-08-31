@@ -166,3 +166,96 @@ export const assessmentPartialSchema = z.object({
 });
 
 export type AssessmentPartial = z.infer<typeof assessmentPartialSchema>;
+
+// --- The 2027 AI Plan session (application for a capped in-person seat) -----
+// A free, two hour working session in Dubai, capped at 20 people. Every
+// application is screened by hand afterwards, so nothing here scores, ranks or
+// rejects: the schema's only job is to make sure a complete application arrives
+// intact. Company size and the leadership answer are captured for context and
+// are deliberately not gates.
+
+export const COMPANY_SIZES = ['1 to 10', '11 to 50', '51 to 200', '200+'] as const;
+export type CompanySize = (typeof COMPANY_SIZES)[number];
+
+export const YES_NO = ['Yes', 'No'] as const;
+export type YesNo = (typeof YES_NO)[number];
+
+export const aiPlanSessionSchema = z.object({
+  name: z.string({ required_error: 'Enter your name' }).trim().min(1, 'Enter your name').max(120),
+  role: z
+    .string({ required_error: 'Enter your role or job title' })
+    .trim()
+    .min(1, 'Enter your role or job title')
+    .max(160),
+  company: z.string({ required_error: 'Enter your company' }).trim().min(1, 'Enter your company').max(160),
+  companySize: z.enum(COMPANY_SIZES, {
+    errorMap: () => ({ message: 'Choose a company size' }),
+  }),
+  email: z
+    .string({ required_error: 'Enter your email address' })
+    .trim()
+    .min(1, 'Enter your email address')
+    .email('Enter a valid email address')
+    .max(200),
+  // No user-facing character limit, per the brief. The ceiling here is a
+  // request-size guard, set far above anything a person types in this box.
+  repetitiveWork: z
+    .string({ required_error: 'Tell us the one repetitive thing' })
+    .trim()
+    .min(1, 'Tell us the one repetitive thing')
+    .max(5000, 'That is longer than this box can take. Trim it a little.'),
+  paysForAiTools: z.enum(YES_NO, {
+    errorMap: () => ({ message: 'Choose Yes or No' }),
+  }),
+  leadsAiStrategy: z.enum(YES_NO, {
+    errorMap: () => ({ message: 'Choose Yes or No' }),
+  }),
+  strategyRole: z
+    .string({ required_error: 'Tell us your role in that' })
+    .trim()
+    .min(1, 'Tell us your role in that')
+    .max(300),
+  canAttendFullSession: z
+    .boolean({ required_error: 'Confirm you can attend the full session' })
+    .refine((v) => v === true, { message: 'Confirm you can attend the full session' }),
+  /** The click that produced the application, if it came from an ad. */
+  click: clickAttributionSchema.optional(),
+});
+
+export type AiPlanSessionApplication = z.infer<typeof aiPlanSessionSchema>;
+
+// --- The pre-session task -------------------------------------------------
+// Asked of confirmed attendees only, about a week out. Three facts about one
+// real workflow, used live in the room on their own numbers. The estimates are
+// captured as short text rather than numbers on purpose: "about six hours,
+// more in month end" is a truer answer than a spinner forced to one integer,
+// and the room works off the shape of the number, not its precision.
+
+export const aiPlanPrepSchema = z.object({
+  name: z.string({ required_error: 'Enter your name' }).trim().min(1, 'Enter your name').max(120),
+  email: z
+    .string({ required_error: 'Enter your email address' })
+    .trim()
+    .min(1, 'Enter your email address')
+    .email('Enter a valid email address')
+    .max(200),
+  company: z.string({ required_error: 'Enter your company' }).trim().min(1, 'Enter your company').max(160),
+  workflow: z
+    .string({ required_error: 'Describe the workflow' })
+    .trim()
+    .min(1, 'Describe the workflow')
+    .max(5000, 'That is longer than this box can take. Trim it a little.'),
+  hoursPerWeek: z
+    .string({ required_error: 'Give a rough number of hours' })
+    .trim()
+    .min(1, 'Give a rough number of hours')
+    .max(120),
+  peopleInvolved: z
+    .string({ required_error: 'Say how many people touch it' })
+    .trim()
+    .min(1, 'Say how many people touch it')
+    .max(120),
+  anythingElse: z.string().trim().max(3000).optional(),
+});
+
+export type AiPlanPrep = z.infer<typeof aiPlanPrepSchema>;

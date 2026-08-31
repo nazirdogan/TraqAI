@@ -21,7 +21,12 @@
  * Every function fails open. A storage outage must never cost a lead.
  */
 
-export type LeadKind = 'assessment' | 'assessment_partial' | 'quick' | 'chat';
+export type LeadKind =
+  | 'assessment'
+  | 'assessment_partial'
+  | 'quick'
+  | 'chat'
+  | 'ai_plan_session';
 
 /** The click that produced the lead, kept as discrete fields. */
 export type ClickAttribution = {
