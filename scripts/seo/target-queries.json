@@ -29,7 +29,13 @@
         "checked": "2026-07-31",
         "engine": "Google (UAE-localized)",
         "traqPosition": null,
-        "winners": ["teamland.com", "acamind.ae", "royex.ae", "spearhead-training.com", "zabeelinstitute.ae"],
+        "winners": [
+          "teamland.com",
+          "acamind.ae",
+          "royex.ae",
+          "spearhead-training.com",
+          "zabeelinstitute.ae"
+        ],
         "observation": "Every winner names the geography in the H1 and publishes a course/format list. None of them are better practitioners. They are more specific."
       }
     },
@@ -47,7 +53,13 @@
         "checked": "2026-07-31",
         "engine": "Google (UAE-localized)",
         "traqPosition": null,
-        "winners": ["kineticcs.com", "digiscorp.com", "clutch.co/ae/consulting/ai/dubai", "opinosis-analytics.com", "quora.com"],
+        "winners": [
+          "kineticcs.com",
+          "digiscorp.com",
+          "clutch.co/ae/consulting/ai/dubai",
+          "opinosis-analytics.com",
+          "quora.com"
+        ],
         "observation": "A directory list and a Quora thread both outrank every independent provider site. Third-party surfaces beat owned surfaces on this query."
       }
     },
@@ -65,7 +77,14 @@
         "checked": "2026-07-31",
         "engine": "ChatGPT (web search, Temporary Chat)",
         "traqPosition": null,
-        "winners": ["AiRK", "4D Training & Consultancy", "AxisOne Consultancy", "PUSH MENA", "PwC Academy Middle East", "Evolution Technologies"],
+        "winners": [
+          "AiRK",
+          "4D Training & Consultancy",
+          "AxisOne Consultancy",
+          "PUSH MENA",
+          "PwC Academy Middle East",
+          "Evolution Technologies"
+        ],
         "observation": "ChatGPT's own stated filter was 'boutiques beat big academies for a 20-person firm because they map real workflows'. That is Traq's positioning verbatim. It recommended six other firms purely because Traq was in none of the sources it read."
       }
     },
@@ -83,7 +102,16 @@
         "checked": "2026-08-10",
         "engine": "web search",
         "traqPosition": null,
-        "winners": ["shopify.com", "online.hbs.edu", "salesforce.com", "bdc.ca", "ibm.com", "gartner.com", "cloud.google.com", "revgenpartners.com"],
+        "winners": [
+          "shopify.com",
+          "online.hbs.edu",
+          "salesforce.com",
+          "bdc.ca",
+          "ibm.com",
+          "gartner.com",
+          "cloud.google.com",
+          "revgenpartners.com"
+        ],
         "observation": "Every winner publishes a numbered step sequence (identify pain points, pick a use case, pilot, measure, scale), not a definition. Shopify and Salesforce are the only two written specifically for small businesses; the rest are enterprise-generic. Matched the format with a six-step guide plus a one-page worksheet table instead of prose."
       }
     },
@@ -101,7 +129,14 @@
         "checked": "2026-08-17",
         "engine": "Google (via web search)",
         "traqPosition": null,
-        "winners": ["chronus.com", "unily.com", "apty.ai", "whatfix.com", "worklytics.co", "amaiko.ai"],
+        "winners": [
+          "chronus.com",
+          "unily.com",
+          "apty.ai",
+          "whatfix.com",
+          "worklytics.co",
+          "amaiko.ai"
+        ],
         "observation": "No page targets this exact query. The SERP is generic enterprise adoption-strategy content (Copilot rollout guides, change-management blogs) aimed at large enterprises, none framed as auditing a tool already bought. Confirms the note: underserved, most content sells a new tool rather than activating one already paid for."
       }
     },
@@ -119,7 +154,10 @@
         "checked": "2026-08-24",
         "engine": "Google (US), re-checked via web search",
         "traqPosition": null,
-        "winners": ["parikshitkhanna.com", "sawankr.com"],
+        "winners": [
+          "parikshitkhanna.com",
+          "sawankr.com"
+        ],
         "observation": "Same two pages still surface three-plus weeks later. sawankr.com still publishes explicit AED price bands per workshop format (half-day, full-day, multi-day); parikshitkhanna.com remains quote-only with no public figure. Matched the winning format by leading the new guide with the same real AED bands, sourced and cited rather than invented."
       }
     },
@@ -155,7 +193,13 @@
         "checked": "2026-07-31",
         "engine": "Google (US)",
         "traqPosition": null,
-        "winners": ["iq-it.co.uk", "atlassian.com", "adoptailab.com", "aisurvivors.com", "aismartventures.com"],
+        "winners": [
+          "iq-it.co.uk",
+          "atlassian.com",
+          "adoptailab.com",
+          "aisurvivors.com",
+          "aismartventures.com"
+        ],
         "observation": "Winners are not more authoritative than Traq. They are more structured: multi-heading guides against Traq's flat 475-word block."
       }
     },
@@ -173,7 +217,13 @@
         "checked": "2026-07-31",
         "engine": "Perplexity (logged out)",
         "traqPosition": null,
-        "winners": ["AiRK", "NobleProg MEA", "ISM Training", "Atton Institute", "bayut.com listicle"],
+        "winners": [
+          "AiRK",
+          "NobleProg MEA",
+          "ISM Training",
+          "Atton Institute",
+          "bayut.com listicle"
+        ],
         "observation": "Several Perplexity citations traced to a Bayut listicle, a property portal. One well-placed third-party list outperformed every provider's own site."
       }
     },
@@ -202,14 +252,20 @@
       "intent": "commercial",
       "priority": 1,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-consulting-rates",
       "note": "Highest single buyer-intent term in the whole demand harvest and Traq has nothing on it. Publish real bands the way the corporate-training-cost guide already does, but for consulting engagements, and put the range in the title.",
       "evidence": {
         "checked": "2026-08-26",
         "engine": "Google (US-geolocated)",
         "traqPosition": null,
-        "winners": ["leanware.co", "groovyweb.co", "peopleinai.com", "nicolalazzari.ai", "aidolsgroup.com"],
+        "winners": [
+          "leanware.co",
+          "groovyweb.co",
+          "peopleinai.com",
+          "nicolalazzari.ai",
+          "aidolsgroup.com"
+        ],
         "observation": "Checked through the adjacent query 'how much does an AI consultant cost per hour'. Every page-one result carries a price range AND the year in the title tag. Not one of them asks the question; they all answer it in the title."
       },
       "demand": {
@@ -232,7 +288,13 @@
         "checked": "2026-08-26",
         "engine": "Google (US-geolocated)",
         "traqPosition": null,
-        "winners": ["iternal.ai", "business.udemy.com", "scaledagile.com", "greatplacetowork.com", "ttms.com"],
+        "winners": [
+          "iternal.ai",
+          "business.udemy.com",
+          "scaledagile.com",
+          "greatplacetowork.com",
+          "ttms.com"
+        ],
         "observation": "Top result is titled 'AI Training for Employees (2026): Programs, Costs & ROI'. Costs and the year in the title again. Several winners lead with named company examples (KPMG, PwC, Ally), which Traq cannot match and should not try to; the price transparency is the winnable half."
       },
       "demand": {
@@ -255,7 +317,13 @@
         "checked": "2026-07-31",
         "engine": "Google (UAE-localized)",
         "traqPosition": null,
-        "winners": ["teamland.com", "acamind.ae", "royex.ae", "spearhead-training.com", "zabeelinstitute.ae"],
+        "winners": [
+          "teamland.com",
+          "acamind.ae",
+          "royex.ae",
+          "spearhead-training.com",
+          "zabeelinstitute.ae"
+        ],
         "observation": "Carried over from tq-001. The retitle addresses the phrasing half of that finding; the format list is still missing."
       },
       "demand": {
@@ -306,7 +374,7 @@
       },
       "demand": {
         "source": "Google Trends, worldwide, 12 months, 2026-08-26",
-        "prominence": 32.0,
+        "prominence": 32,
         "note": "Indexed within one set of five verticals: AI for healthcare 37.4, AI for real estate 32.0, AI for HR 14.6, AI for lawyers 5.6, AI for accountants 1.6. Not comparable to the head-term sets."
       }
     },
@@ -398,7 +466,7 @@
       },
       "demand": {
         "source": "Google autocomplete, AE/US/GB, 2026-08-26",
-        "prominence": 3.0,
+        "prominence": 3,
         "note": "Also 'ai policy for nonprofits' 1.50, which suggests a sector-templated version has legs."
       }
     },
@@ -421,7 +489,7 @@
       },
       "demand": {
         "source": "Google autocomplete, AE/US/GB, 2026-08-26",
-        "prominence": 7.0,
+        "prominence": 7,
         "note": "'ai training near me' 7.00, 'ai consultant near me' 6.50, 'ai consulting near me' 4.50, 'ai consulting firms near me' 3.60. One of the strongest recurring modifiers in the whole harvest."
       }
     }
