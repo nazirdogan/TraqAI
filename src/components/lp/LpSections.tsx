@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import {
+  GOVERNANCE_DELIVERABLES,
+  GOVERNANCE_LEAD,
   LP_GROUP_SIZES,
   OFFER_FORMATS,
   PILLARS,
@@ -337,6 +339,59 @@ export function LpProof() {
  * at the workflows either anchors low or scares off a buyer who has not scoped
  * anything yet, and neither is a conversation worth starting.
  */
+/**
+ * The governance deliverables, first block under the hero on that page only.
+ *
+ * Someone searching "ai acceptable use policy" came for a document. The other
+ * landing pages can open with a quiz because their visitor is shopping for
+ * training; this one cannot, so the page shows what they leave holding before
+ * it asks them for anything. Numbered rather than bulleted: it reads as a
+ * deliverables list, which is what was searched for.
+ */
+export function LpGovernance() {
+  return (
+    <section className="border-t border-border-subtle bg-bg-base px-0 py-14 sm:py-16">
+      <div className={SHELL}>
+        <p className="eyebrow">What you leave with</p>
+        <h2 className="mt-3 max-w-2xl text-balance text-[clamp(22px,3vw,29px)] font-bold leading-tight tracking-tight text-ink">
+          Four things, written with you, not sent as a template
+        </h2>
+        <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
+          {GOVERNANCE_LEAD}
+        </p>
+
+        <ol className="mt-9 grid gap-5 md:grid-cols-2">
+          {GOVERNANCE_DELIVERABLES.map((d, i) => (
+            <li
+              key={d.title}
+              className="flex flex-col rounded-[20px] border border-border-subtle bg-white p-6 shadow-card"
+            >
+              <span
+                aria-hidden="true"
+                className="text-[12px] font-bold tracking-widest text-traq-purple"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 className="mt-2 text-[16.5px] font-bold leading-snug tracking-tight text-ink">
+                {d.title}
+              </h3>
+              <p className="mt-3 border-t border-border-subtle pt-4 text-[13.5px] leading-relaxed text-ink-soft">
+                {d.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+
+        <p className="mt-7 max-w-2xl text-[13.5px] leading-relaxed text-ink-faint">
+          The policy is one part of the AI Strategy &amp; Governance track, which
+          runs as a 90-minute exec taster or a half day. It is the session to run
+          before you spend anything else.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export function LpOffer({ heading }: { heading: string }) {
   return (
     <section className="border-t border-border-subtle bg-bg-base px-0 py-14 sm:py-16">

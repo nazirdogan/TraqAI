@@ -17,7 +17,8 @@
 export type LpSlug =
   | 'corporate-ai-training-dubai'
   | 'ai-training-cost-uae'
-  | 'ai-consultant-dubai';
+  | 'ai-consultant-dubai'
+  | 'ai-governance-policy-uae';
 
 export type LandingPage = {
   slug: LpSlug;
@@ -27,16 +28,19 @@ export type LandingPage = {
   eyebrow: string;
   /** Repeats the search query almost verbatim. */
   h1: string;
-  /** The approved positioning line. Identical on all three pages. */
+  /** The approved positioning line. Identical on every page. */
   promise: string;
   /** The approved hero paragraph, trimmed to the ad group. */
   intro: string;
   /**
    * Which block comes first under the hero. The cost-intent page leads with the
    * offer, because that visitor came to size the thing and bounces if the first
-   * screen is a quiz. Structure is otherwise identical.
+   * screen is a quiz. The governance page leads with the deliverables, because
+   * someone searching for an acceptable use policy came for the document and
+   * will not sit through a readiness quiz before being shown one exists.
+   * Structure is otherwise identical.
    */
-  leadWith: 'assessment' | 'offer';
+  leadWith: 'assessment' | 'offer' | 'governance';
   /** <title> and meta description for the page. */
   title: string;
   description: string;
@@ -75,6 +79,19 @@ export const LANDING_PAGES: Record<LpSlug, LandingPage> = {
     title: 'What Shapes the Cost of Corporate AI Training in the UAE',
     description:
       'What actually drives the cost of corporate AI training in the UAE: the format you run, the size of the room, and how much gets wired in. Scoped through a short enquiry.',
+  },
+  'ai-governance-policy-uae': {
+    slug: 'ai-governance-policy-uae',
+    adGroup: 'Governance and policy',
+    eyebrow: 'AI governance and policy, UAE',
+    h1: 'An AI acceptable use policy for UAE companies',
+    promise: 'You’ve got the AI tools. We help your team actually use them.',
+    intro:
+      'Most AI policies are copied off the internet, run to twelve pages, and get ignored the week after they are circulated. We draft yours with your leadership in one session, on a single page, covering the tools your team already uses and the decisions that still need a human. In person across Dubai and Abu Dhabi, or remote.',
+    leadWith: 'governance',
+    title: 'An AI Acceptable Use Policy for UAE Companies',
+    description:
+      'A one-page AI acceptable use policy your team will actually follow, drafted with your leadership in a single session. Approved tools, review steps and human sign-off. Free 2-minute readiness score.',
   },
   'ai-consultant-dubai': {
     slug: 'ai-consultant-dubai',
@@ -195,3 +212,34 @@ export const PILLARS: { title: string; body: string }[] = [
 /** The approved pivot line. Closes the page, then the CTA repeats. */
 export const PIVOT_LINE =
   'You don’t need more AI tools. You need someone to make the ones you’ve got actually work, with your team, not for them.';
+
+/**
+ * What leadership walks out of the governance session holding.
+ *
+ * Every line is the AI Strategy & Governance track in src/lib/training.ts said
+ * back in the visitor's words, not a new promise: the outcome field and four of
+ * its six modules. A page that sells a policy has to show the policy exists, so
+ * this block runs above the assessment rather than below it.
+ */
+export const GOVERNANCE_DELIVERABLES: { title: string; body: string }[] = [
+  {
+    title: 'A one-page acceptable use policy',
+    body: 'Approved tools, review steps, what always needs a human sign-off, and how to say it in one page rather than twelve. Drafted with you in the session, not emailed over as a template to fill in yourself.',
+  },
+  {
+    title: 'A ranked shortlist of use cases',
+    body: 'Candidate workflows scored on hours saved, risk and effort to build, then ranked, so the first three are obvious and everything else can wait its turn.',
+  },
+  {
+    title: 'A straight answer on where your data goes',
+    body: 'Which tools train on what your team types, what belongs in them, what never does, and how the UAE picture differs from the US and the EU.',
+  },
+  {
+    title: 'A 12-month roadmap',
+    body: 'Sequencing, owners, budget and the measures that tell you it is working, set out quarter by quarter.',
+  },
+];
+
+/** The line that frames the governance block. Sets up the deliverables above. */
+export const GOVERNANCE_LEAD =
+  'A policy nobody reads is not governance, it is paperwork. The session that produces one runs 90 minutes with your leadership, or half a day if you want the roadmap built in the room.';
