@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import AssessmentForm from '@/app/ai-readiness/AssessmentForm';
 import {
   LpDelivery,
+  LpGovernance,
   LpHeader,
   LpPillars,
   LpOffer,
@@ -137,6 +138,22 @@ export default function LandingPage({ params }: Params) {
     />
   );
 
+  /**
+   * The governance order. Deliverables first, because that visitor searched for
+   * a document and needs to see it exists before being asked for anything, then
+   * the quiz, then the catalogue the policy session sits inside.
+   */
+  const governanceBody = (
+    <>
+      <LpGovernance />
+      {assessment}
+      <LpTracks />
+      <LpDelivery />
+      {offer}
+      <LpProof />
+    </>
+  );
+
   return (
     <>
       <LpHeader />
@@ -188,7 +205,9 @@ export default function LandingPage({ params }: Params) {
           the formats and puts the quiz below them. Everywhere else the quiz is
           first and the catalogue follows: it is what someone reads once they
           have a score and want to know what they would actually be buying. */}
-      {lp.leadWith === 'offer' ? (
+      {lp.leadWith === 'governance' ? (
+        governanceBody
+      ) : lp.leadWith === 'offer' ? (
         <>
           {offer}
           {assessment}
