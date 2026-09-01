@@ -380,3 +380,73 @@ export function courseList(courses: CourseInput[]): JsonLdObject {
     })),
   };
 }
+
+export type EventInput = {
+  name: string;
+  description: string;
+  /** Canonical path for the event's landing page. */
+  url: string;
+  /** ISO 8601 with offset, e.g. "2026-09-29T14:00:00+04:00". */
+  startDate: string;
+  endDate: string;
+  /** City the room is in. No street address is published before confirmation. */
+  city: string;
+  capacity: number;
+};
+
+/**
+ * Event, the in-person session. Declared because a dated, located, capped
+ * event is one of the few things search engines will surface as a rich result,
+ * and because AI answer engines asked "AI workshops in Dubai" need a machine
+ * readable date and place to quote.
+ *
+ * offers is deliberately free: attendance costs nothing, and the refundable
+ * hold that secures a confirmed seat is returned in full, so it is not a price
+ * and must not be declared as one.
+ */
+export function event({
+  name,
+  description,
+  url,
+  startDate,
+  endDate,
+  city,
+  capacity,
+}: EventInput): JsonLdObject {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BusinessEvent',
+    name,
+    description,
+    url: absoluteUrl(url),
+    startDate,
+    endDate,
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    maximumAttendeeCapacity: capacity,
+    location: {
+      '@type': 'Place',
+      name: `${city}, United Arab Emirates`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: city,
+        addressCountry: 'AE',
+      },
+    },
+    organizer: {
+      '@type': 'Organization',
+      '@id': ORG_ID,
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    performer: { '@type': 'Person', name: 'Nazir Dogan' },
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'AED',
+      availability: 'https://schema.org/LimitedAvailability',
+      url: absoluteUrl(`${url}/apply`),
+      category: 'Free',
+    },
+  };
+}

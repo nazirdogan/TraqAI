@@ -7,8 +7,9 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { track } from '@/components/analytics/Analytics';
 
 // Pages where a sticky "Book a free call" bar would be redundant or compete with
-// the page's own primary action (the booking page itself).
-const HIDDEN_ON = new Set(['/book']);
+// the page's own primary action (the booking page, and the application form for
+// the capped AI Plan session, where the bar sits over "Apply for a seat").
+const HIDDEN_ON = new Set(['/book', '/ai-plan-session', '/ai-plan-session/apply']);
 
 /**
  * MobileCtaBar
