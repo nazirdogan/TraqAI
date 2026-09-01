@@ -5,7 +5,7 @@
   "targetQuery": "how to measure ROI from AI tools at a small business",
   "h1": "How to measure ROI from AI in a small business",
   "datePublished": "2026-07-27",
-  "dateModified": "2026-07-27",
+  "dateModified": "2026-09-01",
   "author": "Nazir Dogan",
   "intro": "AI ROI is the dollar value a business gets back from an AI tool, measured against what it costs, not how often the tool gets used. For a small business, that means picking one real workflow, timing it before and after AI, and turning the difference into hours saved or dollars earned instead of a general feeling that things improved.",
   "bodySections": [
@@ -15,7 +15,7 @@
     },
     {
       "h2": "Why do most businesses feel AI is working but cannot prove it?",
-      "body": "There is a real gap between feeling and proof. Across organizations of every size, 88% now use AI in at least one part of the business, but only 39% can point to any measurable effect on the bottom line, according to McKinsey's State of AI research. Small businesses report the opposite problem in a different form: Intuit QuickBooks' 2026 AI Impact Report, based on more than 34,000 small and midsize business owners, found 62% report recent productivity gains from AI, a record high. Both things can be true at once. People genuinely feel faster, but feeling faster and having a number you can defend in a budget conversation are not the same thing, and only the second one survives when someone asks whether the subscription is worth renewing."
+      "body": "There is a real gap between feeling and proof, and it just got sharper. McKinsey's State of AI 2026 survey found 80% of individual workers report productivity gains from AI, but only 6% of organizations attribute a significant earnings impact to it. The same survey found roughly 90% of function-level AI use cases are still stuck in pilot mode rather than scaled into production, which is not a coincidence: a pilot with no baseline and no dollar figure has no case for scaling, so it just sits there. Small businesses report the same feeling in a different form: Intuit QuickBooks' 2026 AI Impact Report, based on more than 34,000 small and midsize business owners, found 62% report recent productivity gains from AI, a record high. People genuinely feel faster. Feeling faster and having a number you can defend in a budget conversation are not the same thing, and only the second one survives when someone asks whether the subscription is worth renewing, or whether it is time to move a tool out of one team's pilot and into the rest of the business."
     },
     {
       "h2": "What should you actually measure?",
@@ -58,11 +58,11 @@
   ],
   "stats": [
     {
-      "claim": "Across organizations of every size, most now use AI somewhere in the business, but only a minority can point to a measurable effect on profit, which is the exact gap a workflow-level ROI test closes.",
-      "value": "88% use AI, 39% see bottom-line impact",
-      "source": "McKinsey",
+      "claim": "Individual workers feel AI is helping far more often than organizations can show it moved the bottom line, and the same survey found most AI use cases never leave the pilot stage, which is the exact gap a workflow-level ROI test closes.",
+      "value": "80% of workers report gains, 6% of firms see significant earnings impact",
+      "source": "McKinsey State of AI 2026",
       "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-      "year": "2025"
+      "year": "2026"
     },
     {
       "claim": "Small and midsize business owners report a record share seeing productivity gains from AI, which is the 'it feels like it's working' half of the ROI question this guide answers.",

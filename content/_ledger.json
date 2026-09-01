@@ -968,6 +968,24 @@
         "content/insights/ai-consulting-rates.json"
       ],
       "build": "passed"
+    },
+    {
+      "date": "2026-09-01",
+      "mode": "monthly-refresh",
+      "action": "refresh",
+      "type": "insight",
+      "slug": "how-to-measure-ai-roi-for-small-business",
+      "critic": "branch preflight: session started on a detached HEAD at the same commit already sitting at the tip of origin/main (9249039), so no commits were stranded this time; checked out main, confirmed refs/heads/main and that it matched origin/main exactly, no fast-forward or merge needed; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned monthly-refresh; read content/README.md and content/_ledger.json; picked the refresh candidate by dateModified across the seven agent-writable files in content/insights/ (the cornerstone guides in src/lib/content/insights/index.ts are out of scope): how-to-measure-ai-roi-for-small-business.json at 2026-07-27 was the oldest and had never been refreshed (the only prior monthly-refresh, on 2026-08-01, touched ai-acceptable-use-policy-for-small-business, which now sits at 2026-08-01, no longer the oldest); searched for a more current source than the guide's McKinsey 'State of AI' citation, which was pinned to the 2025 edition (88% use AI, 39% see bottom-line impact); found McKinsey published its State of AI 2026 survey around 2026-08-25 (1,719 respondents) at the same URL the guide already cited, with sharper, more current findings: 80% of individual workers report productivity gains but only 6% of organizations attribute a significant earnings impact, and roughly 90% of function-level AI use cases remain stuck in pilot mode rather than scaled into production; WebFetch on mckinsey.com, theregister.com and techtimes.com all returned EGRESS_BLOCKED this run, consistent with the standing domain-blocking pattern, so the figures were corroborated via WebSearch snippets across four independent secondary sources (The Register, techtimes.com, cxtoday.com, itpro.com) all citing identical percentages before use, per the standing instruction not to retry a blocked fetch; updated the stats[0] entry (source, value, url unchanged since mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai now hosts the 2026 edition, year bumped 2025 to 2026) and sharpened the 'Why do most businesses feel AI is working but cannot prove it?' section to use the new 80%/6% gap and the 90%-stuck-in-pilot finding, which ties directly into the guide's own advice (a pilot with no baseline has no case for scaling) and its later 'when should you expand a tool versus cut it' section, a genuine content improvement rather than a cosmetic date bump; no numbers invented, both new figures traced to the corroborated 2026 survey; no em-dashes (checked programmatically via grep, none found); dateModified bumped from 2026-07-27 to 2026-09-01, datePublished untouched; related links re-verified to exist (/services/ai-consulting, /services/ai-implementation, /insights/ai-readiness-checklist all real); validated against the live articleSchema (Zod) via npx tsx after npm install (node_modules was not present in this container, package-lock.json left untouched, install output otherwise ignored since it is outside content/), result VALID; not a new slug, no ledger `published` entry needed, existing published entry already covers this slug and targetQuery"
+    },
+    {
+      "date": "2026-09-01",
+      "mode": "monthly-refresh",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-measure-ai-roi-for-small-business.json"
+      ],
+      "build": "passed"
     }
   ]
 }
