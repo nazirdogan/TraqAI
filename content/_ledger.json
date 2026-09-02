@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-02",
+      "type": "field-note",
+      "slug": "how-to-introduce-ai-to-your-team",
+      "targetQuery": "how to introduce AI to your team"
+    },
+    {
       "date": "2026-08-31",
       "type": "insight",
       "slug": "ai-consulting-rates",
@@ -984,6 +990,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/how-to-measure-ai-roi-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-02",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "how-to-introduce-ai-to-your-team",
+      "critic": "branch preflight: session started on a DETACHED HEAD at 8c1ffb1, seven commits ahead of local main and not connected to any branch (a Merge pull request #3 commit plus six others, the same detached-HEAD bug flagged in the 2026-08-14 and prior run notes); ran git checkout main, confirmed git merge-base --is-ancestor main 8c1ffb1 succeeded, ran git merge --ff-only 8c1ffb1 with no rewrite and no force-push, confirmed git symbolic-ref -q HEAD printed refs/heads/main afterward; kill switch checked, no content/_paused and CONTENT_BOT_ENABLED unset; mode.mjs returned daily-note; read content/README.md and content/_ledger.json; report.mjs daily gave today's pipeline topic tp-005 'What to tell your team the first time you introduce AI' targeting 'how to introduce AI to your team', 55 topics queued (13.8 weeks runway, no fallback or refill needed); checked no genuinely dated, cost-or-action-relevant news story from the last 24 hours displaced the pipeline topic, so wrote the queued topic as briefed rather than overriding it; researched change-management guidance on introducing AI to a team (manager-led vs IT-led announcements, naming the specific task rather than the tool, addressing job security directly, following through with hands-on training) via WebSearch, since WebFetch returned EGRESS_BLOCKED on ey.com, gallup.com and hrdive.com this run (consistent with the standing domain-blocking pattern, not retried per instruction); stat (only 37% of employees say their employer has implemented AI, 40% say it has not, 23% say they do not know, Q3 2025 Gallup data, individual contributors most likely to not know) corroborated across independent secondary coverage (HR Dive, interviewquery.com, outsourceaccelerator.com, hrgrapevine.com, tomshardware.com) citing identical figures, citation URL points to Gallup's own page (gallup.com/workplace/699689/ai-use-at-work-rises.aspx); no numbers invented; no em-dashes (checked programmatically via grep, none found); title 54 chars, metaDescription 154/165 chars; intro is 54 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; flow diagram (name who delivers it, state what changes, address job security first, set the next session) derived entirely from the body's own argument about ordering, no invented numbers, a genuine sequence where order carries the point; fetch-image.mjs returned exit code 2 (Openverse search failed, HTTP 403), published without an image per the normal-outcome rule; related links verified to exist (/services/ai-training, /insights/how-to-build-an-ai-strategy-for-a-small-business, /field-notes/how-to-run-an-ai-training-session-for-staff, /field-notes/what-good-ai-adoption-looks-like); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery, distinct from the existing how-to-run-an-ai-training-session-for-staff and what-good-ai-adoption-looks-like notes by covering the announcement moment itself rather than the training session or adoption outcomes; updated scripts/seo/topic-pipeline.json to mark tp-005 status published with publishedAs /field-notes/how-to-introduce-ai-to-your-team, staged manually (outside the content/ path publish.mjs adds automatically) so it rides into the same commit publish.mjs makes, per Step 3b, without any manual push"
+    },
+    {
+      "date": "2026-09-02",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-02-how-to-introduce-ai-to-your-team.json"
       ],
       "build": "passed"
     }

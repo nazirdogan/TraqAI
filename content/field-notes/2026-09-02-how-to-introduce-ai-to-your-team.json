@@ -1,0 +1,90 @@
+{
+  "slug": "how-to-introduce-ai-to-your-team",
+  "title": "What to tell your team the first time you introduce AI",
+  "h1": "What to tell your team the first time you introduce AI",
+  "metaDescription": "How to introduce AI to your team: who should deliver the message, what to say about the work changing, and how to address job security without dodging it.",
+  "targetQuery": "how to introduce AI to your team",
+  "tags": ["adoption", "training"],
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": "Nazir Dogan",
+  "dek": "The first conversation sets whether people lean in or quietly wait it out. Get the order right.",
+  "intro": "To introduce AI to your team, have their direct manager explain, in plain terms, which specific tasks are changing and why, address job security directly instead of avoiding it, and end with a concrete next session rather than a one-off announcement. Skipping any of those three steps is what turns a rollout into rumour.",
+  "body": [
+    {
+      "heading": "Who should actually deliver the announcement?",
+      "paragraphs": [
+        "Not IT, and not a company-wide email from leadership alone. The message should come from each person's direct manager, in a team meeting where questions are allowed. Routing an AI announcement through the tech team signals this is a systems update. Routing it through the person someone already trusts with their workload signals it is about how the work itself is changing, which is the truth."
+      ]
+    },
+    {
+      "heading": "What should the first message actually say?",
+      "paragraphs": [
+        "Name the specific task, not the tool. \"We're using AI to draft the first pass of client update emails\" lands. \"We're rolling out an AI initiative\" does not, because nobody can picture what changes on Monday. Say what stays the same too: who still owns the final decision, what still gets checked by a person, what nobody is being asked to hand over blind."
+      ]
+    },
+    {
+      "heading": "How do you address job security without dodging it?",
+      "paragraphs": [
+        "Say it before anyone has to ask. Silence on the job question does not read as reassuring, it reads as confirmation that leadership has not thought it through or does not want to answer. If the honest answer is that no roles are changing, say that plainly. If some work will genuinely shift, say what and over what timeframe. A team that hears an honest version of a hard answer trusts the next announcement more than a team that got a vague one."
+      ]
+    },
+    {
+      "heading": "What comes after the announcement matters more than the announcement",
+      "paragraphs": [
+        "A single meeting with no follow-up is where most rollouts stall, because people file it as a thing that was mentioned rather than a thing that is happening. Close the first conversation with a specific next step already on the calendar: a hands-on session on the actual task named in the announcement, not a generic training deck. That is what turns the announcement into the start of something instead of the whole of it."
+      ]
+    }
+  ],
+  "takeaway": "Before you announce anything, write down the one task that is changing, the one thing about job security you will say without being asked, and the date of the follow-up session. If you cannot fill in all three, you are not ready to announce yet.",
+  "stat": {
+    "claim": "Even where a company has actually adopted AI, a meaningful share of the team has no idea it happened, which is the direct cost of treating the rollout as a memo instead of a real conversation.",
+    "value": "23%",
+    "source": "Gallup",
+    "url": "https://www.gallup.com/workplace/699689/ai-use-at-work-rises.aspx",
+    "year": "2025"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to structure the first AI announcement",
+    "steps": [
+      { "label": "Name who's talking", "detail": "Their manager, not IT or HR" },
+      { "label": "State what's changing", "detail": "The task, not just the tool" },
+      { "label": "Address job security first", "detail": "Before anyone has to ask" },
+      { "label": "Set the next session", "detail": "So it's a start, not one memo" }
+    ],
+    "caption": "Fear answered before it is asked reads as honesty. Fear answered after reads as damage control."
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to build an AI strategy for a small business",
+      "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business"
+    },
+    {
+      "label": "How to run an AI training session for staff",
+      "href": "/field-notes/how-to-run-an-ai-training-session-for-staff"
+    },
+    {
+      "label": "What good AI adoption looks like",
+      "href": "/field-notes/what-good-ai-adoption-looks-like"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Should the CEO or the direct manager announce AI to a team?",
+      "a": "The direct manager, in a small or mid-sized business. A CEO can set the direction company-wide, but the person a team actually trusts with day-to-day questions is their own manager, and that is who should explain what changes for them specifically."
+    },
+    {
+      "q": "What if we genuinely don't know yet whether any roles will change?",
+      "a": "Say that. \"We don't know yet, and we will tell you as soon as we do\" is an honest answer a team can work with. What erodes trust is silence on the question, not uncertainty about the answer."
+    },
+    {
+      "q": "How soon after the announcement should training happen?",
+      "a": "Within the same week if possible, on the specific task named in the announcement. The longer the gap between the message and the first hands-on session, the more the announcement reads as talk rather than a real change."
+    }
+  ]
+}
