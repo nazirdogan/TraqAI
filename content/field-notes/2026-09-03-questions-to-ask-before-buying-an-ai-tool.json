@@ -1,0 +1,86 @@
+{
+  "slug": "questions-to-ask-before-buying-an-ai-tool",
+  "title": "The questions to ask before buying an AI tool",
+  "h1": "The questions to ask before buying an AI tool",
+  "metaDescription": "The questions to ask before buying an AI tool: what problem it solves, what happens to your data, whether it fits your existing tools, and how to test it first.",
+  "targetQuery": "questions to ask before buying an AI tool",
+  "tags": ["tools", "adoption"],
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03",
+  "author": "Nazir Dogan",
+  "dek": "Most AI tool regret traces back to one skipped step: nobody tested it on real work before the invoice arrived.",
+  "intro": "Before buying any AI tool, ask what specific problem it solves that a process fix could not, what happens to your data if you cancel, whether it fits the systems you already use, and whether you can trial it on real work, not a demo. Skip any of these four and a subscription becomes shelfware.",
+  "body": [
+    {
+      "heading": "Is this actually a technology problem, or a process one wearing an AI label?",
+      "paragraphs": [
+        "Before evaluating any specific tool, name the problem in one sentence without mentioning software. If the honest sentence is \"nobody owns following up on stalled invoices\" or \"our onboarding steps live in three people's heads\", that is a process gap, not a shortage of AI. A tool will make an undefined process faster at being undefined. Only buy once you can say exactly which repeatable task the tool needs to shorten or take off someone's plate."
+      ]
+    },
+    {
+      "heading": "What happens to your data, and to what the tool produces?",
+      "paragraphs": [
+        "Ask three specific things before signing: does the vendor train its models on your inputs by default, can you turn that off, and what do you get back if you cancel next year. A vendor with a plain answer to all three has usually built the answer into their terms already. One that answers with marketing language about \"enterprise-grade security\" and nothing concrete about your specific data is telling you the answer is not written down yet."
+      ]
+    },
+    {
+      "heading": "Does it fit the tools your team already has open, or does it become one more tab nobody visits?",
+      "paragraphs": [
+        "An AI tool that requires people to leave their email, their CRM, or their project board to go use it loses the adoption race to whatever is already open on their screen. That is a measured pattern, not a guess: Microsoft's 2024 Work Trend Index found that at small and mid-sized companies specifically, 80 percent of AI users are bringing their own unsanctioned tools to work rather than the one the business chose, usually because the sanctioned option did not fit where the work actually happens. Ask a vendor to show the integration with the specific system your team lives in, not a generic list of supported apps."
+      ]
+    },
+    {
+      "heading": "Can you test it against a real piece of your own work, and who owns that test?",
+      "paragraphs": [
+        "Insist on running the tool against an actual client email, an actual spreadsheet, an actual support ticket, not a sales demo built on the vendor's cleanest example. A vendor that resists a short trial on real work is a signal worth taking seriously. Name one person inside the business who owns the trial and put a date on their calendar to report back on whether it earned a place on the invoice. A trial with no owner and no date quietly becomes a subscription nobody remembers agreeing to."
+      ]
+    }
+  ],
+  "takeaway": "Before you sign anything, write down in one sentence the problem this tool needs to solve, get a straight answer on what happens to your data if you cancel, and name the one person who will test it on real work and report back by a set date. If any of the three is missing, you are not ready to buy yet.",
+  "stat": {
+    "claim": "At small and mid-sized companies specifically, the share of AI users bringing their own unsanctioned tools to work is higher than average, which is usually a sign the sanctioned tool does not fit how people actually work.",
+    "value": "80%",
+    "source": "Microsoft WorkLab",
+    "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
+    "year": "2024"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to evaluate an AI tool before you buy",
+    "steps": [
+      { "label": "Name the problem", "detail": "Not the tool, the task it fixes" },
+      { "label": "Check the data terms", "detail": "Training use, exports, cancellation" },
+      { "label": "Test on real work", "detail": "Not a vendor demo" },
+      { "label": "Assign an owner", "detail": "Someone who reports back on a set date" }
+    ],
+    "caption": "A trial with no owner just becomes another login nobody uses."
+  },
+  "related": [
+    {
+      "label": "AI Consulting & Strategy",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Which AI tool should I use for what",
+      "href": "/field-notes/which-ai-tool-for-which-job"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Should we always ask for a free trial before buying an AI tool?",
+      "a": "Yes, on real work rather than a vendor demo. A trial run against an actual document, ticket, or workflow shows whether the tool fits how your team actually works. A vendor that will not offer any trial, even a short one, is a signal worth taking seriously."
+    },
+    {
+      "q": "What is the biggest red flag when evaluating an AI vendor?",
+      "a": "Vague answers about your data: what it is used for, whether it trains on your inputs, and what you get back if you cancel. A vendor with a straight answer to all three has usually thought it through. One that deflects usually has not."
+    },
+    {
+      "q": "Does it matter if the new tool overlaps with something we already pay for?",
+      "a": "It matters more than most small businesses check before buying. A new AI tool that duplicates a feature already sitting inside your existing CRM, helpdesk, or office suite is often the more expensive way to get the same result."
+    }
+  ]
+}

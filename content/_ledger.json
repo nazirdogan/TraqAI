@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-03",
+      "type": "field-note",
+      "slug": "questions-to-ask-before-buying-an-ai-tool",
+      "targetQuery": "questions to ask before buying an AI tool"
+    },
+    {
       "date": "2026-09-02",
       "type": "field-note",
       "slug": "how-to-introduce-ai-to-your-team",
@@ -1008,6 +1014,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-02-how-to-introduce-ai-to-your-team.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-03",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "questions-to-ask-before-buying-an-ai-tool",
+      "critic": "branch preflight: session started on a DETACHED HEAD at b61a81e, eight commits ahead of local main and not connected to any branch (the same recurring bug); captured the sha, ran git checkout main, confirmed git merge-base --is-ancestor main b61a81e succeeded, ran git merge --ff-only b61a81e with no rewrite and no force-push, confirmed git symbolic-ref -q HEAD printed refs/heads/main afterward; ran git fetch origin main and found origin/main already at b61a81e, so the prior run's daily-note had in fact shipped (the detached HEAD was a stale local pointer, not a lost push) and no manual push was needed at this step; kill switch checked, no content/_paused and CONTENT_BOT_ENABLED unset; mode.mjs returned daily-note; read content/README.md and content/_ledger.json (43 published entries, no close match to today's topic); report.mjs daily gave today's pipeline topic tp-006 'The questions to ask before you buy any AI tool' targeting 'questions to ask before buying an AI tool', 54 topics queued (13.5 weeks runway, no fallback or refill needed since today is not Monday); no genuinely dated news event from the last 24 hours displaced the pipeline topic, wrote the queued topic as briefed; researched via WebSearch (procurement-checklist guidance for buying an AI tool: problem-fit, data/training-opt-out/exportability, integration with existing stack, real-work trial vs demo) and corroborated a primary-source stat directly from Microsoft's own WorkLab page (not a secondary aggregator) for the 2024 Work Trend Index BYOAI finding that 80 percent of AI users at small and mid-sized companies specifically bring their own unsanctioned AI tools to work; no numbers invented; no em-dashes (checked programmatically via grep, none found); title 48 chars, metaDescription within 165; intro is 55 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs; flow diagram (name the problem, check the data terms, test on real work, assign an owner) derived entirely from the body's own argument, no invented numbers, a genuine sequence where order carries the point; skipped fetch-image.mjs for this note since the topic (a procurement checklist) has no concrete visual subject that would not read as generic stock photography, which is a normal outcome per the guidance; related links verified to exist on disk (/services/ai-consulting, /insights/how-to-get-value-from-ai-tools-you-already-pay-for, /field-notes/which-ai-tool-for-which-job); node_modules was not present in this container so ran npm install, then validated the draft against the live fieldNoteSchema (Zod) via npx tsx, result VALID; not a repeat of any ledger slug or targetQuery, distinct from which-ai-tool-for-which-job (category selection) and how-to-choose-ai-use-cases (identifying where AI helps) by covering vendor and contract due diligence before signing; updated scripts/seo/topic-pipeline.json to mark tp-006 status published with publishedAs /field-notes/questions-to-ask-before-buying-an-ai-tool, staged manually (outside the content/ path publish.mjs adds automatically) so it rides into the same commit publish.mjs makes, per Step 3b, without any manual push"
+    },
+    {
+      "date": "2026-09-03",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-03-questions-to-ask-before-buying-an-ai-tool.json"
       ],
       "build": "passed"
     }
