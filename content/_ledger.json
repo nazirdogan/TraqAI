@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-04",
+      "type": "field-note",
+      "slug": "claude-fable-5-1-cheaper-ai-agents",
+      "targetQuery": "why did Claude just get cheaper for AI agents"
+    },
+    {
       "date": "2026-09-03",
       "type": "field-note",
       "slug": "questions-to-ask-before-buying-an-ai-tool",
@@ -1032,6 +1038,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-03-questions-to-ask-before-buying-an-ai-tool.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-04",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-04-claude-fable-5-1-cheaper-ai-agents.json"
       ],
       "build": "passed"
     }
