@@ -4,6 +4,7 @@ import { OG_IMAGE } from '@/lib/metadata';
 import { BreadcrumbsJsonLd } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem } from '@/lib/seo/schema';
 import ApplicationForm from './ApplicationForm';
+import EventFactsCard from '../_components/EventFactsCard';
 
 const PATH = '/ai-plan-session/apply';
 const CANONICAL = `https://traqcollective.com${PATH}`;
@@ -38,36 +39,42 @@ export default function AiPlanSessionPage() {
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
 
-      <section className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
-        <div className="mx-auto max-w-2xl">
-          <div className="eyebrow eyebrow-accent">Dubai · Two hours · In person</div>
+      <section className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40 lg:px-10 lg:pt-44 xl:px-16">
+        <div className="mx-auto max-w-6xl lg:grid lg:grid-cols-[1fr_340px] lg:items-start lg:gap-16 xl:gap-20">
+          <div className="max-w-2xl">
+            <div className="eyebrow eyebrow-accent">Dubai · Two hours · In person</div>
 
-          <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
-            {'Apply for a seat: the 2027 AI Plan session'}
-          </h1>
+            <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
+              {'Apply for a seat: the 2027 AI Plan session'}
+            </h1>
 
-          <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-            <p>
-              {'A free, two hour, in person working session in Dubai. You’ll leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027, built on your own numbers, not a generic slide deck.'}
-            </p>
-            <p>
-              {'This is not a sales pitch and not a product demo. You will do real work on your own business for two hours. If it makes sense to keep going afterwards, we’ll talk about that separately, not in the room.'}
-            </p>
-            <p className="font-semibold text-ink">{'Capped at 20 seats.'}</p>
+            <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-ink-soft sm:text-base">
+              <p>
+                {'A free, two hour, in person working session in Dubai. You’ll leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027, built on your own numbers, not a generic slide deck.'}
+              </p>
+              <p>
+                {'This is not a sales pitch and not a product demo. You will do real work on your own business for two hours. If it makes sense to keep going afterwards, we’ll talk about that separately, not in the room.'}
+              </p>
+              <p className="font-semibold text-ink">{'Capped at 20 seats.'}</p>
+            </div>
+
+            <div className="mt-10 sm:mt-12">
+              <ApplicationForm />
+            </div>
+
+            <div className="mt-8 text-center lg:text-left">
+              <Link
+                href="/ai-plan-session"
+                className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-traq-purple transition-colors hover:text-traq-purple-ink"
+              >
+                <span aria-hidden="true">&larr;</span>
+                Back to the session details
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-10 sm:mt-12">
-            <ApplicationForm />
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/ai-plan-session"
-              className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-traq-purple transition-colors hover:text-traq-purple-ink"
-            >
-              <span aria-hidden="true">&larr;</span>
-              Back to the session details
-            </Link>
+          <div className="mt-10 lg:mt-0 lg:sticky lg:top-28">
+            <EventFactsCard />
           </div>
         </div>
       </section>

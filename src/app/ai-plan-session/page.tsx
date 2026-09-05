@@ -4,6 +4,8 @@ import { OG_IMAGE } from '@/lib/metadata';
 import { BreadcrumbsJsonLd, EventJsonLd, FaqPageJsonLd } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 import FaqBlock from '@/components/page/FaqBlock';
+import EventFactsCard from './_components/EventFactsCard';
+import HostCredibility from './_components/HostCredibility';
 import {
   AI_PLAN_EVENT as EVENT,
   eventDateLong,
@@ -172,6 +174,32 @@ function SectionHeading({ eyebrow, title, sub }: { eyebrow: string; title: strin
   );
 }
 
+/**
+ * The recurring wide-page shape: a heading pinned to a left rail that stays in
+ * view while its content runs the rest of the width. Collapses to a plain
+ * stack below `lg`, where there is no spare width for a rail to hold.
+ */
+function SplitSection({
+  eyebrow,
+  title,
+  sub,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-[280px_1fr] lg:gap-16 xl:gap-20">
+      <div className="lg:sticky lg:top-28 lg:self-start">
+        <SectionHeading eyebrow={eyebrow} title={title} sub={sub} />
+      </div>
+      <div className="mt-10 lg:mt-0">{children}</div>
+    </div>
+  );
+}
+
 function ApplyButton({ label = 'Apply for a seat' }: { label?: string }) {
   return (
     <Link
@@ -202,72 +230,59 @@ export default function AiPlanSessionLandingPage() {
       <FaqPageJsonLd qas={FAQS} />
 
       {/* ---------- Hero ---------- */}
-      <section className="relative px-5 pb-16 pt-32 sm:px-8 sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-3xl">
-          <div className="eyebrow eyebrow-accent">
-            {`${EVENT.city} · ${DATE_LONG} · Two hours`}
+      <section className="relative px-5 pb-16 pt-32 sm:px-8 sm:pb-20 sm:pt-40 lg:px-10 lg:pt-44 xl:px-16">
+        <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-[1fr_360px] lg:items-start lg:gap-16 xl:gap-20">
+          <div className="max-w-2xl">
+            <div className="eyebrow eyebrow-accent">
+              {`${EVENT.city} · ${DATE_LONG} · Two hours`}
+            </div>
+
+            <h1 className="mt-5 text-balance text-[34px] font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              {EVENT.name}
+            </h1>
+
+            <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-ink-soft sm:text-[18px] lg:text-[19px]">
+              {'You already pay for ChatGPT, Copilot or Gemini seats your team barely uses. In two hours, you leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027, built on your own numbers, not a generic slide deck.'}
+            </p>
+
+            <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+              <ApplyButton />
+              <p className="text-[13.5px] leading-relaxed text-ink-faint sm:max-w-[19rem]">
+                {`Applications are read personally. You hear back within a day or two either way.`}
+              </p>
+            </div>
           </div>
 
-          <h1 className="mt-4 text-balance text-[34px] font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl">
-            {EVENT.name}
-          </h1>
-
-          <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-ink-soft sm:text-[18px]">
-            {'You already pay for ChatGPT, Copilot or Gemini seats your team barely uses. In two hours, you leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027, built on your own numbers, not a generic slide deck.'}
-          </p>
-
-          <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-border-subtle py-6 sm:grid-cols-4">
-            {[
-              { k: 'When', v: `${eventDateShort()}, ${TIME_RANGE}` },
-              { k: 'Where', v: `${EVENT.city}, in person` },
-              { k: 'Room', v: seatsLine() },
-              { k: 'To attend', v: 'Free, by application' },
-            ].map((item) => (
-              <div key={item.k}>
-                <dt className="text-[11px] font-semibold uppercase tracking-widest text-ink-faint">
-                  {item.k}
-                </dt>
-                <dd className="mt-1.5 text-[14px] font-semibold leading-snug text-ink">{item.v}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-            <ApplyButton />
-            <p className="text-[13.5px] leading-relaxed text-ink-faint sm:max-w-[19rem]">
-              {`Applications are read personally. You hear back within a day or two either way.`}
-            </p>
+          <div className="mt-10 lg:mt-0 lg:sticky lg:top-28">
+            <EventFactsCard />
           </div>
         </div>
       </section>
 
       {/* ---------- What it is not ---------- */}
-      <section className="px-5 pb-16 sm:px-8 sm:pb-20">
-        <div className="mx-auto max-w-3xl">
-          <div className="rounded-[24px] border border-border-subtle bg-traq-tint p-6 sm:p-8">
-            <div className="eyebrow eyebrow-accent">Before you apply</div>
-            <p className="mt-4 text-[16px] leading-relaxed text-ink sm:text-[17px]">
-              {'This is not a sales pitch and not a product demo. You will do real work on your own business for two hours. If it makes sense to keep going afterwards, we’ll talk about that separately, not in the room.'}
-            </p>
-          </div>
+      <section className="border-y border-border-subtle bg-traq-tint px-5 py-10 sm:px-8 sm:py-12 lg:px-10 xl:px-16">
+        <div className="mx-auto max-w-7xl lg:flex lg:items-center lg:gap-14">
+          <div className="eyebrow eyebrow-accent lg:w-52 lg:flex-none">Before you apply</div>
+          <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink sm:text-[17px] lg:mt-0">
+            {'This is not a sales pitch and not a product demo. You will do real work on your own business for two hours. If it makes sense to keep going afterwards, we’ll talk about that separately, not in the room.'}
+          </p>
         </div>
       </section>
 
+      {/* ---------- Who's running it ---------- */}
+      <HostCredibility />
+
       {/* ---------- What you leave with ---------- */}
-      <section className="bg-bg-subtle px-5 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-5xl">
-          <SectionHeading
-            eyebrow="The output"
-            title="What you walk out holding"
-            sub="A working output, not a listening output. Everything below is built on numbers you bring, in the room, by you."
-          />
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-5">
-            {TAKEAWAYS.map((item, i) => (
+      <section className="bg-bg-subtle px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16">
+        <SplitSection
+          eyebrow="The output"
+          title="What you walk out holding"
+          sub="A working output, not a listening output. Everything below is built on numbers you bring, in the room, by you."
+        >
+          <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+            {TAKEAWAYS.map((item) => (
               <div key={item.title} className="note-card">
-                <div className="note-card__num">{`0${i + 1}`}</div>
-                <h3 className="mt-3 text-[16px] font-semibold leading-snug text-ink">
-                  {item.title}
-                </h3>
+                <h3 className="text-[16px] font-semibold leading-snug text-ink">{item.title}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{item.body}</p>
               </div>
             ))}
@@ -275,15 +290,14 @@ export default function AiPlanSessionLandingPage() {
           <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-ink-faint">
             {'What you will not get is your implementation plan built live. Scoring your work honestly is the session. Sizing it in hours and dirhams, and deciding who owns what, is a separate piece of work and I will not pretend otherwise.'}
           </p>
-        </div>
+        </SplitSection>
       </section>
 
       {/* ---------- Who it is for ---------- */}
-      <section className="px-5 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-3xl">
-          <SectionHeading eyebrow="The room" title="Who is in it" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            <div className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card">
+      <section className="px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16">
+        <SplitSection eyebrow="The room" title="Who is in it">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <div className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card lg:p-7">
               <h3 className="text-[15px] font-semibold text-ink">This is built for you if</h3>
               <ul className="mt-4 space-y-3">
                 {[
@@ -302,7 +316,7 @@ export default function AiPlanSessionLandingPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card">
+            <div className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card lg:p-7">
               <h3 className="text-[15px] font-semibold text-ink">It is not built for</h3>
               <ul className="mt-4 space-y-3">
                 {[
@@ -321,22 +335,21 @@ export default function AiPlanSessionLandingPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </SplitSection>
       </section>
 
       {/* ---------- Run of show ---------- */}
-      <section className="bg-bg-subtle px-5 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-3xl">
-          <SectionHeading
-            eyebrow="The two hours"
-            title="How the session runs"
-            sub="Structured to the minute, and it finishes on time."
-          />
-          <ol className="mt-10 space-y-0">
+      <section className="bg-bg-subtle px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16">
+        <SplitSection
+          eyebrow="The two hours"
+          title="How the session runs"
+          sub="Structured to the minute, and it finishes on time."
+        >
+          <ol className="space-y-0">
             {RUN_OF_SHOW.map((row) => (
               <li
                 key={row.time}
-                className="grid grid-cols-[56px_1fr] gap-4 border-b border-border-subtle py-5 last:border-0 sm:grid-cols-[80px_1fr] sm:gap-6"
+                className="grid grid-cols-[56px_1fr] gap-4 border-b border-border-subtle py-5 last:border-0 sm:grid-cols-[80px_1fr] sm:gap-6 lg:gap-8"
               >
                 <span className="pt-0.5 text-[13px] font-semibold tabular-nums text-traq-purple">
                   {row.time}
@@ -348,18 +361,27 @@ export default function AiPlanSessionLandingPage() {
               </li>
             ))}
           </ol>
+        </SplitSection>
+      </section>
+
+      {/* ---------- Mid-page CTA ---------- */}
+      <section className="px-5 py-14 text-center sm:px-8 sm:py-16 lg:px-10 xl:px-16">
+        <p className="text-[17px] font-semibold text-ink sm:text-[19px]">
+          Seen enough to know if this is for you?
+        </p>
+        <div className="mt-5 flex justify-center">
+          <ApplyButton />
         </div>
       </section>
 
       {/* ---------- How a seat works ---------- */}
-      <section className="px-5 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-3xl">
-          <SectionHeading
-            eyebrow="The seat"
-            title="How you get one"
-            sub="Five steps, and you always know which one you are on. Nothing here happens automatically."
-          />
-          <ol className="mt-10 space-y-4">
+      <section className="px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16">
+        <SplitSection
+          eyebrow="The seat"
+          title="How you get one"
+          sub="Five steps, and you always know which one you are on. Nothing here happens automatically."
+        >
+          <ol className="space-y-4">
             {SEAT_STEPS.map((step, i) => (
               <li
                 key={step.title}
@@ -376,51 +398,52 @@ export default function AiPlanSessionLandingPage() {
             ))}
           </ol>
 
-          {/* The deposit, explained where someone actually meets it. */}
-          <div className="mt-10 rounded-[24px] border border-border-subtle bg-traq-tint p-6 sm:p-8">
-            <div className="eyebrow eyebrow-accent">On the deposit</div>
-            <p className="mt-4 text-[16px] font-semibold leading-relaxed text-ink sm:text-[17px]">
-              {`A fully refundable AED ${EVENT.depositAed} hold to secure your seat, refunded when you arrive. This isn’t about the money, it’s so the seats go to people who are actually coming.`}
-            </p>
-            <ul className="mt-5 space-y-2.5">
-              {[
-                'It is taken only after I have offered you a seat, never as part of applying.',
-                `Cancel with more than ${EVENT.cancellationNoticeHours} hours notice and it comes straight back, and your seat goes to the waiting list.`,
-                'Turn up and it is returned in the room, before the session starts.',
-              ].map((line) => (
-                <li key={line} className="flex items-start gap-3">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-traq-purple"
-                    aria-hidden="true"
-                  />
-                  <span className="text-[14px] leading-relaxed text-ink-soft">{line}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* The deposit and the pre-session task, side by side once there is room. */}
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-[24px] border border-border-subtle bg-traq-tint p-6 sm:p-8">
+              <div className="eyebrow eyebrow-accent">On the deposit</div>
+              <p className="mt-4 text-[16px] font-semibold leading-relaxed text-ink sm:text-[17px]">
+                {`A fully refundable AED ${EVENT.depositAed} hold to secure your seat, refunded when you arrive. This isn’t about the money, it’s so the seats go to people who are actually coming.`}
+              </p>
+              <ul className="mt-5 space-y-2.5">
+                {[
+                  'It is taken only after I have offered you a seat, never as part of applying.',
+                  `Cancel with more than ${EVENT.cancellationNoticeHours} hours notice and it comes straight back, and your seat goes to the waiting list.`,
+                  'Turn up and it is returned in the room, before the session starts.',
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-traq-purple"
+                      aria-hidden="true"
+                    />
+                    <span className="text-[14px] leading-relaxed text-ink-soft">{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* The pre-session task. */}
-          <div className="mt-5 rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
-            <div className="eyebrow eyebrow-accent">The pre-session task</div>
-            <h3 className="mt-4 text-[17px] font-semibold leading-snug text-ink">
-              One workflow, three numbers, a week before
-            </h3>
-            <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
-              {'Once your seat is confirmed I ask you for one thing: the repetitive task you named in your application, roughly how many hours a week it costs, and how many people touch it. It takes about two minutes to send.'}
-            </p>
-            <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
-              {'This is used live, on the day, on your own numbers. It is the difference between a session about AI in general and a session about your business, and it is why the room is capped at twenty rather than open.'}
-            </p>
+            <div className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
+              <div className="eyebrow eyebrow-accent">The pre-session task</div>
+              <h3 className="mt-4 text-[17px] font-semibold leading-snug text-ink">
+                One workflow, three numbers, a week before
+              </h3>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
+                {'Once your seat is confirmed I ask you for one thing: the repetitive task you named in your application, roughly how many hours a week it costs, and how many people touch it. It takes about two minutes to send.'}
+              </p>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
+                {'This is used live, on the day, on your own numbers. It is the difference between a session about AI in general and a session about your business, and it is why the room is capped at twenty rather than open.'}
+              </p>
+            </div>
           </div>
-        </div>
+        </SplitSection>
       </section>
 
       {/* ---------- FAQ ---------- */}
       <FaqBlock qas={FAQS} heading={`Questions about ${EVENT.name}`} />
 
       {/* ---------- Final CTA ---------- */}
-      <section className="relative bg-bg-base px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16">
-        <div className="mx-auto max-w-5xl">
+      <section className="relative bg-bg-base px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16 lg:px-10 xl:px-16">
+        <div className="mx-auto max-w-6xl">
           <div className="cta-panel">
             <div className="eyebrow eyebrow-accent">{seatsLine()}</div>
             <h2 className="mx-auto mt-4 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl">
