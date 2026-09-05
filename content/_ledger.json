@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-05",
+      "type": "field-note",
+      "slug": "role-specific-ai-training-vs-generic-workshops",
+      "targetQuery": "role specific AI training vs generic workshops"
+    },
+    {
       "date": "2026-09-04",
       "type": "field-note",
       "slug": "claude-fable-5-1-cheaper-ai-agents",
@@ -1048,6 +1054,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-04-claude-fable-5-1-cheaper-ai-agents.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-05",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "role-specific-ai-training-vs-generic-workshops",
+      "critic": "branch preflight: session started on a DETACHED HEAD at d93a060 (ten commits ahead of local main, the same recurring bug flagged in every prior run note); captured the sha, ran git checkout main, confirmed git merge-base --is-ancestor main d93a060 succeeded, ran git merge --ff-only d93a060 with no rewrite and no force-push, confirmed git symbolic-ref -q HEAD printed refs/heads/main afterward; ran git fetch origin main and found origin/main already at d93a060, so the last three days of posts (2026-09-02 through 2026-09-04) had in fact shipped and the detached HEAD was again a stale local pointer rather than a lost push, so no manual push was needed at this step; kill switch checked, no content/_paused and CONTENT_BOT_ENABLED unset; mode.mjs returned daily-note; read content/README.md and content/_ledger.json (45 published entries, no close match to today topic); report.mjs daily gave todays pipeline topic tp-008 Role-specific AI training vs generic workshops targeting role specific AI training vs generic workshops, 53 topics queued (13.3 weeks runway, no fallback or refill needed since today is not Monday); checked for a genuinely dated news event from the last 24 hours (WebSearch for September 4-5 2026 AI announcements) and found nothing new since the Anthropic cache-pricing cut already covered on 2026-09-04, so wrote the queued pipeline topic as briefed rather than overriding it; researched via WebSearch since WebFetch returned EGRESS_BLOCKED on every domain tried this run (generalassemb.ly, gallup.com, devlinpeck.com, bcg.com, libertystreeteconomics.newyorkfed.org, anthropic.com), consistent with the standing pattern, not retried per instruction, relied on WebSearch result snippets instead; headline stat (HR teams whose AI training was built around their actual job tasks were 35% more likely to report high confidence using AI than colleagues who taught themselves, General Assembly survey of 288 HR professionals, June 9-20 2025) corroborated across independent coverage (businesswire.com press release, betanews.com, hcamag.com/HRD America, generalassemb.ly itself all reporting the same figure and methodology), citation URL points to General Assemblys own blog post; a second documented claim (the top reason employees give for not using AI at all is that they do not believe it helps their specific work, from Gallups own Manager Support Drives Employee AI Adoption research) is cited via the sources array rather than the single stat slot, since it backs a qualitative point in the prose rather than a quoted headline number; no numbers invented; no em-dashes (checked programmatically via grep, none found); title 64 chars raw, 46 stripped of the brand suffix; metaDescription 145/165 chars; intro is 59 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question or how-to; three FAQs; flow diagram (split by function, pick two real tasks, practice on real work, name a session owner) derived entirely from the bodys own how-to-build-role-tracks section, no invented numbers, a genuine sequence where the split-first step is a real precondition for the rest; fetch-image.mjs returned exit code 2 (Openverse search failed, HTTP 403), published without an image per the normal-outcome rule; related links verified to exist on disk (/services/ai-training, /insights/how-to-hire-an-ai-trainer-in-dubai, /field-notes/how-to-run-an-ai-training-session-for-staff, /field-notes/how-to-choose-ai-use-cases, /field-notes/how-to-introduce-ai-to-your-team); node_modules was not present in this container so ran npm install, then validated the draft against the live fieldNoteSchema (Zod) via npx tsx, result VALID; not a repeat of any ledger slug or targetQuery, distinct from how-to-run-an-ai-training-session-for-staff (how to run a session) and the-five-hour-rule-for-ai-training (total hours needed) by covering the room-composition and format decision (one shared workshop vs role-specific tracks) rather than session mechanics or duration; updated scripts/seo/topic-pipeline.json to mark tp-008 status published with publishedAs /field-notes/role-specific-ai-training-vs-generic-workshops, staged manually (outside the content/ path publish.mjs adds automatically) so it rides into the same commit publish.mjs makes, per Step 3b, without any manual push"
+    },
+    {
+      "date": "2026-09-05",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-05-role-specific-ai-training-vs-generic-workshops.json"
       ],
       "build": "passed"
     }

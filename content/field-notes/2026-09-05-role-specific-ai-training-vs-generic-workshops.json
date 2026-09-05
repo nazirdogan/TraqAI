@@ -1,0 +1,119 @@
+{
+  "slug": "role-specific-ai-training-vs-generic-workshops",
+  "title": "Role-specific AI training vs generic workshops | Traq Collective",
+  "h1": "Role-specific AI training vs generic workshops",
+  "metaDescription": "Role-specific AI training teaches people to use AI on their own tasks. A generic workshop teaches the concept. Only one changes how Monday looks.",
+  "targetQuery": "role specific AI training vs generic workshops",
+  "tags": [
+    "training",
+    "adoption"
+  ],
+  "datePublished": "2026-09-05",
+  "dateModified": "2026-09-05",
+  "author": "Nazir Dogan",
+  "dek": "One teaches the concept to a full room. The other teaches your bookkeeper to close the month faster. Only one of them earns a second session.",
+  "intro": "Role-specific AI training teaches people to use AI on the actual tasks their job involves, like a recruiter screening candidates or a bookkeeper closing the month. A generic workshop teaches how AI works to everyone in the room at once. Role-specific training changes what people do on Monday. A generic session mostly raises awareness, then gets forgotten by Friday.",
+  "body": [
+    {
+      "heading": "Why a one-size AI workshop rarely changes how anyone works",
+      "paragraphs": [
+        "A generic workshop shows a room full of people, from sales to finance to operations, the same set of AI features. Everyone nods, a few people try the tool that afternoon, and by the following week most have gone back to working exactly as before. The session was not wrong, it just never touched the specific thing any one person actually does all day.",
+        "That gap shows up in the numbers. In a 2025 survey of 288 HR professionals, General Assembly found that HR teams who received AI training built around their actual job tasks were 35% more likely to say they felt very or completely confident using AI at work than colleagues who had to teach themselves generic AI skills on their own. The training content mattered more than whether training happened at all."
+      ]
+    },
+    {
+      "heading": "What role-specific training actually changes in practice",
+      "paragraphs": [
+        "Role-specific training drops the general tour of AI features and starts from a person's real queue of work. A recruiter practises screening the resumes sitting in their inbox today, not a sample dataset. A bookkeeper practises reconciling this month's actual invoices. A salesperson drafts a follow-up to a real prospect they are already working. The tool is the same for everyone, the task in front of them is not, and that is the part a shared workshop can never supply.",
+        "Gallup's own workplace research makes the same point from the barrier side: the most common reason employees give for not using AI at all is that they do not believe it can help with the specific work they do, not that the tool is unavailable or unfamiliar. A demo of AI in general does nothing to answer that objection. Seeing AI do their own task does."
+      ]
+    },
+    {
+      "heading": "How to build role tracks without hiring a trainer for every department",
+      "paragraphs": [
+        "You do not need a separate consultant per team to make training role-specific. Split the company into three or four functional groups (sales, finance, operations, and everyone else is a reasonable first cut), and for each group name the two tasks that already eat the most time every week. That short list becomes the entire training agenda for that group.",
+        "Run each group's session against its own real work, on the AI licence you already pay for, and put someone from that function in the room as co-facilitator rather than an outside trainer reading generic slides. If you do bring in outside help, hire for the ability to build those task-specific tracks, not to deliver one script to everyone."
+      ]
+    },
+    {
+      "heading": "When a single company-wide session is still the right call",
+      "paragraphs": [
+        "Role-specific does not mean every session needs to be split. A one-time, whole-company moment still makes sense for announcing that AI is coming, setting the acceptable use policy, and naming which tools are sanctioned. That is a policy and awareness moment, not a skills moment, and one room handles it fine.",
+        "The mistake is stopping there and calling it training. The announcement earns attention. The role-specific sessions that follow are what actually change what people do with their hands on Monday morning."
+      ]
+    }
+  ],
+  "takeaway": "This week, split your team into three or four function groups and run one AI session per group on that group's own top two time-consuming tasks, rather than a single company-wide AI 101.",
+  "stat": {
+    "claim": "HR teams whose AI training was built around their actual job tasks reported far higher confidence using AI than colleagues who taught themselves generic AI skills on their own.",
+    "value": "35%",
+    "source": "General Assembly",
+    "url": "https://generalassemb.ly/blog/the-ai-gap-in-hr/",
+    "year": "2025"
+  },
+  "sources": [
+    {
+      "label": "Gallup, Manager Support Drives Employee AI Adoption",
+      "url": "https://www.gallup.com/workplace/694682/manager-support-drives-employee-adoption.aspx"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "How to build role-specific AI training in four steps",
+    "steps": [
+      {
+        "label": "Split by function",
+        "detail": "Three or four groups, not one room"
+      },
+      {
+        "label": "Pick two real tasks",
+        "detail": "The ones that eat time weekly"
+      },
+      {
+        "label": "Practice on real work",
+        "detail": "Their own files, not a demo"
+      },
+      {
+        "label": "Name a session owner",
+        "detail": "One person per group runs it"
+      }
+    ],
+    "caption": "Order matters: skip the split and every later step trains the wrong task for someone in the room."
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "Who should train your team on AI in Dubai",
+      "href": "/insights/how-to-hire-an-ai-trainer-in-dubai"
+    },
+    {
+      "label": "How to run an AI training session for staff",
+      "href": "/field-notes/how-to-run-an-ai-training-session-for-staff"
+    },
+    {
+      "label": "How to choose AI use cases that actually work",
+      "href": "/field-notes/how-to-choose-ai-use-cases"
+    },
+    {
+      "label": "How to introduce AI to your team",
+      "href": "/field-notes/how-to-introduce-ai-to-your-team"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is a company-wide AI kickoff a waste of time?",
+      "a": "No. A single all-hands session is the right format for announcing AI is coming, setting the acceptable use policy, and naming sanctioned tools. The mistake is calling that session training. It builds awareness, not skill, so role-specific sessions still need to follow it."
+    },
+    {
+      "q": "How many people should be in a role-specific AI training group?",
+      "a": "Small enough that everyone can practise on their own real work in the room, usually a single function like sales, finance, or operations. A group of eight to twelve from the same job type works better than thirty from mixed departments."
+    },
+    {
+      "q": "Do we need a different trainer for every department?",
+      "a": "Not necessarily. One trainer can run every session if they build a separate, task-specific agenda for each group and bring someone from that function in as co-facilitator, rather than repeating one generic script to every room."
+    }
+  ]
+}
