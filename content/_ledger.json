@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-06",
+      "type": "field-note",
+      "slug": "what-to-train-a-finance-team-on-first",
+      "targetQuery": "AI training for finance teams"
+    },
+    {
       "date": "2026-09-05",
       "type": "field-note",
       "slug": "role-specific-ai-training-vs-generic-workshops",
@@ -1072,6 +1078,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-05-role-specific-ai-training-vs-generic-workshops.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-06",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "what-to-train-a-finance-team-on-first",
+      "critic": "branch preflight: session started on a detached HEAD twelve commits ahead of local main (the 2026-08-31 through 2026-09-05 posts, plus the AI Plan session funnel work, stranded locally by the same detached-HEAD bug as prior runs); checked out main, confirmed main was a fast-forward ancestor of the detached commit, merged in via --ff-only, no rewrite, no force-push; a fetch of origin/main immediately after showed origin already carried all twelve commits (9249039..5d698c4), so nothing was actually lost, only the local checkout was stale; topic came from scripts/seo/report.mjs daily (tp-009, cluster ai-training, working title 'What to train a finance team on first', targetQuery 'AI training for finance teams'), pipeline healthy at 52 queued topics / 13.0 weeks runway so no override or Monday refill needed; researched via WebSearch since WebFetch returned EGRESS_BLOCKED on gartner.com, cfodive.com, deloitte.com and cpapracticeadvisor.com this run (did not retry or hunt mirrors, per policy); the core stat (accounts payable process automation is the second most common AI use case in finance at 37%, behind knowledge management at 49%, from Gartner's 2025 AI in Finance survey of 183 CFOs) was corroborated identically across six independent secondary sources (CPA Practice Advisor, CFO Dive, CFO.com, CTMfile, Global CIO Forum, GEC Newswire) so the citation URL points to Gartner's own newsroom press release, which every corroborating source reflects; no other numbers used, no numbers invented; wrote the piece around the genuine, finance-specific point that the first AI task needs a built-in verification step because a wrong number is far more costly to miss than a bad first-draft email, not just repeated general 'start narrow' advice; no em-dashes (checked programmatically via grep, none found); title 63 chars total / 45 once the brand suffix is stripped, well under the 60 cap; metaDescription 163/165 chars after two rounds of trimming (first draft was 211, then 167, then 163); intro is 59 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real, scannable question; three FAQs, each answered only from claims the note already supports; flow diagram (pick the task, run in parallel, track the error rate, add the next task) is a genuine ordered sequence argued in the prose, not decoration, and needed one label/detail trim to fit the diagram's 28/52-character caps, confirmed by re-running the Zod validator; image search via fetch-image.mjs returned Openverse HTTP 403 (exit code 2), so published without an image per the normal fallback; related links verified to exist on disk (/services/ai-training, /insights/corporate-ai-training-cost-uae.json, /insights/how-to-get-value-from-ai-tools-you-already-pay-for.json, /field-notes/2026-09-05-role-specific-ai-training-vs-generic-workshops.json); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container), result VALID; not a repeat of any ledger slug or targetQuery, and distinct from the 2026-09-05 role-specific-training note (that one is a general cross-department argument about matching training to role, this one is finance-specific task sequencing); scripts/seo/topic-pipeline.json updated to mark tp-009 published as /field-notes/what-to-train-a-finance-team-on-first"
+    },
+    {
+      "date": "2026-09-06",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-06-what-to-train-a-finance-team-on-first.json"
       ],
       "build": "passed"
     }
