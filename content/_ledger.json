@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-07",
+      "type": "insight",
+      "slug": "employee-ai-training-program-cost",
+      "targetQuery": "employee AI training program cost"
+    },
+    {
       "date": "2026-09-06",
       "type": "field-note",
       "slug": "what-to-train-a-finance-team-on-first",
@@ -1096,6 +1102,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-06-what-to-train-a-finance-team-on-first.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-07",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "employee-ai-training-program-cost",
+      "critic": "branch preflight: session started on a detached HEAD 13 commits ahead of local main (the same recurring bug noted in the 2026-08-14 run, which had incorrectly concluded the issue was resolved); checked out main, confirmed main was an ancestor of the detached sha, fast-forward merged the 13 stranded commits in via --ff-only, no rewrite, no force-push, confirmed HEAD back on refs/heads/main before doing anything else; weekly-guide mode, took tq-012 'employee AI training program cost' from scripts/seo/target-queries.json per the priority backlog (evidence.checked was not null from 2026-08-26, but re-checked the live SERP anyway since it had aged 12 days: same lead result, iternal.ai's 'AI Training for Employees (2026): Programs, Costs & ROI', confirming the winning format bundles programs, costs and ROI on one page); researched via a subagent plus direct WebSearch/WebFetch, found WebFetch almost entirely EGRESS_BLOCKED this run (far beyond the known blocklist, including trainingmag.com, bcg.com, business-support.udemy.com, en.wikipedia.org), so every fact was corroborated via WebSearch snippets that themselves cite a specific, resolvable primary or aggregator URL rather than a direct fetch; deliberately rejected the low-authority content-mill sources that currently rank for this query (aisuperior.com, bizzuka.com, teamland.com, pertamapartners.com, setupbots.com and similar), which recur with suspiciously consistent numbers and no disclosed methodology, and also rejected Iternal.ai's own self-published per-seat pricing and its 'AI Training ROI: $3.70 per $1' claim, which on inspection is a relabeled Microsoft/IDC generative-AI ROI figure, not a training-specific number; used only sources with resolvable URLs and clear methodology instead: TrainingCost.com for Udemy Business ($360/user/year) and Coursera for Business ($399/user/year) per-seat pricing, ATD's 2025 State of the Industry for the $165 national cost-per-formal-training-hour benchmark, BCG's AI at Work 2025 for the five-hour-plus training effectiveness threshold (79% vs 67% became regular users, only 36% say training is enough), Training Magazine's 2025 Training Industry Report for the counterintuitive per-employee-cost-by-company-size finding (small $1,091 vs large $468), PwC's 2025 Global AI Jobs Barometer for the 56% AI-skills wage premium, and Google's own grow.google page for the free AI Professional Certificate offer to US small businesses; derived the $825 to $2,475 per-employee instructor-led estimate transparently by multiplying ATD's cited hourly rate against BCG's cited hour thresholds, worded in the body as an explicit worked example ('multiply those two figures', 'say three times as long') rather than presented as a single external stat, after a self-critique pass caught the first draft implying a specific 15-hour figure came from BCG when it did not; no invented numbers; no em-dashes (checked programmatically via grep, none found); title 58 chars, metaDescription 149 chars; intro is 54 words and stands alone as a direct answer to the target query; six bodySections each phrased as a real question; seven stats, each with a real resolvable URL; three FAQs; one table with four price bands; related links verified to exist (/services/ai-training, /insights/corporate-ai-training-cost-uae, /insights/how-to-measure-ai-roi-for-small-business); validated against the live articleSchema (Zod) via npx tsx after npm install (node_modules was not present in this container; installed outside content/, not committed), result VALID; not a repeat of any ledger slug or targetQuery, and distinct from the existing corporate-ai-training-cost-uae guide (that one is UAE/AED-priced corporate workshops, this one is US/USD-priced per-seat platforms and instructor-led programs, a genuinely different market and audience, cross-linked from related); targetQuery matches the backlog entry verbatim; scripts/seo/target-queries.json updated: tq-012 set to published, assignedTo /insights/employee-ai-training-program-cost, evidence refreshed with today's SERP check; checked scripts/seo/topic-pipeline.json runway via report.mjs daily: 52 topics queued (13 weeks of runway), well above the 30-topic floor, so no refill needed this Monday"
+    },
+    {
+      "date": "2026-09-07",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/employee-ai-training-program-cost.json"
       ],
       "build": "passed"
     }
