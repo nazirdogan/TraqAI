@@ -281,21 +281,24 @@
       "intent": "commercial",
       "priority": 1,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/employee-ai-training-program-cost",
       "note": "Executives search for the people, not the discipline: 'employee ai training' and 'staff ai training' both outrank every abstract term in the harvest. The winning format bundles programs, costs and ROI on one page.",
       "evidence": {
-        "checked": "2026-08-26",
-        "engine": "Google (US-geolocated)",
+        "checked": "2026-09-07",
+        "engine": "Google (US, web search)",
         "traqPosition": null,
         "winners": [
           "iternal.ai",
-          "business.udemy.com",
-          "scaledagile.com",
-          "greatplacetowork.com",
-          "ttms.com"
+          "aisuperior.com",
+          "bizzuka.com",
+          "teamland.com",
+          "pertamapartners.com",
+          "umu.com",
+          "learnexperts.ai",
+          "workleap.com"
         ],
-        "observation": "Top result is titled 'AI Training for Employees (2026): Programs, Costs & ROI'. Costs and the year in the title again. Several winners lead with named company examples (KPMG, PwC, Ally), which Traq cannot match and should not try to; the price transparency is the winnable half."
+        "observation": "Same lead result as the prior check (iternal.ai, titled AI Training for Employees (2026): Programs, Costs & ROI). Every winner bundles programs, costs and ROI on one page, matching the prior finding, but nearly all of the specific dollar figures on these pages are unsourced vendor claims or unattributed content-mill ranges with no disclosed methodology. Traq differentiated by citing only credible primary/aggregator sources with resolvable URLs (ATD, BCG, Training Magazine, PwC, Google, TrainingCost.com) instead of repeating the unsourced ranges every competing page uses."
       },
       "demand": {
         "source": "Google autocomplete, AE/US/GB, 2026-08-26",
