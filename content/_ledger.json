@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-08",
+      "type": "field-note",
+      "slug": "github-copilot-credits-drop-2026",
+      "targetQuery": "why did GitHub Copilot get more expensive in September 2026"
+    },
+    {
       "date": "2026-09-07",
       "type": "insight",
       "slug": "employee-ai-training-program-cost",
@@ -1120,6 +1126,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/employee-ai-training-program-cost.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-08",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-08-github-copilot-credits-drop-2026.json"
       ],
       "build": "passed"
     }

@@ -1,0 +1,101 @@
+{
+  "slug": "github-copilot-credits-drop-2026",
+  "title": "Why GitHub Copilot got pricier in September 2026 | Traq Collective",
+  "h1": "Why GitHub Copilot got pricier in September 2026",
+  "metaDescription": "GitHub Copilot's promotional credits ended September 1, 2026. Seat prices held, but included usage per seat dropped sharply for Business and Enterprise.",
+  "targetQuery": "why did GitHub Copilot get more expensive in September 2026",
+  "tags": [
+    "news",
+    "tools"
+  ],
+  "datePublished": "2026-09-08",
+  "dateModified": "2026-09-08",
+  "author": "Nazir Dogan",
+  "dek": "The seat price did not move. The credits that came with it did.",
+  "intro": "GitHub Copilot got more expensive on September 1, 2026 because a three month promotional credit boost ended, not because GitHub raised its list price. Business seats still cost $19 a month and Enterprise $39, but the included AI credits that came with each seat dropped back to match that price exactly, from $30 and $70 worth during the promotion.",
+  "body": [
+    {
+      "heading": "What actually changed on September 1, 2026",
+      "paragraphs": [
+        "GitHub moved all Copilot plans to usage based billing on June 1, 2026. To soften the landing, Business and Enterprise customers got a three month promotional boost: Business seats came with 3,000 AI credits a month instead of the standard 1,900, and Enterprise seats came with 7,000 instead of 3,900. That promotion ran out on September 1, 2026. The seat price did not move: Business is still $19 a user a month and Enterprise is still $39. What moved is how much usage that seat price actually buys."
+      ]
+    },
+    {
+      "heading": "Why a flat seat price can still mean a bigger bill",
+      "paragraphs": [
+        "Once a seat runs out of included credits, GitHub does not quietly switch the team to a cheaper model. Extra usage bills at the standard per token rate, and organizations have paid overage turned on by default rather than a hard stop. A team that used Copilot freely during the three month promotion, when the ceiling was nearly double, can now burn through the smaller allowance days into the month and start seeing metered charges it never had in August."
+      ]
+    },
+    {
+      "heading": "What a small dev team should check this week",
+      "paragraphs": [
+        "Pull your organization's actual Copilot usage from July and August in GitHub's billing settings and compare it to the new allowance: 1,900 credits for Business, 3,900 for Enterprise. If last month's usage was already close to that number, either set a hard spending cap so nobody gets a surprise invoice, or budget for the overage as a real cost of the tool going forward. If usage was comfortably under it, nothing changes and this is a non event for you."
+      ]
+    }
+  ],
+  "takeaway": "Check your organization's actual Copilot usage against the new 1,900 (Business) or 3,900 (Enterprise) credit allowance this week, and set a spending cap in GitHub's billing settings before a normal month turns into a metered overage bill.",
+  "stat": {
+    "claim": "The included credit allowance on GitHub Copilot Business fell to 1,900 a seat when the launch promotion ended, down from the 3,000 credits included during the first three months of usage based billing.",
+    "value": "37%",
+    "source": "GitHub",
+    "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "GitHub, GitHub Copilot is moving to usage-based billing",
+      "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/"
+    }
+  ],
+  "diagram": {
+    "type": "before-after",
+    "title": "GitHub Copilot's included credits after the September reset",
+    "rows": [
+      {
+        "label": "Business seat",
+        "before": 3000,
+        "after": 1900,
+        "unit": "credits",
+        "as": "bar"
+      },
+      {
+        "label": "Enterprise seat",
+        "before": 7000,
+        "after": 3900,
+        "unit": "credits",
+        "as": "bar"
+      }
+    ],
+    "beforeVerdict": "Promotional cushion, June to August",
+    "afterVerdict": "Matches the seat price exactly",
+    "caption": "Same $19 and $39 seat price. Far less room before usage starts billing."
+  },
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Microsoft 365 Copilot pricing for a small business",
+      "href": "/field-notes/microsoft-365-copilot-pricing-for-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Did GitHub raise the price of Copilot Business or Enterprise in September 2026?",
+      "a": "No. The seat price stayed the same: $19 a user a month for Business and $39 for Enterprise. What changed is the included AI credit allowance, which reverted from a three month promotional boost back down to 1,900 and 3,900 credits."
+    },
+    {
+      "q": "How many AI credits does GitHub Copilot Business include now?",
+      "a": "GitHub Copilot Business now includes 1,900 AI credits a seat each month, down from the 3,000 included during the June to August 2026 promotional period. Enterprise dropped from 7,000 to 3,900."
+    },
+    {
+      "q": "What happens if a team uses more Copilot credits than its plan includes?",
+      "a": "Extra usage bills automatically at the standard rate rather than falling back to a cheaper model, and GitHub enables paid overage by default for organizations. A team that wants a hard limit has to set a spending cap itself in billing settings."
+    }
+  ]
+}
