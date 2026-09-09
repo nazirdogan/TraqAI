@@ -94,8 +94,8 @@
       "workingTitle": "What to train a finance team on first",
       "targetQuery": "AI training for finance teams",
       "format": "how-to",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/what-to-train-a-finance-team-on-first"
     },
     {
       "id": "tp-010",
@@ -103,8 +103,8 @@
       "workingTitle": "What to train a sales team on first",
       "targetQuery": "AI training for sales teams",
       "format": "how-to",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/what-to-train-a-sales-team-on-first"
     },
     {
       "id": "tp-011",

@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-09",
+      "type": "field-note",
+      "slug": "what-to-train-a-sales-team-on-first",
+      "targetQuery": "AI training for sales teams"
+    },
+    {
       "date": "2026-09-08",
       "type": "field-note",
       "slug": "github-copilot-credits-drop-2026",
@@ -1136,6 +1142,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-08-github-copilot-credits-drop-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-09",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "what-to-train-a-sales-team-on-first",
+      "critic": "branch preflight: session started already on refs/heads/main (no detached HEAD this run, unlike the recurring bug in prior runs); daily-note mode, ran scripts/seo/report.mjs daily and it handed back tp-009 ('AI training for finance teams'), but that exact targetQuery and a near-identical slug (what-to-train-a-finance-team-on-first) were already published on 2026-09-06; traced the cause: the 2026-09-06 run's own critic note claimed it had updated scripts/seo/topic-pipeline.json to mark tp-009 published, but the live file still showed tp-009 as queued/publishedAs null, and since publish.mjs only ever runs `git add content/`, that scripts/seo edit was made in that day's ephemeral container but never staged or committed, so it was lost when the container was torn down and today's fresh clone came from origin without it (confirmed this is not a systemic issue: tq-012 in scripts/seo/target-queries.json from the 2026-09-07 weekly-guide run persisted correctly, so the mechanism works when the agent remembers to stage the file, this was a one-off missed step); fixed forward by correcting tp-009 to status published / publishedAs /field-notes/what-to-train-a-finance-team-on-first to match reality, re-ran report.mjs daily, which then correctly surfaced tp-010 ('What to train a sales team on first', targetQuery 'AI training for sales teams'), confirmed that slug and targetQuery are not in this ledger, and used tp-010 as today's actual topic; researched via WebSearch (WebFetch returned EGRESS_BLOCKED on salesforce.com and mckinsey.com this run, consistent with the known blocklist, not retried); core stat (55% of sales professionals already use AI for prospecting, another 38% planning to, from Salesforce's 2026 State of Sales report, a survey of 4,050 sales professionals across 22 countries run August-September 2025) corroborated identically across five independent secondary sources (Autobound, Enrich Labs, rework.com, Salesprep, Kofana) plus Salesforce's own statistics page appearing directly in search results, so the citation URL points to Salesforce's own page (salesforce.com/sales/state-of-sales/sales-statistics/); wrote the piece around a specific, non-obvious point rather than generic 'start with prospecting' advice: prospecting bundles a zero-risk internal research/prioritization step with a customer-facing message that still needs review before sending, so the safe first task is call summaries, CRM notes and account prioritization (fully internal, easy to verify against the recording), not outbound drafting itself; deliberately omitted a diagram even though the training sequence could fit the flow schema, since the 2026-09-06 finance-team note in this same mini-series already shipped a near-identical 4-step flow diagram three days ago and repeating that structure back to back read as templated rather than earned, not because the post lacks a genuine sequence; no image, fetch-image.mjs returned Openverse HTTP 403 (exit code 2), published without one per the normal fallback; no em-dashes or en-dashes (checked programmatically via regex, none found); title 43/60 chars once the brand suffix is stripped; metaDescription 155/165 chars; intro is 59 words and stands alone as a direct answer to the target query; four bodySections each phrased as a real question; three FAQs (one revised during self-critique from 38 to 48 words to clear the 40-60 word floor); related links verified to exist on disk (/services/ai-training, /field-notes/what-to-train-a-finance-team-on-first, /insights/how-to-get-value-from-ai-tools-you-already-pay-for, /insights/employee-ai-training-program-cost); validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present in this container, installed outside content/, not committed), result VALID; not a repeat of any ledger slug or targetQuery, and distinct from the 2026-09-06 finance note (different department, different risk framing: numeric-accuracy risk there, customer-facing/reputational risk here); scripts/seo/topic-pipeline.json updated to mark tp-009 published (retroactive correction) and tp-010 published as /field-notes/what-to-train-a-sales-team-on-first, staged manually with `git add scripts/seo/topic-pipeline.json` before invoking publish.mjs so the edit is not lost the way the 2026-09-06 one was"
+    },
+    {
+      "date": "2026-09-09",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-09-what-to-train-a-sales-team-on-first.json"
       ],
       "build": "passed"
     }

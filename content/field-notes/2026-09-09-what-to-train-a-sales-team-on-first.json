@@ -1,0 +1,87 @@
+{
+  "slug": "what-to-train-a-sales-team-on-first",
+  "title": "What to Train a Sales Team on First With AI | Traq Collective",
+  "h1": "What to train a sales team on first with AI",
+  "metaDescription": "Train a sales team first on call summaries and CRM notes, the internal-only tasks with no customer risk, before letting AI draft anything a prospect reads.",
+  "targetQuery": "AI training for sales teams",
+  "tags": [
+    "training",
+    "adoption",
+    "best-uses"
+  ],
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "author": "Nazir Dogan",
+  "dek": "Start with the tasks a customer never sees, before AI touches anything a prospect reads.",
+  "intro": "Train a sales team first on internal-only tasks with no customer exposure, meeting recaps, CRM notes, and call summaries, not outbound emails or pricing. Run AI drafts alongside real calls for two to three weeks with someone checking accuracy against the recording, then add customer-facing drafting once that holds, always with a human reviewing before anything reaches a prospect.",
+  "body": [
+    {
+      "heading": "Why sales needs a different starting point than other departments",
+      "paragraphs": [
+        "A finance team's biggest AI risk is a wrong number sitting quietly in the books. A sales team's biggest risk is different: once a message reaches a prospect, it cannot be unsent, and an obviously generic AI-written email can cost a relationship a rep spent months building.",
+        "That changes the selection rule. The first task should be one AI can practice on with zero chance of a prospect ever seeing the output, no matter how much time a customer-facing task would save."
+      ]
+    },
+    {
+      "heading": "Which task to train on first",
+      "paragraphs": [
+        "More sales professionals already use AI for prospecting than for any other task: 55% do, according to Salesforce's 2026 State of Sales report, a survey of 4,050 sales professionals across 22 countries, with another 38% planning to start. That makes prospecting look like the obvious place to begin, but prospecting is really two jobs bundled together: researching and prioritizing which accounts are worth a rep's time, which is entirely internal, and drafting the message that reaches them, which is not.",
+        "Start with the internal half. Have AI summarize calls and meetings, draft CRM notes, and help a rep prioritize which accounts to work next. None of that reaches a customer, and all of it is easy to check: a call summary is either an accurate reflection of the recording or it is not."
+      ]
+    },
+    {
+      "heading": "How to run the training so a bad draft never reaches a prospect",
+      "paragraphs": [
+        "Run it in parallel, not as a switch-over. For two to three weeks, AI drafts the call summary or the CRM note, and the rep checks it against their own notes or the recording before it becomes the official record, not after. Track how often a summary needed a real correction, not just a skim and approve.",
+        "Only once that correction rate drops to near zero on real calls does a team move to spot checks and add the next task: a first draft of an outbound email or follow-up, still reviewed by the rep before it sends, every time. The review step for anything customer-facing does not go away just because the team trusts the tool."
+      ]
+    },
+    {
+      "heading": "What to add once the first tasks are reliable",
+      "paragraphs": [
+        "Once call summaries and CRM notes run with almost no corrections, add outbound drafting and follow-up sequences next, always with a rep editing before anything reaches a prospect. After that comes objection-handling drafts and meeting prep, which benefit from AI pulling in account history and past conversations.",
+        "Pricing, discount approval, and contract terms come last, if ever. Those are business judgment calls with real financial consequences, and unlike a clumsy sentence in an email, a wrong number in a quote is a commitment a customer has already seen."
+      ]
+    }
+  ],
+  "takeaway": "This week, turn on AI call and meeting summaries in your CRM (most already have the feature) and have one rep check every summary against their own notes for two weeks before the team trusts it, then apply the same review discipline to outbound drafts.",
+  "stat": {
+    "claim": "More sales professionals already use AI for prospecting than for any other task, which is why it looks like the obvious starting point, but prospecting bundles a low-risk research step with a customer-facing message that still needs review before it goes out.",
+    "value": "55%",
+    "source": "Salesforce",
+    "url": "https://www.salesforce.com/sales/state-of-sales/sales-statistics/",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "What to train a finance team on first with AI",
+      "href": "/field-notes/what-to-train-a-finance-team-on-first"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Employee AI training program cost",
+      "href": "/insights/employee-ai-training-program-cost"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Should a sales team start AI training with outbound emails or CRM notes?",
+      "a": "CRM notes and call summaries first. They never reach a customer, so a mistake costs a few minutes to correct, not a damaged relationship. Move to outbound drafting only once summaries are accurate with almost no corrections needed, and keep a rep reviewing every draft before it sends."
+    },
+    {
+      "q": "What AI tool should a sales team train on first?",
+      "a": "Whatever call recording or note-taking feature is already built into the CRM the team uses, not a separate specialized platform. Most CRMs already generate call summaries and suggested notes that go unused because nobody trained the team to check them before trusting them."
+    },
+    {
+      "q": "Should AI ever set pricing or discounts for a sales team?",
+      "a": "No. Pricing, discount approval, and contract terms should stay a human decision even after a team trusts AI for summaries and drafts, because a wrong number in a quote is a financial commitment a customer has already seen, not a mistake that can be quietly corrected."
+    }
+  ]
+}
