@@ -3,9 +3,14 @@ import Link from 'next/link';
 import { OG_IMAGE } from '@/lib/metadata';
 import { BreadcrumbsJsonLd } from '@/components/seo/JsonLd';
 import type { BreadcrumbItem } from '@/lib/seo/schema';
-import { AI_PLAN_EVENT as EVENT, signUpOpen } from '@/lib/event';
+import { AI_PLAN_EVENT as EVENT } from '@/lib/event';
+import { seatsLine } from '@/lib/intake/seatcount';
+import { getSeatCount } from '@/lib/seats';
 import SignUpForm from './SignUpForm';
 import EventFactsCard from '../_components/EventFactsCard';
+
+/** The seat count is read from Stripe at most once a minute. */
+export const revalidate = 60;
 
 const PATH = '/ai-plan-session/sign-up';
 const CANONICAL = `https://traqcollective.com${PATH}`;
@@ -60,8 +65,8 @@ function RoomFull() {
   );
 }
 
-export default function AiPlanSignUpPage() {
-  const open = signUpOpen();
+export default async function AiPlanSignUpPage() {
+  const seats = await getSeatCount();
 
   return (
     <>
@@ -83,10 +88,10 @@ export default function AiPlanSignUpPage() {
               <p>
                 {`Eight questions, about two minutes. If the session is built for you, you go straight to holding your seat with a fully refundable AED ${EVENT.depositAed}, which comes back to you in the room.`}
               </p>
-              <p className="font-semibold text-ink">{`Capped at ${EVENT.capacity} seats.`}</p>
+              <p className="font-semibold text-ink">{seatsLine(EVENT.capacity, seats.remaining)}</p>
             </div>
 
-            <div className="mt-10 sm:mt-12">{open ? <SignUpForm /> : <RoomFull />}</div>
+            <div className="mt-10 sm:mt-12">{seats.open ? <SignUpForm /> : <RoomFull />}</div>
 
             <div className="mt-8 text-center lg:text-left">
               <Link
@@ -100,7 +105,7 @@ export default function AiPlanSignUpPage() {
           </div>
 
           <div className="mt-10 lg:mt-0 lg:sticky lg:top-28">
-            <EventFactsCard />
+            <EventFactsCard seatsRemaining={seats.remaining} />
           </div>
         </div>
       </section>

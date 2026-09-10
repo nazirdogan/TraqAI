@@ -8,7 +8,7 @@ import type { SeatOutcome } from '@/lib/intake/qualify';
  * The seats are capped, so an email that lands in spam is a seat quietly lost.
  * Redis is the record; the emails are the notification. It is the store the
  * codebase already has wired up (the rate limiter shares this client), so no
- * new dependency arrives just to keep a list of twenty-odd sign-ups safe.
+ * new dependency arrives just to keep a list of a few dozen sign-ups safe.
  *
  * Declined sign-ups are stored too, with their outcome. The form decides, but
  * a rule can be wrong about a person, and the record is what lets Nazir
@@ -22,7 +22,7 @@ import type { SeatOutcome } from '@/lib/intake/qualify';
 const LIST_KEY = 'traq:ai-plan-session:applications';
 
 /**
- * How many sign-ups the list keeps. Far above the twenty seats on offer, and
+ * How many sign-ups the list keeps. Far above the fifteen seats on offer, and
  * enough that a second or third cohort does not push the first out before
  * anyone has read it.
  */

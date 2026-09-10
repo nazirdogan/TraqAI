@@ -6,7 +6,7 @@ import { checkRate } from '@/lib/intake/ratelimit';
 import { clientIp, verifyTurnstile } from '@/lib/intake/turnstile';
 import { buildSignUpRecord, saveSignUp } from '@/lib/intake/applications';
 import { recordLead } from '@/lib/intake/leadstore';
-import { signUpOpen } from '@/lib/event';
+import { getSeatCount } from '@/lib/seats';
 import { SITE_URL } from '@/lib/seo/schema';
 import AiPlanSignUpNotifyEmail from '@/emails/AiPlanSignUpNotifyEmail';
 import AiPlanHoldYourSeatEmail from '@/emails/AiPlanHoldYourSeatEmail';
@@ -61,9 +61,11 @@ export async function POST(request: Request) {
     );
   }
 
-  // Checked before the body is even read: a full room refuses cleanly rather
-  // than approving someone into a seat that does not exist.
-  if (!signUpOpen()) {
+  // Checked before the body is even read, against a live count rather than
+  // the cached one the pages show: a full room refuses cleanly rather than
+  // approving someone into a seat that does not exist.
+  const seats = await getSeatCount({ live: true });
+  if (!seats.open) {
     return NextResponse.json({ error: 'closed' }, { status: 409 });
   }
 

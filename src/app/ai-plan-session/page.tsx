@@ -13,8 +13,12 @@ import {
   eventIsoEnd,
   eventIsoStart,
   eventTimeRange,
-  seatsLine,
 } from '@/lib/event';
+import { seatsLine } from '@/lib/intake/seatcount';
+import { getSeatCount } from '@/lib/seats';
+
+/** The seat count is read from Stripe at most once a minute. */
+export const revalidate = 60;
 
 const PATH = '/ai-plan-session';
 const CANONICAL = `https://traqcollective.com${PATH}`;
@@ -200,7 +204,13 @@ function SplitSection({
   );
 }
 
-function SignUpButton({ label = 'Reserve your seat' }: { label?: string }) {
+/**
+ * The one call to action, everywhere it appears. A full room sends people to
+ * the same page, which by then shows the waiting list instead of the form, so
+ * the label changes to say what they will actually find there.
+ */
+function SignUpButton({ full = false }: { full?: boolean }) {
+  const label = full ? 'Join the waiting list' : 'Reserve your seat';
   return (
     <Link
       href={SIGN_UP}
@@ -214,7 +224,11 @@ function SignUpButton({ label = 'Reserve your seat' }: { label?: string }) {
   );
 }
 
-export default function AiPlanSessionLandingPage() {
+export default async function AiPlanSessionLandingPage() {
+  const seats = await getSeatCount();
+  const full = seats.remaining !== null && seats.remaining <= 0;
+  const seatsNow = seatsLine(EVENT.capacity, seats.remaining);
+
   return (
     <>
       <BreadcrumbsJsonLd items={breadcrumbItems} />
@@ -246,15 +260,17 @@ export default function AiPlanSessionLandingPage() {
             </p>
 
             <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-              <SignUpButton />
+              <SignUpButton full={full} />
               <p className="text-[13.5px] leading-relaxed text-ink-faint sm:max-w-[19rem]">
-                {`Two minutes to sign up. A refundable AED ${EVENT.depositAed} holds your seat and comes back to you in the room.`}
+                {full
+                  ? `All ${EVENT.capacity} seats are held. Seats come back when someone cancels, and the waiting list is worked in order.`
+                  : `${seatsNow}. Two minutes to sign up, and a refundable AED ${EVENT.depositAed} holds yours until you arrive.`}
               </p>
             </div>
           </div>
 
           <div className="mt-10 lg:mt-0 lg:sticky lg:top-28">
-            <EventFactsCard />
+            <EventFactsCard seatsRemaining={seats.remaining} />
           </div>
         </div>
       </section>
@@ -371,7 +387,7 @@ export default function AiPlanSessionLandingPage() {
           Seen enough to know if this is for you?
         </p>
         <div className="mt-5 flex justify-center">
-          <SignUpButton />
+          <SignUpButton full={full} />
         </div>
       </section>
 
@@ -432,7 +448,7 @@ export default function AiPlanSessionLandingPage() {
                 {'Once your seat is held I ask you for one thing: the repetitive task you named when you signed up, roughly how many hours a week it costs, and how many people touch it. It takes about two minutes to send.'}
               </p>
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
-                {'This is used live, on the day, on your own numbers. It is the difference between a session about AI in general and a session about your business, and it is why the room is capped at twenty rather than open.'}
+                {'This is used live, on the day, on your own numbers. It is the difference between a session about AI in general and a session about your business, and it is why the room is capped at fifteen rather than open.'}
               </p>
             </div>
           </div>
@@ -446,15 +462,17 @@ export default function AiPlanSessionLandingPage() {
       <section className="relative bg-bg-base px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16 lg:px-10 xl:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="cta-panel">
-            <div className="eyebrow eyebrow-accent">{seatsLine()}</div>
+            <div className="eyebrow eyebrow-accent">{seatsNow}</div>
             <h2 className="mx-auto mt-4 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl">
-              {`Reserve your seat on ${eventDateShort()}`}
+              {full ? `The room for ${eventDateShort()} is full` : `Reserve your seat on ${eventDateShort()}`}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:mt-5 sm:text-base md:text-[17px]">
-              {`Two minutes to sign up. If the session is built for you, you hold your seat on the spot with a refundable AED ${EVENT.depositAed}, returned when you arrive.`}
+              {full
+                ? 'Seats come back when someone cancels with notice. Join the waiting list and you would have about a day to take one if it opens.'
+                : `Two minutes to sign up. If the session is built for you, you hold your seat on the spot with a refundable AED ${EVENT.depositAed}, returned when you arrive.`}
             </p>
             <div className="mt-7 flex justify-center sm:mt-9">
-              <SignUpButton />
+              <SignUpButton full={full} />
             </div>
           </div>
         </div>

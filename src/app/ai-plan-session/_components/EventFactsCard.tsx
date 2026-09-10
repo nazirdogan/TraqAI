@@ -1,9 +1,5 @@
-import {
-  AI_PLAN_EVENT as EVENT,
-  eventDateShort,
-  eventTimeRange,
-  seatsLine,
-} from '@/lib/event';
+import { AI_PLAN_EVENT as EVENT, eventDateShort, eventTimeRange } from '@/lib/event';
+import { seatsLine } from '@/lib/intake/seatcount';
 import CountdownTag from './CountdownTag';
 
 type EventFactsCardProps = {
@@ -13,6 +9,11 @@ type EventFactsCardProps = {
    * clears.
    */
   variant?: 'facts' | 'deposit' | 'confirmed';
+  /**
+   * Seats still open, from lib/seats.ts. Null when the count is unknown, in
+   * which case the card says only the cap. Only the 'facts' variant shows it.
+   */
+  seatsRemaining?: number | null;
   className?: string;
 };
 
@@ -22,7 +23,11 @@ type EventFactsCardProps = {
  * sign-up and prep forms, and the deposit step. Pulls from lib/event.ts
  * so nothing here can drift from the copy that states it in full.
  */
-export default function EventFactsCard({ variant = 'facts', className = '' }: EventFactsCardProps) {
+export default function EventFactsCard({
+  variant = 'facts',
+  seatsRemaining = null,
+  className = '',
+}: EventFactsCardProps) {
   const rows =
     variant === 'deposit'
       ? [
@@ -41,7 +46,7 @@ export default function EventFactsCard({ variant = 'facts', className = '' }: Ev
         : [
             { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
             { k: 'Where', v: `${EVENT.city}, in person` },
-            { k: 'Room', v: seatsLine() },
+            { k: 'Room', v: seatsLine(EVENT.capacity, seatsRemaining) },
             { k: 'To attend', v: `Free. AED ${EVENT.depositAed} hold, refunded on arrival` },
           ];
 

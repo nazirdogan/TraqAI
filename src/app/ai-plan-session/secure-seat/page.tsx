@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AI_PLAN_EVENT as EVENT } from '@/lib/event';
+import { getSeatCount } from '@/lib/seats';
 import EventFactsCard from '../_components/EventFactsCard';
 
 export const runtime = 'nodejs';
@@ -70,7 +71,7 @@ function buildPaymentUrl(email: string | null, ref: string | null): string | nul
   return url.toString();
 }
 
-export default function SecureSeatPage({
+export default async function SecureSeatPage({
   searchParams,
 }: {
   searchParams: { email?: string; ref?: string };
@@ -78,6 +79,10 @@ export default function SecureSeatPage({
   const email = cleanEmail(searchParams.email);
   const ref = cleanRef(searchParams.ref);
   const paymentUrl = ref ? buildPaymentUrl(email, ref) : null;
+  // Live, not cached: this is the last moment a full room can be caught
+  // before Stripe's own limit does it less gracefully.
+  const seats = ref ? await getSeatCount({ live: true }) : null;
+  const full = seats !== null && seats.remaining !== null && seats.remaining <= 0;
 
   return (
     <section className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40 lg:px-10 lg:pt-44 xl:px-16">
@@ -92,7 +97,25 @@ export default function SecureSeatPage({
           </p>
 
           <div className="mt-8 rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
-            {!ref ? (
+            {full ? (
+              <>
+                <p className="text-[15px] font-semibold leading-relaxed text-ink">
+                  {'The room filled before your hold went through.'}
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                  {`All ${EVENT.capacity} seats are held. Seats do come back when someone cancels with notice, and you are already through the form, so email me and you go to the top of the waiting list.`}
+                </p>
+                <a
+                  href="mailto:nazir@traqcollective.com?subject=Waiting%20list%3A%20the%202027%20AI%20Plan"
+                  className="group mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
+                >
+                  {'Join the waiting list'}
+                  <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </a>
+              </>
+            ) : !ref ? (
               <>
                 <p className="text-[15px] leading-relaxed text-ink-soft">
                   {'This page is the last step of signing up, and it needs the reference the form gives you. Start there and it brings you straight back here.'}

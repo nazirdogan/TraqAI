@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { listSignUps, listPreps, type StoredSignUp } from '@/lib/intake/applications';
-import { AI_PLAN_EVENT as EVENT, eventDateLong, seatsLine } from '@/lib/event';
+import { AI_PLAN_EVENT as EVENT, eventDateLong } from '@/lib/event';
+import { seatsLine } from '@/lib/intake/seatcount';
+import { getSeatCount } from '@/lib/seats';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -55,7 +57,11 @@ export default async function InternalSignUpsPage({
   const expected = process.env.INTERNAL_APPLICATIONS_TOKEN;
   if (!expected || searchParams.key !== expected) notFound();
 
-  const [signUps, preps] = await Promise.all([listSignUps(), listPreps()]);
+  const [signUps, preps, seats] = await Promise.all([
+    listSignUps(),
+    listPreps(),
+    getSeatCount({ live: true }),
+  ]);
   const approvedCount = signUps.filter((s) => s.outcome === 'approved').length;
 
   // Who has sent their pre-session task, by the address they used. Matching on
@@ -77,7 +83,10 @@ export default async function InternalSignUpsPage({
         <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {[
             { k: 'Sign-ups', v: `${signUps.length}, ${approvedCount} approved` },
-            { k: 'Seats', v: seatsLine() },
+            {
+              k: 'Seats',
+              v: seats.taken === null ? `${EVENT.capacity}, count unavailable` : `${seats.taken} of ${EVENT.capacity} held`,
+            },
             { k: 'Prep tasks in', v: `${preps.length} of ${EVENT.capacity}` },
             { k: 'Deposit', v: `AED ${EVENT.depositAed}` },
           ].map((row) => (
@@ -91,7 +100,11 @@ export default async function InternalSignUpsPage({
         </dl>
 
         <p className="mt-4 text-[13px] leading-relaxed text-ink-faint">
-          {'The seat count is the number set in src/lib/event.ts, which is what the public page shows. It is not derived from anything here: confirmed means you have confirmed it and the deposit has cleared in Stripe, which only you can know.'}
+          {seats.source === 'stripe'
+            ? `Seats held is read live from Stripe: completed, unrefunded deposits on the Payment Link. The public page says "${seatsLine(EVENT.capacity, seats.remaining)}". Refund a cancellation and the seat comes back on its own.`
+            : seats.source === 'unconfigured'
+              ? 'Seats held is unknown because STRIPE_RESTRICTED_KEY or AI_PLAN_DEPOSIT_PAYMENT_URL is not set. The public page shows the cap with no count, and the form stays open; the Payment Link payment limit in Stripe is the only cap until this is configured.'
+              : 'Stripe did not answer just now. The public page shows the cap with no count, and the form stays open; check the function logs.'}
         </p>
 
         {signUps.length === 0 ? (

@@ -49,7 +49,7 @@ export default function HostCredibility() {
             You&rsquo;ll be working with me, not a facilitator hired for the day.
           </p>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-soft sm:text-[16px]">
-            {"I'm Nazir, and I built Traq Collective on doing this work myself rather than handing it off. I'm the one at the front, and the one moving table to table while you score your own workflow. That's the real reason it's capped at twenty: past that, I can't give every table the same two hours."}
+            {"I'm Nazir, and I built Traq Collective on doing this work myself rather than handing it off. I'm the one at the front, and the one moving table to table while you score your own workflow. That's the real reason it's capped at fifteen: past that, I can't give every table the same two hours."}
           </p>
           <Link
             href="/about"

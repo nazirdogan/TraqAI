@@ -7,7 +7,7 @@ import EventFactsCard from '../_components/EventFactsCard';
 export const metadata: Metadata = {
   title: { absolute: `Your pre-session task · ${EVENT.name}` },
   // For confirmed attendees, reached from their own confirmation. Indexing it
-  // would put a form in search results that only twenty people should ever see.
+  // would put a form in search results that only fifteen people should ever see.
   robots: { index: false, follow: false },
 };
 
