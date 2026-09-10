@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-10",
+      "type": "field-note",
+      "slug": "what-to-train-an-operations-team-on-first",
+      "targetQuery": "AI training for operations teams"
+    },
+    {
       "date": "2026-09-09",
       "type": "field-note",
       "slug": "what-to-train-a-sales-team-on-first",
@@ -1160,6 +1166,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-09-what-to-train-a-sales-team-on-first.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-10",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-10-what-to-train-an-operations-team-on-first.json"
       ],
       "build": "passed"
     }
