@@ -6,6 +6,8 @@ import type { BreadcrumbItem, Qa } from '@/lib/seo/schema';
 import FaqBlock from '@/components/page/FaqBlock';
 import EventFactsCard from './_components/EventFactsCard';
 import HostCredibility from './_components/HostCredibility';
+import RunOfShow, { type ShowRow } from './_components/RunOfShow';
+import { Group, Item, Reveal } from './_components/Reveal';
 import {
   AI_PLAN_EVENT as EVENT,
   eventDateLong,
@@ -71,7 +73,7 @@ const TAKEAWAYS: { title: string; body: string }[] = [
 ];
 
 /** The two hours, attendee facing. Mirrors the run of show. */
-const RUN_OF_SHOW: { time: string; title: string; body: string }[] = [
+const RUN_OF_SHOW: ShowRow[] = [
   {
     time: '0.00',
     title: 'Arrival, and your deposit back',
@@ -196,9 +198,9 @@ function SplitSection({
 }) {
   return (
     <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-[280px_1fr] lg:gap-16 xl:gap-20">
-      <div className="lg:sticky lg:top-28 lg:self-start">
+      <Reveal className="lg:sticky lg:top-28 lg:self-start">
         <SectionHeading eyebrow={eyebrow} title={title} sub={sub} />
-      </div>
+      </Reveal>
       <div className="mt-10 lg:mt-0">{children}</div>
     </div>
   );
@@ -247,42 +249,56 @@ export default async function AiPlanSessionLandingPage() {
       <section className="relative px-5 pb-16 pt-32 sm:px-8 sm:pb-20 sm:pt-40 lg:px-10 lg:pt-44 xl:px-16">
         <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-[1fr_360px] lg:items-start lg:gap-16 xl:gap-20">
           <div className="max-w-2xl">
-            <div className="eyebrow eyebrow-accent">
+            <Reveal mode="load" className="eyebrow eyebrow-accent">
               {`${EVENT.city} · ${DATE_LONG} · Two hours`}
-            </div>
+            </Reveal>
 
-            <h1 className="mt-5 text-balance text-[34px] font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            <Reveal
+              mode="load"
+              as="h1"
+              delay={0.08}
+              className="mt-5 text-balance text-[34px] font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+            >
               {EVENT.name}
-            </h1>
+            </Reveal>
 
-            <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-ink-soft sm:text-[18px] lg:text-[19px]">
+            <Reveal
+              mode="load"
+              as="p"
+              delay={0.16}
+              className="mt-6 max-w-xl text-[16px] leading-relaxed text-ink-soft sm:text-[18px] lg:text-[19px]"
+            >
               {'You already pay for ChatGPT, Copilot or Gemini seats your team barely uses. In two hours, you leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027, built on your own numbers, not a generic slide deck.'}
-            </p>
+            </Reveal>
 
-            <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <Reveal
+              mode="load"
+              delay={0.24}
+              className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+            >
               <SignUpButton full={full} />
               <p className="text-[13.5px] leading-relaxed text-ink-faint sm:max-w-[19rem]">
                 {full
                   ? `All ${EVENT.capacity} seats are held. Seats come back when someone cancels, and the waiting list is worked in order.`
                   : `${seatsNow}. Two minutes to sign up, and a refundable AED ${EVENT.depositAed} holds yours until you arrive.`}
               </p>
-            </div>
+            </Reveal>
           </div>
 
-          <div className="mt-10 lg:mt-0 lg:sticky lg:top-28">
+          <Reveal mode="load" delay={0.32} y={0} x={20} className="mt-10 lg:mt-0 lg:sticky lg:top-28">
             <EventFactsCard seatsRemaining={seats.remaining} />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ---------- What it is not ---------- */}
       <section className="border-y border-border-subtle bg-traq-tint px-5 py-10 sm:px-8 sm:py-12 lg:px-10 xl:px-16">
-        <div className="mx-auto max-w-7xl lg:flex lg:items-center lg:gap-14">
+        <Reveal className="mx-auto max-w-7xl lg:flex lg:items-center lg:gap-14">
           <div className="eyebrow eyebrow-accent lg:w-52 lg:flex-none">Before you sign up</div>
           <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink sm:text-[17px] lg:mt-0">
             {'This is not a sales pitch and not a product demo. You will do real work on your own business for two hours. If it makes sense to keep going afterwards, we’ll talk about that separately, not in the room.'}
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ---------- Who's running it ---------- */}
@@ -295,25 +311,25 @@ export default async function AiPlanSessionLandingPage() {
           title="What you walk out holding"
           sub="A working output, not a listening output. Everything below is built on numbers you bring, in the room, by you."
         >
-          <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+          <Group className="grid gap-4 sm:grid-cols-3 sm:gap-5">
             {TAKEAWAYS.map((item) => (
-              <div key={item.title} className="note-card">
+              <Item key={item.title} className="note-card">
                 <h3 className="text-[16px] font-semibold leading-snug text-ink">{item.title}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{item.body}</p>
-              </div>
+              </Item>
             ))}
-          </div>
-          <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-ink-faint">
+          </Group>
+          <Reveal as="p" delay={0.2} className="mt-8 max-w-2xl text-[14px] leading-relaxed text-ink-faint">
             {'What you will not get is your implementation plan built live. Scoring your work honestly is the session. Sizing it in hours and dirhams, and deciding who owns what, is a separate piece of work and I will not pretend otherwise.'}
-          </p>
+          </Reveal>
         </SplitSection>
       </section>
 
       {/* ---------- Who it is for ---------- */}
       <section className="px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16">
         <SplitSection eyebrow="The room" title="Who is in it">
-          <div className="grid gap-5 lg:grid-cols-2">
-            <div className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card lg:p-7">
+          <Group className="grid gap-5 lg:grid-cols-2">
+            <Item className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-cardHover lg:p-7">
               <h3 className="text-[15px] font-semibold text-ink">This is built for you if</h3>
               <ul className="mt-4 space-y-3">
                 {[
@@ -331,8 +347,8 @@ export default async function AiPlanSessionLandingPage() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card lg:p-7">
+            </Item>
+            <Item className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-cardHover lg:p-7">
               <h3 className="text-[15px] font-semibold text-ink">It is not built for</h3>
               <ul className="mt-4 space-y-3">
                 {[
@@ -350,8 +366,8 @@ export default async function AiPlanSessionLandingPage() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </Item>
+          </Group>
         </SplitSection>
       </section>
 
@@ -362,33 +378,20 @@ export default async function AiPlanSessionLandingPage() {
           title="How the session runs"
           sub="Structured to the minute, and it finishes on time."
         >
-          <ol className="space-y-0">
-            {RUN_OF_SHOW.map((row) => (
-              <li
-                key={row.time}
-                className="grid grid-cols-[56px_1fr] gap-4 border-b border-border-subtle py-5 last:border-0 sm:grid-cols-[80px_1fr] sm:gap-6 lg:gap-8"
-              >
-                <span className="pt-0.5 text-[13px] font-semibold tabular-nums text-traq-purple">
-                  {row.time}
-                </span>
-                <div>
-                  <h3 className="text-[15px] font-semibold leading-snug text-ink">{row.title}</h3>
-                  <p className="mt-1.5 text-[14px] leading-relaxed text-ink-soft">{row.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <RunOfShow rows={RUN_OF_SHOW} />
         </SplitSection>
       </section>
 
       {/* ---------- Mid-page CTA ---------- */}
       <section className="px-5 py-14 text-center sm:px-8 sm:py-16 lg:px-10 xl:px-16">
-        <p className="text-[17px] font-semibold text-ink sm:text-[19px]">
-          Seen enough to know if this is for you?
-        </p>
-        <div className="mt-5 flex justify-center">
-          <SignUpButton full={full} />
-        </div>
+        <Reveal>
+          <p className="text-[17px] font-semibold text-ink sm:text-[19px]">
+            Seen enough to know if this is for you?
+          </p>
+          <div className="mt-5 flex justify-center">
+            <SignUpButton full={full} />
+          </div>
+        </Reveal>
       </section>
 
       {/* ---------- How a seat works ---------- */}
@@ -398,11 +401,12 @@ export default async function AiPlanSessionLandingPage() {
           title="How you get one"
           sub="Four steps, and you always know which one you are on. Nobody sits in an inbox waiting for an answer."
         >
-          <ol className="space-y-4">
+          <Group as="ol" className="space-y-4">
             {SEAT_STEPS.map((step, i) => (
-              <li
+              <Item
                 key={step.title}
-                className="flex gap-4 rounded-[18px] border border-border-subtle bg-white p-5 shadow-card sm:gap-5 sm:p-6"
+                as="li"
+                className="flex gap-4 rounded-[18px] border border-border-subtle bg-white p-5 shadow-card transition-shadow duration-300 hover:shadow-cardHover sm:gap-5 sm:p-6"
               >
                 <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-traq-purple bg-traq-tint text-[13px] font-bold text-traq-purple-ink">
                   {i + 1}
@@ -411,13 +415,13 @@ export default async function AiPlanSessionLandingPage() {
                   <h3 className="text-[15px] font-semibold leading-snug text-ink">{step.title}</h3>
                   <p className="mt-1.5 text-[14px] leading-relaxed text-ink-soft">{step.body}</p>
                 </div>
-              </li>
+              </Item>
             ))}
-          </ol>
+          </Group>
 
           {/* The deposit and the pre-session task, side by side once there is room. */}
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            <div className="rounded-[24px] border border-border-subtle bg-traq-tint p-6 sm:p-8">
+          <Group className="mt-10 grid gap-5 lg:grid-cols-2">
+            <Item className="rounded-[24px] border border-border-subtle bg-traq-tint p-6 sm:p-8">
               <div className="eyebrow eyebrow-accent">On the deposit</div>
               <p className="mt-4 text-[16px] font-semibold leading-relaxed text-ink sm:text-[17px]">
                 {`A fully refundable AED ${EVENT.depositAed} hold to secure your seat, refunded when you arrive. This isn’t about the money, it’s so the seats go to people who are actually coming.`}
@@ -437,9 +441,9 @@ export default async function AiPlanSessionLandingPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Item>
 
-            <div className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
+            <Item className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
               <div className="eyebrow eyebrow-accent">The pre-session task</div>
               <h3 className="mt-4 text-[17px] font-semibold leading-snug text-ink">
                 One workflow, three numbers, a week before
@@ -450,17 +454,19 @@ export default async function AiPlanSessionLandingPage() {
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
                 {'This is used live, on the day, on your own numbers. It is the difference between a session about AI in general and a session about your business, and it is why the room is capped at fifteen rather than open.'}
               </p>
-            </div>
-          </div>
+            </Item>
+          </Group>
         </SplitSection>
       </section>
 
       {/* ---------- FAQ ---------- */}
-      <FaqBlock qas={FAQS} heading={`Questions about ${EVENT.name}`} />
+      <Reveal>
+        <FaqBlock qas={FAQS} heading={`Questions about ${EVENT.name}`} />
+      </Reveal>
 
       {/* ---------- Final CTA ---------- */}
       <section className="relative bg-bg-base px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16 lg:px-10 xl:px-16">
-        <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto max-w-6xl">
           <div className="cta-panel">
             <div className="eyebrow eyebrow-accent">{seatsNow}</div>
             <h2 className="mx-auto mt-4 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl">
@@ -475,7 +481,7 @@ export default async function AiPlanSessionLandingPage() {
               <SignUpButton full={full} />
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );
