@@ -2,7 +2,7 @@
  * The 2027 AI Plan session: one place to change the facts.
  *
  * The date, the time, the seat count and the deposit appear across the landing
- * page, the application page, the deposit page, the prep form and the metadata.
+ * page, the sign-up page, the deposit page, the prep form and the metadata.
  * They live here so a change to any of them is one edit rather than a search,
  * and so the number of confirmed seats shown to the public can never drift from
  * the number Nazir is actually working with.
@@ -36,8 +36,11 @@ export type AiPlanEvent = {
    * than an empty room.
    */
   seatsConfirmed: number;
-  /** Whether the form is still taking applications. */
-  applicationsOpen: boolean;
+  /**
+   * Whether the sign-up form is open. Flip it off to close the room by hand;
+   * it also closes on its own once seatsConfirmed reaches capacity.
+   */
+  signUpOpen: boolean;
   /** The refundable hold that secures a confirmed seat, in dirhams. */
   depositAed: number;
   /** How much notice releases a seat with the deposit returned. */
@@ -54,7 +57,7 @@ export const AI_PLAN_EVENT: AiPlanEvent = {
     'A private boardroom in Dubai. The exact address goes out to confirmed attendees the week before.',
   capacity: 20,
   seatsConfirmed: 0,
-  applicationsOpen: true,
+  signUpOpen: true,
   depositAed: 100,
   cancellationNoticeHours: 48,
 };
@@ -112,4 +115,14 @@ export function seatsLine(e: AiPlanEvent = AI_PLAN_EVENT): string {
 
 export function seatsRemaining(e: AiPlanEvent = AI_PLAN_EVENT): number {
   return Math.max(0, e.capacity - e.seatsConfirmed);
+}
+
+/**
+ * Whether the form should take a sign-up right now. Read by the sign-up page
+ * (to show the form or the full-room notice) and by the intake route (so a
+ * submission that races the last seat is refused rather than approved into a
+ * room that has no seat for it).
+ */
+export function signUpOpen(e: AiPlanEvent = AI_PLAN_EVENT): boolean {
+  return e.signUpOpen && seatsRemaining(e) > 0;
 }

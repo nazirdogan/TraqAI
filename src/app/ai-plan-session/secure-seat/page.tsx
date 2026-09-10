@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: { absolute: `Secure your seat · ${EVENT.name}` },
-  // Reached only from a personal confirmation email. It is not a page anyone
-  // should arrive at from search, because arriving here without an offered seat
-  // means paying to hold a seat that does not exist.
+  // Reached from the sign-up form and the email it sends, never from search:
+  // arriving here without coming through the form means paying to hold a seat
+  // the form never approved.
   robots: { index: false, follow: false },
 };
 
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
  * back, or what happens if you cannot come. Those three answers are the whole
  * reason the deposit reads as a commitment device rather than a fee.
  *
+ * The page only shows the payment button when it arrives with a sign-up
+ * reference. That is not a security boundary (the reference is not verified
+ * here), it is a door: a bare URL passed around a WhatsApp group shows the
+ * form instead of a pay button, and a payment without a matching approved
+ * sign-up stands out in Stripe and gets refunded.
+ *
  * Set AI_PLAN_DEPOSIT_PAYMENT_URL to the Payment Link. Without it the page says
  * so plainly and gives an email fallback, rather than showing a dead button.
  */
@@ -40,7 +46,7 @@ function cleanEmail(value: string | undefined): string | null {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? v : null;
 }
 
-/** The application reference, so a payment can be matched to an application. */
+/** The sign-up reference, so a payment can be matched back to the sign-up. */
 function cleanRef(value: string | undefined): string | null {
   if (!value) return null;
   const v = value.trim();
@@ -56,9 +62,9 @@ function buildPaymentUrl(email: string | null, ref: string | null): string | nul
   } catch {
     return null;
   }
-  // Both are documented Payment Link parameters. The email saves the applicant
-  // retyping it; the reference is what ties a row in Stripe back to an
-  // application without anyone having to match names by eye.
+  // Both are documented Payment Link parameters. The email saves the person
+  // retyping it; the reference is what ties a row in Stripe back to a sign-up
+  // without anyone having to match names by eye.
   if (email) url.searchParams.set('prefilled_email', email);
   if (ref) url.searchParams.set('client_reference_id', ref);
   return url.toString();
@@ -71,22 +77,37 @@ export default function SecureSeatPage({
 }) {
   const email = cleanEmail(searchParams.email);
   const ref = cleanRef(searchParams.ref);
-  const paymentUrl = buildPaymentUrl(email, ref);
+  const paymentUrl = ref ? buildPaymentUrl(email, ref) : null;
 
   return (
     <section className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40 lg:px-10 lg:pt-44 xl:px-16">
       <div className="mx-auto max-w-6xl lg:grid lg:grid-cols-[1fr_340px] lg:items-start lg:gap-16 xl:gap-20">
         <div className="max-w-2xl">
-          <div className="eyebrow eyebrow-accent">Your seat is offered</div>
+          <div className="eyebrow eyebrow-accent">You are through</div>
           <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
             {`Secure your seat at ${EVENT.name}`}
           </h1>
           <p className="mt-5 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-            {`You are through. The last step is a fully refundable AED ${EVENT.depositAed} hold, which comes back to you in the room on the day. Your seat is not confirmed until it is done, because the seats are named and there are only ${EVENT.capacity}.`}
+            {`The last step is a fully refundable AED ${EVENT.depositAed} hold, which comes back to you in the room on the day. Your seat is not held until it is done, because the seats are named and there are only ${EVENT.capacity}.`}
           </p>
 
           <div className="mt-8 rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
-            {paymentUrl ? (
+            {!ref ? (
+              <>
+                <p className="text-[15px] leading-relaxed text-ink-soft">
+                  {'This page is the last step of signing up, and it needs the reference the form gives you. Start there and it brings you straight back here.'}
+                </p>
+                <Link
+                  href="/ai-plan-session/sign-up"
+                  className="group mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
+                >
+                  {'Reserve your seat'}
+                  <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </Link>
+              </>
+            ) : paymentUrl ? (
               <>
                 <a
                   href={paymentUrl}
@@ -103,7 +124,7 @@ export default function SecureSeatPage({
               </>
             ) : (
               <div className="rounded-xl border border-signal-warn/30 bg-signal-warn/5 px-4 py-3.5 text-[14px] leading-relaxed text-signal-warn">
-                {'The payment link is not live yet. Reply to my confirmation email and I will send it to you directly, and your seat is held in the meantime.'}
+                {'The payment link is not live yet. Email me at nazir@traqcollective.com with your name and I will hold your seat by hand and send you the link directly.'}
               </div>
             )}
           </div>

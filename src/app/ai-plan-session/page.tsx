@@ -18,12 +18,12 @@ import {
 
 const PATH = '/ai-plan-session';
 const CANONICAL = `https://traqcollective.com${PATH}`;
-const APPLY = '/ai-plan-session/apply';
+const SIGN_UP = '/ai-plan-session/sign-up';
 
 const DATE_LONG = eventDateLong();
 const TIME_RANGE = eventTimeRange();
 
-const SHORT_DESCRIPTION = `A free, two hour, in person working session in ${EVENT.city} on ${DATE_LONG}. Leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027. ${EVENT.capacity} seats, by application.`;
+const SHORT_DESCRIPTION = `A free, two hour, in person working session in ${EVENT.city} on ${DATE_LONG}. Leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027. ${EVENT.capacity} seats, each held with a refundable AED ${EVENT.depositAed}.`;
 
 export const metadata: Metadata = {
   title: `${EVENT.name}: a working session in ${EVENT.city}`,
@@ -108,20 +108,16 @@ const RUN_OF_SHOW: { time: string; title: string; body: string }[] = [
 /** How a seat actually works, end to end. The deposit is explained where it happens. */
 const SEAT_STEPS: { title: string; body: string }[] = [
   {
-    title: 'You apply',
-    body: 'Nine questions, about five minutes. One of them asks for the single most repetitive thing your team does every day.',
+    title: 'You sign up',
+    body: 'Eight questions, about two minutes. One asks for the single most repetitive thing your team does every day. One asks your position, and that one decides: the room is for the people who own the operation, and the form says so on the spot if it is not for you.',
   },
   {
-    title: 'I read it myself',
-    body: 'Every application, personally. You hear back within a day or two either way, by email. There is no automated decision anywhere in this.',
-  },
-  {
-    title: 'If there is a seat, you secure it',
-    body: `I send you a confirmation with a link to hold your seat with a fully refundable AED ${EVENT.depositAed}. The seat is not yours until that is done, and it is returned to you in the room.`,
+    title: 'You hold your seat',
+    body: `Straight from the form, a fully refundable AED ${EVENT.depositAed} hold. The seat is not yours until that is done, and it is returned to you in the room when you arrive.`,
   },
   {
     title: 'A week out, you send one workflow',
-    body: 'The task from your application, roughly how many hours a week it costs and how many people touch it. It gets used in the room, on your own numbers.',
+    body: 'The task you named when you signed up, roughly how many hours a week it costs and how many people touch it. It gets used in the room, on your own numbers.',
   },
   {
     title: 'You turn up and do the work',
@@ -147,12 +143,16 @@ const FAQS: Qa[] = [
     a: 'Most people in the room run businesses of roughly 20 to 200 people, but size is recorded for context, not used to decide. A lean team with genuinely repetitive work gets real value from this and makes the room better, not worse.',
   },
   {
+    q: 'Who does the sign-up turn away?',
+    a: 'Two groups. People in our own line of work: AI vendors, agencies and consultancies. And people who do not own the decision the session ends with, so managers and specialists without the authority to change how the team works. It is not a judgement on the work, it is that the scored map is only useful to the person who can act on it. If that is your MD or Head of Operations, send them the page.',
+  },
+  {
     q: 'What if we do not pay for any AI tools yet?',
-    a: 'Still apply. The question about existing tools tells me where you are starting from, it is not a gate. Teams paying for seats nobody uses and teams who have not started both leave with the same scored map.',
+    a: 'Still sign up. The question about existing tools tells me where you are starting from, it is not a gate. Teams paying for seats nobody uses and teams who have not started both leave with the same scored map.',
   },
   {
     q: 'Can I send someone from my team instead?',
-    a: 'Seats are named, so tell me who is coming and I will confirm them instead of you. What does not work is a general invitation passed around, because the pre-session task and the table exercise depend on the person in the seat knowing the numbers.',
+    a: 'Seats are named, so the person coming signs up in their own name, and the position question applies to them. What does not work is a general invitation passed around, because the pre-session task and the table exercise depend on the person in the seat knowing the numbers and owning the decision.',
   },
   {
     q: 'Where exactly is it?',
@@ -160,7 +160,7 @@ const FAQS: Qa[] = [
   },
   {
     q: 'What if I can only come for part of it?',
-    a: 'Then wait for the next one. The scoring you came for happens in the second hour, and people arriving or leaving midway takes the room apart for everyone else. The application asks you to confirm you can stay for the whole session.',
+    a: 'Then wait for the next one. The scoring you came for happens in the second hour, and people arriving or leaving midway takes the room apart for everyone else. The sign-up asks you to confirm you can stay for the whole session.',
   },
 ];
 
@@ -200,10 +200,10 @@ function SplitSection({
   );
 }
 
-function ApplyButton({ label = 'Apply for a seat' }: { label?: string }) {
+function SignUpButton({ label = 'Reserve your seat' }: { label?: string }) {
   return (
     <Link
-      href={APPLY}
+      href={SIGN_UP}
       className="group inline-flex items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
     >
       {label}
@@ -246,9 +246,9 @@ export default function AiPlanSessionLandingPage() {
             </p>
 
             <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-              <ApplyButton />
+              <SignUpButton />
               <p className="text-[13.5px] leading-relaxed text-ink-faint sm:max-w-[19rem]">
-                {`Applications are read personally. You hear back within a day or two either way.`}
+                {`Two minutes to sign up. A refundable AED ${EVENT.depositAed} holds your seat and comes back to you in the room.`}
               </p>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function AiPlanSessionLandingPage() {
       {/* ---------- What it is not ---------- */}
       <section className="border-y border-border-subtle bg-traq-tint px-5 py-10 sm:px-8 sm:py-12 lg:px-10 xl:px-16">
         <div className="mx-auto max-w-7xl lg:flex lg:items-center lg:gap-14">
-          <div className="eyebrow eyebrow-accent lg:w-52 lg:flex-none">Before you apply</div>
+          <div className="eyebrow eyebrow-accent lg:w-52 lg:flex-none">Before you sign up</div>
           <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink sm:text-[17px] lg:mt-0">
             {'This is not a sales pitch and not a product demo. You will do real work on your own business for two hours. If it makes sense to keep going afterwards, we’ll talk about that separately, not in the room.'}
           </p>
@@ -320,7 +320,8 @@ export default function AiPlanSessionLandingPage() {
               <h3 className="text-[15px] font-semibold text-ink">It is not built for</h3>
               <ul className="mt-4 space-y-3">
                 {[
-                  'AI vendors, agencies and consultancies. Applications from competitors are declined, politely and every time.',
+                  'AI vendors, agencies and consultancies. The sign-up says no to competitors, politely and every time.',
+                  'Managers and specialists without the authority to change how the team works. Not because the work is not real, but because the session ends with a decision only the owner of it can make. Send them this page.',
                   'Anyone looking for a general introduction to what AI is. This assumes you are past that.',
                   'People who want to listen rather than work. Nobody sits at the back of a room this size.',
                 ].map((line) => (
@@ -370,7 +371,7 @@ export default function AiPlanSessionLandingPage() {
           Seen enough to know if this is for you?
         </p>
         <div className="mt-5 flex justify-center">
-          <ApplyButton />
+          <SignUpButton />
         </div>
       </section>
 
@@ -379,7 +380,7 @@ export default function AiPlanSessionLandingPage() {
         <SplitSection
           eyebrow="The seat"
           title="How you get one"
-          sub="Five steps, and you always know which one you are on. Nothing here happens automatically."
+          sub="Four steps, and you always know which one you are on. Nobody sits in an inbox waiting for an answer."
         >
           <ol className="space-y-4">
             {SEAT_STEPS.map((step, i) => (
@@ -407,7 +408,7 @@ export default function AiPlanSessionLandingPage() {
               </p>
               <ul className="mt-5 space-y-2.5">
                 {[
-                  'It is taken only after I have offered you a seat, never as part of applying.',
+                  'It is the last step of signing up, taken only once the form has said the session is built for you.',
                   `Cancel with more than ${EVENT.cancellationNoticeHours} hours notice and it comes straight back, and your seat goes to the waiting list.`,
                   'Turn up and it is returned in the room, before the session starts.',
                 ].map((line) => (
@@ -428,7 +429,7 @@ export default function AiPlanSessionLandingPage() {
                 One workflow, three numbers, a week before
               </h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
-                {'Once your seat is confirmed I ask you for one thing: the repetitive task you named in your application, roughly how many hours a week it costs, and how many people touch it. It takes about two minutes to send.'}
+                {'Once your seat is held I ask you for one thing: the repetitive task you named when you signed up, roughly how many hours a week it costs, and how many people touch it. It takes about two minutes to send.'}
               </p>
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
                 {'This is used live, on the day, on your own numbers. It is the difference between a session about AI in general and a session about your business, and it is why the room is capped at twenty rather than open.'}
@@ -447,13 +448,13 @@ export default function AiPlanSessionLandingPage() {
           <div className="cta-panel">
             <div className="eyebrow eyebrow-accent">{seatsLine()}</div>
             <h2 className="mx-auto mt-4 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl">
-              {`Apply for a seat on ${eventDateShort()}`}
+              {`Reserve your seat on ${eventDateShort()}`}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:mt-5 sm:text-base md:text-[17px]">
-              {'Five minutes to apply. I read every one myself and reply within a day or two, either way.'}
+              {`Two minutes to sign up. If the session is built for you, you hold your seat on the spot with a refundable AED ${EVENT.depositAed}, returned when you arrive.`}
             </p>
             <div className="mt-7 flex justify-center sm:mt-9">
-              <ApplyButton />
+              <SignUpButton />
             </div>
           </div>
         </div>

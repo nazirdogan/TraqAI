@@ -10,7 +10,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
  * Who is actually in the room. For a cold, first-time-meeting-us audience,
  * this needs to land early rather than wait until the bottom of the page —
  * see the "how you get one" section for the fuller procedural version of the
- * same facts (I read applications myself, the cap is real).
+ * same facts (I run the room myself, the cap is real).
  */
 export default function HostCredibility() {
   const reduce = useReducedMotion();
@@ -49,7 +49,7 @@ export default function HostCredibility() {
             You&rsquo;ll be working with me, not a facilitator hired for the day.
           </p>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-soft sm:text-[16px]">
-            {"I'm Nazir, and I built Traq Collective on doing this work myself rather than handing it off. I read every application for this session personally, and I'm the one moving table to table while you score your own workflow. That's the real reason it's capped at twenty: past that, I can't give every table the same two hours."}
+            {"I'm Nazir, and I built Traq Collective on doing this work myself rather than handing it off. I'm the one at the front, and the one moving table to table while you score your own workflow. That's the real reason it's capped at twenty: past that, I can't give every table the same two hours."}
           </p>
           <Link
             href="/about"

@@ -9,7 +9,7 @@ import { aiPlanPrepSchema } from '@/lib/intake/types';
 /**
  * The pre-session task form.
  *
- * Same validation contract as the application form: one zod schema, parsed on
+ * Same validation contract as the sign-up form: one zod schema, parsed on
  * both sides, messages shown against the field that produced them.
  */
 
@@ -253,7 +253,7 @@ export default function PrepForm() {
             value={values.email}
             onChange={(e) => setValue('email', e.target.value)}
             autoComplete="email"
-            placeholder="The address you applied with"
+            placeholder="The address you signed up with"
             className={cn(INPUT_BASE, 'mt-2', errors.email && INPUT_INVALID)}
             aria-invalid={errors.email ? true : undefined}
             aria-describedby={errors.email ? 'prep-email-error' : undefined}
@@ -266,7 +266,7 @@ export default function PrepForm() {
             {'The one repetitive workflow you want on the board'}
           </label>
           <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-faint">
-            {'The task you named in your application, or a better one if something has changed. Describe what actually happens, step by step, in plain language.'}
+            {'The task you named when you signed up, or a better one if something has changed. Describe what actually happens, step by step, in plain language.'}
           </p>
           <textarea
             id="prep-workflow"

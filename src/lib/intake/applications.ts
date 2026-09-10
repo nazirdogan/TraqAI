@@ -1,49 +1,58 @@
 import { getRedis } from '@/lib/intake/redis';
-import type { AiPlanPrep, AiPlanSessionApplication } from '@/lib/intake/types';
+import type { AiPlanPrep, AiPlanSessionSignUp } from '@/lib/intake/types';
+import type { SeatOutcome } from '@/lib/intake/qualify';
 
 /**
- * Durable storage for 2027 AI Plan session applications.
+ * Durable storage for 2027 AI Plan session sign-ups.
  *
- * The seats are capped and every application is read by hand, so an email that
- * lands in spam is a seat quietly lost. Redis is the record; the two emails are
- * the notification. It is the store the codebase already has wired up (the rate
- * limiter shares this client), so no new dependency arrives just to keep a list
- * of twenty-odd applications safe.
+ * The seats are capped, so an email that lands in spam is a seat quietly lost.
+ * Redis is the record; the emails are the notification. It is the store the
+ * codebase already has wired up (the rate limiter shares this client), so no
+ * new dependency arrives just to keep a list of twenty-odd sign-ups safe.
  *
- * Writes fail open. A storage outage must never cost an application, so a
- * failure here is logged and the route still sends both emails.
+ * Declined sign-ups are stored too, with their outcome. The form decides, but
+ * a rule can be wrong about a person, and the record is what lets Nazir
+ * override it by hand.
+ *
+ * Writes fail open. A storage outage must never cost a sign-up, so a failure
+ * here is logged and the route still sends the emails.
  */
 
+/** Unchanged from the application era, so rows written before the rename still list. */
 const LIST_KEY = 'traq:ai-plan-session:applications';
 
 /**
- * How many applications the list keeps. Far above the twenty seats on offer,
- * and enough that a second or third cohort does not push the first out before
+ * How many sign-ups the list keeps. Far above the twenty seats on offer, and
+ * enough that a second or third cohort does not push the first out before
  * anyone has read it.
  */
 const MAX_STORED = 1000;
 
-export type StoredApplication = AiPlanSessionApplication & {
+export type StoredSignUp = AiPlanSessionSignUp & {
   id: string;
   /** ISO 8601, set server-side. A client clock is not evidence of anything. */
   submittedAt: string;
+  /** What the form decided, so the list can show who was sent to the deposit page. */
+  outcome: SeatOutcome;
 };
 
-export function buildApplicationRecord(
-  application: AiPlanSessionApplication,
-): StoredApplication {
+export function buildSignUpRecord(
+  signUp: AiPlanSessionSignUp,
+  outcome: SeatOutcome,
+): StoredSignUp {
   return {
-    ...application,
+    ...signUp,
     id: crypto.randomUUID(),
     submittedAt: new Date().toISOString(),
+    outcome,
   };
 }
 
-/** Append one application. Resolves true only when the row is safely stored. */
-export async function saveApplication(record: StoredApplication): Promise<boolean> {
+/** Append one sign-up. Resolves true only when the row is safely stored. */
+export async function saveSignUp(record: StoredSignUp): Promise<boolean> {
   const redis = getRedis();
   if (!redis) {
-    console.warn('[applications] no Upstash credentials, application not persisted:', record.id);
+    console.warn('[applications] no Upstash credentials, sign-up not persisted:', record.id);
     return false;
   }
   try {
@@ -57,14 +66,14 @@ export async function saveApplication(record: StoredApplication): Promise<boolea
 }
 
 /**
- * Every stored application, newest first.
+ * Every stored sign-up, newest first.
  *
  * Upstash decodes stored JSON on the way back out, so a row can arrive as an
  * already-parsed object or as the raw string, depending on how it was written.
  * Both shapes are handled, and a row that survives as neither is skipped rather
  * than taking the whole list down with it.
  */
-export async function listApplications(limit = MAX_STORED): Promise<StoredApplication[]> {
+export async function listSignUps(limit = MAX_STORED): Promise<StoredSignUp[]> {
   const redis = getRedis();
   if (!redis) return [];
   let rows: unknown[];
@@ -75,16 +84,16 @@ export async function listApplications(limit = MAX_STORED): Promise<StoredApplic
     return [];
   }
 
-  const out: StoredApplication[] = [];
+  const out: StoredSignUp[] = [];
   for (const row of rows) {
     if (typeof row === 'string') {
       try {
-        out.push(JSON.parse(row) as StoredApplication);
+        out.push(JSON.parse(row) as StoredSignUp);
       } catch {
         continue;
       }
     } else if (row && typeof row === 'object') {
-      out.push(row as StoredApplication);
+      out.push(row as StoredSignUp);
     }
   }
   return out;
@@ -104,9 +113,9 @@ export function buildPrepRecord(prep: AiPlanPrep): StoredPrep {
 }
 
 /**
- * Kept in its own list rather than mixed in with applications.
+ * Kept in its own list rather than mixed in with sign-ups.
  *
- * They arrive weeks apart, from different people (every applicant applies, only
+ * They arrive weeks apart, from different people (everyone signs up, only
  * confirmed attendees prep), and the internal page reads them side by side to
  * show who has sent theirs. One list holding both would need filtering on every
  * read to answer either question.

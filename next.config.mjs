@@ -13,6 +13,13 @@ const nextConfig = {
   //   /workbook/upskill    -> individuals levelling up their own AI skills
   //   /workbook/start      -> new founders running lean with AI before hiring
   //   /workbook/consultant -> AI agencies repositioning from builds to advisory
+  // The sign-up used to be an application. Anything still pointing at the old
+  // path (an ad, a shared link, a search result) lands on the form, not a 404.
+  async redirects() {
+    return [
+      { source: '/ai-plan-session/apply', destination: '/ai-plan-session/sign-up', permanent: true },
+    ];
+  },
   async rewrites() {
     return [
       { source: '/workbook', destination: '/workbook.html' },
