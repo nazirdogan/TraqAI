@@ -199,9 +199,9 @@ export const aiPlanSessionSchema = z.object({
   // No user-facing character limit, per the brief. The ceiling here is a
   // request-size guard, set far above anything a person types in this box.
   repetitiveWork: z
-    .string({ required_error: 'Tell us the one repetitive thing' })
+    .string({ required_error: 'Say where AI has stalled, or that it has not started' })
     .trim()
-    .min(1, 'Tell us the one repetitive thing')
+    .min(1, 'Say where AI has stalled, or that it has not started')
     .max(5000, 'That is longer than this box can take. Trim it a little.'),
   paysForAiTools: z.enum(YES_NO, {
     errorMap: () => ({ message: 'Choose Yes or No' }),
@@ -232,9 +232,9 @@ export const aiPlanPrepSchema = z.object({
     .max(200),
   company: z.string({ required_error: 'Enter your company' }).trim().min(1, 'Enter your company').max(160),
   workflow: z
-    .string({ required_error: 'Describe the workflow' })
+    .string({ required_error: 'Describe the piece of work' })
     .trim()
-    .min(1, 'Describe the workflow')
+    .min(1, 'Describe the piece of work')
     .max(5000, 'That is longer than this box can take. Trim it a little.'),
   hoursPerWeek: z
     .string({ required_error: 'Give a rough number of hours' })

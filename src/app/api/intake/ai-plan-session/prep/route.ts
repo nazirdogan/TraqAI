@@ -73,7 +73,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: NOTIFY_EMAIL,
       replyTo: record.email,
-      subject: `Pre-session task: ${record.name}, ${record.company}`,
+      subject: `Pre-session form: ${record.name}, ${record.company}`,
       react: AiPlanPrepEmail({ prep: record }),
     });
     if (error) {

@@ -94,7 +94,7 @@ export default function AiPlanSignUpNotifyEmail({ signUp }: Props) {
 
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
-          <Field name="Most repetitive thing the team does every day">
+          <Field name="Where AI has stalled in the business">
             {signUp.repetitiveWork}
           </Field>
           <Field name="Pays for ChatGPT, Copilot, Gemini or similar">

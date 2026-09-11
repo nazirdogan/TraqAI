@@ -41,7 +41,7 @@ export default function AiPlanPrepEmail({ prep }: Props) {
   return (
     <Html>
       <Head />
-      <Preview>{`Pre-session task: ${prep.name}, ${prep.company}`}</Preview>
+      <Preview>{`Pre-session form: ${prep.name}, ${prep.company}`}</Preview>
       <Body
         style={{
           background: '#f5f5f7',
@@ -54,7 +54,7 @@ export default function AiPlanPrepEmail({ prep }: Props) {
           style={{ background: '#ffffff', borderRadius: '12px', padding: '32px', maxWidth: '640px' }}
         >
           <Heading style={{ color: '#0f172a', fontSize: '20px', fontWeight: 600, margin: '0 0 6px 0' }}>
-            Pre-session task
+            Pre-session form
           </Heading>
           <Text style={{ ...value, color: '#6b7280', fontSize: '13px', margin: '0 0 18px 0' }}>
             {new Date(prep.submittedAt).toUTCString()}
@@ -67,7 +67,7 @@ export default function AiPlanPrepEmail({ prep }: Props) {
 
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
-          <Field name="The workflow">{prep.workflow}</Field>
+          <Field name="The piece of work">{prep.workflow}</Field>
           <Field name="Hours a week it costs">{prep.hoursPerWeek}</Field>
           <Field name="People who touch it">{prep.peopleInvolved}</Field>
           {prep.anythingElse ? <Field name="Anything else">{prep.anythingElse}</Field> : null}
@@ -75,7 +75,7 @@ export default function AiPlanPrepEmail({ prep }: Props) {
           <Hr style={{ borderColor: '#e5e7eb', margin: '18px 0' }} />
 
           <Text style={{ ...value, color: '#6b7280', fontSize: '12px', margin: 0 }}>
-            {`Submitted via traqcollective.com/ai-plan-session/prep. Reference ${prep.id}. This is table material for the session: they have been told it will be used live.`}
+            {`Submitted via traqcollective.com/ai-plan-session/prep. Reference ${prep.id}. This is material for the strategy block: they have been told it will be scored in the room.`}
           </Text>
         </Container>
       </Body>

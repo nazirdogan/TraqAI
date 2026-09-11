@@ -15,10 +15,10 @@ export const revalidate = 60;
 const PATH = '/ai-plan-session/sign-up';
 const CANONICAL = `https://traqcollective.com${PATH}`;
 
-const SHORT_DESCRIPTION = `Reserve your seat at the 2027 AI Plan session: a free, two hour, in person working session in Dubai, capped at ${EVENT.capacity} seats and held with a refundable AED ${EVENT.depositAed}.`;
+const SHORT_DESCRIPTION = `Reserve your seat at Three Decisions, 3 AI decisions before 2027: a two hour, in person working session in Dubai, capped at ${EVENT.capacity} seats and secured with a refundable AED ${EVENT.depositAed}.`;
 
 export const metadata: Metadata = {
-  title: 'Reserve your seat: the 2027 AI Plan session',
+  title: 'Reserve your seat: Three Decisions',
   description: SHORT_DESCRIPTION,
   alternates: { canonical: CANONICAL },
   // The landing page at /ai-plan-session is the one that gets shared and
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
   openGraph: {
     images: [OG_IMAGE],
-    title: 'Reserve your seat: the 2027 AI Plan session | Traq Collective',
+    title: 'Reserve your seat: Three Decisions | Traq Collective',
     description: SHORT_DESCRIPTION,
     url: CANONICAL,
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { name: 'Home', url: '/' },
-  { name: 'The 2027 AI Plan', url: '/ai-plan-session' },
+  { name: 'Three Decisions', url: '/ai-plan-session' },
   { name: 'Reserve your seat', url: PATH },
 ];
 
@@ -53,7 +53,7 @@ function RoomFull() {
         {`All ${EVENT.capacity} seats are held. Seats do come back when someone cancels, so if you want one, email me and I will keep a short waiting list in the order people ask. You would have about a day to take a seat if one opens.`}
       </p>
       <a
-        href="mailto:hello@traqcollective.com?subject=Waiting%20list%3A%20the%202027%20AI%20Plan"
+        href="mailto:hello@traqcollective.com?subject=Waiting%20list%3A%20Three%20Decisions"
         className="group mt-6 inline-flex items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
       >
         {'Join the waiting list'}
@@ -78,15 +78,15 @@ export default async function AiPlanSignUpPage() {
             <div className="eyebrow eyebrow-accent">Dubai · Two hours · In person</div>
 
             <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
-              {'Reserve your seat: the 2027 AI Plan session'}
+              {'Reserve your seat: Three Decisions'}
             </h1>
 
             <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-ink-soft sm:text-base">
               <p>
-                {'A free, two hour, in person working session in Dubai. You’ll leave with a scored, prioritised map of where AI actually saves your business hours and money in 2027, built on your own numbers, not a generic slide deck.'}
+                {'AI stalled because you never made three decisions: AI strategy, AI safety and governance, AI training. Two hours in Dubai, in a trio, writing all three into your own decision record and leaving with the steps to roll out your AI strategy.'}
               </p>
               <p>
-                {`Eight questions, about two minutes. If the session is built for you, you go straight to holding your seat with a fully refundable AED ${EVENT.depositAed}, which comes back to you in the room.`}
+                {`Eight questions, about two minutes. The form screens on position. If the room is built for you, you go straight to securing your seat with a fully refundable AED ${EVENT.depositAed}, which comes back to you in the room.`}
               </p>
               <p className="font-semibold text-ink">{seatsLine(EVENT.capacity, seats.remaining)}</p>
             </div>

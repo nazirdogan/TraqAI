@@ -1,5 +1,5 @@
 /**
- * The 2027 AI Plan session: one place to change the facts.
+ * The Three Decisions session: one place to change the facts.
  *
  * The date, the time, the cap and the deposit appear across the landing page,
  * the sign-up page, the deposit page, the prep form and the metadata. They live
@@ -43,13 +43,13 @@ export type AiPlanEvent = {
 };
 
 export const AI_PLAN_EVENT: AiPlanEvent = {
-  name: 'The 2027 AI Plan',
-  date: '2026-09-29',
-  startTime: '14:00',
-  endTime: '16:00',
+  name: 'Three Decisions',
+  date: '2026-09-26',
+  startTime: '10:00',
+  endTime: '12:00',
   city: 'Dubai',
   venueNote:
-    'A private boardroom in Dubai. The exact address goes out to confirmed attendees the week before.',
+    'A private room in Downtown Dubai. The exact venue is still being booked, and the address goes out to confirmed attendees the week before.',
   capacity: 15,
   signUpOpen: true,
   depositAed: 100,
@@ -62,20 +62,20 @@ const MONTHS = [
 ];
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-/** "Tuesday 29 September 2026". Built from the ISO date so the two cannot disagree. */
+/** "Saturday 26 September 2026". Built from the ISO date so the two cannot disagree. */
 export function eventDateLong(e: AiPlanEvent = AI_PLAN_EVENT): string {
   const [y, m, d] = e.date.split('-').map(Number);
   const dt = new Date(Date.UTC(y, m - 1, d));
   return `${DAYS[dt.getUTCDay()]} ${d} ${MONTHS[m - 1]} ${y}`;
 }
 
-/** "29 September". For the tighter spots. */
+/** "26 September". For the tighter spots. */
 export function eventDateShort(e: AiPlanEvent = AI_PLAN_EVENT): string {
   const [, m, d] = e.date.split('-').map(Number);
   return `${d} ${MONTHS[m - 1]}`;
 }
 
-/** "2.00pm to 4.00pm". */
+/** "10.00am to 12.00pm". */
 export function eventTimeRange(e: AiPlanEvent = AI_PLAN_EVENT): string {
   return `${clockLabel(e.startTime)} to ${clockLabel(e.endTime)}`;
 }

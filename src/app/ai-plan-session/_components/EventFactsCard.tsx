@@ -32,20 +32,20 @@ export default function EventFactsCard({
     variant === 'deposit'
       ? [
           { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
-          { k: 'Where', v: `${EVENT.city}, in person` },
-          { k: 'To hold your seat', v: `AED ${EVENT.depositAed}, refundable` },
+          { k: 'Where', v: `Downtown ${EVENT.city}, venue to be confirmed` },
+          { k: 'To secure your seat', v: `AED ${EVENT.depositAed}, refundable` },
           { k: 'Refund window', v: `${EVENT.cancellationNoticeHours}h notice` },
         ]
       : variant === 'confirmed'
         ? [
             { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
-            { k: 'Where', v: `${EVENT.city}, in person` },
+            { k: 'Where', v: `Downtown ${EVENT.city}, venue to be confirmed` },
             { k: 'Your deposit', v: `AED ${EVENT.depositAed}, returned in the room` },
-            { k: 'Status', v: 'Seat confirmed' },
+            { k: 'Status', v: 'Seat secured' },
           ]
         : [
             { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
-            { k: 'Where', v: `${EVENT.city}, in person` },
+            { k: 'Where', v: `Downtown ${EVENT.city}, venue to be confirmed` },
             { k: 'Room', v: seatsLine(EVENT.capacity, seatsRemaining) },
             { k: 'To attend', v: `Free. AED ${EVENT.depositAed} hold, refunded on arrival` },
           ];

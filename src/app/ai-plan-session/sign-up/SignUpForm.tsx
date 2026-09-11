@@ -18,7 +18,7 @@ import {
 } from '@/lib/intake/types';
 
 /**
- * The sign-up form for the 2027 AI Plan session.
+ * The sign-up form for the Three Decisions session.
  *
  * Validation runs against the same zod schema the API route parses, so a rule
  * cannot drift between the two: the client catches a mistake before the round
@@ -367,14 +367,14 @@ export default function SignUpForm() {
           {'You are through.'}
         </h2>
         <p className="mt-3 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-          {`One step left: a fully refundable AED ${EVENT.depositAed} hold, returned to you in the room on the day. Your seat is not held until it is done. Taking you there now.`}
+          {`One step left: a fully refundable AED ${EVENT.depositAed} hold secures your seat, and it comes back to you in the room on the day. Your seat is not secured until it is done. Taking you there now.`}
         </p>
         {nextUrl ? (
           <Link
             href={nextUrl}
             className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full focus-visible:rounded-full bg-traq-purple px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:bg-traq-purple-ink hover:shadow-cardHover"
           >
-            {`Hold my seat with AED ${EVENT.depositAed}`}
+            {`Secure my seat with AED ${EVENT.depositAed}`}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         ) : null}
@@ -389,10 +389,10 @@ export default function SignUpForm() {
           {'This one isn’t built for your seat, and I’d rather say so now than waste your afternoon.'}
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-          {'The session ends with a decision: which workflow to change first, and which to leave alone. That decision belongs to whoever owns the operation, so the room is kept to founders, MDs and the people who run a function.'}
+          {'The session is three AI decisions: strategy, safety and governance, training. All three belong to whoever owns the operation, so the room is kept to founders, GMs and the people who run a function.'}
         </p>
         <p className="mt-3 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-          {'If that’s your MD or your Head of Operations, send them this page. It takes two minutes. In the meantime, the AI readiness assessment is free and scores on the same four axes.'}
+          {'If that’s your MD or your GM, send them this page. It takes two minutes. In the meantime, the AI readiness assessment will tell you where your business stands.'}
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
@@ -420,7 +420,7 @@ export default function SignUpForm() {
           {'This room is for operators, not for people in our line of work.'}
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-          {'Nothing personal, and it’s the same answer every time. If you’d like to compare notes another way, email hello@traqcollective.com and I will reply properly.'}
+          {'Nothing personal, and it’s the same answer every time: no AI vendors, agencies or consultancies in the room. If you’d like to compare notes another way, email hello@traqcollective.com and I will reply properly.'}
         </p>
         <Link
           href="/ai-plan-session"
@@ -551,7 +551,7 @@ export default function SignUpForm() {
             {'Which best describes your position?'}
           </legend>
           <p className="mt-2 text-[13.5px] leading-relaxed text-ink-faint">
-            {'The session ends with a decision about your own operation, so the room is kept to the people who can make it.'}
+            {'All three AI decisions are yours to make, so the room is kept to the people who can make them. One seat per company where possible.'}
           </p>
           <RadioPills
             name="position"
@@ -569,7 +569,7 @@ export default function SignUpForm() {
         {/* 6. The one repetitive thing */}
         <div>
           <label className={QUESTION_BASE} htmlFor="aps-repetitive">
-            {'What is the single most repetitive thing your team does every day that you wish it didn’t?'}
+            {'Where has AI stalled in your business?'}
           </label>
           <textarea
             id="aps-repetitive"
@@ -579,7 +579,7 @@ export default function SignUpForm() {
             value={values.repetitiveWork}
             onChange={(e) => setValue('repetitiveWork', e.target.value)}
             rows={4}
-            placeholder="One to three sentences is plenty."
+            placeholder="One to three sentences: what was tried, on what work, and where it stopped. Nowhere yet is an honest answer."
             className={cn(
               INPUT_BASE,
               'mt-3 min-h-[120px] resize-y leading-relaxed',
@@ -633,7 +633,7 @@ export default function SignUpForm() {
               aria-describedby={errors.canAttendFullSession ? 'aps-attend-error' : undefined}
             />
             <span className="text-[15px] leading-relaxed text-ink">
-              {'I can attend the full session, not just part of it.'}
+              {'I can attend the full two hours, not just part of it.'}
             </span>
           </label>
           <FieldError id="aps-attend-error" message={errors.canAttendFullSession} />
@@ -690,7 +690,7 @@ export default function SignUpForm() {
       </div>
 
       <p className="mt-5 text-[13px] leading-relaxed text-ink-faint">
-        {'Your details are used to hold your seat and to write to you about the session. Nothing else. See our '}
+        {'Your details are used to secure your seat and to write to you about the session. Nothing else. See our '}
         <a
           href="/privacy"
           className="underline underline-offset-4 transition-colors hover:text-traq-purple"

@@ -29,7 +29,7 @@ export default function AiPlanHoldYourSeatEmail({ name, secureSeatUrl }: Props) 
   return (
     <Html>
       <Head />
-      <Preview>{`You are through. One step left to hold your seat on ${eventDateLong()}.`}</Preview>
+      <Preview>{`You are through. One step left to secure your seat on ${eventDateLong()}.`}</Preview>
       <Body
         style={{
           background: '#f5f5f7',
@@ -57,7 +57,7 @@ export default function AiPlanHoldYourSeatEmail({ name, secureSeatUrl }: Props) 
           </Text>
 
           <Text style={value}>
-            {`One step left. The seat is held with a fully refundable AED ${EVENT.depositAed}, which comes back to you in the room on the day. It exists so the ${EVENT.capacity} seats go to people who are actually coming, nothing more. Your seat is not held until this is done.`}
+            {`One step left. The seat is secured with a fully refundable AED ${EVENT.depositAed}, which comes back to you in the room on the day. It exists so the ${EVENT.capacity} seats go to people who are coming, nothing more. Your seat is not secured until this is done.`}
           </Text>
 
           <Button
@@ -73,7 +73,7 @@ export default function AiPlanHoldYourSeatEmail({ name, secureSeatUrl }: Props) 
               margin: '4px 0 20px 0',
             }}
           >
-            {`Hold my seat with AED ${EVENT.depositAed}`}
+            {`Secure my seat with AED ${EVENT.depositAed}`}
           </Button>
 
           <Text style={{ ...value, color: '#6b7280', fontSize: '13px', lineHeight: '20px' }}>
@@ -84,7 +84,7 @@ export default function AiPlanHoldYourSeatEmail({ name, secureSeatUrl }: Props) 
           </Text>
 
           <Text style={value}>
-            {'Once the hold is in, I will send you the address the week before, along with one short pre-session task.'}
+            {'The room is in Downtown Dubai. Once the hold is in, I will send you the exact address the week before, with the link to your decision record and one short pre-session form. The form closes 48 hours before the session.'}
           </Text>
 
           <Text style={{ ...value, margin: '24px 0 0 0' }}>

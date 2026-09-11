@@ -10,7 +10,7 @@ function daysUntil(): number {
 }
 
 /**
- * A quiet "N days to go" tag, tied to the real session date in lib/event.ts —
+ * A quiet "N days to go" tag, tied to the real session date in lib/event.ts,
  * never a fabricated deadline. Renders nothing on the server and for the first
  * client paint, so there is no server/client mismatch and no stale build-time
  * count; it fills in a moment after mount instead.

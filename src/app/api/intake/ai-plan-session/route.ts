@@ -154,7 +154,7 @@ export async function POST(request: Request) {
             from: ACK_FROM_EMAIL,
             to: signUp.email,
             replyTo: NOTIFY_EMAIL,
-            subject: 'Your seat at the 2027 AI Plan: one step left',
+            subject: 'Your seat at Three Decisions: one step left',
             // The canonical host, not the request's: a preview deployment must
             // never put its own hostname into a customer's inbox.
             react: AiPlanHoldYourSeatEmail({ name: signUp.name, secureSeatUrl: `${SITE_URL}${next}` }),

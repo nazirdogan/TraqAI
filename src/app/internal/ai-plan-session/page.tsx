@@ -9,7 +9,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Sign-ups · The 2027 AI Plan session' },
+  title: { absolute: 'Sign-ups · Three Decisions' },
   robots: { index: false, follow: false },
 };
 
@@ -74,7 +74,7 @@ export default async function InternalSignUpsPage({
       <div className="mx-auto max-w-6xl">
         <div className="eyebrow eyebrow-accent">Internal</div>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-ink">
-          2027 AI Plan session sign-ups
+          Three Decisions sign-ups
         </h1>
         <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
           {`${eventDateLong()}. ${signUps.length} ${signUps.length === 1 ? 'sign-up' : 'sign-ups'}, newest first. Read only. Approved people were sent to the deposit page; Stripe says who actually held a seat. Declined ones are here so a wrong call can be overridden by hand.`}
@@ -87,7 +87,7 @@ export default async function InternalSignUpsPage({
               k: 'Seats',
               v: seats.taken === null ? `${EVENT.capacity}, count unavailable` : `${seats.taken} of ${EVENT.capacity} held`,
             },
-            { k: 'Prep tasks in', v: `${preps.length} of ${EVENT.capacity}` },
+            { k: 'Pre-session forms in', v: `${preps.length} of ${EVENT.capacity}` },
             { k: 'Deposit', v: `AED ${EVENT.depositAed}` },
           ].map((row) => (
             <div key={row.k} className="rounded-2xl border border-border-subtle bg-white p-4 shadow-card">
@@ -123,7 +123,7 @@ export default async function InternalSignUpsPage({
                   <th className={HEAD}>Company</th>
                   <th className={HEAD}>Size</th>
                   <th className={HEAD}>Email</th>
-                  <th className={HEAD}>Most repetitive work</th>
+                  <th className={HEAD}>Where AI has stalled</th>
                   <th className={HEAD}>Pays for AI</th>
                   <th className={HEAD}>Full session</th>
                   <th className={HEAD}>Prep in</th>
@@ -163,11 +163,11 @@ export default async function InternalSignUpsPage({
           </div>
         )}
 
-        <h2 className="mt-16 text-2xl font-bold tracking-tight text-ink">Pre-session tasks</h2>
+        <h2 className="mt-16 text-2xl font-bold tracking-tight text-ink">Pre-session forms</h2>
         <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
           {preps.length === 0
             ? 'None yet. These arrive from attendees once their seat is held.'
-            : `${preps.length} in, newest first. This is the material for the table exercise.`}
+            : `${preps.length} in, newest first. This is the material for the strategy block.`}
         </p>
 
         {preps.length > 0 ? (
@@ -178,7 +178,7 @@ export default async function InternalSignUpsPage({
                   <th className={HEAD}>Sent</th>
                   <th className={HEAD}>Name</th>
                   <th className={HEAD}>Company</th>
-                  <th className={HEAD}>The workflow</th>
+                  <th className={HEAD}>The piece of work</th>
                   <th className={HEAD}>Hours/week</th>
                   <th className={HEAD}>People</th>
                   <th className={HEAD}>Anything else</th>

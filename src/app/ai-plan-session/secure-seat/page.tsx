@@ -93,7 +93,7 @@ export default async function SecureSeatPage({
             {`Secure your seat at ${EVENT.name}`}
           </h1>
           <p className="mt-5 text-[15px] leading-relaxed text-ink-soft sm:text-base">
-            {`The last step is a fully refundable AED ${EVENT.depositAed} hold, which comes back to you in the room on the day. Your seat is not held until it is done, because the seats are named and there are only ${EVENT.capacity}.`}
+            {`The last step is a fully refundable AED ${EVENT.depositAed} hold, which comes back to you in the room on the day. Your seat is not secured until it is done, because the seats are named and there are only ${EVENT.capacity}.`}
           </p>
 
           <div className="mt-8 rounded-[24px] border border-border-subtle bg-white p-6 shadow-card sm:p-8">
@@ -106,7 +106,7 @@ export default async function SecureSeatPage({
                   {`All ${EVENT.capacity} seats are held. Seats do come back when someone cancels with notice, and you are already through the form, so email me and you go to the top of the waiting list.`}
                 </p>
                 <a
-                  href="mailto:nazir@traqcollective.com?subject=Waiting%20list%3A%20the%202027%20AI%20Plan"
+                  href="mailto:nazir@traqcollective.com?subject=Waiting%20list%3A%20Three%20Decisions"
                   className="group mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
                 >
                   {'Join the waiting list'}
@@ -118,7 +118,7 @@ export default async function SecureSeatPage({
             ) : !ref ? (
               <>
                 <p className="text-[15px] leading-relaxed text-ink-soft">
-                  {'This page is the last step of signing up, and it needs the reference the form gives you. Start there and it brings you straight back here.'}
+                  {'This page is the last step of the form, and it needs the reference the form gives you. Start there and it brings you straight back here.'}
                 </p>
                 <Link
                   href="/ai-plan-session/sign-up"
@@ -136,7 +136,7 @@ export default async function SecureSeatPage({
                   href={paymentUrl}
                   className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
                 >
-                  {`Hold my seat with AED ${EVENT.depositAed}`}
+                  {`Secure my seat with AED ${EVENT.depositAed}`}
                   <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
                     &rarr;
                   </span>
@@ -147,7 +147,7 @@ export default async function SecureSeatPage({
               </>
             ) : (
               <div className="rounded-xl border border-signal-warn/30 bg-signal-warn/5 px-4 py-3.5 text-[14px] leading-relaxed text-signal-warn">
-                {'The payment link is not live yet. Email me at nazir@traqcollective.com with your name and I will hold your seat by hand and send you the link directly.'}
+                {'The payment link is not live yet. Email me at nazir@traqcollective.com with your name and I will secure your seat by hand and send you the link directly.'}
               </div>
             )}
           </div>
@@ -156,7 +156,7 @@ export default async function SecureSeatPage({
             <h2 className="text-[15px] font-semibold text-ink">What happens to the money</h2>
             <ul className="mt-4 space-y-2.5">
               {[
-                'It comes back to you in the room, before the session starts.',
+                'It comes back to you in the room, before the first decision starts.',
                 `Cancel with more than ${EVENT.cancellationNoticeHours} hours notice and it is refunded in full, and your seat goes to the waiting list.`,
                 'It is not a fee, a booking charge, or a deposit against anything else. Attending costs nothing.',
               ].map((line) => (
