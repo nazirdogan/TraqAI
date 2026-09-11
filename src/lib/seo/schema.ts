@@ -445,7 +445,7 @@ export function event({
       price: 0,
       priceCurrency: 'AED',
       availability: 'https://schema.org/LimitedAvailability',
-      url: absoluteUrl(`${url}/apply`),
+      url: absoluteUrl(`${url}/sign-up`),
       category: 'Free',
     },
   };

@@ -1,10 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { cn } from '@/lib/cn';
 import { captureAttribution, getAttribution } from '@/lib/attribution';
+import { AI_PLAN_EVENT as EVENT } from '@/lib/event';
+import { POSITIONS, type Position, type SeatOutcome } from '@/lib/intake/qualify';
 import {
   COMPANY_SIZES,
   YES_NO,
@@ -14,16 +18,18 @@ import {
 } from '@/lib/intake/types';
 
 /**
- * The application form for the 2027 AI Plan session.
+ * The sign-up form for the Three Decisions session.
  *
  * Validation runs against the same zod schema the API route parses, so a rule
  * cannot drift between the two: the client catches a mistake before the round
  * trip, and the server catches anyone who skips the client entirely. Both put
  * the message back beside the field that produced it.
  *
- * Nothing here disqualifies. Company size and the leadership answer are asked
- * for context and are read by a person later; no answer changes whether the
- * form submits.
+ * The form is the qualifier, but it does not do the qualifying. The position
+ * answer is sent to the server, the server applies the one rule in
+ * lib/intake/qualify.ts, and this component only renders what came back:
+ * approved people are sent on to the deposit page, declined people are told
+ * here, in plain words, and offered somewhere useful to go instead.
  */
 
 const INPUT_BASE =
@@ -39,59 +45,94 @@ const INPUT_INVALID = 'border-signal-warn focus:border-signal-warn';
 
 type FieldName =
   | 'name'
-  | 'role'
+  | 'email'
   | 'company'
   | 'companySize'
-  | 'email'
+  | 'position'
   | 'repetitiveWork'
   | 'paysForAiTools'
-  | 'leadsAiStrategy'
-  | 'strategyRole'
   | 'canAttendFullSession';
 
 /** Document order, so the first thing a person has to fix is the first thing focused. */
 const FIELD_ORDER: FieldName[] = [
   'name',
-  'role',
+  'email',
   'company',
   'companySize',
-  'email',
+  'position',
   'repetitiveWork',
   'paysForAiTools',
-  'leadsAiStrategy',
-  'strategyRole',
   'canAttendFullSession',
 ];
 
 type Errors = Partial<Record<FieldName, string>>;
 
-type Phase = 'idle' | 'submitting' | 'success';
+/**
+ * 'approved' is shown for the moment it takes to move to the deposit page, and
+ * stays if that move fails, with the link. The two declined phases are the end
+ * of the road here.
+ */
+type Phase = 'idle' | 'submitting' | SeatOutcome;
 
 type Values = {
   name: string;
-  role: string;
+  email: string;
   company: string;
   companySize: CompanySize | '';
-  email: string;
+  position: Position | '';
   repetitiveWork: string;
   paysForAiTools: YesNo | '';
-  leadsAiStrategy: YesNo | '';
-  strategyRole: string;
   canAttendFullSession: boolean;
 };
 
 const EMPTY: Values = {
   name: '',
-  role: '',
+  email: '',
   company: '',
   companySize: '',
-  email: '',
+  position: '',
   repetitiveWork: '',
   paysForAiTools: '',
-  leadsAiStrategy: '',
-  strategyRole: '',
   canAttendFullSession: false,
 };
+
+/**
+ * What replaces the form once the server has decided. Focusable, and announced,
+ * so a screen reader lands on the answer rather than on a form that vanished.
+ */
+function OutcomePanel({
+  panelRef,
+  tone,
+  children,
+}: {
+  panelRef: React.MutableRefObject<HTMLDivElement | null>;
+  tone: 'approved' | 'declined';
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      ref={panelRef}
+      tabIndex={-1}
+      role="status"
+      aria-live="polite"
+      className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card focus:outline-none sm:p-9"
+    >
+      <span
+        className={cn(
+          'flex h-12 w-12 items-center justify-center rounded-2xl border border-border-subtle',
+          tone === 'approved' ? 'bg-traq-tint text-traq-purple' : 'bg-signal-warn/5 text-signal-warn',
+        )}
+      >
+        {tone === 'approved' ? (
+          <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
+        ) : (
+          <AlertCircle className="h-6 w-6" aria-hidden="true" />
+        )}
+      </span>
+      {children}
+    </div>
+  );
+}
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
@@ -117,6 +158,7 @@ function RadioPills({
   labelledBy,
   describedBy,
   invalid,
+  stacked = false,
 }: {
   name: string;
   options: readonly string[];
@@ -125,6 +167,8 @@ function RadioPills({
   labelledBy: string;
   describedBy?: string;
   invalid?: boolean;
+  /** One pill per line, for options too long to sit side by side. */
+  stacked?: boolean;
 }) {
   return (
     <div
@@ -132,7 +176,7 @@ function RadioPills({
       aria-labelledby={labelledBy}
       aria-describedby={describedBy}
       aria-invalid={invalid ? true : undefined}
-      className="mt-3 flex flex-wrap gap-2"
+      className={cn('mt-3 flex gap-2', stacked ? 'flex-col items-start' : 'flex-wrap')}
     >
       {options.map((opt) => {
         const id = `${name}-${opt.replace(/\s+/g, '-').toLowerCase()}`;
@@ -167,11 +211,13 @@ function RadioPills({
   );
 }
 
-export default function ApplicationForm() {
+export default function SignUpForm() {
+  const router = useRouter();
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState('');
   const [phase, setPhase] = useState<Phase>('idle');
+  const [nextUrl, setNextUrl] = useState('');
 
   const turnstileSiteKey = process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ?? '';
   const turnstileRequired = Boolean(turnstileSiteKey);
@@ -181,15 +227,15 @@ export default function ApplicationForm() {
   const fieldRefs = useRef<Partial<Record<FieldName, HTMLElement | null>>>({});
   const successRef = useRef<HTMLDivElement | null>(null);
 
-  // Read gclid and utm values once, so an application that came from an ad can
-  // be tied back to the click that paid for it.
+  // Read gclid and utm values once, so a sign-up that came from an ad can be
+  // tied back to the click that paid for it.
   useEffect(() => {
     captureAttribution();
   }, []);
 
-  // Move the reader, and the screen, to the confirmation once the form is gone.
+  // Move the reader, and the screen, to the outcome once the form is gone.
   useEffect(() => {
-    if (phase === 'success') successRef.current?.focus();
+    if (phase !== 'idle' && phase !== 'submitting') successRef.current?.focus();
   }, [phase]);
 
   const setValue = <K extends keyof Values>(key: K, v: Values[K]) => {
@@ -248,11 +294,22 @@ export default function ApplicationForm() {
       const res = await fetch('/api/intake/ai-plan-session', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ application: parsed.data, turnstileToken }),
+        body: JSON.stringify({ signUp: parsed.data, turnstileToken }),
       });
 
       if (res.ok) {
-        setPhase('success');
+        const body = (await res.json().catch(() => ({}))) as {
+          outcome?: SeatOutcome;
+          next?: string | null;
+        };
+        const outcome = body.outcome ?? 'approved';
+        setPhase(outcome);
+        if (outcome === 'approved' && body.next) {
+          setNextUrl(body.next);
+          // Straight on to the deposit page. The approved panel underneath
+          // carries the same link, for a browser that blocks the navigation.
+          router.push(body.next);
+        }
         return;
       }
 
@@ -283,36 +340,95 @@ export default function ApplicationForm() {
         return;
       }
       if (body.error === 'rate_limited') {
-        setFormError('That is a few applications from one connection. Wait an hour, then try again.');
+        setFormError('That is a few sign-ups from one connection. Wait an hour, then try again.');
+        return;
+      }
+      if (body.error === 'closed') {
+        setFormError(
+          'The room filled while you were typing. Email hello@traqcollective.com and I will put you first on the waiting list.',
+        );
         return;
       }
       setFormError(
-        'Your application did not send. Try again, or email hello@traqcollective.com and I will take it from there.',
+        'Your sign-up did not send. Try again, or email hello@traqcollective.com and I will take it from there.',
       );
     } catch {
       setPhase('idle');
       setFormError(
-        'Your application did not send. Try again, or email hello@traqcollective.com and I will take it from there.',
+        'Your sign-up did not send. Try again, or email hello@traqcollective.com and I will take it from there.',
       );
     }
   };
 
-  if (phase === 'success') {
+  if (phase === 'approved') {
     return (
-      <div
-        ref={successRef}
-        tabIndex={-1}
-        role="status"
-        aria-live="polite"
-        className="rounded-[24px] border border-border-subtle bg-white p-6 shadow-card focus:outline-none sm:p-9"
-      >
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border-subtle bg-traq-tint text-traq-purple">
-          <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
-        </span>
-        <p className="mt-6 text-lg leading-relaxed text-ink sm:text-xl">
-          {'Thanks, that’s in. I read every application myself, you’ll hear back within a day or two either way.'}
+      <OutcomePanel panelRef={successRef} tone="approved">
+        <h2 className="mt-6 text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl">
+          {'You are through.'}
+        </h2>
+        <p className="mt-3 text-[15px] leading-relaxed text-ink-soft sm:text-base">
+          {`One step left: a fully refundable AED ${EVENT.depositAed} hold secures your seat, and it comes back to you in the room on the day. Your seat is not secured until it is done. Taking you there now.`}
         </p>
-      </div>
+        {nextUrl ? (
+          <Link
+            href={nextUrl}
+            className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full focus-visible:rounded-full bg-traq-purple px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:bg-traq-purple-ink hover:shadow-cardHover"
+          >
+            {`Secure my seat with AED ${EVENT.depositAed}`}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </Link>
+        ) : null}
+      </OutcomePanel>
+    );
+  }
+
+  if (phase === 'declined_not_leadership') {
+    return (
+      <OutcomePanel panelRef={successRef} tone="declined">
+        <h2 className="mt-6 text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl">
+          {'This one isn’t built for your seat, and I’d rather say so now than waste your afternoon.'}
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-base">
+          {'The session is three AI decisions: strategy, safety and governance, training. All three belong to whoever owns the operation, so the room is kept to founders, GMs and the people who run a function.'}
+        </p>
+        <p className="mt-3 text-[15px] leading-relaxed text-ink-soft sm:text-base">
+          {'If that’s your MD or your GM, send them this page. It takes two minutes. In the meantime, the AI readiness assessment will tell you where your business stands.'}
+        </p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/ai-readiness"
+            className="group inline-flex items-center justify-center gap-2 rounded-full focus-visible:rounded-full bg-traq-purple px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:bg-traq-purple-ink hover:shadow-cardHover"
+          >
+            {'Take the AI readiness assessment'}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </Link>
+          <Link
+            href="/ai-plan-session"
+            className="inline-flex items-center justify-center rounded-full focus-visible:rounded-full border border-border-subtle bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-traq-purple/40"
+          >
+            {'Back to the session page'}
+          </Link>
+        </div>
+      </OutcomePanel>
+    );
+  }
+
+  if (phase === 'declined_competitor') {
+    return (
+      <OutcomePanel panelRef={successRef} tone="declined">
+        <h2 className="mt-6 text-xl font-bold leading-snug tracking-tight text-ink sm:text-2xl">
+          {'This room is for operators, not for people in our line of work.'}
+        </h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-base">
+          {'Nothing personal, and it’s the same answer every time: no AI vendors, agencies or consultancies in the room. If you’d like to compare notes another way, email hello@traqcollective.com and I will reply properly.'}
+        </p>
+        <Link
+          href="/ai-plan-session"
+          className="mt-6 inline-flex items-center justify-center rounded-full focus-visible:rounded-full border border-border-subtle bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-traq-purple/40"
+        >
+          {'Back to the session page'}
+        </Link>
+      </OutcomePanel>
     );
   }
 
@@ -345,26 +461,27 @@ export default function ApplicationForm() {
           <FieldError id="aps-name-error" message={errors.name} />
         </div>
 
-        {/* 2. Role */}
+        {/* 2. Email */}
         <div>
-          <label className={cn(LABEL_BASE, 'block')} htmlFor="aps-role">
-            Role or job title
+          <label className={cn(LABEL_BASE, 'block')} htmlFor="aps-email">
+            Email
           </label>
           <input
-            id="aps-role"
+            id="aps-email"
             ref={(el) => {
-              fieldRefs.current.role = el;
+              fieldRefs.current.email = el;
             }}
-            type="text"
-            value={values.role}
-            onChange={(e) => setValue('role', e.target.value)}
-            autoComplete="organization-title"
-            placeholder="Founder, Head of Operations, Managing Director"
-            className={cn(INPUT_BASE, 'mt-2', errors.role && INPUT_INVALID)}
-            aria-invalid={errors.role ? true : undefined}
-            aria-describedby={errors.role ? 'aps-role-error' : undefined}
+            type="email"
+            inputMode="email"
+            value={values.email}
+            onChange={(e) => setValue('email', e.target.value)}
+            autoComplete="email"
+            placeholder="you@company.com"
+            className={cn(INPUT_BASE, 'mt-2', errors.email && INPUT_INVALID)}
+            aria-invalid={errors.email ? true : undefined}
+            aria-describedby={errors.email ? 'aps-email-error' : undefined}
           />
-          <FieldError id="aps-role-error" message={errors.role} />
+          <FieldError id="aps-email-error" message={errors.email} />
         </div>
 
         {/* 3. Company */}
@@ -422,33 +539,37 @@ export default function ApplicationForm() {
           <FieldError id="aps-company-size-error" message={errors.companySize} />
         </div>
 
-        {/* 5. Email */}
-        <div>
-          <label className={cn(LABEL_BASE, 'block')} htmlFor="aps-email">
-            Email
-          </label>
-          <input
-            id="aps-email"
-            ref={(el) => {
-              fieldRefs.current.email = el;
-            }}
-            type="email"
-            inputMode="email"
-            value={values.email}
-            onChange={(e) => setValue('email', e.target.value)}
-            autoComplete="email"
-            placeholder="you@company.com"
-            className={cn(INPUT_BASE, 'mt-2', errors.email && INPUT_INVALID)}
-            aria-invalid={errors.email ? true : undefined}
-            aria-describedby={errors.email ? 'aps-email-error' : undefined}
+        {/* 5. Position. The one answer the server decides on. */}
+        <fieldset
+          ref={(el) => {
+            fieldRefs.current.position = el;
+          }}
+          tabIndex={-1}
+          className="focus:outline-none"
+        >
+          <legend id="aps-position-legend" className={QUESTION_BASE}>
+            {'Which best describes your position?'}
+          </legend>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-ink-faint">
+            {'All three AI decisions are yours to make, so the room is kept to the people who can make them. One seat per company where possible.'}
+          </p>
+          <RadioPills
+            name="position"
+            labelledBy="aps-position-legend"
+            options={POSITIONS}
+            value={values.position}
+            onChange={(v) => setValue('position', v as Position)}
+            describedBy={errors.position ? 'aps-position-error' : undefined}
+            invalid={Boolean(errors.position)}
+            stacked
           />
-          <FieldError id="aps-email-error" message={errors.email} />
-        </div>
+          <FieldError id="aps-position-error" message={errors.position} />
+        </fieldset>
 
         {/* 6. The one repetitive thing */}
         <div>
           <label className={QUESTION_BASE} htmlFor="aps-repetitive">
-            {'What is the single most repetitive thing your team does every day that you wish it didn’t?'}
+            {'Where has AI stalled in your business?'}
           </label>
           <textarea
             id="aps-repetitive"
@@ -458,7 +579,7 @@ export default function ApplicationForm() {
             value={values.repetitiveWork}
             onChange={(e) => setValue('repetitiveWork', e.target.value)}
             rows={4}
-            placeholder="One to three sentences is plenty."
+            placeholder="One to three sentences: what was tried, on what work, and where it stopped. Nowhere yet is an honest answer."
             className={cn(
               INPUT_BASE,
               'mt-3 min-h-[120px] resize-y leading-relaxed',
@@ -493,52 +614,7 @@ export default function ApplicationForm() {
           <FieldError id="aps-pays-error" message={errors.paysForAiTools} />
         </fieldset>
 
-        {/* 8. Who is driving it, and the role behind that answer */}
-        <div className="space-y-5">
-          <fieldset
-            ref={(el) => {
-              fieldRefs.current.leadsAiStrategy = el;
-            }}
-            tabIndex={-1}
-            className="focus:outline-none"
-          >
-            <legend id="aps-leads-legend" className={QUESTION_BASE}>
-              {'Are you the person leading, or closest to leading, your business’s AI or operations strategy: the owner, a senior operator, or whoever would be driving it day to day?'}
-            </legend>
-            <RadioPills
-              name="leadsAiStrategy"
-              labelledBy="aps-leads-legend"
-              options={YES_NO}
-              value={values.leadsAiStrategy}
-              onChange={(v) => setValue('leadsAiStrategy', v as YesNo)}
-              describedBy={errors.leadsAiStrategy ? 'aps-leads-error' : undefined}
-              invalid={Boolean(errors.leadsAiStrategy)}
-            />
-            <FieldError id="aps-leads-error" message={errors.leadsAiStrategy} />
-          </fieldset>
-
-          <div>
-            <label className={cn(LABEL_BASE, 'block')} htmlFor="aps-strategy-role">
-              {'What’s your role in that?'}
-            </label>
-            <input
-              id="aps-strategy-role"
-              ref={(el) => {
-                fieldRefs.current.strategyRole = el;
-              }}
-              type="text"
-              value={values.strategyRole}
-              onChange={(e) => setValue('strategyRole', e.target.value)}
-              placeholder="A sentence is enough."
-              className={cn(INPUT_BASE, 'mt-2', errors.strategyRole && INPUT_INVALID)}
-              aria-invalid={errors.strategyRole ? true : undefined}
-              aria-describedby={errors.strategyRole ? 'aps-strategy-role-error' : undefined}
-            />
-            <FieldError id="aps-strategy-role-error" message={errors.strategyRole} />
-          </div>
-        </div>
-
-        {/* 9. Attendance */}
+        {/* 8. Attendance */}
         <div className="border-t border-border-subtle pt-7">
           <label htmlFor="aps-attend" className="flex cursor-pointer items-start gap-3">
             <input
@@ -557,7 +633,7 @@ export default function ApplicationForm() {
               aria-describedby={errors.canAttendFullSession ? 'aps-attend-error' : undefined}
             />
             <span className="text-[15px] leading-relaxed text-ink">
-              {'I can attend the full session, not just part of it.'}
+              {'I can attend the full two hours, not just part of it.'}
             </span>
           </label>
           <FieldError id="aps-attend-error" message={errors.canAttendFullSession} />
@@ -598,7 +674,7 @@ export default function ApplicationForm() {
           </>
         ) : (
           <>
-            {'Apply for a seat'}
+            {'Reserve my seat'}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </>
         )}
@@ -614,7 +690,7 @@ export default function ApplicationForm() {
       </div>
 
       <p className="mt-5 text-[13px] leading-relaxed text-ink-faint">
-        {'Your details are used to review this application and to write back to you. Nothing else. See our '}
+        {'Your details are used to secure your seat and to write to you about the session. Nothing else. See our '}
         <a
           href="/privacy"
           className="underline underline-offset-4 transition-colors hover:text-traq-purple"

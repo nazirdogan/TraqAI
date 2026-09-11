@@ -7,9 +7,9 @@ import { cn } from '@/lib/cn';
 import { aiPlanPrepSchema } from '@/lib/intake/types';
 
 /**
- * The pre-session task form.
+ * The pre-session form.
  *
- * Same validation contract as the application form: one zod schema, parsed on
+ * Same validation contract as the sign-up form: one zod schema, parsed on
  * both sides, messages shown against the field that produced them.
  */
 
@@ -183,7 +183,7 @@ export default function PrepForm() {
           <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
         </span>
         <p className="mt-6 text-lg leading-relaxed text-ink sm:text-xl">
-          {'Got it. That is on the board for the session, and I will have looked at it before you walk in.'}
+          {'Got it. That is on the table for the AI strategy block, and I will have read it before you walk in.'}
         </p>
       </div>
     );
@@ -253,7 +253,7 @@ export default function PrepForm() {
             value={values.email}
             onChange={(e) => setValue('email', e.target.value)}
             autoComplete="email"
-            placeholder="The address you applied with"
+            placeholder="The address you signed up with"
             className={cn(INPUT_BASE, 'mt-2', errors.email && INPUT_INVALID)}
             aria-invalid={errors.email ? true : undefined}
             aria-describedby={errors.email ? 'prep-email-error' : undefined}
@@ -263,10 +263,10 @@ export default function PrepForm() {
 
         <div>
           <label className={QUESTION_BASE} htmlFor="prep-workflow">
-            {'The one repetitive workflow you want on the board'}
+            {'The piece of work you would put AI on'}
           </label>
           <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-faint">
-            {'The task you named in your application, or a better one if something has changed. Describe what actually happens, step by step, in plain language.'}
+            {'The work you named when you signed up, or a better one if something has changed. Describe what actually happens, step by step, in plain language.'}
           </p>
           <textarea
             id="prep-workflow"
@@ -388,7 +388,7 @@ export default function PrepForm() {
           </>
         ) : (
           <>
-            {'Send my workflow'}
+            {'Send my pre-session form'}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </>
         )}

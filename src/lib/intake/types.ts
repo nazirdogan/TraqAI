@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { POSITIONS } from './qualify';
 
 /**
  * The ad click that produced a lead, as discrete fields.
@@ -167,12 +168,12 @@ export const assessmentPartialSchema = z.object({
 
 export type AssessmentPartial = z.infer<typeof assessmentPartialSchema>;
 
-// --- The 2027 AI Plan session (application for a capped in-person seat) -----
-// A free, two hour working session in Dubai, capped at 20 people. Every
-// application is screened by hand afterwards, so nothing here scores, ranks or
-// rejects: the schema's only job is to make sure a complete application arrives
-// intact. Company size and the leadership answer are captured for context and
-// are deliberately not gates.
+// --- The 2027 AI Plan session (sign-up for a capped in-person seat) ---------
+// A free, two hour working session in Dubai, capped at 20 people. The form is
+// the qualifier: the position answer decides the seat, server-side, the moment
+// it is submitted (see qualify.ts for the rule). This schema's job is to make
+// sure a complete sign-up arrives intact. Company size and the AI-tools answer
+// are captured for context only.
 
 export const COMPANY_SIZES = ['1 to 10', '11 to 50', '51 to 200', '200+'] as const;
 export type CompanySize = (typeof COMPANY_SIZES)[number];
@@ -182,11 +183,9 @@ export type YesNo = (typeof YES_NO)[number];
 
 export const aiPlanSessionSchema = z.object({
   name: z.string({ required_error: 'Enter your name' }).trim().min(1, 'Enter your name').max(120),
-  role: z
-    .string({ required_error: 'Enter your role or job title' })
-    .trim()
-    .min(1, 'Enter your role or job title')
-    .max(160),
+  position: z.enum(POSITIONS, {
+    errorMap: () => ({ message: 'Choose the one that best describes your position' }),
+  }),
   company: z.string({ required_error: 'Enter your company' }).trim().min(1, 'Enter your company').max(160),
   companySize: z.enum(COMPANY_SIZES, {
     errorMap: () => ({ message: 'Choose a company size' }),
@@ -200,29 +199,21 @@ export const aiPlanSessionSchema = z.object({
   // No user-facing character limit, per the brief. The ceiling here is a
   // request-size guard, set far above anything a person types in this box.
   repetitiveWork: z
-    .string({ required_error: 'Tell us the one repetitive thing' })
+    .string({ required_error: 'Say where AI has stalled, or that it has not started' })
     .trim()
-    .min(1, 'Tell us the one repetitive thing')
+    .min(1, 'Say where AI has stalled, or that it has not started')
     .max(5000, 'That is longer than this box can take. Trim it a little.'),
   paysForAiTools: z.enum(YES_NO, {
     errorMap: () => ({ message: 'Choose Yes or No' }),
   }),
-  leadsAiStrategy: z.enum(YES_NO, {
-    errorMap: () => ({ message: 'Choose Yes or No' }),
-  }),
-  strategyRole: z
-    .string({ required_error: 'Tell us your role in that' })
-    .trim()
-    .min(1, 'Tell us your role in that')
-    .max(300),
   canAttendFullSession: z
     .boolean({ required_error: 'Confirm you can attend the full session' })
     .refine((v) => v === true, { message: 'Confirm you can attend the full session' }),
-  /** The click that produced the application, if it came from an ad. */
+  /** The click that produced the sign-up, if it came from an ad. */
   click: clickAttributionSchema.optional(),
 });
 
-export type AiPlanSessionApplication = z.infer<typeof aiPlanSessionSchema>;
+export type AiPlanSessionSignUp = z.infer<typeof aiPlanSessionSchema>;
 
 // --- The pre-session task -------------------------------------------------
 // Asked of confirmed attendees only, about a week out. Three facts about one
@@ -241,9 +232,9 @@ export const aiPlanPrepSchema = z.object({
     .max(200),
   company: z.string({ required_error: 'Enter your company' }).trim().min(1, 'Enter your company').max(160),
   workflow: z
-    .string({ required_error: 'Describe the workflow' })
+    .string({ required_error: 'Describe the piece of work' })
     .trim()
-    .min(1, 'Describe the workflow')
+    .min(1, 'Describe the piece of work')
     .max(5000, 'That is longer than this box can take. Trim it a little.'),
   hoursPerWeek: z
     .string({ required_error: 'Give a rough number of hours' })

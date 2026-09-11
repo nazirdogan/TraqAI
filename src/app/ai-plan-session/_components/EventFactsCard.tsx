@@ -1,47 +1,53 @@
-import {
-  AI_PLAN_EVENT as EVENT,
-  eventDateShort,
-  eventTimeRange,
-  seatsLine,
-} from '@/lib/event';
+import { AI_PLAN_EVENT as EVENT, eventDateShort, eventTimeRange } from '@/lib/event';
+import { seatsLine } from '@/lib/intake/seatcount';
 import CountdownTag from './CountdownTag';
 
 type EventFactsCardProps = {
   /**
-   * 'facts' for anyone deciding whether to apply, 'deposit' once a seat is
-   * offered and the hold is the live question, 'confirmed' after it clears.
+   * 'facts' for anyone deciding whether to sign up, 'deposit' once the form
+   * has approved them and the hold is the live question, 'confirmed' after it
+   * clears.
    */
   variant?: 'facts' | 'deposit' | 'confirmed';
+  /**
+   * Seats still open, from lib/seats.ts. Null when the count is unknown, in
+   * which case the card says only the cap. Only the 'facts' variant shows it.
+   */
+  seatsRemaining?: number | null;
   className?: string;
 };
 
 /**
  * The session, at a glance. One row-set, reused everywhere someone might want
  * the facts beside them rather than scrolled past: the landing hero, the
- * application and prep forms, and the deposit step. Pulls from lib/event.ts
+ * sign-up and prep forms, and the deposit step. Pulls from lib/event.ts
  * so nothing here can drift from the copy that states it in full.
  */
-export default function EventFactsCard({ variant = 'facts', className = '' }: EventFactsCardProps) {
+export default function EventFactsCard({
+  variant = 'facts',
+  seatsRemaining = null,
+  className = '',
+}: EventFactsCardProps) {
   const rows =
     variant === 'deposit'
       ? [
           { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
-          { k: 'Where', v: `${EVENT.city}, in person` },
-          { k: 'To hold your seat', v: `AED ${EVENT.depositAed}, refundable` },
+          { k: 'Where', v: `Downtown ${EVENT.city}, venue to be confirmed` },
+          { k: 'To secure your seat', v: `AED ${EVENT.depositAed}, refundable` },
           { k: 'Refund window', v: `${EVENT.cancellationNoticeHours}h notice` },
         ]
       : variant === 'confirmed'
         ? [
             { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
-            { k: 'Where', v: `${EVENT.city}, in person` },
+            { k: 'Where', v: `Downtown ${EVENT.city}, venue to be confirmed` },
             { k: 'Your deposit', v: `AED ${EVENT.depositAed}, returned in the room` },
-            { k: 'Status', v: 'Seat confirmed' },
+            { k: 'Status', v: 'Seat secured' },
           ]
         : [
             { k: 'When', v: `${eventDateShort()}, ${eventTimeRange()}` },
-            { k: 'Where', v: `${EVENT.city}, in person` },
-            { k: 'Room', v: seatsLine() },
-            { k: 'To attend', v: 'Free, by application' },
+            { k: 'Where', v: `Downtown ${EVENT.city}, venue to be confirmed` },
+            { k: 'Room', v: seatsLine(EVENT.capacity, seatsRemaining) },
+            { k: 'To attend', v: `Free. AED ${EVENT.depositAed} hold, refunded on arrival` },
           ];
 
   return (

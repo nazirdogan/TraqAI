@@ -5,9 +5,9 @@ import PrepForm from './PrepForm';
 import EventFactsCard from '../_components/EventFactsCard';
 
 export const metadata: Metadata = {
-  title: { absolute: `Your pre-session task · ${EVENT.name}` },
+  title: { absolute: `Your pre-session form · ${EVENT.name}` },
   // For confirmed attendees, reached from their own confirmation. Indexing it
-  // would put a form in search results that only twenty people should ever see.
+  // would put a form in search results that only fifteen people should ever see.
   robots: { index: false, follow: false },
 };
 
@@ -18,17 +18,17 @@ export default function PrepPage() {
         <div className="max-w-2xl">
           <div className="eyebrow eyebrow-accent">{`Before ${eventDateLong()}`}</div>
           <h1 className="mt-4 text-balance text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
-            {'Your pre-session task'}
+            {'Your pre-session form'}
           </h1>
           <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-soft sm:text-base">
             <p>
-              {'One workflow, three facts about it, about two minutes. This is what turns the second hour from an exercise about AI into an exercise about your business.'}
+              {'One piece of work you would put AI on, two numbers about it, about two minutes. It gives the AI strategy block something real to score, so your trio starts from your numbers and not from a blank page.'}
             </p>
             <p>
-              {'Be straight with the numbers. Nobody is being marked, and a rough honest estimate scores better than a confident invented one.'}
+              {'Be straight with the numbers. Nobody is being marked, and a rough honest estimate is worth more than a confident invented one.'}
             </p>
             <p className="font-semibold text-ink">
-              {'This gets used live, in the room, on the day.'}
+              {'The form closes 48 hours before the session.'}
             </p>
           </div>
 

@@ -28,7 +28,7 @@ export default function SeatSecuredPage() {
               <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
             </span>
             <h1 className="mt-6 text-balance text-2xl font-bold leading-tight tracking-tight text-ink sm:text-3xl">
-              {'That is your seat held.'}
+              {'That is your seat secured.'}
             </h1>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft sm:text-base">
               {`You are on the list for ${EVENT.name}, ${eventDateLong()}, ${eventTimeRange()}, in ${EVENT.city}. Your AED ${EVENT.depositAed} comes back to you in the room, before we start.`}
@@ -40,11 +40,11 @@ export default function SeatSecuredPage() {
                 {[
                   {
                     t: 'Put it in your calendar',
-                    b: 'The exact address goes out the week before, along with parking and the room number.',
+                    b: 'The room is in Downtown Dubai and is being booked now. The exact address goes out the week before, with parking and the room number. The link to your decision record comes with it, so you have it before the day, not on it.',
                   },
                   {
-                    t: 'Send me your one workflow',
-                    b: 'Two minutes, and it is what makes the session about your business rather than about AI in general. You can do it now or any time before the week of the session.',
+                    t: 'Send your pre-session form',
+                    b: 'One piece of work you would put AI on, and two numbers about it. Two minutes, and it gives the strategy block something real to score. It closes 48 hours before the session, and you can do it now.',
                   },
                 ].map((row, i) => (
                   <li key={row.t} className="flex gap-4">
@@ -63,7 +63,7 @@ export default function SeatSecuredPage() {
                 href="/ai-plan-session/prep"
                 className="group mt-6 inline-flex w-full items-center justify-center gap-2.5 rounded-full focus-visible:rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
               >
-                Send my workflow now
+                Fill in the pre-session form
                 <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
                   &rarr;
                 </span>
