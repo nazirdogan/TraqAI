@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-12",
+      "type": "field-note",
+      "slug": "how-to-measure-ai-training-effectiveness",
+      "targetQuery": "how to measure AI training effectiveness"
+    },
+    {
       "date": "2026-09-11",
       "type": "field-note",
       "slug": "gpt-6-astra-rollout-chatgpt-business",
@@ -1192,6 +1198,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-11-gpt-6-astra-rollout-chatgpt-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-12",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "how-to-measure-ai-training-effectiveness",
+      "critic": "branch preflight: session started on a detached HEAD at adff646 (main history); checked out main, confirmed main was an ancestor of the detached sha, fast-forwarded main to it (no rewrite, no force-push), then fetched origin/main and confirmed it already matched exactly, so no stranded commits and no manual push was needed; topic tp-012 from the daily pipeline (how to measure AI training effectiveness, ai-training cluster); researched via WebSearch and confirmed via direct WebFetch of microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization that organisational factors (culture, manager support, talent practices) explain 67% vs 32% individual factors in reported AI outcomes, cited as the one stat; no other numbers used or invented; no em-dashes or en-dashes (checked programmatically, none found); title 59 chars raw / 41 stripped, metaDescription 154 chars, intro 60 words and stands alone as a direct answer; four body sections each phrased as a real question; three FAQs; flow diagram (four ordered checkpoints: day-1 reaction, week-1 first unprompted use, day-30 usage holds, day-30 result) with every label and detail already argued in the prose, revised once during self-critique after the first draft labeled the fourth step \"Quarter\" when the prose actually ties the result check to day 30, not a quarter, so the label was changed to match; no image (fetch-image.mjs returned exit 2, Openverse search failed with HTTP 403); related links verified to exist (/services/ai-training, /insights/how-to-measure-ai-roi-for-small-business, /field-notes/how-to-make-ai-usage-stick-after-training); distinct from both of those (this note is about the measurement checkpoints and timing, not tool ROI or the stickiness intervention itself) and not a repeat of any ledger slug or targetQuery; validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present at session start), result VALID; scripts/seo/topic-pipeline.json updated: tp-012 set to published with publishedAs /field-notes/how-to-measure-ai-training-effectiveness"
+    },
+    {
+      "date": "2026-09-12",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-12-how-to-measure-ai-training-effectiveness.json"
       ],
       "build": "passed"
     }

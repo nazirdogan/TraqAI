@@ -1,0 +1,90 @@
+{
+  "slug": "how-to-measure-ai-training-effectiveness",
+  "title": "How to measure whether AI training worked | Traq Collective",
+  "h1": "How to measure whether AI training worked",
+  "metaDescription": "A completion certificate proves nothing. Real proof is whether people still use AI on real work a month later, and whether that task got faster or better.",
+  "targetQuery": "how to measure AI training effectiveness",
+  "tags": ["training", "making-it-stick"],
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "author": "Nazir Dogan",
+  "dek": "A happy-sheet score at the end of a session tells you almost nothing about Monday.",
+  "intro": "The only real measure of AI training effectiveness is what people do afterward, not how the session felt. Track three things in order: whether staff use the tool on a genuine task within a week without being told to, whether that use continues after 30 days, and whether it visibly cuts time or improves output on the task it targeted.",
+  "body": [
+    {
+      "heading": "Why a happy-sheet score doesn't tell you anything",
+      "paragraphs": [
+        "Most training gets judged on the wrong level. A post-session survey asking whether people enjoyed it or found it clear measures reaction, and reaction correlates weakly with whether anyone changes what they do at their desk on Monday. It is easy to run and easy to report, which is exactly why it is overused: it produces a number without producing evidence.",
+        "If a session scores well and three months later nobody on the team has touched the tool on a real task, the training did not work, whatever the survey said. Reaction is worth collecting because a session people actively disliked is unlikely to change anything, but treat it as a screen for failure, not proof of success."
+      ]
+    },
+    {
+      "heading": "What to check in the first week",
+      "paragraphs": [
+        "Before you train anyone, name the one task the session is meant to change: first-draft replies, meeting summaries, a specific report. That single task is what you measure against, not general AI usage.",
+        "A week after training, check how many people used the tool on that exact task without being reminded. Not logged in, not asked a question in the session, actually applied it to real work unprompted. That is the first honest signal, and it is usually lower than the room's energy on the day suggested it would be."
+      ]
+    },
+    {
+      "heading": "What to check a month later, because usage fades fast",
+      "paragraphs": [
+        "The harder and more important check comes at day 30. Novelty carries a lot of week-one usage on its own, and it drops off once the task gets busy again and the old habit is still faster to fall back on. Whether usage survives past that point is the real test of whether training changed behaviour or just produced a good afternoon.",
+        "Microsoft's 2026 Work Trend Index found that organisational factors such as culture, manager support and how the work itself is structured explain more than twice the variance in reported AI results that an individual's own skill level does. In practice that means a manager who checks in on the task and expects the new habit to hold does more for day-30 usage than another hour of training content. If usage is fading, look at what happens after the session before you blame the session itself."
+      ]
+    },
+    {
+      "heading": "How to tie it to a business result",
+      "paragraphs": [
+        "Do not try to prove company-wide productivity gains from one training session. That number is too noisy to attribute to a single intervention and chasing it wastes the credibility of the exercise. Measure the one task you named at the start: time a handful of real examples before training and the same task after 30 days of use, or track a simpler proxy like turnaround time or error rate on that task specifically.",
+        "A result on one well-chosen task, reported honestly, is more convincing to the rest of the business than a vague claim about overall AI adoption, and it gives you a template you can repeat on the next task."
+      ]
+    }
+  ],
+  "takeaway": "Before you run another AI training session, pick the one task it should change and check three things in order: who used it unprompted in week one, who is still using it at day 30, and whether that specific task is measurably faster or better now.",
+  "stat": {
+    "claim": "Organisational factors like culture, manager support and how work is structured explain far more of whether AI training pays off than an individual's own skill level, which is why measuring the session alone misses most of the story.",
+    "value": "67%",
+    "source": "Microsoft Work Trend Index 2026",
+    "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization",
+    "year": "2026"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "How to measure whether AI training worked, in four checks",
+    "steps": [
+      { "label": "Day 1: reaction", "detail": "Did people follow along and see the point" },
+      { "label": "Week 1: first use", "detail": "Did anyone use it on a real task unprompted" },
+      { "label": "Day 30: usage holds", "detail": "Habit survives once the novelty wears off" },
+      { "label": "Day 30: the result", "detail": "Time or quality gained on that task" }
+    ],
+    "caption": "Stop at reaction scores and you will never catch training that felt great live and vanished by the following Monday."
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to measure ROI from AI in a small business",
+      "href": "/insights/how-to-measure-ai-roi-for-small-business"
+    },
+    {
+      "label": "How to make AI usage stick after training",
+      "href": "/field-notes/how-to-make-ai-usage-stick-after-training"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How soon after training should we check whether it worked?",
+      "a": "Within a week. Check whether people used the tool on the real task you targeted without being reminded to. That unprompted use is the first honest signal, well before any output or time metric is meaningful."
+    },
+    {
+      "q": "Does a training completion rate count as proof it worked?",
+      "a": "No. A completion rate proves people attended, not that they changed how they work. Measure who is still applying the training to real tasks 30 days later instead."
+    },
+    {
+      "q": "What if usage is high but we can't prove time was saved?",
+      "a": "Narrow the claim. Time a handful of real examples of the one task you trained on, before and after, rather than trying to show a company-wide productivity gain from a single session."
+    }
+  ]
+}
