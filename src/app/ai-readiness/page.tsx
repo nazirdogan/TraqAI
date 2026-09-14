@@ -15,7 +15,7 @@ const CANONICAL = `https://traqcollective.com${PATH}`;
 export const metadata: Metadata = {
   title: 'Free AI readiness assessment for teams',
   description:
-    'A free AI readiness assessment. Nine quick questions across tools, team confidence, training, leadership and use cases, then your band and next steps in two minutes.',
+    'A free AI readiness assessment. Six quick questions across tools, team confidence, training, leadership and use cases, then your band and next steps in about a minute.',
   alternates: { canonical: CANONICAL },
   keywords: [
     'AI readiness assessment',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       images: [OG_IMAGE],
     title: 'Free AI readiness assessment | Traq Collective',
     description:
-      'See how ready your team is for AI in two minutes. Get your band and tailored next steps across tools, confidence, training, leadership and use cases.',
+      'See how ready your team is for AI in about a minute. Get your band and tailored next steps across tools, confidence, training, leadership and use cases.',
     url: CANONICAL,
   },
 };
@@ -39,7 +39,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
 ];
 
 const HERO = {
-  eyebrow: 'Free assessment · 2 minutes',
+  eyebrow: 'Free assessment · 1 minute',
   h1: 'Is your company ready for AI?',
   // Definition-first, standalone, 40-60 words. The first extractable block.
   intro:
@@ -64,11 +64,11 @@ const RELATED: { label: string; href: string }[] = [
 const FAQS: Qa[] = [
   {
     q: 'What is an AI readiness assessment?',
-    a: 'It is a short, structured check of how prepared your team is to use AI well. This one scores you across five dimensions: the tools you already pay for, how confident your team feels, whether they have had training, how bought-in leadership is, and how clear you are on where AI saves time. You get a band and next steps in about two minutes.',
+    a: 'It is a short, structured check of how prepared your team is to use AI well. This one scores you across five dimensions: the tools you already pay for, how confident your team feels, whether they have had training, how bought-in leadership is, and how clear you are on where AI saves time. You get a band and next steps in about a minute.',
   },
   {
     q: 'How long does the assessment take?',
-    a: 'About two minutes. There are nine multiple-choice questions and no long forms. You see your result, your score by dimension and your next steps on screen straight away, and we email you a fuller plan if you want it.',
+    a: 'About a minute. There are six multiple-choice questions and no long forms. You see your result, your score by dimension and your next steps on screen straight away, and we email you a fuller plan if you want it.',
   },
   {
     q: 'What do the Early, Building and Ready bands mean?',
@@ -122,7 +122,7 @@ export default function AiReadinessPage() {
       <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="eyebrow eyebrow-accent">Why readiness matters</div>
-          <h2 className="section-title mt-3">Why a readiness check is worth two minutes</h2>
+          <h2 className="section-title mt-3">Why a readiness check is worth a minute</h2>
           <p className="section-sub mt-4">
             Readiness is mostly about people and habits, not the tools themselves.
             The research backs that up.

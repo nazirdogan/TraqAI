@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import AssessmentForm from '@/app/ai-readiness/AssessmentForm';
+import BookingEmbed from '@/components/analytics/BookingEmbed';
 import {
   LpDelivery,
   LpGovernance,
@@ -39,6 +41,23 @@ const CTA_PRIMARY =
 
 const CTA_SECONDARY =
   'inline-flex items-center justify-center gap-2 text-[14px] font-semibold text-ink-soft underline decoration-border-strong underline-offset-4 transition-colors hover:text-traq-purple-ink hover:decoration-traq-purple';
+
+const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
+
+/**
+ * Where "book a call instead" goes.
+ *
+ * It used to go to /book, which is a normal site page: full navigation, full
+ * footer, a dozen ways out. That undid the whole point of a page ChromeGate
+ * strips, and it did it for the visitor with the most intent, the one who
+ * wants a conversation and not a quiz. The scheduler now sits on this page and
+ * the link is an anchor.
+ *
+ * The post-assessment CTA still goes to /book, on purpose: it carries score and
+ * band as query params so the embed can prefill them into Calendly, and a
+ * fragment cannot carry a query string.
+ */
+const SKIP_TO_BOOKING = BOOKING_URL ? '#book' : '/book';
 
 export function generateStaticParams() {
   return LP_SLUGS.map((slug) => ({ slug }));
@@ -102,8 +121,8 @@ export default function LandingPage({ params }: Params) {
               Why the score first
             </p>
             <p className="mt-3 text-[13.5px] leading-relaxed text-ink-soft">
-              Nine questions across tools, confidence, training, ownership and
-              measurement. It tells us which track your team should start on,
+              Six questions across tools, confidence, training, leadership and
+              use cases. It tells us which track your team should start on,
               and it tells you where the gap actually is.
             </p>
             <ul className="mt-5 flex flex-col gap-3 border-t border-border-subtle pt-5">
@@ -185,13 +204,13 @@ export default function LandingPage({ params }: Params) {
                     &rarr;
                   </span>
                 </a>
-                <a href="/book" className={CTA_SECONDARY}>
+                <a href={SKIP_TO_BOOKING} className={CTA_SECONDARY}>
                   Book a call instead
                 </a>
               </div>
 
               <p className="mt-4 text-[13px] text-ink-faint">
-                Nine questions, about two minutes. A real score at the end, not a
+                Six questions, about a minute. A real score at the end, not a
                 brochure.
               </p>
             </div>
@@ -237,12 +256,45 @@ export default function LandingPage({ params }: Params) {
                 &rarr;
               </span>
             </a>
-            <a href="/book" className={CTA_SECONDARY}>
+            <a href={SKIP_TO_BOOKING} className={CTA_SECONDARY}>
               Book a call instead
             </a>
           </div>
         </div>
       </section>
+
+      {BOOKING_URL ? (
+        <section
+          id="book"
+          className="scroll-mt-4 border-t border-border-subtle bg-bg-base px-0 py-14 sm:py-16"
+        >
+          <div className={SHELL}>
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow eyebrow-accent">Free 20 minute AI Intro</p>
+              <h2 className="mt-3 text-balance text-[clamp(24px,3.4vw,32px)] font-bold leading-[1.2] tracking-tight text-ink">
+                Or skip the score and pick a time.
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:text-[16.5px]">
+                Twenty minutes on your team, your tools and where AI actually
+                saves hours. No deck, no obligation, and you keep the map either
+                way.
+              </p>
+            </div>
+
+            <div className="mx-auto mt-10 max-w-4xl">
+              {/* useSearchParams needs a Suspense boundary or the whole route
+                  opts into dynamic rendering. */}
+              <Suspense
+                fallback={
+                  <div className="h-[80vh] min-h-[640px] w-full rounded-[24px] border border-border-subtle bg-white shadow-card" />
+                }
+              >
+                <BookingEmbed bookingUrl={BOOKING_URL} />
+              </Suspense>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <div className="bg-bg-subtle px-0 py-8">
         <div className={`${SHELL} text-[12px] leading-relaxed text-ink-faint`}>

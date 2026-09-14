@@ -48,8 +48,8 @@ type Question = {
   options: Option[];
 };
 
-// 9 questions across the five dimensions. Each option scores 0 to 3, so the
-// max score is 27. Order goes from easy-to-answer to more reflective.
+// Six questions across the five dimensions. Each option scores 0 to 3, so the
+// max score is 18. Order goes from easy-to-answer to more reflective.
 const QUESTIONS: Question[] = [
   {
     id: 'tools-paid',
@@ -100,18 +100,6 @@ const QUESTIONS: Question[] = [
     ],
   },
   {
-    id: 'guardrails',
-    dimension: 'training',
-    prompt: 'Do people know what is safe to put into AI tools?',
-    hint: 'Clear, simple guidance on data, privacy and approved tools.',
-    options: [
-      { label: 'No guidance, people guess', score: 0 },
-      { label: 'A few informal rules', score: 1 },
-      { label: 'Written guidance most people know', score: 2 },
-      { label: 'Clear guardrails everyone follows', score: 3 },
-    ],
-  },
-  {
     id: 'leadership',
     dimension: 'leadership',
     prompt: 'How bought-in is leadership on getting AI adopted?',
@@ -121,18 +109,6 @@ const QUESTIONS: Question[] = [
       { label: 'Interested but no plan', score: 1 },
       { label: 'Supportive and asking for it', score: 2 },
       { label: 'Driving it with time and budget', score: 3 },
-    ],
-  },
-  {
-    id: 'ownership',
-    dimension: 'leadership',
-    prompt: 'Does anyone own AI adoption inside the company?',
-    hint: 'A person or team responsible for making it happen, not a side task.',
-    options: [
-      { label: 'Nobody owns it', score: 0 },
-      { label: 'Someone does it on the side', score: 1 },
-      { label: 'A clear owner with some time', score: 2 },
-      { label: 'A dedicated owner or partner', score: 3 },
     ],
   },
   {
@@ -147,21 +123,9 @@ const QUESTIONS: Question[] = [
       { label: 'A prioritised list by payoff', score: 3 },
     ],
   },
-  {
-    id: 'measurement',
-    dimension: 'use-cases',
-    prompt: 'Are you measuring the time or money AI is saving?',
-    hint: 'A number you can point to, even a rough one.',
-    options: [
-      { label: 'Not measuring anything', score: 0 },
-      { label: 'We talk about it informally', score: 1 },
-      { label: 'We track a few things', score: 2 },
-      { label: 'We measure adoption and impact', score: 3 },
-    ],
-  },
 ];
 
-const MAX_SCORE = QUESTIONS.length * 3; // 27
+const MAX_SCORE = QUESTIONS.length * 3; // 18
 
 type Band = 'Early' | 'Building' | 'Ready';
 
@@ -175,8 +139,9 @@ type BandDetail = {
 };
 
 function bandFor(score: number): BandDetail {
-  // Thresholds split the 0-27 range into three friendly bands.
-  if (score <= 9) {
+  // Thresholds split the range into even thirds, derived from MAX_SCORE so
+  // that changing the number of questions can never silently re-band people.
+  if (score <= MAX_SCORE / 3) {
     return {
       band: 'Early',
       blurb:
@@ -191,7 +156,7 @@ function bandFor(score: number): BandDetail {
       guideLabel: 'Read: how to get your team using AI',
     };
   }
-  if (score <= 18) {
+  if (score <= (MAX_SCORE * 2) / 3) {
     return {
       band: 'Building',
       blurb:
@@ -840,7 +805,7 @@ export default function AssessmentForm({
             </button>
           ) : (
             <p className="mt-6 text-[13px] text-ink-faint">
-              Pick the answer closest to your situation. Takes about two minutes.
+              Pick the answer closest to your situation. Takes about a minute.
             </p>
           )}
         </div>

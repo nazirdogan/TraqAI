@@ -12,7 +12,7 @@ import { COMPANY } from '@/lib/constants';
  * Three jobs beyond rendering an iframe.
  *
  * First, it carries the assessment result into the booking. Someone arriving
- * from a landing page has just answered nine questions, and the call should
+ * from a landing page has just answered the readiness questions, and the call should
  * open with those answers on screen rather than spending ten minutes
  * re-establishing what they already told us. Score and band ride in as Calendly
  * prefill, and the gclid rides in as a UTM so a booking can be tied back to the
