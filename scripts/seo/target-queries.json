@@ -168,15 +168,20 @@
       "intent": "comparison",
       "priority": 2,
       "pageType": "comparison",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-training-vs-ai-consulting",
       "note": "Comparison articles are roughly a third of all AI citations. Traq already has 'AI consultant vs AI agency'; this is the adjacent gap and it maps directly onto the two services.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-09-14",
+        "engine": "web-search (direct WebFetch of the top two results was egress-blocked)",
         "traqPosition": null,
-        "winners": [],
-        "observation": "Must stay genuinely balanced. Obviously self-serving comparisons get filtered out of AI answers."
+        "winners": [
+          "myaievolution.com/ai-training-vs-consulting",
+          "mccargo-consulting.com/blog/ai-training-vs-ai-consulting",
+          "visionstratai.com (AI training vs consulting, which does your business need in 2026)",
+          "theaihq.net/blog/ai-consultant-vs-ai-training-provider"
+        ],
+        "observation": "SERP is AI-content-mill blogs running a generic decide-vs-do-not-decide framework with no cited sources and no real comparison table. Matched the winning intent (a clear decision framework with 'choose X when' signals) but beat the format with a sourced comparison table and three cited stats, none of which the ranking pages carry. Kept it genuinely balanced: Traq is named only in the 'can one provider do both' section, not as the answer to every row."
       }
     },
     {

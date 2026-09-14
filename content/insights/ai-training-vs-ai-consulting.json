@@ -1,0 +1,122 @@
+{
+  "slug": "ai-training-vs-ai-consulting",
+  "title": "AI Training vs AI Consulting: Which Does Your Team Need? | Traq Collective",
+  "metaDescription": "AI training vs AI consulting, compared honestly: what each actually fixes, the signs you need one before the other, and why most teams end up needing both.",
+  "targetQuery": "AI training vs AI consulting: which does my team need",
+  "h1": "AI training vs AI consulting: which does your team need?",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": "Nazir Dogan",
+  "intro": "AI training teaches people already using AI tools to use them well: better prompts, faster habits, fewer wasted hours. AI consulting answers a question nobody has answered yet: which tools fit your workflows and what to automate first. If your team has tools but weak skill, start with training. If nobody has decided what to do, start with consulting.",
+  "bodySections": [
+    {
+      "h2": "What is the actual difference between AI training and AI consulting?",
+      "body": "Consulting produces a decision. Training produces a skill. A consultant looks at your workflows and tells you which tools fit, what to automate first, and what a safe data policy looks like, usually ending in a short roadmap. A trainer takes tools you have already chosen and teaches your people to use them on their real work: how to write a prompt that gets a usable answer, when to trust the output, what never to paste in, and how to turn a one-off trick into a daily habit. Consulting changes what your business decides to do about AI. Training changes what your people can actually do with it.",
+      "points": [
+        "Consulting: diagnosis and a plan, usually delivered by one senior adviser",
+        "Training: hands-on skill-building for the team that already has the tools",
+        "Consulting gap = no decision has been made yet",
+        "Training gap = the decision is made but adoption is weak or uneven"
+      ]
+    },
+    {
+      "h2": "How do you know your gap is consulting, not training?",
+      "body": "The tell is that nobody can answer a basic question with confidence: which tool should Finance use for this, is it safe to paste a client contract into ChatGPT, or what should we automate first out of ten competing ideas. If you have not licensed anything yet, or you have tools but no shared view of what they are for, more training just teaches people to use the wrong tool well. Consulting comes first when the risk of picking wrong is high, for example a regulated data policy or a build-versus-buy call, because a bad decision made confidently is more expensive to unwind than a slow start.",
+      "points": [
+        "No AI tool has been chosen or licensed yet",
+        "Different teams are using different, unapproved tools",
+        "There is no policy on what data can go into an AI tool",
+        "Leadership cannot name the one or two use cases to prioritise"
+      ]
+    },
+    {
+      "h2": "How do you know your gap is training, not consulting?",
+      "body": "This is the more common gap. Most teams Traq sees have already bought a licence, Microsoft 365 Copilot or ChatGPT Business or Claude, and usage is thin: a handful of people use it daily, most open it once, get a mediocre answer, and quietly go back to doing the task by hand. The tools were the easy purchase. The habit is the hard part. If the honest problem is that people do not know how to ask well, do not trust the output, or never made it part of their routine, a strategy deck will not fix that. Structured, hands-on practice on real work does.",
+      "points": [
+        "A licence is already paid for and mostly unused",
+        "People tried it once, got a bad result, and stopped",
+        "Usage is concentrated in one or two enthusiasts, not the team",
+        "The direction is clear; what is missing is confident, daily use"
+      ]
+    },
+    {
+      "h2": "Can one provider do both, and does that matter?",
+      "body": "It matters more than the labels suggest, because the two engagements fail in opposite ways when kept separate. A strategy-only consultant can leave you with a prioritised roadmap that nobody on staff knows how to execute, so it sits in a shared drive. A trainer with no strategy input teaches good habits on the wrong tool, or trains a workflow leadership later decides to drop. The sequence that actually works is consulting first to remove the guesswork, then training to build the habit on what was decided, ideally from a partner who stays accountable for both rather than handing off between two vendors. That is the model Traq works: we set the direction and train the team on it, so the decision and the skill land together instead of a strategy deck nobody executes.",
+      "points": [
+        "Consulting without training: a plan nobody on staff can run",
+        "Training without consulting: good habits on the wrong tool",
+        "Sequencing both, with one accountable partner, closes both gaps at once"
+      ]
+    },
+    {
+      "h2": "What should a small or mid-sized team do first?",
+      "body": "Answer one question honestly before spending on either: is a tool already licensed and sitting mostly unused, or is nobody sure what to buy in the first place. Unused licence, thin adoption, no shared workflow: start with training, sized to the two or three tasks people repeat most. No tool chosen, no data policy, competing priorities and no owner: start with a short consulting engagement that ends in a named first use case, not an open-ended retainer. Either way, treat the first engagement as a gate. Only expand once it has produced a measurable change, a team using a tool daily instead of once, rather than committing to a long programme on the strength of a pitch.",
+      "points": [
+        "Unused licence + thin adoption -> start with training",
+        "No tool chosen + no policy + no owner -> start with consulting",
+        "Size the first engagement small and let the result decide the next step"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "heading": "AI training vs AI consulting, side by side",
+      "intro": "Use this to place your own situation before you buy either one.",
+      "caption": "AI training compared with AI consulting across what it fixes, who delivers it, how you know you need it, and what it produces",
+      "columns": ["Consideration", "AI training", "AI consulting"],
+      "rows": [
+        ["What it fixes", "Weak or inconsistent use of tools you already have", "No decision yet on what to use or what to do first"],
+        ["Who delivers it", "A trainer working hands-on with your team", "A senior adviser working with leadership"],
+        ["Sign you need it", "A paid licence with thin, patchy daily use", "No tool chosen, or no shared policy on using one"],
+        ["What it produces", "People confidently using AI on real tasks", "A short roadmap: what to use, what first, what policy"],
+        ["Risk if skipped", "Licence cost with no return, quiet churn back to old habits", "Confident spend on the wrong tool or workflow"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "Most employees already bring their own AI tools to work without waiting for a company decision, which is why the gap for many teams is not access to a tool. It is a missing policy and a missing habit, one consulting problem and one training problem.",
+      "value": "78%",
+      "source": "Microsoft Work Trend Index",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
+      "year": "2024"
+    },
+    {
+      "claim": "Comfort using AI at work nearly doubles after structured, hands-on training, which is the training half of the equation regardless of how well the consulting half chose the tool.",
+      "value": "43% -> 72%",
+      "source": "Slack",
+      "url": "https://slack.com/blog/productivity/try-this-experiment-with-your-team-at-work-ai-microlearning",
+      "year": "2024"
+    },
+    {
+      "claim": "Employees themselves rank training as the single most important thing they need to use AI well, ahead of any new tool or policy document, which is why a consulting engagement that ends in a plan but no training rarely changes daily behaviour.",
+      "value": "48%",
+      "source": "McKinsey",
+      "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+      "year": "2025"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is AI training cheaper than AI consulting?",
+      "a": "Usually, because they price different work. Training is typically a fixed-fee engagement to get a team using specific tools well. Consulting is priced for judgment, a day rate or short retainer to decide what you should do before anyone touches a tool. Cheaper only matters if it closes your actual gap."
+    },
+    {
+      "q": "We already pay for Copilot or ChatGPT. Do we need consulting or training?",
+      "a": "Training, in almost every case. An unused or underused licence means the tool decision is already made, so the gap is skill and habit, which training fixes. Consulting is for teams that have not decided what to use yet, or who hit a policy question training cannot answer, like what data is safe to paste in."
+    },
+    {
+      "q": "What comes first if we need both?",
+      "a": "Consulting, then training, in that order. Deciding what to use and what to automate first removes the guesswork; training then builds the habit on that decision. Reversing the order means training people well on a tool or workflow leadership might scrap once the strategy work catches up."
+    },
+    {
+      "q": "Can a training provider also do the consulting?",
+      "a": "Some can, and it is worth asking directly rather than assuming. The risk with keeping them separate is a handoff gap: the consultant's roadmap sits unexecuted, or the trainer builds habits on a tool the consultant would not have picked. A single, accountable partner who does both tends to close that gap."
+    }
+  ],
+  "related": [
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
+    { "label": "AI Consulting & Strategy", "href": "/services/ai-consulting" },
+    { "label": "AI consultant vs AI agency: which do you need?", "href": "/insights/ai-consultant-vs-ai-agency" }
+  ]
+}
