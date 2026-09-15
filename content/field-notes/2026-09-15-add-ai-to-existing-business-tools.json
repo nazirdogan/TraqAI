@@ -1,0 +1,85 @@
+{
+  "slug": "add-ai-to-existing-business-tools",
+  "title": "How to add AI to the tools you already pay for | Traq Collective",
+  "h1": "How to add AI to the tools you already pay for",
+  "metaDescription": "The fastest way to add AI at a small business is often a toggle inside a tool you already pay for, not a new subscription. Here is where to look first.",
+  "targetQuery": "how to add AI to existing business tools",
+  "tags": [
+    "tools",
+    "adoption"
+  ],
+  "datePublished": "2026-09-15",
+  "dateModified": "2026-09-15",
+  "author": "Nazir Dogan",
+  "dek": "You do not need a new AI product. You need to find where AI already lives inside the software you already pay for.",
+  "intro": "Add AI to your existing business tools by turning on the AI features already built into the software you pay for, rather than buying a separate AI product. Microsoft, Gusto and others have moved AI into their existing plans as an add-on or an included tier, so check your current subscription before signing up for anything new.",
+  "body": [
+    {
+      "heading": "Why a new AI subscription is usually the wrong first move",
+      "paragraphs": [
+        "Most owners hear \"add AI\" and start comparing new tools. That is backwards. The software you already run for email, payroll, chat and documents has spent the last two years quietly building AI in, either as a paid add-on to your existing plan or folded into a tier you may already be on. Buying a fresh subscription before checking your current stack means paying twice for the same capability, and it adds a login nobody will remember to use.",
+        "Treat this as an audit, not a purchase. Before you sign anything, list the three or four tools your team touches every day and check each one's own pricing and admin pages for an AI add-on or an AI-included tier. That fifteen-minute check is the whole first step."
+      ]
+    },
+    {
+      "heading": "Where AI already lives inside Microsoft 365",
+      "paragraphs": [
+        "If your business runs on Microsoft 365 Business Standard or Business Premium, Copilot is not a separate product, it is an add-on to the plan you already hold. Microsoft's own pricing page lists it at $21 per user per month on an annual commitment, with a promotional rate of $18 per user per month running through December 31, 2026 for organizations of up to 300 users.",
+        "That eligibility cap matters: the add-on is only available to accounts that already hold an eligible Business plan, so a company evaluating \"which AI tool to buy\" for email drafting or meeting notes may already be one toggle and one line item away from having it, at a lower rate than it will get once the promotion ends."
+      ]
+    },
+    {
+      "heading": "How Gusto brought AI to where owners already work",
+      "paragraphs": [
+        "Gusto took a different route to the same idea. Rather than building its own AI chat interface, Gusto connected its payroll and HR data directly into ChatGPT and Claude, the tools an owner or bookkeeper may already have open, so questions about payroll trends or upcoming costs can be asked in natural language without opening Gusto itself or adding another dashboard.",
+        "The lesson generalises: check whether a tool you already pay for can be reached from the AI assistant you already use, before you evaluate a specialist AI product built to do the same job from scratch."
+      ]
+    },
+    {
+      "heading": "How to check what your own tools already include",
+      "paragraphs": [
+        "Open the admin or billing settings for each core tool and search for \"AI,\" \"Copilot,\" or \"assistant.\" If nothing turns up there, check the vendor's own pricing page, since AI add-ons are usually listed as a line item rather than announced loudly inside the product.",
+        "If a genuine gap remains after that audit, that is the moment to evaluate a new tool, and you will be doing it having ruled out the cheaper option first."
+      ]
+    }
+  ],
+  "takeaway": "Before you evaluate a new AI product, open the billing or admin settings of the three tools your team uses most and check what AI is already available as an add-on or included tier. The fastest AI win this week is often a toggle, not a new contract.",
+  "sources": [
+    {
+      "label": "Microsoft, Microsoft 365 Copilot pricing",
+      "url": "https://www.microsoft.com/en-us/microsoft-365-copilot/pricing"
+    },
+    {
+      "label": "Gusto, Gusto app now available in ChatGPT",
+      "url": "https://gusto.com/company-news/gusto-app-in-chatgpt"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "What to automate first in a small business",
+      "href": "/field-notes/what-to-automate-first-in-a-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to buy a separate AI tool to get started?",
+      "a": "Usually not. Check the billing or admin settings of the software you already pay for first. Many vendors, including Microsoft and Gusto, have added AI as an add-on or an included tier rather than a separate product."
+    },
+    {
+      "q": "Is Microsoft 365 Copilot already included in my Microsoft plan?",
+      "a": "No, it is a paid add-on to an eligible Business Standard or Business Premium plan, not something switched on automatically. As of September 2026 it costs $21 a user a month standard, with a promotional rate of $18 through December 31, 2026, for organizations of up to 300 users."
+    },
+    {
+      "q": "What if the tools we already use have no AI features at all?",
+      "a": "Then a new tool is the right call, but only after that audit. Confirming the gap is real, rather than assuming it, keeps you from paying for a capability you already had access to."
+    }
+  ]
+}

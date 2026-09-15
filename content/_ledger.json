@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-15",
+      "type": "field-note",
+      "slug": "add-ai-to-existing-business-tools",
+      "targetQuery": "how to add AI to existing business tools"
+    },
+    {
       "date": "2026-09-14",
       "type": "insight",
       "slug": "ai-training-vs-ai-consulting",
@@ -1240,6 +1246,24 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-training-vs-ai-consulting.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-15",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "add-ai-to-existing-business-tools",
+      "critic": "branch preflight: session started on a detached HEAD at ea9b102, 10 commits ahead of local main (main was stale at d9ebff3 in this container image); captured the sha, checked out main, confirmed main was an ancestor of ea9b102 via merge-base --is-ancestor, fast-forwarded with --ff-only (no rewrite, no force-push), confirmed git symbolic-ref -q HEAD printed refs/heads/main; a fetch of origin/main immediately after showed origin was already at ea9b102 (the fetch itself moved the local origin/main ref from d9ebff3 to ea9b102), and git log origin/main..HEAD / HEAD..origin/main were both empty, confirming the 10 commits (including the 2026-09-12 and 2026-09-14 posts already in this ledger) were already live on origin and nothing was actually stranded, only the container's local checkout was stale, consistent with the same false-alarm pattern documented in the 2026-08-14 and 2026-09-14 entries; mode.mjs returned news-note (confirmed Tuesday); searched for genuine last-7-day AI news an SMB owner would act on against the 'does this change what to do or what it costs' test: Anthropic/OpenAI/Google industry-standards and AI-slowdown stories (Amodei/Altman/Hassabis, IPO plans, compute deals) are not SMB-actionable; Google Workspace's Sept 8 context-aware access controls for Gemini Enterprise and the custom-instructions rollout are enterprise-admin features with no real cost or action change for a small team; the Microsoft 365 Copilot CSP promo (15% off) requires 300-9,999 licenses, too large for our reader; a genuinely dated story existed (Anthropic replaced Claude Code's temporary 50% weekly-limit boost with a permanent 25% increase on Sept 14, a net 17% cut from Sept 13 levels, well corroborated across ~10 independent outlets including Bleeping Computer and Anthropic's own admitted follow-up quote) but the original Anthropic post was deleted mid-controversy, I could not verify a live, stable, resolvable Anthropic URL that actually documents the specific figures (support.claude.com and claude.com were EGRESS_BLOCKED so the Help Center usage-limits article's content could not be confirmed), and the audience (developers on Claude Code) is narrower than Traq's general SMB-owner reader, so I set it aside rather than cite a source I could not verify actually supports the claim; the Microsoft 365 Copilot Business add-on promo ($18 vs $21/user/month, up to 300 users) was directly verified via a live WebFetch of microsoft.com/en-us/microsoft-365-copilot/pricing, but the promotion itself has been running since July 1, 2026 (extended from an original June 30 deadline to Dec 31, 2026), so it is not something that changed in the last seven days, only something ongoing and worth knowing; per Step 3c ('if nothing genuinely qualifies this week, fall back to the next pipeline topic'), fell back to Step 3b: ran node scripts/seo/report.mjs daily, which returned tp-014 (cluster embedding-ai, working title 'How to embed AI without replacing the tools you already use', targetQuery 'how to add AI to existing business tools', 48 topics queued / 12 weeks runway, well above the 30-topic floor); sharpened the working title to 'How to add AI to the tools you already pay for' to fit the 60-char stripped-title cap while keeping the same targetQuery verbatim; wrote it using the two verifiable examples found during the news search: Microsoft 365 Copilot as a paid add-on to an existing eligible Business Standard/Premium plan (not a new product), $21/user/month standard with an $18/user/month promo through Dec 31 2026 for orgs up to 300 users, confirmed live via WebFetch of microsoft.com's own pricing page; and Gusto connecting its payroll/HR data directly into ChatGPT and Claude rather than building a separate AI product (Spring 2026 Showcase), corroborated across Gusto's own company-news page, CPA Practice Advisor and PR Newswire (all EGRESS_BLOCKED for direct fetch but consistent across independent secondary coverage, so cited via Gusto's own announcement URL); used the schema's `sources` field rather than a `stat`, since neither claim is a headline number and a widely-repeated '45% of SMB AI usage is via embedded features' figure found in several SEO-aggregator statistics roundups had no traceable primary source, so it was not used, per the no-fabrication rule; no other numbers invented; no em-dashes (checked programmatically via grep, none found); title 64 chars raw / 46 stripped, metaDescription 151 chars, intro 57 words and stands alone as a direct answer to the target query; four body sections each phrased as a real question or scannable statement, matching the style of existing published notes; three FAQs; no diagram (this is a 'check three places' audit, not an ordered sequence or a before/after with real figures); no image (the post names specific products, which is the documented case for skipping openly-licensed stock); related links verified to exist (/insights/how-to-get-value-from-ai-tools-you-already-pay-for, /services/ai-implementation, /field-notes/what-to-automate-first-in-a-small-business); not a repeat of any ledger slug or targetQuery; validated against the live fieldNoteSchema (Zod) via npx tsx after npm ci (node_modules was not present at session start); result VALID; scripts/seo/topic-pipeline.json updated: tp-014 set to published with publishedAs /field-notes/add-ai-to-existing-business-tools, staged before running publish.mjs so it lands in the same commit as the content files"
+    },
+    {
+      "date": "2026-09-15",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-15-add-ai-to-existing-business-tools.json"
       ],
       "build": "passed"
     }
