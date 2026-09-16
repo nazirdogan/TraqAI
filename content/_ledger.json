@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-16",
+      "type": "field-note",
+      "slug": "best-first-ai-use-cases-for-small-business",
+      "targetQuery": "best first AI use cases for small business"
+    },
+    {
       "date": "2026-09-15",
       "type": "field-note",
       "slug": "add-ai-to-existing-business-tools",
@@ -1264,6 +1270,25 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-15-add-ai-to-existing-business-tools.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-16",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "best-first-ai-use-cases-for-small-business",
+      "targetQuery": "best first AI use cases for small business",
+      "critic": "branch preflight: session started on a detached HEAD at a commit that turned out to already be origin/main's tip (no commits stranded this time; checked out main and fast-forwarded to confirm); kill switch checked, not paused; mode.mjs returned daily-note; report.mjs daily gave topic tp-015 'The first three places AI usually pays off in a small business' (targetQuery 'best first AI use cases for small business'), pipeline has 47 topics queued (11.8 weeks runway), healthy, no refill needed (that step is Monday-only regardless); checked ledger for repeats, this is adjacent to but distinct from 'how-to-choose-ai-use-cases' (a selection framework) and 'where-small-teams-should-start-with-ai' (start narrow on 2-3 tasks): this note instead names the three concrete functional categories where ROI shows up first (customer communication, repetitive drafting/admin, finding information already in your own documents), a different angle, not a paraphrase; researched via WebSearch (McKinsey state-of-AI coverage, Microsoft Work Trend Index 2026, small-business AI adoption surveys); found several precise-sounding stats from low-quality SEO/aggregator sites (capsulecrm, stealthagents, omago, thecrunch, korevin, deantek, thestacc, mavenagi) that could not be traced to a real primary source, so none of those numbers were used, per the no-fabrication rule; the one stat used is grounded in NBER Working Paper 31161 'Generative AI at Work' (Brynjolfsson, Li, Raymond), which found a 14% average productivity increase (issues resolved per hour) for customer support agents given a generative AI assistant, with the largest gains for newer/less experienced agents; this exact figure and framing is independently corroborated across multiple secondary listings (ITIF, Stanford GSB, ResearchGate, Policy Commons, SSRN, IDEAS/RePEc) that all describe the same paper; direct WebFetch of nber.org, papers.ssrn.com and itif.org all returned EGRESS_BLOCKED this run, so per instructions this was not retried or mirror-hunted, the citation URL (nber.org/papers/w31161) is still real and resolvable to a reader even though this environment's proxy blocks Claude's own fetch of it; no diagram attached, since this note ranks three categories by ROI rather than describing a sequence (flow requires 'first this, then that') or a before/after contrast, forcing either would invent structure the content does not have; ran fetch-image.mjs, Openverse search returned HTTP 403, exit code 2, published without an image per the documented normal outcome; no em-dashes (checked programmatically); title 44 chars stripped (limit 60), metaDescription 156 chars (limit 165), intro is 55 words and stands alone as a definition-first answer to the target query; five body sections, each with a scan-shaped heading; three FAQs; validated against the live fieldNoteSchema (Zod) via npx tsx, result VALID; related links verified to exist on disk: /insights/how-to-measure-ai-roi-for-small-business, /services/ai-implementation, /field-notes/how-to-choose-ai-use-cases, /field-notes/where-small-teams-should-start-with-ai; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated, tp-015 set to status published with publishedAs /field-notes/best-first-ai-use-cases-for-small-business, staged before running publish.mjs so it lands in the same commit as the content files"
+    },
+    {
+      "date": "2026-09-16",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-16-best-first-ai-use-cases-for-small-business.json"
       ],
       "build": "passed"
     }
