@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-17",
+      "type": "field-note",
+      "slug": "how-to-enforce-an-ai-usage-policy-for-employees",
+      "targetQuery": "AI usage policy for employees"
+    },
+    {
       "date": "2026-09-16",
       "type": "field-note",
       "slug": "best-first-ai-use-cases-for-small-business",
@@ -1289,6 +1295,25 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-16-best-first-ai-use-cases-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-17",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "how-to-enforce-an-ai-usage-policy-for-employees",
+      "targetQuery": "AI usage policy for employees",
+      "critic": "branch preflight: session started on a detached HEAD at 412d27c, which turned out to already be origin/main's tip (git status showed nothing to commit, working tree clean); checked out main, confirmed main was an ancestor of the detached sha via merge-base --is-ancestor, ran merge --ff-only which reported already up to date (no commits actually stranded this run, only the local checkout was detached), confirmed git symbolic-ref -q HEAD printed refs/heads/main before continuing; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset, not paused; mode.mjs returned daily-note; report.mjs daily gave topic tp-016 (cluster embedding-ai, working title 'How to write an internal rule for what AI is allowed to touch', targetQuery 'AI usage policy for employees'), pipeline has 46 topics queued (11.5 weeks runway), healthy, no refill needed (Monday-only step regardless); this targetQuery sits close to the existing insight ai-acceptable-use-policy-for-small-business (targetQuery 'how to write an AI acceptable use policy for a small business'), so treated Step 5's repeat check as a real gate rather than a formality: that guide covers what the policy document should say (approved tools, off-limits data categories, review cadence, ownership); this note instead answers a narrower, more current question the guide does not cover at all, how to make the 'what AI is allowed to touch' line enforceable via the admin controls the major AI tools now ship, rather than trusting employees to remember a written rule; researched current admin/data-access controls via WebSearch: ChatGPT Enterprise connectors off-by-default with per-connector admin enablement in the Apps tab (OpenAI's own admin help article), Microsoft Purview DLP for Microsoft 365 Copilot blocking prompt processing outright when a sensitive information type is detected (Microsoft Learn), Google Workspace DLP for Gemini plus Drive information rights management preventing Gemini from retrieving protected files (Google Workspace admin help center), and Claude for Enterprise custom roles restricting which connectors and individual tools a team may use (Anthropic's own support documentation); attempted direct WebFetch verification on knowledge.workspace.google.com, support.claude.com and learn.microsoft.com, all three returned EGRESS_BLOCKED, so per instructions these were not retried or mirror-hunted, facts rest on the WebSearch engine's own summarized results from each vendor's real documentation URL, consistent with the established pattern for domains this proxy blocks; no numbers invented, used the schema's `sources` field rather than a `stat` since none of the four vendor facts is a headline figure, all four cite the vendor's own documentation page directly; a flow diagram was attached (open the admin console, list active connectors, turn off unapproved ones, turn on DLP or IRM) since this is a genuine ordered sequence argued directly in the 'what should you check first this week' section, not invented to fill the slot; no image, this note names specific enterprise products and their admin settings, which is the documented case for skipping openly-licensed stock; no em-dashes (checked programmatically via grep, none found); title 47 chars (limit 60), metaDescription 150 chars (limit 165), intro is 53 words and stands alone as a direct answer to the target query; four body sections each phrased as a real question; three FAQs; validated against the live fieldNoteSchema (Zod) via npx tsx after npm install (node_modules was not present at session start), result VALID; related links verified to exist on disk: /insights/ai-acceptable-use-policy-for-small-business, /services/ai-implementation, /field-notes/questions-to-ask-before-buying-an-ai-tool; not a repeat of any ledger slug or targetQuery; scripts/seo/topic-pipeline.json updated, tp-016 set to status published with publishedAs /field-notes/how-to-enforce-an-ai-usage-policy-for-employees, staged before running publish.mjs so it lands in the same commit as the content files"
+    },
+    {
+      "date": "2026-09-17",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-17-how-to-enforce-an-ai-usage-policy-for-employees.json"
       ],
       "build": "passed"
     }

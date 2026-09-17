@@ -1,0 +1,97 @@
+{
+  "slug": "how-to-enforce-an-ai-usage-policy-for-employees",
+  "title": "How to enforce an AI usage policy for employees",
+  "h1": "How to enforce an AI usage policy for employees",
+  "metaDescription": "Writing an AI usage policy is not enough. ChatGPT, Copilot, Gemini and Claude all have admin settings that enforce what data and systems AI can touch.",
+  "targetQuery": "AI usage policy for employees",
+  "tags": ["adoption", "tools", "making-it-stick"],
+  "datePublished": "2026-09-17",
+  "dateModified": "2026-09-17",
+  "author": "Nazir Dogan",
+  "dek": "A written rule is not a control. Here is how to make the line on what AI can touch hold, using settings you already have.",
+  "intro": "An AI usage policy for employees only works if it is enforced, not just written down. ChatGPT Enterprise, Microsoft 365 Copilot, Google Workspace Gemini and Claude for Enterprise all now ship admin settings that block AI from touching specific data or systems, turning a policy line into a setting nobody can accidentally ignore.",
+  "body": [
+    {
+      "heading": "What does \"what AI is allowed to touch\" actually mean?",
+      "paragraphs": [
+        "An AI acceptable use policy usually lists its rules in prose: which tools are approved, what data is off limits, when a human checks the output before it goes out. The one line that matters most in daily practice is narrower than the whole document: what data categories and what connected systems AI is allowed to touch at all. That single boundary, drawn clearly, does more to prevent an actual leak than the rest of the policy combined, because it is the line an employee crosses without meaning to, usually by connecting a tool to Drive or Slack and letting it read everything shared with them rather than the one folder the task needed."
+      ]
+    },
+    {
+      "heading": "Why a written rule is not enough on its own",
+      "paragraphs": [
+        "A policy that says AI must not touch client financial records is a sentence, not a control. It relies on every employee remembering it, every time, across every tool they use. The tools themselves have caught up to this problem faster than most policies have. ChatGPT Enterprise, Microsoft 365 Copilot, Google Workspace Gemini and Claude for Enterprise each now ship admin settings that enforce a version of that same rule automatically, so the boundary holds even when nobody in the room is thinking about it."
+      ]
+    },
+    {
+      "heading": "Which admin settings actually enforce the rule, tool by tool?",
+      "paragraphs": [
+        "In ChatGPT Enterprise, connectors to services like Google Drive, SharePoint and Salesforce are switched off by default, and an admin has to deliberately turn on each one from the workspace Apps settings, according to OpenAI's own admin documentation. In Microsoft 365, Purview's data loss prevention policies for Copilot can block a prompt from being processed at all when it contains a sensitive information type such as a card number or national ID, per Microsoft's Purview documentation. In Google Workspace, DLP for Gemini and Drive's information rights management settings can stop Gemini from retrieving specific protected files even when they are shared with the person asking, according to Google's Workspace admin help center. On Claude for Enterprise, custom roles set exactly which connectors, and which individual tools on those connectors, a given team is allowed to use at all, per Anthropic's support documentation."
+      ]
+    },
+    {
+      "heading": "What should you check first this week?",
+      "paragraphs": [
+        "Open the admin console for whichever AI tool your team actually uses most, since that is where the real exposure already sits. List every connector or integration that is currently switched on, turn off anything nobody remembers approving, and turn on the data loss prevention or information rights management setting for your most sensitive data category, even if it only covers one system to start. That one setting change enforces more of the policy than another round of reminder emails ever will."
+      ]
+    }
+  ],
+  "takeaway": "This week, open the admin console for your main AI tool, check which connectors are switched on, and turn off any you did not deliberately approve.",
+  "sources": [
+    {
+      "label": "OpenAI, Admin controls, security, and compliance for plugins and apps",
+      "url": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-in-apps-enterprise-edu-and-business"
+    },
+    {
+      "label": "Microsoft Learn, Purview DLP for Microsoft 365 Copilot and Copilot Chat",
+      "url": "https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about"
+    },
+    {
+      "label": "Google Workspace Help, About DLP for Gemini",
+      "url": "https://knowledge.workspace.google.com/admin/security/about-dlp-for-gemini"
+    },
+    {
+      "label": "Claude Help Center, Manage custom roles on Enterprise plans",
+      "url": "https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "Turning the policy into a setting, in four steps",
+    "steps": [
+      { "label": "Open the admin console", "detail": "For the AI tool your team uses most" },
+      { "label": "List active connectors", "detail": "Every integration currently switched on" },
+      { "label": "Turn off unapproved ones", "detail": "If nobody remembers approving it" },
+      { "label": "Turn on DLP or IRM", "detail": "For your most sensitive data category" }
+    ],
+    "caption": "One setting change enforces more of the policy than another reminder email ever will."
+  },
+  "related": [
+    {
+      "label": "How to write an AI use policy for a small business",
+      "href": "/insights/ai-acceptable-use-policy-for-small-business"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "Questions to ask before buying an AI tool",
+      "href": "/field-notes/questions-to-ask-before-buying-an-ai-tool"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do we still need a written AI usage policy if the tool has these settings?",
+      "a": "Yes. The settings enforce the boundary technically, but employees still need to know what the boundary is and why, especially for anything the tool cannot block on its own, like typing sensitive details straight into a chat. Keep the written policy short and use the admin settings to back it up, not replace it."
+    },
+    {
+      "q": "Which AI tool should we lock down first?",
+      "a": "Whichever one your team already uses the most, since that is where the real data exposure already exists. Check its connector or app settings before adding any new tool, rather than securing a tool nobody is using yet."
+    },
+    {
+      "q": "Can these admin settings stop someone from typing sensitive data straight into a chat box?",
+      "a": "Only partly. Microsoft's Purview DLP for Copilot can block a prompt outright when it detects a sensitive information type like a card number, but most connector and access controls govern what AI can read from your systems, not what a person manually pastes in. That gap is exactly what the written policy still needs to cover."
+    }
+  ]
+}
