@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-18",
+      "type": "field-note",
+      "slug": "claude-for-small-business-new-integrations-2026",
+      "targetQuery": "what's new in Claude for Small Business"
+    },
+    {
       "date": "2026-09-17",
       "type": "field-note",
       "slug": "how-to-enforce-an-ai-usage-policy-for-employees",
@@ -1314,6 +1320,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-17-how-to-enforce-an-ai-usage-policy-for-employees.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-18",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-18-claude-for-small-business-new-integrations-2026.json"
       ],
       "build": "passed"
     }

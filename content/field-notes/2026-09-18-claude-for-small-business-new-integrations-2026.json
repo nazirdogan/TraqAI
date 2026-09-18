@@ -1,0 +1,92 @@
+{
+  "slug": "claude-for-small-business-new-integrations-2026",
+  "title": "What's new in Claude for Small Business (September 2026)",
+  "h1": "What's new in Claude for Small Business (September 2026)",
+  "metaDescription": "On September 15, 2026, Anthropic added 43 workflows and 27 integrations to Claude for Small Business, plus free training through November. Here is what changed.",
+  "targetQuery": "what's new in Claude for Small Business",
+  "tags": ["news", "tools", "adoption"],
+  "datePublished": "2026-09-18",
+  "dateModified": "2026-09-18",
+  "author": "Nazir Dogan",
+  "dek": "Anthropic just connected Claude to the tools small businesses already run on. Here is what the update actually does and how to try it without risk.",
+  "intro": "On September 15, 2026, Anthropic added 43 workflows and 27 integrations to Claude for Small Business, connecting it to tools owners already use: Xero, Gusto, Stripe, Square, Shopify and Zapier among them. Every workflow runs in approval mode by default, so Claude stages the work and waits for approval before anything sends, posts or pays.",
+  "body": [
+    {
+      "heading": "What did Anthropic actually add, and when?",
+      "paragraphs": [
+        "On September 15, 2026, Anthropic announced that Claude for Small Business now includes 43 workflows and 27 integrations with tools small businesses already run on, among them Shopify, Salesforce, TikTok, Atlassian, Zoom, Xero, Gusto, Square, Stripe and Zapier, according to Anthropic's own announcement. The product runs inside Claude Cowork, the desktop app, and has been installed more than 900,000 times since it first launched in May 2026. Nothing about this changes the plan's price: it is a free addition to the product an owner is already paying for, not a new paid tier."
+      ]
+    },
+    {
+      "heading": "What can the new workflows actually automate?",
+      "paragraphs": [
+        "The new workflows extend Claude from back-office tasks into things that touch revenue: a weekly financial brief pulled from the accounting tool already connected, lead qualification from inbound enquiries, first-draft proposals, social content, and bookkeeping reconciliation are among the examples Anthropic names. Once a tool is connected, a workflow can be set to run on a schedule rather than started by hand each time, which is the part that turns a one-off chat into something closer to a standing process."
+      ]
+    },
+    {
+      "heading": "Why does the approval-based control matter here?",
+      "paragraphs": [
+        "Every workflow starts in approval mode by default: Claude drafts and stages the work, then waits for the owner to approve it before anything actually sends, posts or pays. That single default is the difference between a genuinely useful automation and the kind that quietly does something wrong while nobody is watching. It is also the detail worth checking first if a team turns one of these on: confirm approval mode is still active before trusting a workflow with anything that touches money or a customer, and only relax it once the workflow has proven itself over real runs."
+      ]
+    },
+    {
+      "heading": "How does a small business actually get started, and what should it do first?",
+      "paragraphs": [
+        "Inside Claude Cowork, an owner installs the Small Business plugin, connects the tools already in use, and picks one task to automate rather than several at once. Anthropic is also running free training through the rest of the year: a partner webinar series runs from September 25 through November 17, 2026, with 14 technology partners including Xero, Gusto, Zapier, HubSpot and Atlassian each hosting a live session on their own connector. Separately, the Claude SMB Tour returns for fall 2026 with partner Tenex, running free half-day workshops in ten US cities including Boston, Detroit, Phoenix and Tampa, alongside more than 150 organizations now trained as Approved Claude SMB Trainers running workshops of their own. A 20-person company already on the plan loses nothing by connecting one already-paid tool and testing a single low-stakes workflow, like a weekly financial brief, before deciding whether to turn on more."
+      ]
+    }
+  ],
+  "takeaway": "If your team already pays for Claude for Small Business, connect one tool you already use, like Xero or Stripe, and turn on a single workflow in approval mode before adding more.",
+  "stat": {
+    "claim": "Claude for Small Business installs since its May 2026 launch",
+    "value": "900,000+",
+    "source": "Anthropic / Claude blog",
+    "url": "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "Claude by Anthropic, Claude for Small Business launches new workflows, integrations, and training programs",
+      "url": "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "Trying the update without risk, in four steps",
+    "steps": [
+      { "label": "Install the plugin", "detail": "Inside the Claude Cowork desktop app" },
+      { "label": "Connect one tool", "detail": "A tool you already pay for, like Xero" },
+      { "label": "Pick a single task", "detail": "One workflow, not several at once" },
+      { "label": "Leave approval mode on", "detail": "Until the workflow proves itself" }
+    ],
+    "caption": "The default is safe by design. The mistake is turning off approval before a workflow has earned it."
+  },
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "What is Claude for Small Business",
+      "href": "/field-notes/claude-for-small-business-explained"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does this update cost extra on top of Claude for Small Business?",
+      "a": "No. The new workflows and integrations are additions to the existing Claude for Small Business plugin inside Claude Cowork, not a separate paid tier. Connecting a tool already paid for, like Xero or Stripe, adds no new subscription cost."
+    },
+    {
+      "q": "Can these workflows send emails or make payments without a person checking first?",
+      "a": "Not by default. Every workflow starts in approval mode, so Claude drafts and stages the work and waits for a human to approve it before anything sends, posts or pays. An owner can change that setting, but the default is built to require a check first."
+    },
+    {
+      "q": "Is the free training only available in person?",
+      "a": "No. Alongside the in-person Claude SMB Tour, a partner webinar series runs online from September 25 through November 17, 2026, and more than 150 Approved Claude SMB Trainers are also running workshops in their own communities."
+    }
+  ]
+}
