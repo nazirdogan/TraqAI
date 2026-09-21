@@ -1,0 +1,96 @@
+{
+  "slug": "ai-course-dubai-for-companies",
+  "title": "What a Real AI Course for Companies in Dubai Looks Like | Traq Collective",
+  "metaDescription": "What a real AI course for a Dubai company covers: named modules, a fixed duration, real tools, and a stated outcome, not just a certificate.",
+  "targetQuery": "AI course Dubai for companies",
+  "h1": "What a Real AI Course for Companies in Dubai Looks Like",
+  "datePublished": "2026-09-21",
+  "dateModified": "2026-09-21",
+  "author": "Nazir Dogan",
+  "intro": "A good AI course for a company in Dubai looks like training, not a lecture: named modules mapped to real roles, a fixed format and duration, and a stated outcome your team leaves with. It should teach the tools you already pay for, not a generic curriculum, and include follow-up so the habit survives the first month.",
+  "bodySections": [
+    {
+      "h2": "What should an AI course for a Dubai company actually cover?",
+      "body": "Most training pages that rank for this search read like a syllabus: named modules, a level, an audience and a stated outcome, because that is the shape a UAE buyer is used to comparing providers against. Look for the same structure in a company AI course rather than a single generic session. It should split by who is in the room: a short session for leadership on what AI actually changes for the business, a core track for the people doing the daily work on the tool they already hold a licence for, and an advanced track for whoever owns a process end to end. A course written to one script for every attendee is the version that produces polite feedback and no change in how anyone actually works on Monday morning.",
+      "points": [
+        "Leadership: what AI changes for the business, which use cases to fund first, the rules everyone else follows",
+        "Core: the tool your team already has a licence for, rebuilt around the tasks they do every week",
+        "Advanced: process owners building one real agent or automation live, not watching a demo of someone else's"
+      ]
+    },
+    {
+      "h2": "How long should a real AI course for companies run?",
+      "body": "A named module needs a named length too, and 'a few hours' rarely tells you much on its own. Research on hands-on AI practice puts more than five hours as the tipping point for regular use, so a course that stops short of that is starting a habit it does not finish. Compare providers on format rather than a single number: an exec taster runs around ninety minutes and suits aligning leadership before anyone commits budget, a workshop is half a day for one team on one tool, a deep dive is a full day rebuilding real work rather than watching a demo, and a programme runs four to six weeks for a whole-company rollout delivered track by track. Pick by what happens after the session, not the hours inside it: a course with no follow-up date already told you how long the habit will last."
+    },
+    {
+      "h2": "Which AI tools should the course actually train on?",
+      "body": "Demand in the UAE's AI jobs market is skewed toward people who apply commercially available AI tools to their own work, not toward people who build AI systems from scratch, and that gap is exactly what a company course should close. Train on what the team already pays for: Claude, ChatGPT, Microsoft 365 Copilot or Gemini, depending which licence sits on their desks, rather than adding a new subscription on top. A course that teaches a tool nobody in the room has access to produces enthusiasm in the workshop and nothing the following week. In sectors where AI skills already command a real wage premium in the UAE market, that premium sits with people who can apply the tool to a specific job, not with a certificate naming the tool."
+    },
+    {
+      "h2": "What should your team have in hand once the course ends?",
+      "body": "Not a certificate. A working setup: a shared Project or prompt library built on the business's own context, two or three recurring tasks rebuilt and timed during the session, and for leadership specifically, a ranked use-case shortlist, a draft acceptable-use policy, and a plan with owners and dates rather than a slide of good intentions. The part most courses skip is what happens afterward: a recap pack sent out the same week, a named internal champion briefed to answer the questions that come up once everyone is back at their desk, and a short return session a few weeks later, once the real friction has actually surfaced. A course that ends when the room empties was never going to hold."
+    },
+    {
+      "h2": "Is a structured AI course worth it, or is a certificate enough?",
+      "body": "A meaningful share of employees still get no structured AI training at all, and are left to pick up tools by trial and error on top of their existing workload. A certificate alone does not close that gap: it proves attendance, not that anyone can now do the job faster. What closes it is the structure described above, applied to the specific tool and the specific team, with a real check a month later on whether people are still using it. If a provider cannot describe what happens after the workshop before you sign, that is the question to ask before comparing anyone's price."
+    }
+  ],
+  "tables": [
+    {
+      "heading": "Six tracks, not one generic session",
+      "intro": "What a structured AI course for a company actually looks like, split by who is in the room.",
+      "caption": "Named modules, a level, an audience and a stated outcome for each track, the same shape the winning pages in this search publish.",
+      "columns": ["Track", "Best for", "Format", "What you leave with"],
+      "rows": [
+        ["AI Strategy & Governance", "Founders, C-suite, department heads", "90-minute taster, or half day", "A ranked use-case shortlist, a draft acceptable-use policy, a 12-month roadmap"],
+        ["Claude for Business", "Anyone whose week is documents, analysis or writing", "Half day, or full day on your own files", "A shared Project, a starter prompt library, two or three tasks rebuilt"],
+        ["ChatGPT for Business", "Whole teams, especially sales, marketing and admin", "Half day, or full day on your own work", "Custom instructions, a team Project, a custom GPT built live"],
+        ["Microsoft 365 Copilot", "Teams already licensed for Microsoft 365", "Half day", "Copilot working on a real inbox, real documents, real spreadsheets"],
+        ["Gemini & Google Workspace", "Teams running on Google Workspace", "Half day", "Gemini in daily docs and inboxes, a NotebookLM notebook on internal material"],
+        ["AI Agents & Automation", "Ops leads who own a process end to end", "Full day, or a 4-week build programme", "One live agent on a real process, a map of the next three worth building"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "AI skills already command a real wage premium in parts of the UAE market, with financial services professionals earning up to this much more, evidence that the value sits with applying a tool to a specific job rather than holding a certificate naming it.",
+      "value": "92%",
+      "source": "PwC, 2026 Global AI Jobs Barometer (UAE analysis)",
+      "url": "https://www.pwc.com/m1/en/publications/ai-jobs-barometer-uae-2026.html",
+      "year": "2026"
+    },
+    {
+      "claim": "This many hours of hands-on practice is the tipping point for regular AI use, the evidence behind treating a single short session as a starting point rather than a finished course.",
+      "value": "5+ hours",
+      "source": "BCG, AI at Work: Momentum Builds, but Gaps Remain",
+      "url": "https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain",
+      "year": "2025"
+    },
+    {
+      "claim": "This share of employees have received no AI training of any kind, the gap a structured course is meant to close rather than a certificate that only proves attendance.",
+      "value": "35%",
+      "source": "Study.com, State of AI Jobs and Skills",
+      "url": "https://study.com/resources/state-of-ai-jobs-and-skills.html",
+      "year": "2026"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is an 'AI course' different from AI training?",
+      "a": "Not in substance. In the UAE, people often search for 'AI course' instead of 'AI training' for the same thing: they want to see it structured like one before they buy. What actually helps a team is the same either way: named modules by role, a fixed format, and a stated outcome, not a label on an otherwise generic session."
+    },
+    {
+      "q": "How much does an AI course for a company cost in Dubai?",
+      "a": "It depends on team size, how many tracks you cover, and whether delivery is in person or remote, so treat a single flat number with suspicion until a provider has seen your brief. Our separate guide on AI training costs in the UAE sets out the market's actual price bands and what drives them."
+    },
+    {
+      "q": "Does the course end with a certificate?",
+      "a": "Not the kind that matters to a hiring manager. Each track ends with a named deliverable instead: a working Project or prompt library, a ranked use-case shortlist, an acceptable-use policy draft, or a live agent, depending on the track. If a credential matters for procurement or CV purposes, ask a provider upfront rather than assuming one is included."
+    }
+  ],
+  "related": [
+    { "label": "AI training for teams in the UAE", "href": "/insights/ai-training-for-teams-uae" },
+    { "label": "Corporate AI training cost in the UAE", "href": "/insights/corporate-ai-training-cost-uae" },
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" }
+  ]
+}

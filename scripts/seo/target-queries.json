@@ -347,15 +347,22 @@
       "intent": "commercial",
       "priority": 2,
       "pageType": "landing",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-course-dubai-for-companies",
       "note": "In the UAE 'AI course' outdraws 'AI training'; worldwide it is the reverse. The local market searches in the language of structured, credentialed learning, which is exactly why the training institutes win these SERPs. Traq publishes nothing shaped like a course: no named modules, no duration, no outcome list. This is a packaging gap, not a capability gap.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-09-21",
+        "engine": "Google (via WebSearch)",
         "traqPosition": null,
-        "winners": [],
-        "observation": null
+        "winners": [
+          "bayut.com",
+          "meirc.com",
+          "zabeelinstitute.ae",
+          "oxford-management.com",
+          "nlplimited.com",
+          "learnbay.co"
+        ],
+        "observation": "Confirmed the note: every ranking page is a training institute publishing a course catalogue shape (named modules, curriculum, certification, duration). Matched the format by publishing a six-track table (track, audience, format, named outcome) drawn from Traq's real /services/ai-training catalogue, rather than inventing a curriculum, and answered the implicit certificate question head on since Traq deliberately does not sell one."
       },
       "demand": {
         "source": "Google Trends, geo=AE, 12 months, 2026-08-26",
