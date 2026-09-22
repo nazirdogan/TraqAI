@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-22",
+      "type": "field-note",
+      "slug": "notion-skills-for-small-business",
+      "targetQuery": "what is Notion Skills and how can a small business use it"
+    },
+    {
       "date": "2026-09-21",
       "type": "insight",
       "slug": "ai-course-dubai-for-companies",
@@ -1346,6 +1352,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-course-dubai-for-companies.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-22",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-22-notion-skills-for-small-business.json"
       ],
       "build": "passed"
     }

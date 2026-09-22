@@ -1,0 +1,79 @@
+{
+  "slug": "notion-skills-for-small-business",
+  "title": "What Notion Skills Is and How Small Teams Should Use It",
+  "h1": "What Notion Skills Is and How Small Teams Should Use It",
+  "metaDescription": "On September 15, 2026, Notion launched Skills: a shared library of reusable AI instructions. Here is what it does and how a small team should start using it.",
+  "targetQuery": "what is Notion Skills and how can a small business use it",
+  "tags": ["news", "tools", "making-it-stick"],
+  "datePublished": "2026-09-22",
+  "dateModified": "2026-09-22",
+  "author": "Nazir Dogan",
+  "dek": "Notion just gave teams a place to save how they want AI to do a task, once, so nobody has to re-explain it every time. Here is what changed and where to start.",
+  "intro": "On September 15, 2026, Notion released Skills, part of Notion 3.7: a shared library of reusable AI instructions living in your workspace like any other page. Instead of re-explaining a task to Notion AI from scratch every time, a Skill saves the format once, and the AI applies it automatically the next time someone asks for that kind of work.",
+  "body": [
+    {
+      "heading": "What did Notion actually launch, and when?",
+      "paragraphs": [
+        "Notion shipped Skills on September 15, 2026 as the headline feature of its Notion 3.7 release, described in the company's own release notes as \"agent skills for your whole team\". A Skill is a Notion page, or a folder of pages and supporting files, that teaches Notion AI how your team wants a specific task done: the format of a monthly business review, the checklist a document should pass before it ships, the tone a client email should use. Skills live in a database like any other Notion content, so they can be organized, shared, and kept up to date the same way a team already manages its other pages.",
+        "The feature sits on top of Notion's existing custom AI instructions, which the company had already extended once this year in a March 2026 release. Skills is the collaborative version of that idea: instead of one person's private instructions, a workspace gets a shared library that every connected agent can draw on, including Notion's own AI and, through a companion Skills API, outside agent tools that add support for reading skills stored in Notion."
+      ]
+    },
+    {
+      "heading": "How is a Skill actually different from just writing a good prompt?",
+      "paragraphs": [
+        "A prompt is written fresh each time and lives in whatever chat window it was typed into, which means it gets lost, forgotten, or quietly rewritten a slightly different way by every person who needs it. A Skill is saved once, as a page the whole team can find and edit, and Notion AI is built to recognize when a request matches a saved Skill and pull in its instructions automatically rather than waiting to be told. That is the practical difference: a prompt is something a person has to remember to bring; a Skill is something the AI already has on file."
+      ]
+    },
+    {
+      "heading": "Why does this matter for a small or mid-sized team specifically?",
+      "paragraphs": [
+        "This addresses a problem that shows up constantly in AI training: a team learns a good way to use AI for a task in a workshop, and within a few weeks everyone has drifted back to typing something slightly different, or slightly worse, into the chat box each time. A shared Skill turns the one good version of an instruction into the default version, so a new hire or a distracted teammate gets the same quality of output as the person who wrote the Skill in the first place. It moves consistency from something that depends on training sticking in someone's memory to something the tool itself enforces."
+      ]
+    },
+    {
+      "heading": "What does it cost, and how should a team actually start?",
+      "paragraphs": [
+        "Skills ships on Notion's Business and Enterprise plans; a workspace on the Free or Plus tier will not see the feature until it upgrades. It is included in that plan price, not a separate add-on. The way to start is not to build a library on day one: pick the single task your team repeats most in Notion, the one where the same three sentences of instructions get typed out again and again, write it as a normal Notion page once, and mark it as a Skill so the whole team can use it. Add a second Skill only once the first one is actually being used, rather than building a shelf of instructions nobody opens."
+      ]
+    }
+  ],
+  "takeaway": "Pick the one task your team retypes instructions for most often in Notion, write it up once as a Skill, and share it with the team before you write that prompt from scratch again.",
+  "sources": [
+    {
+      "label": "Notion, September 15, 2026 release notes: Notion 3.7, agent skills for your whole team",
+      "url": "https://www.notion.com/releases/2026-09-15"
+    },
+    {
+      "label": "Notion, A skills library for every agent",
+      "url": "https://www.notion.com/blog/a-skills-library-for-every-agent"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to make AI usage stick after training",
+      "href": "/field-notes/how-to-make-ai-usage-stick-after-training"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do we need to upgrade our Notion plan to use Skills?",
+      "a": "Yes, if you are not already on it. Skills ships on Notion's Business and Enterprise plans as of the September 15, 2026 release. Free and Plus workspaces do not currently have access to the feature."
+    },
+    {
+      "q": "Is a Notion Skill the same thing as a saved prompt?",
+      "a": "No. A saved prompt is text one person keeps and pastes in manually. A Skill is a shared Notion page the whole team can find and edit, and Notion AI is built to recognize a matching request and apply the Skill's instructions automatically."
+    },
+    {
+      "q": "Does turning on Skills cost extra on top of our Notion subscription?",
+      "a": "No. Skills is included in the Business and Enterprise plan price. There is no separate charge for creating or using Skills within your existing workspace."
+    }
+  ]
+}
