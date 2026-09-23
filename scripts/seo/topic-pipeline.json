@@ -166,8 +166,8 @@
       "workingTitle": "Who should own AI inside a 20-person company",
       "targetQuery": "who should own AI in a small company",
       "format": "opinion",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/who-should-own-ai-in-a-small-company"
     },
     {
       "id": "tp-018",
