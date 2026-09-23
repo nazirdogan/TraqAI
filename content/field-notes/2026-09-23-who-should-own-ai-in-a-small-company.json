@@ -1,0 +1,84 @@
+{
+  "slug": "who-should-own-ai-in-a-small-company",
+  "title": "Who should own AI in a small company? | Traq Collective",
+  "h1": "Who should own AI in a small company?",
+  "metaDescription": "One named person should own AI at a 20-person company, not a committee, not IT by default. What the job covers, how much time it takes, and when it changes.",
+  "targetQuery": "who should own AI in a small company",
+  "tags": [
+    "adoption",
+    "making-it-stick"
+  ],
+  "datePublished": "2026-09-23",
+  "dateModified": "2026-09-23",
+  "author": "Nazir Dogan",
+  "dek": "Not a committee. Not IT by default. One name, a real scope, and a few hours a week.",
+  "intro": "At a 20-person company, one named person should own AI: not a committee, not IT by default. They approve new tools, hold the budget line, keep the one-page usage policy current, and are the person a colleague asks before pasting client data into a new app. It is a scope, not a new title.",
+  "body": [
+    {
+      "heading": "Who should own AI at a 20-person company?",
+      "paragraphs": [
+        "Someone you can name in one sentence, doing a job that already exists. Usually that is an operations manager, an office manager, or a senior generalist, someone who already sees across every department rather than sitting inside one of them. The point of naming a single owner is not ceremony. It is that when a new tool shows up, or a client asks what data an AI product touches, there is one person who answers instead of three people assuming someone else has it covered."
+      ]
+    },
+    {
+      "heading": "Why IT is usually the wrong default owner",
+      "paragraphs": [
+        "Most companies default to IT because AI sounds technical, and that is the mistake. At this size, the decisions that matter are judgment calls: which task is worth automating, which tool earns trust, what counts as sensitive data. IT should absolutely control access, logins and security settings, but owning adoption is a different job from owning infrastructure. Handing the whole thing to IT usually means nobody outside that team ever hears about the policy, and the tools that actually get adopted are the ones the rest of the company chose on its own, unapproved."
+      ]
+    },
+    {
+      "heading": "What the job actually involves",
+      "paragraphs": [
+        "It is smaller than it sounds. The owner approves new tools before people start pasting company data into them, keeps a one-page usage policy current instead of a document written once and forgotten, tracks what is actually being used against what is being paid for, and is the first call when something goes wrong, a client asks a question, or a new hire needs to know what is and is not allowed. None of that requires writing a prompt library or running training sessions personally. It requires being reachable and consistent."
+      ]
+    },
+    {
+      "heading": "How much time should this take?",
+      "paragraphs": [
+        "Two to four hours a week, capped and defended. This is an addition to someone's existing job, not a new one, and the moment it grows past a half-day a week it starts crowding out the work that made them the right person for it in the first place. If the workload genuinely needs more than that on a sustained basis, that is real information: it means the company has outgrown a part-time owner, not that the current owner is failing."
+      ]
+    },
+    {
+      "heading": "When do you outgrow a part-time owner?",
+      "paragraphs": [
+        "Usually somewhere past thirty or forty people, or earlier if AI is now touching client delivery rather than internal drafting. The signal is not the org chart, it is whether tool requests are queuing up behind the owner's actual job, or whether decisions are being made without them because they cannot keep up. At that point the honest move is a fractional Head of AI who does the strategy and rollout work properly, rather than stretching an already-busy generalist thinner."
+      ]
+    }
+  ],
+  "takeaway": "This week, write one name next to the question 'who owns AI here', give them two to four hours a week to do it, and hand them final say on three things: which tools get approved, what data can go into them, and who gets trained first.",
+  "stat": {
+    "claim": "Most business executives lack confidence their company could pass an independent AI governance audit today, which is what happens by default when nobody is clearly accountable for oversight.",
+    "value": "78%",
+    "source": "Grant Thornton, 2026 AI Impact Survey",
+    "url": "https://www.grantthornton.com/services/advisory-services/artificial-intelligence/2026-ai-impact-survey",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "What a fractional Head of AI does, and when you need one",
+      "href": "/insights/what-a-fractional-head-of-ai-does"
+    },
+    {
+      "label": "AI consulting that ends in adoption",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Role-specific AI training vs generic workshops",
+      "href": "/field-notes/role-specific-ai-training-vs-generic-workshops"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does the AI owner need to be the most technical person on the team?",
+      "a": "No. The job is judgment and follow-through: approving tools, keeping the policy current, and knowing what people actually use, not writing code or managing servers. IT should be consulted on access and security, but the role suits an operations-minded generalist just as well as it suits anyone technical."
+    },
+    {
+      "q": "Should the founder just own it themselves?",
+      "a": "At five or six people, often yes, that is the fastest option. Past about fifteen, founder attention becomes the bottleneck and tool requests queue behind everything else on their plate. Naming someone else with a few protected hours a week and real authority moves faster than waiting on the founder."
+    },
+    {
+      "q": "What actually happens if nobody is named?",
+      "a": "Ownership defaults to whoever asks first, so tools get approved inconsistently, the usage policy never gets updated, and nobody can give a straight answer if a client or auditor asks who is accountable for how AI is used at the company."
+    }
+  ]
+}
