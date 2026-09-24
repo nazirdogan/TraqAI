@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-24",
+      "type": "field-note",
+      "slug": "how-to-run-a-two-week-ai-pilot",
+      "targetQuery": "how to run an AI pilot"
+    },
+    {
       "date": "2026-09-23",
       "type": "field-note",
       "slug": "who-should-own-ai-in-a-small-company",
@@ -1378,6 +1384,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-23-who-should-own-ai-in-a-small-company.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-24",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-24-how-to-run-a-two-week-ai-pilot.json"
       ],
       "build": "passed"
     }

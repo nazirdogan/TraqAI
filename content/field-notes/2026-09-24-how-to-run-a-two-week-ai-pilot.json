@@ -1,0 +1,94 @@
+{
+  "slug": "how-to-run-a-two-week-ai-pilot",
+  "title": "How to run a two-week AI pilot | Traq Collective",
+  "h1": "How to run a two-week AI pilot that actually proves something",
+  "metaDescription": "A two-week AI pilot works when it tests one task, has a named owner, a real baseline, and a fixed decision date. Here is how to structure it.",
+  "targetQuery": "how to run an AI pilot",
+  "tags": ["adoption", "making-it-stick"],
+  "datePublished": "2026-09-24",
+  "dateModified": "2026-09-24",
+  "author": "Nazir Dogan",
+  "dek": "Two weeks is enough time to prove something, if you measure a baseline first and fix a decision date before you start.",
+  "intro": "A good AI pilot tests one narrow task for a fixed two-week window, not the technology in general. Name an owner, measure how long the task actually takes before AI touches it, run for exactly fourteen days, then meet on day fourteen to decide: scale it, fix it, or kill it.",
+  "body": [
+    {
+      "heading": "What has to be true before day one?",
+      "paragraphs": [
+        "Pick a narrow task, not a department. A pilot that tries to test \"AI in customer service\" broadly takes weeks just to scope, and longer to read results from honestly. One task, one workflow, one small group running it, is what fits inside two weeks. If the task cannot be described in a single sentence, it is not narrow enough yet.",
+        "Name an owner who already does the work the pilot touches, not whoever is most excited about the tool. MIT's Project NANDA reviewed over 300 enterprise generative AI deployments in 2025 and found the pilots that produced measurable results were the ones built around a specific, narrow workflow, not a general-purpose tool rolled out broadly. An owner whose job the task already touches is what keeps that narrow focus intact once the novelty wears off."
+      ]
+    },
+    {
+      "heading": "How do you measure a baseline before AI touches anything?",
+      "paragraphs": [
+        "On day one, time the task the old way, before AI is involved at all. Write down how long it actually takes someone to draft the report, answer the ticket, or process the invoice today, and how many of the last twenty attempts needed rework. That number is the only thing that makes the day fourteen decision honest rather than a gut feeling.",
+        "Skipping the baseline is the most common shortcut, and it is the one that makes a pilot impossible to judge later. Without a real \"before\" number, \"this feels faster\" is the only verdict available, and that verdict is whatever the most enthusiastic person in the room happens to believe."
+      ]
+    },
+    {
+      "heading": "What actually happens during the two weeks?",
+      "paragraphs": [
+        "Days two through seven are for running the task and logging every output, the misses as well as the wins, not just whatever someone remembers to mention at the end. A short daily note, what was tried, what worked, what still needed a person to fix, beats a single recollection on the last Friday.",
+        "Days eight through thirteen are for fixing the process, not the prompts. When the AI keeps getting something wrong, the more common cause is inconsistent input, a template that varies from person to person, source documents in five different formats, than a badly worded prompt. Standardise the input before concluding the tool does not work."
+      ]
+    },
+    {
+      "heading": "What happens on day fourteen?",
+      "paragraphs": [
+        "Day fourteen is a meeting, not a vibe check. Put the baseline next to the pilot's actual numbers: time per task, error rate, how many people used it without being reminded. Decide, out loud, one of three things: scale it to the rest of the team, adjust the scope and run two more weeks, or stop.",
+        "Put that decision date on the calendar before the pilot starts, not after. A pilot with no fixed decision date does not fail loudly. It just keeps running quietly in the background until nobody remembers whose job it was, which is a slower and easier failure to miss than the tool simply not working."
+      ]
+    }
+  ],
+  "takeaway": "Before your next AI pilot starts, write down three things: the baseline number, the owner's name, and the day-fourteen decision date. All three, before anyone touches the tool.",
+  "stat": {
+    "claim": "A wide review of enterprise generative AI deployments found the large majority delivered no measurable financial return, and the pilots that did succeed were built around a narrow, specific workflow rather than a general-purpose rollout.",
+    "value": "95%",
+    "source": "MIT Project NANDA, The GenAI Divide: State of AI in Business 2025 (reported by Fortune)",
+    "url": "https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/",
+    "year": "2025"
+  },
+  "diagram": {
+    "type": "flow",
+    "title": "Running a two-week AI pilot",
+    "steps": [
+      { "label": "Day 1: set baseline", "detail": "Time the task before AI touches it" },
+      { "label": "Days 2-7: run and log", "detail": "Every output, not just the wins" },
+      { "label": "Days 8-13: fix inputs", "detail": "Standardise before blaming the prompt" },
+      { "label": "Day 14: decide out loud", "detail": "Scale, adjust, or stop, on the calendar" }
+    ],
+    "caption": "The two weeks test the process as much as the tool. A pilot with no decision date does not fail, it just fades."
+  },
+  "related": [
+    {
+      "label": "How to measure AI ROI for a small business",
+      "href": "/insights/how-to-measure-ai-roi-for-small-business"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "Why AI pilots fail after they already worked",
+      "href": "/field-notes/why-ai-pilots-fail"
+    },
+    {
+      "label": "How to choose AI use cases that actually work",
+      "href": "/field-notes/how-to-choose-ai-use-cases"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long should an AI pilot run before deciding whether to scale it?",
+      "a": "Two weeks is enough for a single, narrow task, as long as a real baseline was measured on day one and the decision date was fixed before the pilot started. A longer pilot without those two things does not get more accurate. It just takes longer to quietly stall."
+    },
+    {
+      "q": "What is the most common mistake in an AI pilot?",
+      "a": "Skipping the baseline measurement. Without knowing how long the task took before AI, there is no way on day fourteen to judge whether anything actually improved, only how people felt about using a new tool."
+    },
+    {
+      "q": "Should an AI pilot cover a whole department or one task?",
+      "a": "One task. MIT's 2025 review of enterprise AI deployments found the pilots that produced measurable results were built around a specific workflow, not a broad, general-purpose rollout. A whole-department pilot takes too long to scope and too long to read honest results from."
+    }
+  ]
+}
