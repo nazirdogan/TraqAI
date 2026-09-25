@@ -1,0 +1,78 @@
+{
+  "slug": "amazon-seller-assistant-claude-quick-2026",
+  "title": "Amazon lets sellers run Claude against Seller Central | Traq Collective",
+  "h1": "Amazon lets sellers run Claude against Seller Central now",
+  "metaDescription": "Amazon opened Seller Central to Claude and Quick on September 23, 2026, plus a free year of Quick Plus. Here is what that changes for a small seller.",
+  "targetQuery": "how to use Claude to manage an Amazon seller account",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-09-25",
+  "dateModified": "2026-09-25",
+  "author": "Nazir Dogan",
+  "dek": "A new plugin connects Amazon Seller Central to Claude or Amazon's own Quick assistant, and every primary account holder gets a free year of Quick Plus through the end of 2026.",
+  "intro": "On September 23, 2026, Amazon opened its Seller Central APIs to outside AI agents for the first time, launching a US beta plugin that lets a seller connect their listings, pricing, inventory and analytics to Anthropic's Claude or Amazon's own Quick assistant. Amazon is also giving every primary seller account a free year of Quick Plus, through December 31, 2026.",
+  "body": [
+    {
+      "heading": "What did Amazon actually launch on September 23?",
+      "paragraphs": [
+        "At Amazon Accelerate, its annual conference for third-party sellers, Amazon announced a Selling Partner plugin that connects Seller Central to outside AI tools instead of keeping that data locked inside Amazon's own dashboard. The plugin launched first with Amazon's own Quick assistant and in beta with Anthropic's Claude, connecting over OAuth so a seller does not hand over their password.",
+        "This matters because it is a reversal of how Amazon has treated seller data for years. Previously, checking a listing's performance or adjusting a price meant logging into Seller Central directly. Now that data and those actions can be reached from a chat tool a seller already has open."
+      ]
+    },
+    {
+      "heading": "What can a seller actually do with it?",
+      "paragraphs": [
+        "Through the plugin, Claude or Quick can pull a seller's inventory levels, sales analytics and performance metrics, and take actions back, adjusting prices, updating listings, managing stock, without the seller switching tabs into Seller Central. Amazon says the assistant runs routine tasks around the clock rather than only when someone is logged in.",
+        "That is the real shift for a small seller: checking whether a price is still competitive, or whether a bestseller is about to run out of stock, used to mean logging into a dashboard every morning. Now it can run as a standing instruction instead of a daily chore."
+      ]
+    },
+    {
+      "heading": "What is the free Quick Plus offer, and what's the catch?",
+      "paragraphs": [
+        "Every primary Seller Central account holder can claim a free 12-month subscription to Amazon Quick Plus, Amazon's paid AI assistant tier, and can pass the same free year to two co-workers. The offer has to be claimed by December 31, 2026, so it is a real deadline, not an evergreen perk.",
+        "The catch is availability, not price. The plugin is US-only in beta for now, with international expansion promised but not dated, so a seller outside the US can claim the free Quick Plus seat but cannot yet connect it to Seller Central through this plugin."
+      ]
+    },
+    {
+      "heading": "Should a small Amazon seller turn this on right away?",
+      "paragraphs": [
+        "Claim the free Quick Plus seats before December 31, 2026 regardless. It costs nothing to hold the seat even before deciding how to use it, and the deadline is firm.",
+        "Connecting Claude or Quick to live pricing and inventory is a different decision. Start it on one product line, not the whole catalog, and check its price and stock changes daily for the first two weeks before trusting it unattended. An assistant that can change a live price while you sleep is worth testing on something you can afford to get briefly wrong."
+      ]
+    }
+  ],
+  "takeaway": "If you sell on Amazon, claim your free year of Quick Plus before December 31, 2026, then connect it to one product line first, not your whole catalog, and watch it for two weeks before trusting it unattended.",
+  "sources": [
+    {
+      "label": "Amazon, \"Amazon gives sellers an even smarter Seller Assistant and a new plugin for Amazon Quick and Anthropic's Claude\"",
+      "url": "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Agentic AI",
+      "href": "/services/agentic-ai"
+    },
+    {
+      "label": "What is an AI agent for business",
+      "href": "/field-notes/what-is-an-ai-agent-for-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is Amazon's Seller Assistant plugin available outside the US?",
+      "a": "Not yet. The plugin launched in beta for sellers in Amazon's US store on September 23, 2026, with international expansion promised but no date given. Sellers outside the US can still claim the free year of Quick Plus."
+    },
+    {
+      "q": "Does connecting Claude to Amazon Seller Central cost extra?",
+      "a": "The plugin itself is free to connect. Amazon is separately giving every primary seller account a free 12-month Quick Plus subscription, claimable through December 31, 2026, and normally a paid tier."
+    },
+    {
+      "q": "What can Claude actually change in my Amazon store through this plugin?",
+      "a": "Once connected over OAuth, it can read inventory levels, sales analytics and performance metrics, and take actions back such as adjusting prices, updating listings and managing stock, running those routine checks continuously rather than only when someone is logged in."
+    }
+  ]
+}
