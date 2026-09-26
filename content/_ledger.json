@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-26",
+      "type": "field-note",
+      "slug": "what-are-claude-projects",
+      "targetQuery": "what are Claude projects"
+    },
+    {
       "date": "2026-09-25",
       "type": "field-note",
       "slug": "amazon-seller-assistant-claude-quick-2026",
@@ -1410,6 +1416,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-25-amazon-seller-assistant-claude-quick-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-26",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-26-what-are-claude-projects.json"
       ],
       "build": "passed"
     }

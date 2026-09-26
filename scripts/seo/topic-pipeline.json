@@ -193,8 +193,8 @@
       "workingTitle": "What Claude Projects do that a normal chat does not",
       "targetQuery": "what are Claude projects",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/what-are-claude-projects"
     },
     {
       "id": "tp-021",

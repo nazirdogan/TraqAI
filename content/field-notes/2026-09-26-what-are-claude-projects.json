@@ -1,0 +1,93 @@
+{
+  "slug": "what-are-claude-projects",
+  "title": "What Claude Projects Do That Chat Doesn't | Traq Collective",
+  "h1": "What Claude Projects do that a normal chat does not",
+  "metaDescription": "Claude Projects pair a chat with a persistent knowledge base and custom instructions, so you stop re-explaining your business every time you open a new conversation.",
+  "targetQuery": "what are Claude projects",
+  "tags": [
+    "tools",
+    "adoption"
+  ],
+  "datePublished": "2026-09-26",
+  "dateModified": "2026-09-26",
+  "author": "Nazir Dogan",
+  "dek": "Stop re-briefing Claude from zero every time you open a new chat.",
+  "intro": "Claude Projects are workspaces inside Claude.ai that pair a chat with a permanent knowledge base and a set of custom instructions, so you stop re-explaining your business every time you open a new conversation. Upload your style guide, pricing sheet or process docs once, and every chat inside that project reads them automatically.",
+  "body": [
+    {
+      "heading": "What is a Claude Project, exactly?",
+      "paragraphs": [
+        "A Project is a self-contained workspace inside Claude.ai with its own chat history and its own knowledge base, separate from your regular conversations. Instead of one long undifferentiated chat log, you get a folder for a specific piece of work, say client onboarding, or your Q4 marketing plan, where every conversation inside it shares the same background material.",
+        "That structure is the whole point. A normal chat only knows what you type into it that session. A Project remembers what you have already told it, permanently, across every new conversation you start inside that workspace."
+      ]
+    },
+    {
+      "heading": "What a Project remembers that a plain chat forgets",
+      "paragraphs": [
+        "You upload documents, code or reference material once into a Project's knowledge base, and Claude reads them automatically on every chat you have inside it from then on. A regular chat has no equivalent: close the tab and the context is gone.",
+        "By default, a Project draws on the same context window as a regular Claude.ai chat: 200K tokens on a paid plan, about 500 pages of text, before anything else changes. On Pro and Max plans, Claude also applies retrieval when your uploads get close to that limit, pulling in only the relevant sections rather than cutting you off, which Anthropic says can expand usable capacity by up to 10x."
+      ]
+    },
+    {
+      "heading": "How custom instructions change every answer inside it",
+      "paragraphs": [
+        "Beyond the files, each Project has its own instructions field: a standing brief that applies to every chat inside that workspace. Tell it to always answer in a formal tone, or to respond as if it were your head of operations, and that framing carries into every new conversation in the Project without you retyping it.",
+        "This is what turns Claude from a general assistant into something closer to a specialist who already knows your business: the tone, the role and the reference material are set once at the workspace level, not re-supplied per chat."
+      ]
+    },
+    {
+      "heading": "Who can create a Project, and what it costs",
+      "paragraphs": [
+        "Projects are not a paid add-on. Free Claude.ai accounts can create up to five Projects with the standard knowledge base and instructions. Pro and Max accounts get the retrieval boost described above, useful once your documents start pushing past the base context window.",
+        "On Team and Enterprise plans, a Project can be shared with colleagues under 'Can view' or 'Can edit' permissions, so a whole team works from one shared knowledge base and one set of instructions instead of everyone pasting the same background into their own separate chats."
+      ]
+    }
+  ],
+  "takeaway": "This week, create one Claude Project around the work you repeat most, client proposals, support replies or a weekly report, upload the two or three documents you would otherwise paste in every time, and write one instruction line setting the tone you want. That is the whole setup.",
+  "sources": [
+    {
+      "label": "Anthropic, Collaborate with Claude on Projects",
+      "url": "https://www.anthropic.com/news/projects"
+    },
+    {
+      "label": "Claude Help Center, What are projects?",
+      "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+    },
+    {
+      "label": "Claude Help Center, How large is the context window on paid Claude plans?",
+      "url": "https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "Claude for Small Business, explained",
+      "href": "/field-notes/claude-for-small-business-explained"
+    },
+    {
+      "label": "Questions to ask before buying an AI tool",
+      "href": "/field-notes/questions-to-ask-before-buying-an-ai-tool"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is Claude Projects the same as the new Claude Code Projects?",
+      "a": "No. Claude Projects, described in this note, is the workspace feature on Claude.ai for chat, documents and instructions, available on every plan. Claude Code Projects is a separate, developer-focused feature launched in 2026 that runs parallel coding sessions in the cloud. If your team is not writing code, this is the one you want."
+    },
+    {
+      "q": "How many documents can I upload to a Claude Project?",
+      "a": "There is no fixed document count. What limits you is context: a Project starts from the same 200K-token window as a regular paid chat, about 500 pages of text, and Pro and Max plans get a retrieval boost that can expand that capacity up to 10x, so you can keep adding files rather than starting a new Project."
+    },
+    {
+      "q": "Can my whole team share one Claude Project?",
+      "a": "Yes, on Team and Enterprise plans. You can share a Project with colleagues and set 'Can view' or 'Can edit' permissions, so the whole team works from the same knowledge base and instructions instead of each person re-uploading the same documents into their own chats."
+    }
+  ]
+}
