@@ -202,8 +202,8 @@
       "workingTitle": "Copilot in Excel: what it does well and where it struggles",
       "targetQuery": "Microsoft Copilot in Excel for business",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/copilot-in-excel-for-business"
     },
     {
       "id": "tp-022",

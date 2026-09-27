@@ -1,0 +1,104 @@
+{
+  "slug": "copilot-in-excel-for-business",
+  "title": "Copilot in Excel: what it does well and where it struggles",
+  "h1": "Copilot in Excel: what it does well and where it struggles",
+  "metaDescription": "Copilot in Excel drafts and explains formulas well but cannot be trusted to get a number right unchecked. What it is good for, and where to verify it.",
+  "targetQuery": "Microsoft Copilot in Excel for business",
+  "tags": [
+    "tools",
+    "best-uses"
+  ],
+  "datePublished": "2026-09-27",
+  "dateModified": "2026-09-27",
+  "author": "Nazir Dogan",
+  "dek": "Good at drafting and explaining a spreadsheet. Not a substitute for checking the numbers yourself.",
+  "intro": "Copilot in Excel is Microsoft's AI assistant built into Excel's side pane that drafts formulas, summarises data, and explains what a spreadsheet is doing in plain English. It is strong at drafting and explaining, and weak at guaranteeing a number is right, so use it to speed up the work, not to skip checking it.",
+  "body": [
+    {
+      "heading": "What is Copilot in Excel today?",
+      "paragraphs": [
+        "Copilot in Excel now means the chat pane, not a formula. Microsoft retired the in-cell COPILOT() function on September 14, 2026, about a year after it launched, and folded its use cases back into the side pane. Microsoft's own documentation had already said not to rely on the function for numerical calculations, lookups inside your workbook, or anything with legal or compliance weight, which was most of what an SMB actually needs from a spreadsheet.",
+        "What remains is the Copilot pane: a chat-and-edit assistant that can draft or fix formulas, summarise a tab, explain why a number changed, and, on paid tiers, run Python directly against your data for analysis a formula cannot easily do."
+      ]
+    },
+    {
+      "heading": "What does Copilot in Excel do well?",
+      "paragraphs": [
+        "It is genuinely fast at the drafting and explaining work that eats an analyst's morning. Give it a plain-English request and it writes the formula, and it can walk back through an existing one and explain what each part does, which is useful for anyone who inherited a workbook they did not build.",
+        "Two features make it safer to hand to a team than a bare chat window. Workbook Rules let you set naming conventions and formula standards once, and Copilot applies them on every request in that file afterwards. Plan with Copilot shows which ranges and formulas it intends to touch before it touches them, and every edit lands in the Show Changes pane attributed to Copilot, so a reviewer can see exactly what an AI wrote versus what a person wrote."
+      ]
+    },
+    {
+      "heading": "Where does Copilot in Excel struggle?",
+      "paragraphs": [
+        "The core problem is that it can write a formula confidently and still get it wrong, with no error flag to tell you. Reviewers testing the retired COPILOT() function found it would return a fluent, plausible, factually wrong answer with nothing to distinguish it from a correct one. That risk does not disappear when the same model moves from a cell formula into the chat pane.",
+        "It also misses the kind of silent logic error a careful analyst catches on sight: a SUMIF that quietly excludes rows because the criteria text does not match exactly, or a lookup that returns the wrong row on a table with merged cells, blank rows, or inconsistent headers. A workbook that looks fine to a human but has stray spaces or mixed data types in a key column will trip it up more often than it will admit to."
+      ]
+    },
+    {
+      "heading": "Is it worth turning on for a small business?",
+      "paragraphs": [
+        "Yes, for the drafting and explaining work, and only with a human checking the output before it leaves the building. Treat it the way you would a fast junior analyst on their first month: useful for a first pass, not yet trusted to sign off a number that goes in front of a client or a board. That means using it to speed up the model, not to skip the review step that catches the model's mistakes.",
+        "The practical sequence that keeps this safe is short: draft with Copilot, read what it changed in the Show Changes pane, spot-check the logic on anything with a lookup or a conditional sum, and only then share the file. Skip the middle two steps and you are shipping an AI's confident guess under your own name."
+      ]
+    }
+  ],
+  "takeaway": "Turn Copilot in Excel on for drafting formulas and explaining what a workbook is doing, but put a person's eyes on every SUMIF, lookup, and total before the file leaves your team, especially anything with merged cells or messy headers.",
+  "sources": [
+    {
+      "label": "Microsoft 365 Blog, Copilot in Excel: built for the era of frontier finance",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/25/copilot-in-excel-built-for-the-era-of-frontier-finance/"
+    },
+    {
+      "label": "Microsoft Support, COPILOT function (retirement notice)",
+      "url": "https://support.microsoft.com/en-us/excel/functions/copilot-function"
+    },
+    {
+      "label": "Office Watch, testing the factual accuracy of Excel's COPILOT() function",
+      "url": "https://office-watch.com/2026/copilot-function-excel-accuracy-errors/"
+    },
+    {
+      "label": "John Dalesandro, why Excel Copilot gets math wrong",
+      "url": "https://johndalesandro.com/blog/why-excel-copilot-gets-math-wrong/"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "How to use Copilot in Excel without getting burned",
+    "steps": [
+      { "label": "Draft with Copilot", "detail": "Formulas, summaries, first models" },
+      { "label": "Read Show Changes", "detail": "See exactly what it touched" },
+      { "label": "Spot-check the logic", "detail": "Especially SUMIF and lookups" },
+      { "label": "Share only after", "detail": "Once a person has verified it" }
+    ],
+    "caption": "Skipping the middle two steps is how a wrong number ends up in a board deck."
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Microsoft 365 Copilot pricing for small business",
+      "href": "/field-notes/microsoft-365-copilot-pricing-for-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is Copilot in Excel accurate?",
+      "a": "Not reliably enough to skip checking. It can write a plausible, confident formula or answer that is simply wrong, with no error message to flag it. Use it to draft and explain, then verify anything that feeds a decision, the same way you would check a junior analyst's first pass."
+    },
+    {
+      "q": "What happened to the Excel COPILOT() function?",
+      "a": "Microsoft retired the in-cell COPILOT() function on September 14, 2026, about a year after launch. Its use cases (drafting text, summarising, classifying) moved into the Copilot side pane, which remains available and keeps getting new features."
+    },
+    {
+      "q": "Do I need a special Microsoft 365 plan to use Copilot in Excel?",
+      "a": "Yes. Copilot in Excel needs a Microsoft 365 Copilot licence, sold as an add-on to a qualifying Business or Enterprise plan, or bundled into some Business Premium packages. It also needs an active internet connection."
+    }
+  ]
+}
