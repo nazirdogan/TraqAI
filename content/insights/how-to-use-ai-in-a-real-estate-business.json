@@ -1,0 +1,92 @@
+{
+  "slug": "how-to-use-ai-in-a-real-estate-business",
+  "title": "How to use AI in a real estate business | Traq Collective",
+  "metaDescription": "A real estate agency gets value from AI by piloting one task per role, not buying a dozen tools. Here is where agents, coordinators and principals should start.",
+  "targetQuery": "how to use AI in a real estate business",
+  "h1": "How to use AI in a real estate business",
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "author": "Nazir Dogan",
+  "intro": "Using AI in a real estate business means picking one frequent, low-risk task per role, agents draft listings and follow-ups, back office staff summarize documents, and piloting it for a set window before buying anything else. It is a sequencing decision, not a shopping list of tools, and agencies that treat it that way get real value faster.",
+  "bodySections": [
+    {
+      "h2": "What does it actually mean to use AI in a real estate business?",
+      "body": "For most agencies right now, using AI means something scattered: one agent tries a chatbot for listing copy, another uses a different tool for lead scoring, and nobody agrees on what any of it is meant to accomplish. That is not a strategy, it is drift. Using AI well in a real estate business means treating it the way you would a new hire: give it one job, watch what it actually does, and decide whether to give it a second job before adding a third. The agencies getting real value are not running the most tools. They picked a specific task, frequent and low stakes if the first few attempts need editing, and changed the workflow around it instead of bolting AI onto the process they already had."
+    },
+    {
+      "h2": "Which task should an agency pilot first?",
+      "body": "Start where the volume already is: listing descriptions and buyer or tenant follow-up emails. Both happen constantly, both are low stakes if a first draft needs a human edit, and both are already where agents who use AI spend most of their time. Three out of four agents who use AI at all use it for listing descriptions, according to the National Association of Realtors' 2026 technology report. That popularity is not an accident. A listing description that is most of the way there in thirty seconds and edited by a person before it goes live is a genuine time saving with almost no downside. Resist the pull to start with something higher value, like predictive lead scoring or contract review, before your team has built the habit of working with AI on something that cannot do much damage."
+    },
+    {
+      "h2": "How should adoption move across an agency, role by role?",
+      "body": "A real estate agency is not one job, it is several, and each role has a different first task worth piloting. Sequence it deliberately instead of handing everyone the same tool and hoping something sticks. The table below is a starting point, not a script: adjust it to whichever person in each role handles the most repetitive version of the task."
+    },
+    {
+      "h2": "What should a principal avoid when rolling AI out?",
+      "body": "Two mistakes account for most of the wasted spend. The first is buying a real-estate-specific AI platform before proving the underlying task is worth automating at all. A general assistant your team already has a licence for is enough to test whether drafting listings or summarizing documents actually saves time, and a specialized tool is easier to justify once that is proven, not before. The second is letting AI touch anything client-facing or legally binding, lease terms, sale contracts, RERA-facing paperwork, without a licensed person reviewing it first. Dubai's own land authority has been expanding its use of AI in registration and transaction processing, a sign the sector is moving this direction generally, not a reason for an agency to skip the human check on anything with legal weight. AI can summarize a lease in seconds. It should never be the last set of eyes on one."
+    }
+  ],
+  "tables": [
+    {
+      "heading": "Where to start, role by role",
+      "intro": "Pilot one task per role before adding a second. Each row is a candidate first task, not a full job description.",
+      "caption": "Move down this list in order. A principal's task comes last because it depends on the pilots above it producing something worth reporting on.",
+      "columns": ["Role", "First task to pilot", "Watch for"],
+      "rows": [
+        ["Leasing or sales agent", "First-draft listing descriptions and follow-up emails", "Already the most common first use, edit before anything goes live"],
+        ["Marketing or listings coordinator", "Social captions and market update blurbs from data you already have", "Keep a human check on any post naming a specific price or address"],
+        ["Transaction or back-office coordinator", "Summarizing long lease or sale documents before a human reviews them", "Never let AI finalize a legal or RERA-facing document unsupervised"],
+        ["Principal or owner", "A monthly one-page report pulling pipeline and close-rate numbers together", "This is where you decide whether to expand, not where you start"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "AI use among Realtors climbed sharply in the last year, with the share who use it weekly or daily rising and the share who do not use it at all falling by close to a third, which is the same shift small agencies everywhere are living through right now.",
+      "value": "48% use AI weekly or daily; non-users fell from 32% to 21%",
+      "source": "National Association of Realtors, 2026 Technology Survey",
+      "url": "https://www.nar.realtor/newsroom/realtors-adopt-technology-to-save-time-and-improve-the-client-experience-nar-report-finds",
+      "year": "2026"
+    },
+    {
+      "claim": "The single most common use of AI among agents who use it at all is drafting listing descriptions, exactly the kind of frequent, low-risk task worth piloting first.",
+      "value": "75% of AI users use it for listing descriptions",
+      "source": "National Association of Realtors, 2026 Technology Survey",
+      "url": "https://www.nar.realtor/newsroom/realtors-adopt-technology-to-save-time-and-improve-the-client-experience-nar-report-finds",
+      "year": "2026"
+    },
+    {
+      "claim": "The most commonly reported barrier to using AI more is not cost, it is the learning curve, which is why training and a defined first task matter as much as which tool an agency picks.",
+      "value": "63% cite the learning curve as the top barrier",
+      "source": "National Association of Realtors, 2026 Technology Survey",
+      "url": "https://www.nar.realtor/newsroom/realtors-adopt-technology-to-save-time-and-improve-the-client-experience-nar-report-finds",
+      "year": "2026"
+    },
+    {
+      "claim": "Dubai's own land authority has been expanding AI into its registration and transaction processes, evidence that the push toward AI in the sector is coming from the regulator's side too, not only from software vendors.",
+      "value": "AI-powered Initial Registration platform launched for developers",
+      "source": "Economy Middle East, reporting on Dubai Land Department",
+      "url": "https://economymiddleeast.com/news/dubai-land-department-expands-ai-adoption-strengthens-real-estate-talent-development/",
+      "year": "2026"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does a real estate agency need a real-estate-specific AI tool to get started?",
+      "a": "No. A general assistant your agency already has a licence for is enough to draft first-pass listing copy and follow-up emails. Specialized real estate AI tools, like predictive lead scoring platforms, are easier to justify once a simpler pilot has already proven the team will actually use AI day to day."
+    },
+    {
+      "q": "How long before AI use pays off for a real estate agency?",
+      "a": "Give a first pilot around 30 days on a daily task like listing descriptions or follow-ups. That is enough time for agents to get past an awkward first week and for you to compare time spent before and after honestly, rather than judging the tool on day one."
+    },
+    {
+      "q": "Is it safe to use AI on lease agreements and RERA-facing paperwork?",
+      "a": "AI can summarize a long document and flag clauses worth a second look, which saves real time. It should never be the last check on anything legally binding or regulator-facing. A licensed person still needs to review and sign off before that document goes to a client or the authority."
+    }
+  ],
+  "related": [
+    { "label": "How to build an AI strategy for a small business", "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business" },
+    { "label": "AI training for teams in the UAE", "href": "/insights/ai-training-for-teams-uae" },
+    { "label": "AI Consulting", "href": "/services/ai-consulting" }
+  ]
+}

@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-28",
+      "type": "insight",
+      "slug": "how-to-use-ai-in-a-real-estate-business",
+      "targetQuery": "how to use AI in a real estate business"
+    },
+    {
       "date": "2026-09-27",
       "type": "field-note",
       "slug": "copilot-in-excel-for-business",
@@ -1442,6 +1448,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-27-copilot-in-excel-for-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-28",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-use-ai-in-a-real-estate-business.json"
       ],
       "build": "passed"
     }
