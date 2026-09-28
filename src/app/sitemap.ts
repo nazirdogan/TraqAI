@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/faq`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/ai-readiness`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/ai-plan-session`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/leadership-session`, lastModified: isoToDate('2026-09-28'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/insights`, lastModified: articleRoutes[0]?.lastModified ?? STATIC_LASTMOD, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${SITE_URL}/field-notes`, lastModified: fieldNotesIndexLastMod, changeFrequency: 'daily', priority: 0.7 },
     { url: `${SITE_URL}/workbook`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.7 },
