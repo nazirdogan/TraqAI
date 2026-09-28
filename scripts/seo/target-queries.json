@@ -377,15 +377,23 @@
       "intent": "informational",
       "priority": 2,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/how-to-use-ai-in-a-real-estate-business",
       "note": "The strongest vertical-and-geo overlap available to Traq: real estate is one of Dubai's largest sectors and it has real searched AI demand. Zero coverage on the site today. Write it for an agency principal, not a developer.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-09-28",
+        "engine": "Google (WebSearch)",
         "traqPosition": null,
-        "winners": [],
-        "observation": null
+        "winners": [
+          "Luxury Presence",
+          "National Association of Realtors (nar.realtor)",
+          "Agora Real",
+          "KapRE.com",
+          "Placester",
+          "Matterport",
+          "Appinventiv"
+        ],
+        "observation": "Every ranking page is a generic 'N ways/applications' listicle of AI tools and tactics for an individual agent, US-focused, none written for an agency owner deciding what to roll out and in what order, and none touch a specific geography. Traq's guide differentiates by writing for the principal, sequencing adoption role by role with a pilot-first framework, and grounding it in the UAE with Dubai Land Department's own AI rollout, none of which the winners do."
       },
       "demand": {
         "source": "Google Trends, worldwide, 12 months, 2026-08-26",
