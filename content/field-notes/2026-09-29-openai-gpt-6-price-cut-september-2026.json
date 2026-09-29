@@ -1,0 +1,105 @@
+{
+  "slug": "openai-gpt-6-price-cut-september-2026",
+  "title": "Why did OpenAI cut GPT-6 API pricing in September 2026",
+  "h1": "Why did OpenAI cut GPT-6 API pricing in September 2026",
+  "metaDescription": "OpenAI cut API pricing roughly in half with two new GPT-6 models on September 22, 2026. What actually changed, and what it does and does not do to your bill.",
+  "targetQuery": "why did OpenAI cut GPT-6 API pricing in September 2026",
+  "tags": [
+    "news",
+    "tools"
+  ],
+  "datePublished": "2026-09-29",
+  "dateModified": "2026-09-29",
+  "author": "Nazir Dogan",
+  "dek": "Two new GPT-6 models landed at roughly half the price of what they replace. The saving is real, but it only reaches your bill if something you use actually calls the API.",
+  "intro": "OpenAI cut its API pricing in half on September 22, 2026, launching GPT-6 Sol and GPT-6 Luna at permanently lower rates than the GPT-5.6 models they replace. Luna now costs $0.10 per million input tokens and $0.50 per million output. For a business running an AI automation or chatbot on usage-based billing, that is a real, lasting cost cut.",
+  "body": [
+    {
+      "heading": "What did OpenAI change on September 22?",
+      "paragraphs": [
+        "OpenAI released two new models, GPT-6 Sol and GPT-6 Luna, into the API, ChatGPT Work, and Codex on September 22, 2026. Both replace the GPT-5.6 models of the same names, and both are priced at roughly half of what GPT-5.6 charged per token. OpenAI describes this as the new default price rather than a limited-time promotion, and attributes the cut to improvements in caching and inference efficiency rather than a discount to undercut a competitor."
+      ]
+    },
+    {
+      "heading": "How much cheaper is it, in real numbers?",
+      "paragraphs": [
+        "GPT-6 Sol now costs $2 per million input tokens and $10 per million output tokens, down from $4 and $20 for GPT-5.6 Sol. GPT-6 Luna, the smaller and cheaper of the two, costs $0.10 per million input tokens and $0.50 per million output, down from $0.20 and $1.20. OpenAI also widened the discount on cached input tokens to 90 percent, which matters most for anything that repeats a long system prompt or the same instructions on every call.",
+        "For a small business, that reads as a straightforward win, with one catch: 'half price' describes the backend, usage-based rate. It does not automatically mean your bill is half."
+      ]
+    },
+    {
+      "heading": "Does this change what I pay for a ChatGPT Business seat?",
+      "paragraphs": [
+        "Not directly. A Plus, Business, or Enterprise seat is still billed per seat, per month, and Sol and Luna simply become the models available inside that seat's ChatGPT Work interface and inside Codex, at no extra charge. The prices above only move your bill if you, or a vendor working for you, pay OpenAI by the token: through direct API access, or through an automation platform like Zapier or Make, or a custom internal tool, that calls the model on your behalf."
+      ]
+    },
+    {
+      "heading": "What should a small business actually do about this?",
+      "paragraphs": [
+        "If a chatbot, document processor, or internal tool you pay for calls the OpenAI API, ask whoever built it which model it is pinned to. Anything still hardcoded to gpt-5.6-sol or gpt-5.6-luna keeps billing at the old, higher rate until someone repoints the model parameter at gpt-6-sol or gpt-6-luna; the saving is not automatic and does not apply itself. If nothing you use calls the API directly, this change does not touch your bill at all, but it is still a useful moment to ask an agency or contractor whether they billed you for the model they are actually running."
+      ]
+    }
+  ],
+  "takeaway": "If an automation, chatbot, or internal tool you pay for calls the OpenAI API, ask whoever built it whether it is still pinned to a GPT-5.6 model, since that is the only reason you would still be paying the old, higher rate.",
+  "stat": {
+    "claim": "New default price for GPT-6 Luna via the OpenAI API",
+    "value": "$0.10 per million input tokens and $0.50 per million output tokens, down from $0.20 and $1.20 for GPT-5.6 Luna",
+    "source": "OpenAI, Introducing GPT-6 Sol and Luna",
+    "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "OpenAI, Introducing GPT-6 Sol and Luna",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+    },
+    {
+      "label": "MarkTechPost, OpenAI Releases GPT-6 Sol and Luna: 50% Cheaper API Pricing and Benchmarks",
+      "url": "https://www.marktechpost.com/2026/09/22/openai-releases-gpt-6-sol-and-luna-50-cheaper-api-pricing-and-benchmarks/"
+    },
+    {
+      "label": "The New Stack, OpenAI releases GPT-6 Sol and Luna, and cuts token prices in half",
+      "url": "https://thenewstack.io/openai-gpt-6-sol-luna-release/"
+    }
+  ],
+  "diagram": {
+    "type": "before-after",
+    "title": "GPT-6 prices are about half of GPT-5.6",
+    "rows": [
+      { "label": "Sol, input", "before": 4, "after": 2, "unit": "$/M tok", "as": "bar" },
+      { "label": "Sol, output", "before": 20, "after": 10, "unit": "$/M tok", "as": "bar" },
+      { "label": "Luna, output", "before": 1.2, "after": 0.5, "unit": "$/M tok", "as": "bar" }
+    ],
+    "beforeVerdict": "GPT-5.6: the old per-token rate",
+    "afterVerdict": "GPT-6: same job, half the bill",
+    "caption": "The saving only reaches your bill once a model name actually gets repointed to GPT-6."
+  },
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Why Claude just got cheaper for AI agents",
+      "href": "/field-notes/claude-fable-5-1-cheaper-ai-agents"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does the GPT-6 price cut lower my ChatGPT Business seat price?",
+      "a": "No. Seat pricing for Plus, Business, and Enterprise plans is unchanged. The cut applies to usage-based API billing, the rate charged per token when a system calls the model directly rather than through a seat."
+    },
+    {
+      "q": "Do I need to do anything to get the lower price?",
+      "a": "Only if something you use calls the API under an old model name. GPT-5.6 Sol and Luna keep billing at the old rate; you or your provider need to switch the model parameter to gpt-6-sol or gpt-6-luna to get the new price."
+    },
+    {
+      "q": "Is this a permanent price or a limited promotion?",
+      "a": "OpenAI describes it as the new, lasting default price, not a promotion, and attributes it to gains in caching and inference efficiency rather than a temporary discount to compete."
+    }
+  ]
+}

@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-29",
+      "type": "field-note",
+      "slug": "openai-gpt-6-price-cut-september-2026",
+      "targetQuery": "why did OpenAI cut GPT-6 API pricing in September 2026"
+    },
+    {
       "date": "2026-09-28",
       "type": "insight",
       "slug": "how-to-use-ai-in-a-real-estate-business",
@@ -399,6 +405,14 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-09-29",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "openai-gpt-6-price-cut-september-2026",
+      "critic": "branch preflight: session started on a detached HEAD at 52306ab (seven commits ahead of local main's stale ref); ran the fixed preflight (git checkout main, confirmed ancestry with merge-base --is-ancestor, fast-forwarded with --ff-only, no rewrite, no force-push); a subsequent git fetch origin main showed origin/main was already at 52306ab, confirming those seven commits had, in fact, already shipped, the detached HEAD only ever stranded this container's local main ref, not the pushes themselves; kill switch checked, no content/_paused and CONTENT_BOT_ENABLED unset; mode.mjs returned news-note (Tuesday); searched Anthropic, OpenAI, and Microsoft announcements from the last seven days against the 'does this change what an owner should do or what it costs them' test; found OpenAI's September 22, 2026 launch of GPT-6 Sol and GPT-6 Luna, cutting API/ChatGPT Work/Codex token pricing roughly in half versus GPT-5.6 (Sol $4/$20 to $2/$10, Luna $0.20/$1.20 to $0.10/$0.50 per million tokens, cached-input discount widened to 90 percent), corroborated identically across nine independent secondary sources (KuCoin, Yahoo Finance, MarkTechPost, The New Stack, Techzine, Ghacks, Cryptonomist, Technology.org, PowerDrill) plus the OpenAI announcement URL itself surfaced directly in search results; WebFetch on openai.com returned EGRESS_BLOCKED as expected per the known domain-blocking pattern, so did not retry and relied on the corroborated secondary sources plus the real openai.com URL (verified as an actual search result, not guessed) for the citation; this is a distinct story from the ledger's existing gpt-6-astra-rollout-chatgpt-business (Sept 11, rollout availability) and claude-fable-5-1-cheaper-ai-agents (Sept 4, different vendor) entries, so not a repeat; wrote the note with the news-specific angle the announcement itself does not give: seat pricing (Plus/Business/Enterprise) is unchanged, only usage-based API billing moves, and the saving is not automatic since it requires repointing a pinned model name from gpt-5.6-sol/luna to gpt-6-sol/luna; four question-shaped body sections, three FAQs, one before-after diagram (Sol input, Sol output, Luna output token prices) with every number traceable to the prose and no invented figures, no image (skipped per the rule against openly-licensed stock on a post naming specific paid product tiers), no em-dashes (checked via grep, none found); title 54/60 chars after brand-strip, metaDescription 157/165, intro 59 words and stands alone as a direct answer; related links verified to exist (/insights/how-to-get-value-from-ai-tools-you-already-pay-for, /services/ai-consulting, /field-notes/claude-fable-5-1-cheaper-ai-agents); validated against the live fieldNoteSchema via npx tsx after running npm ci (node_modules was not present in this checkout), result VALID; not a repeat of any ledger slug or targetQuery; tagged news and tools; pipeline runway checked via report.mjs daily out of caution even though news cleared the bar (41 topics queued, 10.3 weeks runway, no fallback needed, pipeline left untouched)"
+    },
     {
       "date": "2026-08-14",
       "mode": "news-note",
@@ -1458,6 +1472,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/how-to-use-ai-in-a-real-estate-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-29",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-29-openai-gpt-6-price-cut-september-2026.json"
       ],
       "build": "passed"
     }
