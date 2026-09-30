@@ -211,8 +211,8 @@
       "workingTitle": "Notion AI for small teams, honestly assessed",
       "targetQuery": "is Notion AI worth it for a small team",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/notion-ai-worth-it-small-team"
     },
     {
       "id": "tp-023",
