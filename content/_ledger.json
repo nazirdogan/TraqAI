@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-09-30",
+      "type": "field-note",
+      "slug": "notion-ai-worth-it-small-team",
+      "targetQuery": "is Notion AI worth it for a small team"
+    },
+    {
       "date": "2026-09-29",
       "type": "field-note",
       "slug": "openai-gpt-6-price-cut-september-2026",
@@ -1482,6 +1488,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-09-29-openai-gpt-6-price-cut-september-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-09-30",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-09-30-notion-ai-worth-it-small-team.json"
       ],
       "build": "passed"
     }

@@ -1,0 +1,102 @@
+{
+  "slug": "notion-ai-worth-it-small-team",
+  "title": "Is Notion AI Worth It for a Small Team? An Honest Look",
+  "h1": "Is Notion AI Worth It for a Small Team? An Honest Look",
+  "metaDescription": "Notion AI is worth it if your team already lives in Notion and takes the $20 Business plan. Outside that, the per-seat cost is hard to justify. Here is why.",
+  "targetQuery": "is Notion AI worth it for a small team",
+  "tags": ["tools", "best-uses"],
+  "datePublished": "2026-09-30",
+  "dateModified": "2026-09-30",
+  "author": "Nazir Dogan",
+  "dek": "Full Notion AI now lives only on the $20-a-seat Business plan. Whether that is worth it depends on one thing: how much of your team's work already sits inside Notion.",
+  "intro": "Notion AI is a set of AI features built into Notion: a chat assistant that drafts and edits pages, a Q&A tool that answers from your own docs, and paid Custom Agents for multi-step tasks. It is worth its $20-a-seat Business price if your team already lives in Notion. It is a hard sell if not.",
+  "body": [
+    {
+      "heading": "What does Notion AI actually include now, and what does it cost?",
+      "paragraphs": [
+        "Notion's 2026 pricing has four tiers: Free, Plus at $10 per member a month (billed annually, $12 month to month), Business at $20 per member a month (billed annually, $24 month to month), and custom-priced Enterprise. Full Notion AI, meaning the AI Agents, the Ask Notion Q&A tool, AI connectors to outside apps, model selection across providers, and meeting transcription, is bundled into Business and Enterprise only. Free and Plus users get a small number of lifetime AI responses and nothing more.",
+        "That is a change from how Notion used to sell it. AI used to be a $10-a-month add-on any plan could buy. Notion retired that standalone add-on and folded full AI into the Business tier, so a team that was paying $10 for Plus plus $10 for the AI add-on now pays the same $20 a seat, but only on Business, with no option to keep the cheaper base plan and add AI separately."
+      ]
+    },
+    {
+      "heading": "What are Notion's Custom Agents, and how are they billed?",
+      "paragraphs": [
+        "Custom Agents are a separate, newer layer on top of the AI already included in Business: agents you configure to run a defined job, like drafting a weekly status update from a project database, on a schedule or a trigger rather than one chat message at a time. They run on Notion Credits, priced at $10 per 1,000 credits, with 300 credits included free per workspace each month and no rollover of unused credits.",
+        "A single agent run typically costs somewhere in the low single-digit credits depending on the model and how many tools it calls, so a simple agent running a few dozen times a month stays inside the free allowance or close to it. A team building several agents that run often will burn through the free credits and start paying on top of the Business seat price, which is the detail that catches teams who budgeted only for the per-seat cost."
+      ]
+    },
+    {
+      "heading": "Where does Notion AI genuinely help a small team?",
+      "paragraphs": [
+        "The real advantage is that it already knows your workspace. Instead of copying a paragraph into a separate AI chat window and pasting the answer back, the assistant drafts and edits inside the page it is already looking at, and Ask Notion can pull an answer from your own project pages, meeting notes, and databases rather than a general knowledge base. For a team that already lives in Notion for docs and project tracking, that removes a genuinely annoying step from daily work.",
+        "It is also reasonably good at the boring first-draft work: turning a rough meeting note into a clean summary, drafting a status update in a format you have already set, or explaining what a messy page is actually saying. None of that is unique to Notion, but having it sit inside the tool the team already opens every day is what makes people actually use it, rather than leaving a separate AI tab unopened."
+      ]
+    },
+    {
+      "heading": "Where does it fall short?",
+      "paragraphs": [
+        "Ask Notion's biggest limitation is that Notion itself does not claim it can properly search or reason across the relationships inside a structured database. A project tracker, a CRM-style database, or a content calendar with linked relations is exactly the kind of content Ask Notion is weakest at using, which undercuts the pitch of it as a single search box over your whole workspace. Like any AI assistant built on a large language model, it can also answer confidently and be wrong, so anything that feeds a decision still needs a person to check the source page, not just trust the summary.",
+        "The other real cost is organizational, not financial. Notion AI's drafting and Q&A features are only as good as the workspace underneath them: a business with years of half-abandoned pages, inconsistent naming, and no clear owner per database will get worse answers than a team with a tidy, current workspace, and cleaning that up is real work the AI does not do for you."
+      ]
+    }
+  ],
+  "takeaway": "If your team already runs its documents and projects inside Notion, move to Business and use the built-in AI before you pay for a separate tool that does the same job worse. If Notion is not already where the work lives, do not buy Notion AI to make it so: fix the workspace first, or skip it.",
+  "stat": {
+    "claim": "Notion Custom Agents are billed on a credit system priced at $10 per 1,000 credits, with 300 credits included free per workspace each month.",
+    "value": "$10 per 1,000 credits",
+    "source": "Notion Help Center, Buy and track Notion credits for Custom Agents",
+    "url": "https://www.notion.com/help/buy-and-track-notion-credits-for-custom-agents",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "Notion, Pricing (plan tiers and what each includes)",
+      "url": "https://www.notion.com/pricing"
+    },
+    {
+      "label": "Notion Help Center, What is Notion AI? FAQs",
+      "url": "https://www.notion.com/help/notion-ai-faqs"
+    }
+  ],
+  "tables": [
+    {
+      "heading": "Notion plans and what AI you get on each",
+      "intro": "Full Notion AI is now a Business-tier feature, not an add-on any plan can buy.",
+      "caption": "Comparison of Notion's Free, Plus, and Business plans on price and included AI features.",
+      "columns": ["Plan", "Price per seat", "AI included"],
+      "rows": [
+        ["Free", "$0", "A small number of lifetime AI responses only"],
+        ["Plus", "$10/mo annual ($12 monthly)", "Same limited lifetime AI responses as Free"],
+        ["Business", "$20/mo annual ($24 monthly)", "Full AI: chat assistant, Ask Notion Q&A, AI connectors, meeting notes"]
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "What Notion Skills is and how small teams should use it",
+      "href": "/field-notes/notion-skills-for-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does the Notion Plus plan include Notion AI?",
+      "a": "No. Since Notion moved full AI into the Business plan, Plus and Free users only get a small number of lifetime AI responses. To get the chat assistant, Ask Notion Q&A, and AI connectors, a team needs to be on the $20-a-seat Business plan or higher."
+    },
+    {
+      "q": "Are Notion's Custom Agents included in the Business plan price?",
+      "a": "Business gets you the ability to use Custom Agents, but running them costs Notion Credits on top, billed at $10 per 1,000 credits with 300 free per workspace each month. A team running agents often should watch credit usage, not just the per-seat price."
+    },
+    {
+      "q": "Can I trust Ask Notion to search my whole workspace accurately?",
+      "a": "Treat it as a fast first pass, not a source of truth. Notion itself notes that Ask Notion struggles to properly search or reason across structured databases like project trackers or CRMs, and like any AI assistant it can answer confidently and be wrong, so check the underlying page before acting on an answer that matters."
+    }
+  ]
+}
