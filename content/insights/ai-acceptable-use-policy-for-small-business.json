@@ -5,7 +5,7 @@
   "targetQuery": "how to write an AI acceptable use policy for a small business",
   "h1": "How to write an AI use policy for a small business",
   "datePublished": "2026-07-20",
-  "dateModified": "2026-08-01",
+  "dateModified": "2026-10-01",
   "author": "Nazir Dogan",
   "intro": "An AI acceptable use policy is a short written document that tells your team which AI tools are approved, what data must never go into them, when a human has to check the output, and who to ask when unsure. Most small businesses do not have one, even though most of their staff already use AI daily.",
   "bodySections": [
@@ -15,7 +15,7 @@
     },
     {
       "h2": "Why does a small business need an AI policy now?",
-      "body": "Most small businesses already have an AI problem they cannot see: their people are using AI whether there is a policy or not. Across small and medium companies, 80% of AI users already bring their own AI tools to work, often without telling anyone, according to Microsoft's Work Trend Index. That gap is no longer just a survey finding. Verizon's 2026 Data Breach Investigations Report found that unsanctioned, unmanaged AI use is now the third most common non-malicious insider action turning up in real breach investigations, a fourfold jump in a single year. A policy without adoption does nothing, but adoption without a policy is worse. It means client names, contracts and financial details are being pasted into tools nobody vetted, with no record of what went where. Writing the policy is not about slowing people down. It is about catching up to what your team is already doing."
+      "body": "Most small businesses already have an AI problem they cannot see: their people are using AI whether there is a policy or not. Across small and medium companies, 80% of AI users already bring their own AI tools to work, often without telling anyone, according to Microsoft's Work Trend Index. That gap is no longer just a survey finding. Verizon's 2026 Data Breach Investigations Report found that the share of employees regularly using AI on a work device, sanctioned or not, tripled in a year, from 15% to 45%, and that two thirds of that use runs through personal accounts the business cannot see at all. The same report found that unsanctioned, unmanaged AI use is now the third most common non-malicious insider action turning up in real breach investigations, a fourfold jump in a single year. A policy without adoption does nothing, but adoption without a policy is worse. It means client names, contracts and financial details are being pasted into tools nobody vetted, through accounts nobody can audit. Writing the policy is not about slowing people down. It is about catching up to what your team is already doing."
     },
     {
       "h2": "What should an AI use policy actually cover?",
@@ -75,7 +75,14 @@
       "claim": "Unsanctioned AI use inside companies has stopped being just a survey finding about habits and started showing up as a measured security outcome: it is now the third most common non-malicious insider action found in real breach investigations, a fourfold increase in a single year.",
       "value": "4x",
       "source": "Verizon 2026 Data Breach Investigations Report",
-      "url": "https://www.verizon.com/business/resources/T1ae/reports/2026-dbir-data-breach-investigations-report.pdf",
+      "url": "https://www.verizon.com/business/resources/reports/dbir/",
+      "year": "2026"
+    },
+    {
+      "claim": "The share of employees who are regular AI users on a corporate device, whether the company sanctioned it or not, tripled in a single year, and two thirds of that use goes through a personal account the business has no visibility into.",
+      "value": "45%",
+      "source": "Verizon 2026 Data Breach Investigations Report",
+      "url": "https://www.verizon.com/business/resources/reports/dbir/",
       "year": "2026"
     }
   ],
@@ -86,7 +93,7 @@
     },
     {
       "q": "Which AI tools should we approve first?",
-      "a": "Start with whichever tool your team is already using the most, since that is where the real risk already sits. Confirm its data and privacy settings, check whether it trains on your inputs by default, and turn that off if it does. Approve one or two tools well rather than a long list nobody checked properly."
+      "a": "Start with whichever tool your team is already using the most, since that is where the real risk already sits. Confirm its data and privacy settings, check whether it trains on your inputs by default, and turn that off if it does. Issue a company account rather than leaving people on personal logins, since a personal account is exactly what the policy cannot see or audit. Approve one or two tools well rather than a long list nobody checked properly."
     },
     {
       "q": "What happens if someone breaks the policy by accident?",

@@ -1500,6 +1500,15 @@
         "content/field-notes/2026-09-30-notion-ai-worth-it-small-team.json"
       ],
       "build": "passed"
+    },
+    {
+      "date": "2026-10-01",
+      "mode": "monthly-refresh",
+      "action": "publish",
+      "files": [
+        "content/insights/ai-acceptable-use-policy-for-small-business.json"
+      ],
+      "build": "passed"
     }
   ]
 }
