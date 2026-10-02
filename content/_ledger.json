@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-02",
+      "type": "field-note",
+      "slug": "microsoft-365-copilot-usage-based-billing-default",
+      "targetQuery": "why is Copilot Business adding usage-based billing"
+    },
+    {
       "date": "2026-09-30",
       "type": "field-note",
       "slug": "notion-ai-worth-it-small-team",
@@ -1507,6 +1513,24 @@
       "action": "publish",
       "files": [
         "content/insights/ai-acceptable-use-policy-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-02",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "microsoft-365-copilot-usage-based-billing-default",
+      "critic": "branch preflight: session started on a detached HEAD at 586b043 (one commit ahead of local main's stale ref, the prior run's monthly-refresh that never got checked out onto a branch); ran the fixed preflight (git checkout main, confirmed ancestry with merge-base --is-ancestor, fast-forwarded with --ff-only, no rewrite, no force-push); kill switch checked, no content/_paused and CONTENT_BOT_ENABLED unset; mode.mjs returned news-note (Friday); searched for what changed in AI in roughly the last week against the 'does this change what an owner should do or what it costs them' test; the Anthropic Claude Opus 5.5 and OpenAI GPT-6 Sol/Luna price cuts (Sept 22) were both already covered by this feed's existing 2026-09-29 openai-gpt-6-price-cut-september-2026 note and are now 10 days stale, so passed on those; selected Microsoft's Message Center post MC1476200 'Simplifying AI access: introducing usage-based billing' (posted September 21, 2026, corroborated identically across oryon.net, stoneridgesoftware.com, schneider.im, agileit.com.au, bostonmit.com, technspire.com, universal.cloud, epcgroup.net, pupuweb.com, mwpro.co.uk, windowsforum.com): new Microsoft 365 Copilot Business purchases get usage-based billing switched on by default from October 19, 2026 (direct) and November 2, 2026 (CSP), with an auto-created Azure billing resource and a default $10-per-user monthly spending policy; the Message Center post itself sits a few days outside a strict seven-day window, but the rollout is 17 days out from publish and every corroborating article is dated within the last week, so the 'act now' urgency is current even though the underlying announcement is not brand new, noted here for transparency; this is a distinct angle from the existing ledger entry microsoft-365-copilot-pricing-for-small-business (July 16, 2026, per-seat bundle pricing), not a repeat, and linked as a related follow-up; WebFetch on learn.microsoft.com returned EGRESS_BLOCKED as expected per the known domain-blocking pattern, so did not retry and relied on the corroborated secondary sources for the facts, citing Microsoft's own Partner Center announcements page (a genuine URL surfaced directly in search results, not guessed) as the primary source plus two independent secondary sources; four question-shaped body sections, three FAQs, no diagram (a billing-default change is a policy switch, not a sequence or a real before/after of one quantity, so forcing one on would misuse the before-after type the same way the chatgpt-business-premium-seats-2026 run correctly declined to), no image (skipped per the rule against openly-licensed stock on a post naming a specific paid product tier), no em-dashes or en-dashes (checked programmatically, none found); title 50/60 chars after brand-strip, metaDescription 164/165, intro 57 words and stands alone as a direct why-shaped answer to the target query (revised once during self-critique: the first draft led with dates and the spending cap rather than the why, rewritten to open with the reason usage-based billing exists at all); related links verified to exist (/insights/how-to-get-value-from-ai-tools-you-already-pay-for, /services/ai-consulting, /field-notes/microsoft-365-copilot-pricing-for-small-business); validated against the live fieldNoteSchema via npx tsx after running npm ci (node_modules was not present in this checkout), result VALID; not a repeat of any ledger slug or targetQuery; tagged news and tools; pipeline runway not checked since news cleared the bar and Friday is not a Monday refill day"
+    },
+    {
+      "date": "2026-10-02",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-02-microsoft-365-copilot-usage-based-billing-default.json"
       ],
       "build": "passed"
     }

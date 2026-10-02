@@ -1,0 +1,93 @@
+{
+  "slug": "microsoft-365-copilot-usage-based-billing-default",
+  "title": "Why is Copilot Business adding usage-based billing",
+  "h1": "Why is Copilot Business adding usage-based billing",
+  "metaDescription": "From October 19, 2026, new Microsoft 365 Copilot Business purchases switch on metered billing by default, with a $10-per-user cap. What changes, and who it affects.",
+  "targetQuery": "why is Copilot Business adding usage-based billing",
+  "tags": [
+    "news",
+    "tools"
+  ],
+  "datePublished": "2026-10-02",
+  "dateModified": "2026-10-02",
+  "author": "Nazir Dogan",
+  "dek": "New Copilot Business purchases now come with metered billing switched on, not opt-in. Existing subscriptions are untouched, but the next seat you buy will work differently.",
+  "intro": "Microsoft is adding usage-based billing to Copilot Business because newer agentic features, Copilot Cowork, the Work IQ API, and the GitHub Copilot Harness, run variable compute per task rather than fixed work per seat. From October 19, 2026 (direct) and November 2, 2026 (CSP), every new subscription switches it on by default, with a $10-per-user monthly cap.",
+  "body": [
+    {
+      "heading": "What did Microsoft actually change?",
+      "paragraphs": [
+        "Microsoft posted Message Center item MC1476200, titled 'Simplifying AI access: introducing usage-based billing', on September 21, 2026. It sets a new default for every new Microsoft 365 Copilot Business purchase: direct purchases from October 19, 2026, and purchases through a Cloud Solution Provider from November 2, 2026. Each new subscription now gets an Azure billing resource created automatically and a spending policy applied with a default limit of $10 per seat per month, so that credit-metered features work the moment someone opens them rather than needing separate setup first.",
+        "Existing Copilot Business subscriptions bought before those dates keep their current billing and are not switched over."
+      ]
+    },
+    {
+      "heading": "Which features does the metered billing actually cover?",
+      "paragraphs": [
+        "The eligible experiences Microsoft named at launch are Copilot Cowork, the Work IQ API, and the GitHub Copilot Harness. These are the newer, agent-style features that can run variable amounts of compute per task rather than a fixed amount of work per seat, which is why Microsoft is billing them by consumption instead of folding them into the flat per-seat price. Copilot inside Word, Excel, Outlook and Teams is not metered by this change; it stays covered by the regular seat licence."
+      ]
+    },
+    {
+      "heading": "Does this change what my current Copilot Business seats cost?",
+      "paragraphs": [
+        "No, not if you bought before the rollout date that applies to you. The per-seat price for Copilot Business is unchanged, and this announcement does not retroactively add metered billing or an Azure resource to a subscription you already hold. It only applies going forward, to new purchases."
+      ]
+    },
+    {
+      "heading": "What should I check before buying a new Copilot Business seat?",
+      "paragraphs": [
+        "Once a new subscription is active, Microsoft's own guidance is to go into the Microsoft 365 admin center and confirm or adjust the spending policy rather than leave the $10-per-user default untouched. If several people will use Copilot Cowork or the Work IQ API regularly, decide who is allowed to raise that limit before someone hits it mid-task. And because the billing now runs through an Azure resource, whoever manages your Azure spend should know a new one exists, so it does not show up unexplained on a cloud invoice later."
+      ]
+    }
+  ],
+  "takeaway": "If you are buying new Microsoft 365 Copilot Business seats after October 19, 2026 (CSP: November 2), open the Microsoft 365 admin center once the subscription is active and check the $10-per-user spending policy before anyone starts using Copilot Cowork or the Work IQ API.",
+  "stat": {
+    "claim": "Default monthly spending limit Microsoft applies to new Copilot Business usage-based billing",
+    "value": "$10 per user per month, applied automatically to new purchases from October 19, 2026 (direct) and November 2, 2026 (CSP)",
+    "source": "Microsoft, Partner Center announcements: September 2026 (Message Center post MC1476200)",
+    "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-september",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "Microsoft, Partner Center announcements: September 2026 (MC1476200, Simplifying AI access: introducing usage-based billing)",
+      "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-september"
+    },
+    {
+      "label": "Stone Ridge Software, Automatic Usage-Based Billing Is Coming to Microsoft 365 Copilot Business",
+      "url": "https://stoneridgesoftware.com/automatic-usage-based-billing-is-coming-to-microsoft-365-copilot-business/"
+    },
+    {
+      "label": "Schneider IT Management, Microsoft 365 Copilot Business: usage-based billing default",
+      "url": "https://www.schneider.im/microsoft-365-copilot-business-usage-based-billing-default/"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Microsoft bundles Copilot into small business plans",
+      "href": "/field-notes/microsoft-365-copilot-pricing-for-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does usage-based billing change my Microsoft 365 Copilot Business seat price?",
+      "a": "No. The per-seat price is unchanged. The new billing only meters specific agentic features (Copilot Cowork, the Work IQ API, the GitHub Copilot Harness) that run on variable compute, on top of the seat you already pay for."
+    },
+    {
+      "q": "What is the default spending limit on the new usage-based billing?",
+      "a": "Microsoft applies a default spending policy of $10 per user per month to new Copilot Business purchases. An admin can review and adjust that limit in the Microsoft 365 admin center once the subscription is active."
+    },
+    {
+      "q": "Does this affect the Copilot Business subscription I already have?",
+      "a": "No. The change applies only to new purchases, direct purchases from October 19, 2026 and CSP purchases from November 2, 2026. Subscriptions bought before those dates keep their existing billing."
+    }
+  ]
+}
