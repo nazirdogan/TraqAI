@@ -220,8 +220,8 @@
       "workingTitle": "What a vector database is, and whether you need one",
       "targetQuery": "does my business need a vector database",
       "format": "explainer",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/does-a-small-business-need-a-vector-database"
     },
     {
       "id": "tp-024",
