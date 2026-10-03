@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-03",
+      "type": "field-note",
+      "slug": "does-a-small-business-need-a-vector-database",
+      "targetQuery": "does my business need a vector database"
+    },
+    {
       "date": "2026-10-02",
       "type": "field-note",
       "slug": "microsoft-365-copilot-usage-based-billing-default",
@@ -1531,6 +1537,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-02-microsoft-365-copilot-usage-based-billing-default.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-03",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-03-does-a-small-business-need-a-vector-database.json"
       ],
       "build": "passed"
     }

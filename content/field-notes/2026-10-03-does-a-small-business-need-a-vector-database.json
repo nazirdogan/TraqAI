@@ -1,0 +1,68 @@
+{
+  "slug": "does-a-small-business-need-a-vector-database",
+  "title": "Does Your Business Need a Vector Database? | Traq Collective",
+  "h1": "Does your business need a vector database?",
+  "metaDescription": "Most small businesses never touch a vector database directly. Here is what one actually does, and the specific point where setting one up starts to pay off.",
+  "targetQuery": "does my business need a vector database",
+  "tags": [
+    "tools"
+  ],
+  "datePublished": "2026-10-03",
+  "dateModified": "2026-10-03",
+  "author": "Nazir Dogan",
+  "dek": "You are probably already using one without knowing it. The real question is when to set up your own.",
+  "intro": "Most small businesses do not need to set up a vector database themselves. A vector database stores your documents as numeric representations of their meaning so an AI tool can pull back the most relevant passage instead of the most matching keyword. If you use ChatGPT, Claude, or Copilot to search your own files, one is already running behind the scenes on the vendor's side.",
+  "body": [
+    {
+      "heading": "What a vector database actually does",
+      "paragraphs": [
+        "A normal database finds exact matches: the invoice with that number, the customer with that email. A vector database finds similar meaning instead. It converts each document, email, or support ticket into a list of numbers called an embedding, then finds the stored embeddings closest to your question, even if the wording does not overlap at all. That is how an AI tool can answer \"what did we agree on refunds\" by pulling the right clause from a policy document that never uses the word refund in that sentence.",
+        "This is the retrieval half of what people call RAG, retrieval-augmented generation: find the relevant passages first, then hand them to the AI to write the actual answer. The vector database is the search layer underneath, not the AI itself."
+      ]
+    },
+    {
+      "heading": "Why you are probably already using one, unknowingly",
+      "paragraphs": [
+        "If your team uploads files into ChatGPT, builds a Claude Project on your documents, or asks Copilot to search your SharePoint, you are using vector search right now. The vendor runs the embeddings and the storage for you as part of the product you already pay for. You never see the word vector, you never pick a provider, and you never manage the infrastructure. For most small businesses, this is the entire relationship with vector databases they will ever need: using the retrieval built into a tool they already have."
+      ]
+    },
+    {
+      "heading": "The point where setting up your own starts to make sense",
+      "paragraphs": [
+        "You cross into needing your own vector database when you are building something custom: an internal chatbot over your own knowledge base, a support assistant that searches years of tickets, or a product that has to search your customers' data, not just yours. The signal is specific. You need control over exactly what gets retrieved, from exactly which documents, with your own access rules, and an off-the-shelf chat tool cannot give you that.",
+        "Scale alone is rarely the trigger for a small business. A simple local option can handle a small or mid-sized document set on its own before a dedicated service becomes worth the extra moving part. The real trigger is that you are now building a product or an internal system, not just using one."
+      ]
+    },
+    {
+      "heading": "What to actually use, if you have crossed that point",
+      "paragraphs": [
+        "If you already run Postgres, the pgvector extension adds vector search to the database you have, with nothing new to host or pay for separately. If you are starting from nothing and want to move fast, a lightweight open-source option like Chroma runs locally with no setup cost. Only reach for a dedicated managed service like Pinecone once you have outgrown both and genuinely need the scale and the uptime guarantees. In that order, not the reverse. Most teams never need to leave step one."
+      ]
+    }
+  ],
+  "takeaway": "Before you evaluate a single vector database vendor, check whether the AI tool you already pay for does this for you. If you are not building a custom product on top of your own documents, you almost certainly are not the customer for a standalone one yet.",
+  "related": [
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "What Claude Projects do that chat doesn't",
+      "href": "/field-notes/what-are-claude-projects"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is a vector database the same thing as RAG?",
+      "a": "No. RAG, retrieval-augmented generation, is the overall pattern of finding relevant information first and then generating an answer from it. A vector database is just the storage and search component underneath that handles the finding part. You can have one without building full RAG, and most off-the-shelf AI tools hide both from you entirely."
+    },
+    {
+      "q": "What is the simplest way to try vector search without committing to new infrastructure?",
+      "a": "If your business already runs on Postgres, enable the pgvector extension and search your existing data with no new service to host. If you are not on Postgres yet, a local tool like Chroma gets you a working example without signing up for anything or paying a monthly fee."
+    }
+  ]
+}
