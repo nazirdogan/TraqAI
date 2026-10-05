@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-05",
+      "type": "insight",
+      "slug": "ai-training-for-accountants",
+      "targetQuery": "AI training for accountants"
+    },
+    {
       "date": "2026-10-03",
       "type": "field-note",
       "slug": "does-a-small-business-need-a-vector-database",
@@ -1547,6 +1553,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-03-does-a-small-business-need-a-vector-database.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-05",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-training-for-accountants.json"
       ],
       "build": "passed"
     }

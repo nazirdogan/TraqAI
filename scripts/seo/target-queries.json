@@ -408,15 +408,25 @@
       "intent": "commercial",
       "priority": 2,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-training-for-accountants",
       "note": "Highest-scoring role vertical in the autocomplete harvest. The exact phrasing matters here: 'AI training for accountants' is a real query while 'AI for accountants' as a general topic is not, so write to the long-tail phrase verbatim.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-10-05",
+        "engine": "web search",
         "traqPosition": null,
-        "winners": [],
-        "observation": null
+        "winners": [
+          "store.aat.org.uk",
+          "becker.com",
+          "karbonhq.com",
+          "accaglobal.com",
+          "kelley.iu.edu",
+          "theknowledgeacademy.com",
+          "cpatrainingcenter.com",
+          "cchcpelink.com",
+          "coursera.org"
+        ],
+        "observation": "Every top-10 result is a course, certificate, or CPE-credit sales page (AAT, Becker, ACCA, Kelley/IU, Knowledge Academy, CPA Training Center, CCH CPElink, Coursera), with one vendor explainer (Karbon) mixed in. Traq does not sell a certificate course, so the page written here is a decision guide instead: what training should actually cover, which accounting tasks to pilot first, and build-in-house vs bring-in-a-trainer, positioned against Traq's own AI Training service rather than competing as a course catalog listing."
       },
       "demand": {
         "source": "Google autocomplete, AE/US/GB, 2026-08-26",
