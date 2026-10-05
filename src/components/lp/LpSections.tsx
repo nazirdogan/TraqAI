@@ -43,27 +43,6 @@ const LEVEL_STYLES: Record<string, string> = {
   Advanced: 'border-traq-purple/25 bg-white text-traq-purple-ink',
 };
 
-/** Wordmark only. No navigation, no menu, nothing that links off the page. */
-export function LpHeader() {
-  return (
-    <header className="border-b border-border-subtle bg-bg-base">
-      <div className={`${SHELL} flex h-[66px] items-center justify-between gap-4`}>
-        <Image
-          src="/logos/wordmark-purple.png"
-          alt="Traq Collective"
-          width={1888}
-          height={696}
-          priority
-          className="h-[24px] w-auto"
-        />
-        <p className="hidden text-[12.5px] text-ink-faint sm:block">
-          Dubai &middot; Abu Dhabi &middot; Remote
-        </p>
-      </div>
-    </header>
-  );
-}
-
 /**
  * The qualifier row, above the fold on purpose.
  *

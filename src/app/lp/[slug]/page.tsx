@@ -6,7 +6,6 @@ import BookingEmbed from '@/components/analytics/BookingEmbed';
 import {
   LpDelivery,
   LpGovernance,
-  LpHeader,
   LpPillars,
   LpOffer,
   LpProof,
@@ -21,14 +20,14 @@ import { OG_IMAGE, brandedTitle } from '@/lib/metadata';
  *
  * Structure is identical across all three and only the top third changes, so
  * the page repeats the query the visitor typed. The assessment is embedded
- * rather than linked: every navigation is a chance to leave, and the component
- * already exists, so it drops straight in with the two blueprint changes turned
- * on (email captured mid-quiz, qualified bands routed to a calendar).
+ * rather than linked, and the component already exists, so it drops straight
+ * in with the two blueprint changes turned on (email captured mid-quiz,
+ * qualified bands routed to a calendar).
  *
- * Because this is the only destination paid traffic is sent to, the catalogue
- * lives on the page too. A visitor who wants to know what the training actually
- * covers gets the answer by scrolling, not by finding a nav link that is not
- * there.
+ * The pages render inside the normal site chrome, so a visitor can click the
+ * logo home, browse the services and book from the main navigation. The
+ * catalogue also lives on the page, so someone who only wants to know what the
+ * training covers gets the answer by scrolling.
  *
  * These pages are noindex. They exist for paid traffic and would otherwise
  * compete with /services/ai-training for the same organic terms.
@@ -47,11 +46,9 @@ const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
 /**
  * Where "book a call instead" goes.
  *
- * It used to go to /book, which is a normal site page: full navigation, full
- * footer, a dozen ways out. That undid the whole point of a page ChromeGate
- * strips, and it did it for the visitor with the most intent, the one who
- * wants a conversation and not a quiz. The scheduler now sits on this page and
- * the link is an anchor.
+ * The scheduler sits on this page, so the link is an anchor and the visitor
+ * with the most intent, the one who wants a conversation and not a quiz, does
+ * not have to leave to book.
  *
  * The post-assessment CTA still goes to /book, on purpose: it carries score and
  * band as query params so the embed can prefill them into Calendly, and a
@@ -175,9 +172,7 @@ export default function LandingPage({ params }: Params) {
 
   return (
     <>
-      <LpHeader />
-
-      <section className="bg-bg-base px-0 pb-12 pt-12 sm:pb-14 sm:pt-14">
+      <section className="bg-bg-base px-0 pb-12 pt-28 sm:pb-14 sm:pt-36">
         <div className={SHELL}>
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
             <div>
@@ -307,9 +302,6 @@ export default function LandingPage({ params }: Params) {
             anonymised at the client&rsquo;s request. Every engagement is scoped
             and quoted through an enquiry.
           </p>
-          {/* The page has no navigation by design, but it collects an email, so
-              the policy that covers it has to be reachable from it. New tab, so
-              the one permitted link out cannot cost the conversion. */}
           <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
             <a
               href="/privacy"

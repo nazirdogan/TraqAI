@@ -6,9 +6,9 @@
  * visitor lands on copy that repeats the query they typed. That query match is
  * the Quality Score lever and the trust signal in one.
  *
- * These pages are deliberately stripped: no navbar, no footer links out, no
- * sticky CTA bar. The only ways off the page are converting or closing the tab.
- * Chrome is suppressed by ChromeGate, which keys off the /lp prefix.
+ * These pages render inside the normal site chrome (navbar, footer, sticky CTA
+ * bar), so they read as part of traqcollective.com and a visitor can click
+ * through to the rest of the site.
  *
  * Copy marked "approved" below is verbatim from 00-CANONICAL/01-Positioning.md
  * and must not be paraphrased into a new variant.
