@@ -49,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/services/agentic-ai`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/fractional-head-of-ai`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/ai-consulting-uae`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/ai-for-contractors`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/about`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/faq`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/ai-readiness`, lastModified: STATIC_LASTMOD, changeFrequency: 'monthly', priority: 0.8 },
