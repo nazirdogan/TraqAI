@@ -21,6 +21,7 @@ const FOOTER_NAV = [
       { label: 'Consultation & Strategy', href: '/services/ai-consulting' },
       { label: 'Implementation & Enablement', href: '/services/ai-implementation' },
       { label: 'Agentic AI', href: '/services/agentic-ai' },
+      { label: 'AI for contractors', href: '/ai-for-contractors' },
     ],
   },
   {

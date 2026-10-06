@@ -54,6 +54,11 @@ const MOTIFS: Record<string, Motif> = {
     lines: ['Senior & hands-on', 'Embedded with your team', 'No junior on a markup'],
     icon: 'people',
   },
+  contracting: {
+    tab: 'site to tender',
+    lines: ['1. Tenders & estimates', '2. FF&E and procurement', '3. Hours back every week'],
+    icon: 'cap',
+  },
   services: {
     tab: 'what we do',
     lines: ['Training', 'Consulting & strategy', 'Implementation', 'Agentic AI'],

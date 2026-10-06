@@ -38,6 +38,9 @@ function buildLlmsTxt(): string {
   lines.push(
     `- [Embedded AI partner](${absoluteUrl('/fractional-head-of-ai')}): Senior, part-time AI leadership delivered with your team, a better fit than a fractional Head of AI for most mid-market teams.`,
   );
+  lines.push(
+    `- [AI training for contractors](${absoluteUrl('/ai-for-contractors')}): Practical AI training for contracting, fit-out and interior design firms: tendering, estimating, design coordination and FF&E, using the tools they already have.`,
+  );
   lines.push('');
 
   lines.push('## Insights (guides)');
