@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-06",
+      "type": "field-note",
+      "slug": "gemini-skills-replacing-gems-2026",
+      "targetQuery": "what happens to Gemini Gems now that Skills has launched"
+    },
+    {
       "date": "2026-10-05",
       "type": "insight",
       "slug": "ai-training-for-accountants",
@@ -1563,6 +1569,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-training-for-accountants.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-06",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-06-gemini-skills-replacing-gems-2026.json"
       ],
       "build": "passed"
     }

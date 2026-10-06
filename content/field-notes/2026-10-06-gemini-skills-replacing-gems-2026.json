@@ -1,0 +1,88 @@
+{
+  "slug": "gemini-skills-replacing-gems-2026",
+  "title": "Gemini Skills Is Replacing Gems: What Changes, and When",
+  "h1": "Gemini Skills Is Replacing Gems: What Changes, and When",
+  "metaDescription": "Google is replacing Gemini Gems with Skills. Here are the exact dates, what happens to the Gems your team already built, and what to do now.",
+  "targetQuery": "what happens to Gemini Gems now that Skills has launched",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "author": "Nazir Dogan",
+  "dek": "Google is retiring Gems in favor of a new feature called Skills. Existing Gems are not deleted, but the creation window is closing fast.",
+  "intro": "Google is replacing Gemini Gems with a new feature called Skills: reusable custom instructions you trigger with a slash command, stack together, and attach reference files to. Skills roll out October 5 in Workspace and October 13 in the Gemini app. Your existing Gems are not deleted. They convert automatically to Skills on November 17, 2026.",
+  "body": [
+    {
+      "heading": "What are Gemini Skills?",
+      "paragraphs": [
+        "A Skill is a saved, reusable instruction you set up once and run again by typing a slash and the Skill's name in the prompt bar. Gemini can also recognize when a Skill fits the current prompt and apply it on its own. Unlike a Gem, more than one Skill can combine in the same chat, so a drafting Skill and a tone-of-voice Skill can run together on one request instead of forcing you to pick one. Skills can also carry reference files: plain text, PDFs, and images, with sharing and Drive files due in the coming weeks."
+      ]
+    },
+    {
+      "heading": "What happens to the Gems I already built?",
+      "paragraphs": [
+        "Nothing happens to them today. From October 13, 2026, you can no longer create a new Gem or edit an existing one, but the Gems you already have keep working as they are. On November 17, 2026, Google automatically converts every remaining Gem into a Skill. Nothing is deleted and there is no export or rebuild step on your side. The only real constraint in between is that frozen window: if a Gem has a mistake you want fixed before then, you cannot touch it until the migration runs."
+      ]
+    },
+    {
+      "heading": "Should you build anything new as a Skill instead of a Gem?",
+      "paragraphs": [
+        "Yes, starting now. Gem creation closes on October 13, so any new custom assistant you were planning, a first-draft-reply helper, a report formatter, a standard research brief, should be built as a Skill instead. It is not a downgrade: Skills can be combined and can carry reference files, which Gems never supported, so a Skill you build today will do more than the Gem it is replacing."
+      ]
+    },
+    {
+      "heading": "Which Workspace plans get Skills?",
+      "paragraphs": [
+        "Skills are reaching Workspace Business, Enterprise, Education, and Nonprofit accounts over the coming weeks, the same editions that already had access to Gems. There is no separate charge mentioned for the feature itself: it replaces Gems inside the plan you are already paying for, rather than sitting behind a new tier."
+      ]
+    }
+  ],
+  "takeaway": "If a Gem your team relies on is working fine, do nothing: it becomes a Skill automatically on November 17. If you were about to build a new custom assistant, build it as a Skill now, since Gem creation closes October 13.",
+  "sources": [
+    {
+      "label": "Google Workspace Updates, Introducing skills in the Gemini app and Workspace, plus what's next for Gems",
+      "url": "https://workspaceupdates.googleblog.com/2026/09/skills-gemini-app-workspace.html"
+    },
+    {
+      "label": "Notebookcheck, Google Gemini starts turning your Gems into skills on November 17",
+      "url": "https://www.notebookcheck.net/Google-Gemini-starts-turning-your-Gems-into-skills-on-November-17.1411044.0.html"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "What happens to Gemini Gems between now and November",
+    "steps": [
+      { "label": "Skills go live", "detail": "Oct 5 in Workspace, Oct 13 in the Gemini app" },
+      { "label": "Gems freeze", "detail": "From Oct 13: no new Gems, no edits" },
+      { "label": "Gems convert", "detail": "Nov 17: existing Gems auto-become Skills" }
+    ],
+    "caption": "Nothing to do before November 17. Build anything new as a Skill, not a Gem."
+  },
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "What Notion Skills is and how small teams should use it",
+      "href": "/field-notes/notion-skills-for-small-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Will my existing Gemini Gems disappear?",
+      "a": "No. Google is not deleting Gems. Every Gem that still exists on November 17, 2026 converts automatically into a Skill. You do not need to export, rebuild, or do anything to keep it. The only change is that you cannot create or edit a Gem after October 13, 2026."
+    },
+    {
+      "q": "Can I still create a new Gem right now?",
+      "a": "Only until October 13, 2026. After that date, Gem creation and editing are both disabled. Anything new you need should be built as a Skill instead, since that is the feature Google is keeping."
+    },
+    {
+      "q": "Do Skills work the same way Gems did?",
+      "a": "Mostly, with two real additions. A Skill is invoked with a slash command or applied automatically when it fits the prompt, and more than one Skill can combine in a single chat, which Gems could not do. Skills can also attach reference files like PDFs and images."
+    }
+  ]
+}
