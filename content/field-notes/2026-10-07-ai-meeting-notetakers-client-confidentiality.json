@@ -1,0 +1,103 @@
+{
+  "slug": "ai-meeting-notetakers-client-confidentiality",
+  "title": "AI meeting notetakers and client confidentiality | Traq Collective",
+  "h1": "Using AI meeting notetakers without breaking client confidentiality",
+  "metaDescription": "AI notetakers can sit in on client calls safely, but only with real consent, the right retention settings, and a hard line against privileged meetings.",
+  "targetQuery": "AI meeting notes and client confidentiality",
+  "tags": [
+    "tools",
+    "making-it-stick"
+  ],
+  "datePublished": "2026-10-07",
+  "dateModified": "2026-10-07",
+  "author": "Nazir Dogan",
+  "dek": "Before you let Otter, Fireflies, or Zoom AI Companion sit in on a client call, know what happens to the recording after it ends.",
+  "intro": "AI meeting notetakers like Otter, Fireflies, and Zoom AI Companion can join client calls safely, but confidentiality is not a setting you accept by default. Before you turn one on, you need to disclose it to everyone on the call, check what the vendor keeps and trains on, and keep the tool out of privileged or NDA-bound meetings entirely.",
+  "body": [
+    {
+      "heading": "What actually happens to the recording after the call ends",
+      "paragraphs": [
+        "Most AI notetakers are cloud services, not local apps. The audio, video, and transcript usually leave your laptop and sit on the vendor's servers, sometimes for months, sometimes being used to improve the vendor's own AI models unless you turn that off. Zoom is one of the few that states plainly it does not use customer audio, video, chat, or transcripts to train its own or third-party models, and shows meeting participants an on-screen indicator when AI Companion is active. Other tools default to broader data use, so the safe assumption with any new notetaker is that it keeps and trains on your data until you find the setting that says otherwise."
+      ]
+    },
+    {
+      "heading": "Do you need everyone's consent before you hit record",
+      "paragraphs": [
+        "Federal law only requires one person on the call to know it is being recorded. California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Montana, Nevada, New Hampshire, Pennsylvania, and Washington require every participant's consent instead, and the law treats an AI notetaker exactly like a human holding a recorder: the technology does not change the obligation. If any client, prospect, or partner on the call is in one of those states, you need an explicit yes before the bot joins, not a quiet assumption that staying on the call counts as agreement."
+      ]
+    },
+    {
+      "heading": "What to check before you let a notetaker into a client call",
+      "paragraphs": [
+        "Treat the notetaker like any other vendor you are handing client data to, because that is what it is. Say out loud, every call, that an AI tool is recording and taking notes, and name the tool. Open the vendor's settings and find the retention window and the model-training toggle, then shorten the first and switch off the second wherever the option exists. Check where the data is actually stored, since some tools route it through servers outside the country your client expects their information to stay in. None of this takes more than a few minutes once you have done it once."
+      ]
+    },
+    {
+      "heading": "Which meetings should never go through a third-party notetaker",
+      "paragraphs": [
+        "Some conversations are not yours to hand to a vendor, whatever the settings say. Calls covered by attorney-client privilege, board discussions, anything already under an NDA that restricts third-party processors, and conversations about a client's own confidential customer data belong off any tool you do not fully control. For those, take notes yourself, or use a notetaker that stays inside infrastructure your organisation already runs and trusts, and skip the convenience the rest of the time: it is not worth the exposure."
+      ]
+    }
+  ],
+  "takeaway": "Before your next client call: say out loud that an AI notetaker is recording, open its settings and turn off model training and shorten retention, and keep it out of any meeting covered by privilege or an NDA.",
+  "stat": {
+    "claim": "An AI notetaker has already sat in on a meeting for roughly one in three employed Americans, and most were not reliably asked first.",
+    "value": "33.4%",
+    "source": "Kolmogorov Law-commissioned workplace survey",
+    "url": "https://www.workclaw.com/blog/ai-notetakers-are-sitting-in-on-more-meetings-than-you-think-often-without-asking",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "Zoom, AI Companion Security and Privacy",
+      "url": "https://www.zoom.com/en/products/ai-assistant/resources/privacy-security/"
+    },
+    {
+      "label": "Reed Smith, The Legality of AI-Powered Recording and Transcription",
+      "url": "https://www.reedsmith.com/our-insights/blogs/employment-law-watch/102ls2n/the-legality-of-ai-powered-recording-and-transcription/"
+    }
+  ],
+  "diagram": {
+    "type": "flow",
+    "title": "Before you let an AI notetaker into a client call",
+    "steps": [
+      { "label": "Say it out loud", "detail": "Name the tool, every call, not just consent states" },
+      { "label": "Check the defaults", "detail": "Retention window and the model-training toggle" },
+      { "label": "Turn off what you can", "detail": "Shorten retention, disable training" },
+      { "label": "Skip privileged calls", "detail": "Legal, board, anything under NDA" }
+    ],
+    "caption": "Five minutes of settings beats explaining a leaked transcript later."
+  },
+  "related": [
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Implementation",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "How to enforce an AI usage policy for employees",
+      "href": "/field-notes/how-to-enforce-an-ai-usage-policy-for-employees"
+    },
+    {
+      "label": "Questions to ask before buying an AI tool",
+      "href": "/field-notes/questions-to-ask-before-buying-an-ai-tool"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I have to tell a client I'm using an AI notetaker?",
+      "a": "Yes, always, regardless of which state or country they are in. In states like California, Florida, and Illinois it is a legal requirement for every participant to consent before recording starts. Everywhere else it is still the only way to keep the client's trust once they find out, which they usually do."
+    },
+    {
+      "q": "Is Zoom AI Companion safer for client calls than Otter or Fireflies?",
+      "a": "It can be, mainly because Zoom states it does not train its models on customer audio, video, or transcripts, and shows an on-screen indicator when AI Companion is active. That is a stronger default than many standalone notetakers offer, but you still need consent, and you should still confirm your account's retention settings before relying on it for client work."
+    },
+    {
+      "q": "What happens if a client finds an AI notetaker was recording without their consent?",
+      "a": "At minimum it damages trust, and in an all-party consent state it can be a legal violation. The safer habit is to say out loud, at the start of every call, that an AI tool is recording and taking notes. That one sentence removes the risk and costs you nothing."
+    }
+  ]
+}

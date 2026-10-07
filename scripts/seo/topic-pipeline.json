@@ -229,8 +229,8 @@
       "workingTitle": "Using AI meeting notetakers without breaking confidentiality",
       "targetQuery": "AI meeting notes and client confidentiality",
       "format": "how-to",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/ai-meeting-notetakers-client-confidentiality"
     },
     {
       "id": "tp-025",

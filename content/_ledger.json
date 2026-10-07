@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-07",
+      "type": "field-note",
+      "slug": "ai-meeting-notetakers-client-confidentiality",
+      "targetQuery": "AI meeting notes and client confidentiality"
+    },
+    {
       "date": "2026-10-06",
       "type": "field-note",
       "slug": "gemini-skills-replacing-gems-2026",
@@ -1579,6 +1585,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-06-gemini-skills-replacing-gems-2026.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-07",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-07-ai-meeting-notetakers-client-confidentiality.json"
       ],
       "build": "passed"
     }
