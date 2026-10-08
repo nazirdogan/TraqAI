@@ -1,0 +1,100 @@
+{
+  "slug": "copilot-vs-chatgpt-for-business",
+  "title": "Copilot vs ChatGPT for a Microsoft 365 team | Traq Collective",
+  "h1": "Copilot vs ChatGPT for a Microsoft 365 team",
+  "metaDescription": "Copilot lives inside Word, Excel and Teams and reads your own files. ChatGPT is a separate workspace. How a Microsoft 365 team should actually choose.",
+  "targetQuery": "Copilot vs ChatGPT for business",
+  "tags": [
+    "tools",
+    "best-uses"
+  ],
+  "datePublished": "2026-10-08",
+  "dateModified": "2026-10-08",
+  "author": "Nazir Dogan",
+  "dek": "Copilot already knows your files. ChatGPT doesn't, but it isn't tied to Microsoft either. Here is how a Microsoft 365 team should actually choose.",
+  "intro": "Copilot and ChatGPT solve different problems for a team already running Microsoft 365. Copilot lives inside Word, Excel, Outlook and Teams, and answers using your own tenant's files. ChatGPT Business is a separate workspace: broader model access, no built-in view of your documents. Most Microsoft shops should start with Copilot and add ChatGPT only where drafting work outgrows it.",
+  "body": [
+    {
+      "heading": "What is the real difference between Copilot and ChatGPT for a Microsoft 365 team?",
+      "paragraphs": [
+        "The practical difference is not which model is smarter, it is where each one sits and what it already knows. Copilot lives inside Word, Excel, Outlook and Teams, and it answers using Microsoft Graph, so it can draft a reply by reading the actual email thread or summarise using the real files sitting in your SharePoint or OneDrive. ChatGPT Business is a separate workspace. It is quick to turn on for broad model access and strong general writing, but it does not see your tenant's files unless someone pastes the content in or you connect it yourself.",
+        "That one distinction decides most of the rest of this comparison. If the daily work happens inside Office documents and Teams meetings, Copilot's grounding in your own data is the whole point. If the daily work is drafting, research or brainstorming that does not depend on company files, that grounding buys you nothing."
+      ]
+    },
+    {
+      "heading": "Does Copilot cost less because we already pay for Microsoft 365?",
+      "paragraphs": [
+        "Microsoft 365 Copilot Business is an add-on, not a separate product, built for exactly this situation. If your tenant already holds a Microsoft 365 Business Basic, Standard or Premium licence, you can add Copilot Business with no enterprise agreement and no minimum seat count, up to a cap of 300 seats per tenant. Pricing trackers put the standard rate at around $21 a seat a month on an annual commitment, after a lower introductory rate applied earlier in 2026, so confirm the live price for your region in the admin center before budgeting.",
+        "ChatGPT Business runs the other way: a standalone per-seat price with a 2-seat minimum, currently around $20 a seat a month billed annually or $25 billed monthly, after OpenAI cut the standard seat price by $5 a month on April 2, 2026. Neither price depends on the other, which is exactly why running both across a whole team gets expensive fast."
+      ]
+    },
+    {
+      "heading": "Which one keeps company data safer by default?",
+      "paragraphs": [
+        "Both vendors keep business-tier data out of model training by default, but the real risk with Copilot is different. Microsoft's commercial data protection is on by default for Copilot users signed in with a work or school account on an eligible Microsoft 365 licence, and tenant prompts are not used to train Microsoft's foundation models under that protection. ChatGPT Business and Enterprise also exclude your conversations from training by default.",
+        "What actually catches Microsoft-based teams out is not training, it is oversharing. Copilot can surface any file a user could already technically open, including an old folder with loose sharing permissions nobody remembered to lock down. Before turning Copilot on tenant-wide, audit who can actually open what in SharePoint and Teams, because Copilot will find the gap faster than a person would."
+      ]
+    },
+    {
+      "heading": "So should a Microsoft-based team pick Copilot, ChatGPT, or both?",
+      "paragraphs": [
+        "Start with Copilot if the daily AI work lives inside Office documents, email threads and Teams meetings, since you are likely already paying for the Microsoft 365 licence it rides on. Add a smaller group of ChatGPT Business seats only where there is real drafting or research work that benefits from a separate, broader-access tool, rather than issuing it to everyone by default. Licensing the whole team for both from day one means training everyone on two interfaces and two data policies at once, which is the same mistake as buying two tools to be safe. Pick the one that matches the heaviest daily workload, prove it out, then add the second seat group only where it earns its place."
+      ]
+    }
+  ],
+  "takeaway": "This week, check your Microsoft 365 admin center for your base licence tier and whether Copilot Business is already available to you (up to 300 seats, no enterprise agreement needed), before paying for a parallel ChatGPT Business seat for work Copilot could already do inside Teams and Office.",
+  "sources": [
+    {
+      "label": "Microsoft Learn, Microsoft 365 Copilot Business FAQ (eligibility and the 300-seat limit)",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-business-faq"
+    },
+    {
+      "label": "Microsoft Learn, Manage Copilot (commercial data protection, on by default for eligible licences)",
+      "url": "https://learn.microsoft.com/en-us/copilot/manage"
+    },
+    {
+      "label": "OpenAI Help Center, managing billing and seats in ChatGPT Business (April 2026 price change)",
+      "url": "https://help.openai.com/en/articles/8792536"
+    },
+    {
+      "label": "OpenAI, Data controls FAQ (ChatGPT Business and Enterprise training defaults)",
+      "url": "https://help.openai.com/en/articles/7730893-data-controls-faq"
+    },
+    {
+      "label": "Velosio, Microsoft 365 Copilot Pricing Calculator (2026 per-seat rate tracking)",
+      "url": "https://velosio.com/blog/m365-copilot-pricing-calculator"
+    }
+  ],
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Claude vs ChatGPT for business, and how to pick",
+      "href": "/field-notes/claude-vs-chatgpt-for-business"
+    },
+    {
+      "label": "Copilot in Excel: what it does well and where it struggles",
+      "href": "/field-notes/copilot-in-excel-for-business"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do we need an enterprise agreement to buy Microsoft 365 Copilot for a small team?",
+      "a": "No. Microsoft 365 Copilot Business is an add-on for tenants that already hold a Business Basic, Standard or Premium licence, with no enterprise agreement and no minimum seat count, up to 300 seats per tenant. Above that, you move to the enterprise Copilot offer."
+    },
+    {
+      "q": "Does Microsoft or OpenAI train their models on our business data?",
+      "a": "Not by default on a business-tier plan. Microsoft's commercial data protection excludes tenant prompts from training Copilot's foundation models for users signed in with a work or school account, and ChatGPT Business and Enterprise exclude conversations from training too. The bigger risk to watch is Copilot surfacing files your team already has loose permissions on."
+    },
+    {
+      "q": "Can a small Microsoft 365 team use Copilot and ChatGPT at the same time?",
+      "a": "Yes, but pick a primary based on where the daily work happens. Give Copilot to the team working inside Office files and Teams, and add a smaller group of ChatGPT Business seats only for drafting or research work that does not depend on company documents, rather than licensing everyone for both from day one."
+    }
+  ]
+}

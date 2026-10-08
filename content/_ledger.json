@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-08",
+      "type": "field-note",
+      "slug": "copilot-vs-chatgpt-for-business",
+      "targetQuery": "Copilot vs ChatGPT for business"
+    },
+    {
       "date": "2026-10-07",
       "type": "field-note",
       "slug": "ai-meeting-notetakers-client-confidentiality",
@@ -1595,6 +1601,24 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-07-ai-meeting-notetakers-client-confidentiality.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-08",
+      "mode": "daily-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "copilot-vs-chatgpt-for-business",
+      "critic": "branch preflight: session started on a detached HEAD at 9b5a344, confirmed with git symbolic-ref -q HEAD printing nothing; captured the sha, checked out main, ran git merge-base --is-ancestor main 9b5a344 (succeeded), then git merge --ff-only 9b5a344; a git fetch origin main immediately before that showed origin/main was already at 9b5a344, confirming that detached-HEAD run (the 2026-10-07 field note) had, like prior incidents, already reached origin, the detached HEAD only stranded the local main ref in this container, not the push itself; after the fast-forward, git symbolic-ref -q HEAD printed refs/heads/main as required; kill switch checked, no content/_paused and CONTENT_BOT_ENABLED unset; mode.mjs returned daily-note; report.mjs daily gave tp-026 (cluster tool-comparison, workingTitle Copilot vs ChatGPT for a Microsoft-based team, targetQuery Copilot vs ChatGPT for business, format comparison), 38 topics queued with 9.5 weeks runway so no refill needed (refill is weekly-guide-only anyway); checked _ledger.json for repeats: no existing slug or targetQuery for a Copilot-vs-ChatGPT comparison, distinct from claude-vs-chatgpt-for-business (different vendor pairing), copilot-in-excel-for-business (single-feature deep dive) and microsoft-365-copilot-usage-based-billing-default (billing news), so not a repeat or paraphrase; researched via WebSearch since WebFetch returned getaddrinfo ENOTFOUND on microsoft.com, learn.microsoft.com, openai.com, help.openai.com, office-watch.com, eesel.ai and strac.io consistently this run (treated as the same egress-block pattern documented in prior runs, did not retry, relied on WebSearch snippets and real URLs that appeared as actual search results); confirmed from Microsoft Learn Copilot Business FAQ snippet: add-on to Business Basic/Standard/Premium, 300-seat cap per tenant, no enterprise agreement or minimum seat count needed; confirmed from Microsoft Learn Manage Copilot snippet: commercial data protection on by default for eligible licences signed in with a work or school account, tenant prompts excluded from foundation-model training under that protection, oversharing (not training) is the live risk since Copilot honors existing file permissions; confirmed from OpenAI Help Center snippet (article 8792536) and multiple corroborating secondary sources (Crypto Briefing, Blockchain News, a Lenz.io fact-check): ChatGPT Business standard seat price cut by /month on April 2, 2026, now 0/seat/month annual or 5/month, 2-seat minimum; reused the already-verified OpenAI Data controls FAQ URL (7730893) for the ChatGPT Business/Enterprise training-exclusion claim, consistent with the claude-vs-chatgpt-for-business note; the one precise price figure without a direct primary citation (Copilot Business standard rate, approx 1/seat/month after an earlier-2026 introductory rate) was hedged in prose (pricing trackers put it at..., confirm the live price) and backed with a named secondary source (Velosio pricing calculator) added to sources rather than stated as a bare fact; no stat field used, four sources cited instead, matching the pattern used in claude-vs-chatgpt-for-business.json; validated against the live fieldNoteSchema via npx tsx (ran npm ci first since node_modules was absent), result VALID both before and after the sourcing revision; temp validation script written under scripts/content-agent/ was deleted immediately after each run so nothing outside content/ is staged; no em-dashes or en-dashes (checked programmatically, none found); title 43/60 chars after brand-strip, metaDescription 150/165, intro 59 words and stands alone as a direct answer to the targetQuery; four question-shaped body sections, three FAQs, no diagram (a buying decision with no genuine sequence or measured before/after state, forcing one would invent structure the content does not have), no image (skipped per the established rule against stock photos on posts naming specific paid product tiers); related links verified to exist on disk (/services/ai-training, /insights/how-to-get-value-from-ai-tools-you-already-pay-for, /field-notes/claude-vs-chatgpt-for-business, /field-notes/copilot-in-excel-for-business); tagged tools and best-uses; updated scripts/seo/topic-pipeline.json tp-026 to status published with publishedAs /field-notes/copilot-vs-chatgpt-for-business"
+    },
+    {
+      "date": "2026-10-08",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-08-copilot-vs-chatgpt-for-business.json"
       ],
       "build": "passed"
     }

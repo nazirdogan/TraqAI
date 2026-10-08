@@ -247,8 +247,8 @@
       "workingTitle": "Copilot vs ChatGPT for a Microsoft-based team",
       "targetQuery": "Copilot vs ChatGPT for business",
       "format": "comparison",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/copilot-vs-chatgpt-for-business"
     },
     {
       "id": "tp-027",
