@@ -1,0 +1,88 @@
+{
+  "slug": "claude-haiku-5-5-price-cut",
+  "title": "Claude Haiku 5.5's price cut, and what to do about it | Traq Collective",
+  "h1": "Claude Haiku 5.5's price cut, and what to do about it",
+  "metaDescription": "Anthropic cut Claude Haiku's API price up to 90% on October 7, 2026, and added API credits for Max and Team plans. What it means for your business.",
+  "targetQuery": "what does Claude Haiku 5.5's price cut mean for a small business",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "author": "Nazir Dogan",
+  "dek": "Anthropic cut Claude's cheapest model up to 90% and gave Max and Team subscribers free API credit, on the same day. Here's what actually changes if you already pay for Claude.",
+  "intro": "Anthropic cut Claude Haiku's API price by up to 90% on October 7, 2026, to $0.10 per million input tokens and $0.50 per million output tokens for prompts under 100,000 tokens. It also gave Claude Max and Team subscribers free monthly API credits. This mainly matters if your business runs, or pays for, an AI feature built on Claude's API.",
+  "body": [
+    {
+      "heading": "What exactly changed with Claude Haiku's pricing on October 7?",
+      "paragraphs": [
+        "Anthropic launched a new version of its cheapest, fastest model, Claude Haiku 5.5, on October 7, 2026, with API pricing cut by up to 90% compared to the model it replaces. For prompts under 100,000 tokens, input tokens dropped from $1.00 to $0.10 per million and output tokens dropped from $5.00 to $0.50 per million. For prompts over 100,000 tokens, the price is $0.50 input and $2.50 output per million, still a 50% cut from before. Anthropic describes the blended average saving across typical use as around 75%.",
+        "Haiku isn't Anthropic's most capable model (that's Opus), it's the fast, cheap tier built for high-volume work that doesn't need heavy reasoning: sorting support tickets, pulling fields off a form, tagging a batch of records. That's exactly the kind of task a small business is most likely to run thousands of times a day if the price is low enough, so a 90% cut there moves more of those tasks from 'too expensive to bother automating' to 'cheap enough to just run.'"
+      ]
+    },
+    {
+      "heading": "What are the new monthly API credits, and does my business actually get them?",
+      "paragraphs": [
+        "Alongside the Haiku 5.5 launch, Anthropic started rolling out free monthly API credit to paid Claude subscribers the week of October 7, 2026: $100 a month for Claude Max 5x subscribers, $200 a month for Max 20x subscribers, and up to $500 a month for Team plans, pooled across everyone on the team. The credit can be spent on calls to any Claude model through Anthropic's API, not only Haiku, though it does not cover interactive use of Claude Code itself.",
+        "If your business already pays for a Claude Max or Team seat, this isn't something you sign up for separately. It should land on the account automatically as the rollout reaches you. Check your plan's billing or API console this week to see whether it has shown up, and what it's actually worth to you, before deciding whether to build anything new against it."
+      ]
+    },
+    {
+      "heading": "Does this change anything if we only use the Claude chat app, not the API?",
+      "paragraphs": [
+        "Not directly. The $100 to $500 figures above, and the Haiku price cut, apply to Anthropic's API, the metered, pay-as-you-go usage that powers custom tools, chatbots, and automations, not the flat monthly seat price for chatting inside Claude.ai or Claude Code. If nobody at your company has ever called Claude's API directly, your monthly bill doesn't change because of this announcement.",
+        "It still matters indirectly if you pay a vendor or an in-house developer to build something on Claude: a website chatbot, an inbox triage tool, a document processor. Ask whoever maintains it which model it calls. If it's already on a Haiku model, it just got cheaper to run with no code change needed. If it was built on a pricier model for a task that doesn't need deep reasoning, this is the moment to ask whether swapping to Haiku 5.5 would hold up on quality."
+      ]
+    },
+    {
+      "heading": "What should a small business actually do about this, this week?",
+      "paragraphs": [
+        "Three concrete moves. First, if you're on Claude Max or Team, confirm the new API credit has reached your account and decide whether anything is worth building with that free usage attached. Second, if you already have an automation or feature running on an older Haiku model, ask whoever built it to test Haiku 5.5 on a sample of real requests before switching the production default, since the swap is usually a one-line model name change, not a rebuild. Third, if a repetitive task has been sitting on a 'too expensive to automate' list, this is the price point worth checking it against again."
+      ]
+    }
+  ],
+  "takeaway": "This week: check whether your Claude Max or Team account has received its new monthly API credit, and if you already run anything on Claude's API, ask whoever maintains it whether it's pointed at Haiku 5.5 yet.",
+  "diagram": {
+    "type": "before-after",
+    "title": "Claude Haiku's API price, before and after October 7, 2026",
+    "rows": [
+      { "label": "Input, under 100k tok", "before": 1.00, "after": 0.10, "unit": "$/M tok", "as": "bar" },
+      { "label": "Output, under 100k tok", "before": 5.00, "after": 0.50, "unit": "$/M tok", "as": "bar" }
+    ],
+    "beforeVerdict": "Haiku 4.5: pricey to run at volume",
+    "afterVerdict": "Haiku 5.5: cheap enough to scale up",
+    "caption": "Prompts over 100,000 tokens got a smaller, 50% cut instead of 90%."
+  },
+  "sources": [
+    {
+      "label": "Anthropic, Introducing Claude Haiku 5.5 (pricing table and API credit rollout)",
+      "url": "https://www.anthropic.com/claude-haiku-5-5"
+    }
+  ],
+  "related": [
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Why did Claude just get cheaper for AI agents",
+      "href": "/field-notes/claude-fable-5-1-cheaper-ai-agents"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Did Claude's chat app or Claude Code get cheaper on October 7, 2026?",
+      "a": "No, not directly. The price cut applies to Claude's API, the metered usage that powers custom tools and automations, not the flat monthly price of a Claude Pro, Max, or Team seat. Your seat price is unchanged; what got cheaper is what a developer pays per request calling Claude's cheapest model, Haiku, through the API."
+    },
+    {
+      "q": "How much cheaper is Claude Haiku 5.5 than the model it replaced?",
+      "a": "For prompts under 100,000 tokens, input tokens dropped from $1.00 to $0.10 per million and output tokens from $5.00 to $0.50 per million, a 90% cut. Longer prompts, over 100,000 tokens, get a 50% cut instead. Anthropic says the blended average saving across typical use is about 75%."
+    },
+    {
+      "q": "Who actually gets the new free API credits, and how much?",
+      "a": "Claude Max 5x subscribers get $100 a month, Max 20x subscribers get $200, and Team plans get up to $500 a month pooled across the whole team, rolling out the week of October 7, 2026. The credit covers API calls to any Claude model, but not interactive use of Claude Code itself."
+    }
+  ]
+}
