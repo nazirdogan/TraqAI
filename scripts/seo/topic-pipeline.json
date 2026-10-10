@@ -256,8 +256,8 @@
       "workingTitle": "Gemini vs ChatGPT for a Google Workspace team",
       "targetQuery": "Gemini vs ChatGPT for Google Workspace",
       "format": "comparison",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/gemini-vs-chatgpt-for-google-workspace"
     },
     {
       "id": "tp-028",

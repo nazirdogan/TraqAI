@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-10",
+      "type": "field-note",
+      "slug": "gemini-vs-chatgpt-for-google-workspace",
+      "targetQuery": "Gemini vs ChatGPT for Google Workspace"
+    },
+    {
       "date": "2026-10-09",
       "type": "field-note",
       "slug": "claude-haiku-5-5-price-cut",
@@ -1635,6 +1641,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-09-claude-haiku-5-5-price-cut.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-10",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-10-gemini-vs-chatgpt-for-google-workspace.json"
       ],
       "build": "passed"
     }
