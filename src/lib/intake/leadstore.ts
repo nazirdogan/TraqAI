@@ -26,7 +26,13 @@ export type LeadKind =
   | 'assessment_partial'
   | 'quick'
   | 'chat'
-  | 'ai_plan_session';
+  | 'ai_plan_session'
+  // Touches (src/lib/intake/touch.ts): no form, so usually no email. The row
+  // exists to keep the gclid and the time, so the booking or call that
+  // arrives by its own route can be matched to the click that paid for it.
+  | 'calendly_booking'
+  | 'phone_click'
+  | 'whatsapp_click';
 
 /** The click that produced the lead, kept as discrete fields. */
 export type ClickAttribution = {
@@ -41,7 +47,8 @@ export type ClickAttribution = {
 
 export type LeadInput = ClickAttribution & {
   kind: LeadKind;
-  email: string;
+  /** Every form lead has one. A touch usually does not. */
+  email?: string;
   firstName?: string;
   lastName?: string;
   company?: string;

@@ -1,7 +1,7 @@
 import { Ratelimit } from '@upstash/ratelimit';
 import { getRedis } from '@/lib/intake/redis';
 
-type Bucket = 'chat-burst' | 'chat-hour' | 'submit-hour';
+type Bucket = 'chat-burst' | 'chat-hour' | 'submit-hour' | 'touch-hour';
 
 const limiters = new Map<Bucket, Ratelimit>();
 
@@ -18,7 +18,11 @@ function getLimiter(bucket: Bucket): Ratelimit | null {
         ? Ratelimit.slidingWindow(10, '30 s')
         : bucket === 'chat-hour'
           ? Ratelimit.slidingWindow(50, '1 h')
-          : Ratelimit.slidingWindow(5, '1 h'),
+          : bucket === 'touch-hour'
+            ? // Its own bucket, so tapping the phone number a few times can
+              // never use up a visitor's allowance for the forms.
+              Ratelimit.slidingWindow(30, '1 h')
+            : Ratelimit.slidingWindow(5, '1 h'),
     analytics: false,
   });
   limiters.set(bucket, limiter);

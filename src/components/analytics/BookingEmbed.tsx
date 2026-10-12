@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { track } from '@/components/analytics/Analytics';
 import { captureAttribution, getAttribution } from '@/lib/attribution';
+import { sendTouch } from '@/lib/touch-client';
 import { COMPANY } from '@/lib/constants';
 
 /**
@@ -139,6 +140,14 @@ export default function BookingEmbed({ bookingUrl }: Props) {
         score: score ? Number(score) : undefined,
         band: band ?? undefined,
         gclid: getAttribution().gclid,
+      });
+      // Store the booking in the lead sheet as well. Before this, a booking
+      // made without the assessment wrote nothing anywhere, so its gclid was
+      // lost and the call could never be reported back to Google Ads.
+      const n = score ? Number(score) : NaN;
+      sendTouch('calendly_booking', {
+        score: Number.isFinite(n) ? n : undefined,
+        band: band ?? undefined,
       });
     }
     window.addEventListener('message', onMessage);
