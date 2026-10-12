@@ -464,15 +464,20 @@
       "intent": "commercial",
       "priority": 2,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-literacy-training-for-employees",
       "note": "Mandated demand rather than discretionary, which makes it a different sale entirely. Autocomplete clusters this term to 'eu', 'ireland' and 'uk', which is the EU AI Act literacy obligation showing up in search. Applies to any UAE client with EU operations, customers or staff, and to Traq's remote worldwide delivery. Check the current text of the obligation before writing; do not state a deadline from memory.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-10-12",
+        "engine": "web search (WebSearch tool; eur-lex.europa.eu and artificialintelligenceact.eu were unreachable through the egress proxy, so corroborated across independent secondary sources instead)",
         "traqPosition": null,
-        "winners": [],
-        "observation": null
+        "winners": [
+          "devlinpeck.com/content/ai-literacy-training-for-employees (US DOL AI literacy framework explainer)",
+          "appliedai.de/en/solutions-services/ai-trainings/ai-literacy-training (vendor course page)",
+          "learnep.com/introduction-to-artificial-intelligence (generic-training-is-not-enough argument)",
+          "freevacy.com/training/ai-literacy (vendor course page)"
+        ],
+        "observation": "Top-10 is almost entirely vendor course/landing pages pitching a training product, none framing AI literacy as a compliance duty with the Digital Omnibus update, which is the gap this guide fills: it leads with the EU AI Act Article 4 obligation (including the July 2026 Digital Omnibus softening from 'ensure' to 'support the development of') as the commercial driver, then gives concrete training design and measurement advice the vendor pages treat as marketing copy rather than substance. No comparison table or price band format among the winners, so matched with a standard guide format rather than forcing a table."
       },
       "demand": {
         "source": "Google Trends and autocomplete, 2026-08-26",

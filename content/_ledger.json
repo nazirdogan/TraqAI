@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-12",
+      "type": "insight",
+      "slug": "ai-literacy-training-for-employees",
+      "targetQuery": "AI literacy training for employees"
+    },
+    {
       "date": "2026-10-11",
       "type": "field-note",
       "slug": "zapier-vs-make-for-ai-automation",
@@ -1667,6 +1673,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-11-zapier-vs-make-for-ai-automation.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-12",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-literacy-training-for-employees.json"
       ],
       "build": "passed"
     }
