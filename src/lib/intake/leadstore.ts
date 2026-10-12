@@ -45,6 +45,7 @@ export type LeadInput = ClickAttribution & {
   firstName?: string;
   lastName?: string;
   company?: string;
+  phone?: string;
   /** Assessment only: readiness band, score out of 60, and the unscored budget answer. */
   band?: string;
   score?: number;

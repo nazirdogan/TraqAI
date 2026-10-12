@@ -59,6 +59,9 @@ export default function AssessmentLeadEmail({ intake, maxScore = 27 }: Props) {
             <Text style={label}>Email</Text>
             <Text style={value}>{intake.email}</Text>
 
+            <Text style={label}>Phone</Text>
+            <Text style={value}>{intake.phone}</Text>
+
             <Text style={label}>Band</Text>
             <Text style={value}>{intake.band}</Text>
 

@@ -262,6 +262,8 @@ const INPUT_BASE =
 const LABEL_BASE =
   'text-[11px] font-semibold uppercase tracking-widest text-ink-faint';
 
+const PHONE_RE = /^\+?[0-9()\-.\s]{7,20}$/;
+
 export default function AssessmentForm({
   captureEmailAfter,
   bookingHref,
@@ -288,6 +290,7 @@ export default function AssessmentForm({
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
+  const [phone, setPhone] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   // The mid-quiz email step runs at most once, whether it was filled or skipped.
   const [emailStepSeen, setEmailStepSeen] = useState(false);
@@ -414,6 +417,7 @@ export default function AssessmentForm({
     setFirstName('');
     setEmail('');
     setCompany('');
+    setPhone('');
     setErrorMessage('');
     setEmailStepSeen(false);
     setCaptureError('');
@@ -426,6 +430,7 @@ export default function AssessmentForm({
     firstName.trim().length > 0 &&
     email.trim().length > 0 &&
     company.trim().length > 0 &&
+    PHONE_RE.test(phone.trim()) &&
     (!turnstileRequired || turnstileToken.length > 0);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -455,6 +460,7 @@ export default function AssessmentForm({
             firstName: firstName.trim(),
             email: email.trim(),
             company: company.trim(),
+            phone: phone.trim(),
             answers: answerDetail,
             score,
             band: detail.band,
@@ -1015,6 +1021,7 @@ export default function AssessmentForm({
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 autoComplete="given-name"
+                required
                 className={cn(INPUT_BASE, 'mt-2')}
                 placeholder="Jane"
               />
@@ -1028,25 +1035,45 @@ export default function AssessmentForm({
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 autoComplete="organization"
+                required
                 className={cn(INPUT_BASE, 'mt-2')}
                 placeholder="Company name"
               />
             </div>
           </div>
 
-          <div className="mt-4">
-            <label className={LABEL_BASE} htmlFor="ar-email">
-              Work email
-            </label>
-            <input
-              id="ar-email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              autoComplete="email"
-              className={cn(INPUT_BASE, 'mt-2')}
-              placeholder="jane@company.com"
-            />
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className={LABEL_BASE} htmlFor="ar-email">
+                Work email
+              </label>
+              <input
+                id="ar-email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+                required
+                className={cn(INPUT_BASE, 'mt-2')}
+                placeholder="jane@company.com"
+              />
+            </div>
+            <div>
+              <label className={LABEL_BASE} htmlFor="ar-phone">
+                Phone number
+              </label>
+              <input
+                id="ar-phone"
+                type="tel"
+                inputMode="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                autoComplete="tel"
+                required
+                className={cn(INPUT_BASE, 'mt-2')}
+                placeholder="+971 50 123 4567"
+              />
+            </div>
           </div>
 
           {turnstileRequired ? (
