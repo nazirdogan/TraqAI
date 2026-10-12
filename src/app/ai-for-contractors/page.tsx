@@ -62,91 +62,58 @@ const HERO = {
 type Section = { h2: string; body: string; points?: string[] };
 
 // Written from the seat of the person who owns AI inside a contracting firm:
-// real document types, real handoffs, human sign-off on anything contractual.
-// Typical use cases, not client results, so no invented numbers.
+// real document types, human sign-off on anything contractual. Typical use
+// cases, not client results, so no invented numbers. Kept short on purpose:
+// each card is a one-line outcome plus two terms a contractor will recognise.
 const USE_CASES: Section[] = [
   {
-    h2: 'Tender returns and pre-qualification',
-    body: 'An ITT or PQQ lands with a short deadline and a long document set. We train your bid team to use AI to extract the requirements and evaluation criteria, build a compliance matrix, and draft method statements, the programme narrative and prelims text from your own past tender returns. Your commercial lead still owns the price, the qualifications and the sign-off.',
-    points: [
-      'Summarise the ITT and flag onerous clauses, qualifications and unusual terms',
-      'Build a compliance matrix against the evaluation criteria',
-      'Draft first-pass method statements and project team CVs from past returns',
-    ],
+    h2: 'Tender returns and PQQs',
+    body: 'Read the ITT, build the compliance matrix and draft the first pass of method statements.',
+    points: ['Flag onerous clauses and qualifications', 'Reuse past tender returns'],
   },
   {
-    h2: 'Estimating and subcontractor comparatives',
-    body: 'AI does not replace take-off or the estimator, and we say so in the room. It speeds up the work around the BOQ: reading the specification, building the subcontractor enquiry, levelling returned quotes against scope, flagging gaps and exclusions, and drafting assumptions, clarifications and provisional sum notes. Every rate and quantity is checked by an estimator.',
-    points: [
-      'Level subcontractor quotes against scope and surface gaps and exclusions',
-      'Turn spec clauses into an enquiry checklist for each trade package',
-      'Draft assumptions, exclusions and clarifications for the tender return',
-    ],
+    h2: 'Estimating and comparatives',
+    body: 'Level subcontractor quotes against scope. The estimator still owns every rate and quantity.',
+    points: ['Spot gaps and exclusions', 'Draft assumptions and clarifications'],
   },
   {
-    h2: 'Design coordination, RFIs and submittals',
-    body: 'Design teams and site teams lose hours to RFIs, shop drawing and material submittals, and chasing consultants for responses. We show your people how to use AI to draft clear, referenced RFIs, check a submittal against the specification, summarise comment threads into a decision log and keep the RFI and submittal registers consistent, so the design intent and what was agreed stay traceable.',
-    points: [
-      'Draft RFIs with the drawing, spec and clause references in place',
-      'Compare a material submittal against the specification before it is issued',
-      'Turn coordination meeting minutes into an action and decision log',
-    ],
+    h2: 'RFIs and submittals',
+    body: 'Faster, cleaner coordination between design, consultants and site.',
+    points: ['Draft referenced RFIs', 'Check submittals against the spec'],
   },
   {
-    h2: 'FF&E schedules and procurement',
-    body: 'FF&E packages mean hundreds of items across specification, supplier quotes, samples, lead times and approvals. We train design and procurement teams to use AI to structure the FF&E schedule, standardise product data sheets, compare supplier quotes and lead times, flag long-lead items against the programme, and draft supplier chasers. A designer or procurement lead approves every substitution and purchase order.',
-    points: [
-      'Standardise item descriptions and product data across the FF&E schedule',
-      'Compare supplier quotes, lead times and approved-equal proposals',
-      'Flag long-lead items that threaten the programme and draft the chasers',
-    ],
+    h2: 'FF&E and procurement',
+    body: 'Structure the schedule, compare supplier quotes and keep long-lead items on the programme.',
+    points: ['Standardise product data', 'Draft supplier chasers'],
   },
   {
-    h2: 'Variations, valuations and contract admin',
-    body: 'Change is where margin is won or lost, and it is mostly writing and records. We train project and commercial teams to use AI to draft variation and change order notices, assemble the contemporaneous record behind an extension of time claim, and prepare the narrative for interim valuations. Anything contractual is reviewed by the person who owns the contract.',
-    points: [
-      'Draft variation notices from instructions, emails and site records',
-      'Assemble a dated chronology to support an EOT or loss and expense claim',
-      'Prepare the narrative that sits behind an interim valuation',
-    ],
+    h2: 'Variations and contract admin',
+    body: 'Turn instructions and site records into notices and a dated record behind any claim.',
+    points: ['Draft variation notices', 'Build the EOT chronology'],
   },
   {
-    h2: 'Site reporting, snagging and handover',
-    body: 'Daily and weekly reports, inspection requests, NCRs, snag lists and the handover pack are all structured writing from rough inputs. We show site teams how to turn notes and photos into consistent progress reports, organise the snag list by trade and location, and compile the O&M manual and as-built checklist for handover and the defects liability period.',
-    points: [
-      'Turn site notes and photos into a consistent weekly progress report',
-      'Sort and chase the snag list by trade, location and priority',
-      'Build the handover checklist and O&M manual index',
-    ],
+    h2: 'Site reports and handover',
+    body: 'Rough notes and photos become consistent reports, snag lists and handover packs.',
+    points: ['Weekly progress reports', 'Snag list and O&M index'],
   },
 ];
 
 const SECTIONS: Section[] = [
   {
     h2: 'Why contractors are looking at AI now',
-    body: 'Contracting margins are tight and the document load is heavy: tender returns, comparatives, registers, valuations and reports, all on deadlines. Most firms do not need a bespoke system. They need estimators, designers, project managers, procurement and site teams who can use the AI tools they already have on their own documents, safely. The gain is hours back every week on work that follows a pattern.',
+    body: 'Tight margins and a heavy document load. The gain is hours back every week on work that follows a pattern.',
   },
   {
-    h2: 'Training first, on the tools you already have',
-    body: 'We lead with hands-on, role-specific training. Estimators, bid managers, designers, project managers, procurement and site engineers each work on their own real tasks, in Microsoft 365, Google Workspace, ChatGPT or Claude, whichever you already pay for. People leave with prompts and habits that fit their job, not a generic overview of AI.',
-    points: [
-      'Role-specific sessions for each seat in the project team',
-      'Your own document types, with guardrails for confidential data',
-      'A shared prompt library your team keeps using after we leave',
-    ],
+    h2: 'Training first, on the tools you have',
+    body: 'Role-specific, hands-on sessions in Microsoft 365, Google Workspace, ChatGPT or Claude, on your own documents.',
   },
   {
-    h2: 'Owning AI properly: governance for a contracting firm',
-    body: 'Someone has to own AI in the business, and in contracting that means more than picking a tool. We help you set it up as an operating model: a register of approved use cases, which tools and plans are allowed, what client and tender data can never leave the approved environment, who reviews AI output before it reaches a client, subcontractor or the contract file, and how you measure hours saved per tender and per project.',
-    points: [
-      'Approved tools and a data classification for tender, client and commercial information',
-      'Review gates: a named person signs off anything contractual or priced',
-      'A use case register and a simple measure of hours saved',
-    ],
+    h2: 'Owning AI properly',
+    body: 'Approved tools, data rules for tender and client information, and a named person who signs off anything contractual.',
   },
   {
-    h2: 'Implementation, when you are ready for it',
-    body: 'Once your team is confident, some firms want AI built into how they work: standard templates, shared project workspaces and connections between the tools they already use. We offer this as a second step, scoped to what your team has proven useful in training, rather than a large build up front.',
+    h2: 'Implementation, when ready',
+    body: 'Once your team is confident, we build templates and workflows around what training proved useful.',
   },
 ];
 
@@ -224,10 +191,11 @@ export default function AiForContractorsPage() {
         secondary={{ label: 'See AI training', href: '/services/ai-training' }}
       />
 
-      <ContentSections sections={SECTIONS} />
+      <ContentSections sections={SECTIONS} wide columns={4} />
 
       <ContentSections
         sections={USE_CASES}
+        wide
         eyebrow="Typical use cases"
         heading="Where contractors get time back"
         intro="Examples of the work we train contracting, fit-out and interior teams to speed up. Every output is checked by the person who owns it."
@@ -235,6 +203,7 @@ export default function AiForContractorsPage() {
 
       <ContentSections
         sections={PROCESS}
+        wide
         eyebrow="How it works"
         heading="From document flow to habits that stick"
         footnote={

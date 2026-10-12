@@ -13,6 +13,10 @@ type Props = {
   intro?: string;
   /** Optional contextual line (e.g. internal cross-links) rendered under the grid. */
   footnote?: ReactNode;
+  /** Use the full page width (max-w-7xl, matching the navbar and footer) instead of the centred max-w-5xl column. */
+  wide?: boolean;
+  /** Cards per row at lg+. Defaults to 3; 4 puts four short cards on one row. */
+  columns?: 3 | 4;
 };
 
 /**
@@ -23,12 +27,20 @@ type Props = {
  * scroll-heavy layout, with a subtle ruled-card + handwritten-number motif.
  * Server component — no client JS.
  */
-export default function ContentSections({ sections, eyebrow, heading, intro, footnote }: Props) {
+export default function ContentSections({
+  sections,
+  eyebrow,
+  heading,
+  intro,
+  footnote,
+  wide = false,
+  columns = 3,
+}: Props) {
   if (!sections.length) return null;
 
   return (
     <section className="paper-dots relative bg-bg-base px-5 py-14 sm:px-8 sm:py-20">
-      <div className="mx-auto max-w-5xl">
+      <div className={wide ? 'mx-auto max-w-7xl' : 'mx-auto max-w-5xl'}>
         {(eyebrow || heading) && (
           <div className="mb-9 sm:mb-12">
             {eyebrow ? <div className="eyebrow eyebrow-accent">{eyebrow}</div> : null}
@@ -47,7 +59,11 @@ export default function ContentSections({ sections, eyebrow, heading, intro, foo
           </div>
         )}
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <div
+          className={`grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 ${
+            columns === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+          }`}
+        >
           {sections.map((section, i) => (
             <article key={section.h2} className="note-card flex flex-col">
               <div className="flex items-baseline gap-3">
