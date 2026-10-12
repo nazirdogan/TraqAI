@@ -379,32 +379,42 @@ export default function AssessmentForm({
     setPhase('result');
   };
 
-  /** Leave the mid-quiz email step, with or without an address. */
-  const leaveCaptureStep = (withEmail: boolean) => {
-    if (withEmail) {
-      const trimmed = email.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed)) {
-        setCaptureError('Enter an email we can send the score to.');
-        return;
-      }
-      // Conversion action 2, and the reason the email is asked for here at all:
-      // it has to exist somewhere other than this tab before they can abandon.
-      track('email_captured', { step: captureEmailAfter ?? 0, source });
-      void fetch('/api/intake/assessment/partial', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          email: trimmed,
-          answered: Object.keys(answers).length,
-          source,
-          attribution: attributionSummary(getAttribution()),
-          click: getAttribution(),
-        }),
-        keepalive: true,
-      }).catch(() => {
-        // Best effort. A failed partial capture must never block the quiz.
-      });
+  /** Leave the mid-quiz details step. All four fields are required. */
+  const leaveCaptureStep = () => {
+    const trimmed = email.trim();
+    if (!firstName.trim() || !company.trim()) {
+      setCaptureError('Enter your name and company.');
+      return;
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed)) {
+      setCaptureError('Enter an email we can send the score to.');
+      return;
+    }
+    if (!PHONE_RE.test(phone.trim()) || phone.replace(/\D/g, '').length < 7) {
+      setCaptureError('Enter a phone number we can reach you on.');
+      return;
+    }
+    // Conversion action 2, and the reason the details are asked for here at
+    // all: they have to exist somewhere other than this tab before they can
+    // abandon.
+    track('email_captured', { step: captureEmailAfter ?? 0, source });
+    void fetch('/api/intake/assessment/partial', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        email: trimmed,
+        firstName: firstName.trim(),
+        company: company.trim(),
+        phone: phone.trim(),
+        answered: Object.keys(answers).length,
+        source,
+        attribution: attributionSummary(getAttribution()),
+        click: getAttribution(),
+      }),
+      keepalive: true,
+    }).catch(() => {
+      // Best effort. A failed partial capture must never block the quiz.
+    });
     setCaptureError('');
     setEmailStepSeen(true);
     setPhase('quiz');
@@ -535,9 +545,8 @@ export default function AssessmentForm({
     );
   }
 
-  // Mid-quiz capture. The score is the thing being delivered, so the ask is
-  // framed as a delivery address and stays skippable: a hard gate here costs
-  // more completions than the addresses are worth.
+  // Mid-quiz capture. Name, company, email and phone are all required here so
+  // every lead can be followed up by phone.
   if (phase === 'capture') {
     return (
       <div className={containerClassName}>
@@ -571,80 +580,131 @@ export default function AssessmentForm({
             Where should we send your score?
           </h2>
           <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
-            {`You are ${answeredCount} questions in. We will send the full result so you keep it.`}
+            {`You are ${answeredCount} questions in. Tell us who you are and we will send the full result so you keep it.`}
           </p>
 
-          <div className="mt-6">
-            <label className={LABEL_BASE} htmlFor="ar-capture-email">
-              Work email
-            </label>
-            <input
-              id="ar-capture-email"
-              type="email"
-              inputMode="email"
-              autoComplete="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                if (captureError) setCaptureError('');
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  leaveCaptureStep(true);
-                }
-              }}
-              className={cn(INPUT_BASE, 'mt-2')}
-              placeholder="you@company.com"
-              aria-invalid={captureError ? true : undefined}
-              aria-describedby={captureError ? 'ar-capture-error' : undefined}
-            />
+          <form
+            noValidate
+            onSubmit={(e) => {
+              e.preventDefault();
+              leaveCaptureStep();
+            }}
+          >
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className={LABEL_BASE} htmlFor="ar-capture-first">
+                  First name
+                </label>
+                <input
+                  id="ar-capture-first"
+                  value={firstName}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                    if (captureError) setCaptureError('');
+                  }}
+                  autoComplete="given-name"
+                  required
+                  className={cn(INPUT_BASE, 'mt-2')}
+                  placeholder="Jane"
+                />
+              </div>
+              <div>
+                <label className={LABEL_BASE} htmlFor="ar-capture-company">
+                  Company
+                </label>
+                <input
+                  id="ar-capture-company"
+                  value={company}
+                  onChange={(e) => {
+                    setCompany(e.target.value);
+                    if (captureError) setCaptureError('');
+                  }}
+                  autoComplete="organization"
+                  required
+                  className={cn(INPUT_BASE, 'mt-2')}
+                  placeholder="Company name"
+                />
+              </div>
+              <div>
+                <label className={LABEL_BASE} htmlFor="ar-capture-email">
+                  Work email
+                </label>
+                <input
+                  id="ar-capture-email"
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (captureError) setCaptureError('');
+                  }}
+                  className={cn(INPUT_BASE, 'mt-2')}
+                  placeholder="you@company.com"
+                />
+              </div>
+              <div>
+                <label className={LABEL_BASE} htmlFor="ar-capture-phone">
+                  Phone number
+                </label>
+                <input
+                  id="ar-capture-phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    if (captureError) setCaptureError('');
+                  }}
+                  className={cn(INPUT_BASE, 'mt-2')}
+                  placeholder="+971 50 123 4567"
+                  aria-invalid={captureError ? true : undefined}
+                  aria-describedby={captureError ? 'ar-capture-error' : undefined}
+                />
+              </div>
+            </div>
             {captureError ? (
               <p
                 id="ar-capture-error"
-                className="mt-2 flex items-center gap-1.5 text-[13px] font-medium text-signal-warn"
+                className="mt-3 flex items-center gap-1.5 text-[13px] font-medium text-signal-warn"
               >
                 <AlertCircle className="h-3.5 w-3.5" />
                 {captureError}
               </p>
             ) : null}
-          </div>
 
-          <p className="mt-4 text-[13px] leading-relaxed text-ink-faint">
-            This is how we deliver the score, not a gate. No spam, and you can
-            finish the remaining questions either way. See our{' '}
-            <a
-              href="/privacy"
-              target="_blank"
-              rel="noopener"
-              className="underline underline-offset-4 transition-colors hover:text-traq-purple"
-            >
-              privacy policy
-            </a>
-            .
-          </p>
+            <p className="mt-4 text-[13px] leading-relaxed text-ink-faint">
+              All four fields are required. We use them to send your score and
+              to follow up. No spam. See our{' '}
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noopener"
+                className="underline underline-offset-4 transition-colors hover:text-traq-purple"
+              >
+                privacy policy
+              </a>
+              .
+            </p>
 
-          <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-            <button
-              type="button"
-              onClick={() => leaveCaptureStep(true)}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
-            >
-              {`Continue to question ${Math.min(answeredCount + 1, QUESTIONS.length)}`}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button
-              type="button"
-              onClick={() => leaveCaptureStep(false)}
-              className="inline-flex items-center justify-center gap-2 text-[13px] font-semibold text-ink-soft transition-colors hover:text-traq-purple"
-            >
-              Skip, just show my score
-            </button>
-          </div>
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-traq-purple px-7 py-3.5 text-sm font-semibold text-white shadow-card transition-all hover:-translate-y-px hover:bg-traq-purple-ink hover:shadow-cardHover active:scale-[0.98]"
+              >
+                {`Continue to question ${Math.min(answeredCount + 1, QUESTIONS.length)}`}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     );
   }
+
 
   // The optional closing question. Unscored, skippable, and framed so that
   // "no budget yet" is a normal thing to click rather than a door closing.

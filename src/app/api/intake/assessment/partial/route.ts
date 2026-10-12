@@ -54,6 +54,9 @@ export async function POST(request: Request) {
   await recordLead({
     kind: 'assessment_partial',
     email: partial.email,
+    firstName: partial.firstName,
+    company: partial.company,
+    phone: partial.phone,
     source: partial.source,
     ...(partial.click ?? {}),
   });
@@ -74,7 +77,10 @@ export async function POST(request: Request) {
   // Plain text on purpose. This is an internal signal, not a designed email,
   // and it needs to be readable on a phone within a few minutes of landing.
   const lines = [
-    `${partial.email} started the AI readiness assessment and gave their email at question ${partial.answered}.`,
+    `${partial.firstName} (${partial.company}) started the AI readiness assessment and gave their details at question ${partial.answered}.`,
+    '',
+    `Email: ${partial.email}`,
+    `Phone: ${partial.phone}`,
     '',
     partial.source ? `Page: ${partial.source}` : null,
     partial.attribution ? `Attribution: ${partial.attribution}` : null,
@@ -88,7 +94,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: teamEmail,
       replyTo: partial.email,
-      subject: `Assessment started: ${partial.email}`,
+      subject: `Assessment started: ${partial.firstName} @ ${partial.company}`,
       text: lines.join('\n'),
     });
     if (res.error) {
