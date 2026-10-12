@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { Turnstile } from '@marsidev/react-turnstile';
 import {
@@ -262,6 +263,13 @@ const INPUT_BASE =
 const LABEL_BASE =
   'text-[11px] font-semibold uppercase tracking-widest text-ink-faint';
 
+/** Question slide: enters from the travel direction, leaves the opposite way. */
+const SLIDE = {
+  enter: (dir: number) => ({ opacity: 0, x: dir * 48 }),
+  center: { opacity: 1, x: 0 },
+  exit: (dir: number) => ({ opacity: 0, x: dir * -48 }),
+};
+
 const PHONE_RE = /^\+?[0-9()\-.\s]{7,20}$/;
 
 export default function AssessmentForm({
@@ -297,6 +305,18 @@ export default function AssessmentForm({
   const [captureError, setCaptureError] = useState('');
   const [budget, setBudget] = useState('');
   const [completedFired, setCompletedFired] = useState(false);
+  // Slide direction (1 forward, -1 back) and a short lock so a fast double tap
+  // cannot answer two questions while the slide is still on its way out.
+  const [direction, setDirection] = useState<1 | -1>(1);
+  const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(
+    () => () => {
+      if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    },
+    [],
+  );
 
   // Read gclid/utm once per session so the lead can be tied back to the click.
   useEffect(() => {
@@ -343,6 +363,7 @@ export default function AssessmentForm({
   }, [answers]);
 
   const handleSelect = (questionId: string, value: number) => {
+    if (advanceTimer.current) return;
     // Conversion action 1. Fires once, on the first answer of the session.
     if (Object.keys(answers).length === 0) {
       track('assessment_started', { source });
@@ -351,26 +372,36 @@ export default function AssessmentForm({
 
     const nextStep = step + 1;
 
-    // Ask for the email as soon as the configured question is answered, then
-    // carry on. Asked here it reads as "where do we send this", not as a wall.
-    if (
-      captureEmailAfter !== undefined &&
-      nextStep === captureEmailAfter &&
-      !emailStepSeen &&
-      nextStep < QUESTIONS.length
-    ) {
-      setStep(nextStep);
-      setPhase('capture');
-      return;
-    }
+    // Hold for a beat so the selected state registers, then slide on.
+    advanceTimer.current = setTimeout(
+      () => {
+        advanceTimer.current = null;
+        setDirection(1);
 
-    // Auto-advance for momentum; the last question lands on the result, or on
-    // the budget question first where that is switched on.
-    if (step < QUESTIONS.length - 1) {
-      setStep(nextStep);
-    } else {
-      setPhase(askBudget ? 'budget' : 'result');
-    }
+        // Ask for the details as soon as the configured question is answered,
+        // then carry on. Asked here it reads as "where do we send this", not
+        // as a wall.
+        if (
+          captureEmailAfter !== undefined &&
+          nextStep === captureEmailAfter &&
+          !emailStepSeen &&
+          nextStep < QUESTIONS.length
+        ) {
+          setStep(nextStep);
+          setPhase('capture');
+          return;
+        }
+
+        // The last question lands on the result, or on the budget question
+        // first where that is switched on.
+        if (step < QUESTIONS.length - 1) {
+          setStep(nextStep);
+        } else {
+          setPhase(askBudget ? 'budget' : 'result');
+        }
+      },
+      reduceMotion ? 0 : 320,
+    );
   };
 
   const answerBudget = (value: string) => {
@@ -807,63 +838,81 @@ export default function AssessmentForm({
             aria-valuemax={QUESTIONS.length}
           >
             <div
-              className="h-full rounded-full bg-traq-purple transition-all duration-300"
+              className="h-full rounded-full bg-traq-purple transition-all duration-500 ease-out"
               style={{ width: `${Math.round(((step + 1) / QUESTIONS.length) * 100)}%` }}
             />
           </div>
 
-          <h2
-            className={cn(
-              promptGap,
-              'text-balance text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl',
-            )}
-          >
-            {current.prompt}
-          </h2>
-          {current.hint ? (
-            <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
-              {current.hint}
-            </p>
-          ) : null}
-
-          <fieldset className="mt-6 flex flex-col gap-3">
-            <legend className="sr-only">{current.prompt}</legend>
-            {current.options.map((option) => {
-              const selected = answers[current.id] === option.score;
-              return (
-                <button
-                  key={option.label}
-                  type="button"
-                  onClick={() => handleSelect(current.id, option.score)}
-                  aria-pressed={selected}
+          <div className="-mx-1 overflow-x-clip px-1">
+            <AnimatePresence mode="wait" initial={false} custom={direction}>
+              <motion.div
+                key={current.id}
+                custom={direction}
+                variants={SLIDE}
+                initial={reduceMotion ? false : 'enter'}
+                animate="center"
+                exit={reduceMotion ? undefined : 'exit'}
+                transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h2
                   className={cn(
-                    'flex items-center justify-between gap-3 rounded-2xl border px-5 py-4 text-left text-[15px] font-medium transition-colors',
-                    selected
-                      ? 'border-traq-purple bg-traq-tint text-traq-purple-ink'
-                      : 'border-border-subtle bg-white text-ink hover:border-traq-purple/40',
+                    promptGap,
+                    'text-balance text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl',
                   )}
                 >
-                  <span>{option.label}</span>
-                  <span
-                    className={cn(
-                      'flex h-5 w-5 flex-none items-center justify-center rounded-full border transition-colors',
-                      selected
-                        ? 'border-traq-purple bg-traq-purple text-white'
-                        : 'border-border-strong text-transparent',
-                    )}
-                    aria-hidden="true"
-                  >
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                  </span>
-                </button>
-              );
-            })}
-          </fieldset>
+                  {current.prompt}
+                </h2>
+                {current.hint ? (
+                  <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
+                    {current.hint}
+                  </p>
+                ) : null}
+
+                <fieldset className="mt-6 flex flex-col gap-3">
+                  <legend className="sr-only">{current.prompt}</legend>
+                  {current.options.map((option) => {
+                    const selected = answers[current.id] === option.score;
+                    return (
+                      <button
+                        key={option.label}
+                        type="button"
+                        onClick={() => handleSelect(current.id, option.score)}
+                        aria-pressed={selected}
+                        className={cn(
+                          'flex items-center justify-between gap-3 rounded-2xl border px-5 py-4 text-left text-[15px] font-medium transition-colors',
+                          selected
+                            ? 'border-traq-purple bg-traq-tint text-traq-purple-ink'
+                            : 'border-border-subtle bg-white text-ink hover:border-traq-purple/40',
+                        )}
+                      >
+                        <span>{option.label}</span>
+                        <span
+                          className={cn(
+                            'flex h-5 w-5 flex-none items-center justify-center rounded-full border transition-colors',
+                            selected
+                              ? 'border-traq-purple bg-traq-purple text-white'
+                              : 'border-border-strong text-transparent',
+                          )}
+                          aria-hidden="true"
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                        </span>
+                      </button>
+                    );
+                  })}
+                </fieldset>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           {step > 0 ? (
             <button
               type="button"
-              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              onClick={() => {
+                if (advanceTimer.current) return;
+                setDirection(-1);
+                setStep((s) => Math.max(0, s - 1));
+              }}
               className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-ink-soft transition-colors hover:text-traq-purple"
             >
               <ArrowLeft className="h-4 w-4" />
