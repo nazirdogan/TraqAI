@@ -2,7 +2,9 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
-import { captureAttribution } from '@/lib/attribution';
+import { captureAttribution, getAttribution } from '@/lib/attribution';
+import { classifyContactLink } from '@/lib/intake/touch';
+import { sendTouch } from '@/lib/touch-client';
 
 /**
  * GA4 + Google Ads conversion tracking (env-gated).
@@ -46,6 +48,34 @@ declare global {
 export default function Analytics() {
   useEffect(() => {
     captureAttribution();
+  }, []);
+
+  /**
+   * Count taps on the phone number and WhatsApp, site-wide.
+   *
+   * Leads that ring instead of filling in a form were invisible: nothing fired
+   * and nothing was stored, so a paid click that turned into a phone call left
+   * no trace. One listener on the document catches every such link on every
+   * page, including ones added later, without each button having to remember.
+   * It fires a GA4 event (import it into Google Ads as a secondary action) and
+   * stores a touch row with the gclid, so the call can be matched to its click
+   * in the lead sheet by its time.
+   */
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      const target = e.target as Element | null;
+      const link = target?.closest?.('a[href]') as HTMLAnchorElement | null;
+      if (!link) return;
+      const kind = classifyContactLink(link.getAttribute('href'));
+      if (!kind) return;
+      track(kind, {
+        link_location: link.closest('footer') ? 'footer' : window.location.pathname,
+        gclid: getAttribution().gclid,
+      });
+      sendTouch(kind);
+    }
+    document.addEventListener('click', onClick, { capture: true });
+    return () => document.removeEventListener('click', onClick, { capture: true });
   }, []);
 
   if (!GA_ID) return null;
