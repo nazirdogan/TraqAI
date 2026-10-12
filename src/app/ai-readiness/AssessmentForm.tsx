@@ -263,6 +263,30 @@ const INPUT_BASE =
 const LABEL_BASE =
   'text-[11px] font-semibold uppercase tracking-widest text-ink-faint';
 
+/** Phase slide-in for the screens after the questions (details, budget, result). */
+function SlideIn({
+  phase,
+  className,
+  children,
+}: {
+  phase: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      key={phase}
+      className={className}
+      initial={reduce ? false : { opacity: 0, x: 48 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 /** Question slide: enters from the travel direction, leaves the opposite way. */
 const SLIDE = {
   enter: (dir: number) => ({ opacity: 0, x: dir * 48 }),
@@ -540,7 +564,7 @@ export default function AssessmentForm({
 
   if (phase === 'success') {
     return (
-      <div className={containerClassName}>
+      <SlideIn phase="success" className={containerClassName}>
         <div className="rounded-[24px] border border-border-subtle bg-white px-6 py-12 text-center shadow-card sm:px-10 sm:py-14">
           <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-border-subtle bg-traq-tint text-traq-purple">
             <CheckCircle2 className="h-7 w-7" />
@@ -572,7 +596,7 @@ export default function AssessmentForm({
             </button>
           </div>
         </div>
-      </div>
+      </SlideIn>
     );
   }
 
@@ -580,7 +604,7 @@ export default function AssessmentForm({
   // every lead can be followed up by phone.
   if (phase === 'capture') {
     return (
-      <div className={containerClassName}>
+      <SlideIn phase="capture" className={containerClassName}>
         <div className={cardClass}>
           <div className="flex items-center justify-between gap-4">
             <p className={LABEL_BASE}>Almost there</p>
@@ -732,7 +756,7 @@ export default function AssessmentForm({
             </div>
           </form>
         </div>
-      </div>
+      </SlideIn>
     );
   }
 
@@ -741,7 +765,7 @@ export default function AssessmentForm({
   // "no budget yet" is a normal thing to click rather than a door closing.
   if (phase === 'budget') {
     return (
-      <div className={containerClassName}>
+      <SlideIn phase="budget" className={containerClassName}>
         <div className={cardClass}>
           <div className="flex items-center justify-between gap-4">
             <p className={LABEL_BASE}>Last one, optional</p>
@@ -812,7 +836,7 @@ export default function AssessmentForm({
             Skip, show my score
           </button>
         </div>
-      </div>
+      </SlideIn>
     );
   }
 
@@ -966,7 +990,7 @@ export default function AssessmentForm({
         }
       : null;
   return (
-    <div className={containerClassName}>
+    <SlideIn phase="result" className={containerClassName}>
       <div className={cardClass}>
         <div className="flex items-center justify-between gap-4">
           <p className={LABEL_BASE}>Your result</p>
@@ -1232,6 +1256,6 @@ export default function AssessmentForm({
           </p>
         </form>
       </div>
-    </div>
+    </SlideIn>
   );
 }
