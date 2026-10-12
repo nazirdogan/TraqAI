@@ -56,6 +56,7 @@ export async function POST(request: Request) {
     email: intake.email,
     firstName: intake.firstName,
     company: intake.company,
+    phone: intake.phone,
     band: intake.band,
     score: intake.score,
     budget: intake.budget,

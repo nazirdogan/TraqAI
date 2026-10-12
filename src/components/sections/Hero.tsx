@@ -212,7 +212,7 @@ export default function Hero() {
           >
             Not sure where you stand?{' '}
             <Link
-              href="/ai-readiness"
+              href="/lp/ai-consultant-dubai"
               className="font-semibold text-traq-purple underline-offset-4 transition-colors hover:underline"
             >
               Take the free 2-minute AI readiness assessment
