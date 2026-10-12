@@ -164,6 +164,13 @@ export type AssessmentIntake = z.infer<typeof assessmentIntakeSchema>;
  */
 export const assessmentPartialSchema = z.object({
   email: z.string().trim().email('Enter a valid email').max(200),
+  firstName: z.string().trim().min(1).max(80),
+  company: z.string().trim().min(1).max(160),
+  phone: z
+    .string()
+    .trim()
+    .regex(/^\+?[0-9()\-.\s]{7,20}$/, 'Enter a valid phone number')
+    .refine((v) => v.replace(/\D/g, '').length >= 7, 'Enter a valid phone number'),
   /** How many questions were answered when the email was given. */
   answered: z.number().int().min(0).max(20),
   source: z.string().trim().max(120).optional(),
