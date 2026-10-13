@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-13",
+      "type": "field-note",
+      "slug": "ai-hiring-screening-disclosure-rule",
+      "targetQuery": "do you have to disclose using AI to screen job candidates"
+    },
+    {
       "date": "2026-10-12",
       "type": "insight",
       "slug": "ai-literacy-training-for-employees",
@@ -471,6 +477,14 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-13",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "ai-hiring-screening-disclosure-rule",
+      "critic": "branch preflight: session started on a DETACHED HEAD at 0cd7a86, thirteen commits ahead of local main's stale ref (5bd7e34), the same recurring bug flagged in every prior run note; captured the sha, ran git checkout main, confirmed git merge-base --is-ancestor main 0cd7a86 succeeded, ran git merge --ff-only 0cd7a86 with no rewrite and no force-push, confirmed git symbolic-ref -q HEAD printed refs/heads/main before continuing; a git fetch origin main run just before the checkout had already shown origin/main was at that same 0cd7a86 tip, confirming (consistent with every prior run's finding) that the thirteen commits had already shipped and the detached HEAD only ever stranded the local main ref in this container, not the pushes themselves; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned news-note; read content/README.md and content/_ledger.json's published list before selecting a topic; searched Anthropic, OpenAI, Microsoft and Google news from the last seven days against the 'does this change what an owner should do or what it costs them' test: found nothing clean in a first pass (Claude Haiku 5.5's Oct 7 price cut is already covered by this feed's 2026-10-09 entry; OpenAI's Oct 23 legacy-model API retirements are 10 days in the future, not a last-seven-days event, and developer-facing rather than SMB-facing; a single thinly-sourced, unconfirmed outlet claim of an Oct 10 UAE/GCC generative-AI regulatory framework had no corroborating official source and duplicated multilingual text, so was discarded as unreliable rather than used; Microsoft's Oct 8 Dynamics 365 CRM-agent expansion is enterprise CRM-specific with conflicting secondary-source dates on preview status, too narrow and too unverified for a general SMB audience; the April 2026 Claude Code/OpenClaw billing change and the Gusto Cofounder launch are both already stale or already covered); checked Anthropic's own /news page directly by WebFetch (openai.com WebFetch failed with ENOTFOUND, consistent with the known domain-blocking pattern, so did not retry per the standing instruction) and found Anthropic published a '2026 Usage Policy update' on October 8, 2026, taking effect November 12, 2026, squarely inside the seven-day window and on Anthropic's own primary source; fetched that announcement page and the live /aup policy page directly by WebFetch (both resolved, no EGRESS_BLOCKED) and confirmed, in Anthropic's own wording, that the High-Risk Use Case section now explicitly names 'screening, ranking, advancing, or rejecting candidates; hiring' and performance evaluation as a high-risk employment category, requiring a qualified human-in-the-loop with authority to change the recommendation before it reaches the candidate, plus disclosure to the candidate that AI was used (vendor need not be named), with a documented exception for decisions wholly favourable to the candidate; picked this as the topic because it is genuinely dated, primary-sourced, distinct from every existing ledger entry, and actionable for a specific, growing slice of this audience (any small business using Claude or similar tools to screen CVs, rank candidates or draft rejections) rather than a generic restatement of the announcement; wrote the SMB-specific angle the announcement itself does not spell out: most small businesses using AI to shortlist CVs have never read the usage policy closely enough to know hiring was named at all, and NYC Local Law 144 and the EU AI Act's employment provisions are independently converging on the same human-review-plus-disclosure pattern, so building the habit now is cheaper than waiting for a regulator; four question/statement-shaped body sections, three FAQs, no stat (used the optional sources array instead, citing both the Oct 8 announcement and the live /aup policy page, since the claim rests on documented policy language rather than a headline figure), no diagram (this is a compliance checklist with no genuine ordered sequence and no before/after contrast with real figures, so correctly omitted per the rule against decorative diagrams), no image (a compliance/legal topic has no concrete visual subject and openly-licensed stock would be decoration, so correctly skipped), no em-dashes or en-dashes (checked programmatically, zero found); title 55/60 chars after brand-strip, metaDescription 153/165 chars, intro trimmed to 55 words on first draft after an initial 71-word draft failed the 40-60 word standalone-intro rule; related links verified to exist on disk (/insights/ai-acceptable-use-policy-for-small-business, /services/ai-consulting/page.tsx, /field-notes/2026-09-17-how-to-enforce-an-ai-usage-policy-for-employees.json); validated against the live fieldNoteSchema via npx tsx after running npm ci (node_modules was not present in this checkout), result VALID; not a repeat of any ledger slug or targetQuery; tagged news and adoption; this run was pure news-note (a genuine, dated, primary-sourced, SMB-actionable story cleared the bar), so scripts/seo/topic-pipeline.json was left untouched, though report.mjs daily was checked out of caution and showed a healthy 35 topics queued (8.8 weeks runway) in case a fallback had been needed"
+    },
     {
       "date": "2026-09-29",
       "mode": "news-note",
@@ -1683,6 +1697,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-literacy-training-for-employees.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-13",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-13-ai-hiring-screening-disclosure-rule.json"
       ],
       "build": "passed"
     }

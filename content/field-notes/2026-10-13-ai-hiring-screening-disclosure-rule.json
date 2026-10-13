@@ -1,0 +1,80 @@
+{
+  "slug": "ai-hiring-screening-disclosure-rule",
+  "title": "Using AI to screen job candidates? You must disclose it | Traq Collective",
+  "h1": "Using AI to screen job candidates? You must disclose it",
+  "metaDescription": "Anthropic's October 8, 2026 usage policy update spells out that screening, ranking or rejecting job candidates with AI needs human review and disclosure.",
+  "targetQuery": "do you have to disclose using AI to screen job candidates",
+  "tags": ["news", "adoption"],
+  "datePublished": "2026-10-13",
+  "dateModified": "2026-10-13",
+  "author": "Nazir Dogan",
+  "dek": "Anthropic rewrote the part of its usage policy that covers hiring. If your business screens, ranks or rejects candidates with Claude, two rules apply before you can act on what it says.",
+  "intro": "If a business uses Claude to screen, rank, advance or reject a job candidate, Anthropic's usage policy requires a qualified person to review the recommendation, with authority to change it, before anyone acts on it, and the candidate must be told AI was used. Anthropic rewrote this rule on October 8, 2026, effective November 12.",
+  "body": [
+    {
+      "heading": "What Anthropic actually changed on October 8",
+      "paragraphs": [
+        "Anthropic updates its usage policy roughly once a year, and the 2026 version, published October 8, takes effect November 12. Anthropic frames most of the changes as clarifications rather than new rules, and for hiring that is accurate: the underlying requirement was already there. What changed is that the policy now names, in plain language, exactly which recommendations count as high-risk, and employment is one of the categories it spells out by name: screening, ranking, advancing or rejecting candidates, hiring, and evaluating a worker's performance or behaviour.",
+        "That rewrite matters in practice because most small businesses using AI to shortlist CVs or draft rejection emails never read the usage policy closely enough to know hiring was covered at all. Naming it removes the ambiguity."
+      ]
+    },
+    {
+      "heading": "What the policy actually requires for hiring decisions",
+      "paragraphs": [
+        "Two separate requirements apply, and both have to be met, not just one. First, a qualified person at your business must meaningfully review the AI's recommendation, with real authority to change it, before anyone acts on it. A recommendation that goes straight from the AI into a rejection email with no human check does not meet this bar. Second, the candidate has to be told AI was used to produce the recommendation that affected them. Anthropic's policy is specific that you do not need to name Claude or Anthropic by name to satisfy this, a plain statement that AI was used in the process is enough.",
+        "There is one exception worth knowing: a decision that is wholly favourable to the candidate, such as an unconditional job offer, does not need the human review step first. A shortlist that advances some candidates and rejects others is not wholly favourable to everyone on the list, so it still needs a human in the loop."
+      ]
+    },
+    {
+      "heading": "Why this is worth acting on before November 12",
+      "paragraphs": [
+        "This is a vendor usage policy, not a law, so the immediate consequence of ignoring it is account-level: Anthropic can restrict access for violating its own terms. But the practical reason to fix this now is broader than that. Several jurisdictions are converging on the same two ideas, a human who can override the AI and disclosure to the person affected, in actual employment law (New York City's Local Law 144 and the EU AI Act's employment provisions both require versions of this). Building the habit now, while the trigger is a vendor policy rather than a regulator, costs you a one-line process change instead of a legal review later."
+      ]
+    },
+    {
+      "heading": "What to check before the November 12 deadline",
+      "paragraphs": [
+        "Walk through every stage of your hiring process that touches AI, CV screening, candidate ranking, interview scoring, rejection drafting, and ask two questions of each: does a named person look at this before it affects a candidate, and can they actually change it? Then add one sentence to your candidate communications (an application acknowledgement or a rejection email is enough) stating that AI was used as part of the process. Neither change requires new tooling, just a documented checkpoint and a sentence you are probably not currently writing."
+      ]
+    }
+  ],
+  "takeaway": "Before November 12, 2026, check every hiring step that touches Claude or similar AI tools: confirm a named person reviews and can override the recommendation, and add one line to candidate communications disclosing that AI was used.",
+  "sources": [
+    {
+      "label": "Anthropic, 2026 Usage Policy update",
+      "url": "https://www.anthropic.com/news/2026-usage-policy-update"
+    },
+    {
+      "label": "Anthropic Usage Policy, High-Risk Use Case Requirements",
+      "url": "https://www.anthropic.com/aup"
+    }
+  ],
+  "related": [
+    {
+      "label": "How to write an AI acceptable use policy for a small business",
+      "href": "/insights/ai-acceptable-use-policy-for-small-business"
+    },
+    {
+      "label": "AI Consulting",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "How to enforce an AI usage policy for employees",
+      "href": "/field-notes/how-to-enforce-an-ai-usage-policy-for-employees"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does this apply if we only use AI to write the job posting, not to screen anyone?",
+      "a": "No. The rule covers AI recommendations that screen, rank, advance or reject an actual candidate, or evaluate a worker's performance. Drafting a job ad or interview questions does not produce a recommendation about a specific person, so it falls outside this requirement."
+    },
+    {
+      "q": "Do we have to tell candidates we specifically used Claude?",
+      "a": "No. Anthropic's policy requires telling the candidate that AI was used in the process. You do not need to name the vendor, the model, or how it was used, a general disclosure statement is enough to meet the requirement."
+    },
+    {
+      "q": "What actually happens if we do not comply?",
+      "a": "Anthropic can restrict your access for violating its usage policy, since this is a condition of using the product, not a law. Separately, employment regulators in some jurisdictions are adopting similar human-review and disclosure rules directly into law, so the habit is worth building either way."
+    }
+  ]
+}
