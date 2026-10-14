@@ -274,8 +274,8 @@
       "workingTitle": "Paying for one AI tool vs several",
       "targetQuery": "should we pay for multiple AI tools",
       "format": "comparison",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/should-we-pay-for-multiple-ai-tools"
     },
     {
       "id": "tp-030",
