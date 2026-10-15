@@ -1,11 +1,17 @@
 import type { EmailBlock } from '@/emails/FirstAiAssistantEmail';
 import {
   BUILD,
+  BUILD_KEY,
   BUILD_NAME,
   FAA_NAME,
   FAA_PATH,
+  FREE_SESSIONS,
   FREE_SESSION_MINUTES,
+  KIT_KEY,
+  OFFICE_HOURS,
+  VIP_QA_MINUTES,
   addMinutes,
+  dayLabel,
   dayLabelLong,
   googleCalendarUrl,
   timeTriple,
@@ -180,4 +186,134 @@ export function notifyBody(r: { name: string; email: string; country: string; ro
       `Session: ${dayLabelLong(r.session.startIso)}, ${timeTriple(r.session.startIso)}`,
     ].join('\n'),
   };
+}
+
+// ---------------------------------------------------------------------------
+// Buyer emails. A buyer asks for these on the welcome page after paying, so the
+// joining details and reminders reach them without anyone pressing send.
+// ---------------------------------------------------------------------------
+
+const KIT_URL = `${SITE_URL}${FAA_PATH}/kit?k=${KIT_KEY}`;
+const BUILD_REPLAY_URL = `${SITE_URL}${FAA_PATH}/replay?s=build&k=${BUILD_KEY}`;
+
+const PREP_ITEMS = [
+  'Subscribe to Claude Pro at claude.ai (about $20 a month, paid to Anthropic) and install the Claude desktop app.',
+  'Check you can sign in to the email and calendar you want to connect: Gmail, Google Workspace, or Microsoft 365 at work.',
+  'On Microsoft 365, ask your IT admin to approve the Claude connector before the day.',
+  'Pick five emails you have sent recently that sound like you.',
+  'Join from a laptop, not a phone.',
+];
+
+export function buildBuyerSequence(firstName: string): FaaEmail[] {
+  const name = firstName || 'there';
+  const when = `${dayLabelLong(BUILD.startIso)}, ${timeTriple(BUILD.startIso)}`;
+  const cal = googleCalendarUrl({ title: BUILD_NAME, startIso: BUILD.startIso, endIso: BUILD.endIso, details: `Join: ${BUILD.meetUrl}`, location: BUILD.meetUrl });
+  const officeHours = OFFICE_HOURS.map((o) => `${dayLabel(o.startIso)}, ${timeTriple(o.startIso)}: ${o.meetUrl}`);
+  return [
+    {
+      key: 'b_confirm',
+      subject: `Your seat: ${BUILD_NAME} (${dayLabel(BUILD.startIso)})`,
+      preview: 'The join link, the 10-minute prep and your office hours.',
+      heading: `${name}, you're in.`,
+      blocks: [
+        { kind: 'p', text: `${BUILD_NAME}: ${when}. Three hours on Google Meet.` },
+        { kind: 'button', label: 'Add it to my Google Calendar', href: cal },
+        { kind: 'link', label: 'Or download the calendar file (Outlook, Apple)', href: `${SITE_URL}/api/first-ai-assistant/ics?s=build` },
+        { kind: 'p', text: `Join link: ${BUILD.meetUrl}` },
+        { kind: 'p', text: 'Before the day (10 minutes):' },
+        { kind: 'list', items: PREP_ITEMS },
+        { kind: 'link', label: 'Your Starter Kit', href: KIT_URL },
+        { kind: 'p', text: 'Office hours, for anything that did not stick:' },
+        { kind: 'list', items: officeHours },
+        { kind: 'p', text: 'I will add you to the 14-day WhatsApp support group before the day, using the number you gave at checkout. Reply with a different number if you prefer.' },
+        { kind: 'p', text: 'Naz' },
+      ],
+    },
+    {
+      key: 'b_prep',
+      sendAt: '2026-10-23T10:00:00Z',
+      subject: 'Tomorrow: your 10-minute prep for the build',
+      preview: 'Five things to have ready.',
+      heading: 'Tomorrow, we build it.',
+      blocks: [
+        { kind: 'p', text: `${when}.` },
+        { kind: 'list', items: PREP_ITEMS },
+        { kind: 'button', label: 'Save the join link', href: BUILD.meetUrl },
+        { kind: 'p', text: 'Naz' },
+      ],
+    },
+    {
+      key: 'b_today',
+      sendAt: '2026-10-24T05:00:00Z',
+      subject: `Today: ${BUILD_NAME}`,
+      preview: 'Have Claude Pro and the desktop app ready.',
+      heading: 'Today is the day.',
+      blocks: [
+        { kind: 'p', text: `We start at ${timeTriple(BUILD.startIso)}.` },
+        { kind: 'p', text: 'Have Claude Pro and the desktop app ready, plus your five sent emails.' },
+        { kind: 'button', label: 'Join on Google Meet', href: BUILD.meetUrl },
+        { kind: 'p', text: 'Naz' },
+      ],
+    },
+    {
+      key: 'b_live',
+      sendAt: addMinutes(BUILD.startIso, -10),
+      subject: 'We start in 10 minutes',
+      preview: 'Click to join.',
+      heading: 'Starting in 10 minutes.',
+      blocks: [
+        { kind: 'button', label: 'Join now', href: BUILD.meetUrl },
+        { kind: 'small', text: `If the button does not work: ${BUILD.meetUrl}` },
+      ],
+    },
+    {
+      key: 'b_replay',
+      sendAt: '2026-10-25T06:00:00Z',
+      subject: 'Your build replay, and office hours tonight',
+      preview: 'Rewatch any step, then bring what did not stick.',
+      heading: 'Your replay is up.',
+      blocks: [
+        { kind: 'p', text: 'If a step did not stick, rewatch it here. It is yours until 8 November.' },
+        { kind: 'button', label: 'Watch the build replay', href: BUILD_REPLAY_URL },
+        { kind: 'p', text: 'Then bring anything still not working to office hours:' },
+        { kind: 'list', items: officeHours },
+        { kind: 'p', text: 'Naz' },
+      ],
+    },
+  ];
+}
+
+export function vipBuyerSequence(firstName: string): FaaEmail[] {
+  const name = firstName || 'there';
+  const qa = (s: FreeSession) => `${dayLabel(s.startIso)}, ${timeTriple(addMinutes(s.startIso, FREE_SESSION_MINUTES))}: ${s.vipMeetUrl}`;
+  return [
+    {
+      key: 'v_confirm',
+      subject: 'Your VIP Pass: everything in one place',
+      preview: 'Your Q&A links, the Starter Kit and your VIP build price.',
+      heading: `Thank you, ${name}.`,
+      blocks: [
+        { kind: 'p', text: `Your VIP Q&A runs straight after your free session, for ${VIP_QA_MINUTES} minutes, on its own link:` },
+        { kind: 'list', items: FREE_SESSIONS.map(qa) },
+        { kind: 'button', label: 'Open your Starter Kit', href: KIT_URL },
+        { kind: 'small', text: 'Your 7-day replays go up on the Starter Kit page too.' },
+        { kind: 'p', text: `Your VIP price on ${BUILD_NAME} (${dayLabel(BUILD.startIso)}) is on your welcome page, and in the email after your session.` },
+        { kind: 'link', label: 'Not booked onto a free session yet? Pick a date', href: `${SITE_URL}${FAA_PATH}` },
+        { kind: 'p', text: 'Naz' },
+      ],
+    },
+    ...FREE_SESSIONS.map((s) => ({
+      key: `v_qa_${s.id}`,
+      sendAt: addMinutes(s.startIso, -4 * 60),
+      subject: `Tonight: your VIP Q&A link`,
+      preview: 'Straight after the free session.',
+      heading: 'Your VIP Q&A is tonight.',
+      blocks: [
+        { kind: 'p', text: `Straight after the free session, at ${timeTriple(addMinutes(s.startIso, FREE_SESSION_MINUTES))}. Bring your own inbox and your questions.` },
+        { kind: 'button', label: 'Your VIP Q&A link', href: s.vipMeetUrl },
+        { kind: 'small', text: 'Booked onto the other date? Use whichever Q&A follows the session you attend.' },
+        { kind: 'p', text: 'Naz' },
+      ],
+    } satisfies FaaEmail)),
+  ];
 }

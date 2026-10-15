@@ -21,6 +21,7 @@ import {
   BUILD_KEY,
 } from '@/lib/first-ai-assistant';
 import { BTN, BTN_GHOST, FunnelFooter, FunnelHeader } from '../_components/ui';
+import BuyerEmailForm from '../_components/BuyerEmailForm';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = { title: 'Welcome: your next steps', robots: { index: false, follow: false } };
@@ -147,9 +148,15 @@ export default function Page({ searchParams }: { searchParams: { p?: string; cur
           <div className="text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-traq-purple" aria-hidden="true" />
             <h1 className="mt-4 text-[34px] font-semibold leading-tight text-ink sm:text-[42px]">Thank you. You are all set.</h1>
-            <p className="mt-3 text-[16px] text-ink-soft">Your receipt is on its way from Stripe, with a link back to this page. Everything you need is below, and a personal email from me follows within a few hours.</p>
+            <p className="mt-3 text-[16px] text-ink-soft">Your receipt is on its way from Stripe, with a link back to this page. Everything you need is below.</p>
           </div>
           <div className="mt-10 space-y-5">
+            {isVip || isBuild ? (
+              <Card title="Get these in your inbox, with reminders">
+                <p>One click and the joining details, plus a reminder before each session, land in your inbox. Nothing else.</p>
+                <BuyerEmailForm kind={isBuild ? 'build' : 'vip'} />
+              </Card>
+            ) : null}
             {isVip ? <VipDetails cur={cur} /> : null}
             {isBuild ? <BuildDetails /> : null}
             {isSetup ? <SetupDetails /> : null}
