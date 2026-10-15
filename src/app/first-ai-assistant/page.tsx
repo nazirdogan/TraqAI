@@ -150,7 +150,7 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
 
           <div className="mx-auto mt-6 max-w-4xl sm:mt-8">
             {VSL_SRC ? (
-              <video className="aspect-video w-full rounded-[22px] border border-border-subtle bg-black shadow-cardHover" src={VSL_SRC} poster={VSL_POSTER} controls playsInline preload="metadata" />
+              <video className="aspect-video w-full rounded-[22px] border border-border-subtle bg-black object-cover shadow-cardHover" src={VSL_SRC} poster={VSL_POSTER} controls playsInline preload="metadata" />
             ) : (
               <>
                 <InboxToBrief />
