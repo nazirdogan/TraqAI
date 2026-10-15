@@ -51,7 +51,7 @@ const FAQS: Qa[] = [
   { q: 'Does it really run every morning on its own?', a: 'Claude can run it on a schedule while the Claude app is open on your computer. If your laptop is closed, your briefing is one click away when you open it. I show you both.' },
   { q: 'What if I cannot make it live?', a: 'You get the replay and the setup files, and you can bring questions to the office hours. It is better live, though, because I can fix things on your screen.' },
   { q: 'Can I get a refund?', a: 'You can cancel for a full refund any time before the build starts by emailing hello@traqcollective.com. Once it has started, the cancellation right ends, which checkout asks you to confirm. The full policy is linked at the bottom of the page.' },
-  { q: 'Is my data safe?', a: 'Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data, and we switch off the setting that would let your chats be used for training. You decide what Claude can see, it drafts rather than sends, and you can disconnect it at any time.' },
+  { q: 'Is my data safe?', a: 'Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data, and we switch off the setting that would let your chats be used for training. You decide what Claude can see, we set it up to draft rather than send (Claude asks before sending anything by default), and you can disconnect it at any time.' },
 ];
 
 export default function Page({ searchParams }: { searchParams: { cur?: string } }) {

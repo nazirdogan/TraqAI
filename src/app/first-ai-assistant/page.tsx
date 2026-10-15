@@ -52,7 +52,7 @@ const COUNTRY_NAMES: Record<string, string> = {
 const SEE: { title: string; body: string }[] = [
   { title: 'The three jobs AI does brilliantly for you today', body: 'And the two it still gets wrong, so you know where to trust it and where to check it.' },
   { title: 'A morning briefing, built live from zero', body: 'Your meetings, the emails that actually need you, and what slipped yesterday, on one page. You watch every step.' },
-  { title: 'How to keep your emails and data private', body: 'The settings that matter, what the AI can and cannot see, and why it only ever drafts.' },
+  { title: 'How to keep your emails and data private', body: 'The settings that matter, what the AI can and cannot see, and why mine only drafts.' },
   { title: 'Your first seven days', body: 'A simple plan you can follow on your own, one small win a day.' },
 ];
 
@@ -61,7 +61,7 @@ const FAQS: Qa[] = [
   { q: 'I am not technical. Will I keep up?', a: 'Yes. This is built for beginners. If you can send an email, you can follow it. I explain every step in plain English and I do not use jargon without explaining it.' },
   { q: 'Which AI do you use, and why?', a: 'Claude, made by Anthropic. It connects to Gmail, Google Calendar and Microsoft 365, it writes well, and its privacy settings are clear. I show you the same ideas so you can use them with other tools too.' },
   { q: 'Do I need to buy anything for the free session?', a: 'No. Just join on Google Meet from a laptop if you can. To build your own assistant afterwards you would need Claude Pro, which is about $20 a month paid to Anthropic, not to me.' },
-  { q: 'Is it safe to let AI near my email?', a: 'Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data. You choose what it can reach, it drafts rather than sends, and you can disconnect it in two clicks. I walk through all of this in the session.' },
+  { q: 'Is it safe to let AI near my email?', a: 'Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data, and you can switch off the setting that lets your chats be used for training. Claude asks before it sends anything, and in the setup I teach it only drafts. You choose what it can reach and can disconnect it in two clicks. I walk through all of this in the session.' },
   { q: 'Does it work with Outlook?', a: 'With Microsoft 365 at work, yes, once your IT admin approves the connection. Personal Outlook and Hotmail accounts are not supported yet. Gmail and Google Workspace work straight away.' },
   { q: 'Will there be a replay?', a: 'Yes. Everyone who signs up gets the replay by email within 24 hours. VIP Pass holders keep it, with the slides, for 7 days.' },
   { q: 'Who is this not for?', a: 'Developers who already build with AI, and anyone looking for a get-rich-quick AI business. This is about making AI useful in your own working day.' },
@@ -191,7 +191,7 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
             <h2 className="section-title mt-3">You stay in control</h2>
             <ul className="mt-6 space-y-3 text-[15px] leading-6 text-ink-soft">
               <li>• We use Claude, made by Anthropic. Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data.</li>
-              <li>• It drafts. You read, edit and press send. Nothing leaves without you.</li>
+              <li>• Set up my way, it drafts. You read, edit and press send. Claude asks before sending anything by default.</li>
               <li>• You choose what it can see, and you can disconnect it in two clicks.</li>
               <li>• I show you the one privacy setting to switch off on day one.</li>
             </ul>
