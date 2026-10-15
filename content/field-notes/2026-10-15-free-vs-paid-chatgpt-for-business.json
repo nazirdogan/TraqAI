@@ -1,0 +1,101 @@
+{
+  "slug": "free-vs-paid-chatgpt-for-business",
+  "title": "Free vs paid ChatGPT for business: what you give up | Traq Collective",
+  "h1": "Free vs paid ChatGPT for business: what you actually give up",
+  "metaDescription": "The real gap between free and paid ChatGPT for a business is not the model. It is whether your conversations train OpenAI's models and whether anyone has oversight.",
+  "targetQuery": "free vs paid ChatGPT for business",
+  "tags": ["tools", "adoption"],
+  "datePublished": "2026-10-15",
+  "dateModified": "2026-10-15",
+  "author": "Nazir Dogan",
+  "dek": "The model you get matters less than who controls your data and your seats.",
+  "intro": "For a business, the real difference between free and paid ChatGPT is not the model. Free and personal paid accounts train OpenAI's models on your chats by default, with no admin able to see or stop it. ChatGPT Business turns that off automatically and adds an admin console, single sign-on and compliance support for about $20 a seat a month.",
+  "body": [
+    {
+      "heading": "What does ChatGPT actually cost a small business?",
+      "paragraphs": [
+        "A personal ChatGPT Plus account runs about $20 a month per person, bought on an individual's own card. ChatGPT Business is a separate plan built for teams: $25 a seat a month, or $20 a seat a month billed annually with two seats or more, on one workspace invoice instead of a pile of personal receipts.",
+        "Most owners compare these two on model access. That is the wrong comparison. A team of five on personal Plus accounts and a team of five on Business are both using the same current models most of the time. What actually changes between the two is who controls the account, not what it can write."
+      ]
+    },
+    {
+      "heading": "Does ChatGPT train on our conversations if we do not pay for Business?",
+      "paragraphs": [
+        "Yes, by default. On ChatGPT Free and on personal Plus accounts, OpenAI's own help center documents that chat history is used to improve its models unless the individual account holder turns that off manually, under Settings, Data Controls, 'Improve the model for everyone'. Turning it off only applies going forward: it does not pull back anything already shared.",
+        "That is a per-person setting with no company-wide switch. If five employees are drafting client emails or reviewing contract language in personal ChatGPT accounts, your client's words are training material unless each of those five people individually found and flipped that toggle.",
+        "ChatGPT Business, Enterprise and Edu workspaces start from the opposite default: OpenAI states that content is not used to train its models on these plans. Nobody on the team has to remember a setting, because the plan itself does not collect it."
+      ]
+    },
+    {
+      "heading": "What does the Business plan add besides the data default?",
+      "paragraphs": [
+        "Business includes an admin console: one place to add and remove people, see which GPTs the workspace is using, and enforce settings instead of trusting everyone to set them the same way. It adds SAML single sign-on at no extra cost, so access runs through the same login your team already uses rather than individual passwords on individual accounts.",
+        "On compliance, OpenAI documents Business as aligned with SOC 2 Type 2 and supporting GDPR and CCPA obligations, which matters the moment a client or an auditor asks where their data went. None of that exists on a personal account, because a personal account has no organization behind it to certify."
+      ]
+    },
+    {
+      "heading": "When is staying on free or personal Plus actually fine?",
+      "paragraphs": [
+        "If it is one person, working on their own ideas, with nothing that belongs to a client or carries a confidentiality clause, a personal Plus account is a reasonable way to start and nobody needs an admin console for that.",
+        "The moment a second person is involved, or the work touches a client's name, a contract, health information, or anything under an NDA, the free default (train on everything) and the no-admin reality (nobody can check who turned their toggle off) stop being a minor detail and become the actual risk. That is the line: whose data is in the prompt, not how many people are on the plan."
+      ]
+    }
+  ],
+  "takeaway": "If your team is drafting anything client-related in personal ChatGPT accounts, check today whether each person has 'Improve the model for everyone' switched off under Data Controls, or move the team to ChatGPT Business, where that is the default and nobody has to remember it.",
+  "stat": {
+    "claim": "ChatGPT Business costs this much per seat on an annual plan with two or more seats, versus the same roughly $20 a personal Plus subscriber already pays alone with none of the admin or data controls included.",
+    "value": "$20/seat/month",
+    "source": "OpenAI Help Center",
+    "url": "https://help.openai.com/en/articles/8792828-what-is-chatgpt-business",
+    "year": "2026"
+  },
+  "sources": [
+    {
+      "label": "OpenAI Help Center, What if I want to keep my history on but disable model training?",
+      "url": "https://help.openai.com/en/articles/8983130-what-if-i-want-to-keep-my-history-on-but-disable-model-training"
+    }
+  ],
+  "tables": [
+    {
+      "heading": "Personal ChatGPT vs ChatGPT Business",
+      "intro": "Where the two plans actually diverge for a team handling client work.",
+      "caption": "Comparison of personal Free and Plus ChatGPT accounts against the ChatGPT Business plan on data use and admin controls.",
+      "columns": ["What changes", "Free / personal Plus", "ChatGPT Business"],
+      "rows": [
+        ["Trains on your chats by default", "Yes, until each person opts out", "No, off by default"],
+        ["Admin console", "None", "Included"],
+        ["Single sign-on", "Not available", "SAML SSO, no extra cost"],
+        ["Compliance support", "None", "SOC 2 Type 2, GDPR/CCPA"],
+        ["Billing", "Each person's own card", "One workspace invoice"]
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Getting value from the AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "AI Consulting & Strategy",
+      "href": "/services/ai-consulting"
+    },
+    {
+      "label": "Should you pay for multiple AI tools",
+      "href": "/field-notes/should-we-pay-for-multiple-ai-tools"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is ChatGPT Business worth it for a five-person team?",
+      "a": "If any of the five handle client names, contracts, or anything confidential, yes. The $20 to $25 a seat is close to what personal Plus already costs, but Business turns off training by default and gives one admin console instead of five separate accounts nobody oversees."
+    },
+    {
+      "q": "Can we turn off data training on free ChatGPT accounts instead of upgrading?",
+      "a": "Each person can, individually, under Settings, Data Controls, 'Improve the model for everyone'. It only covers conversations from that point forward, and there is no company-wide way to confirm everyone actually did it, which is the gap Business closes by making it the default."
+    },
+    {
+      "q": "Does ChatGPT Business give access to better models than Plus?",
+      "a": "Not meaningfully. Both plans track OpenAI's current models closely. The real difference between personal and Business accounts is the data default, admin console, single sign-on and compliance support, not which model answers the prompt."
+    }
+  ]
+}
