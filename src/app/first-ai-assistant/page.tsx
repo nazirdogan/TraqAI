@@ -1,32 +1,36 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { headers } from 'next/headers';
-import { CalendarDays, Clock, ShieldCheck, Video } from 'lucide-react';
-import FaqBlock from '@/components/page/FaqBlock';
+import { Check, ShieldCheck, X } from 'lucide-react';
 import type { Qa } from '@/lib/seo/schema';
 import {
   BUILD,
-  FAA_NAME,
   FAA_PATH,
   PROOF,
+  TESTIMONIALS,
   VSL_POSTER,
   VSL_SRC,
+  buildSku,
   currencyFor,
   dayLabel,
+  dayLabelLong,
   openSessions,
   price,
-  buildSku,
+  timeIn,
   timeTriple,
 } from '@/lib/first-ai-assistant';
 import RegisterForm, { type SessionOption } from './_components/RegisterForm';
 import LocalTime from './_components/LocalTime';
-import { BTN, BriefMock, CurrencySwitch, FunnelFooter, FunnelHeader, OfferCards, SectionHead } from './_components/ui';
+import Countdown from './_components/Countdown';
+import InboxToBrief from './_components/InboxToBrief';
+import VoiceToggle from './_components/VoiceToggle';
+import { BTN, CurrencySwitch, FunnelFooter, FunnelHeader, OfferCards } from './_components/ui';
 
 export const dynamic = 'force-dynamic';
 
 const TITLE = 'Your First AI Assistant: a free live session for AI beginners';
 const DESCRIPTION =
-  'Sixty minutes, online, in plain English. See how AI can brief you every morning, sort your inbox and prep your meetings, with nothing sent without you. Hosted by Naz at Traq Collective.';
+  'Watch an AI assistant get built live: it reads your inbox and calendar and hands you one page every morning. Free, 60 minutes, plain English. Hosted by Naz at Traq Collective.';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -49,23 +53,39 @@ const COUNTRY_NAMES: Record<string, string> = {
   FR: 'France',
 };
 
-const SEE: { title: string; body: string }[] = [
-  { title: 'The three jobs AI does brilliantly for you today', body: 'And the two it still gets wrong, so you know where to trust it and where to check it.' },
-  { title: 'A morning briefing, built live from zero', body: 'Your meetings, the emails that actually need you, and what slipped yesterday, on one page. You watch every step.' },
-  { title: 'How to keep your emails and data private', body: 'The settings that matter, what the AI can and cannot see, and why mine only drafts.' },
-  { title: 'Your first seven days', body: 'A simple plan you can follow on your own, one small win a day.' },
+const HOUR: { when: string; title: string; body: string }[] = [
+  { when: '0–10 min', title: 'What AI is brilliant at, and what it still gets wrong', body: 'The three jobs worth handing over today, and the two you should always check.' },
+  { when: '10–30 min', title: 'I build the morning page live, from an empty chat', body: 'Connect the inbox and calendar, write the instructions, run it. You watch every click.' },
+  { when: '30–40 min', title: 'Keeping your data private', body: 'What it can see, what it can’t, and the settings I switch on before anything else.' },
+  { when: '40–50 min', title: 'Your first seven days', body: 'One small win a day, so it’s part of your routine by next week.' },
+  { when: '50–60 min', title: 'The one setting, then your questions', body: 'The change that makes it write like you instead of a robot. Most people never open it.' },
 ];
 
 const FAQS: Qa[] = [
-  { q: 'Is it really free?', a: 'Yes. The session costs nothing and you do not need a card. At the end I will tell you about the paid live build for anyone who wants their assistant set up with me. There is no pressure to buy anything.' },
-  { q: 'I am not technical. Will I keep up?', a: 'Yes. This is built for beginners. If you can send an email, you can follow it. I explain every step in plain English and I do not use jargon without explaining it.' },
-  { q: 'Which AI do you use, and why?', a: 'Claude, made by Anthropic. It connects to Gmail, Google Calendar and Microsoft 365, it writes well, and its privacy settings are clear. I show you the same ideas so you can use them with other tools too.' },
-  { q: 'Do I need to buy anything for the free session?', a: 'No. Just join on Google Meet from a laptop if you can. To build your own assistant afterwards you would need Claude Pro, which is about $20 a month paid to Anthropic, not to me.' },
-  { q: 'Is it safe to let AI near my email?', a: 'Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data, and you can switch off the setting that lets your chats be used for training. Claude asks before it sends anything, and in the setup I teach it only drafts. You choose what it can reach and can disconnect it in two clicks. I walk through all of this in the session.' },
-  { q: 'Does it work with Outlook?', a: 'With Microsoft 365 at work, yes, once your IT admin approves the connection. Personal Outlook and Hotmail accounts are not supported yet. Gmail and Google Workspace work straight away.' },
-  { q: 'Will there be a replay?', a: 'Yes. Everyone who signs up gets the replay by email within 24 hours. VIP Pass holders keep it, with the slides, for 7 days.' },
-  { q: 'Who is this not for?', a: 'Developers who already build with AI, and anyone looking for a get-rich-quick AI business. This is about making AI useful in your own working day.' },
+  { q: 'Is it really free?', a: 'Yes. No card, nothing to buy. At the end I mention the paid live build once, for anyone who wants their assistant set up with me. You can ignore it and still leave knowing how to do it yourself.' },
+  { q: 'I’m not technical. Will I keep up?', a: 'Yes. It’s built for beginners. If you can send an email, you can follow it. I explain every step in plain English.' },
+  { q: 'Which AI do you use, and why?', a: 'Claude, made by Anthropic. It connects to Gmail, Google Calendar and Microsoft 365, it writes well, and its privacy settings are clear. The ideas carry over to other tools too.' },
+  { q: 'Do I need to buy anything to build my own afterwards?', a: 'To run your own assistant you’d need Claude Pro, about $20 a month, paid to Anthropic, not to me. For the free session you need nothing: just join on Google Meet, ideally from a laptop.' },
+  { q: 'Is it safe to let AI near my email?', a: 'Anthropic says it doesn’t train its models on your Gmail, Drive or Calendar connector data, and you can switch off the setting that lets your chats be used for training. Claude asks before it sends anything, and in the setup I teach it only drafts. You choose what it can reach and can disconnect it in two clicks.' },
+  { q: 'Does it work with Outlook?', a: 'With Microsoft 365 at work, yes, once your IT admin approves the connection. Personal Outlook and Hotmail accounts aren’t supported yet. Gmail and Google Workspace work straight away.' },
+  { q: 'What if I can’t make it live?', a: 'Sign up anyway. Everyone gets the replay by email, up for 48 hours. VIP Pass holders keep it, with the slides, for 7 days.' },
+  { q: 'Who is this not for?', a: 'Developers who already build with AI, and anyone after a get-rich-quick AI business. This is about making AI useful in your own working day.' },
 ];
+
+function Cta({ label = 'Save my free seat', href = '#register', light = false }: { label?: string; href?: string; light?: boolean }) {
+  return (
+    <a
+      href={href}
+      className={
+        light
+          ? 'inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-[15px] font-semibold text-traq-deep shadow-card transition-transform hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+          : BTN
+      }
+    >
+      {label}
+    </a>
+  );
+}
 
 export default function Page({ searchParams }: { searchParams: { cur?: string } }) {
   const h = headers();
@@ -78,90 +98,132 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
     startIso: s.startIso,
   }));
   const next = sessions[0];
+  const open = sessions.length > 0;
+  const proof = PROOF.filter((p) => p.stat !== '+34%');
+  const ctaHref = open ? '#register' : '#go-further';
+  const ctaLabel = open ? 'Save my free seat' : 'See the live build';
 
   return (
     <div className="bg-bg-base">
-      <FunnelHeader chip="Free live session" />
+      {/* Countdown bar */}
+      {next ? (
+        <div className="sticky top-0 z-40 bg-traq-deep text-white">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-2.5 text-[13px] sm:px-8 sm:text-[14px]">
+            <p className="min-w-0 truncate">
+              <span className="font-semibold">Free live session</span>
+              <span className="hidden sm:inline">
+                {' '}
+                on {dayLabelLong(next.startIso)}, {timeIn(next.startIso, 'Europe/London')} UK / {timeIn(next.startIso, 'Asia/Dubai')} Dubai
+              </span>
+            </p>
+            <div className="flex flex-none items-center gap-4">
+              <Countdown iso={next.startIso} className="font-semibold tabular-nums text-white" />
+              <a href="#register" className="hidden rounded-full bg-white px-4 py-1.5 text-[13px] font-semibold text-traq-deep hover:bg-traq-tint sm:inline-block">
+                Save my seat
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <FunnelHeader />
 
       {/* Hero */}
-      <section className="px-5 pb-14 pt-10 sm:px-8 sm:pt-14">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-          <div>
-            <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-traq-purple">Free live session for AI beginners · online</p>
-            <h1 className="mt-3 text-[38px] font-semibold leading-[1.05] tracking-tight text-ink sm:text-[54px]">{FAA_NAME}</h1>
-            <p className="mt-5 max-w-xl text-[18px] leading-8 text-ink-soft">
-              In one hour, see how AI can brief you every morning, sort your inbox and prep your meetings. Plain English, no tech skills, and nothing gets sent
-              without you.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2.5 text-[14px] text-ink">
-              <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-white px-3.5 py-2">
-                <CalendarDays className="h-4 w-4 text-traq-purple" aria-hidden="true" />
-                {sessions.length ? sessions.map((s) => s.day).join(' or ') : 'Next round soon'}
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-white px-3.5 py-2">
-                <Clock className="h-4 w-4 text-traq-purple" aria-hidden="true" />
-                22:00 Dubai · 19:00 UK · 60 min
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-white px-3.5 py-2">
-                <Video className="h-4 w-4 text-traq-purple" aria-hidden="true" />
-                Google Meet
-              </span>
-            </div>
-            {next ? (
-              <p className="mt-3 text-[13px] text-ink-faint">
-                <LocalTime iso={next.startIso} prefix={`${next.day}: that's`} />
+      <section className="px-5 pb-16 pt-10 sm:px-8 sm:pt-14">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-14">
+            <div className="lg:col-start-1 lg:row-start-1">
+              <h1 className="text-[46px] font-extrabold leading-[0.98] tracking-[-0.035em] text-ink sm:text-[72px] lg:text-[76px] xl:text-[84px]">
+                117 emails in.
+                <br />
+                One page out.
+              </h1>
+              <p className="mt-7 max-w-xl text-[18px] leading-8 text-ink-soft sm:text-[20px] sm:leading-9">
+                Join me live for an hour and watch me build an AI assistant that reads your inbox and calendar, then hands you one page every morning: what’s on,
+                what needs you, and what you forgot. Free, in plain English.
               </p>
-            ) : null}
+              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2.5 text-[15px] text-ink">
+                {['No code, nothing to install', 'It drafts, you press send', 'Gmail, Google Workspace or Microsoft 365'].map((t) => (
+                  <li key={t} className="flex gap-2">
+                    <Check className="mt-0.5 h-4 w-4 flex-none text-traq-purple" aria-hidden="true" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+              {next ? (
+                <p className="mt-5 text-[14px] text-ink-faint">
+                  {sessions.map((s) => s.day).join(' or ')}, 60 minutes on Google Meet. <LocalTime iso={next.startIso} prefix="The first one is" />
+                </p>
+              ) : null}
+            </div>
 
-            <div className="mt-8">
+            <div id="register" className="scroll-mt-20 lg:sticky lg:top-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+              <RegisterForm sessions={sessions} defaultCountry={country ? COUNTRY_NAMES[country] : undefined} />
+            </div>
+
+            <div className="lg:col-start-1 lg:row-start-2">
               {VSL_SRC ? (
                 <video className="aspect-video w-full rounded-[22px] border border-border-subtle bg-black shadow-cardHover" src={VSL_SRC} poster={VSL_POSTER} controls playsInline preload="metadata" />
               ) : (
-                <BriefMock />
+                <InboxToBrief />
               )}
+              <p className="mt-2 text-[12px] text-ink-faint">117 is the average number of emails a worker receives a day (Microsoft Work Trend Index, 2025).</p>
             </div>
-          </div>
-
-          <div className="lg:sticky lg:top-6 lg:self-start">
-            <RegisterForm sessions={sessions} defaultCountry={country ? COUNTRY_NAMES[country] : undefined} />
           </div>
         </div>
       </section>
 
-      {/* What you'll see */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
+      {/* What it hands you */}
+      <section className="border-t border-border-subtle px-5 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-6xl">
-          <SectionHead eyebrow="In the hour" title="What you will see" sub="Live, on my screen, with time for your questions." />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {SEE.map((s, i) => (
-              <div key={s.title} className="rounded-[20px] border border-border-subtle bg-white p-6 shadow-card">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-traq-purple text-[14px] font-semibold text-white">{i + 1}</span>
-                <h3 className="mt-4 text-[18px] font-semibold text-ink">{s.title}</h3>
-                <p className="mt-2 text-[15px] leading-6 text-ink-soft">{s.body}</p>
-              </div>
-            ))}
+          <h2 className="max-w-3xl text-[34px] font-extrabold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[48px]">
+            What it takes off your plate.
+          </h2>
+          <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h3 className="text-[24px] font-bold text-ink">Replies that sound like you</h3>
+              <p className="mt-3 max-w-md text-[17px] leading-8 text-ink-soft">
+                It drafts the replies that need you, in your words. Most people stop using AI because it writes like a robot. That’s one setting, and I show
+                you it at the end of the session.
+              </p>
+            </div>
+            <VoiceToggle />
           </div>
-          <div className="mt-4 rounded-[20px] border border-traq-purple/30 bg-traq-tint p-6">
-            <h3 className="text-[18px] font-semibold text-traq-purple-ink">And at the end: the one setting almost everyone gets wrong</h3>
-            <p className="mt-2 text-[15px] leading-6 text-ink-soft">It is the reason AI writes like a robot. Change it, and it starts writing like you.</p>
+          <div className="mt-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="lg:order-2">
+              <h3 className="text-[24px] font-bold text-ink">Two minutes of prep before every meeting</h3>
+              <p className="mt-3 max-w-md text-[17px] leading-8 text-ink-soft">
+                It reads your recent emails with the person you’re about to meet and gives you the short version: where things stand, what you owe them, what to
+                ask.
+              </p>
+            </div>
+            <div className="note-card lg:order-1">
+              <p className="text-[13px] font-semibold text-traq-purple">13:30 Client call: prep note</p>
+              <ul className="mt-3 space-y-2 text-[15px] leading-7 text-ink">
+                <li>Last contact: Tuesday. They asked to move the start date to November.</li>
+                <li>You owe them: the revised quote (promised by Friday).</li>
+                <li>Ask: who signs off on their side, and is the budget confirmed?</li>
+              </ul>
+              <p className="font-hand mt-4 text-[21px] text-traq-purple">read it in the lift on the way up</p>
+            </div>
+          </div>
+          <div className="mt-16 text-center">
+            <Cta href={ctaHref} label={ctaLabel} />
           </div>
         </div>
       </section>
 
       {/* Proof */}
-      <section className="px-5 py-16 sm:px-8 sm:py-20">
+      <section className="bg-bg-subtle px-5 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <SectionHead
-            eyebrow="What is possible with AI right now"
-            title="This is not the future. People are doing it today."
-            sub="Published studies, not promises. Each number links to its source."
-          />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {PROOF.map((p) => (
-              <div key={p.stat} className="flex flex-col rounded-[20px] border border-border-subtle bg-white p-6 shadow-card">
-                <div className="text-[36px] font-semibold leading-none text-traq-purple">{p.stat}</div>
-                <p className="mt-3 text-[15px] leading-6 text-ink-soft">{p.line}</p>
-                <a className="mt-auto pt-4 text-[12px] text-ink-faint underline underline-offset-2" href={p.href} target="_blank" rel="noopener noreferrer">
+          <h2 className="max-w-3xl text-[30px] font-extrabold leading-[1.08] tracking-[-0.02em] text-ink sm:text-[40px]">Not hype. Measured.</h2>
+          <p className="mt-3 max-w-2xl text-[16px] leading-7 text-ink-soft">Published studies, each linked to its source. No promises about your results.</p>
+          <div className="mt-10 grid divide-y divide-border-strong border-y border-border-strong md:grid-cols-3 md:divide-x md:divide-y-0">
+            {proof.map((p) => (
+              <div key={p.stat} className="py-8 md:px-8 md:first:pl-0 md:last:pr-0">
+                <div className="text-[56px] font-extrabold leading-none tracking-[-0.03em] text-traq-purple">{p.stat}</div>
+                <p className="mt-4 text-[16px] leading-7 text-ink-soft">{p.line}</p>
+                <a className="mt-3 inline-block text-[13px] text-ink-faint underline underline-offset-2" href={p.href} target="_blank" rel="noopener noreferrer">
                   {p.source}
                 </a>
               </div>
@@ -170,69 +232,142 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
         </div>
       </section>
 
-      {/* Who + safety */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
-          <div className="rounded-[22px] border border-border-subtle bg-white p-7 shadow-card">
-            <SectionHead eyebrow="Is this for me?" title="Built for beginners" />
-            <ul className="mt-6 space-y-3 text-[15px] leading-6 text-ink-soft">
-              <li>• Founders and small-business owners whose inbox runs their day</li>
-              <li>• Accountants, lawyers, consultants and agents juggling clients</li>
-              <li>• Senior people who feel AI moved fast and want to catch up properly</li>
-              <li>• Anyone who tried ChatGPT once and did not see what the fuss was about</li>
-            </ul>
-            <p className="mt-5 text-[14px] text-ink-faint">Not for developers, and not a get-rich-quick AI business course.</p>
-          </div>
-          <div className="rounded-[22px] border border-border-subtle bg-white p-7 shadow-card">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-traq-purple" aria-hidden="true" />
-              <div className="eyebrow eyebrow-accent">Is it safe?</div>
+      {/* The hour */}
+      <section className="px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <h2 className="text-[34px] font-extrabold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[48px]">The hour, roughly as it runs</h2>
+            <p className="mt-4 max-w-sm text-[17px] leading-8 text-ink-soft">Live on my screen, questions welcome throughout. Camera optional.</p>
+            <div className="mt-8 hidden lg:block">
+              <Cta href={ctaHref} label={ctaLabel} />
             </div>
-            <h2 className="section-title mt-3">You stay in control</h2>
-            <ul className="mt-6 space-y-3 text-[15px] leading-6 text-ink-soft">
-              <li>• We use Claude, made by Anthropic. Anthropic says it does not train its models on your Gmail, Drive or Calendar connector data.</li>
-              <li>• Set up my way, it drafts. You read, edit and press send. Claude asks before sending anything by default.</li>
-              <li>• You choose what it can see, and you can disconnect it in two clicks.</li>
-              <li>• I show you the one privacy setting to switch off on day one.</li>
+          </div>
+          <ol className="relative border-l-2 border-traq-tint pl-8">
+            {HOUR.map((s) => (
+              <li key={s.when} className="relative pb-9 last:pb-0">
+                <span className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-white bg-traq-purple ring-2 ring-traq-tint" aria-hidden="true" />
+                <p className="text-[14px] font-semibold tabular-nums text-traq-purple">{s.when}</p>
+                <h3 className="mt-1 text-[20px] font-bold leading-snug text-ink">{s.title}</h3>
+                <p className="mt-1.5 text-[16px] leading-7 text-ink-soft">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="lg:hidden">
+            <Cta href={ctaHref} label={ctaLabel} />
+          </div>
+        </div>
+      </section>
+
+      {/* For you / safe */}
+      <section className="bg-bg-subtle px-5 py-20 sm:px-8">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="text-[30px] font-extrabold tracking-[-0.02em] text-ink sm:text-[36px]">Come if…</h2>
+            <ul className="mt-6 space-y-3.5 text-[16px] leading-7 text-ink">
+              {[
+                'You run a business and your inbox runs your day',
+                'You’re an accountant, lawyer, consultant or agent juggling clients',
+                'You’re senior, AI moved fast, and you want to catch up properly',
+                'You tried ChatGPT once and didn’t see what the fuss was about',
+              ].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <Check className="mt-1 h-5 w-5 flex-none text-traq-purple" aria-hidden="true" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <h3 className="mt-10 text-[20px] font-bold text-ink">Skip it if…</h3>
+            <ul className="mt-4 space-y-3 text-[16px] leading-7 text-ink-soft">
+              {['You already build with AI as a developer', 'You want a get-rich-quick AI business'].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <X className="mt-1 h-5 w-5 flex-none text-ink-faint" aria-hidden="true" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-[26px] border border-border-subtle bg-white p-7 shadow-card sm:p-9">
+            <ShieldCheck className="h-8 w-8 text-traq-purple" aria-hidden="true" />
+            <h2 className="mt-4 text-[30px] font-extrabold tracking-[-0.02em] text-ink sm:text-[36px]">You stay in control</h2>
+            <ul className="mt-6 space-y-4 text-[16px] leading-7 text-ink-soft">
+              <li>We use Claude, made by Anthropic. Anthropic says it doesn’t train its models on your Gmail, Drive or Calendar connector data.</li>
+              <li>Set up my way, it drafts. You read, edit and press send. Claude asks before sending anything by default.</li>
+              <li>You choose what it can see, and you can disconnect it in two clicks.</li>
+              <li>I show you the privacy settings to switch on, on day one.</li>
             </ul>
             <a
-              className="mt-5 inline-block text-[12px] text-ink-faint underline underline-offset-2"
+              className="mt-6 inline-block text-[13px] text-ink-faint underline underline-offset-2"
               href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Anthropic: using the Google Workspace connectors
+              Source: Anthropic, using the Google Workspace connectors
             </a>
           </div>
         </div>
       </section>
 
       {/* Host */}
-      <section className="px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[280px_1fr]">
-          <Image src="/nazir-session.jpg" alt="Naz, founder of Traq Collective" width={560} height={560} className="aspect-square w-full max-w-[280px] rounded-[24px] object-cover shadow-card" />
+      <section className="px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto grid max-w-5xl items-start gap-10 md:grid-cols-[300px_1fr] md:gap-14">
+          <div className="relative">
+            <Image
+              src="/nazir-session.jpg"
+              alt="Naz, founder of Traq Collective"
+              width={600}
+              height={600}
+              className="aspect-[4/5] w-full max-w-[300px] rounded-[26px] object-cover shadow-cardHover"
+            />
+            <p className="font-hand mt-3 -rotate-2 text-[22px] text-traq-purple">ex-hotel revenue manager</p>
+          </div>
           <div>
-            <div className="eyebrow eyebrow-accent">Your host</div>
-            <h2 className="section-title mt-3">Hi, I&apos;m Naz</h2>
-            <p className="mt-4 text-[16px] leading-7 text-ink-soft">
-              I founded Traq Collective in Dubai, and I train teams at companies in the UAE and the UK to use AI in their actual day-to-day work. Before that I
-              spent years in hotel revenue management at Hilton, so I know what a full inbox and a back-to-back calendar feel like.
-            </p>
-            <p className="mt-3 text-[16px] leading-7 text-ink-soft">
-              Every morning my own assistant reads four inboxes and four calendars and hands me one page. In this session I show you how to start yours.
-            </p>
+            <h2 className="text-[34px] font-extrabold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[46px]">I didn’t come from tech.</h2>
+            <div className="mt-6 space-y-4 text-[17px] leading-8 text-ink-soft">
+              <p>
+                I’m Naz. I joined Hilton’s graduate scheme straight from university and spent years in hotel revenue management, first in London, then in Dubai.
+                Full inbox, back-to-back calendar, numbers due by nine.
+              </p>
+              <p>
+                When AI arrived, I watched clever, experienced people avoid it. Not because they couldn’t use it. Because they were nervous of getting it wrong,
+                and nobody showed them where to start safely.
+              </p>
+              <p>
+                So now I do that. I run Traq Collective in Dubai, and I train teams at companies in the UAE and the UK to use AI in their actual work.
+              </p>
+              <p className="text-ink">
+                Every morning, my own assistant reads four inboxes and four calendars and hands me one page. In this hour I’ll show you how to start yours.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Why free */}
+      <section className="bg-traq-deep px-5 py-20 text-white sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-[34px] font-extrabold leading-[1.05] tracking-[-0.025em] sm:text-[48px]">If it’s this useful, why is it free?</h2>
+          <div className="mt-6 space-y-4 text-[18px] leading-8 text-white/85">
+            <p>Because the hour stands on its own. You’ll leave knowing how to set this up yourself.</p>
+            <p>
+              And some people would rather I set it up with them. That’s what the paid live build and the one-to-one are for. I mention them once, at the end.
+              No hard sell, no pressure, and no card needed to join.
+            </p>
+          </div>
+          {open ? (
+            <div className="mt-10">
+              <Cta light />
+            </div>
+          ) : null}
+        </div>
+      </section>
+
       {/* Go further */}
-      <section className="bg-bg-subtle px-5 py-16 sm:px-8 sm:py-20" id="go-further">
+      <section className="px-5 py-20 sm:px-8 sm:py-24" id="go-further">
         <div className="mx-auto max-w-6xl">
-          <SectionHead
-            eyebrow="Want to go further?"
-            title="Get it built, not just explained"
-            sub="Optional. The free session is complete on its own. These are for anyone who wants more, and you do not need to attend the free session first."
-          />
+          <h2 className="max-w-3xl text-[34px] font-extrabold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[48px]">Want it set up, not just shown?</h2>
+          <p className="mt-4 max-w-2xl text-[17px] leading-8 text-ink-soft">
+            Optional. You don’t need to come to the free session first, and the free session is complete without these.
+          </p>
           <div className="mt-3">
             <CurrencySwitch cur={cur} path={FAA_PATH} />
           </div>
@@ -240,33 +375,83 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
             <OfferCards cur={cur} />
           </div>
           <p className="mt-6 text-[14px] leading-6 text-ink-soft">
-            <strong className="text-ink">The full cost, in one line:</strong> the free session is free. The live build is {price(buildSku(), cur)} once. To run your
-            assistant you also need Claude Pro, about $20 a month, paid to Anthropic. Nothing else.
+            <strong className="text-ink">The full cost, in one line:</strong> the free session is free. The live build is {price(buildSku(), cur)} once. To run
+            your assistant you also need Claude Pro, about $20 a month, paid to Anthropic. Nothing else.
           </p>
         </div>
       </section>
 
-      <FaqBlock qas={FAQS} heading="Questions people ask" />
+      {/* Testimonials (shown only once real quotes exist) */}
+      {TESTIMONIALS.length ? (
+        <section className="bg-bg-subtle px-5 py-20 sm:px-8">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-[30px] font-extrabold tracking-[-0.02em] text-ink sm:text-[40px]">What people said after</h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-3">
+              {TESTIMONIALS.map((t) => (
+                <figure key={t.quote} className="border-l-2 border-traq-purple pl-5">
+                  <blockquote className="text-[17px] leading-8 text-ink">“{t.quote}”</blockquote>
+                  <figcaption className="mt-3 text-[14px] text-ink-faint">
+                    {t.name}, {t.role}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
-      <section className="px-5 py-16 text-center sm:px-8">
-        <h2 className="section-title">One hour. Plain English. Your first AI assistant.</h2>
-        <p className="section-sub mx-auto mt-4">
-          {sessions.length ? `${sessions.map((s) => s.day).join(' or ')}, 22:00 Dubai · 19:00 UK.` : 'The live build is on '}
-          {sessions.length ? '' : `${dayLabel(BUILD.startIso)}.`}
-        </p>
-        <a className={`${BTN} mt-8`} href={sessions.length ? '#register' : '#go-further'}>
-          {sessions.length ? 'Save my free seat' : 'See the live build'}
-        </a>
+      {/* FAQ */}
+      <section className="bg-bg-subtle px-5 py-20 sm:px-8">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-[30px] font-extrabold tracking-[-0.02em] text-ink sm:text-[40px]">Questions people ask</h2>
+          <div className="mt-8 divide-y divide-border-strong border-y border-border-strong">
+            {FAQS.map((f) => (
+              <details key={f.q} className="group py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[17px] font-semibold text-ink marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-traq-purple">
+                  {f.q}
+                  <span className="flex-none text-[22px] font-normal text-traq-purple transition-transform group-open:rotate-45" aria-hidden="true">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-[16px] leading-7 text-ink-soft">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recap */}
+      <section className="px-5 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center text-[34px] font-extrabold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[48px]">One hour. Plain English. Your first AI assistant.</h2>
+          <dl className="mx-auto mt-10 grid max-w-3xl gap-x-10 gap-y-5 text-[16px] sm:grid-cols-[auto_1fr]">
+            <dt className="font-semibold text-ink">When</dt>
+            <dd className="text-ink-soft">
+              {open ? sessions.map((s) => `${s.day}, ${s.times}`).join('; or ') : `The free sessions have finished. The live build is on ${dayLabel(BUILD.startIso)}.`}
+            </dd>
+            <dt className="font-semibold text-ink">Where</dt>
+            <dd className="text-ink-soft">Google Meet. A laptop is best, camera optional.</dd>
+            <dt className="font-semibold text-ink">Cost</dt>
+            <dd className="text-ink-soft">Free. No card.</dd>
+            <dt className="font-semibold text-ink">Can’t make it?</dt>
+            <dd className="text-ink-soft">Sign up anyway. The replay comes to your inbox, up for 48 hours.</dd>
+          </dl>
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <Cta href={ctaHref} label={ctaLabel} />
+            {next ? <Countdown iso={next.startIso} className="text-[14px] font-medium tabular-nums text-ink-faint" /> : null}
+          </div>
+        </div>
       </section>
 
       <FunnelFooter />
 
       {/* Mobile sticky call to action */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border-subtle bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
-        <a className={`${BTN} w-full`} href={sessions.length ? '#register' : '#go-further'}>
-          {sessions.length ? 'Save my free seat' : 'See the live build'}
+        <a className={`${BTN} w-full`} href={open ? '#register' : '#go-further'}>
+          {ctaLabel}
         </a>
       </div>
+      <div className="h-20 lg:hidden" aria-hidden="true" />
     </div>
   );
 }

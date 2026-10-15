@@ -87,9 +87,6 @@ export default function RegisterForm({ sessions, defaultCountry }: { sessions: S
     const errs: Errors = {};
     if (v.name.trim().length < 2) errs.name = 'Add your name';
     if (!/^\S+@\S+\.\S+$/.test(v.email.trim())) errs.email = 'Check your email address';
-    if (!v.country) errs.country = 'Choose your country';
-    if (!v.role) errs.role = 'Choose the closest one';
-    if (!v.emailType) errs.emailType = 'Choose one';
     if (!v.consent) errs.consent = 'Tick this so we can send your link and reminders';
     if (siteKey && !token) errs.turnstile = 'Complete the quick check so we know you are human';
     setErrors(errs);
@@ -136,12 +133,12 @@ export default function RegisterForm({ sessions, defaultCountry }: { sessions: S
 
   return (
     <form onSubmit={submit} noValidate className="rounded-[22px] border border-border-subtle bg-white p-6 shadow-cardHover sm:p-8" id="register">
-      <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-traq-purple">Free · 60 minutes · Google Meet</p>
-      <h2 className="mt-2 text-[24px] font-semibold leading-tight text-ink">Save your free seat</h2>
+      <h2 className="text-[24px] font-semibold leading-tight text-ink">Save your free seat</h2>
+      <p className="mt-1 text-[14px] text-ink-soft">Free, 60 minutes, on Google Meet. No card.</p>
 
       <fieldset className="mt-6">
         <legend className={label}>Choose your date</legend>
-        <div className="mt-2 grid gap-2.5">
+        <div className="mt-2 grid gap-2.5 sm:grid-cols-2">
           {sessions.map((s) => (
             <label
               key={s.id}
@@ -170,9 +167,15 @@ export default function RegisterForm({ sessions, defaultCountry }: { sessions: S
           <input id="faa-email" type="email" inputMode="email" className={field} autoComplete="email" value={v.email} onChange={(e) => set('email', e.target.value)} />
           <Err k="email" />
         </div>
+        <details className="group rounded-xl border border-border-subtle px-4 py-3 open:pb-4">
+          <summary className="cursor-pointer list-none text-[14px] font-semibold text-ink-soft marker:hidden hover:text-traq-purple">
+            <span className="group-open:hidden">+ Help me tailor the session (optional)</span>
+            <span className="hidden group-open:inline">Help me tailor the session (optional)</span>
+          </summary>
+          <div className="mt-3 grid gap-4">
         <div>
           <label className={label} htmlFor="faa-wa">
-            WhatsApp number <span className="font-normal text-ink-faint">(optional, for a reminder)</span>
+            WhatsApp number <span className="font-normal text-ink-faint">(for a reminder)</span>
           </label>
           <input id="faa-wa" type="tel" inputMode="tel" className={field} autoComplete="tel" placeholder="+44 7…" value={v.whatsapp} onChange={(e) => set('whatsapp', e.target.value)} />
         </div>
@@ -208,6 +211,8 @@ export default function RegisterForm({ sessions, defaultCountry }: { sessions: S
           </select>
           <Err k="role" />
         </div>
+          </div>
+        </details>
         <label className="flex items-start gap-3 text-[14px] leading-6 text-ink-soft">
           <input type="checkbox" className="mt-1 h-4 w-4 accent-[#5B3FE4]" checked={v.consent} onChange={(e) => set('consent', e.target.checked)} />
           <span>Email me the join link, reminders and the follow-up from this session. I can unsubscribe any time.</span>

@@ -271,3 +271,10 @@ export const PROOF: { stat: string; line: string; source: string; href: string }
     href: 'https://www.microsoft.com/en-us/worklab/work-trend-index/breaking-down-infinite-workday',
   },
 ];
+
+// ---------------------------------------------------------------------------
+// What people said. Real quotes only, used with permission. The landing page
+// hides the section while this is empty.
+// ---------------------------------------------------------------------------
+
+export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [];

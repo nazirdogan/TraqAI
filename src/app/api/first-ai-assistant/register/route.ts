@@ -15,9 +15,9 @@ const schema = z.object({
   name: z.string().trim().min(2, 'Add your name').max(80),
   email: z.string().trim().email('Check your email address').max(160),
   whatsapp: z.string().trim().max(30).optional().or(z.literal('')),
-  country: z.string().trim().min(2, 'Choose your country').max(60),
-  role: z.string().trim().min(2, 'Choose the closest one').max(80),
-  emailType: z.string().trim().min(2, 'Choose one').max(60),
+  country: z.string().trim().max(60).optional().or(z.literal('')),
+  role: z.string().trim().max(80).optional().or(z.literal('')),
+  emailType: z.string().trim().max(60).optional().or(z.literal('')),
   session: z.string().trim().min(2).max(20),
   consent: z.literal(true, { errorMap: () => ({ message: 'Tick this so we can send your link and reminders' }) }),
   click: z
@@ -84,9 +84,9 @@ export async function POST(request: Request) {
     firstName,
     lastName: rest.join(' ') || undefined,
     phone: d.whatsapp || undefined,
-    company: d.role,
-    band: d.country,
-    budget: d.emailType,
+    company: d.role || undefined,
+    band: d.country || undefined,
+    budget: d.emailType || undefined,
     source: `faa-${session.id}`,
     ...(d.click ?? {}),
   });
@@ -135,7 +135,7 @@ export async function POST(request: Request) {
     .map(({ r, key }) => ({ key, error: r.status === 'rejected' ? String(r.reason) : JSON.stringify(r.value.error) }));
   if (failed.length) console.error('[faa] some emails failed', failed);
 
-  const n = notifyBody({ name: d.name, email: d.email, country: d.country, role: d.role, emailType: d.emailType, whatsapp: d.whatsapp || undefined, session });
+  const n = notifyBody({ name: d.name, email: d.email, country: d.country || '-', role: d.role || '-', emailType: d.emailType || '-', whatsapp: d.whatsapp || undefined, session });
   try {
     await resend.emails.send({ from: FROM, to: NOTIFY, replyTo: d.email, subject: n.subject, text: n.text });
   } catch (err) {
