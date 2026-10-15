@@ -27,7 +27,8 @@ const BUILD_URL = `${SITE_URL}${FAA_PATH}/build`;
 
 /**
  * Every email a free-session sign-up receives, in order, with the time each one
- * goes. The route sends the first now and schedules the rest through Resend, so
+ * goes (confirm, 24h, 3h, live, after, replay). The route sends the first now and
+ * schedules the rest through Resend (up to 30 days ahead), so
  * nothing depends on a cron job or on anyone remembering.
  */
 export function freeSessionSequence(s: FreeSession, firstName: string): FaaEmail[] {
@@ -42,6 +43,7 @@ export function freeSessionSequence(s: FreeSession, firstName: string): FaaEmail
   });
   const ics = `${SITE_URL}/api/first-ai-assistant/ics?s=${s.id}`;
   const name = firstName || 'there';
+  const replayUrl = `${SITE_URL}${FAA_PATH}/replay?s=${s.id}`;
 
   return [
     {
@@ -53,7 +55,7 @@ export function freeSessionSequence(s: FreeSession, firstName: string): FaaEmail
         { kind: 'p', text: `${FAA_NAME} is live on ${when}. Sixty minutes, on Google Meet, in plain English.` },
         { kind: 'button', label: 'Add it to my Google Calendar', href: cal },
         { kind: 'link', label: 'Or download the calendar file (Outlook, Apple)', href: ics },
-        { kind: 'p', text: `Your join link: ${s.meetUrl}. Join from a laptop if you can, so you can see the screen clearly. I let people in from the waiting room, so give it a few seconds.` },
+        { kind: 'p', text: `Your join link: ${s.meetUrl}. Join from a laptop if you can, so you can see the screen clearly. The session is recorded for the replay, so keep your camera and microphone off if you prefer; questions go in the chat.` },
         { kind: 'p', text: 'What you will see:' },
         {
           kind: 'list',
@@ -109,7 +111,7 @@ export function freeSessionSequence(s: FreeSession, firstName: string): FaaEmail
     {
       key: 'after',
       sendAt: addMinutes(s.startIso, 90),
-      subject: 'What we built tonight (and your next step)',
+      subject: 'What we built (and your next step)',
       preview: 'The recap, the replay, and the live build on Saturday.',
       heading: `Thank you, ${name}.`,
       blocks: [
@@ -125,6 +127,21 @@ export function freeSessionSequence(s: FreeSession, firstName: string): FaaEmail
         },
         { kind: 'button', label: 'Save my seat at the launch price', href: BUILD_URL },
         { kind: 'small', text: 'The launch price ends on Friday at 23:59 Dubai time. You will need Claude Pro (about $20 a month, paid to Anthropic) and Gmail or Google Workspace. Microsoft 365 works if your IT admin approves the connection.' },
+        { kind: 'p', text: 'Naz' },
+      ],
+    },
+    {
+      key: 'replay',
+      sendAt: addMinutes(s.startIso, 22 * 60),
+      subject: 'Your replay is up (48 hours)',
+      preview: 'The full session, plus the one setting most people skip.',
+      heading: 'The replay is up.',
+      blocks: [
+        { kind: 'p', text: `Here is the full recording of ${FAA_NAME}. It stays up for 48 hours.` },
+        { kind: 'button', label: 'Watch the replay', href: replayUrl },
+        { kind: 'p', text: 'If you only watch one part, watch the end: the voice setting is what makes the drafts sound like you instead of a robot.' },
+        { kind: 'p', text: `And if you would rather have it set up on your own inbox, with me, that is ${BUILD_NAME} on ${dayLabelLong(BUILD.startIso)}. Fifteen seats.` },
+        { kind: 'link', label: 'See the live build', href: BUILD_URL },
         { kind: 'p', text: 'Naz' },
       ],
     },

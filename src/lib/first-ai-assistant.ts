@@ -64,6 +64,35 @@ export const OFFICE_HOURS = [
 ];
 
 // ---------------------------------------------------------------------------
+// Replays
+// ---------------------------------------------------------------------------
+
+/**
+ * Google Drive file ID of each recording. The replay agent sets these the
+ * morning after each session (Drive sharing: anyone with the link can view).
+ * Null means "not up yet", and the replay page says so.
+ */
+export const REPLAYS: Record<string, string | null> = {
+  mon19: null,
+  wed21: null,
+  build: null,
+};
+
+/** Soft gate for the build replay, shared with build buyers by link. */
+export const BUILD_KEY = 'build-oct26';
+
+/** Free replays stay up 48 hours from the replay email (sent 22h after the start). */
+export const FREE_REPLAY_HOURS_FROM_START = 22 + 48;
+/** VIP Pass holders keep them for 7 days. */
+export const VIP_REPLAY_HOURS_FROM_START = 24 * 8;
+/** Build buyers keep the build replay until the support window ends. */
+export const BUILD_REPLAY_UNTIL_ISO = '2026-11-08T19:59:59Z';
+
+export function replayEmbedUrl(id: string): string {
+  return `https://drive.google.com/file/d/${id}/preview`;
+}
+
+// ---------------------------------------------------------------------------
 // Currency and prices
 // ---------------------------------------------------------------------------
 

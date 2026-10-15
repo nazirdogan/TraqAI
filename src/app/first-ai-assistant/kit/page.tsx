@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { FAA_PATH, KIT_KEY } from '@/lib/first-ai-assistant';
+import { FAA_PATH, FREE_SESSIONS, KIT_KEY, dayLabel } from '@/lib/first-ai-assistant';
 import { BTN, FunnelFooter, FunnelHeader } from '../_components/ui';
 
 export const dynamic = 'force-dynamic';
@@ -98,6 +98,18 @@ export default function Page({ searchParams }: { searchParams: { k?: string } })
         <div className="mx-auto max-w-3xl">
           <h1 className="text-[34px] font-semibold leading-tight text-ink sm:text-[44px]">The AI Assistant Starter Kit</h1>
           <p className="mt-4 text-[17px] leading-8 text-ink-soft">Thirty prompts, the setup checklist and the voice guide. Copy, paste, then edit the parts in [BRACKETS].</p>
+
+          <div className="mt-8 rounded-2xl border border-border-subtle bg-white p-5 shadow-card">
+            <h2 className="text-[18px] font-semibold text-ink">Your replays (7 days)</h2>
+            <p className="mt-1 text-[14px] leading-6 text-ink-soft">Each one goes up within 24 hours of the session.</p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              {FREE_SESSIONS.map((s) => (
+                <a key={s.id} className="font-semibold text-traq-purple underline underline-offset-2" href={`${FAA_PATH}/replay?s=${s.id}&v=1`}>
+                  {dayLabel(s.startIso)} session
+                </a>
+              ))}
+            </div>
+          </div>
 
           <h2 className="mt-12 text-[24px] font-semibold text-ink">Setup checklist</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-[15px] leading-7 text-ink-soft">

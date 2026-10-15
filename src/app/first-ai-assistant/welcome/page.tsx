@@ -18,6 +18,7 @@ import {
   price,
   timeTriple,
   KIT_KEY,
+  BUILD_KEY,
 } from '@/lib/first-ai-assistant';
 import { BTN, BTN_GHOST, FunnelFooter, FunnelHeader } from '../_components/ui';
 
@@ -74,7 +75,11 @@ function BuildDetails() {
             </li>
           ))}
         </ul>
-        <p>You will also get the replay, the setup files and the invite to the 14-day support group by email.</p>
+        <p>
+          The build replay goes up{' '}
+          <a className="font-semibold text-traq-purple underline" href={`${FAA_PATH}/replay?s=build&k=${BUILD_KEY}`}>here</a> by the morning after.
+          Bookmark it. The setup files and the invite to the 14-day support group come by email.
+        </p>
       </Card>
     </>
   );
@@ -142,7 +147,7 @@ export default function Page({ searchParams }: { searchParams: { p?: string; cur
           <div className="text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-traq-purple" aria-hidden="true" />
             <h1 className="mt-4 text-[34px] font-semibold leading-tight text-ink sm:text-[42px]">Thank you. You are all set.</h1>
-            <p className="mt-3 text-[16px] text-ink-soft">Your receipt is on its way from Stripe. Everything you need is below, and in your inbox within the hour.</p>
+            <p className="mt-3 text-[16px] text-ink-soft">Your receipt is on its way from Stripe, with a link back to this page. Everything you need is below, and a personal email from me follows within a few hours.</p>
           </div>
           <div className="mt-10 space-y-5">
             {isVip ? <VipDetails cur={cur} /> : null}
