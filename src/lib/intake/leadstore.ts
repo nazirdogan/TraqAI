@@ -27,6 +27,7 @@ export type LeadKind =
   | 'quick'
   | 'chat'
   | 'ai_plan_session'
+  | 'first_ai_assistant'
   // Touches (src/lib/intake/touch.ts): no form, so usually no email. The row
   // exists to keep the gclid and the time, so the booking or call that
   // arrives by its own route can be matched to the click that paid for it.
