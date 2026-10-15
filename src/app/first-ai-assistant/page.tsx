@@ -128,49 +128,53 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
 
       <FunnelHeader />
 
-      {/* Hero */}
-      <section className="px-5 pb-16 pt-10 sm:px-8 sm:pt-14">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-14">
-            <div className="lg:col-start-1 lg:row-start-1">
-              <h1 className="text-[46px] font-extrabold leading-[0.98] tracking-[-0.035em] text-ink sm:text-[72px] lg:text-[76px] xl:text-[84px]">
-                117 emails in.
-                <br />
-                One page out.
-              </h1>
-              <p className="mt-7 max-w-xl text-[18px] leading-8 text-ink-soft sm:text-[20px] sm:leading-9">
-                Join me live for an hour and watch me build an AI assistant that reads your inbox and calendar, then hands you one page every morning: what’s on,
-                what needs you, and what you forgot. Free, in plain English.
-              </p>
-              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2.5 text-[15px] text-ink">
-                {['No code, nothing to install', 'It drafts, you press send', 'Gmail, Google Workspace or Microsoft 365'].map((t) => (
-                  <li key={t} className="flex gap-2">
-                    <Check className="mt-0.5 h-4 w-4 flex-none text-traq-purple" aria-hidden="true" />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-              {next ? (
-                <p className="mt-5 text-[14px] text-ink-faint">
-                  {sessions.map((s) => s.day).join(' or ')}, 60 minutes on Google Meet. <LocalTime iso={next.startIso} prefix="The first one is" />
-                </p>
-              ) : null}
-            </div>
+      {/* Hero: one column, so the VSL is the first thing on screen */}
+      <section className="px-5 pb-16 pt-8 sm:px-8 sm:pt-10">
+        <div className="mx-auto max-w-6xl text-center">
+          <h1 className="text-[44px] font-extrabold leading-[0.98] tracking-[-0.035em] text-ink sm:text-[60px] lg:whitespace-nowrap lg:text-[64px] xl:text-[76px]">
+            117 emails in.
+            <br className="lg:hidden" />
+            <span className="hidden lg:inline"> </span>
+            One page out.
+          </h1>
+          <p className="mx-auto mt-4 max-w-5xl text-[15px] leading-6 text-ink-soft sm:text-[18px] sm:leading-8">
+            Join me live for an hour and watch me build an AI assistant that reads your inbox and calendar, then hands you one page every morning: what’s on,
+            what needs you, and what you forgot. Free, in plain English.
+          </p>
+          <a
+            href={ctaHref}
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-traq-purple px-6 py-3.5 text-[16px] font-semibold text-white shadow-card hover:bg-traq-deep sm:hidden"
+          >
+            {open ? 'Save your free seat' : ctaLabel}
+          </a>
 
-            <div id="register" className="scroll-mt-20 lg:sticky lg:top-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
-              <RegisterForm sessions={sessions} defaultCountry={country ? COUNTRY_NAMES[country] : undefined} />
-            </div>
+          <div className="mx-auto mt-6 max-w-4xl sm:mt-8">
+            {VSL_SRC ? (
+              <video className="aspect-video w-full rounded-[22px] border border-border-subtle bg-black shadow-cardHover" src={VSL_SRC} poster={VSL_POSTER} controls playsInline preload="metadata" />
+            ) : (
+              <>
+                <InboxToBrief />
+                <p className="mt-2 text-[12px] text-ink-faint">117 is the average number of emails a worker receives a day (Microsoft Work Trend Index, 2025).</p>
+              </>
+            )}
+          </div>
 
-            <div className="lg:col-start-1 lg:row-start-2">
-              {VSL_SRC ? (
-                <video className="aspect-video w-full rounded-[22px] border border-border-subtle bg-black shadow-cardHover" src={VSL_SRC} poster={VSL_POSTER} controls playsInline preload="metadata" />
-              ) : (
-                <>
-                  <InboxToBrief />
-                  <p className="mt-2 text-[12px] text-ink-faint">117 is the average number of emails a worker receives a day (Microsoft Work Trend Index, 2025).</p>
-                </>
-              )}
-            </div>
+          <ul className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-2.5 text-[15px] text-ink">
+            {['No code, nothing to install', 'It drafts, you press send', 'Gmail, Google Workspace or Microsoft 365'].map((t) => (
+              <li key={t} className="flex gap-2">
+                <Check className="mt-0.5 h-4 w-4 flex-none text-traq-purple" aria-hidden="true" />
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+          {next ? (
+            <p className="mt-4 text-[14px] text-ink-faint">
+              {sessions.map((s) => s.day).join(' or ')}, 60 minutes on Google Meet. <LocalTime iso={next.startIso} prefix="The first one is" />
+            </p>
+          ) : null}
+
+          <div id="register" className="mx-auto mt-10 max-w-xl scroll-mt-20 text-left">
+            <RegisterForm sessions={sessions} defaultCountry={country ? COUNTRY_NAMES[country] : undefined} />
           </div>
         </div>
       </section>
