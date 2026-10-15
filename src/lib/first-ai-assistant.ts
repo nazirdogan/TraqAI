@@ -18,8 +18,8 @@ export const HOST_EMAIL = 'hello@traqcollective.com';
 export const KIT_KEY = 'vip-oct26';
 export const SETUP_BOOKING_URL = 'https://calendly.com/nazir-traqcollective/new-meeting';
 
-/** Set to a file in /public (e.g. '/videos/first-ai-assistant.mp4') once the VSL is edited. */
-export const VSL_SRC: string | null = null;
+/** The edited VSL (2:40, 1080p, captions burned in). Set to null to fall back to the animated inbox demo. */
+export const VSL_SRC: string | null = '/first-ai-assistant/vsl.mp4';
 export const VSL_POSTER = '/first-ai-assistant/vsl-poster.jpg';
 
 export type FreeSession = {

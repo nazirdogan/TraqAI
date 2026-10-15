@@ -165,9 +165,11 @@ export default function Page({ searchParams }: { searchParams: { cur?: string } 
               {VSL_SRC ? (
                 <video className="aspect-video w-full rounded-[22px] border border-border-subtle bg-black shadow-cardHover" src={VSL_SRC} poster={VSL_POSTER} controls playsInline preload="metadata" />
               ) : (
-                <InboxToBrief />
+                <>
+                  <InboxToBrief />
+                  <p className="mt-2 text-[12px] text-ink-faint">117 is the average number of emails a worker receives a day (Microsoft Work Trend Index, 2025).</p>
+                </>
               )}
-              <p className="mt-2 text-[12px] text-ink-faint">117 is the average number of emails a worker receives a day (Microsoft Work Trend Index, 2025).</p>
             </div>
           </div>
         </div>
