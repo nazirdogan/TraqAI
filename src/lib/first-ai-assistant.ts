@@ -248,7 +248,7 @@ export function googleCalendarUrl(opts: { title: string; startIso: string; endIs
 export const PROOF: { stat: string; line: string; source: string; href: string }[] = [
   {
     stat: '26 min',
-    line: 'saved per person, per day, when the UK government gave 20,000 civil servants an AI assistant. About 13 working days a year.',
+    line: 'a day saved on average, by participants\u2019 own estimates, when the UK government gave 20,000 civil servants an AI assistant. About 13 working days a year.',
     source: 'GOV.UK Copilot experiment, 2025',
     href: 'https://www.gov.uk/government/publications/microsoft-365-copilot-experiment-cross-government-findings-report/microsoft-365-copilot-experiment-cross-government-findings-report-html',
   },
@@ -260,7 +260,7 @@ export const PROOF: { stat: string; line: string; source: string; href: string }
   },
   {
     stat: '+34%',
-    line: 'for the least experienced people, the biggest jump of anyone, in a study of 5,179 support agents. Beginners gain most.',
+    line: 'productivity gain for the newest, least experienced staff, the biggest jump of anyone, in a study of 5,179 support agents.',
     source: 'Brynjolfsson, Li & Raymond, NBER',
     href: 'https://www.nber.org/papers/w31161',
   },
