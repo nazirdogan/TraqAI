@@ -21,7 +21,7 @@ import type { ReactNode } from 'react';
  */
 
 /** Route prefixes that render without sitewide chrome. */
-const BARE_PREFIXES: string[] = ['/first-ai-assistant'];
+const BARE_PREFIXES: string[] = ['/first-ai-assistant', '/keep'];
 
 export function isBareRoute(pathname: string | null): boolean {
   if (!pathname) return false;
