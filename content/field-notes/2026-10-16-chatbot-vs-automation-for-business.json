@@ -1,0 +1,87 @@
+{
+  "slug": "chatbot-vs-automation-for-business",
+  "title": "Chatbot vs automation: which do you need | Traq Collective",
+  "h1": "Chatbot vs automation: which one does your business actually need",
+  "metaDescription": "A chatbot answers questions in conversation. Automation moves data and triggers actions with no conversation at all. Here is how to tell which job needs which.",
+  "targetQuery": "chatbot vs automation for business",
+  "tags": ["tools", "best-uses"],
+  "datePublished": "2026-10-16",
+  "dateModified": "2026-10-16",
+  "author": "Nazir Dogan",
+  "dek": "They solve different problems, not competing versions of the same one.",
+  "intro": "A chatbot is the conversation: a window where someone asks a question and gets an answer. Automation is the plumbing: a set of rules that move data, trigger actions and update records with no conversation involved. Pick a chatbot for variable human questions, and automation for a repeatable action behind the scenes. Most real workflows end up needing both.",
+  "body": [
+    {
+      "heading": "What's the actual difference between a chatbot and automation?",
+      "paragraphs": [
+        "A chatbot is a conversational front end. Someone types or speaks a question, and it answers, routes, or collects information back. It exists because a person is asking something in the moment and expects a reply.",
+        "Automation is what happens with no conversation at all. An event fires, a form gets submitted, a new row lands in a spreadsheet, an invoice turns 30 days late, and a set of rules does something about it: moves data, sends an alert, updates a record. Nobody is typing into a chat window for any of it."
+      ]
+    },
+    {
+      "heading": "When a chatbot is actually the right tool",
+      "paragraphs": [
+        "Reach for a chatbot when the job starts with a person asking something you cannot fully predict in advance: a customer wants an order status, a lead has a question before booking a call, an employee needs a policy answered at 11pm when nobody is at a desk to answer it. The value is in handling a question you did not script word for word.",
+        "A chatbot that cannot do anything past answering is still useful for exactly that job. Not every interaction needs to end in an action. Sometimes the win is just not making someone wait for a human to type the same answer for the fifth time that day."
+      ]
+    },
+    {
+      "heading": "When automation is actually the right tool",
+      "paragraphs": [
+        "Reach for automation when the job is the same every time and nobody needs to ask anything to get it done: chasing an overdue invoice, moving a new lead from a form into the CRM, tagging a support ticket by sentiment, syncing a sale from your store into your accounting software. The steps do not change based on who triggered them.",
+        "This is also usually the cheaper, more predictable build. A chatbot has to handle a question arriving in a hundred different phrasings. An automation only has to handle an event arriving in one shape, because you control the trigger."
+      ]
+    },
+    {
+      "heading": "Why buying a chatbot when you needed automation is the most common mistake",
+      "paragraphs": [
+        "The expensive version of this mistake is buying a chatbot to handle customer service when the actual complaint is that invoices never get followed up, or that leads sit untouched for three days. A chatbot bolted onto the front of that problem will answer questions politely while the underlying process still does not run. It looks like progress because someone is now talking to something, but nothing downstream has changed.",
+        "The fix is naming what actually starts the job before you buy anything. If the job starts with a person asking something unpredictable, build the chatbot. If it starts with an event that always looks the same, build the automation behind it. Plenty of real workflows need both: a chatbot that collects a request, wired into the automation that actually processes it."
+      ]
+    }
+  ],
+  "takeaway": "Before you buy either one, write down what actually starts the job: a person asking a question, or an event that always looks the same. Build the chatbot for the first, the automation for the second, and wire them together if a workflow needs both.",
+  "tables": [
+    {
+      "heading": "Chatbot vs automation, side by side",
+      "intro": "Same budget line in most AI proposals, built to do very different jobs.",
+      "caption": "A chatbot and automation compared across what starts them, what they are good at, and where they live.",
+      "columns": ["What you're comparing", "Chatbot", "Automation"],
+      "rows": [
+        ["What starts it", "A person typing or speaking a question", "An event: a form submit, a new row, a schedule, a status change"],
+        ["What it's good for", "Variable questions that arrive in different words each time", "A fixed sequence of steps that looks the same every time it runs"],
+        ["Where it lives", "A website widget, an app, or a messaging channel", "Behind the scenes, inside your CRM, inbox, spreadsheet or accounting tool"],
+        ["Typical SMB use", "FAQs, lead qualification, order status lookup", "Invoice follow-up, data entry, record syncing, overdue alerts"],
+        ["What it can't do alone", "Update your systems or take action by itself", "Handle a question nobody scripted it to expect"]
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "AI implementation for the tools you already pay for",
+      "href": "/services/ai-implementation"
+    },
+    {
+      "label": "AI vs automation vs agent: what's different",
+      "href": "/field-notes/ai-vs-automation-vs-agent"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can a chatbot trigger an automation?",
+      "a": "Yes, and that is usually the strongest setup: the chatbot collects a request in conversation, then hands it to an automation that actually updates the record, sends the email, or moves the data. The chatbot handles the unpredictable part, the automation handles the repeatable part."
+    },
+    {
+      "q": "Do we need both a chatbot and automation?",
+      "a": "Most growing teams end up with both, just not on day one. Start with whichever solves the job in front of you right now, then add the other half once you can see where the handoff actually needs to happen."
+    },
+    {
+      "q": "Which is cheaper to build, a chatbot or an automation?",
+      "a": "Automation, almost always. A chatbot has to handle a question that can arrive in dozens of different phrasings, which takes real design and testing to get right. An automation only has to handle one event shape, because you control exactly what triggers it and what it looks like every time."
+    }
+  ]
+}

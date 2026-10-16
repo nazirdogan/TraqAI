@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-16",
+      "type": "field-note",
+      "slug": "chatbot-vs-automation-for-business",
+      "targetQuery": "chatbot vs automation for business"
+    },
+    {
       "date": "2026-10-15",
       "type": "field-note",
       "slug": "free-vs-paid-chatgpt-for-business",
@@ -489,6 +495,14 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-16",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "chatbot-vs-automation-for-business",
+      "critic": "branch preflight: session started on a DETACHED HEAD at d873072, eleven commits ahead of local main's stale ref (af11558); captured the sha, ran git checkout main, confirmed git merge-base --is-ancestor main d873072 succeeded, ran git merge --ff-only d873072 with no rewrite and no force-push, confirmed git symbolic-ref -q HEAD printed refs/heads/main before continuing; UNLIKE every prior run's finding, a git log check this time showed origin/main's tip (af11558) was NOT an ancestor of the detached commit, and the content file for the 2026-10-15 field note (free-vs-paid-chatgpt-for-business) was genuinely missing from origin/main, confirming that run's post had actually gone unpublished (not just locally stranded as in every previous incident) until this preflight's fast-forward recovered it; the other ten commits fast-forwarded in alongside it were authored by Nazir Dogan directly (git author matches the account owner, not this agent) and build an unrelated 'First AI Assistant' landing-page funnel touching app code outside content/ (API routes, registration/buyer forms, email templates); left them untouched per the 'never edit files outside content/' rule and brought them forward only because the preflight instructions explicitly call for recovering any commits stranded by the same detached-HEAD bug, flagging this clearly in the run summary and via push notification given the scale of unrelated app code now riding along to be pushed with today's content commit; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned news-note; read content/README.md and content/_ledger.json's published list before selecting a topic; searched Anthropic, OpenAI, Microsoft, Google, Zapier, QuickBooks, Xero and Gusto for the last seven days against the 'does this change what an owner should do or what it costs them' test and found nothing that cleared the bar: Anthropic's Oct 15 'update on independent evaluators' and Oct 14 Singapore-office/MOU and midterms posts are policy and PR items with no SMB action; Google's Oct 8 'Gemini at Work 2026' universal agent is enterprise-only, in private preview, with industry verticals (financial services, legal, government) and no pricing, failing the 'new enterprise tier for Fortune 500s' exclusion; OpenAI's Oct 7 GPT-6 Sol rollout to ChatGPT Business Chat has no pricing change and risks reading as a paraphrase of the already-ledgered Sept 11 GPT-6 Astra rollout story; a claimed Zapier AI-pricing change '48 hours after Anthropic' could not be corroborated against Zapier's own help center (which still showed the June 15 model-tier pricing as current) or any primary source, so was discarded; Microsoft Copilot 'Today' and SharePoint updates are preview-only with no concrete action; QuickBooks, Xero and Gusto turned up nothing dated to this window; per Step 3c, fell back to the daily topic pipeline (Step 3b) rather than inflate a minor release into news; ran scripts/seo/report.mjs daily, which returned a healthy 33 topics queued (8.3 weeks runway) and today's topic tp-032: 'When to use a chatbot and when to use an automation' / targetQuery 'chatbot vs automation for business'; confirmed neither the slug nor the targetQuery exists in the ledger, and that this is a distinct angle from the existing ai-vs-automation-vs-agent note (that piece is a three-way conceptual taxonomy; this one is a practical buy/build decision between a conversational front end and a rules-based back end, including the common failure mode of buying a chatbot to paper over a process that actually needed automation); researched the real distinction (chatbot as conversational front end for unpredictable questions vs. automation as the fixed back-end process for a repeatable event) rather than restating priors; attempted a stat via Verizon's 2025 State of Small Business Survey after a secondary source cited an 82% automation-adoption figure, but Verizon's own release pages were unreachable (ENOTFOUND, consistent with the known domain-blocking pattern) and the figure could not be confirmed from a primary source, so wrote the note with no stat rather than use an unconfirmed number; tried fetch-image.mjs for 'customer chat widget on laptop screen', which failed to reach Openverse and exited 2, so published without an image per the normal-outcome rule; four question-shaped body sections, one comparison table (chatbot vs automation across what starts it, what it is good for, where it lives, typical SMB use, and what it cannot do alone), three FAQs, no diagram (the content is fundamentally a comparison already served by the table, with no genuine ordered sequence or before/after contrast to show, so correctly omitted); no em-dashes or en-dashes (checked programmatically, zero found); title 40/60 chars after brand-strip, metaDescription 159/165 chars, intro 59 words and stands alone as a direct answer, all three FAQ answers revised into the 40-60 word range (one initial draft at 37 words was lengthened); related links verified to exist on disk (/services/ai-implementation/page.tsx, /field-notes/2026-08-26-ai-vs-automation-vs-agent.json, /insights/how-to-get-value-from-ai-tools-you-already-pay-for.json); validated against the live fieldNoteSchema via npx tsx after running npm ci (node_modules was not present in this checkout), result VALID; not a repeat of any ledger slug or targetQuery; tagged tools and best-uses; scripts/seo/topic-pipeline.json updated: tp-032 status set to published with publishedAs /field-notes/chatbot-vs-automation-for-business"
+    },
     {
       "date": "2026-10-13",
       "mode": "news-note",
@@ -1739,6 +1753,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-15-free-vs-paid-chatgpt-for-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-16",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-16-chatbot-vs-automation-for-business.json"
       ],
       "build": "passed"
     }
