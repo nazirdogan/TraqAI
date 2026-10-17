@@ -32,9 +32,9 @@ export function BookButton({ className = '' }: { className?: string }) {
   );
 }
 
-export function KeepHeader() {
+export function KeepHeader({ className = 'border-border-subtle bg-white' }: { className?: string }) {
   return (
-    <header className="border-b border-border-subtle bg-white">
+    <header className={`border-b ${className}`}>
       <div className="mx-auto flex max-w-5xl items-center px-5 py-4 sm:px-8">
         <Image
           src="/logos/wordmark-purple.png"
@@ -49,9 +49,9 @@ export function KeepHeader() {
   );
 }
 
-export function KeepFooter() {
+export function KeepFooter({ className = 'border-border-subtle bg-white' }: { className?: string }) {
   return (
-    <footer className="border-t border-border-subtle bg-white">
+    <footer className={`border-t ${className}`}>
       <div className="mx-auto max-w-5xl px-5 py-10 text-[13px] leading-6 text-ink-faint sm:px-8">
         <p>
           Traq Collective L.L.C-FZ, Meydan Free Zone, Dubai. Questions:{' '}

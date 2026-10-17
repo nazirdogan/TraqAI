@@ -12,8 +12,8 @@ export const SESSION_TITLE = 'The Person They Keep';
 export const SESSION_SUBHEAD =
   'A 2-hour live session on using AI at work, so you become the person your team relies on when everything is changing.';
 
-// 21:00 Dubai is 18:00 in the UK (still on BST that Saturday) and 13:00 US Eastern.
-export const SESSION_START_ISO = '2026-10-24T21:00:00+04:00';
+// 8pm Dubai is 5pm in the UK (still on BST that Saturday) and 12pm US Eastern.
+export const SESSION_START_ISO = '2026-10-24T20:00:00+04:00';
 export const SESSION_DURATION_MIN = 120;
 export const PRICE_LABEL = '£19';
 
@@ -25,7 +25,7 @@ export const INSTAGRAM_HANDLE = 'traqcollective';
 
 // TODO(Naz): the free work brief template. The thanks page hides the link
 // while this is null.
-export const TEMPLATE_URL: string | null = null;
+export const TEMPLATE_URL: string | null = '/keep/brief';
 
 // TODO(Naz): set to '/keep/naz.jpg' once the photo is in public/keep/. While
 // null the host section shows a neutral placeholder of the same size.
@@ -93,8 +93,19 @@ function fmt(timeZone: string, opts: Intl.DateTimeFormatOptions): string {
   return new Intl.DateTimeFormat('en-GB', { timeZone, ...opts }).format(new Date(SESSION_START_ISO));
 }
 
+/** "8pm" or "8:30pm" in the given zone. */
+export function clockIn(timeZone: string): string {
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone, hour: 'numeric', minute: '2-digit', hour12: true }).formatToParts(
+    new Date(SESSION_START_ISO),
+  );
+  const hour = parts.find((p) => p.type === 'hour')?.value ?? '';
+  const minute = parts.find((p) => p.type === 'minute')?.value ?? '00';
+  const ampm = (parts.find((p) => p.type === 'dayPeriod')?.value ?? '').toLowerCase();
+  return `${hour}${minute === '00' ? '' : `:${minute}`}${ampm}`;
+}
+
 /**
- * "13:00 Dubai · 10:00 UK · 05:00 US Eastern".
+ * "8pm Dubai · 5pm UK · 12pm US Eastern".
  *
  * A zone whose calendar date differs from Dubai's gets its weekday appended,
  * so an early Dubai start never reads as Saturday in New York when it is
@@ -103,7 +114,7 @@ function fmt(timeZone: string, opts: Intl.DateTimeFormatOptions): string {
 export function timeTriple(): string {
   const dubaiDay = fmt('Asia/Dubai', { weekday: 'short' });
   return ZONES.map(({ tz, label }) => {
-    const time = fmt(tz, { hour: '2-digit', minute: '2-digit', hour12: false });
+    const time = clockIn(tz);
     const day = fmt(tz, { weekday: 'short' });
     return `${time}${day === dubaiDay ? '' : ` (${day})`} ${label}`;
   }).join(' · ');
