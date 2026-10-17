@@ -31,11 +31,52 @@ export const TEMPLATE_URL: string | null = null;
 // null the host section shows a neutral placeholder of the same size.
 export const HOST_PHOTO: string | null = null;
 
+/** The live Payment Link. The confirm route only accepts checkouts from it. */
+export const KEEP_PAYMENT_LINK_ID = 'plink_1URHJQEaIvjLvSftQEf43vFh';
+
+/**
+ * Soft gate on /keep/join and /keep/replay. Buyers get links carrying it in
+ * their emails; it only stops someone guessing the URL from the landing page.
+ */
+export const ACCESS_KEY = 'k-ceb114db3e';
+
+// TODO(Naz): paste the Zoom meeting link. Emails already sent point at
+// /keep/join, which redirects here, so this can be set after people buy.
+export const ZOOM_URL: string | null = null;
+
+// The recording, once it is up. /keep/replay links to it; until then that
+// page says the replay is on its way.
+export const REPLAY_URL: string | null = null;
+
+export const JOIN_PATH = `${KEEP_PATH}/join?k=${ACCESS_KEY}`;
+export const REPLAY_PATH = `${KEEP_PATH}/replay?k=${ACCESS_KEY}`;
+
 /** The date as the copy writes it. Kept verbatim with the eyebrow. */
 export const DATE_LABEL = 'Saturday 24 October';
 
 export function sessionEndMs(): number {
   return Date.parse(SESSION_START_ISO) + SESSION_DURATION_MIN * 60_000;
+}
+
+export function addMinutes(iso: string, minutes: number): string {
+  return new Date(Date.parse(iso) + minutes * 60_000).toISOString();
+}
+
+/** "Saturday 24 October" for any zone, so a US reader's day is right too. */
+export function dayIn(timeZone: string): string {
+  return fmt(timeZone, { weekday: 'long', day: 'numeric', month: 'long' });
+}
+
+/** Google Calendar "add event" link for the session. */
+export function googleCalendarUrl(details: string): string {
+  const z = (ms: number) => icsStamp(ms);
+  return `https://calendar.google.com/calendar/render?${new URLSearchParams({
+    action: 'TEMPLATE',
+    text: SESSION_TITLE,
+    dates: `${z(Date.parse(SESSION_START_ISO))}/${z(sessionEndMs())}`,
+    details,
+    location: 'Online (Zoom link by email)',
+  })}`;
 }
 
 export function sessionFinished(now: Date = new Date()): boolean {

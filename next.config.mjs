@@ -18,6 +18,10 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/ai-plan-session/apply', destination: '/ai-plan-session/sign-up', permanent: true },
+      // The First AI Assistant funnel is replaced by The Person They Keep. Only
+      // the landing page moves; its sub-pages stay up for anyone already in it.
+      // Temporary, so the old URL can be brought back without a cached 308.
+      { source: '/first-ai-assistant', destination: '/keep', permanent: false },
     ];
   },
   async rewrites() {

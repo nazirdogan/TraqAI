@@ -11,6 +11,8 @@ type Props = {
   preview: string;
   heading: string;
   blocks: EmailBlock[];
+  /** The small purple line above the heading. */
+  kicker?: string;
 };
 
 const p = { color: '#141414', fontSize: '15px', lineHeight: '24px', margin: '0 0 14px 0' };
@@ -21,7 +23,7 @@ const p = { color: '#141414', fontSize: '15px', lineHeight: '24px', margin: '0 0
  * lib/first-ai-assistant-emails.ts so the copy can change without touching
  * markup.
  */
-export default function FirstAiAssistantEmail({ preview, heading, blocks }: Props) {
+export default function FirstAiAssistantEmail({ preview, heading, blocks, kicker = 'Traq Collective · Your First AI Assistant' }: Props) {
   return (
     <Html>
       <Head />
@@ -29,7 +31,7 @@ export default function FirstAiAssistantEmail({ preview, heading, blocks }: Prop
       <Body style={{ background: '#f5f5f7', fontFamily: 'Inter, system-ui, sans-serif', margin: 0, padding: '24px' }}>
         <Container style={{ background: '#ffffff', borderRadius: '12px', padding: '32px', maxWidth: '560px' }}>
           <Text style={{ color: '#5b3fe4', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', margin: '0 0 12px 0', textTransform: 'uppercase' }}>
-            Traq Collective · Your First AI Assistant
+            {kicker}
           </Text>
           <Heading style={{ color: '#141414', fontSize: '22px', fontWeight: 650, lineHeight: '30px', margin: '0 0 18px 0' }}>{heading}</Heading>
           {blocks.map((b, i) => {
@@ -61,7 +63,7 @@ export default function FirstAiAssistantEmail({ preview, heading, blocks }: Prop
           })}
           <Hr style={{ borderColor: '#ececec', margin: '22px 0 14px 0' }} />
           <Text style={{ color: '#6b6b6b', fontSize: '12px', lineHeight: '18px', margin: 0 }}>
-            {'Naz, Traq Collective L.L.C-FZ, Dubai. You are getting this because you signed up at traqcollective.com. Reply to this email with any question, or reply "stop" and you will not hear from us again.'}
+            {'Naz, Traq Collective L.L.C-FZ, Dubai. You are getting this because you signed up or booked at traqcollective.com. Reply to this email with any question, or reply "stop" and you will not hear from us again.'}
           </Text>
         </Container>
       </Body>

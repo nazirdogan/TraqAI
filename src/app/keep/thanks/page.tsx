@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import { SESSION_TITLE, TEMPLATE_URL } from '@/lib/keep-session';
 import { BTN, KeepFooter, KeepHeader } from '../_components/ui';
+import Confirm from '../_components/Confirm';
 
 export const metadata: Metadata = {
   title: { absolute: `You’re in · ${SESSION_TITLE}` },
   robots: { index: false, follow: false },
 };
 
-export default function KeepThanksPage() {
+export default function KeepThanksPage({ searchParams }: { searchParams: { session_id?: string } }) {
+  const sessionId = typeof searchParams.session_id === 'string' ? searchParams.session_id : null;
   return (
     <>
       <KeepHeader />
@@ -30,6 +32,7 @@ export default function KeepThanksPage() {
               </a>
             ) : null}
           </div>
+          <Confirm sessionId={sessionId} />
         </div>
       </section>
       <KeepFooter />
