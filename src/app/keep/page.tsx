@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import { Check, ChevronDown, X } from 'lucide-react';
 import {
   DATE_LABEL,
@@ -21,15 +21,58 @@ export const revalidate = 300;
 
 const TITLE = 'The Person They Keep · Live AI-at-work session';
 const URL = `https://traqcollective.com${KEEP_PATH}`;
-const OG = { url: 'https://traqcollective.com/og/keep', width: 1200, height: 630, alt: `${SESSION_TITLE}, live on Zoom, ${DATE_LABEL}` };
+const OG = {
+  url: 'https://traqcollective.com/keep/og-image.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'The Person They Keep. Saturday 24 October, live on Zoom, £19.',
+};
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: SESSION_SUBHEAD,
   alternates: { canonical: URL },
   openGraph: { title: TITLE, description: SESSION_SUBHEAD, url: URL, type: 'website', siteName: 'Traq Collective', images: [OG] },
-  twitter: { card: 'summary_large_image', title: TITLE, description: SESSION_SUBHEAD, images: [OG.url] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: SESSION_SUBHEAD, images: [{ url: OG.url, width: OG.width, height: OG.height, alt: OG.alt }] },
 };
+
+const HERO_ALT =
+  'Illustration of Jo, an office worker, alone at a desk in an empty office at dawn. A staff portal shows 30 days left and 78% replaceable.';
+
+const CARDS = [
+  {
+    src: '/keep/card-work-brief.webp',
+    alt: 'The work brief: role, task, context, rules and output, with context marked as the part most people skip.',
+  },
+  {
+    src: '/keep/card-data-rules.webp',
+    alt: "Data rules: what's fine to put into AI anywhere, what needs a company-approved tool, and what never goes in.",
+  },
+  {
+    src: '/keep/card-before-after.webp',
+    alt: "Jo's Monday report from Episode 1: two hours down to 22 minutes, with all 24 numbers checked.",
+  },
+];
+
+/**
+ * The hero art-directed with <picture>: portrait under 768px, landscape from
+ * 768px up. Both carry their own width and height, so the browser reserves the
+ * right box for whichever one it picks and nothing shifts as it loads. The
+ * staff-portal widget is baked into the top-left of both, so no text is laid
+ * over the image; the copy sits below it.
+ */
+function HeroImage() {
+  const common = { alt: HERO_ALT, priority: true, quality: 80 };
+  const { props: desktop } = getImageProps({ ...common, src: '/keep/hero-jo.webp', width: 1600, height: 900, sizes: '(min-width: 1088px) 1024px, 100vw' });
+  const { props: mobile } = getImageProps({ ...common, src: '/keep/hero-jo-mobile.webp', width: 1080, height: 1350, sizes: '100vw' });
+  return (
+    <picture>
+      <source media="(min-width: 768px)" srcSet={desktop.srcSet} sizes={desktop.sizes} width={1600} height={900} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text -- alt arrives through the spread props */}
+      <img {...mobile} className="h-auto w-full md:rounded-2xl" />
+    </picture>
+  );
+}
 
 const LEAVE_WITH = [
   'One of your own work tasks done properly with an AI assistant, using a five-part work brief.',
@@ -73,8 +116,11 @@ export default function KeepPage() {
       <KeepHeader />
 
       {/* 1. Hero */}
-      <section id="hero" className="bg-white pb-16 pt-12 sm:pb-24 sm:pt-20">
-        <div className={WRAP}>
+      <section id="hero" className="bg-white pb-16 sm:pb-24 md:pt-10">
+        <div className="mx-auto max-w-5xl md:px-8">
+          <HeroImage />
+        </div>
+        <div className={`${WRAP} pt-10 sm:pt-14`}>
           <p className="text-[13px] font-semibold uppercase tracking-[0.1em] text-traq-purple-ink">
             Live on Zoom · {DATE_LABEL}
           </p>
@@ -98,7 +144,28 @@ export default function KeepPage() {
       <section aria-labelledby="leave-with" className="border-t border-border-subtle bg-bg-subtle py-16 sm:py-20">
         <div className={WRAP}>
           <h2 id="leave-with" className={H2}>What you leave with</h2>
-          <ul className="mt-8 space-y-5">
+          {/* Under 768px a scroll-snap row with the next card peeking in; a
+              three-column grid from 768px up. Focusable so keyboard users can
+              scroll it. */}
+          <ul
+            tabIndex={0}
+            aria-label="What you leave with, illustrated"
+            className="-mx-5 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
+          >
+            {CARDS.map((c) => (
+              <li key={c.src} className="w-[80%] flex-none snap-center md:w-auto">
+                <Image
+                  src={c.src}
+                  alt={c.alt}
+                  width={1080}
+                  height={1080}
+                  sizes="(min-width: 768px) 30vw, 80vw"
+                  className="h-auto w-full rounded-2xl border border-border-subtle"
+                />
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-10 space-y-5">
             {LEAVE_WITH.map((item) => (
               <li key={item} className="flex gap-3 text-[17px] leading-7 text-ink-soft">
                 <Check className="mt-1 h-5 w-5 flex-none text-traq-purple" aria-hidden="true" />
@@ -133,6 +200,14 @@ export default function KeepPage() {
       <section aria-labelledby="who" className="border-t border-border-subtle bg-bg-subtle py-16 sm:py-20">
         <div className={WRAP}>
           <h2 id="who" className="sr-only">Who it’s for</h2>
+          <Image
+            src="/keep/jo-before-after.webp"
+            alt="Jo slumped at the kitchen table late at night, then calm at the office desk the next morning."
+            width={1600}
+            height={800}
+            sizes="(min-width: 768px) 704px, 100vw"
+            className="mb-6 h-auto w-full rounded-2xl"
+          />
           <div className="grid gap-5 md:grid-cols-2">
             <div className="rounded-2xl border border-border-subtle bg-white p-6">
               <h3 className="flex items-center gap-2 text-[18px] font-semibold text-ink">

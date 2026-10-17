@@ -39,8 +39,8 @@ export function KeepHeader() {
         <Image
           src="/logos/wordmark-purple.png"
           alt="Traq Collective"
-          width={1888}
-          height={696}
+          width={190}
+          height={70}
           className="h-7 w-auto"
           priority
         />
