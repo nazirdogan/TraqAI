@@ -31,25 +31,23 @@ export const TEMPLATE_URL: string | null = '/keep/brief';
 // null the host section shows a neutral placeholder of the same size.
 export const HOST_PHOTO: string | null = null;
 
-/** The live Payment Link. The confirm route only accepts checkouts from it. */
+/**
+ * The live Payment Link (https://buy.stripe.com/14A6oH4t7cbC2UDfKKfUQ0z), by
+ * id as Stripe reports it on a Checkout Session. Looked up once through the
+ * Stripe API. The webhook ignores checkouts from any other link.
+ */
 export const KEEP_PAYMENT_LINK_ID = 'plink_1URHJQEaIvjLvSftQEf43vFh';
 
-/**
- * Soft gate on /keep/join and /keep/replay. Buyers get links carrying it in
- * their emails; it only stops someone guessing the URL from the landing page.
- */
-export const ACCESS_KEY = 'k-ceb114db3e';
-
-// TODO(Naz): paste the Zoom meeting link. Emails already sent point at
-// /keep/join, which redirects here, so this can be set after people buy.
-export const ZOOM_URL: string | null = null;
-
-// The recording, once it is up. /keep/replay links to it; until then that
-// page says the replay is on its way.
-export const REPLAY_URL: string | null = null;
-
-export const JOIN_PATH = `${KEEP_PATH}/join?k=${ACCESS_KEY}`;
-export const REPLAY_PATH = `${KEEP_PATH}/replay?k=${ACCESS_KEY}`;
+// When each scheduled email becomes due. The reminder and replay times are
+// derived from the session itself so they move with it.
+/** Email 2, the Zoom link: Thursday 22 October, 4pm Dubai. */
+export const ZOOM_EMAIL_ISO = '2026-10-22T16:00:00+04:00';
+export function reminderFromMs(): number {
+  return Date.parse(SESSION_START_ISO) - 60 * 60_000;
+}
+export function sessionStartMs(): number {
+  return Date.parse(SESSION_START_ISO);
+}
 
 /** The date as the copy writes it. Kept verbatim with the eyebrow. */
 export const DATE_LABEL = 'Saturday 24 October';
@@ -93,6 +91,16 @@ function fmt(timeZone: string, opts: Intl.DateTimeFormatOptions): string {
   return new Intl.DateTimeFormat('en-GB', { timeZone, ...opts }).format(new Date(SESSION_START_ISO));
 }
 
+/** "8pm Dubai, 5pm UK, 12pm US Eastern", for running text. */
+export function timeList(): string {
+  return ZONES.map(({ tz, label }) => `${clockIn(tz)} ${label}`).join(', ');
+}
+
+/** "Thursday 22 October" in Dubai for any instant (defaults to the session). */
+export function dubaiDay(iso: string = SESSION_START_ISO, opts: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long' }): string {
+  return new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dubai', ...opts }).format(new Date(iso));
+}
+
 /** "8pm" or "8:30pm" in the given zone. */
 export function clockIn(timeZone: string): string {
   const parts = new Intl.DateTimeFormat('en-US', { timeZone, hour: 'numeric', minute: '2-digit', hour12: true }).formatToParts(
@@ -129,7 +137,7 @@ function icsStamp(ms: number): string {
   return new Date(ms).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
 }
 
-export function sessionIcs(): string {
+export function sessionIcs(location = 'Online (Zoom link by email)'): string {
   const start = Date.parse(SESSION_START_ISO);
   return [
     'BEGIN:VCALENDAR',
@@ -142,7 +150,7 @@ export function sessionIcs(): string {
     `DTSTART:${icsStamp(start)}`,
     `DTEND:${icsStamp(sessionEndMs())}`,
     `SUMMARY:${icsText(SESSION_TITLE)}`,
-    `LOCATION:${icsText('Online (Zoom link by email)')}`,
+    `LOCATION:${icsText(location)}`,
     `DESCRIPTION:${icsText('Your Zoom link arrives by email before Saturday.')}`,
     'BEGIN:VALARM',
     'TRIGGER:-PT30M',
