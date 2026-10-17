@@ -12,10 +12,8 @@ export const SESSION_TITLE = 'The Person They Keep';
 export const SESSION_SUBHEAD =
   'A 2-hour live session on using AI at work, so you become the person your team relies on when everything is changing.';
 
-// TODO(Naz): the start time is a placeholder. Set the real Dubai time before
-// this goes live. Note the First AI Assistant build runs 17:00 to 20:00 Dubai
-// on the same Saturday, so avoid that window.
-export const SESSION_START_ISO = '2026-10-24T13:00:00+04:00';
+// 21:00 Dubai is 18:00 in the UK (still on BST that Saturday) and 13:00 US Eastern.
+export const SESSION_START_ISO = '2026-10-24T21:00:00+04:00';
 export const SESSION_DURATION_MIN = 120;
 export const PRICE_LABEL = '£19';
 
