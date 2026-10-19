@@ -239,15 +239,22 @@
       "intent": "commercial",
       "priority": 3,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-workshop-for-non-technical-teams",
       "note": "Long-tail, low competition, high intent, and precisely what Traq delivers. Cheap win once the higher-priority items ship.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-10-19",
+        "engine": "web search (exact phrase thin, checked close variants)",
         "traqPosition": null,
-        "winners": [],
-        "observation": "Not yet checked."
+        "winners": [
+          "umage.ai",
+          "maven.com",
+          "rosenfeldmedia.com",
+          "theaireport.ai",
+          "nextagile.ai",
+          "csusm.edu"
+        ],
+        "observation": "Almost every ranking page is a single vendor's own workshop landing page or a university continuing-ed listing, vague on specifics (hands-on, no coding required) with little real agenda, headcount, or pricing detail. No genuinely comparative or planning-focused guide exists for this query. Matched that gap with a buyer's-guide-style piece: a real sample agenda, sourced data on why non-technical staff specifically lag on AI adoption, and what to get right, rather than another single-workshop pitch."
       }
     },
     {

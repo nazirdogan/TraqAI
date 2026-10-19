@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-19",
+      "type": "insight",
+      "slug": "ai-workshop-for-non-technical-teams",
+      "targetQuery": "AI workshop for non-technical teams"
+    },
+    {
       "date": "2026-10-17",
       "type": "field-note",
       "slug": "ai-data-residency-uae",
@@ -1779,6 +1785,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-17-ai-data-residency-uae.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-19",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-workshop-for-non-technical-teams.json"
       ],
       "build": "passed"
     }

@@ -1,0 +1,97 @@
+{
+  "slug": "ai-workshop-for-non-technical-teams",
+  "title": "AI Workshop for Non-Technical Teams: What to Get Right | Traq Collective",
+  "metaDescription": "An AI workshop for non-technical teams works when it skips the jargon, trains on real tasks, and builds confidence instead of covering features. What to get right.",
+  "targetQuery": "AI workshop for non-technical teams",
+  "h1": "AI workshop for non-technical teams: what to get right",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "author": "Nazir Dogan",
+  "intro": "An AI workshop for non-technical teams is a session built around plain language and the team's own tasks rather than product features or prompting theory, paced slower than a workshop for engineers or analysts. It works when people leave trusting one small habit, not when they leave having watched someone else demo the tool.",
+  "bodySections": [
+    {
+      "h2": "How is an AI workshop for non-technical teams different from a technical one?",
+      "body": "A workshop built for developers or analysts can start from how a model works and move fast through features, because the room already has the vocabulary. A non-technical team needs the opposite order: start from a task they already do every week, show the tool doing a visible, boring piece of it, and only explain the mechanics behind it if someone actually asks. The test for whether a workshop is pitched right is simple. If a question about the underlying technology would stop the session, the pacing is wrong. A workshop for a non-technical team should survive, and even improve, when someone asks what a large language model actually is, because the answer is a short aside, not the point of the session."
+    },
+    {
+      "h2": "Why do non-technical teams fall behind on AI even when leadership has already adopted it?",
+      "body": "The gap is not about willingness, it is about who gets hands-on exposure first. Leaders and managers pick up AI tools through their own daily work, in meetings, writing, and planning, long before a formal rollout reaches the rest of the company. Frontline and non-technical staff are the ones waiting on a company-wide announcement, a generic email, or nothing at all. BCG's 2025 survey of more than 10,600 employees across 11 countries found 85% of leaders and 78% of managers already use generative AI several times a week, against only 51% of frontline employees, a gap that barely moved from the year before. A workshop built specifically for a non-technical team is how a company closes that gap on purpose instead of waiting for it to close on its own, which the data says it is not doing."
+    },
+    {
+      "h2": "What should the agenda for a non-technical AI workshop actually cover?",
+      "body": "Four things, in this order: ground the session in a task the room already does, give everyone a turn doing that task live rather than watching a demo, name the will this replace me question directly instead of hoping nobody asks it, and end with one task each person commits to trying before the next session. Skipping the live-practice step is the single most common mistake. A room that only watches a demo leaves with the same confidence it walked in with, because nobody has actually used the tool on something that matters to them yet."
+    },
+    {
+      "h2": "How long does a workshop for non-technical staff need to be to actually change behavior?",
+      "body": "Long enough to get past the first awkward attempt, which one slide deck never does. BCG's same 2025 survey found that employees who get five or more hours of structured AI training, especially hands-on practice paired with coaching, become regular users at a markedly higher rate than those who get less: 79% versus 67%. A single workshop, even a well-run one, is the opening hour of that five, not the whole five. Treat the session as the start of a short program: one structured session of sixty to ninety minutes, then a lighter follow-up two or three weeks later once people have actually tried the tool on their own work and have real questions instead of hypothetical ones."
+    },
+    {
+      "h2": "Why are non-technical staff already teaching themselves AI instead of waiting for training?",
+      "body": "Because formal training is not reaching them, and the interest has nowhere else to go. Microsoft and LinkedIn's 2024 Work Trend Index found only 39% of employees who use AI at work say their employer actually provided any training for it, while LinkedIn Learning saw a 160% rise in non-technical professionals, including project managers, administrative staff, and other roles with no technical title, taking AI courses on their own in a six-month span. People are not waiting for permission. A workshop aimed at this group is not introducing AI to people who have never touched it, it is catching up to interest that already exists and giving it a tool-specific, job-specific shape instead of leaving everyone to patch together their own habits on tools nobody vetted."
+    }
+  ],
+  "tables": [
+    {
+      "heading": "A 90-minute agenda that fits a non-technical team",
+      "intro": "Order matters more than content. Each segment depends on the one before it landing first.",
+      "caption": "Four segments, each doing a different job: context, practice, trust, and commitment.",
+      "columns": ["Time", "Segment", "What it does"],
+      "rows": [
+        ["0 to 15 min", "Ground it in their job", "Open with a task from the room's own week, not a product tour"],
+        ["15 to 55 min", "Everyone does the task live", "Same device, same task, every person tries it, not a watch-along demo"],
+        ["55 to 75 min", "Name the real concern", "Address what AI will and will not replace before anyone asks quietly"],
+        ["75 to 90 min", "Commit to one task", "Each person names one thing to try before the follow-up"]
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "claim": "The adoption gap between leadership and frontline staff is wide and has not meaningfully closed on its own, which is the direct case for training non-technical teams on their own track rather than folding them into a general company-wide rollout.",
+      "value": "85% leaders, 78% managers, 51% frontline employees use GenAI several times a week",
+      "source": "BCG, AI at Work 2025",
+      "url": "https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain",
+      "year": "2025"
+    },
+    {
+      "claim": "Five or more hours of structured, hands-on AI training moves people from trying the tool once to using it regularly at a meaningfully higher rate, which is why a single workshop session should be planned as the start of a short program rather than the whole of it.",
+      "value": "79% vs 67% become regular users with 5+ hours of structured training",
+      "source": "BCG, AI at Work 2025",
+      "url": "https://www.bcg.com/publications/2025/ai-at-work-momentum-builds-but-gaps-remain",
+      "year": "2025"
+    },
+    {
+      "claim": "Most employees who already use AI at work say their employer never actually trained them on it, which is the exact gap a workshop aimed at non-technical staff is meant to close.",
+      "value": "39% of AI users say their employer provided training",
+      "source": "Microsoft and LinkedIn, 2024 Work Trend Index",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
+      "year": "2024"
+    },
+    {
+      "claim": "Non-technical professionals already took it on themselves to build AI skills outside of any formal program, which shows the demand for a workshop aimed specifically at this group already exists rather than needing to be created from scratch.",
+      "value": "160% rise in non-technical professionals taking AI courses on LinkedIn Learning in six months",
+      "source": "Microsoft and LinkedIn, 2024 Work Trend Index",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
+      "year": "2024"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does a non-technical team need a different trainer than a technical one?",
+      "a": "Not necessarily a different trainer, but a different register. Someone comfortable training a non-technical team explains in task language, avoids saying model, API, or token when tool and paste in will do, and treats a basic question as normal rather than something to rush past."
+    },
+    {
+      "q": "Can one workshop cover a whole non-technical team, or does it need to split by role?",
+      "a": "One session works for a shared baseline: what the tool is for, what never gets pasted in, and how to ask it something useful. Past that baseline, split by role, because the next task a receptionist should practice is not the task a warehouse supervisor should practice, and one generic demo repeated twice serves neither of them well."
+    },
+    {
+      "q": "What is the single biggest mistake companies make running an AI workshop for non-technical staff?",
+      "a": "Treating the session as the finish line instead of the start. The five-hour training threshold shows a single session, however well run, rarely moves someone past trying the tool once. The habit forms in the weeks of practice after the workshop, which is why a short follow-up two or three weeks later matters more than anything added to the original agenda."
+    }
+  ],
+  "related": [
+    { "label": "AI Training & Workshops", "href": "/services/ai-training" },
+    { "label": "AI training for teams in the UAE", "href": "/insights/ai-training-for-teams-uae" },
+    { "label": "The five-hour rule for AI training", "href": "/field-notes/the-five-hour-rule-for-ai-training" },
+    { "label": "How to run an AI training session for staff", "href": "/field-notes/how-to-run-an-ai-training-session-for-staff" }
+  ]
+}
