@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-20",
+      "type": "field-note",
+      "slug": "best-ai-tool-for-writing-vs-research",
+      "targetQuery": "best AI tool for writing vs research"
+    },
+    {
       "date": "2026-10-19",
       "type": "insight",
       "slug": "ai-workshop-for-non-technical-teams",
@@ -507,6 +513,14 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-20",
+      "mode": "news-note",
+      "action": "publish",
+      "type": "field-note",
+      "slug": "best-ai-tool-for-writing-vs-research",
+      "critic": "branch preflight: git symbolic-ref -q HEAD already printed refs/heads/main at session start, no detached HEAD this run, nothing to fast-forward; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned news-note; read content/README.md and content/_ledger.json's published list before selecting a topic; searched Anthropic, OpenAI, Microsoft, Google, Intuit/QuickBooks, Xero, Zapier, Gusto and UAE/CBUAE regulatory sources from the last seven days against the 'does this change what an owner should do or what it costs them' test and could not clear the bar: Anthropic's own /news page (WebFetch resolved fine) showed only PR/policy items (public benefit fund, independent-evaluators update, Singapore office, midterms prep) with no SMB action; OpenAI's ChatGPT Pro 200-to-10x usage cut and the GPT-6 Business Chat rollout were both real and SMB-relevant in substance but their announcement dates (Sept 30 and Oct 7 respectively) sit outside the seven-day window and no primary OpenAI URL could be verified since WebFetch returned ENOTFOUND on openai.com, help.openai.com and platform.openai.com this run; an Intuit Intelligence international (Canada/UK/Australia) rollout dated Oct 14 looked promising but its only sources were a Business Wire release and syndications (finviz.com, intuit.com, www.intuit.com all returned ENOTFOUND on WebFetch), leaving no primary source URL I could confirm resolves; a Google Workspace 'Ask Gemini' usage-limit change and a Microsoft Copilot 'OS for work' story both had internally conflicting dates across secondary sources and no official vendor confirmation; a CBUAE AI guidance note is dated February 2026, not this window. Ran curl diagnostics confirming the egress proxy is an allowlist (anthropic.com resolved with HTTP 200, example.com was explicitly connect_rejected), so WebFetch's ENOTFOUND on openai.com/intuit.com/cjr.org/niemanlab.org etc. reflects this session's allowlist being far narrower than the handful of named-blocked domains in the run instructions, not a transient fault; per Step 3c's explicit instruction, fell back to the daily topic pipeline (Step 3b) rather than inflate a thin or unverifiable lead into news, noting the fallback here; ran scripts/seo/report.mjs daily, which returned a healthy 31 topics queued (7.8 weeks runway) and today's topic tp-034: 'What to use for writing vs research vs analysis' / targetQuery 'best AI tool for writing vs research', format comparison; confirmed neither the slug nor the targetQuery exists in the ledger; checked against the one close existing entry (which-ai-tool-for-which-job, Aug 12) and wrote a distinct angle: that post is a broad tool-to-job directory (writing/research/office-suite work); this one is a tighter three-way split that adds analysis as a genuinely separate job the older post never covered, and centers on why each of the three jobs fails differently when the tool is wrong for it, rather than a straight tool-recommendation list; for the research section, sourced a real stat via multiple independently corroborating secondary outlets (Nieman Lab, MediaPost, Computing UK, Gigazine, ITdaily) all citing the same primary study, Columbia's Tow Center for Digital Journalism testing eight AI search tools across 1,600 queries with an overall 60%+ failure rate and Perplexity lowest at 37%; could not WebFetch-verify cjr.org directly (ENOTFOUND, consistent with the allowlist finding above) but the URL was returned as the top organic hit for the exact article title across independent searches and the figures were consistent across five+ unrelated outlets, so used it with confidence rather than treating 'I personally could not fetch it this session' as equivalent to 'not resolvable'; the analysis-section claim (ChatGPT and Claude both run code in a sandbox against an uploaded file) was kept as an undisputed, long-standing product capability rather than framed as a sourced statistic, since no numeric claim was attached to it; four question-shaped body sections, one comparison table (job vs what it needs vs what goes wrong without it), three FAQs, no diagram (a tool-selection comparison with no genuine ordered sequence and no before/after contrast, correctly omitted per the rule against decorative diagrams), no image (fetch-image.mjs's Openverse call failed to reach the host, a normal outcome, published without one); no em-dashes (checked programmatically via grep, zero found); title 48/60 chars after brand-strip, metaDescription caught at 167/165 chars on first draft and trimmed to 155 during self-critique, intro checked at exactly 60 words and stands alone as a direct answer; related links verified to exist on disk (/insights slug how-to-get-your-team-using-ai confirmed in src/lib/content/insights/index.ts, /services/ai-consulting/page.tsx, and the two related field-notes which-ai-tool-for-which-job and claude-vs-chatgpt-for-business both confirmed present in content/field-notes/); JSON parse and field-length checks run via node, all passed; not a repeat of any ledger slug or targetQuery; tagged tools and best-uses; scripts/seo/topic-pipeline.json updated: tp-034 status set to published with publishedAs /field-notes/best-ai-tool-for-writing-vs-research"
+    },
     {
       "date": "2026-10-16",
       "mode": "news-note",
@@ -1795,6 +1809,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-workshop-for-non-technical-teams.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-20",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-20-best-ai-tool-for-writing-vs-research.json"
       ],
       "build": "passed"
     }
