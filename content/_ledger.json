@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-21",
+      "type": "field-note",
+      "slug": "easiest-ai-tools-for-non-technical-teams",
+      "targetQuery": "easiest AI tools for non technical teams"
+    },
+    {
       "date": "2026-10-20",
       "type": "field-note",
       "slug": "best-ai-tool-for-writing-vs-research",
@@ -1819,6 +1825,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-20-best-ai-tool-for-writing-vs-research.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-21",
+      "mode": "daily-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-21-easiest-ai-tools-for-non-technical-teams.json"
       ],
       "build": "passed"
     }
