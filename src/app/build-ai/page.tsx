@@ -186,7 +186,7 @@ export default function BuildAiPage() {
       <section aria-labelledby="host" className="border-t border-border-subtle bg-bg-subtle py-16 sm:py-20">
         <div className={`${WRAP} flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8`}>
           <Image
-            src="/nazir.jpg"
+            src="/build-ai/naz.jpg"
             alt="Naz, your host"
             width={112}
             height={112}
