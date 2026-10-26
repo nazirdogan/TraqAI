@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Traq Collective | AI transformation and training for growing businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/site.css">
+<style>
+/* ---- the film ---- */
+#wrap{position:relative;height:720vh;background:var(--night)}
+/* the arrival: the header and scroll hint wait until the beams have landed */
+#nav,.hint{transition:opacity .9s ease,background .4s,border-color .4s}
+body.intro #nav{opacity:0}
+#hero .lift{transition-delay:.55s}
+#stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--night);color:var(--text)}
+#film,#fx{position:absolute;left:0;top:0;display:block}
+#tiles{position:absolute;inset:0}
+.tile{position:absolute;left:0;top:0;width:60px;height:60px;margin:-30px 0 0 -30px;display:flex;align-items:center;justify-content:center;will-change:transform,opacity;opacity:0}
+.tile svg{position:relative;width:30px;height:30px;fill:color-mix(in srgb,var(--c) 55%,#fff);filter:drop-shadow(0 0 3px var(--c)) drop-shadow(0 0 12px var(--c))}
+.tile .lit{position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c) 45%,transparent),transparent 70%);opacity:.8}
+#hero{position:absolute;inset:0;z-index:5;will-change:opacity,transform;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px 8vh;pointer-events:none}
+#hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,92px);line-height:1.02;letter-spacing:-.025em;max-width:12em;text-wrap:balance;text-shadow:0 2px 40px rgba(5,3,9,.9)}
+#hero .hc{display:flex;flex-direction:column;align-items:center}
+#hero p{margin-top:26px;max-width:31em;font-size:clamp(17px,1.35vw,20px);line-height:1.6;color:#EFEDF7;text-shadow:0 1px 3px rgba(5,3,9,.9),0 1px 22px rgba(5,3,9,.95)}
+/* two ways in, right under the promise: one for the business, one for the team */
+#hero .ways{margin-top:34px;pointer-events:auto}
+.btn2{display:inline-flex;align-items:center;font-size:15px;font-weight:500;padding:13px 23px;border-radius:12px;color:var(--text);border:1px solid rgba(237,235,245,.38);background:rgba(14,10,22,.72);transition:border-color .2s,background .2s}
+.btn2:hover{border-color:var(--gold);background:rgba(20,16,30,.65)}
+#hero .ways .lift,#hero .lift.ways{transition-delay:.8s}
+.cap .line{text-shadow:0 1px 3px rgba(5,3,9,.85),0 2px 30px rgba(5,3,9,.9)}
+.hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.hint span{display:block;width:1px;height:34px;background:linear-gradient(var(--gold),transparent);transform-origin:top;animation:drop 2.4s cubic-bezier(.6,0,.2,1) infinite}
+@keyframes drop{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+.cap{will-change:opacity,transform;position:absolute;right:calc(var(--gut) + 56px);bottom:max(92px,11vh);max-width:min(470px,33vw);z-index:6;opacity:0;visibility:hidden}
+.lab{display:flex;align-items:baseline;gap:14px;font-size:15px;font-weight:500;color:#D9CFFF}
+.lab b{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1;color:var(--gold);letter-spacing:-.02em}
+.cap .line{margin-top:16px;font-family:var(--serif);font-size:clamp(24px,2.2vw,34px);line-height:1.2;letter-spacing:-.015em;text-wrap:balance;text-shadow:0 2px 30px rgba(5,3,9,.9)}
+/* the closing words become the hero: centred, large, over the dawn */
+.cap5{left:50%;right:auto;top:44%;bottom:auto;transform:translate(-50%,-50%);width:min(1000px,calc(100% - 40px));max-width:none;text-align:center}
+.cap5 .lab{justify-content:center;color:var(--gold);font-size:16px;text-shadow:0 1px 14px rgba(5,3,9,.9)}
+.cap5 .line{margin-top:18px;font-size:clamp(40px,min(6.2vw,9vh),96px);line-height:1.02;letter-spacing:-.028em}
+.cap5 .sub{margin:24px auto 0;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(237,235,245,.86);max-width:30em;text-shadow:0 1px 16px rgba(5,3,9,.95)}
+.cta{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:32px;flex-wrap:wrap}
+.rail{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);z-index:6;display:flex;flex-direction:column;align-items:flex-end;gap:14px;opacity:0}
+.rail i{display:block;width:16px;height:1px;background:rgba(237,235,245,.28);transform-origin:right;transition:transform .5s cubic-bezier(.2,.7,.2,1),background .5s}
+.rail i.on{background:var(--gold);transform:scaleX(2.2)}
+
+@media (max-width:639px){
+  .hint,.rail{display:none}
+  #hero{padding-bottom:22vh}
+  .cap{left:20px;right:20px;bottom:96px;max-width:none}
+  .cap .line{font-size:24px}.lab b{font-size:32px}
+  .cap5{left:50%;right:auto;width:calc(100% - 40px);top:auto;bottom:90px;transform:translateX(-50%)}
+  .cap5 .line{font-size:clamp(34px,10vw,44px)}
+}
+.rm #wrap{height:auto}
+.rm #stage{position:relative;height:100vh;height:100svh}
+.rm .hint,.rm .rail,.rm .cap:not(.cap5),.rm #hero{display:none}
+</style>
+<meta name="description" content="We find what's holding your business back and use AI to take it off your team's hands, for good. The Transformation for the business, training and workshops for your team.">
+<link rel="canonical" href="https://traqcollective.com/">
+<link rel="icon" href="/favicon.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHYW0G04TH"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;gtag("js",new Date());gtag("config","G-ZHYW0G04TH");
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;var h=(a.getAttribute("href")||"").toLowerCase(),k=h.indexOf("tel:")===0?"phone_click":/^https?:\/\/(www\.)?(wa\.me|api\.whatsapp\.com)\//.test(h)?"whatsapp_click":null;if(k)gtag("event",k,{link_location:a.closest("footer")?"footer":location.pathname})},true);
+</script>
+</head>
+<body data-page="home">
+<div class="veil" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <a href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
+  <ul>
+    <li class="hide"><a data-p="transformation" href="/transformation">Transformation</a></li>
+    <li class="hide"><a data-p="training" href="/training">Training</a></li>
+    <li class="hide"><a data-p="about" href="/about">About</a></li>
+    <li><a class="nav-btn" href="/book">Book a call</a></li>
+    <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+  </ul>
+</header>
+<nav class="sheet" id="sheet" aria-label="Menu">
+  <a data-p="home" href="/">Home</a>
+  <a data-p="transformation" href="/transformation">The Transformation</a>
+  <a data-p="training" href="/training">Training and workshops</a>
+  <a data-p="about" href="/about">About</a>
+  <a class="btn" href="/book">Book a call</a>
+</nav>
+
+<div id="wrap" data-night>
+  <div id="stage">
+    <canvas id="film" aria-hidden="true"></canvas>
+    <canvas id="fx" aria-hidden="true"></canvas>
+    <div id="tiles" aria-hidden="true"></div>
+    <div id="hero">
+      <div class="hc">
+        <h1 id="top" data-rise>Your business shouldn&#8217;t feel this loud.</h1>
+        <p class="lift">Every tool pulling a different way, and your team moving it all by hand. We find what&#8217;s holding your business back and use AI to take it off their hands, for good.</p>
+        <div class="cta lift ways"><a class="btn" href="/transformation">Transform the business</a><a class="btn2" href="/training">Train your team</a></div>
+      </div>
+    </div>
+    <div class="hint" aria-hidden="true">Scroll<span></span></div>
+    <div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="cap"><div class="lab"><b>01</b>Audit and mapping</div><p class="line">We start in the noise. We trace every tool and every process, and find where your day gets pulled apart.</p></div>
+    <div class="cap"><div class="lab"><b>02</b>Feasibility</div><p class="line">We make sure the ground is solid. Your data gets cleaned up and your systems checked, so nothing gives way later.</p></div>
+    <div class="cap"><div class="lab"><b>03</b>Implementation</div><p class="line">Then everything finds its direction. Your tools come together as one system, built around how your team already works.</p></div>
+    <div class="cap"><div class="lab"><b>04</b>Ownership</div><p class="line">What comes out is one steady light. We hand it over, and your team runs it.</p></div>
+    <div class="cap cap5"><div class="lab">On the other side</div><p class="line">Calm. Clear. Your business, running the way it should.</p>
+      <p class="sub">Less noise, fewer fires, room to think again. That is what AI should feel like.</p>
+      <div class="cta"><a class="btn" href="/book">Book a call</a><a class="ghost" href="#transformation">See how it works</a></div>
+    </div>
+  </div>
+</div>
+
+
+<section class="problem" data-night=".6" aria-labelledby="problem-h">
+  <h2 id="problem-h">Your business has grown. The way it runs hasn&#8217;t.</h2>
+  <div class="pts">
+    <p>Too much of the work is people moving information between tools by hand, and chasing what slipped through.</p>
+    <p>You know AI could take a lot of it off your team&#8217;s plate, but not where to start, what&#8217;s safe, or what&#8217;s worth paying for.</p>
+    <p>The AI tools you&#8217;ve already bought haven&#8217;t changed how the work actually gets done.</p>
+  </div>
+  <p class="after">That&#8217;s what we fix. We find what&#8217;s holding your business back, and use AI to take it off your team&#8217;s hands, for good.</p>
+</section>
+
+<section class="s" id="ways" aria-labelledby="ways-h">
+  <div class="in">
+    <div class="head">
+      <h2 id="ways-h">Two ways to work with us</h2>
+      <p class="lede">Change how the business runs, or help your team get more from AI day to day.</p>
+    </div>
+    <div class="doors">
+      <a class="door night" href="/transformation">
+        <span class="kicker">For the business</span>
+        <h3>The Transformation</h3>
+        <p>We find what&#8217;s holding you back, make sure your foundations can carry AI, build it into the tools you already use, and hand it over to your team.</p>
+        <span class="go">See the Transformation</span>
+      </a>
+      <a class="door day" href="/training">
+        <span class="kicker">For your team</span>
+        <h3>Training and workshops</h3>
+        <p>Hands-on sessions built around your real work. People leave using AI on their own tasks, the same week.</p>
+        <div class="tags"><span>Claude</span><span>ChatGPT</span><span>Copilot</span><span>Gemini</span><span>AI agents</span></div>
+        <span class="go">See the training</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="s tight" id="transformation" aria-labelledby="tr-h">
+  <div class="in">
+    <div class="head">
+      <h2 id="tr-h">The Transformation, in four chapters</h2>
+      <p class="lede">It moves at the pace your business needs, and every chapter ends with something you can hold.</p>
+    </div>
+    <div class="path">
+      <div class="step"><div class="n">01</div><h3>Audit and mapping</h3><p>We map how work really moves through your business, and where it gets stuck.</p><div class="hold"><span>You leave with</span>A bottleneck map</div></div>
+      <div class="step"><div class="n">02</div><h3>Feasibility</h3><p>We check your data and systems can carry AI, and clean up what can&#8217;t.</p><div class="hold"><span>You leave with</span>A readiness report</div></div>
+      <div class="step"><div class="n">03</div><h3>Implementation</h3><p>We build AI into the tools and workflows you already run.</p><div class="hold"><span>You leave with</span>A working build</div></div>
+      <div class="step"><div class="n">04</div><h3>Ownership</h3><p>We hand it over, and show your people how to run it.</p><div class="hold"><span>You leave with</span>A runbook and handover</div></div>
+    </div>
+    <div class="path-foot"><a class="btn" href="/transformation">See the Transformation in full</a><a class="link" href="/book?for=transformation">Not ready for all four? Start with the audit</a></div>
+  </div>
+</section>
+
+<section class="s white" aria-labelledby="mon-h">
+  <div class="in">
+    <div class="head">
+      <h2 id="mon-h">What changes when it&#8217;s done</h2>
+      <p class="lede">Not a new dashboard to check. Just the same Monday, without the weight.</p>
+    </div>
+    <div class="monday">
+      <canvas aria-hidden="true"></canvas>
+      <div class="ui">
+        <div class="lead">
+          <h3>A Monday at your business</h3>
+          <p>Switch between today and after the Transformation.</p>
+          <div class="toggle" role="group" aria-label="Show Monday"><button type="button" data-v="0" aria-pressed="true">Today</button><button type="button" data-v="1" aria-pressed="false">After</button></div>
+        </div>
+        <div class="times" aria-live="polite">
+          <div class="t"><time>08:00</time><div class="sw"><span class="b">Forty unread messages, and nobody knows which ones matter.</span><span class="a">The overnight work is done. Three things need you.</span></div></div>
+          <div class="t"><time>10:30</time><div class="sw"><span class="b">Someone chases last month&#8217;s invoices by hand.</span><span class="a">Reminders went out on their own, on time.</span></div></div>
+          <div class="t"><time>14:00</time><div class="sw"><span class="b">The weekly report eats half the afternoon.</span><span class="a">The report is already in your inbox.</span></div></div>
+          <div class="t"><time>17:30</time><div class="sw"><span class="b">The answer you need lives in one person&#8217;s head, and they&#8217;ve gone home.</span><span class="a">The answer is in the system, for everyone.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s founder" aria-labelledby="f-h">
+  <div class="in grid">
+    <div class="ph"><img src="site/img/nazir-session.jpg" alt="Nazir, founder of Traq Collective" loading="lazy"></div>
+    <div>
+      <h2 id="f-h" style="font-size:clamp(30px,3.4vw,46px)">You work with me, not a junior team.</h2>
+      <blockquote>&#8220;I build AI systems and train teams to use them every day, including a full operation I run end to end. Every engagement is led by me, from the first conversation to the handover.&#8221;</blockquote>
+      <p class="who"><b>Nazir Dogan</b>Founder, Traq Collective</p>
+      <a class="link" href="/about">More about Traq</a>
+    </div>
+  </div>
+</section>
+
+<section class="s tight" aria-labelledby="how-h">
+  <div class="in">
+    <h2 id="how-h">How we work</h2>
+    <div class="ways4">
+      <div><h3>Done with you, not to you</h3><p>We work inside your context and your tools, alongside your team, not from behind a deck.</p></div>
+      <div><h3>The capability stays with you</h3><p>We make ourselves redundant. Your people own what we build and know how to run it.</p></div>
+      <div><h3>Senior from start to finish</h3><p>You work directly with the people who do this for real, not a junior analyst on a markup.</p></div>
+      <div><h3>Every engagement has a number on it</h3><p>Hours saved, work handled, tools retired. We agree what we&#8217;re moving and we measure it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="s white faq" id="questions" aria-labelledby="faq-h">
+  <div class="in split">
+    <div><h2 id="faq-h">Questions</h2><p class="lede">Anything else, ask us on the call.</p></div>
+    <div>
+      <details><summary>What is the Transformation?<i></i></summary><p>Our main way of working. We map where your business is held back, check your data and systems can carry AI, build AI into the tools you already use, and hand it all over so your team runs it.</p></details>
+      <details><summary>Do we have to commit to everything at once?<i></i></summary><p>No. Plenty of clients start with the audit on its own. You keep the bottleneck map either way, and you decide what happens next.</p></details>
+      <details><summary>How long does it take?<i></i></summary><p>As long as your business needs. A focused fix can move quickly, and a wider change takes longer. We agree the scope with you before we start, so there are no surprises.</p></details>
+      <details><summary>Will my team have to learn new software?<i></i></summary><p>Rarely. We build into the tools you already run, then show your people how to use and look after what we built.</p></details>
+      <details><summary>Is training part of the Transformation?<i></i></summary><p>No, it stands on its own. The Transformation ends with a proper handover. Training and workshops are for teams who want to get better with AI day to day, and you can book them separately.</p></details>
+      <details><summary>Where do you work?<i></i></summary><p>Everywhere. We work with teams globally, in person or remotely.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" data-night aria-labelledby="final-h">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="c">
+    <h2 id="final-h">Ready to take the weight off?</h2>
+    <p>Book a call. We&#8217;ll talk about where your business feels heaviest, and whether we can help. No deck, no obligation.</p>
+    <div class="cta"><a class="btn" href="/book">Book a call</a><a class="ghost" href="mailto:hello@traqcollective.com">hello@traqcollective.com</a></div>
+  </div>
+</section>
+<footer data-night>
+  <div class="in">
+    <div class="top">
+      <div><img class="mark" src="site/img/wordmark-white.png" alt="Traq Collective"><p>We find what&#8217;s holding your business back and use AI to take it off your team&#8217;s hands, for good. We work with teams globally.</p></div>
+      <div><h4>Work with us</h4><ul><li><a href="/transformation">The Transformation</a></li><li><a href="/training">Training and workshops</a></li><li><a href="/book">Book a call</a></li></ul></div>
+      <div><h4>Traq</h4><ul><li><a href="/about">About</a></li><li><a href="/#questions">Questions</a></li><li><a href="mailto:hello@traqcollective.com">hello@traqcollective.com</a></li><li><a href="tel:+971508687196">+971 50 868 7196</a></li><li><a href="https://wa.me/971508687196" target="_blank" rel="noopener">WhatsApp us</a></li></ul></div>
+    </div>
+    <div class="bot"><span>&#169; 2026 Traq Collective</span><span><a href="https://traqcollective.com/privacy">Privacy</a> &#160;&#183;&#160; <a href="https://traqcollective.com/terms">Terms</a></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var wrap=$("#wrap"),stage=$("#stage"),cv=$("#film"),c=cv.getContext("2d"),fx=$("#fx"),ctx=fx.getContext("2d"),tilesEl=$("#tiles");
+var hero=$("#hero"),hc=$("#hero .hc"),hint=$(".hint"),caps=$$(".cap"),rail=$(".rail"),ticks=$$(".rail i");
+var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(RM)document.documentElement.classList.add("rm");
+var TAU=Math.PI*2;
+var LOGO={"Gmail": ["#EA4335", "M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"], "Google Sheets": ["#34A853", "M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"], "WhatsApp": ["#25D366", "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"], "Google Calendar": ["#4285F4", "M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"], "Xero": ["#13B5EA", "M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.585 14.655c-1.485 0-2.69-1.206-2.69-2.689 0-1.485 1.207-2.691 2.69-2.691 1.485 0 2.69 1.207 2.69 2.691s-1.207 2.689-2.69 2.689zM7.53 14.644c-.099 0-.192-.041-.267-.116l-2.043-2.04-2.052 2.047c-.069.068-.16.108-.258.108-.202 0-.368-.166-.368-.368 0-.099.04-.191.111-.263l2.04-2.05-2.038-2.047c-.075-.069-.113-.162-.113-.261 0-.203.166-.366.368-.366.098 0 .188.037.258.105l2.055 2.048 2.048-2.045c.069-.071.162-.108.26-.108.211 0 .375.165.375.366 0 .098-.029.188-.104.258l-2.056 2.055 2.055 2.051c.068.069.104.16.104.258 0 .202-.165.368-.365.368h-.01zm8.017-4.591c-.796.101-.882.476-.882 1.404v2.787c0 .202-.165.366-.366.366-.203 0-.367-.165-.368-.366v-4.53c0-.204.16-.366.362-.366.166 0 .316.125.346.289.27-.209.6-.317.93-.317h.105c.195 0 .359.165.359.368 0 .201-.164.352-.375.359 0 0-.09 0-.164.008l.053-.002zm-3.091 2.205H8.625c0 .019.003.037.006.057.02.105.045.211.083.31.194.531.765 1.275 1.829 1.29.33-.003.631-.086.9-.229.21-.12.391-.271.525-.428.045-.058.09-.112.12-.168.18-.229.405-.186.54-.083.164.135.18.391.045.57l-.016.016c-.21.27-.435.495-.689.66-.255.164-.525.284-.811.345-.33.09-.645.104-.975.06-1.095-.135-2.01-.93-2.28-2.01-.06-.21-.09-.42-.09-.645 0-.855.421-1.695 1.125-2.205.885-.615 2.085-.66 3-.075.63.405 1.035 1.021 1.185 1.771.075.419-.21.794-.734.81l.068-.046zm6.129-2.223c-1.064 0-1.931.865-1.931 1.931 0 1.064.866 1.931 1.931 1.931s1.931-.867 1.931-1.931c0-1.065-.866-1.933-1.931-1.933v.002zm0 2.595c-.367 0-.666-.297-.666-.666 0-.367.3-.665.666-.665.367 0 .667.299.667.665 0 .369-.3.667-.667.666zm-8.04-2.603c-.91 0-1.672.623-1.886 1.466v.03h3.776c-.203-.855-.973-1.494-1.891-1.494v-.002z"], "HubSpot": ["#FF7A59", "M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"], "Google Drive": ["#FBBC04", "M12.01 1.485c-2.082 0-3.754.02-3.743.047.01.02 1.708 3.001 3.774 6.62l3.76 6.574h3.76c2.081 0 3.753-.02 3.742-.047-.005-.02-1.708-3.001-3.775-6.62l-3.76-6.574zm-4.76 1.73a789.828 789.861 0 0 0-3.63 6.319L0 15.868l1.89 3.298 1.885 3.297 3.62-6.335 3.618-6.33-1.88-3.287C8.1 4.704 7.255 3.22 7.25 3.214zm2.259 12.653-.203.348c-.114.198-.96 1.672-1.88 3.287a423.93 423.948 0 0 1-1.698 2.97c-.01.026 3.24.042 7.222.042h7.244l1.796-3.157c.992-1.734 1.85-3.23 1.906-3.323l.104-.167h-7.249z"], "Slack": ["#E01E5A", "M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"]};
+
+// Everything here is drawn live, so it stays sharp at any screen size. Only three things are pictures, all 4K stills:
+// the violet haze, the glass prism (on black, laid over with "screen" so only the glass shows) and the plain at dawn.
+// Positions are in the stills' own 1920 x 1080 frame, mapped onto the screen as a cover fit.
+var FW=1920,FH=1080;
+// Every picture is decoded once and kept as a bitmap sized for this screen (im.bm), so scrolling only ever copies
+// pixels: no decoding mid-scroll and no shrinking a 3840 px image every frame. Until a bitmap is ready the plain image
+// is drawn instead. ALL lists the images with the width, in frame units, they are drawn at.
+var ALL=[];
+function img(src,fw){var im=new Image();im.decoding="async";im.src=src;ALL.push([im,fw]);return im}
+var prepGen=0;
+function prep(){
+ var gen=++prepGen;
+ ALL.forEach(function(e){var im=e[0],w=Math.round(e[1]*sc*dpr);if(im.bmw===w)return;
+  (im.decode?im.decode():Promise.resolve()).then(function(){
+   if(gen!==prepGen||!window.createImageBitmap)return;
+   return createImageBitmap(im,{resizeWidth:w,resizeHeight:Math.round(w*im.naturalHeight/im.naturalWidth),resizeQuality:"high"}).then(function(bm){if(gen===prepGen){if(im.bm&&im.bm.close)im.bm.close();im.bm=bm;im.bmw=w}});
+  }).catch(function(){});
+ });
+}
+function src(im){return im.bm||im}
+var HAZE=img("site/code/haze.webp",FW*1.3),PRISM=img("site/code/prism.webp",FW),DAWN=img("site/code/dawn.webp",FW*1.16);
+// The prism turning into place: a 4K clip of the glass alone on black, cut down to the area round the prism (PC, in frame
+// units) and played by the scroll as the prism arrives. Its last frame is the prism still, so it hands over without a jump.
+var PC=[680,300,580,400],NPF=61,PF=[];
+for(var pf=0;pf<NPF;pf++)PF.push(img("site/code/turn/"+("0"+(pf+1)).slice(-2)+".webp",PC[2]));
+function ok(im){return im.complete&&im.naturalWidth>0}
+
+// The prism, measured on its still: light goes in on the left face at F and leaves the right face at E.
+var F=[842,540],E=[1043,540],SUN=[1480,492];
+// The eleven beams as they lie scattered at the start: x0, y0, x1, y1, colour.
+var BEAMS=[[300,0,890,585,"#ff8a5c"],[0,965,850,5,"#ff4256"],[843,0,762,690,"#8a84ff"],[1325,0,250,665,"#ffed8a"],[1325,0,1115,690,"#ff6fd0"],[0,73,1920,722,"#91ffa5"],[1920,222,1160,775,"#c262ff"],[1110,355,1590,1080,"#ff6fc3"],[1790,425,210,1080,"#71d7ff"],[915,575,360,1080,"#697aff"],[1060,480,1790,1080,"#98ffb0"]];
+// Eight of them belong to a tool and end up in the fan, top to bottom; the other three are the noise that drops away.
+var DATA=["Gmail","Google Sheets","Google Calendar","Xero","Google Drive","HubSpot","Slack","WhatsApp"];
+var TOOL=[1,5,2,8,3,0,4,10],DROP=[6,7,9];
+function hexRGB(h){var n=parseInt(h.slice(1),16);return [n>>16&255,n>>8&255,n&255]}
+function rgba(a,al){return "rgba("+Math.round(a[0])+","+Math.round(a[1])+","+Math.round(a[2])+","+al+")"}
+BEAMS.forEach(function(b,i){
+ // the end on the left is the one that becomes the source; the other swings round onto the prism
+ if(b[0]>b[2])b.splice(0,4,b[2],b[3],b[0],b[1]);
+ b.tool=TOOL.indexOf(i);b.drop=DROP.indexOf(i)>=0;
+ // each tool's beam shines in that tool's own colour from the start; the noise is in violets and blues
+ b.col=hexRGB(b.tool>=0?LOGO[DATA[b.tool]][0]:["#9B5CFF","#FF3DB5","#5B63FF"][DROP.indexOf(i)]);
+ if(b.tool>=0){b.tc=b.col;b.sy=110+b.tool*(860/7)}
+ b.dl=(b.tool>=0?b.tool:2+DROP.indexOf(i))*.008;b.ph=i*1.37;
+ // the arrival: each beam starts folded into the centre, turned away, and opens out to its place
+ b.ia=((i*7919)%2?1:-1)*(.9+((i*31)%13)/13*1.3);b.id=.45+i*.07+((i*17)%7)/7*.12;
+});
+var T=DATA.map(function(d,i){
+ var el=document.createElement("div");el.className="tile";el.style.setProperty("--c",LOGO[d][0]);
+ el.innerHTML='<span class="lit"></span><svg viewBox="0 0 24 24" role="img" aria-label="'+d+'"><path d="'+LOGO[d][1]+'"/></svg>';
+ tilesEl.appendChild(el);return {el:el,ph:i*1.7+.4};
+});
+
+var W=0,H=0,dpr=1,mob=false,sc=1,ox=0,oy=0,motes=[];
+function cl(x){return x<0?0:x>1?1:x}
+function sm(a,b,x){x=cl((x-a)/(b-a));return x*x*(3-2*x)}
+function lerp(a,b,t){return a+(b-a)*t}
+function ease(x){return 1-Math.pow(1-x,4)}
+function io(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function rnd(n){var x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+// film frame to screen
+function X(x){return ox+x*sc}function Y(y){return oy+y*sc}
+
+// The story, as scroll position (P) against story position (u). 0 to 1 happens in the haze: scattered, gathered,
+// through the prism, out as one gold beam. 1 to 2 follows that beam out to the plain at dawn.
+// Each step holds: things barely move while its words are up, then move on between steps.
+// Scroll distances are in hundredths of a screen height (the hero scrolls 620 of them): each step holds for 85,
+// the moves between steps take 35, then 80 to travel out to the dawn and 50 to rest there.
+var SPAN=620;function V(v){return v/SPAN}
+var KEYS=[[0,0],[V(25),.02],[V(45),.03],[V(130),.1],[V(165),.36],[V(250),.44],[V(285),.6],[V(370),.71],[V(405),.93],[V(490),1.05],[V(570),2],[1,2]];
+function U(P){for(var i=1;i<KEYS.length;i++){var a=KEYS[i-1],b=KEYS[i];if(P<=b[0]){var x=(P-a[0])/(b[0]-a[0]);x=x*x*(3-2*x);return a[1]+(b[1]-a[1])*x}}return 2}
+// Each step "sticks" through the story timing above (it barely moves while its words are up), not by snapping the scroll.
+var WIN=[[V(42),V(133)],[V(162),V(253)],[V(282),V(373)],[V(402),V(493)],[V(555),2]];
+
+function layout(){
+ W=stage.clientWidth;H=stage.clientHeight;mob=W<640;
+ // up to 1.5x the screen's pixels, and never more than about 3.6 million in all: light is soft-edged, so this still
+ // looks sharp on Retina while keeping every frame inside the 16 ms a smooth 60 fps needs
+ dpr=Math.min(window.devicePixelRatio||1,1.5,Math.sqrt(3.6e6/(W*H)));
+ fx.style.display="none";
+ [cv].forEach(function(k){k.width=Math.round(W*dpr);k.height=Math.round(H*dpr);k.style.width=W+"px";k.style.height=H+"px"});
+ c.imageSmoothingQuality="high";
+ sc=Math.max(W/FW,H/FH);ox=(W-FW*sc)/2;oy=(H-FH*sc)/2;
+ // on phones the frame is cropped at the sides, so keep the prism in view
+ if(mob)ox=Math.min(0,Math.max(W-FW*sc,W*.5-F[0]*sc*1.05));
+ var n=mob?90:170;motes=[];for(var i=0;i<n;i++)motes.push({x:rnd(i+1)*W,y:rnd(i+2)*H,s:.4+rnd(i+3)*1.1,p:rnd(i+4)*TAU,z:.3+.7*rnd(i+5)});
+ placeTools();prep();
+}
+
+// Where each tool sits along its beam (0 = the source end, 1 = the far end): once on the scattered beam (FS) and once
+// on the gathered fan (FF). Chosen per screen size so each is on screen, clear of the words and of the other tools.
+// null means no clear spot, and that tool stays hidden. Chosen once, never per frame, so the tools cannot hop.
+var FS=[],FF=[];
+function placeTools(){
+ var gap=mob?48:62;
+ function pick(list,geo){
+  var placed=[];
+  return DATA.map(function(_,i){var g=geo(i);
+   for(var f=.2;f<.95;f+=.02){var x=X(lerp(g[0],g[2],f)),y=Y(lerp(g[1],g[3],f)),okk=x>=30&&x<=W-30&&y>=90&&y<=H-40&&!(mob?y>H*.64:(x>W*.55&&y>H*.55));
+    for(var j=0;okk&&j<placed.length;j++)if(Math.hypot(placed[j][0]-x,placed[j][1]-y)<gap)okk=false;
+    if(okk){placed.push([x,y]);list[i]=f;return f}}
+   list[i]=null;return null});
+ }
+ pick(FS,function(i){var b=BEAMS[TOOL[i]];return [b[0],b[1],b[2],b[3]]});
+ pick(FF,function(i){return [-60,110+i*(860/7),F[0],F[1]]});
+}
+
+// a still, cover-fitted, scaled about the frame centre and shifted (in frame units)
+function still(im,al,s,dx,dy,op){
+ if(!ok(im)||al<=0)return;
+ var w=FW*sc*s,h=FH*sc*s,x=W/2-w/2+(ox+FW*sc/2-W/2)+dx*sc,y=H/2-h/2+(oy+FH*sc/2-H/2)+dy*sc;
+ c.globalAlpha=al;if(op)c.globalCompositeOperation=op;c.drawImage(src(im),x,y,w,h);c.globalAlpha=1;c.globalCompositeOperation="source-over";
+}
+// one beam of light, as layers of glow round a bright core, fading in from its source end
+function beam(x0,y0,x1,y1,col,al,wd){
+ if(al<=.003)return;wd=wd||1;
+ var g;
+ // many soft layers, so the glow falls off smoothly instead of in bands
+ [[46,.012],[32,.018],[22,.03],[14,.05],[8,.09],[4.2,.28],[2,.85]].forEach(function(p){
+  g=c.createLinearGradient(x0,y0,x1,y1);g.addColorStop(0,rgba(col,0));g.addColorStop(.06,rgba(col,p[1]*al));g.addColorStop(1,rgba(col,p[1]*al));
+  c.strokeStyle=g;c.lineWidth=p[0]*wd;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke()});
+ c.strokeStyle="rgba(255,250,244,"+(.16*al)+")";c.lineWidth=.7*wd;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke();
+}
+// a dark elliptical pool behind an element on screen, padded around it
+function pool(el,al,px,py){
+ if(al<=.01)return;var r=el.getBoundingClientRect(),sr=stage.getBoundingClientRect();
+ c.save();c.translate((r.left+r.right)/2-sr.left,(r.top+r.bottom)/2-sr.top);c.scale(r.width/2+px,r.height/2+py);
+ var g=c.createRadialGradient(0,0,0,0,0,1);g.addColorStop(0,"rgba(5,3,9,"+al+")");g.addColorStop(.6,"rgba(5,3,9,"+(al*.75)+")");g.addColorStop(1,"rgba(5,3,9,0)");
+ c.fillStyle=g;c.fillRect(-1,-1,2,2);c.restore();
+}
+function glow(x,y,r,col,al){if(al<=0)return;var g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,rgba(col,al));g.addColorStop(.25,rgba(col,al*.35));g.addColorStop(1,rgba(col,0));c.fillStyle=g;c.fillRect(x-r,y-r,2*r,2*r)}
+
+// ---- the arrival: a point of light, then every beam bursts out of it and swings round to where the story begins ----
+var intro={t0:0,started:false,done:RM,shown:false},SLOW=+(new URLSearchParams(location.search).get("slow"))||1; // ?slow=6 to study the arrival
+document.body.classList.toggle("intro",!RM);
+
+function render(P,t){
+ var u=U(P),i,b,TP=[];
+ var ho=RM?0:1-sm(V(8),V(30),P),capOp=WIN.map(function(w){return sm(w[0],w[0]+V(15),P)*(1-sm(w[1]-V(12),w[1],P))});
+ // the intro clock waits for the haze, then runs; scrolling during it hurries it along
+ var it=99;
+ if(!intro.done){
+  if(!intro.started&&(ok(HAZE)||t>2.5)){intro.started=true;intro.t0=t}
+  if(!intro.started)it=0;else{if(P>.01&&t-intro.t0<2.6)intro.t0=t-2.6;it=(t-intro.t0)/SLOW}
+  if(it>2&&!intro.shown){intro.shown=true;hero.classList.add("shown");document.body.classList.remove("intro")}
+  if(it>3.6)intro.done=true;
+ }
+ var bgA=RM?1:sm(1.2,3,it);
+
+ // the camera: still through the haze, then it follows the gold beam out to the right
+ var pan=io(sm(1.02,1.85,u)),camX=pan*2600,dawn=sm(1.3,1.62,u);
+ c.setTransform(dpr,0,0,dpr,0,0);c.fillStyle="#050309";c.fillRect(0,0,W,H);c.lineCap="round";
+ // the haze breathes slowly and drifts past a little as the camera moves
+ var br=RM?0:Math.sin(t*.12);
+ still(HAZE,bgA*(1-dawn),1.1+.18*pan+.015*br,-camX*.035+14*Math.sin(t*.07),8*Math.cos(t*.09));
+ // the plain at dawn arrives as the camera gets there, settling as it comes to rest
+ still(DAWN,dawn,lerp(1.16,1.02,io(sm(1.28,2,u)))+.006*br,lerp(120,0,io(sm(1.28,2,u))),0);
+ // darker at the edges, like the film
+ var vg=c.createRadialGradient(W*.5,H*.38,0,W*.5,H*.5,Math.max(W,H)*.75);vg.addColorStop(0,"rgba(5,3,9,"+(.18*(1-dawn))+")");vg.addColorStop(1,"rgba(5,3,9,"+(.78*(1-dawn))+")");c.fillStyle=vg;c.fillRect(0,0,W,H);
+ if(P<V(20)){c.fillStyle="rgba(5,3,9,"+(.3*(1-sm(0,V(20),P)))+")";c.fillRect(0,0,W,H)}
+
+ c.globalCompositeOperation="lighter";
+ // where the beams meet, before the prism is there to take them
+ var gather=sm(.25,.45,u),prism=sm(.44,.5,u),gold=sm(.66,.93,u),shift=-camX;
+ glow(X(F[0]+shift),Y(F[1]),110*sc,[255,240,226],.55*gather*(1-.6*prism)*(1-dawn));
+ // the beams
+ for(i=0;i<BEAMS.length;i++){b=BEAMS[i];
+  // every beam has landed by .36, before the step 02 words come up
+  var q=sm(.1+b.dl,.3+b.dl,u),x0,y0,x1,y1,col=b.col,al=1;
+  if(b.tool>=0){x0=lerp(b[0],-60,q);y0=lerp(b[1],b.sy,q);x1=lerp(b[2],F[0],q);y1=lerp(b[3],F[1],q);
+   col=[lerp(b.col[0],b.tc[0],q),lerp(b.col[1],b.tc[1],q),lerp(b.col[2],b.tc[2],q)];
+   if(q<1){var sw=RM?0:(1-q)*.012*Math.sin(t*.5+b.ph),mx=(x0+x1)/2,my=(y0+y1)/2,ca=Math.cos(sw),sa=Math.sin(sw);
+    var hx=(x1-x0)/2,hy=(y1-y0)/2;x0=mx-(hx*ca-hy*sa);y0=my-(hx*sa+hy*ca);x1=mx+(hx*ca-hy*sa);y1=my+(hx*sa+hy*ca)}}
+  else{x0=b[0];y0=b[1];x1=b[2];y1=b[3];al=1-sm(.14+b.dl,.3+b.dl,u);
+   var sw2=RM?0:.012*Math.sin(t*.5+b.ph),mx2=(x0+x1)/2,my2=(y0+y1)/2,ca2=Math.cos(sw2),sa2=Math.sin(sw2),hx2=(x1-x0)/2,hy2=(y1-y0)/2;
+   x0=mx2-(hx2*ca2-hy2*sa2);y0=my2-(hx2*sa2+hy2*ca2);x1=mx2+(hx2*ca2-hy2*sa2);y1=my2+(hx2*sa2+hy2*ca2)}
+  al*=1-dawn;
+  if(b.tool>=0)TP[b.tool]=[x0,y0,x1,y1,q];
+  // during the arrival, each beam grows out of the centre and turns into place
+  var A=[X(x0+shift),Y(y0)],B=[X(x1+shift),Y(y1)];
+  if(it<99&&!intro.done){var e=ease(cl((it-b.id)/1.5));if(e<=0)continue;
+   var Cx=W/2,Cy=H/2,r=b.ia*(1-e),k=.03+.97*e,cr=Math.cos(r),sr=Math.sin(r),mxs=(A[0]+B[0])/2,mys=(A[1]+B[1])/2,hx3=(B[0]-A[0])/2*k,hy3=(B[1]-A[1])/2*k,vx=hx3*cr-hy3*sr,vy=hx3*sr+hy3*cr,px=lerp(Cx,mxs,e),py=lerp(Cy,mys,e);
+   A=[px-vx,py-vy];B=[px+vx,py+vy];al*=.75+.25*e}
+  beam(A[0],A[1],B[0],B[1],col,al);
+ }
+ // the point everything comes out of, at the start
+ if(it<99&&!intro.done){var pt=sm(0,.35,it)*(1-sm(.9,1.9,it));glow(W/2,H/2,90,[255,246,232],.95*pt);glow(W/2,H/2,160,[160,130,255],.3*pt)}
+ c.globalCompositeOperation="source-over";
+
+ // the prism, made of glass: only its light is laid over the scene. It turns into place as it arrives, then holds still.
+ if(prism>0&&dawn<1){
+  var turn=sm(.44,.62,u),fi=Math.round(turn*(NPF-1)),fr=PF[fi];
+  if(turn<1&&fr&&ok(fr)){
+   c.globalAlpha=prism*(1-dawn)*(1-sm(.9,1,turn));c.globalCompositeOperation="screen";
+   c.drawImage(src(fr),X(PC[0]+shift),Y(PC[1]),PC[2]*sc,PC[3]*sc);c.globalAlpha=1;c.globalCompositeOperation="source-over";
+  }
+  still(PRISM,prism*(1-dawn)*sm(.9,1,turn),1,shift,0,"screen");
+ }
+ c.globalCompositeOperation="lighter";
+ // light inside the glass, and the gold beam leaving it
+ if(gold>0){
+  var ex=X(E[0]+shift),ey=Y(E[1]),fxp=X(F[0]+shift);
+  c.strokeStyle="rgba(255,244,226,"+(.6*gold*(1-dawn))+")";c.lineWidth=2.4*sc;c.beginPath();c.moveTo(fxp,ey);c.lineTo(ex,ey);c.stroke();
+  glow(fxp,ey,40*sc,[255,250,240],.8*gold*(1-dawn));
+ }
+ // the gold beam: out of the prism to the edge of the screen, then, at dawn, down across the land into the sunrise
+ var land=sm(1.3,1.8,u),goldA=gold*(1-sm(V(540),V(575),P));
+ if(gold>0){
+  // it grows out to beyond the right edge of the screen and stays there while the camera follows it
+  var sx=lerp(E[0]+shift,-80,land),sy=lerp(E[1],420,land),tx=lerp(lerp(E[0]+shift,2300,ease(gold)),SUN[0],land),ty=lerp(E[1],SUN[1],land);
+  var shim=RM?1:.92+.08*Math.sin(t*1.7);
+  var a0=[X(sx),Y(sy)],a1=[X(tx),Y(ty)],len=Math.hypot(a1[0]-a0[0],a1[1]-a0[1])||1,nx=-(a1[1]-a0[1])/len,ny=(a1[0]-a0[0])/len;
+  // a tapered ribbon of warm light that widens as it travels, with a bright core
+  // many thin layers, so the ribbon's edges stay soft
+  [[64,.016],[46,.022],[33,.03],[23,.045],[16,.065],[10,.1],[6,.18],[3.2,.38]].forEach(function(p){var w0=p[0]*.2*sc,w1=p[0]*sc*lerp(1.2,.45,land),g=c.createLinearGradient(a0[0],a0[1],a1[0],a1[1]);
+   g.addColorStop(0,"rgba(255,214,150,"+(p[1]*goldA*shim)+")");g.addColorStop(1,"rgba(255,190,110,"+(p[1]*goldA*shim*(1-.75*land))+")");
+   c.fillStyle=g;c.beginPath();c.moveTo(a0[0]+nx*w0,a0[1]+ny*w0);c.lineTo(a1[0]+nx*w1,a1[1]+ny*w1);c.lineTo(a1[0]-nx*w1,a1[1]-ny*w1);c.lineTo(a0[0]-nx*w0,a0[1]-ny*w0);c.closePath();c.fill()});
+  var gc=c.createLinearGradient(a0[0],a0[1],a1[0],a1[1]);gc.addColorStop(0,"rgba(255,246,226,"+(.95*goldA)+")");gc.addColorStop(1,"rgba(255,226,170,"+(.75*goldA*(1-.5*land))+")");
+  c.strokeStyle=gc;c.lineWidth=2.6*sc;c.beginPath();c.moveTo(a0[0],a0[1]);c.lineTo(a1[0],a1[1]);c.stroke();
+  if(land<1){glow(X(E[0]+shift),Y(E[1]),90*sc,[255,214,150],.7*gold*(1-land));glow(X(E[0]+shift),Y(E[1]),24*sc,[255,250,240],.9*gold*(1-land))}
+ }
+ // the sun about to rise where the light lands
+ var sun=sm(1.45,2,u);if(sun>0){var pu=RM?1:.9+.1*Math.sin(t*.8);glow(X(SUN[0]),Y(SUN[1]),300*sc,[255,170,90],.22*sun*pu);glow(X(SUN[0]),Y(SUN[1]),40*sc,[255,236,200],.55*sun*pu)}
+ c.globalCompositeOperation="source-over";
+
+ var g;
+ // keep the words legible: behind the step captions bottom right, and behind the closing words in the middle
+ var cvA=sm(V(35),V(60),P)*(1-sm(V(490),V(515),P))*.8;
+ if(cvA>0){if(!mob){g=c.createRadialGradient(W*.8,H*.72,0,W*.8,H*.72,W*.42);g.addColorStop(0,"rgba(5,3,9,"+cvA+")");g.addColorStop(1,"rgba(5,3,9,0)");c.fillStyle=g;c.fillRect(0,0,W,H)}
+  else{g=c.createLinearGradient(0,H,0,H*.5);g.addColorStop(0,"rgba(5,3,9,"+cvA+")");g.addColorStop(1,"rgba(5,3,9,0)");c.fillStyle=g;c.fillRect(0,H*.5,W,H*.5)}}
+ var ce=sm(V(540),V(575),P)*.55;if(ce>0){var cy=mob?H*.72:H*.44;g=c.createRadialGradient(W/2,cy,0,W/2,cy,Math.max(W,H)*.55);g.addColorStop(0,"rgba(5,3,9,"+ce+")");g.addColorStop(1,"rgba(5,3,9,0)");c.fillStyle=g;c.fillRect(0,0,W,H)}
+ // a soft dark pool behind every block of words, so the beams dim where they cross the copy
+ if(!RM){pool(hc,.76*ho,mob?60:130,mob?50:90);caps.forEach(function(el,k){pool(el,(k===4?.5:.82)*capOp[k],mob?40:130,mob?40:90)})}
+ // the bottom of the last frame fades into the night, so the hero hands over to the page without an edge
+ var be=sm(V(585),1,P);if(be>0){g=c.createLinearGradient(0,H*.72,0,H);g.addColorStop(0,"rgba(5,3,9,0)");g.addColorStop(1,"rgba(5,3,9,"+be+")");c.fillStyle=g;c.fillRect(0,H*.72,W,H*.28)}
+
+ if(!RM){
+  hero.style.opacity=ho.toFixed(3);hero.style.transform="translate3d(0,"+(-46*(1-ho)).toFixed(1)+"px,0)";hc.style.pointerEvents=ho<.3?"none":"";
+  hint.style.opacity=intro.shown?(1-sm(0,V(20),P)).toFixed(3):"0";
+  caps.forEach(function(el,k){var op=capOp[k],dy=(14*(1-op)).toFixed(1);
+   el.style.opacity=op.toFixed(3);el.style.transform=k===4?(mob?"translate3d(-50%,"+dy+"px,0)":"translate3d(-50%,calc(-50% + "+dy+"px),0)"):"translate3d(0,"+dy+"px,0)";el.style.visibility=op<.01?"hidden":"visible"});
+  rail.style.opacity=(sm(V(35),V(60),P)*(1-sm(V(490),V(515),P))).toFixed(3);
+  var idx=P<V(40)?-1:P<V(147)?0:P<V(267)?1:P<V(387)?2:3;ticks.forEach(function(el,k){el.classList.toggle("on",k===idx)});
+ }
+
+ // the tools: from step 01 each rides its own beam, at a point chosen once per screen size (placeTools), gliding from
+ // its spot on the scattered beam to its spot on the gathered fan as the beam moves, and leaving with it
+ var tv=(intro.shown?sm(V(30),V(55),P):0)*(1-sm(1.05,1.3,u)),isc=mob?.72:1;
+ for(i=0;i<T.length;i++){var o=T[i],tp=TP[i],fs=FS[i],ff=FF[i];
+  if(tv<.01||!tp||(fs===null&&ff===null)){o.el.style.visibility="hidden";o.el.style.opacity="0";continue}
+  if(fs===null)fs=ff;if(ff===null)ff=fs;
+  var f=lerp(fs,ff,tp[4]),ix=X(lerp(tp[0],tp[2],f)+shift),iy=Y(lerp(tp[1],tp[3],f));
+  var fl=.85+.15*Math.sin(t*2.3+o.ph*3);
+  o.el.style.transform="translate3d("+ix.toFixed(1)+"px,"+iy.toFixed(1)+"px,0) scale("+((.9+.1*tv)*isc).toFixed(3)+")";
+  o.el.style.opacity=(tv*fl).toFixed(3);o.el.style.visibility="visible";
+ }
+
+ // dust in the air, drifting on its own, and streaming past while the camera travels
+ var ctx=c;ctx.globalCompositeOperation="lighter";
+ var ma=RM?1:sm(1.4,3,it),stream=sm(1,1.2,u)*(1-sm(1.7,1.9,u))*6;
+ for(i=0;i<motes.length;i++){var m=motes[i];
+  if(!RM){m.x+=Math.sin(t*.1+m.p)*.12+.06-stream*m.z;m.y+=Math.cos(t*.13+m.p)*.1-.03;
+   if(m.x>W+8)m.x-=W+16;if(m.x<-8)m.x+=W+16;if(m.y<-8)m.y+=H+16;if(m.y>H+8)m.y-=H+16}
+  ctx.fillStyle="rgba(255,236,210,"+(.12+.12*Math.sin(t*1.3+m.p))*m.z*ma+")";ctx.fillRect(m.x,m.y,m.s,m.s)}
+ ctx.globalCompositeOperation="source-over";
+}
+
+function progress(){var r=wrap.getBoundingClientRect(),span=wrap.offsetHeight-stage.clientHeight;return span>0?cl(-r.top/span):1}
+// The scene follows the scroll like a weight on a spring (critically damped: it never overshoots). A mouse wheel moves
+// the page in notches of about 100 px; following them directly made the motion step. The spring eases into and out of
+// every move, so a notch, a trackpad swipe and a fast flick all glide. SPRING sets how tightly it follows.
+var Pd=null,Pv=0,SPRING=70,MAXU=.75,last=performance.now(),t0=last;
+function frame(now){
+ var r=wrap.getBoundingClientRect(),P=RM?1:progress(),dt=Math.min(.1,(now-last)/1000);last=now;
+ if(Pd===null||RM){Pd=P;Pv=0}else{
+  // two small steps per frame keep the spring stable on slow frames
+  for(var st=0;st<2;st++){var h=dt/2;Pv+=((P-Pd)*SPRING-2*Math.sqrt(SPRING)*Pv)*h;
+   // a speed limit on the story itself: however hard someone flicks, the beams, prism and tools never move faster than
+   // MAXU story units a second, so a big jump plays as a quick, clean rewind or fast-forward instead of a lurch
+   var g=Math.abs(U(Math.min(1,Pd+.002))-U(Math.max(0,Pd-.002)))/.004;
+   if(g*Math.abs(Pv)>MAXU)Pv=(Pv<0?-1:1)*MAXU/g;
+   Pd+=Pv*h}
+  if(Math.abs(P-Pd)<2e-5&&Math.abs(Pv)<1e-4){Pd=P;Pv=0}
+ }
+ if(r.bottom>0)render(Pd,(now-t0)/1000);
+ requestAnimationFrame(frame);
+}
+layout();window.addEventListener("resize",layout);requestAnimationFrame(frame);
+})();
+</script>
+<script src="site/site.js"></script>
+</body>
+</html>

@@ -24,13 +24,27 @@ const nextConfig = {
       { source: '/first-ai-assistant', destination: '/keep', permanent: false },
     ];
   },
+  // The rebuilt site (Oct 2026): the homepage, The Transformation, Training, About and Book a call are static pages
+  // in /public/rebuild, sharing assets in /public/site. They are built outside this repo by
+  // traq-site-rebuild/build.py --live. beforeFiles lets them take over /, /about and /book from the old app pages,
+  // which stay in the code untouched: delete these five lines to bring the old pages back. Every other route, from
+  // /keep and /ai-plan-session to the API, is unaffected.
   async rewrites() {
-    return [
-      { source: '/workbook', destination: '/workbook.html' },
-      { source: '/workbook/upskill', destination: '/workbook-upskill.html' },
-      { source: '/workbook/start', destination: '/workbook-start.html' },
-      { source: '/workbook/consultant', destination: '/workbook-consultant.html' },
-    ];
+    return {
+      beforeFiles: [
+        { source: '/', destination: '/rebuild/index.html' },
+        { source: '/transformation', destination: '/rebuild/transformation.html' },
+        { source: '/training', destination: '/rebuild/training.html' },
+        { source: '/about', destination: '/rebuild/about.html' },
+        { source: '/book', destination: '/rebuild/book.html' },
+      ],
+      afterFiles: [
+        { source: '/workbook', destination: '/workbook.html' },
+        { source: '/workbook/upskill', destination: '/workbook-upskill.html' },
+        { source: '/workbook/start', destination: '/workbook-start.html' },
+        { source: '/workbook/consultant', destination: '/workbook-consultant.html' },
+      ],
+    };
   },
 };
 
