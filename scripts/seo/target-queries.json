@@ -448,15 +448,15 @@
       "intent": "commercial",
       "priority": 3,
       "pageType": "guide",
-      "status": "open",
-      "assignedTo": null,
+      "status": "published",
+      "assignedTo": "/insights/ai-training-for-law-firms",
       "note": "Second-strongest role vertical, and it scores independently on the consulting phrasing too. Confidentiality and privilege are the objections to lead with, which suits Traq's guardrails angle.",
       "evidence": {
-        "checked": null,
-        "engine": null,
+        "checked": "2026-10-26",
+        "engine": "web search (WebSearch tool)",
         "traqPosition": null,
-        "winners": [],
-        "observation": null
+        "winners": ["softwareadvice.com/resources/ai-legal-training", "lawcareers.net (BigLaw AI Academy launches)", "news.bloomberglaw.com (AI training for summer associates)"],
+        "observation": "No evergreen, SMB-focused guide ranks for this query. Results are either a vendor resource page arguing for role-specific training over tool demos, or news coverage of individual BigLaw firms' internal AI academies (Travers Smith, Linklaters, K&L Gates). Nothing on page one leads with confidentiality or privilege as the training starting point, which is the gap this guide fills, anchored to ABA Formal Opinion 512's competence and confidentiality duties."
       },
       "demand": {
         "source": "Google autocomplete, AE/US/GB, 2026-08-26",
