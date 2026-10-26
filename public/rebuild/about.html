@@ -20,20 +20,35 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <body data-page="about">
 <div class="veil" aria-hidden="true"></div>
 <header class="nav" id="nav">
-  <a href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
-  <ul>
-    <li class="hide"><a data-p="transformation" href="/transformation">Transformation</a></li>
-    <li class="hide"><a data-p="training" href="/training">Training</a></li>
-    <li class="hide"><a data-p="about" href="/about">About</a></li>
-    <li><a class="nav-btn" href="/book">Book a call</a></li>
-    <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+  <div class="bar">
+  <a class="brand" href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
+  <ul class="links">
+    <li class="hide dd"><a class="pill" data-p="services" href="/transformation" aria-haspopup="true" aria-expanded="false" aria-controls="svc">Services<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="menu" id="svc" role="menu" aria-label="Services">
+        <a role="menuitem" href="/transformation"><b>The Transformation</b><span>AI built into how your business runs</span></a>
+        <a role="menuitem" href="/transformation#ch01"><b>Consulting and strategy</b><span>A costed map of what to fix first</span></a>
+        <a role="menuitem" href="/transformation#ch03"><b>AI agents and automation</b><span>Built into the tools you already use</span></a>
+        <a role="menuitem" href="/training"><b>Training and workshops</b><span>Bespoke, hands-on, on your own tools</span></a>
+        <a role="menuitem" href="/training#leadership"><b>Leadership and governance</b><span>AI strategy for founders and the C-suite</span></a>
+      </div></li>
+    <li class="hide"><a class="pill" data-p="about" href="/about">About</a></li>
+    <li class="hide"><a class="pill" data-p="questions" href="/#questions">Questions</a></li>
+    <li class="lamp-li" aria-hidden="true"><span class="lamp"><i></i></span></li>
   </ul>
+  <div class="end"><a class="nav-btn" href="/book">Book a call</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></div>
+  </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
   <a data-p="home" href="/">Home</a>
-  <a data-p="transformation" href="/transformation">The Transformation</a>
-  <a data-p="training" href="/training">Training and workshops</a>
+  <div class="grp"><div class="gh">Services</div>
+    <a href="/transformation">The Transformation</a>
+    <a href="/transformation#ch01">Consulting and strategy</a>
+    <a href="/transformation#ch03">AI agents and automation</a>
+    <a href="/training">Training and workshops</a>
+    <a href="/training#leadership">Leadership and governance</a>
+  </div>
   <a data-p="about" href="/about">About</a>
+  <a data-p="questions" href="/#questions">Questions</a>
   <a class="btn" href="/book">Book a call</a>
 </nav>
 
@@ -42,7 +57,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   <div class="c">
     <div class="crumb lift">About Traq Collective</div>
     <h1 data-rise>Calm, capable businesses. That&#8217;s the whole job.</h1>
-    <p class="lift">Traq is a founder-led AI consultancy. We find what&#8217;s holding a business back, use AI to take it off the team&#8217;s hands, and leave the capability behind when we go.</p>
+    <p class="lift">Traq Collective is an AI consultancy and training company. We find what&#8217;s holding a business back, use AI to take it off the team&#8217;s hands, and leave the capability behind when we go.</p>
     
   </div>
 </section>
@@ -52,11 +67,12 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   <div class="in story">
     <div class="ph"><img src="site/img/nazir-session.jpg" alt="Nazir Dogan, founder of Traq Collective" loading="lazy"></div>
     <div class="tx">
-      <p class="first" id="st-h">Hi, I&#8217;m Nazir. I build AI systems and train teams to use them every day, including a full operation I run end to end.</p>
-      <p>Traq exists because most businesses don&#8217;t need more AI tools. They need someone to sit with how the work actually happens, find what&#8217;s getting in the way, and fix it properly, with AI where it earns its place and not where it doesn&#8217;t.</p>
-      <p>When you work with Traq, you work with me, from the first conversation to the handover. No junior team, no deck you&#8217;ll forget. We build it, we show your people how to run it, and then we step back.</p>
+      <p class="first" id="st-h">Most businesses don&#8217;t need more AI tools. They need someone to sit with how the work actually happens, find what&#8217;s getting in the way, and fix it properly.</p>
+      <p>That&#8217;s what Traq Collective does. We map where time and money leak, build AI in where it earns its place and not where it doesn&#8217;t, and train the people who&#8217;ll use it, on the tools they already have.</p>
+      <p>Every engagement is run by a senior team, from the first conversation to the handover. No junior hand-offs and no deck you&#8217;ll forget. We build it, show your people how to run it, and then we step back.</p>
+      <div class="fnote rv"><span class="fk">From our founder</span><p>&#8220;I build AI systems and train teams to use them every day, including a full operation I run end to end. I started Traq so every business gets that same hands-on approach, built around how it already works.&#8221;</p><span class="fn">Nazir Dogan, Founder</span></div>
       <p>We work with teams globally, in person or remotely.</p>
-      <p style="margin-top:34px"><a class="btn" href="/book">Book a call with Nazir</a></p>
+      <p style="margin-top:34px"><a class="btn" href="/book">Book a call</a></p>
     </div>
   </div>
 </section>
@@ -78,7 +94,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     <div class="head"><h2 id="wd-h">What we do</h2><p class="lede">Two ways in. Both start with a conversation.</p></div>
     <div class="doors" style="margin-top:48px">
       <a class="door night" href="/transformation" style="min-height:360px"><span class="kicker">For the business</span><h3>The Transformation</h3><p>Audit and mapping, feasibility, implementation and ownership. AI built into how your business runs.</p><span class="go">See the Transformation</span></a>
-      <a class="door day" href="/training" style="min-height:360px"><span class="kicker">For your team</span><h3>Training and workshops</h3><p>Six hands-on tracks, built around your team&#8217;s real work.</p><span class="go">See the training</span></a>
+      <a class="door day" href="/training" style="min-height:360px"><span class="kicker">For your team</span><h3>Training and workshops</h3><p>Bespoke, hands-on training on the tools your team already uses, from leadership strategy to AI agents.</p><span class="go">See the training</span></a>
     </div>
   </div>
 </section>

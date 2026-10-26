@@ -20,20 +20,35 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <body data-page="book">
 <div class="veil" aria-hidden="true"></div>
 <header class="nav" id="nav">
-  <a href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
-  <ul>
-    <li class="hide"><a data-p="transformation" href="/transformation">Transformation</a></li>
-    <li class="hide"><a data-p="training" href="/training">Training</a></li>
-    <li class="hide"><a data-p="about" href="/about">About</a></li>
-    <li><a class="nav-btn" href="/book">Book a call</a></li>
-    <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+  <div class="bar">
+  <a class="brand" href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
+  <ul class="links">
+    <li class="hide dd"><a class="pill" data-p="services" href="/transformation" aria-haspopup="true" aria-expanded="false" aria-controls="svc">Services<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="menu" id="svc" role="menu" aria-label="Services">
+        <a role="menuitem" href="/transformation"><b>The Transformation</b><span>AI built into how your business runs</span></a>
+        <a role="menuitem" href="/transformation#ch01"><b>Consulting and strategy</b><span>A costed map of what to fix first</span></a>
+        <a role="menuitem" href="/transformation#ch03"><b>AI agents and automation</b><span>Built into the tools you already use</span></a>
+        <a role="menuitem" href="/training"><b>Training and workshops</b><span>Bespoke, hands-on, on your own tools</span></a>
+        <a role="menuitem" href="/training#leadership"><b>Leadership and governance</b><span>AI strategy for founders and the C-suite</span></a>
+      </div></li>
+    <li class="hide"><a class="pill" data-p="about" href="/about">About</a></li>
+    <li class="hide"><a class="pill" data-p="questions" href="/#questions">Questions</a></li>
+    <li class="lamp-li" aria-hidden="true"><span class="lamp"><i></i></span></li>
   </ul>
+  <div class="end"><a class="nav-btn" href="/book">Book a call</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></div>
+  </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
   <a data-p="home" href="/">Home</a>
-  <a data-p="transformation" href="/transformation">The Transformation</a>
-  <a data-p="training" href="/training">Training and workshops</a>
+  <div class="grp"><div class="gh">Services</div>
+    <a href="/transformation">The Transformation</a>
+    <a href="/transformation#ch01">Consulting and strategy</a>
+    <a href="/transformation#ch03">AI agents and automation</a>
+    <a href="/training">Training and workshops</a>
+    <a href="/training#leadership">Leadership and governance</a>
+  </div>
   <a data-p="about" href="/about">About</a>
+  <a data-p="questions" href="/#questions">Questions</a>
   <a class="btn" href="/book">Book a call</a>
 </nav>
 

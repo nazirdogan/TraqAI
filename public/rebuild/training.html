@@ -20,20 +20,35 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <body data-page="training">
 <div class="veil" aria-hidden="true"></div>
 <header class="nav" id="nav">
-  <a href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
-  <ul>
-    <li class="hide"><a data-p="transformation" href="/transformation">Transformation</a></li>
-    <li class="hide"><a data-p="training" href="/training">Training</a></li>
-    <li class="hide"><a data-p="about" href="/about">About</a></li>
-    <li><a class="nav-btn" href="/book">Book a call</a></li>
-    <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+  <div class="bar">
+  <a class="brand" href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
+  <ul class="links">
+    <li class="hide dd"><a class="pill" data-p="services" href="/transformation" aria-haspopup="true" aria-expanded="false" aria-controls="svc">Services<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="menu" id="svc" role="menu" aria-label="Services">
+        <a role="menuitem" href="/transformation"><b>The Transformation</b><span>AI built into how your business runs</span></a>
+        <a role="menuitem" href="/transformation#ch01"><b>Consulting and strategy</b><span>A costed map of what to fix first</span></a>
+        <a role="menuitem" href="/transformation#ch03"><b>AI agents and automation</b><span>Built into the tools you already use</span></a>
+        <a role="menuitem" href="/training"><b>Training and workshops</b><span>Bespoke, hands-on, on your own tools</span></a>
+        <a role="menuitem" href="/training#leadership"><b>Leadership and governance</b><span>AI strategy for founders and the C-suite</span></a>
+      </div></li>
+    <li class="hide"><a class="pill" data-p="about" href="/about">About</a></li>
+    <li class="hide"><a class="pill" data-p="questions" href="/#questions">Questions</a></li>
+    <li class="lamp-li" aria-hidden="true"><span class="lamp"><i></i></span></li>
   </ul>
+  <div class="end"><a class="nav-btn" href="/book">Book a call</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></div>
+  </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
   <a data-p="home" href="/">Home</a>
-  <a data-p="transformation" href="/transformation">The Transformation</a>
-  <a data-p="training" href="/training">Training and workshops</a>
+  <div class="grp"><div class="gh">Services</div>
+    <a href="/transformation">The Transformation</a>
+    <a href="/transformation#ch01">Consulting and strategy</a>
+    <a href="/transformation#ch03">AI agents and automation</a>
+    <a href="/training">Training and workshops</a>
+    <a href="/training#leadership">Leadership and governance</a>
+  </div>
   <a data-p="about" href="/about">About</a>
+  <a data-p="questions" href="/#questions">Questions</a>
   <a class="btn" href="/book">Book a call</a>
 </nav>
 
@@ -42,33 +57,48 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   <div class="c">
     <div class="crumb lift">Training and workshops</div>
     <h1 data-rise>Your team, confident with AI by the end of the week.</h1>
-    <p class="lift">Hands-on training built around your team&#8217;s real work. Nobody watches a demo: people bring live tasks and leave having done them faster.</p>
-    <div class="cta lift"><a class="btn" href="/book?for=training">Book a call</a><a class="ghost" href="#tracks">See the six tracks</a></div>
+    <p class="lift">Bespoke, hands-on AI training built around your workspace. We train your team on the tools you already use, on their own work, and we stay with them until it sticks.</p>
+    <div class="cta lift"><a class="btn" href="/book?for=training">Book a call</a><a class="ghost" href="#bespoke">How it works</a></div>
   </div>
 </section>
 <div class="dawn" aria-hidden="true"></div>
 
-<section class="s tight" id="tracks" aria-labelledby="tk-h">
+<section class="s tight" id="bespoke" aria-labelledby="bs-h">
   <div class="in">
-    <div class="head"><h2 id="tk-h">Six tracks, built around your work</h2><p class="lede">Start with leadership, then train the people who do the work. Every track uses your own files and tasks.</p></div>
-    <div class="tracks">
-      <article class="track lead"><div class="lv">Leadership</div><h3>AI Strategy &amp; Governance</h3><div class="who">Founders, C-suite and department heads</div><p class="sum">The session to run before you spend anything else. Leadership leaves aligned on what AI realistically does for this business, which work to point it at first, and the rules everyone else will be held to.</p>
-        <div class="out"><div><span>You leave with</span>A ranked use-case shortlist, a draft acceptable-use policy, and a 12-month roadmap with owners and budget.</div><div class="fmt">90-minute exec taster, or half day</div></div></article>
-      <article class="track"><div class="lv">Core</div><h3>Claude for Business</h3><div class="who">Anyone whose week is documents, analysis or writing</div><p class="sum">Claude is the strongest tool most teams have never properly opened. This track puts it on your contracts, reports and research, and sets up the parts that make it repeatable.</p>
-        <div class="out"><div><span>You leave with</span>A shared Project holding your business context, a starter prompt library, and two or three recurring tasks rebuilt.</div><div class="fmt">Half day, or full day using your own files</div></div></article>
-      <article class="track"><div class="lv">Core</div><h3>ChatGPT for Business</h3><div class="who">Whole teams, especially sales, marketing and admin</div><p class="sum">Most people use ChatGPT as a better search box and stop there. This covers the features that turn it into something the whole team can run a repeatable job on.</p>
-        <div class="out"><div><span>You leave with</span>Custom instructions for each person, a Project per team, and a custom GPT built live for a weekly job.</div><div class="fmt">Half day, or full day using your own work</div></div></article>
-      <article class="track"><div class="lv">Core</div><h3>Microsoft 365 Copilot</h3><div class="who">Teams already licensed for Microsoft 365</div><p class="sum">You&#8217;re probably already paying for this per seat. Copilot behaves differently in every app, so this goes app by app and is blunt about where it&#8217;s worth your time.</p>
-        <div class="out"><div><span>You leave with</span>Copilot working on each person&#8217;s real inbox, documents and spreadsheets, plus a rule for which job goes to which tool.</div><div class="fmt">Half day</div></div></article>
-      <article class="track"><div class="lv">Core</div><h3>Gemini &amp; Google Workspace</h3><div class="who">Teams running on Google Workspace</div><p class="sum">The track for Google shops. Gemini runs through Docs, Sheets, Gmail and Drive, and the useful parts are rarely the ones in the announcement.</p>
-        <div class="out"><div><span>You leave with</span>Gemini working inside the documents and inboxes your team already uses, plus a NotebookLM notebook on your own material.</div><div class="fmt">Half day</div></div></article>
-      <article class="track"><div class="lv">Advanced</div><h3>AI Agents &amp; Automation</h3><div class="who">Ops leads and whoever owns a process end to end</div><p class="sum">For teams past the basics who want work happening without a person driving it. We build a real agent on one of your own processes during the session.</p>
-        <div class="out"><div><span>You leave with</span>One live agent running a real process, a map of the next three worth building, and the approval steps that keep a person in the loop.</div><div class="fmt">Full day, or a 4-week build programme</div></div></article>
+    <div class="head"><h2 id="bs-h">Bespoke training, built around your workspace</h2><p class="lede">No off-the-shelf course and no new tool to buy. We train your team on the tools you already pay for, using their own files and tasks, and shape every session around how your business actually works.</p></div>
+    <div class="pillars">
+      <div class="rv"><span class="pn">01</span><h3>Built around your workspace</h3><p>We learn your tools, your files and your week before we write a single slide. The agenda is yours, not a template.</p></div>
+      <div class="rv" style="--d:.08s"><span class="pn">02</span><h3>Hands-on, on real work</h3><p>Nobody watches a demo. People bring live tasks and leave having done them faster, with the guardrails explained as they go.</p></div>
+      <div class="rv" style="--d:.16s"><span class="pn">03</span><h3>We stay until it sticks</h3><p>We work alongside your team after the session, answer the questions that come up in real use, and check back on what&#8217;s being used.</p></div>
+    </div>
+    <div class="toolstrip rv"><span class="tk">The tools we train around</span>
+      <span class="tool"><img class="tl" src="site/img/tools/claude.svg" alt="" width="28" height="28">Claude</span><span class="tool"><img class="tl" src="site/img/tools/chatgpt.svg" alt="" width="28" height="28">ChatGPT</span><span class="tool"><img class="tl" src="site/img/tools/copilot.svg" alt="" width="28" height="28">Microsoft 365 Copilot</span><span class="tool"><img class="tl" src="site/img/tools/gemini.svg" alt="" width="28" height="28">Gemini</span>
     </div>
   </div>
 </section>
 
-<section class="s white" aria-labelledby="who-h">
+<section class="s white" id="tracks" aria-labelledby="tk-h">
+  <div class="in">
+    <div class="head"><h2 id="tk-h">Where teams often start</h2><p class="lede">A few of the programmes we run most, from the boardroom to the people doing the daily work. Each one is reshaped for your team, and they&#8217;re starting points, not a menu.</p></div>
+    <div class="tracks">
+      <article class="track lead rv" id="leadership"><div class="lv">Leadership</div><h3>AI Strategy &amp; Governance</h3><div class="who">Founders, C-suite and department heads</div><p class="sum">The session to run before you spend anything else. Leadership leaves aligned on what AI realistically does for this business, which work to point it at first, and the rules everyone else will be held to.</p>
+        <div class="out"><div><span>You leave with</span>A ranked use-case shortlist, a draft acceptable-use policy, and a 12-month roadmap with owners and budget.</div><div class="fmt">90-minute exec taster, or half day</div></div></article>
+      <article class="track rv" style="--d:.06s"><div class="lv"><img class="tl" src="site/img/tools/claude.svg" alt="" width="28" height="28">Core</div><h3>Claude for Business</h3><div class="who">Anyone whose week is documents, analysis or writing</div><p class="sum">Claude is the strongest tool most teams have never properly opened. We put it on your contracts, reports and research, and set up the parts that make it repeatable.</p>
+        <div class="out"><div><span>You leave with</span>A shared Project holding your business context, a starter prompt library, and two or three recurring tasks rebuilt.</div><div class="fmt">Half day, or full day using your own files</div></div></article>
+      <article class="track rv" style="--d:.12s"><div class="lv"><img class="tl" src="site/img/tools/chatgpt.svg" alt="" width="28" height="28">Core</div><h3>ChatGPT for Business</h3><div class="who">Whole teams, especially sales, marketing and admin</div><p class="sum">Most people use ChatGPT as a better search box and stop there. We cover the features that turn it into something the whole team can run a repeatable job on.</p>
+        <div class="out"><div><span>You leave with</span>Custom instructions for each person, a Project per team, and a custom GPT built live for a weekly job.</div><div class="fmt">Half day, or full day using your own work</div></div></article>
+      <article class="track rv"><div class="lv"><img class="tl" src="site/img/tools/copilot.svg" alt="" width="28" height="28">Core</div><h3>Microsoft 365 Copilot</h3><div class="who">Teams already licensed for Microsoft 365</div><p class="sum">You&#8217;re probably already paying for this per seat. Copilot behaves differently in every app, so we go app by app and are blunt about where it&#8217;s worth your time.</p>
+        <div class="out"><div><span>You leave with</span>Copilot working on each person&#8217;s real inbox, documents and spreadsheets, plus a rule for which job goes to which tool.</div><div class="fmt">Half day</div></div></article>
+      <article class="track rv" style="--d:.06s"><div class="lv"><img class="tl" src="site/img/tools/gemini.svg" alt="" width="28" height="28">Core</div><h3>Gemini &amp; Google Workspace</h3><div class="who">Teams running on Google Workspace</div><p class="sum">For Google shops. Gemini runs through Docs, Sheets, Gmail and Drive, and the useful parts are rarely the ones in the announcement.</p>
+        <div class="out"><div><span>You leave with</span>Gemini working inside the documents and inboxes your team already uses, set up on your own material in Drive.</div><div class="fmt">Half day</div></div></article>
+      <article class="track rv" style="--d:.12s"><div class="lv">Advanced</div><h3>AI Agents &amp; Automation</h3><div class="who">Ops leads and whoever owns a process end to end</div><p class="sum">For teams past the basics who want work happening without a person driving it. We build a real agent on one of your own processes during the session.</p>
+        <div class="out"><div><span>You leave with</span>One live agent running a real process, a map of the next three worth building, and the approval steps that keep a person in the loop.</div><div class="fmt">Full day, or a 4-week build programme</div></div></article>
+      <article class="track own rv"><div><div class="lv">Your own programme</div><h3>Something else in mind?</h3><p class="sum">Finance, legal, sales, operations or engineering: tell us the team and the work, and we&#8217;ll design the training around it. That includes deeper technical training for the people building with AI.</p></div><a class="btn" href="/book?for=training">Tell us what your team needs</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="s" aria-labelledby="who-h">
   <div class="in">
     <div class="head"><h2 id="who-h">Who it&#8217;s for</h2></div>
     <div class="bands">
@@ -79,18 +109,18 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   </div>
 </section>
 
-<section class="s" aria-labelledby="run-h">
+<section class="s white" aria-labelledby="run-h">
   <div class="in">
     <div class="head"><h2 id="run-h">How a session runs</h2><p class="lede">The part after the session is what makes it stick.</p></div>
     <div class="phases">
-      <div><div class="n">Before</div><h3>We learn the work</h3><p>A short survey of the people attending, a call with you, and a look at how a few real tasks get done today. The agenda is built from that.</p></div>
-      <div><div class="n">During</div><h3>Hands on your own tasks</h3><p>People bring live work and leave having done it faster, with the guardrails explained as we go rather than on a policy slide at the end.</p></div>
-      <div><div class="n">After</div><h3>The part most training skips</h3><p>A recap pack and prompt library the same week, and we come back a few weeks later to see what stuck.</p></div>
+      <div class="rv"><div class="n">Before</div><h3>We learn the work</h3><p>A short survey of the people attending, a call with you, and a look at how a few real tasks get done today. The agenda is built from that.</p></div>
+      <div class="rv" style="--d:.1s"><div class="n">During</div><h3>Hands on your own tasks</h3><p>People bring live work and leave having done it faster, with the guardrails explained as we go rather than on a policy slide at the end.</p></div>
+      <div class="rv" style="--d:.2s"><div class="n">After</div><h3>The part most training skips</h3><p>A recap pack and a prompt library built on your own work, the same week. We stay on hand for the questions that come up, and come back a few weeks later to see what stuck.</p></div>
     </div>
   </div>
 </section>
 
-<section class="s white" aria-labelledby="fm-h">
+<section class="s" aria-labelledby="fm-h">
   <div class="in">
     <div class="head"><h2 id="fm-h">Formats</h2><p class="lede">In person or remote, for teams anywhere.</p></div>
     <table class="formats">
@@ -102,12 +132,17 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
         <tr><td>Programme</td><td>4 to 6 weeks</td><td>Any size</td><td>A whole-company rollout, track by track, with follow-ups built in</td></tr>
       </tbody>
     </table>
-    <div class="head" style="margin-top:90px"><h2 style="font-size:clamp(28px,3vw,40px)">The tools we train on</h2></div>
-    <div class="tools"><span>Claude</span><span>ChatGPT</span><span>Microsoft 365 Copilot</span><span>Gemini</span><span>NotebookLM</span><span>Perplexity</span></div>
+    <div class="head" style="margin-top:90px"><h2 style="font-size:clamp(28px,3vw,40px)">The tools we train on</h2><p class="lede">The ones your team already has. No new platform to buy.</p></div>
+    <div class="tools">
+      <div class="tcard rv"><img src="site/img/tools/claude.svg" alt="" width="44" height="44"><b>Claude</b></div>
+      <div class="tcard rv" style="--d:.06s"><img src="site/img/tools/chatgpt.svg" alt="" width="44" height="44"><b>ChatGPT</b></div>
+      <div class="tcard rv" style="--d:.12s"><img src="site/img/tools/copilot.svg" alt="" width="44" height="44"><b>Microsoft 365 Copilot</b></div>
+      <div class="tcard rv" style="--d:.18s"><img src="site/img/tools/gemini.svg" alt="" width="44" height="44"><b>Gemini</b></div>
+    </div>
   </div>
 </section>
 
-<section class="s" aria-labelledby="tt-h">
+<section class="s white" aria-labelledby="tt-h">
   <div class="in">
     <div class="band">
       <div><p class="big" id="tt-h">Want AI working inside the business, not just in your team&#8217;s hands?</p><p class="small">Training gets people confident. The Transformation changes how the business runs. They work on their own or together.</p></div>
@@ -120,7 +155,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   <div class="bg" aria-hidden="true"></div>
   <div class="c">
     <h2 id="final-h">Let&#8217;s plan your team&#8217;s session.</h2>
-    <p>Tell us who&#8217;s in the room and what they spend their week on. We&#8217;ll suggest the right track and format.</p>
+    <p>Tell us who&#8217;s in the room, the tools they use and what they spend their week on. We&#8217;ll design the session around it.</p>
     <div class="cta"><a class="btn" href="/book?for=training">Book a call</a><a class="ghost" href="mailto:hello@traqcollective.com">hello@traqcollective.com</a></div>
   </div>
 </section>

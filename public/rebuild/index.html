@@ -72,20 +72,35 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <body data-page="home">
 <div class="veil" aria-hidden="true"></div>
 <header class="nav" id="nav">
-  <a href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
-  <ul>
-    <li class="hide"><a data-p="transformation" href="/transformation">Transformation</a></li>
-    <li class="hide"><a data-p="training" href="/training">Training</a></li>
-    <li class="hide"><a data-p="about" href="/about">About</a></li>
-    <li><a class="nav-btn" href="/book">Book a call</a></li>
-    <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+  <div class="bar">
+  <a class="brand" href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
+  <ul class="links">
+    <li class="hide dd"><a class="pill" data-p="services" href="/transformation" aria-haspopup="true" aria-expanded="false" aria-controls="svc">Services<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="menu" id="svc" role="menu" aria-label="Services">
+        <a role="menuitem" href="/transformation"><b>The Transformation</b><span>AI built into how your business runs</span></a>
+        <a role="menuitem" href="/transformation#ch01"><b>Consulting and strategy</b><span>A costed map of what to fix first</span></a>
+        <a role="menuitem" href="/transformation#ch03"><b>AI agents and automation</b><span>Built into the tools you already use</span></a>
+        <a role="menuitem" href="/training"><b>Training and workshops</b><span>Bespoke, hands-on, on your own tools</span></a>
+        <a role="menuitem" href="/training#leadership"><b>Leadership and governance</b><span>AI strategy for founders and the C-suite</span></a>
+      </div></li>
+    <li class="hide"><a class="pill" data-p="about" href="/about">About</a></li>
+    <li class="hide"><a class="pill" data-p="questions" href="/#questions">Questions</a></li>
+    <li class="lamp-li" aria-hidden="true"><span class="lamp"><i></i></span></li>
   </ul>
+  <div class="end"><a class="nav-btn" href="/book">Book a call</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></div>
+  </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
   <a data-p="home" href="/">Home</a>
-  <a data-p="transformation" href="/transformation">The Transformation</a>
-  <a data-p="training" href="/training">Training and workshops</a>
+  <div class="grp"><div class="gh">Services</div>
+    <a href="/transformation">The Transformation</a>
+    <a href="/transformation#ch01">Consulting and strategy</a>
+    <a href="/transformation#ch03">AI agents and automation</a>
+    <a href="/training">Training and workshops</a>
+    <a href="/training#leadership">Leadership and governance</a>
+  </div>
   <a data-p="about" href="/about">About</a>
+  <a data-p="questions" href="/#questions">Questions</a>
   <a class="btn" href="/book">Book a call</a>
 </nav>
 
@@ -194,8 +209,8 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   <div class="in grid">
     <div class="ph"><img src="site/img/nazir-session.jpg" alt="Nazir, founder of Traq Collective" loading="lazy"></div>
     <div>
-      <h2 id="f-h" style="font-size:clamp(30px,3.4vw,46px)">You work with me, not a junior team.</h2>
-      <blockquote>&#8220;I build AI systems and train teams to use them every day, including a full operation I run end to end. Every engagement is led by me, from the first conversation to the handover.&#8221;</blockquote>
+      <h2 id="f-h" style="font-size:clamp(30px,3.4vw,46px)">Founder-led, and never handed to a junior team.</h2>
+      <blockquote>&#8220;I build AI systems and train teams to use them every day, including a full operation I run end to end. Every engagement has a senior team on it, and I&#8217;m involved from the first conversation to the handover.&#8221;</blockquote>
       <p class="who"><b>Nazir Dogan</b>Founder, Traq Collective</p>
       <a class="link" href="/about">More about Traq</a>
     </div>
@@ -392,7 +407,16 @@ function glow(x,y,r,col,al){if(al<=0)return;var g=c.createRadialGradient(x,y,0,x
 
 // ---- the arrival: a point of light, then every beam bursts out of it and swings round to where the story begins ----
 var intro={t0:0,started:false,done:RM,shown:false},SLOW=+(new URLSearchParams(location.search).get("slow"))||1; // ?slow=6 to study the arrival
-document.body.classList.toggle("intro",!RM);
+// Once someone has watched the story through to the dawn, coming back to the homepage in the same visit opens on that
+// last frame instead of making them scroll it all again (they can still scroll back up). A visit ends after 30 minutes
+// away from the site; site.js keeps the clock fresh on every page. ?replay=1 always plays it.
+var SEEN="traq-hero-seen",VISIT=30*60*1000,P_END=V(570);
+function seen(){try{var v=+localStorage.getItem(SEEN);return v>0&&Date.now()-v<VISIT}catch(e){return false}}
+function markSeen(){try{localStorage.setItem(SEEN,String(Date.now()))}catch(e){}}
+var navEntry=(performance.getEntriesByType&&performance.getEntriesByType("navigation")[0])||{};
+var resume=!RM&&seen()&&!location.hash&&navEntry.type!=="back_forward"&&!/[?&]replay=1/.test(location.search);
+if(resume){intro.done=intro.shown=true;hero.classList.add("shown");window.__heroResume=true}
+document.body.classList.toggle("intro",!RM&&!resume);
 
 function render(P,t){
  var u=U(P),i,b,TP=[];
@@ -529,7 +553,7 @@ function progress(){var r=wrap.getBoundingClientRect(),span=wrap.offsetHeight-st
 // The scene follows the scroll like a weight on a spring (critically damped: it never overshoots). A mouse wheel moves
 // the page in notches of about 100 px; following them directly made the motion step. The spring eases into and out of
 // every move, so a notch, a trackpad swipe and a fast flick all glide. SPRING sets how tightly it follows.
-var Pd=null,Pv=0,SPRING=70,MAXU=.75,last=performance.now(),t0=last;
+var Pd=null,Pv=0,SPRING=70,MAXU=.75,last=performance.now(),t0=last,marked=false;
 function frame(now){
  var r=wrap.getBoundingClientRect(),P=RM?1:progress(),dt=Math.min(.1,(now-last)/1000);last=now;
  if(Pd===null||RM){Pd=P;Pv=0}else{
@@ -543,9 +567,14 @@ function frame(now){
   if(Math.abs(P-Pd)<2e-5&&Math.abs(Pv)<1e-4){Pd=P;Pv=0}
  }
  if(r.bottom>0)render(Pd,(now-t0)/1000);
+ if(P>=V(555)&&!RM&&!marked){marked=true;markSeen()}
  requestAnimationFrame(frame);
 }
-layout();window.addEventListener("resize",layout);requestAnimationFrame(frame);
+layout();window.addEventListener("resize",layout);
+// resuming: jump straight to the end of the story before the first frame, so it never plays backwards or forwards
+function toEnd(){window.scrollTo({top:wrap.offsetTop+(wrap.offsetHeight-stage.clientHeight)*P_END,left:0,behavior:"instant"})}
+if(resume){toEnd();window.addEventListener("load",toEnd)}
+requestAnimationFrame(frame);
 })();
 </script>
 <script src="site/site.js"></script>

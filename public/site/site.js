@@ -4,16 +4,19 @@
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// the current page is marked in the nav
-var page=document.body.getAttribute("data-page");
-$$(".nav ul a,.sheet a").forEach(function(a){if(a.getAttribute("data-p")===page)a.setAttribute("aria-current","page")});
+// the current page is marked in the nav; Transformation and Training both sit under Services
+var page=document.body.getAttribute("data-page"),navKey=page==="transformation"||page==="training"?"services":page;
+$$(".nav .links a.pill,.sheet>a").forEach(function(a){if(a.getAttribute("data-p")===navKey){a.classList.add("on");if(navKey!=="services")a.setAttribute("aria-current","page")}});
+$$(".nav .menu a,.sheet .grp a").forEach(function(a){if(!a.getAttribute("href").split("#")[1]&&a.getAttribute("href").indexOf(page)>=0&&page!=="home")a.setAttribute("aria-current","page")});
 
 // ---- every page opens at its top, out of the night. The artifact host can carry the scroll position from one page
 // to the next, which dropped people at the next page's footer, so links fade out, reset the scroll, then go. ----
 var veil=$(".veil");
 function top0(){if(!location.hash)window.scrollTo({top:0,left:0,behavior:"instant"})}
 var navType=((performance.getEntriesByType&&performance.getEntriesByType("navigation")[0])||{}).type;
-if(navType!=="back_forward"){top0();window.addEventListener("load",top0)}
+if(navType!=="back_forward"&&!window.__heroResume){top0();window.addEventListener("load",top0)}
+// a visit lasts while someone keeps moving around the site: the homepage story replays only after 30 minutes away
+try{var hs=+localStorage.getItem("traq-hero-seen");if(hs>0&&Date.now()-hs<30*60*1000)localStorage.setItem("traq-hero-seen",String(Date.now()))}catch(e){}
 if(veil){
  requestAnimationFrame(function(){requestAnimationFrame(function(){veil.classList.add("gone")})});
  window.addEventListener("pageshow",function(e){if(e.persisted){veil.classList.remove("leave");veil.classList.add("gone")}});
@@ -63,14 +66,60 @@ function tone(){
  NIGHT.forEach(function(el){var b=el.getBoundingClientRect(),f=parseFloat(el.getAttribute("data-night"))||1;if(b.top<=36&&b.top+b.height*f>36)dark=true});
  nav.classList.toggle("day",!dark);
 }
-window.addEventListener("scroll",tone,{passive:true});window.addEventListener("resize",tone);tone();
+function lifted(){nav.classList.toggle("lifted",window.scrollY>24)}
+window.addEventListener("scroll",function(){tone();lifted()},{passive:true});window.addEventListener("resize",tone);tone();lifted();
 window.__tone=tone;
+
+// ---- the lamp: a soft light over the current item that glides to whichever item the pointer is on ----
+var links=$(".nav .links"),lamp=$(".nav .lamp"),pills=$$(".nav .links .pill");
+function lampTo(el,instant){
+ if(!lamp)return;
+ if(!el||!el.offsetWidth){lamp.classList.remove("lit");return}
+ if(instant){lamp.style.transition="none";requestAnimationFrame(function(){lamp.style.transition=""})}
+ lamp.style.width=el.offsetWidth+"px";lamp.style.transform="translate3d("+el.offsetLeft+"px,0,0)";lamp.classList.add("lit");
+}
+function home(instant){lampTo($(".nav .links .pill.on"),instant)}
+if(links&&lamp){
+ pills.forEach(function(el){el.addEventListener("mouseenter",function(){lampTo(el)});el.addEventListener("focus",function(){lampTo(el)})});
+ links.addEventListener("mouseleave",function(){home()});
+ home(true);window.addEventListener("resize",function(){home(true)});
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){home(true)});
+}
+
+// ---- the Services menu: opens on hover and keyboard focus, closes on leaving, Escape or a click elsewhere ----
+var dd=$(".nav .dd"),shut=null;
+if(dd){
+ var trig=$(".pill",dd);
+ var openDD=function(){clearTimeout(shut);dd.classList.add("open");trig.setAttribute("aria-expanded","true")};
+ var closeDD=function(){clearTimeout(shut);dd.classList.remove("open");trig.setAttribute("aria-expanded","false")};
+ dd.addEventListener("mouseenter",openDD);
+ dd.addEventListener("mouseleave",function(){clearTimeout(shut);shut=setTimeout(closeDD,140)});
+ dd.addEventListener("focusin",openDD);
+ dd.addEventListener("focusout",function(e){if(!dd.contains(e.relatedTarget))closeDD()});
+ // on touch screens the first tap opens the menu instead of following the link
+ var tap=false;
+ trig.addEventListener("pointerdown",function(e){tap=e.pointerType!=="mouse"&&!dd.classList.contains("open")});
+ trig.addEventListener("click",function(e){if(tap){e.preventDefault();tap=false;openDD()}});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeDD();trig.blur()}});
+ document.addEventListener("click",function(e){if(!dd.contains(e.target))closeDD()});
+}
 
 // mobile menu
 var sheet=$(".sheet"),mb=$(".menu-btn");
 if(mb&&sheet){
  mb.addEventListener("click",function(){var o=!sheet.classList.contains("open");sheet.classList.toggle("open",o);mb.setAttribute("aria-expanded",String(o));mb.textContent=o?"Close":"Menu";document.body.style.overflow=o?"hidden":""});
  $$("a",sheet).forEach(function(a){a.addEventListener("click",function(){sheet.classList.remove("open");mb.setAttribute("aria-expanded","false");mb.textContent="Menu";document.body.style.overflow=""})});
+}
+
+// ---- reveals: blocks marked .rv (and each Transformation chapter) rise in once, as they come into view ----
+var rv=$$(".rv,.chap");
+if(rv.length&&!RM&&"IntersectionObserver" in window){
+ document.documentElement.classList.add("rvon");
+ var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("seen");io.unobserve(e.target)}})},{rootMargin:"0px 0px -12% 0px",threshold:.08});
+ rv.forEach(function(el){
+  // anything already on screen when the page opens shows straight away, so nothing blinks out and back
+  var r=el.getBoundingClientRect();if(r.top<innerHeight*.92&&r.bottom>0){el.classList.add("seen");return}
+  io.observe(el)});
 }
 
 // ---- a Monday at your business: the scattered beams of today line up and leave as one gold line ----

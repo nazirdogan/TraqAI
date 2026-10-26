@@ -20,20 +20,35 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <body data-page="transformation">
 <div class="veil" aria-hidden="true"></div>
 <header class="nav" id="nav">
-  <a href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
-  <ul>
-    <li class="hide"><a data-p="transformation" href="/transformation">Transformation</a></li>
-    <li class="hide"><a data-p="training" href="/training">Training</a></li>
-    <li class="hide"><a data-p="about" href="/about">About</a></li>
-    <li><a class="nav-btn" href="/book">Book a call</a></li>
-    <li><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+  <div class="bar">
+  <a class="brand" href="/" aria-label="Traq Collective, home"><img class="mark lt" src="site/img/wordmark-white.png" alt="Traq Collective"><img class="mark dk" src="site/img/wordmark-purple.png" alt=""></a>
+  <ul class="links">
+    <li class="hide dd"><a class="pill" data-p="services" href="/transformation" aria-haspopup="true" aria-expanded="false" aria-controls="svc">Services<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="menu" id="svc" role="menu" aria-label="Services">
+        <a role="menuitem" href="/transformation"><b>The Transformation</b><span>AI built into how your business runs</span></a>
+        <a role="menuitem" href="/transformation#ch01"><b>Consulting and strategy</b><span>A costed map of what to fix first</span></a>
+        <a role="menuitem" href="/transformation#ch03"><b>AI agents and automation</b><span>Built into the tools you already use</span></a>
+        <a role="menuitem" href="/training"><b>Training and workshops</b><span>Bespoke, hands-on, on your own tools</span></a>
+        <a role="menuitem" href="/training#leadership"><b>Leadership and governance</b><span>AI strategy for founders and the C-suite</span></a>
+      </div></li>
+    <li class="hide"><a class="pill" data-p="about" href="/about">About</a></li>
+    <li class="hide"><a class="pill" data-p="questions" href="/#questions">Questions</a></li>
+    <li class="lamp-li" aria-hidden="true"><span class="lamp"><i></i></span></li>
   </ul>
+  <div class="end"><a class="nav-btn" href="/book">Book a call</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></div>
+  </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
   <a data-p="home" href="/">Home</a>
-  <a data-p="transformation" href="/transformation">The Transformation</a>
-  <a data-p="training" href="/training">Training and workshops</a>
+  <div class="grp"><div class="gh">Services</div>
+    <a href="/transformation">The Transformation</a>
+    <a href="/transformation#ch01">Consulting and strategy</a>
+    <a href="/transformation#ch03">AI agents and automation</a>
+    <a href="/training">Training and workshops</a>
+    <a href="/training#leadership">Leadership and governance</a>
+  </div>
   <a data-p="about" href="/about">About</a>
+  <a data-p="questions" href="/#questions">Questions</a>
   <a class="btn" href="/book">Book a call</a>
 </nav>
 
@@ -52,9 +67,9 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   <div class="in">
     <div class="head"><h2 id="fit-h">Built for businesses that have outgrown the way they run</h2></div>
     <div class="fit">
-      <p>Growth means more admin, not more output.</p>
-      <p>The day is held together by spreadsheets, inboxes and good people working late.</p>
-      <p>You want AI working inside the business, not another tool to manage.</p>
+      <p class="rv">Growth means more admin, not more output.</p>
+      <p class="rv" style="--d:.1s">The day is held together by spreadsheets, inboxes and good people working late.</p>
+      <p class="rv" style="--d:.2s">You want AI working inside the business, not another tool to manage.</p>
     </div>
   </div>
 </section>
@@ -64,51 +79,51 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     <div class="head"><h2 id="ch-h">The four chapters</h2><p class="lede">It moves at the pace your business needs. Every chapter ends with something you can hold, and you decide whether to carry on.</p></div>
     <div style="margin-top:56px">
     <article class="chap" id="ch01">
-      <div class="side"><div class="n">01</div><div class="light"></div></div>
+      <div class="side rv"><div class="n">01</div><div class="light"></div></div>
       <div>
-        <h3>Audit and mapping</h3>
-        <p class="body">We sit with how work really moves through your business: where it slows, where it leaks, and where people wait on each other. We talk to the people doing the work, not just the people managing it.</p>
-        <div class="cols">
+        <h3 class="rv" style="--d:.08s">Audit and mapping</h3>
+        <p class="body rv" style="--d:.16s">We sit with how work really moves through your business: where it slows, where it leaks, and where people wait on each other. We talk to the people doing the work, not just the people managing it.</p>
+        <div class="cols rv" style="--d:.24s">
           <div><h4>What happens</h4><ul><li>Interviews with the people who do the work</li><li>A walk through your tools, inboxes and spreadsheets</li><li>Every bottleneck costed in time and money</li></ul></div>
           <div><h4>What we need from you</h4><ul><li>An hour or two from a few of your people</li><li>Access to look at how things run today</li></ul></div>
         </div>
-        <div class="holdcard"><i></i><div><span>You leave with</span><b>A bottleneck map. Where time and money leak, ranked by what AI can fix first.</b></div></div>
+        <div class="holdcard rv" style="--d:.32s"><i></i><div><span>You leave with</span><b>A bottleneck map. Where time and money leak, ranked by what AI can fix first.</b></div></div>
       </div>
     </article>
     <article class="chap" id="ch02">
-      <div class="side"><div class="n">02</div><div class="light"></div></div>
+      <div class="side rv"><div class="n">02</div><div class="light"></div></div>
       <div>
-        <h3>Feasibility</h3>
-        <p class="body">We look under the floorboards. Is your data clean enough, and are your systems ready to carry AI? Where they aren&#8217;t, we fix that first, as part of the work, so nothing gives way later.</p>
-        <div class="cols">
+        <h3 class="rv" style="--d:.08s">Feasibility</h3>
+        <p class="body rv" style="--d:.16s">We look under the floorboards. Is your data clean enough, and are your systems ready to carry AI? Where they aren&#8217;t, we fix that first, as part of the work, so nothing gives way later.</p>
+        <div class="cols rv" style="--d:.24s">
           <div><h4>What happens</h4><ul><li>A check of your data, systems and access</li><li>Data cleanup where it&#8217;s needed, scoped with you</li><li>A go or no-go for every idea on the map</li></ul></div>
           <div><h4>What we need from you</h4><ul><li>Read access to the systems in scope</li><li>Someone who knows where the data lives</li></ul></div>
         </div>
-        <div class="holdcard"><i></i><div><span>You leave with</span><b>A readiness report. What&#8217;s ready, what needs cleaning, and a clear go or no-go for each idea.</b></div></div>
+        <div class="holdcard rv" style="--d:.32s"><i></i><div><span>You leave with</span><b>A readiness report. What&#8217;s ready, what needs cleaning, and a clear go or no-go for each idea.</b></div></div>
       </div>
     </article>
     <article class="chap" id="ch03">
-      <div class="side"><div class="n">03</div><div class="light"></div></div>
+      <div class="side rv"><div class="n">03</div><div class="light"></div></div>
       <div>
-        <h3>Implementation</h3>
-        <p class="body">We build AI into the tools and workflows you already run, including agents that handle work on their own. No new platform for your team to learn, and a person stays in the loop wherever it matters.</p>
-        <div class="cols">
+        <h3 class="rv" style="--d:.08s">Implementation</h3>
+        <p class="body rv" style="--d:.16s">We build AI into the tools and workflows you already run, including agents that handle work on their own. No new platform for your team to learn, and a person stays in the loop wherever it matters.</p>
+        <div class="cols rv" style="--d:.24s">
           <div><h4>What happens</h4><ul><li>Automations and agents built into your own tools</li><li>Approval steps wherever a person should decide</li><li>Tested on real work before anyone relies on it</li></ul></div>
           <div><h4>What we need from you</h4><ul><li>A named owner on your side</li><li>Feedback from the people who use it</li></ul></div>
         </div>
-        <div class="holdcard"><i></i><div><span>You leave with</span><b>A working build, running in your own tools.</b></div></div>
+        <div class="holdcard rv" style="--d:.32s"><i></i><div><span>You leave with</span><b>A working build, running in your own tools.</b></div></div>
       </div>
     </article>
     <article class="chap" id="ch04">
-      <div class="side"><div class="n">04</div><div class="light"></div></div>
+      <div class="side rv"><div class="n">04</div><div class="light"></div></div>
       <div>
-        <h3>Ownership</h3>
-        <p class="body">We hand it over properly. Documentation, access, and the people who run it shown how, so it keeps working without us. Then we step back.</p>
-        <div class="cols">
+        <h3 class="rv" style="--d:.08s">Ownership</h3>
+        <p class="body rv" style="--d:.16s">We hand it over properly. Documentation, access, and the people who run it shown how, so it keeps working without us. Then we step back.</p>
+        <div class="cols rv" style="--d:.24s">
           <div><h4>What happens</h4><ul><li>Documentation written for your team, not for us</li><li>Admin access and accounts in your name</li><li>Your operators shown how to run and adjust it</li></ul></div>
           <div><h4>What we need from you</h4><ul><li>The people who will own it day to day</li><li>An afternoon for the handover</li></ul></div>
         </div>
-        <div class="holdcard"><i></i><div><span>You leave with</span><b>A runbook and a clean handover. Everything we built is yours.</b></div></div>
+        <div class="holdcard rv" style="--d:.32s"><i></i><div><span>You leave with</span><b>A runbook and a clean handover. Everything we built is yours.</b></div></div>
       </div>
     </article>
     </div>
@@ -117,15 +132,15 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 
 <section class="s" aria-labelledby="audit-h">
   <div class="in">
-    <div class="band">
+    <div class="band rv">
       <div><p class="big" id="audit-h">Not ready for all four? Start with the audit.</p><p class="small">You get the bottleneck map on its own, and you decide what happens next. Plenty of clients start here.</p></div>
       <a class="btn" href="/book?for=transformation">Book a call</a>
     </div>
     <div class="head" style="margin-top:110px"><h2>What it isn&#8217;t</h2></div>
     <div class="isnt">
-      <div><h3>Not a new platform</h3><p>We build into the tools you already run. Your team doesn&#8217;t log into anything new.</p></div>
-      <div><h3>Not a deck</h3><p>Every chapter ends with something working or something you can act on, not a slideshow.</p></div>
-      <div><h3>Not training</h3><p>The handover shows your operators how to run what we built. Team training is its own offer: <a class="link" href="/training">see training</a>.</p></div>
+      <div class="rv"><h3>Not a new platform</h3><p>We build into the tools you already run. Your team doesn&#8217;t log into anything new.</p></div>
+      <div class="rv" style="--d:.08s"><h3>Not a deck</h3><p>Every chapter ends with something working or something you can act on, not a slideshow.</p></div>
+      <div class="rv" style="--d:.16s"><h3>Not training</h3><p>The handover shows your operators how to run what we built. Team training is its own offer: <a class="link" href="/training">see training</a>.</p></div>
     </div>
   </div>
 </section>
