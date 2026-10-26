@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-26",
+      "type": "insight",
+      "slug": "ai-training-for-law-firms",
+      "targetQuery": "AI training for law firms"
+    },
+    {
       "date": "2026-10-22",
       "type": "field-note",
       "slug": "signs-you-picked-the-wrong-ai-tool",
@@ -525,6 +531,14 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-26",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "type": "insight",
+      "slug": "ai-training-for-law-firms",
+      "critic": "branch preflight: git symbolic-ref -q HEAD printed DETACHED at session start, at commit 635b645; ran git checkout main, confirmed git merge-base --is-ancestor main 635b645 succeeded, ran git merge --ff-only 635b645 with no rewrite and no force-push (this brought two commits forward, a build-ai landing page feature and a headshot swap, both unrelated to the content agent); confirmed git symbolic-ref -q HEAD printed refs/heads/main before continuing; git fetch origin main showed origin/main was already at that same 635b645 tip, confirming the two commits had already shipped and the detached HEAD only stranded the local main ref in this container, not the pushes themselves; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned weekly-guide; ran scripts/seo/report.mjs next, which returned the highest-priority open backlog entry (tq-017, cluster vertical, intent commercial, targetQuery 'AI training for law firms' verbatim), so the topic was not chosen, only accepted; evidence.checked on tq-017 was null, so ran the mandatory SERP check via WebSearch: page one is a mix of a vendor resource page (softwareadvice.com) arguing for role-specific training over tool demos, and news coverage of individual BigLaw firms' internal AI academies (Travers Smith, Linklaters, K&L Gates, Dechert, Orrick via lawcareers.net and Bloomberg Law), with no evergreen SMB-focused guide and nothing leading with confidentiality or privilege as the training starting point, which matched the backlog note's instruction to lead with those objections and confirmed a real content gap rather than writing into an already-won query; researched via WebSearch (WebFetch returned ENOTFOUND on clio.com, americanbar.org, abajournal.com and 8am.com this run, consistent with this session's narrow egress allowlist noted in prior runs, so did not retry per the standing instruction and corroborated every figure across multiple independent search result snippets instead): ABA Formal Opinion 512 (issued July 29, 2024, the ABA's only formal ethics opinion on generative AI) ties competence under Model Rule 1.1 to a reasonable understanding of a tool's handling of input, and confidentiality under Model Rule 1.6 to informed client consent before matter details go into a tool where disclosure risk exists, corroborated across thomsonreuters.com, washu.edu, natlawreview.com and americanbar.org's own Probate & Property section commentary; the 8am 2026 Legal Industry Report (survey of 1,300+ legal professionals, fall 2025) found 69% of legal professionals now personally use general-purpose AI, up from 31% the prior year, while 54% say their firm has provided no training on responsible AI use and has no plans to start, both figures corroborated identically across lawnext.com, the ABA Journal, and a D.C. Bar post citing the same underlying report; the Clio 2026 Legal Trends Report for Solo and Small Law Firms (survey of 1,700+ respondents) found 71% of solo practitioners and 75% of small firms use AI for legal work but fewer than a third report it has increased revenue, corroborated across the NC Bar's survey roundup, a Texas Bar listing of the report, and Law360/MLex coverage; deliberately did not cite the Bloomberg Law 'Law firms introduce AI training for summer associates' piece as a stat source since it is paywalled and only narratively referenced BigLaw program examples instead; no em-dashes or en-dashes (checked programmatically via grep, zero found); title 46/60 chars after brand-strip, metaDescription trimmed from an initial 168 to 154/165 chars during self-critique, intro checked at exactly 60 words and stands alone as a direct answer to the target query; five bodySections each phrased as a real question; one role-based table (paralegal, associate, reviewing partner, practice group lead) matching the SERP's structured-training format rather than the generic-adoption framing most results use; three stats, each with a real, resolvable url; three FAQs; no diagram (a training-order guide with a role table already carries the sequence, and there is no genuine before/after contrast with real figures, correctly omitted per the rule against decorative diagrams); no image (a confidentiality/compliance-anchored legal topic has no concrete visual subject, so correctly skipped rather than forcing generic stock); related links verified to exist on disk (/services/ai-training has a page.tsx, /insights/ai-training-vs-ai-consulting is a real content/insights file, /insights/ai-training-for-teams-uae is a real cornerstone slug in src/lib/content/insights/index.ts); checked against the one existing adjacent vertical guide, ai-training-for-accountants, which is a distinct profession, distinct recurring tasks and a distinct central risk (filed financial numbers vs. privileged disclosure and court sanctions for fabricated citations), so this is complementary rather than a paraphrase; validated against the live articleSchema (Zod) via npx tsx after npm ci (node_modules was not present in this checkout; package-lock.json left untouched since npm ci does not modify it); result VALID; not a repeat of any ledger slug or targetQuery; scripts/seo/target-queries.json updated: tq-017 status set to published, assignedTo set to /insights/ai-training-for-law-firms, evidence filled in with today's check date, engine, the three winners observed, and the observation explaining the gap this guide fills"
+    },
     {
       "date": "2026-10-20",
       "mode": "news-note",
@@ -1851,6 +1865,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-22-signs-you-picked-the-wrong-ai-tool.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-26",
+      "mode": "weekly-guide",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/ai-training-for-law-firms.json"
       ],
       "build": "passed"
     }
