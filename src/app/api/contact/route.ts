@@ -8,22 +8,21 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 /**
- * POST /api/contact: the "Send us a note" form on the rebuilt /book page
- * (public/rebuild/book.html, a static page, so it posts plain JSON).
+ * POST /api/contact: the inquiry form on the Contact page (public/rebuild/contact.html, served at /contact and /book).
+ * It is a static page, so it posts plain JSON.
  *
- * Public by design: anyone on the site can send a note, so there is no login.
- * It is guarded instead by a hidden honeypot field, length limits, the shared
- * submit rate limit, and by only ever emailing our own inbox, never the
+ * Public by design: anyone on the site can send an inquiry, so there is no login. It is guarded instead by a hidden
+ * honeypot field, length limits, the shared submit rate limit, and by only ever emailing our own inboxes, never the
  * sender, so it cannot be used to send mail to other people.
  *
- * The lead is written to the lead sheet as a 'quick' lead, the same kind as
- * the other short enquiry form, so it lands in the pipeline the usual way.
+ * Every inquiry goes to hello@traqcollective.com and to TEAM_INTAKE_EMAIL (Nazir), with Reply going to the sender,
+ * and is written to the lead sheet as a 'quick' lead with the phone number, so it lands in the pipeline the usual way.
  */
 
-const INTERESTS: Record<string, string> = {
-  transformation: 'The Transformation',
-  training: 'Training',
-  exploring: 'Just exploring',
+const TOPICS: Record<string, string> = {
+  transformation: 'AI transformation',
+  training: 'AI training',
+  consulting: 'AI consulting',
 };
 
 function esc(s: string): string {
@@ -59,34 +58,45 @@ export async function POST(request: Request) {
   const name = field(body, 'name', 120);
   const email = field(body, 'email', 200);
   const company = field(body, 'company', 160);
-  const note = field(body, 'note', 4000);
-  const interest = INTERESTS[field(body, 'for', 40)] ?? INTERESTS.exploring;
-  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  const phone = field(body, 'phone', 40);
+  const topic = TOPICS[field(body, 'topic', 40)];
+  const message = field(body, 'message', 4000);
+  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !company || !/\d{6,}/.test(phone.replace(/\D/g, '')) || !topic || !message) {
     return NextResponse.json({ error: 'validation_failed' }, { status: 400 });
   }
 
-  await recordLead({ kind: 'quick', email, firstName: name, company, landingPath: '/book' });
+  await recordLead({ kind: 'quick', email, firstName: name, company, phone, landingPath: '/contact' });
 
   const resendKey = process.env.RESEND_API_KEY;
   if (!resendKey) {
     if (process.env.NODE_ENV !== 'production') {
-      console.info('[contact] dev mode, skipping Resend:', { name, email, company, interest });
+      console.info('[contact] dev mode, skipping Resend:', { name, email, company, phone, topic });
       return NextResponse.json({ ok: true, dev: true });
     }
     return NextResponse.json({ error: 'email_not_configured' }, { status: 500 });
   }
 
-  const teamEmail = process.env.TEAM_INTAKE_EMAIL ?? 'hello@traqcollective.com';
+  const to = Array.from(new Set(['hello@traqcollective.com', process.env.TEAM_INTAKE_EMAIL].filter((x): x is string => !!x)));
   const fromEmail = process.env.FROM_EMAIL ?? 'Traq Collective <hello@traqcollective.com>';
-  const html = `<p><b>${esc(name)}</b>${company ? ` at <b>${esc(company)}</b>` : ''} sent a note from the website.</p>
-<p>Interested in: ${esc(interest)}<br>Email: <a href="mailto:${esc(email)}">${esc(email)}</a></p>
-<p style="white-space:pre-wrap">${note ? esc(note) : '<i>No message.</i>'}</p>`;
+  const row = (label: string, value: string) =>
+    `<tr><td style="padding:6px 16px 6px 0;color:#6B6975;vertical-align:top">${label}</td><td style="padding:6px 0">${value}</td></tr>`;
+  const html = `<p>New inquiry from the website.</p>
+<table style="border-collapse:collapse;font-size:15px">
+${row('Name', esc(name))}
+${row('Company', esc(company))}
+${row('Email', `<a href="mailto:${esc(email)}">${esc(email)}</a>`)}
+${row('Phone', `<a href="tel:${esc(phone.replace(/[^\d+]/g, ''))}">${esc(phone)}</a>`)}
+${row('About', esc(topic))}
+</table>
+<p style="margin-top:18px"><b>What they would like help with</b></p>
+<p style="white-space:pre-wrap">${esc(message)}</p>
+<p style="color:#6B6975">Reply to this email to answer them directly.</p>`;
 
   const { error } = await new Resend(resendKey).emails.send({
     from: fromEmail,
-    to: teamEmail,
+    to,
     replyTo: email,
-    subject: `Website note: ${name}${company ? ` (${company})` : ''}, ${interest}`,
+    subject: `New inquiry: ${name} (${company}), ${topic}`,
     html,
   });
   if (error) {

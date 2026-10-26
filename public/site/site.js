@@ -169,7 +169,8 @@ if(mon){
  set(0);
 }
 
-// ---- the note form: sent to /api/contact, which emails it to the team. If that fails, say so and give the address. ----
+// ---- the contact form: sent to /api/contact, which emails the inquiry to the team. If that fails, say so and give the
+// address, so nobody is left thinking it went through. ----
 var form=$(".form");
 if(form){
  var f=$("form",form),btn=$("button[type=submit]",f),msg=$(".alt",f),busy=false;
@@ -178,11 +179,12 @@ if(form){
   var d={};new FormData(f).forEach(function(v,k){d[k]=String(v).trim()});
   busy=true;btn.disabled=true;btn.textContent="Sending…";msg.classList.remove("err");
   fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})
-   .then(function(r){if(!r.ok)throw new Error(r.status);form.classList.add("sent");form.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})})
-   .catch(function(){busy=false;btn.disabled=false;btn.textContent="Send";msg.classList.add("err");
-    msg.innerHTML='That didn&#8217;t send. Please email <a class="link" href="mailto:hello@traqcollective.com">hello@traqcollective.com</a> instead.'});
+   .then(function(r){if(!r.ok)throw new Error(r.status);form.classList.add("sent");if(window.gtag)gtag("event","generate_lead",{form:"contact",topic:d.topic});form.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})})
+   .catch(function(){busy=false;btn.disabled=false;btn.textContent="Send inquiry";msg.classList.add("err");
+    msg.innerHTML='That didn&#8217;t send. Please email <a class="link" href="mailto:hello@traqcollective.com">hello@traqcollective.com</a> or call <a class="link" href="tel:+971508687196">+971 50 868 7196</a>.'});
  });
- var pre=new URLSearchParams(location.search).get("for");
- if(pre){var r=$('input[value="'+pre+'"]',f);if(r)r.checked=true}
+ // arriving from a page about one service (?for=training) picks it in "What is this about?"
+ var pre=new URLSearchParams(location.search).get("for"),sel=$("select[name=topic]",f);
+ if(pre&&sel&&$('option[value="'+pre+'"]',sel))sel.value=pre;
 }
 })();

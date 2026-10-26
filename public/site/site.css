@@ -273,7 +273,7 @@ section.white{background:var(--white);border-top:1px solid var(--line);border-bo
 .form{padding:40px 38px;border-radius:26px;background:var(--white);border:1px solid var(--line);box-shadow:0 30px 80px rgba(20,12,40,.08)}
 .form h3{font-size:30px}
 .form label{display:block;margin-top:20px;font-size:14px;font-weight:500}
-.form input,.form textarea{display:block;width:100%;margin-top:8px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);font:16px var(--sans);color:var(--ink);transition:border-color .2s,background .2s}
+.form input,.form textarea,.form select{display:block;width:100%;margin-top:8px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);font:16px var(--sans);color:var(--ink);transition:border-color .2s,background .2s}
 .form input:focus,.form textarea:focus{border-color:var(--violet);background:var(--white);outline:none}
 .form textarea{min-height:110px;resize:vertical}
 .form fieldset{border:0;margin-top:22px}
@@ -372,6 +372,32 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;padding-top:28px
 @keyframes settle{to{transform:scale(1)}}
 /* on wide screens the Transformation and Training films sit to the right and fade into the night, so the words stand on clean dark */
 @media (min-width:900px){.phero .media.side{left:auto;width:74%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}}
+
+/* ---- contact: the inquiry form beside the direct lines and what happens next; stacked on narrow screens ---- */
+.contact{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:start}
+.contact .form h2{font-size:clamp(30px,3vw,40px)}
+.contact .intro{margin-top:8px;color:var(--ink-soft);font-size:16px}
+.form .pair{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.form select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.form select:invalid{color:var(--ink-faint)}
+.form select:focus{border-color:var(--violet);background-color:var(--white);outline:none}
+.form textarea{min-height:150px}
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form .alt.err{color:#B4232F}
+.form .done p{max-width:30em;margin-left:auto;margin-right:auto;line-height:1.6}
+.direct{padding-top:6px}
+.direct h3{font-size:26px}
+.direct ul{list-style:none;margin-top:14px}
+.direct ul li{display:grid;grid-template-columns:80px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:17px}
+.direct ul li:last-child{border-bottom:1px solid var(--line)}
+.direct span{color:var(--ink-faint)}
+.direct a{color:var(--violet);font-weight:500;word-break:break-word}
+.direct .next-h{margin-top:48px}
+.next{list-style:none;counter-reset:n;margin-top:16px}
+.next li{counter-increment:n;position:relative;padding:0 0 22px 46px;color:var(--ink-soft);font-size:16px;line-height:1.55}
+.next li::before{content:counter(n);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:500 14px var(--sans);color:var(--violet-ink);background:var(--tint)}
+.next b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+@media (max-width:899px){.contact{grid-template-columns:1fr}.form .pair{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.veil{display:none}[data-rise] .w,.lift{opacity:1;transform:none;filter:none;transition:none}.phero .media{animation:none;transform:none;transition:none}}
 
 /* ---- things arrive as they scroll into view (site.js adds .seen); each can carry a small delay, --d ---- */
@@ -380,20 +406,3 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;padding-top:28px
 .rvon .chap .side .light{transform:scaleX(0);transition:transform 1.3s cubic-bezier(.16,1,.3,1) .25s}
 .rvon .chap.seen .side .light{transform:none}
 @media (prefers-reduced-motion:reduce){.rvon .rv,.rvon .chap .side .light{opacity:1;transform:none;transition:none}}
-
-/* ---- booking: the live calendar, other ways to reach us, and a note that really sends ---- */
-.cal{padding:34px 30px 26px;border-radius:26px;background:var(--white);border:1px solid var(--line);box-shadow:0 30px 80px rgba(20,12,40,.08)}
-.cal h3{font-size:30px}
-.cal p{margin-top:8px;color:var(--ink-soft);font-size:16px}
-.cal iframe{display:block;width:100%;height:700px;margin-top:20px;border:0;border-radius:16px;background:var(--paper)}
-.cal .link{display:inline-block;margin-top:16px;font-size:14px}
-.reach{margin-top:44px}
-.reach h3{font-size:24px}
-.reach ul{list-style:none;margin-top:14px}
-.reach li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:16px}
-.reach li:last-child{border-bottom:1px solid var(--line)}
-.reach span{color:var(--ink-faint)}
-.reach a{color:var(--violet);font-weight:500}
-.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.form .alt.err{color:#B4232F}
-@media (max-width:899px){.cal iframe{height:760px}}
