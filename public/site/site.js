@@ -4,10 +4,9 @@
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// the current page is marked in the nav; Transformation and Training both sit under Services
-var page=document.body.getAttribute("data-page"),navKey=page==="transformation"||page==="training"?"services":page;
-$$(".nav .links a.pill,.sheet>a").forEach(function(a){if(a.getAttribute("data-p")===navKey){a.classList.add("on");if(navKey!=="services")a.setAttribute("aria-current","page")}});
-$$(".nav .menu a,.sheet .grp a").forEach(function(a){if(!a.getAttribute("href").split("#")[1]&&a.getAttribute("href").indexOf(page)>=0&&page!=="home")a.setAttribute("aria-current","page")});
+// the current page is marked in the nav: Transformation, Consulting, Training and About each have their own tab
+var page=document.body.getAttribute("data-page");
+$$(".nav .links a.pill,.sheet>a").forEach(function(a){if(a.getAttribute("data-p")===page){a.classList.add("on");a.setAttribute("aria-current","page")}});
 
 // ---- every page opens at its top, out of the night. The artifact host can carry the scroll position from one page
 // to the next, which dropped people at the next page's footer, so links fade out, reset the scroll, then go. ----

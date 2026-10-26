@@ -103,11 +103,11 @@ section.white{background:var(--white);border-top:1px solid var(--line);border-bo
 .problem .after{margin:120px auto 0;max-width:30em;font-family:var(--serif);font-size:clamp(22px,2.2vw,30px);line-height:1.35;color:var(--ink);text-wrap:balance}
 
 /* ---- the two doors, without pictures: one night, one day ---- */
-.doors{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;margin-top:64px}
+.doors{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:22px;margin-top:64px}
 .door{position:relative;display:flex;flex-direction:column;gap:16px;min-height:440px;padding:44px 42px 42px;border-radius:26px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
 .door:hover{transform:translateY(-3px);box-shadow:0 26px 60px rgba(20,12,40,.12)}
 .door .kicker{font-size:14px;font-weight:500}
-.door h3{font-size:clamp(34px,3.4vw,50px);line-height:1.04}
+.door h3{font-size:clamp(30px,2.8vw,44px);line-height:1.06}
 .door p{max-width:28em}
 .door .go{margin-top:auto;font-size:15px;font-weight:600}
 .door.night{background:radial-gradient(120% 90% at 85% 100%,#2A1C46 0%,#0C0818 55%,var(--night) 100%);color:var(--text)}

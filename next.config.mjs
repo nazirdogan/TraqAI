@@ -24,7 +24,7 @@ const nextConfig = {
       { source: '/first-ai-assistant', destination: '/keep', permanent: false },
     ];
   },
-  // The rebuilt site (Oct 2026): the homepage, The Transformation, Training, About and Contact are static pages
+  // The rebuilt site (Oct 2026): the homepage, The Transformation, Consulting, Training, About and Contact are static pages
   // in /public/rebuild, sharing assets in /public/site. They are built outside this repo by
   // traq-site-rebuild/build.py --live. beforeFiles lets them take over /, /about and /book from the old app pages,
   // which stay in the code untouched: delete the beforeFiles list to bring the old pages back. Every other route,
@@ -34,6 +34,7 @@ const nextConfig = {
       beforeFiles: [
         { source: '/', destination: '/rebuild/index.html' },
         { source: '/transformation', destination: '/rebuild/transformation.html' },
+        { source: '/consulting', destination: '/rebuild/consulting.html' },
         { source: '/training', destination: '/rebuild/training.html' },
         { source: '/about', destination: '/rebuild/about.html' },
         // the contact page; /book was its old name and stays for ads and old links
