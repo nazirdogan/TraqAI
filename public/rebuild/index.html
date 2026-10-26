@@ -549,6 +549,29 @@ function progress(){var r=wrap.getBoundingClientRect(),span=wrap.offsetHeight-st
 // the page in notches of about 100 px; following them directly made the motion step. The spring eases into and out of
 // every move, so a notch, a trackpad swipe and a fast flick all glide. SPRING sets how tightly it follows.
 var Pd=null,Pv=0,SPRING=70,MAXU=.75,last=performance.now(),t0=last,marked=false;
+
+// ---- the closing frame is never skipped ----
+// The story plays at a capped speed, so a hard flick could carry the page past the end of the hero before the story got
+// there, and "On the other side" scrolled away unseen. Now the page is held at the end of the hero until the closing
+// words have been on screen for HOLD ms; the next scroll then carries on down. It applies only going down, resets once
+// someone scrolls back up into the story, and stands aside for in-page links and the End key, which mean "take me there".
+var HOLD=900,gate={seenAt:0,bypassUntil:location.hash?performance.now()+2500:0};
+function endY(){return wrap.getBoundingClientRect().top+window.scrollY+wrap.offsetHeight-stage.clientHeight}
+function gateOpen(){return RM||!!(gate.seenAt&&performance.now()-gate.seenAt>=HOLD)||performance.now()<gate.bypassUntil}
+document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest('a[href*="#"]'))gate.bypassUntil=performance.now()+2500},true);
+window.addEventListener("keydown",function(e){if(e.key==="End")gate.bypassUntil=performance.now()+2500});
+// a wheel or trackpad move that would cross the end stops exactly at it, so the next section never even flashes
+window.addEventListener("wheel",function(e){
+ if(gateOpen()||e.deltaY<=0)return;
+ var ey=endY(),dy=e.deltaY*(e.deltaMode===1?40:e.deltaMode===2?window.innerHeight:1);
+ if(window.scrollY+dy>ey-1){if(e.cancelable)e.preventDefault();if(window.scrollY<ey)window.scrollTo({top:ey,behavior:"instant"})}
+},{passive:false});
+// touch, keys and momentum: pulled back to the end if they get past it
+function holdAtEnd(){
+ if(gateOpen())return;
+ var ey=endY();
+ if(window.scrollY>ey+1&&window.scrollY<ey+window.innerHeight*3)window.scrollTo({top:ey,behavior:"instant"});
+}
 function frame(now){
  var r=wrap.getBoundingClientRect(),P=RM?1:progress(),dt=Math.min(.1,(now-last)/1000);last=now;
  if(Pd===null||RM){Pd=P;Pv=0}else{
@@ -562,7 +585,10 @@ function frame(now){
   if(Math.abs(P-Pd)<2e-5&&Math.abs(Pv)<1e-4){Pd=P;Pv=0}
  }
  if(r.bottom>0)render(Pd,(now-t0)/1000);
- if(P>=V(555)&&!RM&&!marked){marked=true;markSeen()}
+ // the closing words count as seen once the story itself has reached them, not when the scroll merely passes them
+ if(Pd>=P_END){if(!gate.seenAt)gate.seenAt=now}else if(P<V(540))gate.seenAt=0;
+ holdAtEnd();
+ if(Pd>=P_END&&!RM&&!marked){marked=true;markSeen()}
  requestAnimationFrame(frame);
 }
 layout();window.addEventListener("resize",layout);
