@@ -20,9 +20,10 @@ export const dynamic = 'force-dynamic';
  */
 
 const TOPICS: Record<string, string> = {
-  transformation: 'AI transformation',
-  training: 'AI training',
-  consulting: 'AI consulting',
+  training: 'AI training and workshops',
+  consulting: 'AI consulting and strategy',
+  transformation: 'AI systems and transformation',
+  other: 'Something else',
 };
 
 function esc(s: string): string {
