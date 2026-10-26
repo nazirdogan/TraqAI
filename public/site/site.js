@@ -178,12 +178,31 @@ if(form){
   var d={};new FormData(f).forEach(function(v,k){d[k]=String(v).trim()});
   busy=true;btn.disabled=true;btn.textContent="Sending…";msg.classList.remove("err");
   fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})
-   .then(function(r){if(!r.ok)throw new Error(r.status);form.classList.add("sent");if(window.gtag)gtag("event","generate_lead",{form:"contact",topic:d.topic});form.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})})
+   .then(function(r){if(!r.ok)throw new Error(r.status);form.classList.add("sent");if(window.gtag){gtag("event","generate_lead",{form:"contact",topic:d.topic});gtag("event","conversion",{send_to:"AW-18277323713/ndSACJOApqodEMGnp4tE"})}form.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})})
    .catch(function(){busy=false;btn.disabled=false;btn.textContent="Send inquiry";msg.classList.add("err");
     msg.innerHTML='That didn&#8217;t send. Please email <a class="link" href="mailto:hello@traqcollective.com">hello@traqcollective.com</a> or call <a class="link" href="tel:+971508687196">+971 50 868 7196</a>.'});
  });
  // arriving from a page about one service (?for=training) picks it in "What is this about?"
  var pre=new URLSearchParams(location.search).get("for"),sel=$("select[name=topic]",f);
  if(pre&&sel&&$('option[value="'+pre+'"]',sel))sel.value=pre;
+}
+// ---- the ad landing pages: a 20-minute call booked straight into Calendly. The embed loads only when its section
+// comes near, so the opening film is never competing with it. A booking fires call_booked, the event Google Ads
+// already counts as a conversion. ----
+var cal=$(".cal[data-cal]");
+if(cal){
+ var slot=$(".slot",cal),loaded=false,booked=false;
+ function load(){if(loaded)return;loaded=true;
+  var u=new URL(cal.getAttribute("data-cal"));u.searchParams.set("embed_type","Inline");u.searchParams.set("embed_domain",location.hostname);
+  u.searchParams.set("hide_gdpr_banner","1");u.searchParams.set("primary_color","5b3fe4");
+  var q=new URLSearchParams(location.search);["utm_source","utm_medium","utm_campaign","utm_content"].forEach(function(k){if(q.get(k))u.searchParams.set(k,q.get(k))});
+  u.searchParams.set("utm_term",location.pathname);
+  var f=document.createElement("iframe");f.src=u.href;f.title="Book a 20-minute call";f.loading="lazy";slot.appendChild(f);cal.classList.add("on");
+ }
+ if("IntersectionObserver" in window){var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){load();io.disconnect()}},{rootMargin:"600px 0px"});io.observe(cal)}else{load()}
+ window.addEventListener("message",function(e){
+  if(!/^https:\/\/([a-z0-9-]+\.)?calendly\.com$/.test(e.origin)||!e.data||e.data.event!=="calendly.event_scheduled"||booked)return;
+  booked=true;if(window.gtag)gtag("event","call_booked",{source:location.pathname});
+ });
 }
 })();

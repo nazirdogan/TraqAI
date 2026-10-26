@@ -22,6 +22,9 @@ const nextConfig = {
       // the landing page moves; its sub-pages stay up for anyone already in it.
       // Temporary, so the old URL can be brought back without a cached 308.
       { source: '/first-ai-assistant', destination: '/keep', permanent: false },
+      // The old Dubai ad landing pages are replaced by the rebuilt ones. Temporary, so they can come back if needed.
+      { source: '/lp/ai-consultant-dubai', destination: '/lp/ai-consulting', permanent: false },
+      { source: '/lp/corporate-ai-training-dubai', destination: '/lp/ai-training', permanent: false },
     ];
   },
   // The rebuilt site (Oct 2026): the homepage, The Transformation, Consulting, Training, About and Contact are static pages
@@ -40,6 +43,9 @@ const nextConfig = {
         // the contact page; /book was its old name and stays for ads and old links
         { source: '/contact', destination: '/rebuild/contact.html' },
         { source: '/book', destination: '/rebuild/contact.html' },
+        // the Google Ads landing pages (noindexed), one service each with the inquiry form and a 20-minute call
+        { source: '/lp/ai-consulting', destination: '/rebuild/lp-consulting.html' },
+        { source: '/lp/ai-training', destination: '/rebuild/lp-training.html' },
       ],
       afterFiles: [
         { source: '/workbook', destination: '/workbook.html' },
