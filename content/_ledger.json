@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-27",
+      "type": "field-note",
+      "slug": "anthropic-agent-skills-foundation-handoff",
+      "targetQuery": "what does Anthropic donating Agent Skills to a foundation mean for a small business"
+    },
+    {
       "date": "2026-10-26",
       "type": "insight",
       "slug": "ai-training-for-law-firms",
@@ -1875,6 +1881,16 @@
       "files": [
         "content/_ledger.json",
         "content/insights/ai-training-for-law-firms.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-27",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-27-anthropic-agent-skills-foundation-handoff.json"
       ],
       "build": "passed"
     }

@@ -1,0 +1,80 @@
+{
+  "slug": "anthropic-agent-skills-foundation-handoff",
+  "title": "Claude's Skills format just left Anthropic's hands",
+  "h1": "Claude's Skills format just left Anthropic's hands",
+  "metaDescription": "Anthropic handed Agent Skills to a vendor-neutral foundation on October 22, 2026. Here is what that means if your team already builds skills in Claude.",
+  "targetQuery": "what does Anthropic donating Agent Skills to a foundation mean for a small business",
+  "tags": [
+    "news",
+    "tools"
+  ],
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": "Nazir Dogan",
+  "dek": "The folder your team uses to teach Claude a task is no longer Anthropic's alone to control.",
+  "intro": "Anthropic handed its Agent Skills format, the standard Claude uses to learn a task or workflow, to the vendor-neutral Agentic AI Foundation on October 22, 2026. For a small business, that means a skill you build once for Claude is not locked to Anthropic. Over 70 AI tools, including ChatGPT, Cursor and GitHub Copilot, already read the same format.",
+  "body": [
+    {
+      "heading": "What exactly did Anthropic hand over?",
+      "paragraphs": [
+        "A Skill is a folder with a SKILL.md file inside it, plus whatever scripts or reference material the task needs. Claude launched the feature in October 2025, then published the format as an open standard two months later. On October 22, 2026, Anthropic transferred the specification itself, the Agent Skills name and logo, the GitHub organization and the agentskills.io domain to the Agentic AI Foundation, a Linux Foundation project Anthropic co-founded with Block and OpenAI. It is the same move Anthropic already made with the Model Context Protocol, its other open standard.",
+        "Nothing changes in the Claude product today. This is a governance change: the format now has a neutral home with a published roadmap, versioned releases and lead maintainers drawn from Anthropic, Google and OpenAI, rather than sitting entirely under one company's roadmap."
+      ]
+    },
+    {
+      "heading": "Why should this matter if nobody on your team writes code?",
+      "paragraphs": [
+        "You do not need to be a developer to have a stake in this. If anyone on your team has saved a SKILL.md file teaching Claude how your business writes a proposal, formats a report or handles a recurring client request, that file is an asset, built on company time, with your specific knowledge baked in. Before this week, that asset's long-term usefulness depended on one vendor's roadmap. Now it sits on a standard that over 70 platforms already support, and Anthropic says close to 280 million skills have been installed across those platforms since the format launched.",
+        "That scale is the actual reason this is worth noting. A standard with real adoption behind it is a much safer thing to build on than a feature one company could quietly retire."
+      ]
+    },
+    {
+      "heading": "Does this mean a Claude skill now works inside ChatGPT or Copilot?",
+      "paragraphs": [
+        "Not automatically, and not yet in every case. The announcement says more than 70 agent platforms, ChatGPT, Cursor, GitHub Copilot and VS Code among them, have integrated Agent Skills support since the format went public. That is platform-level support for reading the same SKILL.md structure, not a guarantee that every skill behaves identically everywhere it runs. Treat it the way you would treat a shared file format: the door is open, but you should still test a skill in a new tool before you depend on it there."
+      ]
+    },
+    {
+      "heading": "What should a small business actually do with this?",
+      "paragraphs": [
+        "Keep writing skills, and stop treating that time as a bet on Anthropic specifically. If you have a task someone repeats weekly, writing down exactly how it is done and saving it as a Skill is now closer to writing a reusable process document than to buying a feature that only works in one app. That is worth factoring into any AI training plan: the time spent turning a real workflow into a skill file outlasts whichever chat tool is fashionable next year."
+      ]
+    }
+  ],
+  "takeaway": "Pick one task your team repeats every week, write down exactly how it is done, and save it as a Skill in Claude. The format is no longer a one-vendor bet, so that hour of documentation now outlasts the tool you built it in.",
+  "stat": {
+    "claim": "Adoption of the Agent Skills format was already real before governance moved to a neutral foundation, which is why the standard is a safer thing to build on.",
+    "value": "280 million",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+    "year": "2026"
+  },
+  "related": [
+    {
+      "label": "AI Training & Workshops",
+      "href": "/services/ai-training"
+    },
+    {
+      "label": "How to build an AI strategy for a small business",
+      "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business"
+    },
+    {
+      "label": "Which AI tool should I use for what",
+      "href": "/field-notes/which-ai-tool-for-which-job"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to change anything about how I use Claude Skills today?",
+      "a": "No. The product behavior is unchanged. What changed is who governs the underlying file format, which moved from Anthropic alone to a neutral foundation with maintainers from several companies."
+    },
+    {
+      "q": "Can I take a skill I built for Claude and use it in ChatGPT or Copilot?",
+      "a": "Both now support the same Agent Skills format, but support does not guarantee identical behavior. Test a skill in a new tool before relying on it there, the same way you would test any file moved between two different apps."
+    },
+    {
+      "q": "What is the Agentic AI Foundation?",
+      "a": "It is a Linux Foundation project that Anthropic co-founded with Block and OpenAI to govern open AI agent standards. It already holds the Model Context Protocol, and as of October 22, 2026 it also holds the Agent Skills format."
+    }
+  ]
+}
