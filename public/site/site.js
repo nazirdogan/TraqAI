@@ -197,8 +197,10 @@ if(cal){
   u.searchParams.set("hide_gdpr_banner","1");u.searchParams.set("primary_color","5b3fe4");
   var q=new URLSearchParams(location.search);["utm_source","utm_medium","utm_campaign","utm_content"].forEach(function(k){if(q.get(k))u.searchParams.set(k,q.get(k))});
   u.searchParams.set("utm_term",location.pathname);
-  var f=document.createElement("iframe");f.src=u.href;f.title="Book a 20-minute call";f.loading="lazy";slot.appendChild(f);cal.classList.add("on");
+  var f=document.createElement("iframe");f.src=u.href;f.title="Book a 20-minute call";slot.appendChild(f);cal.classList.add("on");
  }
+ // a "Book a 20-minute call" tap starts the calendar loading straight away, so it is not blank on arrival
+ document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest('a[href="#call"]'))load()});
  if("IntersectionObserver" in window){var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){load();io.disconnect()}},{rootMargin:"600px 0px"});io.observe(cal)}else{load()}
  window.addEventListener("message",function(e){
   if(!/^https:\/\/([a-z0-9-]+\.)?calendly\.com$/.test(e.origin)||!e.data||e.data.event!=="calendly.event_scheduled"||booked)return;

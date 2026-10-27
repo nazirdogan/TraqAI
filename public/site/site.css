@@ -416,3 +416,16 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;padding-top:28px
 .cal .fallback{display:block;padding:24px 0 30px;font-size:15px}
 .cal.on .fallback{display:none}
 @media (max-width:899px){.cal{padding:28px 20px 0}.cal .slot{height:1040px;margin:14px -20px 0}}
+
+/* ---- ad landing pages: one measured client result above the booking section, the founder beside the calendar ---- */
+.proof .kicker{font-size:13px;font-weight:600;color:var(--violet);margin-bottom:14px}
+.proof .stats{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.proof .stats>div{border-top:2px solid var(--violet);padding-top:22px}
+.proof .stats b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(48px,5vw,72px);line-height:1;letter-spacing:-.02em}
+.proof .stats span{display:block;margin-top:14px;color:var(--ink-soft);font-size:16px;max-width:20em}
+.proof .note{margin-top:40px;font-size:14px;color:var(--ink-faint);max-width:44em}
+.cal{scroll-margin-top:90px}
+.cal .by{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:14px;line-height:1.45;color:var(--ink-faint)}
+.cal .by img{width:48px;height:48px;flex:none;border-radius:50%;object-fit:cover;object-position:50% 25%}
+.cal .by b{display:block;color:var(--ink);font-weight:600;font-size:15px}
+@media (max-width:639px){.proof .stats{grid-template-columns:1fr;gap:28px}}
