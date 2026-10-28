@@ -1,0 +1,66 @@
+{
+  "slug": "what-ai-agents-can-actually-do-for-a-business",
+  "title": "What AI agents can actually do for a business | Traq Collective",
+  "h1": "What AI agents can actually do for a business",
+  "metaDescription": "What AI agents are actually doing for businesses right now, based on 2026 survey data rather than vendor pitches, and where small businesses still lag larger ones.",
+  "targetQuery": "what can AI agents do for a business",
+  "tags": ["best-uses", "adoption"],
+  "datePublished": "2026-10-28",
+  "dateModified": "2026-10-28",
+  "author": "Nazir Dogan",
+  "dek": "What the survey data says agents are actually doing, not what the pitch promises.",
+  "intro": "AI agents today earn their keep on three jobs: pulling scattered data into a report, handling a customer question start to finish, and running an internal process nobody wants to do by hand. For a small business, the agent that pays off first is the one already doing a weekly task, not the flashiest demo.",
+  "body": [
+    {
+      "heading": "What tasks are AI agents actually doing for businesses right now?",
+      "paragraphs": [
+        "Anthropic's 2026 State of AI Agents report surveyed more than 500 technical leaders on where agents are already paying off. Data analysis and report generation topped the list: 60% named it one of the most impactful agentic tasks. Internal process automation came next at 48%, then managing and summarising internal knowledge bases at 41%, then resolving complex customer queries at 35%. None of that is glamorous. It is the backlog work that normally sits on one person's desk until it gets done, which is exactly the kind of task an agent can run start to finish without someone babysitting every step."
+      ]
+    },
+    {
+      "heading": "Which of those tasks are small businesses actually betting on?",
+      "paragraphs": [
+        "The same survey breaks results out by company size, and the gap matters more than the averages. Startups and small businesses expect the biggest near-term impact from customer service (52%) and rate data analysis and reporting just as impactful as everyone else (60%). But they plan to lean on agents for research and reporting at only 44%, against 57 to 58% at mid-market and enterprise firms, and expect software development gains at 41%, well behind mid-market's 60%. The pattern is consistent: smaller companies are betting on the agent that answers a customer and the one that compiles a report, not the one that writes code or models supply chains, because those two jobs are the ones a small team already does by hand every week."
+      ]
+    },
+    {
+      "heading": "Is the payoff from agents real yet, or still a promise?",
+      "paragraphs": [
+        "Mostly real, but smaller companies are seeing less of it so far. Across all company sizes, 80% of the surveyed leaders said their AI agent investment had already delivered measurable financial impact. Among startups and small businesses specifically, that figure drops to 72%, the lowest of any segment, against 83% at mid-market firms. Looking ahead, the confidence gap narrows: 79% of startups and SMBs expect measurable financial impact in the future, versus 93% at enterprise firms. Read plainly, that says the technology is not the blocker. Smaller teams are earlier in deploying it, not worse at using it."
+      ]
+    },
+    {
+      "heading": "Where should a small business actually start with an agent?",
+      "paragraphs": [
+        "Start where the data says small businesses already see the clearest return: a customer service agent that resolves a real share of incoming questions, or a reporting agent that pulls numbers out of the spreadsheets someone currently assembles by hand once a week. Skip the instinct to match what a larger company is doing with coding agents or supply chain optimisation; that is where the size gap is widest, and it is not where your business feels the most pain today. Pick the one recurring task that already eats a person's week, point an agent at it, and measure whether it actually finishes the job before widening its scope."
+      ]
+    }
+  ],
+  "takeaway": "Before buying an agent product, name the one task that would show up in your own version of that 72% figure: the task where you could actually point to money or time saved in 90 days. Start there, not with the use case that sounds most impressive.",
+  "stat": {
+    "claim": "Startups and small businesses report the lowest share of any company-size segment already seeing measurable financial impact from AI agent investment, though their confidence about future impact nearly closes the gap with larger companies.",
+    "value": "72% of startups and SMBs say AI agent investment has already delivered measurable financial impact, versus 83% at mid-market and 79% at enterprise firms",
+    "source": "Anthropic, The 2026 State of AI Agents Report",
+    "url": "https://claude.com/resources/guides/the-2026-state-of-ai-agents-report/research-insights-part-ii-going-deeper",
+    "year": "2026"
+  },
+  "related": [
+    { "label": "Agentic AI", "href": "/services/agentic-ai" },
+    { "label": "How to measure ROI from AI in a small business", "href": "/insights/how-to-measure-ai-roi-for-small-business" },
+    { "label": "What is an AI agent for a small business?", "href": "/field-notes/what-is-an-ai-agent-for-business" }
+  ],
+  "faqs": [
+    {
+      "q": "What task do AI agents handle best for a small business?",
+      "a": "Survey data points to two: pulling scattered numbers into a usable report, and handling a customer question from start to finish. Small businesses rate both as high-impact, and they are also the tasks most teams already do by hand every week, which is why the return shows up fastest there."
+    },
+    {
+      "q": "Do AI agents actually save small businesses money yet?",
+      "a": "Most say yes, but less often than bigger companies. 72% of surveyed startups and small businesses report measurable financial impact already, against 83% at mid-market firms. That gap is about how early each group is in deploying agents, not a sign the technology fails at smaller scale."
+    },
+    {
+      "q": "Should a small business copy what large companies do with AI agents?",
+      "a": "No. Larger companies are seeing their biggest early gains in software development and supply chain work, areas that barely apply to most small teams. Small businesses see the clearest return in customer service and reporting, so start there instead of matching an enterprise use case."
+    }
+  ]
+}
