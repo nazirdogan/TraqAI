@@ -355,7 +355,8 @@
       "workingTitle": "The tasks AI agents are genuinely good at today",
       "targetQuery": "what can AI agents do for a business",
       "format": "explainer",
-      "status": "queued",
+      "status": "skipped",
+      "skipReason": "Already covered: 2026-10-28 field note what-ai-agents-can-actually-do-for-a-business used this exact targetQuery (chosen outside the pipeline that run). Skipping to avoid a duplicate rather than re-queuing.",
       "publishedAs": null
     },
     {
@@ -364,8 +365,8 @@
       "workingTitle": "Guardrails every business agent needs before it goes live",
       "targetQuery": "AI agent guardrails",
       "format": "how-to",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/ai-agent-guardrails-for-small-business"
     },
     {
       "id": "tp-040",
