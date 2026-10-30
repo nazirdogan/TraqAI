@@ -2,6 +2,12 @@
   "note": "Append-only run log + dedup index for the daily content agent. The agent reads `published` before selecting a topic (never repeat a slug or a close targetQuery) and appends one entry to `runs` every run (publish, skip, or fail).",
   "published": [
     {
+      "date": "2026-10-30",
+      "type": "field-note",
+      "slug": "openai-gpt-6-1-terra-price-cut",
+      "targetQuery": "what does OpenAI's GPT-6.1 Terra price cut mean for a small business"
+    },
+    {
       "date": "2026-10-29",
       "type": "field-note",
       "slug": "ai-agent-guardrails-for-small-business",
@@ -1923,6 +1929,16 @@
       "files": [
         "content/_ledger.json",
         "content/field-notes/2026-10-29-ai-agent-guardrails-for-small-business.json"
+      ],
+      "build": "passed"
+    },
+    {
+      "date": "2026-10-30",
+      "mode": "news-note",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/field-notes/2026-10-30-openai-gpt-6-1-terra-price-cut.json"
       ],
       "build": "passed"
     }

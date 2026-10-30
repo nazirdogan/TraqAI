@@ -1,0 +1,76 @@
+{
+  "slug": "openai-gpt-6-1-terra-price-cut",
+  "title": "GPT-6.1 Terra's price cut: what it means for your business | Traq Collective",
+  "h1": "GPT-6.1 Terra's price cut: what it means for your business",
+  "metaDescription": "OpenAI cut GPT-6.1 Terra's API price in half on Oct 26, 2026, and sped it up for agent work. It's in Work and Codex, not Chat. What that means for your business.",
+  "targetQuery": "what does OpenAI's GPT-6.1 Terra price cut mean for a small business",
+  "tags": ["news", "tools"],
+  "datePublished": "2026-10-30",
+  "dateModified": "2026-10-30",
+  "author": "Nazir Dogan",
+  "dek": "OpenAI's new mid-tier model cut agent API prices in half, but it didn't touch regular ChatGPT Chat. Here's who actually saves money.",
+  "intro": "OpenAI released GPT-6.1 Terra on October 26, 2026, cutting its API price in half, to $1 per million input tokens and $5 per million output tokens, and making it about three times faster at agent tasks. It ships in ChatGPT Work and Codex, not regular Chat, so it mainly matters if you run AI agents on OpenAI's API.",
+  "body": [
+    {
+      "heading": "What exactly changed with GPT-6.1 Terra on October 26?",
+      "paragraphs": [
+        "OpenAI shipped GPT-6.1 Terra on October 26, 2026, as a faster, cheaper tier sitting between its flagship reasoning models and its older agent models. The headline change is price: $1 per million input tokens and $5 per million output tokens on the API, which OpenAI says is half of what GPT-6.1 Sol and the model it replaces, GPT-5.6 Terra, cost. It also runs noticeably faster on computer-use tasks, the kind where a model has to click through a real screen or app rather than just answer a question in text.",
+        "Terra isn't the model OpenAI recommends for the hardest coding or research work, that's still Sol or GPT-6 Astra. It's built for the high-volume, repeatable agent work a business actually runs thousands of times a day once the price is low enough: filling out forms, moving data between systems, clicking through a familiar web app on a schedule."
+      ]
+    },
+    {
+      "heading": "Does this change anything if my team only uses ChatGPT to chat?",
+      "paragraphs": [
+        "Not directly, and that's the detail most coverage of the launch skipped. GPT-6.1 Terra rolled out in ChatGPT Work, OpenAI's workspace built around letting an agent act inside real apps, and in Codex, its coding assistant. It did not roll out to the regular ChatGPT Chat interface that most Plus, Business, and Enterprise seats use day to day. If your team's whole relationship with ChatGPT is typing questions into chat, this release doesn't touch your bill or your experience yet."
+      ]
+    },
+    {
+      "heading": "Who actually pays less because of this?",
+      "paragraphs": [
+        "The price cut lands on OpenAI's API, the metered, pay-as-you-go usage that powers custom tools, chatbots, and automations, not a flat seat price. If your business, or a vendor or developer you pay, has built something on OpenAI's API that does agent-style work (moving data, filling in forms, clicking through a browser on your behalf), and it's already calling a Terra-class model, that work got roughly half as expensive to run with no code change required.",
+        "If it was built on a pricier model like Sol or Astra because the task genuinely needs deeper reasoning, that calculation hasn't changed. Terra is positioned as the mid-tier option, not a replacement for the top one. The cut mainly matters for the agent and computer-use work that was already a fit for a lighter model."
+      ]
+    },
+    {
+      "heading": "What should a small business actually do about this, this week?",
+      "paragraphs": [
+        "Two concrete moves. First, if an agency, developer, or in-house tool already runs agent tasks on OpenAI's API, ask which model it's pointed at, and whether swapping to gpt-6.1-terra holds up on quality across a sample of real requests before changing the production default. That swap is usually a one-line model ID change, not a rebuild. Second, if a repetitive, rules-based task (data entry, form filling, routine browser steps) has been sitting on a 'too expensive to automate' list because of per-token cost, this is the price point worth testing it against again."
+      ]
+    }
+  ],
+  "takeaway": "This week: if anyone builds AI agents or automations for your business on OpenAI's API, ask them whether switching to GPT-6.1 Terra would cut your running cost without losing quality, before you change anything in production.",
+  "sources": [
+    {
+      "label": "OpenAI, ChatGPT Business release notes (GPT-6.1 Terra, October 26, 2026 entry)",
+      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes"
+    }
+  ],
+  "related": [
+    {
+      "label": "Agentic AI",
+      "href": "/services/agentic-ai"
+    },
+    {
+      "label": "How to get value from AI tools you already pay for",
+      "href": "/insights/how-to-get-value-from-ai-tools-you-already-pay-for"
+    },
+    {
+      "label": "Why did Claude just get cheaper for AI agents",
+      "href": "/field-notes/claude-fable-5-1-cheaper-ai-agents"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is GPT-6.1 Terra available in regular ChatGPT Chat?",
+      "a": "No. It rolled out on October 26, 2026 in ChatGPT Work, OpenAI's agent workspace, and in Codex, its coding assistant. If your team only uses the regular ChatGPT Chat interface, this release doesn't change what you have access to or what you pay."
+    },
+    {
+      "q": "How much cheaper is GPT-6.1 Terra than the model it replaces?",
+      "a": "OpenAI priced its API at $1 per million input tokens and $5 per million output tokens, which it says is half the cost of GPT-6.1 Sol and GPT-5.6 Terra, the model Terra replaces. It's also meaningfully faster on computer-use tasks, where a model operates inside a real app or screen rather than just answering in text."
+    },
+    {
+      "q": "Do I need to do anything if my business doesn't build on OpenAI's API?",
+      "a": "No. The price cut applies to metered API usage that powers custom agents and automations, not the flat monthly price of a ChatGPT seat. If nobody at your company calls OpenAI's API directly, or pays a vendor who does, this release doesn't affect your bill."
+    }
+  ]
+}
