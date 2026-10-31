@@ -1,0 +1,69 @@
+{
+  "slug": "when-not-to-use-an-ai-agent",
+  "title": "When not to use an AI agent | Traq Collective",
+  "h1": "When an AI agent is the wrong tool for a business task",
+  "metaDescription": "When an AI agent is the wrong choice: unclear processes, irreversible decisions, credential risk, and tasks too small to justify building one.",
+  "targetQuery": "when not to use an AI agent",
+  "tags": ["best-uses", "adoption"],
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "author": "Nazir Dogan",
+  "dek": "Flexibility has a cost. Most business tasks don't need it.",
+  "intro": "An AI agent is the wrong choice when the task has a fixed, predictable path, when the process behind it is still unclear, when a mistake would be costly or hard to undo, or when the volume is too low to justify building and maintaining one. In those cases, a simpler workflow or a person does the job better.",
+  "body": [
+    {
+      "heading": "When is an AI agent the wrong tool for a business task?",
+      "paragraphs": [
+        "Anthropic's own engineering guidance on building agents puts it plainly: find the simplest solution that works, and that might mean not building an agentic system at all. Agents trade cost and latency for flexibility, and that trade only pays off when a task genuinely needs a model making its own judgment calls across several steps. Most business tasks do not.",
+        "A fixed sequence that always runs the same way, approving a routine invoice, updating a spreadsheet, sending a scheduled reminder, is a workflow, not a job for an agent. Wire it as a plain automation and it will be cheaper, faster, and far easier to debug than an agent reasoning its way through the same steps on every run."
+      ]
+    },
+    {
+      "heading": "Why does automating an unclear process make things worse, not better?",
+      "paragraphs": [
+        "An agent handed a messy process does not fix the mess, it repeats it, faster and with less visibility into where things went wrong. If nobody can describe the process in order right now, who approves what, and what happens when a step fails, there is nothing solid to hand to an agent. The gap gets papered over with the model's best guess on every run instead of resolved once.",
+        "Fix the process first. Write down how it actually runs today, including the parts people currently fix by exception, then decide whether an agent adds anything a plain workflow could not. Often it does not, because what needed fixing was the process, not the absence of a model at the end of it."
+      ]
+    },
+    {
+      "heading": "Which decisions should stay with a person no matter how capable the agent is?",
+      "paragraphs": [
+        "Anything costly, hard to reverse, or visible outside the business: approving an exception for an upset customer, disciplining or firing someone, signing a contract, or deciding what a regulator needs to hear. These calls need context an agent does not have, the history with that customer, the politics of that hire, and a wrong one cannot be undone by rerunning the prompt.",
+        "The same logic covers credentials. An agent typically holds the login or API access for every system it touches, so the real blast radius of putting it on a task is not what it is supposed to do, it is everything it is technically able to do if something goes wrong. Keep agents off anything where that blast radius includes money, legal exposure, or a system you cannot afford to have touched by mistake."
+      ]
+    },
+    {
+      "heading": "When is a task too small to justify building an agent for it?",
+      "paragraphs": [
+        "An agent needs the tool access wired up, a way to supervise it, and someone checking what it did after it runs. That setup cost does not shrink for a task that happens twice a month. If a person can do the task directly in less time than it would take to build, test, and watch an agent do it, the agent is the more expensive option even though it looks automated.",
+        "That is the test worth applying before any agent project: would a plain checklist, a template, or one well-written automation step do the job just as well. If the honest answer is yes, that is the simpler solution Anthropic's own guidance points toward, and it is usually the right one."
+      ]
+    }
+  ],
+  "takeaway": "Before building an agent, check whether the task has a fixed path a plain workflow could follow, whether the process behind it is actually clear, and whether a wrong call would be costly or hard to undo. If any answer points away from an agent, keep it simple or keep a person in the loop.",
+  "sources": [
+    {
+      "label": "Anthropic Engineering, Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "related": [
+    { "label": "Agentic AI", "href": "/services/agentic-ai" },
+    { "label": "How to build an AI strategy for a small business", "href": "/insights/how-to-build-an-ai-strategy-for-a-small-business" },
+    { "label": "AI agent guardrails every small business needs", "href": "/field-notes/ai-agent-guardrails-for-small-business" }
+  ],
+  "faqs": [
+    {
+      "q": "Is an AI agent ever the wrong choice even if it works reliably?",
+      "a": "Yes. Reliability is not the test. If the task has a fixed, predictable path, a plain workflow does the same job for less cost and less latency. Anthropic's own guidance on building agents recommends the simplest solution that works, which sometimes means not building an agentic system at all."
+    },
+    {
+      "q": "Should a small business let an AI agent approve refunds or handle complaints alone?",
+      "a": "No, not when the outcome is costly or hard to reverse. Those calls need context an agent does not have, and a wrong one cannot be fixed by rerunning the prompt. Route anything with real money or reputation at stake through a named person, and let the agent draft the response instead."
+    },
+    {
+      "q": "What should a business do instead of building an agent for a low-volume task?",
+      "a": "Compare the setup and supervision cost of an agent against a person doing the task directly. If the task runs a few times a month, a checklist, a template, or one simple automation step usually costs less and is easier to trust than an agent built to handle something that rare."
+    }
+  ]
+}
