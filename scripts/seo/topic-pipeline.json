@@ -374,8 +374,8 @@
       "workingTitle": "When an agent is the wrong answer",
       "targetQuery": "when not to use an AI agent",
       "format": "opinion",
-      "status": "queued",
-      "publishedAs": null
+      "status": "published",
+      "publishedAs": "/field-notes/when-not-to-use-an-ai-agent"
     },
     {
       "id": "tp-041",
