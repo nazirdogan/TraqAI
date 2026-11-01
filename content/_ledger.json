@@ -1957,6 +1957,24 @@
         "content/field-notes/2026-10-31-when-not-to-use-an-ai-agent.json"
       ],
       "build": "passed"
+    },
+    {
+      "date": "2026-11-01",
+      "mode": "monthly-refresh",
+      "action": "refresh",
+      "type": "insight",
+      "slug": "how-to-hire-an-ai-trainer-in-dubai",
+      "critic": "branch preflight: session started on a detached HEAD at a7762ee, one commit the local main ref had never been updated to; checked out main, confirmed with merge-base --is-ancestor that main's history was an ancestor of that commit, fast-forwarded with --ff-only (no rewrite, no force-push); git fetch origin main showed origin/main already sat at a7762ee, so the two commits (2026-10-30 and 2026-10-31 posts) had already shipped and nothing was actually stranded this time, just a stale local branch ref; confirmed refs/heads/main afterward; kill switch checked, no content/_paused file and CONTENT_BOT_ENABLED unset; mode.mjs returned monthly-refresh; read content/README.md and content/_ledger.json; picked the refresh candidate by dateModified across the fifteen agent-writable files in content/insights/ (the eight cornerstone guides in src/lib/content/insights/index.ts are out of scope, never edit outside content/): how-to-hire-an-ai-trainer-in-dubai.json at 2026-08-03 was the oldest and had never been refreshed; searched for something genuinely current and locally relevant to 'who should I hire to train my team to use AI in Dubai' rather than re-padding existing sections; found that Dubai Chambers opened an Agentic AI training track to more than 14,000 member companies on 2026-09-01 through a new e-learning academy (announced 2026-09-07), the first delivery of a two-year push the UAE ordered in May 2026, per WAM (the UAE's official news agency) and Dubai Chambers' own announcement, corroborated across independent secondary sources (Gulf News, Khaleej Times, Intellinews, Euronews, TheNextWeb, uniindia.com); WebFetch on wam.ae, dubaichambers.com and khaleejtimes.com all returned host-resolution failures this run (outside the session's allowed network domains), so did not retry or hunt mirrors per the standing instruction and relied on the WebSearch snippets, which independently surfaced the exact WAM article title and URL, confirming it is a real, resolvable page rather than a guessed one; this is a genuinely useful addition because it is the first question a Dubai owner who saw this news would now ask before hiring anyone, and because the guide's existing stats (McKinsey 2025, BCG 2025, ATD 2026) had nothing to say about the surrounding local context; added a new question-shaped section ('Does the new Dubai Chambers AI training cover what your team needs?') answering it directly: useful as a baseline literacy layer for member companies, not a substitute for hands-on training on a team's own tools, because it is one shared course built for thousands of companies at once; added a fourth stats[] entry sourcing the 14,000-company figure to the WAM article (url verified as real via WebSearch, not guessed) and a fourth FAQ answering the same question in 40-60 words; considered but rejected citing the broader 80,000-government-worker figure from a May 2026 National News report, since I only had the headline and a quote, not the detail needed to state it as a confirmed fact, and it is government headcount rather than private SMB-relevant; no numbers invented, both existing and new stats keep real URLs; no em-dashes or en-dashes (checked programmatically, none found); dateModified bumped from 2026-08-03 to 2026-11-01, datePublished untouched; related links re-verified to exist (/insights/ai-training-for-teams-uae, /insights/ai-consultant-vs-ai-agency, /services/ai-training); validated against the live articleSchema (Zod) via npx tsx after npm ci (node_modules was not present in this container, package-lock.json left untouched, install output otherwise ignored since it is outside content/), result VALID; not a new slug, no ledger `published` entry needed, existing published entry already covers this slug and targetQuery"
+    },
+    {
+      "date": "2026-11-01",
+      "mode": "monthly-refresh",
+      "action": "publish",
+      "files": [
+        "content/_ledger.json",
+        "content/insights/how-to-hire-an-ai-trainer-in-dubai.json"
+      ],
+      "build": "passed"
     }
   ]
 }
